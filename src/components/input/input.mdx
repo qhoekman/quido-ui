@@ -1,0 +1,17 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/blocks";
+import * as InputStories from "./input.stories";
+import InputCode from "./input.tsx?raw";
+
+<Meta of={InputStories} />
+
+# Usage
+
+<Canvas of={InputStories.Default} />
+
+<Controls />
+
+# Installation
+
+## 1. Copy and paste the following code into your project.
+
+<Source language="tsx" code={InputCode} />
