@@ -1,14 +1,19 @@
-import { Canvas, Controls, Meta, Source } from "@storybook/blocks";
-import * as Stories from "./cta.stories";
+import {
+  Canvas,
+  Controls,
+  Stories,
+  Meta,
+  Source,
+  ArgsTable,
+} from "@storybook/blocks";
+import * as stories from "./cta.stories";
 import Code from "./cta.tsx?raw";
 
-<Meta of={Stories} />
+<Meta of={stories} />
 
 # Usage
 
-<Canvas of={Stories.Default} />
-
-<Controls />
+<Stories />
 
 # Installation
 

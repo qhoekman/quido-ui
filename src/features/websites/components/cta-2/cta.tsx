@@ -7,13 +7,37 @@ type CTAProps = {
 
 const CTA: React.FC<CTAProps> = ({ children }) => {
   return (
-    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
-      <div className="flex flex-col items-center justify-between gap-7 rounded-xl bg-neutral-100 px-6 py-14 shadow-sm  sm:px-10 lg:px-14 xl:flex-row">
-        {children}
+    <div className="relative mt-24 w-full sm:mt-32 lg:mt-40">
+      <div className="">
+        <div className="">{children}</div>
       </div>
     </div>
   );
 };
+
+const CTAContent = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentPropsWithoutRef<"div">
+>(({ className, children, ...props }, ref) => {
+  return (
+    <div
+      ref={ref}
+      className={"mx-auto max-w-7xl px-4 sm:px-6 lg:mt-40 lg:px-8"}
+    >
+      <div
+        className={cn(
+          "flex flex-col items-center justify-between gap-7 rounded-xl bg-neutral-100 px-6 py-14 shadow-sm  sm:px-10 lg:px-14 xl:flex-row",
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </div>
+    </div>
+  );
+});
+
+CTAContent.displayName = "CTAContent";
 
 const CTASection = React.forwardRef<
   HTMLDivElement,
@@ -72,4 +96,22 @@ const CTASubtitle = React.forwardRef<
 
 CTASubtitle.displayName = "CTASubtitle";
 
-export { CTA, CTASection, CTASubtitle, CTATitle };
+const CTABackdrop = React.forwardRef<
+  HTMLImageElement,
+  React.ComponentPropsWithoutRef<"img">
+>(({ className, ...props }, ref) => {
+  return (
+    <img
+      ref={ref}
+      className={cn(
+        "absolute -z-50 h-full w-full object-cover brightness-[0.25]",
+        className
+      )}
+      {...props}
+    />
+  );
+});
+
+CTABackdrop.displayName = "CTABackdrop";
+
+export { CTA, CTABackdrop, CTAContent, CTASection, CTASubtitle, CTATitle };
