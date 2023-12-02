@@ -17,7 +17,11 @@ export default {
   },
 } satisfies Meta<typeof Input>;
 
-export const Default: StoryFn<typeof Input> = (args) => <Input {...args} />;
+export const Default: StoryFn<typeof Input> = (args) => (
+  <div className="max-w-sm">
+    <Input {...args} />
+  </div>
+);
 Default.args = {
   value: "John doe",
   placeholder: "Enter your name",

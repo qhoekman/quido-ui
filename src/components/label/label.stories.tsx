@@ -11,7 +11,11 @@ export default {
   },
 } satisfies Meta<typeof Label>;
 
-export const Default: StoryFn<typeof Label> = (args) => <Label {...args} />;
+export const Default: StoryFn<typeof Label> = (args) => (
+  <div className="max-w-sm">
+    <Label {...args} />
+  </div>
+);
 Default.args = {
   children: "Label",
 };
