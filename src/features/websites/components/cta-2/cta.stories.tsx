@@ -24,8 +24,8 @@ export const Default: StoryFn<typeof CTA> = (args) => (
       </CTASubtitle>
     </CTASection>
 
-    <CTASection>
-      <div className="flex max-w-md items-start gap-x-4">
+    <CTASection className="max-w-md">
+      <div className="flex items-start gap-x-4">
         <Label htmlFor="email-address" className="sr-only">
           Email address
         </Label>
