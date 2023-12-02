@@ -2,11 +2,13 @@ import { Button } from "@/components/button/button";
 import type { Meta, StoryFn } from "@storybook/react";
 
 export default {
-  title: "Components/Button",
+  title: "Components/Actions/Button",
   component: Button,
-} as Meta<typeof Button>;
+} satisfies Meta<typeof Button>;
 
-export const Default: StoryFn = (args) => <Button {...args}>Click me</Button>;
+export const Default: StoryFn<typeof Button> = (args) => (
+  <Button {...args}>Click me</Button>
+);
 Default.parameters = {
   design: {
     type: "figma",

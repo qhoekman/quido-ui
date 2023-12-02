@@ -8,7 +8,9 @@ const config: StorybookConfig = {
     "@storybook/addon-onboarding",
     "@storybook/addon-interactions",
     "@storybook/addon-designs",
+    "@storybook/addon-mdx-gfm",
   ],
+  core: {},
   framework: {
     name: "@storybook/react-vite",
     options: {},

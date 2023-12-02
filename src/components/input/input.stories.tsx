@@ -2,8 +2,23 @@ import { Input } from "@/components/input/input";
 import type { Meta, StoryFn } from "@storybook/react";
 
 export default {
-  title: "Components/Input",
+  title: "Components/Data Manipulation/Input",
   component: Input,
-} as Meta<typeof Input>;
+  argTypes: {
+    value: {
+      control: "text",
+    },
+    placeholder: {
+      control: "text",
+    },
+    disabled: {
+      control: "boolean",
+    },
+  },
+} satisfies Meta<typeof Input>;
 
-export const Default: StoryFn = (args) => <Input {...args} />;
+export const Default: StoryFn<typeof Input> = (args) => <Input {...args} />;
+Default.args = {
+  value: "John doe",
+  placeholder: "Enter your name",
+};
