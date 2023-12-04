@@ -16,13 +16,11 @@ const CTAContent = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ className, children, ...props }, ref) => {
   return (
-    <div
-      ref={ref}
-      className={"mx-auto max-w-7xl px-4 sm:px-6 lg:mt-40 lg:px-8"}
-    >
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div
+        ref={ref}
         className={cn(
-          "flex flex-col items-center justify-between gap-7 rounded-xl px-6 py-14 shadow-sm  sm:px-10 lg:px-14 xl:flex-row",
+          "flex flex-col space-y-3 rounded-xl px-4 py-14 shadow-sm sm:px-6 lg:px-8 ",
           className
         )}
         {...props}
@@ -63,7 +61,7 @@ const CTATitle = React.forwardRef<
     <h2
       ref={ref}
       className={cn(
-        "text-3xl font-bold leading-tight tracking-wide text-neutral-900 lg:text-4xl",
+        "text-3xl font-bold leading-tight tracking-wide text-neutral-900 md:text-4xl xl:text-5xl",
         className
       )}
       {...props}
@@ -82,7 +80,10 @@ const CTASubtitle = React.forwardRef<
   return (
     <p
       ref={ref}
-      className={cn("mt-6 text-base text-neutral-600 ", className)}
+      className={cn(
+        "max-w-2xl text-base text-neutral-600  md:text-lg",
+        className
+      )}
       {...props}
     >
       {children}
@@ -91,6 +92,26 @@ const CTASubtitle = React.forwardRef<
 });
 
 CTASubtitle.displayName = "CTASubtitle";
+
+const CTAActions = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentPropsWithoutRef<"div">
+>(({ className, children, ...props }, ref) => {
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        "flex flex-col space-y-4 lg:flex-row lg:space-y-0 lg:space-x-4 max-w-md",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+});
+
+CTAActions.displayName = "CTAActions";
 
 const CTABackdrop = React.forwardRef<
   HTMLImageElement,
@@ -110,4 +131,12 @@ const CTABackdrop = React.forwardRef<
 
 CTABackdrop.displayName = "CTABackdrop";
 
-export { CTA, CTABackdrop, CTAContent, CTASection, CTASubtitle, CTATitle };
+export {
+  CTA,
+  CTAActions,
+  CTABackdrop,
+  CTAContent,
+  CTASection,
+  CTASubtitle,
+  CTATitle,
+};

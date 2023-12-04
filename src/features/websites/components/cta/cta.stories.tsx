@@ -9,11 +9,11 @@ import {
   CTASection,
   CTASubtitle,
   CTATitle,
-} from "@/features/websites/components/cta-1/cta";
+} from "@/features/websites/components/cta/cta";
 import type { Meta, StoryFn } from "@storybook/react";
 
 export default {
-  title: "Features/Website/Components/CTA 1",
+  title: "Features/Website/Components/CTA",
   component: CTA,
 } satisfies Meta<typeof CTA>;
 
@@ -80,7 +80,7 @@ export const WithBackdrop: StoryFn<typeof CTA> = (args) => (
   </CTA>
 );
 
-export const WithForm: StoryFn<typeof CTA> = (args) => (
+export const WithFormVertical: StoryFn<typeof CTA> = (args) => (
   <CTA {...args}>
     <CTABackdrop
       src="https://dummyimage.com/1920x1280/d4d4d4/171717"
@@ -93,6 +93,93 @@ export const WithForm: StoryFn<typeof CTA> = (args) => (
       <CTASubtitle className="text-neutral-100">
         We are here to help you with any questions you may have
       </CTASubtitle>
+
+      <CTASection className="max-w-md">
+        <div className="flex items-start gap-x-4">
+          <Label htmlFor="email-address" className="sr-only">
+            Email address
+          </Label>
+
+          <Input
+            id="email-address"
+            name="email"
+            type="email"
+            autoComplete="email"
+            required
+            placeholder="Enter your email"
+          />
+
+          <Button type="submit">Subscribe</Button>
+        </div>
+
+        <p className="mt-4 text-sm text-neutral-200 md:mt-3">
+          By clicking Subscribe you&apos;re confirming that you agree with our{" "}
+          <a href="#" className="underline">
+            Terms and Conditions
+          </a>
+        </p>
+      </CTASection>
+    </CTAContent>
+  </CTA>
+);
+
+export const WithFormHorizontal: StoryFn<typeof CTA> = (args) => (
+  <CTA {...args}>
+    <CTAContent className="bg-neutral-100 gap-7 xl:flex-row">
+      <CTASection className="text-center xl:text-left">
+        <CTATitle>Get up-to-date</CTATitle>
+        <CTASubtitle>
+          Subscribe to our newsletter and be the first to know about our newest
+          projects and resources.
+        </CTASubtitle>
+      </CTASection>
+
+      <CTASection className="max-w-md">
+        <div className="flex items-start gap-x-4">
+          <Label htmlFor="email-address" className="sr-only">
+            Email address
+          </Label>
+
+          <Input
+            id="email-address"
+            name="email"
+            type="email"
+            autoComplete="email"
+            required
+            placeholder="Enter your email"
+          />
+
+          <Button type="submit">Subscribe</Button>
+        </div>
+
+        <p className="mt-4 text-sm text-neutral-500 md:mt-3">
+          By clicking Subscribe you&apos;re confirming that you agree with our{" "}
+          <a href="#" className="underline">
+            Terms and Conditions
+          </a>
+        </p>
+      </CTASection>
+    </CTAContent>
+  </CTA>
+);
+
+export const WithFormHorizontalBackdrop: StoryFn<typeof CTA> = (args) => (
+  <CTA {...args}>
+    <CTABackdrop
+      src="https://dummyimage.com/1920x1280/d4d4d4/171717"
+      alt="cta"
+      width={1920}
+      height={1280}
+    />
+
+    <CTAContent className="gap-7 xl:flex-row">
+      <CTASection className="text-center xl:text-left">
+        <CTATitle className="text-white">Get up-to-date</CTATitle>
+        <CTASubtitle className="text-neutral-200">
+          Subscribe to our newsletter and be the first to know about our newest
+          projects and resources.
+        </CTASubtitle>
+      </CTASection>
 
       <CTASection className="max-w-md">
         <div className="flex items-start gap-x-4">
