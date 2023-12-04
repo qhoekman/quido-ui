@@ -7,13 +7,51 @@ type CTAProps = {
 
 const CTA: React.FC<CTAProps> = ({ children }) => {
   return (
+    <div className="relative mt-24 w-full sm:mt-32 lg:mt-40">{children}</div>
+  );
+};
+
+const CTAContent = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentPropsWithoutRef<"div">
+>(({ className, children, ...props }, ref) => {
+  return (
     <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
-      <div className="flex flex-col space-y-7 rounded-xl bg-neutral-100 px-4 py-14 text-center shadow-sm sm:px-6 lg:px-8">
+      <div
+        ref={ref}
+        className={cn(
+          "flex flex-col space-y-7 rounded-xl  px-4 py-14 shadow-sm sm:px-6 lg:px-8",
+          className
+        )}
+        {...props}
+      >
         {children}
       </div>
     </div>
   );
-};
+});
+
+CTAContent.displayName = "CTAContent";
+
+const CTASection = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentPropsWithoutRef<"div">
+>(({ className, children, ...props }, ref) => {
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        "mx-auto max-w-2xl text-center xl:mx-0 xl:text-left",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+});
+
+CTASection.displayName = "CTASection";
 
 const CTATitle = React.forwardRef<
   HTMLHeadingElement,
@@ -43,7 +81,7 @@ const CTASubtitle = React.forwardRef<
     <p
       ref={ref}
       className={cn(
-        "mx-auto max-w-2xl text-base text-neutral-600  md:text-lg",
+        "max-w-2xl text-base text-neutral-600  md:text-lg",
         className
       )}
       {...props}
@@ -63,7 +101,7 @@ const CTAActions = React.forwardRef<
     <div
       ref={ref}
       className={cn(
-        "flex flex-col justify-center space-y-4 lg:flex-row lg:space-y-0 lg:space-x-4 max-w-md sm:mx-auto",
+        "flex flex-col space-y-4 lg:flex-row lg:space-y-0 lg:space-x-4 max-w-md",
         className
       )}
       {...props}
@@ -75,4 +113,30 @@ const CTAActions = React.forwardRef<
 
 CTAActions.displayName = "CTAActions";
 
-export { CTA, CTAActions, CTASubtitle, CTATitle };
+const CTABackdrop = React.forwardRef<
+  HTMLImageElement,
+  React.ComponentPropsWithoutRef<"img">
+>(({ className, ...props }, ref) => {
+  return (
+    <img
+      ref={ref}
+      className={cn(
+        "absolute -z-50 h-full w-full object-cover brightness-[0.25]",
+        className
+      )}
+      {...props}
+    />
+  );
+});
+
+CTABackdrop.displayName = "CTABackdrop";
+
+export {
+  CTA,
+  CTAActions,
+  CTABackdrop,
+  CTAContent,
+  CTASection,
+  CTASubtitle,
+  CTATitle,
+};

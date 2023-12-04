@@ -7,11 +7,7 @@ type CTAProps = {
 
 const CTA: React.FC<CTAProps> = ({ children }) => {
   return (
-    <div className="relative mt-24 w-full sm:mt-32 lg:mt-40">
-      <div className="">
-        <div className="">{children}</div>
-      </div>
-    </div>
+    <div className="relative mt-24 w-full sm:mt-32 lg:mt-40">{children}</div>
   );
 };
 
@@ -26,7 +22,7 @@ const CTAContent = React.forwardRef<
     >
       <div
         className={cn(
-          "flex flex-col items-center justify-between gap-7 rounded-xl bg-neutral-100 px-6 py-14 shadow-sm  sm:px-10 lg:px-14 xl:flex-row",
+          "flex flex-col items-center justify-between gap-7 rounded-xl px-6 py-14 shadow-sm  sm:px-10 lg:px-14 xl:flex-row",
           className
         )}
         {...props}

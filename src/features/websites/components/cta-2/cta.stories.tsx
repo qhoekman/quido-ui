@@ -18,7 +18,7 @@ export default {
 
 export const Default: StoryFn<typeof CTA> = (args) => (
   <CTA {...args}>
-    <CTAContent>
+    <CTAContent className="bg-neutral-100">
       <CTASection className="text-center xl:text-left">
         <CTATitle>Get up-to-date</CTATitle>
         <CTASubtitle>
@@ -65,7 +65,7 @@ export const WithBackdrop: StoryFn<typeof CTA> = (args) => (
       height={1280}
     />
 
-    <CTAContent className="bg-transparent">
+    <CTAContent>
       <CTASection className="text-center xl:text-left">
         <CTATitle className="text-white">Get up-to-date</CTATitle>
         <CTASubtitle className="text-neutral-200">
