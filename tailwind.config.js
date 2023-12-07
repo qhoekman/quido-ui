@@ -22,6 +22,10 @@ export default {
         foreground: colors.neutral[900],
         background: colors.neutral[50],
         ring: colors.blue[400],
+        popover: {
+          DEFAULT: colors.neutral[50],
+          fg: colors.neutral[900],
+        },
       },
     },
   },
