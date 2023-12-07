@@ -18,6 +18,10 @@ export default {
           DEFAULT: colors.red[500],
           fg: colors.white,
         },
+        muted: {
+          DEFAULT: colors.neutral[400],
+          fg: colors.neutral[900],
+        },
         input: colors.neutral[400],
         foreground: colors.neutral[900],
         background: colors.neutral[50],

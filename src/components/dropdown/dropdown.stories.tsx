@@ -125,5 +125,5 @@ export const Default: StoryFn<typeof DropdownMenu> = (args) => (
 );
 
 Default.args = {
-  defaultOpen: true,
+  defaultOpen: false,
 };
