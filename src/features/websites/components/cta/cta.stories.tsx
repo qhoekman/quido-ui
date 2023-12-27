@@ -17,7 +17,7 @@ export default {
   component: CTA,
 } satisfies Meta<typeof CTA>;
 
-export const Default: StoryFn<typeof CTA> = (args) => (
+export const WithLeftContent: StoryFn<typeof CTA> = (args) => (
   <CTA {...args}>
     <CTAContent className="bg-neutral-100">
       <CTATitle>Get in touch</CTATitle>
@@ -36,7 +36,7 @@ export const Default: StoryFn<typeof CTA> = (args) => (
   </CTA>
 );
 
-export const Centered: StoryFn<typeof CTA> = (args) => (
+export const WithCenteredContent: StoryFn<typeof CTA> = (args) => (
   <CTA {...args}>
     <CTAContent className="text-center bg-neutral-100">
       <CTATitle>Get in touch</CTATitle>
