@@ -1,0 +1,26 @@
+import { Stories, Controls, Meta, Source } from "@storybook/blocks";
+import * as stories from "./navbar.stories";
+import Code from "./navbar.tsx?raw";
+import MobileCode from "./navbar-mobile.tsx?raw";
+
+<Meta of={stories} />
+
+# Usage
+
+<Stories />
+
+<Controls />
+
+# Installation
+
+## 1. Install the following dependencies.
+
+<Source language="bash" code="npm install zustand" />
+
+## 2. Copy and paste the following code into your project for the navbar component.
+
+<Source language="tsx" code={Code} />
+
+## 3. Copy and paste the following code into your project for the mobile navbar component.
+
+<Source language="tsx" code={MobileCode} />
