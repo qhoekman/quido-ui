@@ -26,6 +26,10 @@ export default {
         foreground: colors.neutral[900],
         background: colors.neutral[50],
         ring: colors.blue[400],
+        card: {
+          DEFAULT: colors.neutral[100],
+          fg: colors.neutral[900],
+        },
         popover: {
           DEFAULT: colors.neutral[50],
           fg: colors.neutral[900],
