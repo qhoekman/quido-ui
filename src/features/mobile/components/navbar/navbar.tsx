@@ -15,7 +15,7 @@ const Navbar = React.forwardRef<
       )}
       {...props}
     >
-      <div className="absolute w-full h-full left-0 top-0 border-b-2 bg-natural-100" />
+      <div className="absolute w-full h-full left-0 top-0 border-b-2 border-slate-200 bg-neutral-100" />
 
       {children}
     </div>

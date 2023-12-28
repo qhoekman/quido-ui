@@ -6,6 +6,7 @@ import {
   NavbarSubtitle,
   NavbarTitle,
 } from "@/features/mobile/components/navbar/navbar";
+import { ViewportLayout } from "@/features/mobile/layouts/viewport/viewport";
 import type { Meta, StoryFn } from "@storybook/react";
 
 export default {
@@ -14,16 +15,18 @@ export default {
 } as Meta<typeof Navbar>;
 
 export const Default: StoryFn = (args) => (
-  <Navbar {...args}>
-    <NavbarContent>
-      <NavbarBack href="#" />
-      <NavbarTitle>
-        Navbar
-        <NavbarSubtitle>Subtitle</NavbarSubtitle>
-      </NavbarTitle>
-      <NavbarLink href="#">Link</NavbarLink>
-    </NavbarContent>
-  </Navbar>
+  <ViewportLayout>
+    <Navbar {...args}>
+      <NavbarContent>
+        <NavbarBack href="#" />
+        <NavbarTitle>
+          Navbar
+          <NavbarSubtitle>Subtitle</NavbarSubtitle>
+        </NavbarTitle>
+        <NavbarLink href="#">Link</NavbarLink>
+      </NavbarContent>
+    </Navbar>
+  </ViewportLayout>
 );
 
 Default.parameters = {

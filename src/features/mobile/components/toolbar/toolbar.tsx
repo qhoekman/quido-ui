@@ -9,7 +9,7 @@ const Toolbar = React.forwardRef<
       {/* Backdrop */}
       <div
         className={cn(
-          "absolute w-full h-full left-0 top-0 border-t-2 bg-natural-100",
+          "absolute w-full h-full left-0 top-0 border-t-2 border-slate-200 bg-neutral-100",
           className
         )}
       ></div>
