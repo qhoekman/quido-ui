@@ -9,7 +9,7 @@ import {
   CTASection,
   CTASubtitle,
   CTATitle,
-} from "@/features/websites/components/cta/cta";
+} from "@/features/website/components/cta/cta";
 import type { Meta, StoryFn } from "@storybook/react";
 
 export default {

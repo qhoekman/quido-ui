@@ -18,7 +18,7 @@ import {
   HeroSection,
   HeroTagline,
   HeroTitle,
-} from "@/features/websites/components/hero/hero";
+} from "@/features/website/components/hero/hero";
 import ReactPlayer from "react-player/lazy";
 
 import type { Meta, StoryFn } from "@storybook/react";

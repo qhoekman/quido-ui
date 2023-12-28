@@ -10,7 +10,7 @@ import {
   HeaderContent,
   HeaderTagline,
   HeaderTitle,
-} from "@/features/websites/components/header/header";
+} from "@/features/website/components/header/header";
 import type { Meta, StoryFn } from "@storybook/react";
 
 export default {

@@ -13,7 +13,7 @@ import {
   FooterCopyright,
   FooterLink,
   FooterSection,
-} from "@/features/websites/components/footer/footer";
+} from "@/features/website/components/footer/footer";
 import type { Meta, StoryFn } from "@storybook/react";
 
 export default {

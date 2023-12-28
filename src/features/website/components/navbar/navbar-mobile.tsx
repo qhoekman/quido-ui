@@ -1,5 +1,5 @@
 import { Button } from "@/components/button/button";
-import { NavbarLink } from "@/features/websites/components/navbar/navbar";
+import { NavbarLink } from "@/features/website/components/navbar/navbar";
 import { cn } from "@/lib/utils";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { XIcon } from "lucide-react";

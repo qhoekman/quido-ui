@@ -6,7 +6,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/features/websites/components/pagination/pagination";
+} from "@/features/website/components/pagination/pagination";
 import type { Meta, StoryFn } from "@storybook/react";
 
 export default {

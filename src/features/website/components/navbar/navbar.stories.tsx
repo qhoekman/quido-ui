@@ -12,7 +12,7 @@ import {
   NavbarItems,
   NavbarLink,
   NavbarLogo,
-} from "@/features/websites/components/navbar/navbar";
+} from "@/features/website/components/navbar/navbar";
 import {
   NavbarMobile,
   NavbarMobileActions,
@@ -27,7 +27,7 @@ import {
   NavbarMobileLink,
   NavbarMobileLogo,
   NavbarMobileTrigger,
-} from "@/features/websites/components/navbar/navbar-mobile";
+} from "@/features/website/components/navbar/navbar-mobile";
 import type { Meta, StoryFn } from "@storybook/react";
 import { MenuIcon } from "lucide-react";
 import { SVGAttributes } from "react";
