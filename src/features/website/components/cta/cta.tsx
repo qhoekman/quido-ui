@@ -10,6 +10,7 @@ const CTA: React.FC<CTAProps> = ({ children }) => {
     <div className="relative mt-24 w-full sm:mt-32 lg:mt-40">{children}</div>
   );
 };
+CTA.displayName = "CTA";
 
 const CTAContent = React.forwardRef<
   HTMLDivElement,
@@ -30,7 +31,6 @@ const CTAContent = React.forwardRef<
     </div>
   );
 });
-
 CTAContent.displayName = "CTAContent";
 
 const CTASection = React.forwardRef<
@@ -50,7 +50,6 @@ const CTASection = React.forwardRef<
     </div>
   );
 });
-
 CTASection.displayName = "CTASection";
 
 const CTATitle = React.forwardRef<
@@ -70,7 +69,6 @@ const CTATitle = React.forwardRef<
     </h2>
   );
 });
-
 CTATitle.displayName = "CTATitle";
 
 const CTASubtitle = React.forwardRef<
@@ -90,7 +88,6 @@ const CTASubtitle = React.forwardRef<
     </p>
   );
 });
-
 CTASubtitle.displayName = "CTASubtitle";
 
 const CTAActions = React.forwardRef<
@@ -110,7 +107,6 @@ const CTAActions = React.forwardRef<
     </div>
   );
 });
-
 CTAActions.displayName = "CTAActions";
 
 const CTABackdrop = React.forwardRef<
@@ -128,7 +124,6 @@ const CTABackdrop = React.forwardRef<
     />
   );
 });
-
 CTABackdrop.displayName = "CTABackdrop";
 
 export {

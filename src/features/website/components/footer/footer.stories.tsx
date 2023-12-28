@@ -5,12 +5,12 @@ import {
   Footer,
   FooterBanner,
   FooterColumn,
-  FooterColumnHeading,
   FooterColumnList,
   FooterColumnListItem,
   FooterColumns,
   FooterContent,
   FooterCopyright,
+  FooterHeading,
   FooterLink,
   FooterSection,
 } from "@/features/website/components/footer/footer";
@@ -120,7 +120,7 @@ export const WithColumns: StoryFn = (args) => (
           />
         </FooterColumn>
         <FooterColumn>
-          <FooterColumnHeading>Company</FooterColumnHeading>
+          <FooterHeading>Company</FooterHeading>
           <FooterColumnList>
             {links.company.map((link) => (
               <FooterColumnListItem key={link.name}>
@@ -132,7 +132,7 @@ export const WithColumns: StoryFn = (args) => (
           </FooterColumnList>
         </FooterColumn>
         <FooterColumn>
-          <FooterColumnHeading>Support</FooterColumnHeading>
+          <FooterHeading>Support</FooterHeading>
           <FooterColumnList>
             {links.support.map((link) => (
               <FooterColumnListItem key={link.name}>
@@ -144,7 +144,7 @@ export const WithColumns: StoryFn = (args) => (
           </FooterColumnList>
         </FooterColumn>
         <FooterColumn>
-          <FooterColumnHeading>Product</FooterColumnHeading>
+          <FooterHeading>Product</FooterHeading>
           <FooterColumnList>
             {links.product.map((link) => (
               <FooterColumnListItem key={link.name}>
@@ -157,7 +157,7 @@ export const WithColumns: StoryFn = (args) => (
         </FooterColumn>
       </FooterColumns>
       <FooterSection>
-        <FooterColumnHeading>Newsletter</FooterColumnHeading>
+        <FooterHeading>Newsletter</FooterHeading>
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
           Join our newsletter to stay up to date on features and releases.
         </p>

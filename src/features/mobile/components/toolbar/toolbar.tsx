@@ -1,15 +1,15 @@
 import { cn } from "@/lib/utils";
 import React from "react";
+
 const Toolbar = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
     <div ref={ref} className="w-full pb-safe left-0 bottom-0 fixed" {...props}>
-      {/* Backdrop */}
       <div
         className={cn(
-          "absolute w-full h-full left-0 top-0 border-t-2 border-slate-200 bg-neutral-100",
+          "absolute w-full h-full left-0 top-0 border-t-2 border-slate-200 bg-neutral-50",
           className
         )}
       ></div>
@@ -17,6 +17,7 @@ const Toolbar = React.forwardRef<
     </div>
   );
 });
+Toolbar.displayName = "Toolbar";
 
 const ToolbarContent = React.forwardRef<
   HTMLDivElement,
@@ -35,6 +36,7 @@ const ToolbarContent = React.forwardRef<
     </div>
   );
 });
+ToolbarContent.displayName = "ToolbarContent";
 
 const ToolbarLink = React.forwardRef<
   HTMLAnchorElement,
@@ -54,4 +56,6 @@ const ToolbarLink = React.forwardRef<
     </a>
   );
 });
+ToolbarLink.displayName = "ToolbarLink";
+
 export { Toolbar, ToolbarContent, ToolbarLink };

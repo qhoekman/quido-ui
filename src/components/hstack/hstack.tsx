@@ -11,5 +11,6 @@ const HStack = React.forwardRef<
     </div>
   );
 });
+HStack.displayName = "HStack";
 
 export { HStack };

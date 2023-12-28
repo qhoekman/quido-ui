@@ -23,6 +23,7 @@ const Footer = React.forwardRef<
     </footer>
   );
 });
+Footer.displayName = "Footer";
 
 const FooterContent = React.forwardRef<
   HTMLDivElement,
@@ -41,6 +42,7 @@ const FooterContent = React.forwardRef<
     </div>
   );
 });
+FooterContent.displayName = "FooterContent";
 
 const FooterColumns = React.forwardRef<
   HTMLDivElement,
@@ -56,6 +58,7 @@ const FooterColumns = React.forwardRef<
     </div>
   );
 });
+FooterColumns.displayName = "FooterColumns";
 
 const FooterColumn = React.forwardRef<
   HTMLDivElement,
@@ -67,8 +70,9 @@ const FooterColumn = React.forwardRef<
     </div>
   );
 });
+FooterColumn.displayName = "FooterColumn";
 
-const FooterColumnHeading = React.forwardRef<
+const FooterHeading = React.forwardRef<
   HTMLHeadingElement,
   React.ComponentPropsWithoutRef<"h3">
 >(({ children, className, ...props }, ref) => {
@@ -85,6 +89,7 @@ const FooterColumnHeading = React.forwardRef<
     </h3>
   );
 });
+FooterHeading.displayName = "FooterHeading";
 
 const FooterColumnList = React.forwardRef<
   HTMLUListElement,
@@ -101,6 +106,7 @@ const FooterColumnList = React.forwardRef<
     </ul>
   );
 });
+FooterColumnList.displayName = "FooterColumnList";
 
 const FooterColumnListItem = React.forwardRef<
   HTMLLIElement,
@@ -119,6 +125,7 @@ const FooterColumnListItem = React.forwardRef<
     </li>
   );
 });
+FooterColumnListItem.displayName = "FooterColumnListItem";
 
 const FooterSection = React.forwardRef<
   HTMLDivElement,
@@ -134,6 +141,7 @@ const FooterSection = React.forwardRef<
     </div>
   );
 });
+FooterSection.displayName = "FooterSection";
 
 const FooterBanner = React.forwardRef<
   HTMLDivElement,
@@ -152,6 +160,7 @@ const FooterBanner = React.forwardRef<
     </div>
   );
 });
+FooterBanner.displayName = "FooterBanner";
 
 const FooterCopyright = React.forwardRef<
   HTMLParagraphElement,
@@ -167,6 +176,7 @@ const FooterCopyright = React.forwardRef<
     </p>
   );
 });
+FooterBanner.displayName = "FooterBanner";
 
 const FooterLink = React.forwardRef<
   HTMLAnchorElement,
@@ -185,17 +195,18 @@ const FooterLink = React.forwardRef<
     </a>
   );
 });
+FooterLink.displayName = "FooterLink";
 
 export {
   Footer,
   FooterBanner,
   FooterColumn,
-  FooterColumnHeading,
   FooterColumnList,
   FooterColumnListItem,
   FooterColumns,
   FooterContent,
   FooterCopyright,
+  FooterHeading,
   FooterLink,
   FooterSection,
 };

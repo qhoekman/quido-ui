@@ -20,5 +20,6 @@ const ViewportLayout = React.forwardRef<
     </div>
   );
 });
+ViewportLayout.displayName = "ViewportLayout";
 
 export { ViewportLayout };

@@ -18,6 +18,7 @@ const Hero = React.forwardRef<
     </div>
   );
 });
+Hero.displayName = "Hero";
 
 const HeroTagline = React.forwardRef<
   HTMLSpanElement,
@@ -33,6 +34,7 @@ const HeroTagline = React.forwardRef<
     </span>
   );
 });
+HeroTagline.displayName = "HeroTagline";
 
 const HeroTitle = React.forwardRef<
   HTMLHeadingElement,
@@ -51,6 +53,7 @@ const HeroTitle = React.forwardRef<
     </h1>
   );
 });
+HeroTitle.displayName = "HeroTitle";
 
 const HeroBody = React.forwardRef<
   HTMLParagraphElement,
@@ -66,6 +69,7 @@ const HeroBody = React.forwardRef<
     </p>
   );
 });
+HeroBody.displayName = "HeroBody";
 
 const HeroActions = React.forwardRef<
   HTMLDivElement,
@@ -77,6 +81,7 @@ const HeroActions = React.forwardRef<
     </div>
   );
 });
+HeroActions.displayName = "HeroActions";
 
 const HeroSection = React.forwardRef<
   HTMLDivElement,
@@ -88,6 +93,7 @@ const HeroSection = React.forwardRef<
     </div>
   );
 });
+HeroSection.displayName = "HeroSection";
 
 const HeroBackdrop = React.forwardRef<
   HTMLDivElement,
@@ -101,6 +107,7 @@ const HeroBackdrop = React.forwardRef<
     />
   );
 });
+HeroBackdrop.displayName = "HeroBackdrop";
 
 const HeroBackdropImage = React.forwardRef<
   HTMLImageElement,
@@ -118,6 +125,8 @@ const HeroBackdropImage = React.forwardRef<
     />
   );
 });
+HeroBackdropImage.displayName = "HeroBackdropImage";
+
 const HeroCoverImage = React.forwardRef<
   HTMLImageElement,
   React.ComponentPropsWithoutRef<"img">
@@ -132,6 +141,7 @@ const HeroCoverImage = React.forwardRef<
     />
   );
 });
+HeroCoverImage.displayName = "HeroCoverImage";
 
 const HeroDiagonalShape = React.forwardRef<
   SVGSVGElement,
@@ -153,6 +163,7 @@ const HeroDiagonalShape = React.forwardRef<
     </svg>
   );
 });
+HeroDiagonalShape.displayName = "HeroDiagonalShape";
 
 export {
   Hero,

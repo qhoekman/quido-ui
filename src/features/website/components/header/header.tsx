@@ -18,6 +18,7 @@ const Header = React.forwardRef<
     </div>
   );
 });
+Header.displayName = "Header";
 
 const HeaderTagline = React.forwardRef<
   HTMLHeadingElement,
@@ -36,6 +37,7 @@ const HeaderTagline = React.forwardRef<
     </h3>
   );
 });
+HeaderTagline.displayName = "HeaderTagline";
 
 const HeaderTitle = React.forwardRef<
   HTMLHeadingElement,
@@ -54,6 +56,7 @@ const HeaderTitle = React.forwardRef<
     </h2>
   );
 });
+HeaderTitle.displayName = "HeaderTitle";
 
 const HeaderBody = React.forwardRef<
   HTMLParagraphElement,
@@ -69,6 +72,7 @@ const HeaderBody = React.forwardRef<
     </p>
   );
 });
+HeaderBody.displayName = "HeaderBody";
 
 const HeaderContent = React.forwardRef<
   HTMLDivElement,
@@ -84,6 +88,7 @@ const HeaderContent = React.forwardRef<
     </div>
   );
 });
+HeaderContent.displayName = "HeaderContent";
 
 const HeaderActions = React.forwardRef<
   HTMLDivElement,
@@ -99,6 +104,7 @@ const HeaderActions = React.forwardRef<
     </div>
   );
 });
+HeaderActions.displayName = "HeaderActions";
 
 const HeaderBackdrop = React.forwardRef<
   HTMLDivElement,
@@ -114,6 +120,7 @@ const HeaderBackdrop = React.forwardRef<
     </div>
   );
 });
+HeaderBackdrop.displayName = "HeaderBackdrop";
 
 const HeaderBackdropImage = React.forwardRef<
   HTMLImageElement,
@@ -134,6 +141,7 @@ const HeaderBackdropImage = React.forwardRef<
     />
   );
 });
+HeaderBackdropImage.displayName = "HeaderBackdropImage";
 
 export {
   Header,

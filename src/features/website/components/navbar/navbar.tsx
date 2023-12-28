@@ -32,6 +32,7 @@ const Navbar = React.forwardRef<
     </header>
   );
 });
+Navbar.displayName = "Navbar";
 
 const NavbarItems = React.forwardRef<
   HTMLDivElement,
@@ -47,6 +48,7 @@ const NavbarItems = React.forwardRef<
     </div>
   );
 });
+NavbarItems.displayName = "NavbarItems";
 
 const NavbarLink = React.forwardRef<
   HTMLAnchorElement,
@@ -68,6 +70,7 @@ const NavbarLink = React.forwardRef<
     </Button>
   );
 });
+NavbarLink.displayName = "NavbarLink";
 
 const NavbarDropdown = React.forwardRef<
   React.ElementRef<typeof DropdownMenu>,
@@ -75,6 +78,7 @@ const NavbarDropdown = React.forwardRef<
 >(({ children, ...props }) => {
   return <DropdownMenu {...props}>{children}</DropdownMenu>;
 });
+NavbarDropdown.displayName = "NavbarDropdown";
 
 const NavbarDropdownTrigger = React.forwardRef<
   React.ElementRef<typeof DropdownMenuTrigger>,
@@ -97,6 +101,7 @@ const NavbarDropdownTrigger = React.forwardRef<
     </DropdownMenuTrigger>
   );
 });
+NavbarDropdownTrigger.displayName = "NavbarDropdownTrigger";
 
 const NavbarDropdownContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuContent>,
@@ -112,6 +117,7 @@ const NavbarDropdownContent = React.forwardRef<
     </DropdownMenuContent>
   );
 });
+NavbarDropdownContent.displayName = "NavbarDropdownContent";
 
 const NavbarDropdownLink = React.forwardRef<
   HTMLAnchorElement,
@@ -136,6 +142,7 @@ const NavbarDropdownLink = React.forwardRef<
     </DropdownMenuItem>
   );
 });
+NavbarDropdownLink.displayName = "NavbarDropdownLink";
 
 const NavbarActions = React.forwardRef<
   HTMLDivElement,
@@ -154,6 +161,7 @@ const NavbarActions = React.forwardRef<
     </div>
   );
 });
+NavbarActions.displayName = "NavbarActions";
 
 const NavbarBrand = React.forwardRef<
   HTMLDivElement,
@@ -165,6 +173,7 @@ const NavbarBrand = React.forwardRef<
     </div>
   );
 });
+NavbarBrand.displayName = "NavbarBrand";
 
 const NavbarLogo = React.forwardRef<
   HTMLAnchorElement,
@@ -182,6 +191,7 @@ const NavbarLogo = React.forwardRef<
     </a>
   );
 });
+NavbarLogo.displayName = "NavbarLogo";
 
 export {
   Navbar,

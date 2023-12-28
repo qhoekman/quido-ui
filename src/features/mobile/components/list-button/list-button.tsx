@@ -18,5 +18,6 @@ const ListButton = React.forwardRef<
     </button>
   );
 });
+ListButton.displayName = "ListButton";
 
 export { ListButton };

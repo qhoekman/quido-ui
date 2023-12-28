@@ -30,6 +30,7 @@ const NavbarMobile = React.forwardRef<
     </Dialog>
   );
 });
+NavbarMobile.displayName = "NavbarMobile";
 
 const NavbarMobileTrigger = React.forwardRef<
   HTMLButtonElement,
@@ -51,6 +52,7 @@ const NavbarMobileTrigger = React.forwardRef<
     );
   }
 );
+NavbarMobileTrigger.displayName = "NavbarMobileTrigger";
 
 const NavbarMobileClose = React.forwardRef<
   HTMLButtonElement,
@@ -71,6 +73,7 @@ const NavbarMobileClose = React.forwardRef<
     </DialogPrimitive.Close>
   );
 });
+NavbarMobileClose.displayName = "NavbarMobileClose";
 
 const NavbarMobileHeader = React.forwardRef<
   HTMLDivElement,
@@ -86,6 +89,7 @@ const NavbarMobileHeader = React.forwardRef<
     </div>
   );
 });
+NavbarMobileHeader.displayName = "NavbarMobileHeader";
 
 const NavbarMobileActions = React.forwardRef<
   HTMLDivElement,
@@ -101,6 +105,7 @@ const NavbarMobileActions = React.forwardRef<
     </div>
   );
 });
+NavbarMobileActions.displayName = "NavbarMobileActions";
 
 const NavbarMobileContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
@@ -119,6 +124,7 @@ const NavbarMobileContent = React.forwardRef<
     </DialogContent>
   );
 });
+NavbarMobileContent.displayName = "NavbarMobileContent";
 
 const NavbarMobileGroup = React.forwardRef<
   HTMLDivElement,
@@ -136,6 +142,7 @@ const NavbarMobileGroup = React.forwardRef<
     </div>
   );
 });
+NavbarMobileGroup.displayName = "NavbarMobileGroup";
 
 const NavbarMobileItems = React.forwardRef<
   HTMLDivElement,
@@ -147,6 +154,7 @@ const NavbarMobileItems = React.forwardRef<
     </div>
   );
 });
+NavbarMobileItems.displayName = "NavbarMobileItems";
 
 const NavbarMobileLink = React.forwardRef<
   HTMLAnchorElement,
@@ -166,6 +174,7 @@ const NavbarMobileLink = React.forwardRef<
     </a>
   );
 });
+NavbarMobileLink.displayName = "NavbarMobileLink";
 
 const NavbarMobileLogo = React.forwardRef<
   HTMLAnchorElement,
@@ -183,6 +192,7 @@ const NavbarMobileLogo = React.forwardRef<
     </NavbarLink>
   );
 });
+NavbarMobileLogo.displayName = "NavbarMobileLogo";
 
 const NavbarMobileDropdownLabel = React.forwardRef<
   HTMLSpanElement,
@@ -201,6 +211,7 @@ const NavbarMobileDropdownLabel = React.forwardRef<
     </span>
   );
 });
+NavbarMobileDropdownLabel.displayName = "NavbarMobileDropdownLabel";
 
 const NavbarMobileDropdownGroup = React.forwardRef<
   HTMLDivElement,
@@ -212,6 +223,7 @@ const NavbarMobileDropdownGroup = React.forwardRef<
     </div>
   );
 });
+NavbarMobileDropdownGroup.displayName = "NavbarMobileDropdownGroup";
 
 const NavbarMobileDropdownLink = React.forwardRef<
   HTMLAnchorElement,
@@ -231,6 +243,7 @@ const NavbarMobileDropdownLink = React.forwardRef<
     </a>
   );
 });
+NavbarMobileDropdownLink.displayName = "NavbarMobileDropdownLink";
 
 export {
   NavbarMobile,

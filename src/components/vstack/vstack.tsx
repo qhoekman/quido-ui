@@ -11,5 +11,6 @@ const VStack = React.forwardRef<
     </div>
   );
 });
+VStack.displayName = "VStack";
 
 export { VStack };

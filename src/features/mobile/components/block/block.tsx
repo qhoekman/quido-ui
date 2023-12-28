@@ -3,7 +3,7 @@ import { VariantProps, cva } from "class-variance-authority";
 import React from "react";
 
 const blockVariants = cva(
-  "text-sm z-10 relative px-4 my-8 py-4 bg-neutral-100",
+  "text-sm z-10 relative px-4 my-8 py-4 bg-neutral-50",
   {
     variants: {
       inset: {
@@ -36,6 +36,7 @@ const Block = React.forwardRef<
     </div>
   );
 });
+Block.displayName = "Block";
 
 const BlockTitle = React.forwardRef<
   HTMLHeadingElement,
@@ -54,5 +55,6 @@ const BlockTitle = React.forwardRef<
     </h2>
   );
 });
+BlockTitle.displayName = "BlockTitle";
 
 export { Block, BlockTitle };

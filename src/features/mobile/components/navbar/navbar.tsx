@@ -15,12 +15,13 @@ const Navbar = React.forwardRef<
       )}
       {...props}
     >
-      <div className="absolute w-full h-full left-0 top-0 border-b-2 border-slate-200 bg-neutral-100" />
+      <div className="absolute w-full h-full left-0 top-0 border-b-2 border-slate-200 bg-neutral-50" />
 
       {children}
     </div>
   );
 });
+Navbar.displayName = "Navbar";
 
 const NavbarContent = React.forwardRef<
   HTMLDivElement,
@@ -39,6 +40,7 @@ const NavbarContent = React.forwardRef<
     </div>
   );
 });
+NavbarContent.displayName = "NavbarContent";
 
 const NavbarTitle = React.forwardRef<
   HTMLHeadingElement,
@@ -57,6 +59,7 @@ const NavbarTitle = React.forwardRef<
     </h1>
   );
 });
+NavbarTitle.displayName = "NavbarTitle";
 
 const NavbarSubtitle = React.forwardRef<
   HTMLSpanElement,
@@ -75,6 +78,7 @@ const NavbarSubtitle = React.forwardRef<
     </span>
   );
 });
+NavbarSubtitle.displayName = "NavbarSubtitle";
 
 const NavbarLink = React.forwardRef<
   HTMLAnchorElement,
@@ -96,6 +100,7 @@ const NavbarLink = React.forwardRef<
     </div>
   );
 });
+NavbarLink.displayName = "NavbarLink";
 
 const NavbarBack = React.forwardRef<
   HTMLAnchorElement,
@@ -113,6 +118,8 @@ const NavbarBack = React.forwardRef<
     </NavbarLink>
   );
 });
+NavbarBack.displayName = "NavbarBack";
+
 export {
   Navbar,
   NavbarBack,
