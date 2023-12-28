@@ -5,11 +5,11 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/carousel/carousel";
+} from "@/features/website/components/carousel/carousel";
 import type { Meta, StoryFn } from "@storybook/react";
 
 export default {
-  title: "Components/Media Display/Carousel",
+  title: "Features/Website/Components/Carousel",
   component: Carousel,
 } as Meta<typeof Carousel>;
 

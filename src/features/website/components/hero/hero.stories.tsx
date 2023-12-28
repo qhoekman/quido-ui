@@ -1,12 +1,12 @@
 import { Button } from "@/components/button/button";
+import { VStack } from "@/components/vstack/vstack";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/carousel/carousel";
-import { VStack } from "@/components/vstack/vstack";
+} from "@/features/website/components/carousel/carousel";
 import {
   Hero,
   HeroActions,
