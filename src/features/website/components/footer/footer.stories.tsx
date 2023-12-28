@@ -158,7 +158,7 @@ export const WithColumns: StoryFn = (args) => (
       </FooterColumns>
       <FooterSection>
         <FooterHeading>Newsletter</FooterHeading>
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
+        <p className="text-sm text-neutral-600">
           Join our newsletter to stay up to date on features and releases.
         </p>
 
@@ -198,7 +198,7 @@ export const WithColumns: StoryFn = (args) => (
           <FooterLink
             key={item.name}
             href={item.href}
-            className="text-xs leading-5 text-neutral-500 underline hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300"
+            className="text-xs leading-5 text-neutral-500 underline hover:text-neutral-600 "
           >
             {item.name}
           </FooterLink>
@@ -211,7 +211,7 @@ export const WithColumns: StoryFn = (args) => (
             <FooterLink
               key={item.name}
               href={item.href}
-              className="group flex items-center text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+              className="group flex items-center text-neutral-600 hover:text-neutral-900 "
             >
               <span className="sr-only">{item.name}</span>
               <item.icon className="h-6 w-6" aria-hidden="true" />

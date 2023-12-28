@@ -151,7 +151,7 @@ const FooterBanner = React.forwardRef<
     <div
       ref={ref}
       className={cn(
-        "mt-12 flex flex-col justify-between space-y-6 border-t border-neutral-900/10 pt-4 dark:border-white/20 sm:mt-20 md:flex-row md:items-end lg:mt-16",
+        "mt-12 flex flex-col justify-between space-y-6 border-t border-neutral-900/10 pt-4 sm:mt-20 md:flex-row md:items-end lg:mt-16",
         className
       )}
       {...props}
