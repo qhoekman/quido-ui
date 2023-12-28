@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import colors from "tailwindcss/colors";
 
 /** @type {import('tailwindcss').Config} */
@@ -37,5 +38,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
