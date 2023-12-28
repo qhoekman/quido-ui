@@ -45,3 +45,10 @@ export const Default: StoryFn = (args) => (
     </ActionSheetContent>
   </ActionSheet>
 );
+
+Default.parameters = {
+  layout: "fullscreen",
+  viewport: {
+    defaultViewport: "mobile2",
+  },
+};
