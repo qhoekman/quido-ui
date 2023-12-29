@@ -1,0 +1,30 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/blocks';
+
+import * as Stories from './select.stories.tsx';
+import Code from './select?raw';
+
+<Meta of={Stories} />
+
+# Usage
+
+<Canvas of={Stories.Default} />
+
+See the [Radix](https://www.radix-ui.com/primitives/docs/components/select) documentation for more details.
+
+<Controls />
+
+# Installation
+
+## 1. Install the following dependencies
+
+<Source language="bash" code={`npm install @radix-ui/react-select`} />
+
+See the [Radix](https://www.radix-ui.com/primitives/docs/components/select) documentation for more details.
+
+## 2. Copy and paste the following code into your project.
+
+<Source language="tsx" code={Code} />
+
+## 3. Usage in form
+
+Please note that the component will only render a native `select` when used within a `form` element.
