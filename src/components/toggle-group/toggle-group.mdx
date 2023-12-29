@@ -1,0 +1,27 @@
+import { linkTo } from "@storybook/addon-links";
+import { Canvas, Controls, Meta, Source } from "@storybook/blocks";
+
+import * as Stories from "./toggle-group.stories.tsx";
+import Code from "./toggle-group?raw";
+
+<Meta of={Stories} />
+
+# Usage
+
+<Canvas of={Stories.Default} />
+
+<Controls />
+
+# Installation ## 1. Install the following dependencies
+
+<Source language="bash" code={`npm install @radix-ui/react-toggle-group`} />
+
+Please note that the component re-uses the Toggle component:
+
+<button onClick={linkTo("Components/Data Manipulation/Toggle")}>
+  Go to the Toggle component
+</button>
+
+## 2. Copy and paste the following code into your project.
+
+<Source language="tsx" code={Code} />
