@@ -1,0 +1,21 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/blocks";
+import * as Stories from "./resizable.stories";
+import Code from "./resizable.tsx?raw";
+
+<Meta of={Stories} />
+
+# Usage
+
+<Canvas of={Stories.Default} />
+
+<Controls />
+
+# Installation
+
+## 1. Install the package
+
+<Source language="bash" code="npm install react-resizable-panels" />
+
+## 2. Copy and paste the following code into your project.
+
+<Source language="tsx" code={Code} />

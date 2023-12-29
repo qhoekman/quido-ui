@@ -74,6 +74,9 @@ dependencies:
   react-player:
     specifier: ^2.14.1
     version: 2.14.1(react@18.2.0)
+  react-resizable-panels:
+    specifier: ^1.0.5
+    version: 1.0.5(react-dom@18.2.0)(react@18.2.0)
   tailwind-merge:
     specifier: ^2.0.0
     version: 2.0.0
@@ -8739,6 +8742,16 @@ packages:
       tslib: 2.6.2
       use-callback-ref: 1.3.0(@types/react@18.2.38)(react@18.2.0)
       use-sidecar: 1.1.2(@types/react@18.2.38)(react@18.2.0)
+
+  /react-resizable-panels@1.0.5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-OP0whNQCko+f4BgoptGaeIc7StBRyeMeJ+8r/7rXACBDf9W5EcMWuM32hfqPDMenS2HFy/eZVi/r8XqK+ZIEag==}
+    peerDependencies:
+      react: ^16.14.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.14.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /react-style-singleton@2.2.1(@types/react@18.2.38)(react@18.2.0):
     resolution: {integrity: sha512-ZWj0fHEMyWkHzKYUr2Bs/4zU6XLmq9HsgBURm7g5pAVfyn49DgUiNgY2d4lXRlYSiCif9YBGpQleewkcqddc7g==}
