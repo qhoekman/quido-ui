@@ -1,0 +1,24 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/blocks';
+
+import * as Stories from './slider.stories.tsx';
+import Code from './slider?raw';
+
+<Meta of={Stories} />
+
+# Usage
+
+<Canvas of={Stories.Default} />
+
+<Controls />
+
+See the [Radix](https://www.radix-ui.com/primitives/docs/components/slider) documentation for more details.
+
+# Installation
+
+## 1. Install the following dependencies
+
+<Source language="bash" code={`npm install @radix-ui/react-slider`} />
+
+## 2. Copy and paste the following code into your project.
+
+<Source language="tsx" code="{Code}" />
