@@ -13,7 +13,7 @@ import { Label } from "@radix-ui/react-label";
 import type { Meta, StoryFn } from "@storybook/react";
 
 export default {
-  title: "Components/Dissclosure/Dialog",
+  title: "Components/Overlay/Dialog",
   component: Dialog,
 } as Meta<typeof Dialog>;
 

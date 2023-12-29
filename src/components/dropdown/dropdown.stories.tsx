@@ -32,7 +32,7 @@ import {
 } from "lucide-react";
 
 export default {
-  title: "Components/Dissclosure/Drop-down",
+  title: "Components/Overlay/Drop Down",
   component: DropdownMenu,
 } as Meta<typeof DropdownMenu>;
 
