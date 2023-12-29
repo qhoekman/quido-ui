@@ -1,27 +1,27 @@
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryFn } from "@storybook/react";
 
-import { Avatar, AvatarFallback, AvatarImage } from './avatar';
+import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 
 export default {
-  title: 'Components/Data Display/Avatar',
+  title: "Components/Data Display/Avatar",
   component: Avatar,
   argTypes: {
     variant: {
-      options: ['default'],
+      options: ["default"],
       control: {
-        type: 'select',
+        type: "select",
       },
     },
     size: {
-      options: ['default', 'sm', 'lg'],
+      options: ["default", "sm", "lg"],
       control: {
-        type: 'select',
+        type: "select",
       },
     },
   },
 } as Meta<typeof Avatar>;
 
-const Template: StoryFn<typeof Avatar> = (args) => {
+export const Default: StoryFn<typeof Avatar> = (args) => {
   return (
     <Avatar {...args}>
       <AvatarImage src="/icon.png" />
@@ -30,9 +30,7 @@ const Template: StoryFn<typeof Avatar> = (args) => {
   );
 };
 
-export const Default = {
-  render: Template,
-  args: {
-    size: 'default',
-  },
+Default.args = {
+  variant: "default",
+  size: "default",
 };

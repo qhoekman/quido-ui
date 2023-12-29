@@ -1,0 +1,22 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/blocks';
+
+import * as Stories from './collapsible.stories.tsx';
+import Code from './collapsible?raw';
+
+<Meta of={Stories} />
+
+# Usage
+
+<Canvas of={Stories.Default} />
+
+<Controls />
+
+# Installation
+
+## 1. Install the following dependencies
+
+<Source language="bash" code={`npm install @radix-ui/react-collapsible`} />
+
+## 2. Copy and paste the following code into your project.
+
+<Source language="tsx" code={Code} />
