@@ -1,0 +1,42 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/blocks';
+
+import * as Stories from './tooltip.stories.tsx';
+import Code from './tooltip?raw';
+
+<Meta of={Stories} />
+
+# Usage
+
+<Canvas of={Stories.Default} />
+
+<Controls />
+
+# Installation
+
+## 1. Install the following dependencies
+
+<Source language="bash" code={`npm install @radix-ui/react-tooltip`} />
+
+## 2. Copy and paste the following code into your project.
+
+<Source language="tsx" code={Code} />
+
+## 3. Add the Tooltip provider to your project:
+
+<Source
+  language="tsx"
+  code={`import { TooltipProvider } from "@/components/tooltip"
+ 
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <head />
+      <body>
+        <TooltipProvider>
+            <main>{children}</main>
+        </TooltipProvider>
+      </body>
+    </html>
+  )
+}`}
+/>
