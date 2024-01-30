@@ -16,6 +16,7 @@ const config: StorybookConfig = {
     options: {},
   },
   viteFinal: (config) => {
+    config.base = "/react";
     if (!config.resolve) config.resolve = {};
     config.resolve.alias = {
       ...config.resolve.alias,
