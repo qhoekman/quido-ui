@@ -37,6 +37,11 @@ const config: StorybookConfig = {
       url: "./angular",
       expanded: false,
     },
+    vue: {
+      title: "Vue",
+      url: "./vue",
+      expanded: false,
+    },
   },
 };
 export default config;
