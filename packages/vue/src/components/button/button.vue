@@ -1,5 +1,5 @@
 <template>
-  <button :class="classes" disabled="true" v-bind="$attrs">
+  <button :class="classes" v-bind="$attrs">
     <slot />
   </button>
 </template>
@@ -7,7 +7,7 @@
 <script lang="ts">
 import { cn } from '@/lib/utils'
 import { cva } from 'class-variance-authority'
-import { computed, defineComponent } from 'vue'
+import { defineComponent } from 'vue'
 
 const buttonVariants = cva(
   'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
@@ -35,17 +35,19 @@ const buttonVariants = cva(
     }
   }
 )
-const classes = computed(() =>
-  cn(
-    buttonVariants({
-      variant: 'default',
-      size: 'default'
-    })
-  )
-)
 
 export default defineComponent({
   name: 'q-button',
+  computed: {
+    classes() {
+      return cn(
+        buttonVariants({
+          variant: 'default',
+          size: 'default'
+        })
+      )
+    }
+  },
   props: {
     variant: {
       type: String,
