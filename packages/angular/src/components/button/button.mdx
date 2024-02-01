@@ -1,6 +1,6 @@
 import { Canvas, Controls, Meta, Source } from "@storybook/blocks";
 import * as ButtonStories from "./button.stories";
-import ButtonCode from "./button.ts?raw";
+import ButtonCode from "!!raw-loader!./button.ts";
 
 <Meta of={ButtonStories} />
 
