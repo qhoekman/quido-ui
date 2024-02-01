@@ -27,14 +27,14 @@ const config: StorybookConfig = {
     autodocs: "tag",
   },
   refs: {
-    react: {
-      title: "React",
-      url: "./react",
-      expanded: false,
-    },
     angular: {
       title: "Angular",
       url: "./angular",
+      expanded: false,
+    },
+    react: {
+      title: "React",
+      url: "./react",
       expanded: false,
     },
     vue: {

@@ -7,8 +7,10 @@
     "dev:react": "lerna run dev --scope @quido-ui/react",
     "dev:angular": "lerna run dev --scope @quido-ui/angular",
     "build:host": "lerna run build --scope @quido-ui/host",
-    "build:components": "lerna run build --scope '{*/angular, */react, */vue}'",
-    "build": "npm run build:host && npm run build:components",
+    "build:angular": "lerna run build --scope @quido-ui/angular",
+    "build:react": "lerna run build --scope @quido-ui/react",
+    "build:vue": "lerna run build --scope @quido-ui/vue",
+    "build": "npm run build:host && npm run build:angular && npm run build:react && npm run build:vue",
     "clean": "rm -rf packages/*/storybook-static"
   },
   "keywords": [],

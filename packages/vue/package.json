@@ -7,8 +7,8 @@
     "dev:vue": "vite",
     "test:unit": "vitest",
     "test:e2e": "playwright test",
-    "dev": "storybook dev -p 6006 -o ../../dist/vue",
-    "build": "storybook build"
+    "dev": "storybook dev -p 6006",
+    "build": "storybook build -o ../../dist/vue"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",
