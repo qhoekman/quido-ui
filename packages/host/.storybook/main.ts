@@ -30,6 +30,12 @@ const config: StorybookConfig = {
     react: {
       title: "React",
       url: "./react",
+      expanded: false,
+    },
+    angular: {
+      title: "Angular",
+      url: "./angular",
+      expanded: false,
     },
   },
 };
