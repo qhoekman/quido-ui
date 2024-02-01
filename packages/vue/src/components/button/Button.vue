@@ -4,7 +4,7 @@
   </button>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
 import { cn } from '@/lib/utils'
 import { cva } from 'class-variance-authority'
 import { computed, defineComponent } from 'vue'
@@ -44,7 +44,7 @@ const classes = computed(() =>
   )
 )
 
-defineComponent({
+export default defineComponent({
   name: 'q-button',
   props: {
     variant: {
