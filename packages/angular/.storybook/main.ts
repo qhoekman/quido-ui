@@ -11,10 +11,6 @@ const config: StorybookConfig = {
     autodocs: 'tag',
   },
   webpackFinal: async (config) => {
-    // set NODE_ENV to development
-    process.env.NODE_ENV = 'development';
-    config.mode = 'development';
-
     if (!config.resolve) config.resolve = {};
     config.resolve.alias = {
       ...config.resolve.alias,
