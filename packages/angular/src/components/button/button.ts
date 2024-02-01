@@ -1,4 +1,3 @@
-import { createSelector } from '@/config/constants';
 import { cn } from '@/lib/utils';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { VariantProps, cva } from 'class-variance-authority';
@@ -33,13 +32,13 @@ const buttonVariants = cva(
 );
 
 @Component({
-  selector: createSelector('button'),
+  selector: 'q-button',
   standalone: true,
   template: `<button
     [type]="type"
     [disabled]="disabled"
     [class]="classes"
-    (click)="onClick($event)"
+    (click)="handleClick($event)"
   >
     <ng-content></ng-content>
   </button>`,
@@ -51,10 +50,10 @@ export class ButtonComponent {
   @Input() public disabled = false;
   @Input() public type!: 'button' | 'submit' | 'reset';
   @Input() public className = '';
-  @Output() public click$ = new EventEmitter<Event>();
+  @Output() public onClick = new EventEmitter<Event>();
 
   handleClick(event: Event) {
-    this.click$.emit(event);
+    this.onClick.emit(event);
   }
 
   get classes() {
