@@ -63,14 +63,14 @@ export default {
 };
 ```
 
-2. **Install packages**: The design system is built using a number of different packages. You can install them using the following command:
+1. **Install packages**: The design system is built using a number of different packages. You can install them using the following command:
 
-```bash
+```sh
 npm install tailwindcss-animate
 npm install -D class-variance-authority tailwind-merge clsx
 ```
 
-3. **Class Merger**: To reduce the number of duplicate classes in the final CSS output, we use the `tailwind-merge` package. So, you need to create a utility function that merges classes:
+1. **Class Merger**: To reduce the number of duplicate classes in the final CSS output, we use the `tailwind-merge` package. So, you need to create a utility function that merges classes:
 
 ```ts
 // Save in ./src/lib/utils.ts
