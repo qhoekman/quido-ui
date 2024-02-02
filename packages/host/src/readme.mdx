@@ -1,3 +1,97 @@
-# Readme
+# Design System
 
-This is a UI library for React, Vue and Angular.
+This is a design system which includes a wide-range of components across different frameworks (React, Vue, Angular). It also includes a set of design tokens and a style guide.
+
+## Philosophy
+
+The design system is built with the following principles in mind:
+
+- **Opt-out**: The design system should be easy to use and opt-out. Components are designed to be used out of the box, but also easy to customize. This means that the code for the component can be easily copied and pasted into the consuming application and modified as needed.
+
+- **Consistency**: The design system should provide a consistent look and feel across all applications. This is doen using the design tokens described in the Tailwind configuration. Tailwind already provides a powerful set of design tokens, but we have extended it to include additional tokens that are specific to branding.
+
+- **Accessibility**: The design system should be accessible by default. This means that all components should be designed with accessibility in mind. This includes things like keyboard navigation, screen reader support, and color contrast.
+
+## Getting Started
+
+To get started with the design system there are a few things you need to do:
+
+> Pre-requisites: You need to have Tailwind CSS installed in your project.
+
+1. **Configure Design Tokens**: The design tokens are configured in the `tailwind.config.js` file. For the components to work we recommend the following configuration:
+
+```ts
+import colors from "tailwindcss/colors";
+
+export default {
+  content: ["./src/**/*.{js,jsx,ts,tsx,vue,html}"],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: colors.blue[500],
+          fg: colors.white,
+        },
+        secondary: {
+          DEFAULT: colors.indigo[500],
+          fg: colors.white,
+        },
+        danger: {
+          DEFAULT: colors.red[500],
+          fg: colors.white,
+        },
+        muted: {
+          DEFAULT: colors.neutral[200],
+          fg: colors.neutral[900],
+        },
+        input: colors.neutral[400],
+        foreground: colors.neutral[900],
+        background: colors.neutral[50],
+        ring: colors.blue[400],
+        card: {
+          DEFAULT: colors.neutral[50],
+          fg: colors.neutral[900],
+        },
+        popover: {
+          DEFAULT: colors.neutral[50],
+          fg: colors.neutral[900],
+        },
+      },
+    },
+  },
+  plugins: [require("tailwindcss-animate")],
+};
+```
+
+2. **Install packages**: The design system is built using a number of different packages. You can install them using the following command:
+
+```bash
+npm install tailwindcss-animate
+npm install -D class-variance-authority tailwind-merge clsx
+```
+
+3. **Class Merger**: To reduce the number of duplicate classes in the final CSS output, we use the `tailwind-merge` package. So, you need to create a utility function that merges classes:
+
+```ts
+// Save in ./src/lib/utils.ts
+
+import type { ClassValue } from "clsx";
+import { clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+
+That's it! You should now be able to use the design system in your application.
+
+## Figma
+
+Work in progress. We are currently working on a Figma file that will include all the components and design tokens.
+
+## Inspiration
+
+The design system is inspired by a number of other design systems, including:
+
+- [Shadcn UI](https://ui.shadcn.com)
