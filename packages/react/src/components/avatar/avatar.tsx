@@ -29,7 +29,7 @@ const avatarVariants = cva(
 const Avatar = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root> & AvatarProps
->(({ className, variant, size, ...props }, ref) => (
+>(({ className, variant = "default", size = "default", ...props }, ref) => (
   <AvatarPrimitive.Root
     ref={ref}
     className={cn(

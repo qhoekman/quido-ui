@@ -25,7 +25,7 @@ export const Default: StoryFn<typeof Avatar> = (args) => {
   return (
     <Avatar {...args}>
       <AvatarImage src="/icon.png" />
-      <AvatarFallback>DIJ</AvatarFallback>
+      <AvatarFallback>JD</AvatarFallback>
     </Avatar>
   );
 };

@@ -12,7 +12,29 @@ type SidebarProps = React.HTMLAttributes<HTMLDivElement>;
 export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
   ({ className, ...props }, ref) => {
     return (
-      <div ref={ref} className={cn("space-y-2", className)} {...props}>
+      <div
+        ref={ref}
+        className={cn("relative space-y-2 min-h-svh h-full", className)}
+        {...props}
+      >
+        {props.children}
+      </div>
+    );
+  }
+);
+
+type SidebarBrand = React.HTMLAttributes<HTMLDivElement>;
+export const SidebarBrand = React.forwardRef<HTMLDivElement, SidebarBrand>(
+  ({ className, ...props }, ref) => {
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          "flex items-center h-16 px-4 text-lg font-semibold tracking-tight",
+          className
+        )}
+        {...props}
+      >
         {props.children}
       </div>
     );
@@ -51,7 +73,7 @@ export const SidebarGroup = React.forwardRef<HTMLDivElement, SidebarGroup>(
           ref={ref}
           open={open}
           onOpenChange={setOpen}
-          className={cn("space-y-2", className)}
+          className={cn("", className)}
           {...props}
         >
           {props.children}
@@ -100,21 +122,17 @@ export const SidebarGroupItems = React.forwardRef<
   SidebarGroupItems
 >(({ className, ...props }, ref) => {
   return (
-    <CollapsibleContent
-      ref={ref}
-      className={cn("space-y-1", className)}
-      {...props}
-    >
+    <CollapsibleContent ref={ref} className={cn("py-1", className)} {...props}>
       {props.children}
     </CollapsibleContent>
   );
 });
 
-type SidebarItems = React.HTMLAttributes<HTMLDivElement>;
-export const SidebarItems = React.forwardRef<HTMLDivElement, SidebarItems>(
+type SidebarSection = React.HTMLAttributes<HTMLDivElement>;
+export const SidebarSection = React.forwardRef<HTMLDivElement, SidebarSection>(
   ({ className, ...props }, ref) => {
     return (
-      <div ref={ref} className={cn("space-y-1", className)} {...props}>
+      <div ref={ref} className={cn("py-2", className)} {...props}>
         {props.children}
       </div>
     );
@@ -156,3 +174,21 @@ export const SidebarItemBadge = React.forwardRef<
     </span>
   );
 });
+
+type SidebarFooter = React.HTMLAttributes<HTMLDivElement>;
+export const SidebarFooter = React.forwardRef<HTMLDivElement, SidebarFooter>(
+  ({ className, ...props }, ref) => {
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          "absolute bottom-0 w-full flex items-center h-16 mt-auto px-4 bg-gray-900/5",
+          className
+        )}
+        {...props}
+      >
+        {props.children}
+      </div>
+    );
+  }
+);
