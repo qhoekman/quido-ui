@@ -4,13 +4,11 @@
   "description": "",
   "private": true,
   "scripts": {
-    "dev:react": "lerna run dev --scope @quido-ui/react",
-    "dev:angular": "lerna run dev --scope @quido-ui/angular",
-    "build:host": "lerna run build --scope @quido-ui/host",
-    "build:angular": "lerna run build --scope @quido-ui/angular",
-    "build:react": "lerna run build --scope @quido-ui/react",
-    "build:vue": "lerna run build --scope @quido-ui/vue",
-    "build": "npm run build:host && npm run build:angular && npm run build:react && npm run build:vue",
+    "host": "lerna run --scope @quido-ui/host --stream",
+    "angular": "lerna run --scope @quido-ui/angular --stream",
+    "react": "lerna run --scope @quido-ui/react --stream",
+    "vue": "lerna run --scope @quido-ui/vue --stream",
+    "build": "npm run host build && npm run angular build && npm run react build && npm run vue build",
     "clean": "rm -rf packages/*/storybook-static"
   },
   "keywords": [],
