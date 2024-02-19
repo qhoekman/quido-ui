@@ -1,0 +1,22 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/blocks";
+import * as Stories from "./reel.stories";
+import Code from "./reel.tsx?raw";
+import CodeHooks from "./useReelButton.tsx?raw";
+
+<Meta of={Stories} />
+
+# Usage
+
+<Canvas of={Stories.Default} />
+
+<Controls />
+
+# Installation
+
+## 1. Copy and paste the following code into your project.
+
+<Source language="tsx" code={Code} />
+
+## 2. Use the `useReelButton` hook in your component.
+
+<Source language="tsx" code={CodeHooks} />
