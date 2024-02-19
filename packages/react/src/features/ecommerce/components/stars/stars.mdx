@@ -1,0 +1,17 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/blocks";
+import * as Stories from "./stars.stories";
+import Code from "./stars.tsx?raw";
+
+<Meta of={Stories} />
+
+# Usage
+
+<Canvas of={Stories.Default} />
+
+<Controls />
+
+# Installation
+
+## 1. Copy and paste the following code into your project.
+
+<Source language="tsx" code={Code} />
