@@ -7,7 +7,7 @@ import {
 import type { Meta, StoryFn } from "@storybook/react";
 
 export default {
-  title: "Features/Ecommerce/Components/ColorSelector",
+  title: "Features/Ecommerce/Components/Color Selector",
   component: ColorSelector,
 } satisfies Meta<typeof ColorSelector>;
 
