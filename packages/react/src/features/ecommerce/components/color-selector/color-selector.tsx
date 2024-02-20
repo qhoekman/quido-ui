@@ -1,6 +1,7 @@
 import {
   RadioGroup,
   RadioGroupItem,
+  RadioGroupItemIndicator,
 } from "@/components/radio-group/radio-group";
 import { cn } from "@/lib/utils";
 import {
@@ -49,11 +50,13 @@ export const ColorSelectorItem = React.forwardRef<
       )}
       {...props}
     >
-      {children ?? (
-        <div
-          className={"w-4 h-4 rounded-full ring-1 ring-offset-1 ring-black"}
-        />
-      )}
+      <RadioGroupItemIndicator>
+        {children ?? (
+          <div
+            className={"w-4 h-4 rounded-full ring-1 ring-offset-2 ring-black"}
+          />
+        )}
+      </RadioGroupItemIndicator>
     </RadioGroupItem>
   );
 });
