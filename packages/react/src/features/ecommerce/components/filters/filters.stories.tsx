@@ -15,7 +15,7 @@ import {
 import type { Meta, StoryFn } from "@storybook/react";
 
 export default {
-  title: "Features/Ecommerce/Components/Product Filters",
+  title: "Features/Ecommerce/Components/Filters",
   component: FiltersForm,
   parameters: {
     layout: "fullscreen",

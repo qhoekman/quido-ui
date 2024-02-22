@@ -15,9 +15,7 @@ import Hooks from "./useFilterStore.tsx?raw";
 
 ## 1. Install the following packages.
 
-```bash
-npm install zustand
-```
+<Source language="bash" code="npm install zustand" />
 
 ## 2. Add the following components to your project.
 
@@ -35,4 +33,4 @@ npm install zustand
 
 # Details
 
-The filters will be set via the hash in the URL.
+The filters will be set via the hash in the URL via the persistance middleware of Zustand. You may want to swap this implementation out for a different one if you want to use a different state management library.
