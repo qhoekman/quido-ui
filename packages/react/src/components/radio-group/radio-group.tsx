@@ -46,7 +46,7 @@ const RadioGroupItemIndicator = React.forwardRef<
     className={cn("flex items-center justify-center", className)}
     {...props}
   >
-    {children ?? <Check className="h-3.5 w-3.5 fill-primary" />}
+    {children ?? <Check className="h-3.5 w-3.5" />}
   </RadioGroupPrimitive.Indicator>
 ));
 
