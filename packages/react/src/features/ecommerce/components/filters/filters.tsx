@@ -132,17 +132,27 @@ export const FilterRadioGroup: React.FC<FilterRadioGroupProps> = ({
 type FilterRadioGroupItemProps = React.ComponentPropsWithoutRef<
   typeof RadioGroupItem
 > & {
+  htmlFor: FilterItemKey;
+  id: string;
   value: string;
 };
 export const FilterRadioGroupItem: React.FC<FilterRadioGroupItemProps> = ({
   value,
   id,
+  htmlFor,
   children,
   ...props
 }) => {
+  const { filters } = useFilterStore();
+
   return (
     <div className="flex items-center space-x-2">
-      <RadioGroupItem value={value} id={id} {...props} />
+      <RadioGroupItem
+        checked={filters?.[htmlFor] === value}
+        value={value}
+        id={id}
+        {...props}
+      />
       <Label htmlFor={id}>{children}</Label>
     </div>
   );

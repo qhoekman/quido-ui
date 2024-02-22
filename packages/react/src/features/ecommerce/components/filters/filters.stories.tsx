@@ -58,7 +58,12 @@ export const Default: StoryFn<typeof FiltersForm> = (args) => (
       <FiltersForm {...args}>
         <FilterRadioGroup name="brand">
           {filters.brand.map((brand) => (
-            <FilterRadioGroupItem key={`brand.${brand}`} value={brand}>
+            <FilterRadioGroupItem
+              key={`brand.${brand}`}
+              id={`brand.${brand}`}
+              htmlFor="brand"
+              value={brand}
+            >
               {brand}
             </FilterRadioGroupItem>
           ))}
