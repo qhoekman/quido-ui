@@ -3,6 +3,10 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
+export type SliderProps = React.ComponentPropsWithoutRef<
+  typeof SliderPrimitive.Root
+>;
+
 const Slider = React.forwardRef<
   React.ElementRef<typeof SliderPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof SliderPrimitive.Root>
