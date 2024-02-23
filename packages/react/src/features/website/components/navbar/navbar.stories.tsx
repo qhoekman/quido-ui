@@ -2,6 +2,15 @@ import { Button } from "@/components/button/button";
 import { DropdownMenuGroup } from "@/components/dropdown/dropdown";
 import { Input } from "@/components/input/input";
 import {
+  MegaMenu,
+  MegaMenuContent,
+  MegaMenuItem,
+  MegaMenuLink,
+  MegaMenuList,
+  MegaMenuListItem,
+  MegaMenuTrigger,
+} from "@/features/website/components/mega-menu/mega-menu";
+import {
   Navbar,
   NavbarActions,
   NavbarBrand,
@@ -398,6 +407,72 @@ WithMobileMenu.parameters = {
     defaultViewport: "mobile2",
   },
 };
+
+export const WithMegaMenu: StoryFn<typeof Navbar> = (args) => (
+  <Navbar {...args}>
+    <NavbarBrand className="lg:flex-grow-0 lg:mr-6">
+      <NavbarLogo aria-label="Your company">
+        <CompanyLogo className="h-8 w-auto fill-neutral-900" />
+      </NavbarLogo>
+    </NavbarBrand>
+
+    <NavbarItems className="flex-1">
+      <MegaMenu>
+        <MegaMenuList>
+          <MegaMenuItem>
+            <MegaMenuTrigger>Getting started</MegaMenuTrigger>
+            <MegaMenuContent>
+              <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                <li className="row-span-3">
+                  <MegaMenuLink asChild>
+                    <a
+                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                      href="/"
+                    >
+                      <img
+                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo"
+                        alt="Logo"
+                        className="w-8 h-8"
+                      />
+                      <div className="mb-2 mt-4 text-lg font-medium">
+                        shadcn/ui
+                      </div>
+                      <p className="text-sm leading-tight text-muted-foreground">
+                        Beautifully designed components built with Radix UI and
+                        Tailwind CSS.
+                      </p>
+                    </a>
+                  </MegaMenuLink>
+                </li>
+                <MegaMenuListItem href="/docs" title="Introduction">
+                  Re-usable components built using Radix UI and Tailwind CSS.
+                </MegaMenuListItem>
+                <MegaMenuListItem
+                  href="/docs/installation"
+                  title="Installation"
+                >
+                  How to install dependencies and structure your app.
+                </MegaMenuListItem>
+                <MegaMenuListItem
+                  href="/docs/primitives/typography"
+                  title="Typography"
+                >
+                  Styles for headings, paragraphs, lists...etc
+                </MegaMenuListItem>
+              </ul>
+            </MegaMenuContent>
+          </MegaMenuItem>
+        </MegaMenuList>
+      </MegaMenu>
+    </NavbarItems>
+
+    <NavbarActions className="lg:flex-none w-[400px]">
+      <Button asChild>
+        <a href="#">Learn more</a>
+      </Button>
+    </NavbarActions>
+  </Navbar>
+);
 
 const CompanyLogo: React.FC<SVGAttributes<SVGElement>> = (props) => {
   return (
