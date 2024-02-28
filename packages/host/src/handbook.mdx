@@ -1,0 +1,476 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Guidelines" />
+
+# Front-end Development Guidelines
+
+This document is a collection of decisions, best practices, and guidelines for the development of a web application. It is intended to be a living document that is updated as new decisions are made and as best practices evolve. The scope of this document is primarily focused on the technical side of front-end design and not so much on the design aspect.
+
+The document covers multiple front-end frameworks, such as React, Angular, and Vue. The document also a wide range of tools and libraries that are used in front-end development.
+
+## Code quality
+
+This section describes the code quality standards for the front-end development.
+
+### Code style
+
+The code style is enforced by the linter, which is a combination of ESLint, Prettier, and TypeScript. Please make sure that the necessary VSCode extensions are installed.
+
+### Linting
+
+The shared ESLint configuration should be used for all projects. The configuration includes the rules for React, TypeScript, Jest, Cypress, Storybook, Accessibility, and Prettier.
+
+#### Code commits
+
+The commits should follow the Conventional Commits specification, e.g:
+
+- `fix(auth): login button had incorrect padding. GH-100`
+
+- `feat(auth): added login using GitHub provider. GH-100`
+
+The commit messages should include important decisions and the reason for the changes. You may want to include the name of the person with whom you discussed the decision.
+
+#### Git flow
+
+The Git flow should be used for all projects, so for all issues create a feature branch.
+
+- The feature branch should be named after the ticket, e.g. `feature/GH-100-issue`.
+
+- The feature branch should be created from the `develop` branch.
+
+- The feature branch should be merged into the `develop` branch.
+
+- The feature branch should be deleted after the merge.
+
+## React
+
+This section covers how React is used development projects.
+
+### Starters
+
+The starter can be used for all new projects it includes the configuration and dependencies based on this document.
+
+- [Next.js Starter](https://github.com/qhoekman/next-starter)
+- [Next.js Monorepo](https://github.com/qhoekman/next-monorepo)
+
+### Code quality
+
+This section describes the code quality standards for the front-end development with React.
+
+#### Naming conventions
+
+- Components should be named in kebab-case.
+
+- Components should be named after the file name
+
+- Storybook stories for a component should be named after the component `[component-name].stories.tsx`
+
+- Cypress component tests for a component should be named after the component `[component-name].cy.tsx`
+
+- Unit tests for a file should be named after the file `[component-name].spec.tsx`
+
+- Components should be placed in the designated folder for the component type:
+
+  - Shared components are placed in `src/components`
+
+  - Feature-specific components are placed in `src/features/<feature>/components`
+
+### Tech Stack
+
+The tech-stack that is used is listed below.
+
+- [React](https://reactjs.org/ "https://reactjs.org/") - React is a JavaScript library for building user interfaces. It is maintained by Meta and a community of individual developers and companies.
+- [Next.js](https://nextjs.org/ "https://nextjs.org/") - Next.js is a full-stack framework for production. It is maintained by Vercel. It provides features such as server-side rendering and generating static websites for React based web applications.
+- [TypeScript](https://www.typescriptlang.org/ "https://www.typescriptlang.org/") - TypeScript is a superset of JavaScript that compiles to clean JavaScript output. It is maintained by Microsoft.
+- [Webpack](https://webpack.js.org/ "https://webpack.js.org/") - Webpack is a static module bundler for modern JavaScript applications. It is maintained by Webpack. It is used for bundling applications.
+- [Vite](https://vitejs.dev/ "https://vitejs.dev/") - Vite is a build tool that aims to provide a faster and leaner development experience for modern web projects. It is maintained by Vite. It is used for bundling applications.
+- [ESLint](https://eslint.org/ "https://eslint.org/") - ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code. It allows the developer to define rules for the code and automatically report any violations. It is maintained by ESLint.
+- [Prettier](https://prettier.io/ "https://prettier.io/") - Prettier is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary. It is maintained by Prettier.
+- [Cypress](https://www.cypress.io/ "https://www.cypress.io/") - Cypress is a JavaScript end-to-end testing framework. It is maintained by Cypress. It is used for end-to-end testing and component testing. Cypress automates the browser and allows you to write tests to a real browser.
+- [Testing Library](https://testing-library.com/ "https://testing-library.com/") - Testing Library is a set of libraries for testing your application. It is maintained by Testing Library. It is used for unit testing and end-to-end testing.
+- [Storybook](https://storybook.js.org/ "https://storybook.js.org/") - Storybook is an open source tool for documentating and developing UI components in isolation for React, Vue, and Angular. It is maintained by Storybook. Storybook can be seen as a design system for your application.
+- [Chromatic](https://www.chromatic.com/ "https://www.chromatic.com/") - Chromatic is a visual testing and review tool for Storybook. It is maintained by Chromatic. It is used for visual regression testing.
+
+### Component libraries
+
+The recommendation is to not use component libraries like individual React select components or full component libraries like Material-UI. Due to that the styling is hard to override when Development is recreating the components based on the Figma design.
+
+### Behavioural libraries (Headless)
+
+Behavioural libraries only provide the interactive logic for components, such as a modal or a dropdown. These libraries are usually built with React and are very flexible. They can be used in combination with any styling technique.
+
+Mainly focus on:
+
+- [Radix-UI](https://www.radix-ui.com/ "https://www.radix-ui.com/")
+
+  - Which includes behavioural patterns for all most all component types
+
+- [React-Table](https://react-table-v7.tanstack.com/ "https://react-table-v7.tanstack.com/")
+
+  - For creating complex tables
+
+- [React-Hook-Form](https://react-hook-form.com/ "https://react-hook-form.com/")
+
+  - For creating forms
+
+### Styling
+
+Tailwind CSS is a utility-first CSS framework that enables developers to rapidly build custom user interfaces. It provides a comprehensive set of pre-designed utility classes that you can use to style your HTML elements. These classes can be combined to create complex, responsive layouts that look great on any device.
+
+The benefits of using TailwindCSS:
+
+- **Speed up development** With Tailwind CSS, you can build custom user interfaces quickly by using pre-designed utility classes instead of writing custom CSS for every element. This saves a lot of development time and allows you to focus on building the functionality of your application.
+
+- **Consistent designs** Tailwind CSS provides a set of standardized utility classes that you can use across your entire application, ensuring consistency in your design. This helps to make your code more maintainable and scalable.
+
+- **Responsive layouts** Tailwind CSS makes it easy to create responsive designs that look great on any device. The framework provides a range of responsive utility classes that you can use to adjust the layout of your elements based on the size of the screen.
+
+- **Customizable** Tailwind CSS is highly customizable, meaning that you can easily modify the framework to suit your specific needs. You can configure the colors, typography, and other design elements to match your brand or application.
+
+#### Scalable styling
+
+When writing TailwindCSS it might become harder to manage if a component has a lot of variants. For e.g. a button component might have a lot of variants like primary, secondary, danger, success, etc. So it might become harder to manage all these variants in a single component. There is a technique called "Scalable styling" to manage these variants.
+
+You can use [cva.style](https://cva.style/ "https://cva.style") to style the components. This is a library that allowed the developer to style components using CSS-in-JS. It is a very lightweight library and composes a API to structure our styles with variants. It is agnostic for any framework and can be used with any framework. And it provides type-safety out of the box.
+
+The variants should closely represent the variants which are designed in Figma.
+
+### Meta-framework
+
+The meta-framework is a framework that provides a set of tools to build a React application. The meta-framework has already made a lot of decisions for us.
+
+[Next.js](https://nextjs.org/ "https://nextjs.org/") is a framework that is used for building React applications. The framework is developed by [Vercel](https://vercel.com/ "https://vercel.com/") and is open-source. Vercel provides as hosting service for Next.js applications and edge functions. Next.js is by now a well-formed standard in the React ecosystem.
+
+**How it's used:**
+
+- Use it as a full-stack framework based on the project requirements
+- Use it as a static site generator for prototypes
+
+### State management
+
+The state management can be divided into two parts: server-side state management and client-side state management.
+
+#### Server-side state management
+
+For managing the state on the server-side, the recommendation is React-Query. React-Query is a library for fetching, caching and updating asynchronous data in React. It will automatically keep your UI in sync with the latest data.
+
+#### Client-side state management
+
+For managing the state on the client-side, the recommendation is Redux. Redux is a predictable state container for JavaScript apps. It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test. If there isn't alot of client-side state you can go with Zustand as well.
+
+#### Side-effects
+
+The Redux Toolkit includes the Redux Thunk API, which allows you to write async logic that interacts with the store.
+
+#### Best practices
+
+- Make sure that the state is immutable
+
+- Make sure that the state is serializable
+
+- Make sure that the state is [normalized](https://redux.js.org/usage/structuring-reducers/normalizing-state-shape "https://redux.js.org/usage/structuring-reducers/normalizing-state-shape")
+
+- Make sure that the state is predictable
+
+- Make sure that the state is consistent
+
+- Make sure that state management is used when the state is shared between components
+
+### TypeScript
+
+All projects should be written in TypeScript. The reasons why TypeScript is used are:
+
+- It provides a type system for JavaScript which improves the quality of the code
+
+- Bugs will be caught at compile time
+
+- The developer will know what types each component, function, element or event expects
+
+### Routing
+
+The applications are based on the app router of Next.js. The router can be used for server-side routing and pre-fetching. The pages in the app directly should clearly represent the sitemap of the application.
+
+### Internationalisation
+
+All applications should be internationalised, this means that the application should be translated and has the localised formatting for dates, numbers, and currencies.
+
+#### Localisation
+
+The recommendation is `react-i18next` to manage translations and formatting for static generated sites. For server-side rendered sites the recommendation is `next-i18next`.
+
+### API Client
+
+The API client should be used to communicate with the API with the designated back-end. The API client should be [axios](https://axios-http.com/docs/intro "https://axios-http.com/docs/intro") and has Query Client the recommendation is [react-query](https://tanstack.com/query/v3/ "https://tanstack.com/query/v3/").
+
+### Data validation
+
+The validation should be done with [Zod](https://zod.dev/ "https://zod.dev/"). Zod is a TypeScript first schema builder for data validation. Zod is a great alternative for [Yup](https://github.com/jquense/yup "https://github.com/jquense/yup"). It can be used for forms or for API validation.
+
+### Data persistence
+
+The preference is that the data persistence is handled by the State Management solution, so that migrations are handled properly. If the data persistence is handled by the State Management solution, the data should be stored in the `localStorage`. If the State Management could not provide consistency for the data that needs to be persisted. The data properties should at-least have a naming convention and the keys should be located in a single-file.
+
+### Offline support
+
+If the application needs to work offline, the application should be able to work offline. The application should be able to work offline by using different ServiceWorker strategies. The application should be able to work offline by using the [Workbox](https://developers.google.com/web/tools/workbox "https://developers.google.com/web/tools/workbox") library.
+
+### Monorepo
+
+The monorepo should be managed with [Lerna](https://leranajs.io/ "https://leranajs.io/") and [PNPM Workspaces](https://pnpm.io/workspaces).
+
+## Best practices
+
+The best practices for doing front-end development:
+
+- Should not use export default but named exports, so the naming keeps consistent.
+
+- Should not use barrel files because they aren’t optimised by the bundlers.
+
+- Components should be declared as arrow functions, so they can leverage from the `React.FC` interface.
+
+`type Props = { children: React.ReactNode; } const Component: React.FC<Props> = ({children}) => { return <div>{children}</div>; };`
+
+- Hooks should be declared as named functions, so they can leverage from the TypeScript generic capabilities.
+
+`type Options { } function usePosts({}: Options) { return {}; }`
+
+#### SOLID principles
+
+The SOLID principles should be used for all components. The SOLID principles are:
+
+- Single responsibility principle  
+   This means that all React hooks (useState, useEffect, useMemo, useRef) are wrapped in a separate hook, specifically for the responsibility it needs to have.
+
+A example of a component that doesn’t violates the single responsibility principle:
+
+`export const Good: React.FC = () => { const { products } = useProducts(); const { filterRate, handleRating } = useRateFilter(); return ( <div className="flex flex-col h-full"> <Filter filterRate={filterRate as number} handleRating={handleRating} /> <div className="h-full flex flex-wrap justify-center"> {filterProducts(products, filterRate).map((product: any) => ( <Product product={product} /> ))} </div> </div> ); }`
+
+- Open/closed principle  
+   This means that the component should be closed for modifications but it allows extension. In React terms you could create if-statements for showing a particular icon, but instead you also give a `icon` property where the developer can give the actual icon.
+
+A example of a component that doesn’t violates the open/closed principle:
+
+`type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & { text: string; role?: "back" | "forward" | "main" | "not-found"; icon?: React.ReactNode; } export const Button: React.FC<IButtonProps> = (props) => { const { text, role, icon } = props; return ( <button className="flex items-center font-bold outline-none pt-4 pb-4 pl-8 pr-8 rounded-xl bg-gray-200 text-black" {...props} > {text} <div className="m-2"> {/* This needs to be extended everytime when there is a need for a new icon {role === "forward" && <HiOutlineArrowNarrowRight />} {role === "back" && <HiOutlineArrowNarrowLeft />} */} {icon} </div> </button> ); }`
+
+- Liskov substitution principle  
+   In React terms this means you always want to pass down the props of the component it is a superset of. So, if we have a `SearchInput` it is a superset of `input`, then we want to pass all `HTMLInput` props down to the `input`.
+
+A example of a component that doesn’t violates the liskov substitution principle:
+
+`type Props = React.InputHTMLAttributes<HTMLInputElement> & { isLarge?: boolean; } export const SearchInput = React.FC<Props> = (props) => { const { value, onChange, isLarge, ...restProps } = props; // You may want to do something here with value / onChange return ( <input type="search" value={value} onChange={onChange} {...restProps} /> ) }`
+
+- Interface segregation principle  
+   In React terms this means you shouldn’t pass whole objects or arrays to the children components if they only need a couple of props. In the example below the whole `product` is also given to the `Thumbnail` but it only needs the `ImageUrl`.
+
+A example of a component that violates the interface segregation principle:
+
+`type Props = { product: ProductType; } export const Product: React.FC<Props> = (props) => { const { product } = props; const { id, title, price, rating, image } = product; return ( <div className="w-56 flex flex-col items-center m-2 max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"> <a href="#"> <Thumbnail product={product} /> </a> </div> ) }`
+
+- Dependency inversion principle  
+   In React terms this means you want to give the user of component full control of its logical behaviour. So, if you have a `Form` component, you want to give it a `onSubmit` prop. The `onSubmit` allows the developer to use the `Form` just like he/she wants to. Instead of that the `onSubmit` handler is baked in the component and you can’t reuse. is
+
+## Angular
+
+This section covers how Angular is used development projects.
+
+> This section is not yet written.
+
+## Vue
+
+This section covers how Vue is used development projects.
+
+> This section is not yet written.
+
+## Assets
+
+Various media files could be used throughout the application. The media files should be stored in the `public` folder.
+
+### SVGs
+
+SVGs could be exported from Figma by selecting the outermost layer and exporting it as SVG. You may want to optimize the SVGs by using [SVGOMG](https://jakearchibald.github.io/svgomg/ "https://jakearchibald.github.io/svgomg/").
+
+### Icons
+
+Icons need to be exported as SVG and written with JSX in the `./components/icons/*` directory. Please make sure that the `currentColor` is used for either the `fill` color. And, make sure that there are no static `width` and `height` attributes, which makes the icon responsive. Rather not use `stroke` color because this isn’t very scalable.
+
+### Images
+
+Images shouldn't be used at its original size. The images should be optimised by using \[TODO\](), and the images should be wrapped in a `picture` element. Inside the `picture` element should be a `source` element with the `srcse` attribute. The `srcset` attribute should contain the different image sizes. The `src` attribute should contain the original image.
+
+Or if Next.JS is used the `Image` component should be used and its image optimisation capabilities should be used.
+
+### Videos
+
+Videos shouldn't be used at its original size. The videos should be optimized by using \[TODO\](), and should be provided is various supported formats. The videos should be wrapped in a `video` element. Inside the `video` element should be a `source` element with the `src` attribute. The `src` attribute should contain the video. The `type` attribute should contain the video type.
+
+### Fonts
+
+Fonts could be imported from Google Fonts or from a CDN. The fonts should be imported in the `index.html` file.
+
+## Testing
+
+This section describes the testing techniques the recommendation is.
+
+### Test Ids
+
+Test Ids are used to identify elements in the DOM for testing purposes. They should be used in combination with the `data-testid` attribute.
+
+For naming the ids should be with the BEM naming convention, such as:
+
+- `[component-name]__[element-name]`
+
+- Component with no multiple instances
+
+  - `card`
+
+  - `card__title`
+
+  - `card__description`
+
+- Component with multiple instances
+
+  - `list`
+
+  - `list__item-${id}`
+
+### Testing library
+
+[Testing Library](https://testing-library.com/ "https://testing-library.com/") adds a layer of abstraction on top of the DOM APIs, giving you the tools to test the components in a way that resembles the way your software is used. The reasons for choosing React Testing Library are:
+
+- The standard API to test React components
+
+- The API could be used in Jest and Cypress
+
+- Makes test easier to read and understand
+
+### Unit Testing
+
+For unit testing the recommendation is [Jest](https://jestjs.io/ "https://jestjs.io/"), the units to test are:
+
+- Isolated functions
+
+- React Hooks
+
+- Complex reducers
+
+### Component Testing
+
+For component testing the recommendation is Cypress. The tests to write are:
+
+- Is the component rendered with the correct props.
+
+- All interactions should be tested
+
+- All custom logic should be tested
+
+- All conditional rendering should be tested
+
+- All input types should be tested
+
+- Incorrect data should be tested
+
+- Correct data should be tested
+
+- Too much data should be tested
+
+### E2E Testing
+
+For E2E testing the recommendation is [Cypress](https://www.cypress.io/ "https://www.cypress.io/"). The tests to write are:
+
+- Should have a test that covers the happy flow
+
+- Should have a test that covers the unhappy flow
+
+- Should have a test that covers the edge cases
+
+- Should have a test from various user roles
+
+### Visual Testing
+
+For visual-testing the recommendation is [Chromatic](https://www.chromatic.com/ "https://www.chromatic.com/") which is a visual regression testing tool. Chromatic will visual diff screenshots based on Storybook stories.
+
+## Accessibility
+
+The applications need to be accessible for everyone. The following guidelines should be followed:
+
+- [WCAG 2.1](https://www.w3.org/TR/WCAG21/ "https://www.w3.org/TR/WCAG21/")
+
+- [WAI-ARIA](https://www.w3.org/TR/wai-aria-1.1/ "https://www.w3.org/TR/wai-aria-1.1/")
+
+### Storybook integration
+
+The accessibility should be tested in Storybook. The accessibility should be tested with the [Storybook Accessibility Addon](https://storybookjs.github.io/storybook-addon-a11y/ "https://storybookjs.github.io/storybook-addon-a11y/").
+
+### Cypress integration
+
+The accessibility should be tested in Cypress. The accessibility should be tested with the [Cypress Axe plugin](https://github.com/component-driven/cypress-axe "https://github.com/component-driven/cypress-axe")
+
+### Best practices
+
+- Use semantic HTML elements
+
+- Use a descriptive `alt` attribute for images
+
+- Use a descriptive `title` attribute for SVGs
+
+- Use a descriptive `aria-label` attribute for buttons etc.
+
+## Documentation
+
+This section describes how projects should be documented:
+
+### Documents
+
+The documents should be written in Markdown. The documents should include information about the application such as:
+
+- [ARCHITECTURE.md](http://architecture.md/ "http://ARCHITECTURE.md") - The architecture of the application
+
+- [CONTRIBUTING.md](http://contributing.md/ "http://CONTRIBUTING.md") - How to contribute to the application
+
+- [README.md](http://readme.md/ "http://README.md") - The README of the application, so new developers can get started
+
+- [SECURITY.md](http://security.md/ "http://SECURITY.md") - The security of the application
+
+### Storybook
+
+Storybook compliments the use of the design system, and documents the various uses of components. The addons that are used:
+
+- ...
+
+The stories should follow the latest Component Story Format (CSF) and should be written in TypeScript.
+
+## Security
+
+The security of the front-end projects is managed by [Snyk](https://snyk.io/ "https://snyk.io/"). Snyk will scan the dependencies of the project and will notify us if there are any vulnerabilities.
+
+### XSS Mitigation
+
+The XSS sanitizer should be done by using [DOMPurify](https://cure53.de/purify "https://cure53.de/purify") if the HTML source is directly used as an iFrame or via `dangerouslysetinnerhtml`. The same goes to say if MDX is used in the application.
+
+## Package management
+
+As package manager all of our applications use [pnpm](https://https://pnpm.io/). Scripts that are used in the `package.json` file should be written in `kebab-case` and separated by `:`. The reason for PNPM is:
+
+- It is faster than Yarn and NPM
+- It has a better caching mechanism
+- It has a better workspace support
+
+### Versioning
+
+The versioning of the packages should be done with [Semantic Versioning](https://semver.org/ "https://semver.org/").
+
+## DevOps (CI/CD)
+
+The pipeline of the front-end projects are managed by Bitbucket pipelines and are executed in sandboxed environment (Docker) in the cloud. The pipeline is triggered by a push to the repository. The pipeline consists of the following steps:
+
+- Install dependencies (frozen-lock)
+
+- Build
+
+- Unit test
+
+- Component test
+
+- E2E test
+
+- Visual test
