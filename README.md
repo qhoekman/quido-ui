@@ -2,6 +2,8 @@
 
 Welcome to our UI Components Library - a comprehensive collection of UI components crafted for React, Angular, and Vue. This library is designed to accelerate your application development by providing easy-to-use, customizable, and well-documented components. Each component is showcased through Storybook, allowing you to visualize and interact with the components before integrating them into your projects.
 
+> This project is still in development to include more UI components for the framework. React is the most complete when it comes to components.
+
 ## Features
 
 - **Comprehensive Collection**: Includes a wide range of UI components for React, Angular, and Vue.
