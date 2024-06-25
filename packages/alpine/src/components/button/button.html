@@ -1,3 +1,9 @@
-<button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
-  Button
-</button>  
+<div x-data="{ isBlue: false }">
+  <button
+    class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+    :class="isBlue ? 'bg-primary text-primary-fg hover:bg-primary/90' : 'bg-white'"
+    @click="isBlue = !isBlue"
+  >
+    Button
+  </button>
+</div>
