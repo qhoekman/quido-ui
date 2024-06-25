@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "host": "lerna run --scope @quido-ui/host --stream",
+    "alpine": "lerna run --scope @quido-ui/alpine --stream",
     "angular": "lerna run --scope @quido-ui/angular --stream",
     "react": "lerna run --scope @quido-ui/react --stream",
     "vue": "lerna run --scope @quido-ui/vue --stream",
