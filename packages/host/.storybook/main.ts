@@ -27,6 +27,11 @@ const config: StorybookConfig = {
     autodocs: "tag",
   },
   refs: {
+    alpine: {
+      title: "Alpine",
+      url: "./alpine",
+      expanded: false,
+    },
     angular: {
       title: "Angular",
       url: "./angular",
