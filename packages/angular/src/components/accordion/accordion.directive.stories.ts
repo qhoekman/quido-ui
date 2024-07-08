@@ -1,16 +1,16 @@
-import { moduleMetadata, Meta, StoryObj } from '@storybook/angular';
-import { ButtonDirective, ButtonProps } from '@/app/button/button.directive';
-import { CommonModule } from '@angular/common';
-import { BadgeDirective } from '@/app/badge/badge.directive';
 import {
   AccordionContentDirective,
   AccordionDirective,
+  AccordionIconDirective,
   AccordionItemDirective,
   AccordionTriggerDirective,
-} from '@/app/accordion/accordion.directive';
+} from '@/components/accordion/accordion.directive';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
+import { CommonModule } from '@angular/common';
+import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
 import {
   ChevronDown,
+  ChevronUp,
   ChevronsUpDown,
   LucideAngularModule,
 } from 'lucide-angular';
@@ -18,7 +18,7 @@ import {
 type Story = StoryObj<any>;
 
 const meta: Meta<any> = {
-  title: 'Components/Data Display/Accordion',
+  title: 'Components/Disclosure/Accordion',
   decorators: [
     moduleMetadata({
       imports: [
@@ -28,7 +28,8 @@ const meta: Meta<any> = {
         AccordionItemDirective,
         AccordionContentDirective,
         AccordionTriggerDirective,
-        LucideAngularModule.pick({ ChevronsUpDown }),
+        AccordionIconDirective,
+        LucideAngularModule.pick({ ChevronsUpDown, ChevronUp, ChevronDown }),
       ],
     }),
   ],
@@ -42,7 +43,7 @@ const meta: Meta<any> = {
   <div quiAccordionItem value="item-1">
     <div quiAccordionTrigger>
       Lorem ipsum dolor sit amet
-      <lucide-angular name="chevrons-up-down"></lucide-angular>
+      <lucide-angular quiAccordionIcon #t1="quiAccordionIcon" [name]="t1.name"></lucide-angular>
     </div>
     <div quiAccordionContent>
       Aliquam erat volutpat. Vivamus ornare scelerisque elementum. Vestibulum erat nibh, interdum
@@ -52,7 +53,7 @@ const meta: Meta<any> = {
   <div quiAccordionItem value="item-2">
     <div quiAccordionTrigger>
       Sed quis velit et ligula luctus efficitur
-      <lucide-angular name="chevrons-up-down"></lucide-angular>
+      <lucide-angular quiAccordionIcon #t2="quiAccordionIcon" [name]="t2.name"></lucide-angular>
     </div>
     <div quiAccordionContent>
       Phasellus efficitur massa id arcu faucibus ornare. Etiam viverra ex eget finibus rutrum. Proin

@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { CdkAccordion, CdkAccordionItem } from '@angular/cdk/accordion';
 import { UniqueSelectionDispatcher } from '@angular/cdk/collections';
+import { BehaviorSubject } from 'rxjs';
 
 @Directive({
   selector: '[quiAccordion]',
@@ -105,6 +106,36 @@ export class AccordionContentDirective implements OnInit {
 
     this.cdkAccordionItem.closed.pipe().subscribe(() => {
       this.renderer.setAttribute(this.el.nativeElement, 'data-state', 'closed');
+    });
+  }
+}
+
+@Directive({
+  selector: '[quiAccordionIcon]',
+  standalone: true,
+  exportAs: 'quiAccordionIcon',
+})
+export class AccordionIconDirective implements OnInit {
+  @Input() name: string = 'chevron-down';
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
+    private cdkAccordionItem: CdkAccordionItem,
+  ) {}
+
+  ngOnInit() {
+    this.renderer.setAttribute(
+      this.el.nativeElement,
+      'class',
+      '[&>svg]:size-4',
+    );
+
+    this.cdkAccordionItem.opened.pipe().subscribe(() => {
+      this.name = 'chevron-up';
+    });
+
+    this.cdkAccordionItem.closed.pipe().subscribe(() => {
+      this.name = 'chevron-down';
     });
   }
 }

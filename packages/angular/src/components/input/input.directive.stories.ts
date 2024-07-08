@@ -1,8 +1,11 @@
 import { moduleMetadata, Meta, StoryObj } from '@storybook/angular';
-import { ButtonDirective, ButtonProps } from '@/app/button/button.directive';
+import {
+  ButtonDirective,
+  ButtonProps,
+} from '@/components/button/button.directive';
 import { CommonModule } from '@angular/common';
-import { LabelDirective } from '@/app/label/label.directive';
-import { InputDirective } from '@/app/input/input.directive';
+import { LabelDirective } from '@/components/label/label.directive';
+import { InputDirective } from '@/components/input/input.directive';
 
 type Story = StoryObj<any>;
 

@@ -1,5 +1,5 @@
-import { BreadcrumbModule } from '@/app/breadcrumb/breadcrumb.module';
-import { ButtonProps } from '@/app/button/button.directive';
+import { BreadcrumbModule } from '@/components/breadcrumb/breadcrumb.module';
+import { ButtonProps } from '@/components/button/button.directive';
 import { CommonModule } from '@angular/common';
 import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
 import { ChevronRight, LucideAngularModule } from 'lucide-angular';

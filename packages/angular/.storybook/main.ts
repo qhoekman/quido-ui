@@ -7,9 +7,7 @@ const config: StorybookConfig = {
     name: '@storybook/angular',
     options: {},
   },
-  docs: {
-    autodocs: 'tag',
-  },
+  docs: {},
   webpackFinal: async (config) => {
     if (!config.resolve) config.resolve = {};
     config.resolve.alias = {

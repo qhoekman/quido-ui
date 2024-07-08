@@ -1,5 +1,8 @@
-import { ButtonDirective, ButtonProps } from '@/app/button/button.directive';
-import { TooltipDirective } from '@/app/tooltip/tooltip.directive';
+import {
+  ButtonDirective,
+  ButtonProps,
+} from '@/components/button/button.directive';
+import { TooltipDirective } from '@/components/tooltip/tooltip.directive';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
 import { CommonModule } from '@angular/common';

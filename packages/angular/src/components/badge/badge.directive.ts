@@ -10,7 +10,7 @@ import {
 import { cva, VariantProps } from 'class-variance-authority';
 
 const badgeVariants = cva(
-  'inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
+  'inline-flex items-center justify-center rounded-full border py-0.5 text-xs font-semibold transition-colors text-ellipsis overflow-hidden whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
   {
     variants: {
       variant: {
@@ -23,9 +23,9 @@ const badgeVariants = cva(
         outline: 'text-foreground',
       },
       size: {
-        default: 'h-6',
-        sm: 'h-5',
-        lg: 'h-7',
+        sm: 'size-5',
+        default: 'size-6',
+        lg: 'size-7',
       },
     },
     defaultVariants: {

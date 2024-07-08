@@ -1,5 +1,8 @@
 import { moduleMetadata, Meta, StoryObj } from '@storybook/angular';
-import { ButtonDirective, ButtonProps } from '@/app/button/button.directive';
+import {
+  ButtonDirective,
+  ButtonProps,
+} from '@/components/button/button.directive';
 import { CommonModule } from '@angular/common';
 
 type Story = StoryObj<any>;

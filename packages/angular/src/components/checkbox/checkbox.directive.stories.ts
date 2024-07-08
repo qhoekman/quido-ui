@@ -1,11 +1,14 @@
 import { moduleMetadata, Meta, StoryObj } from '@storybook/angular';
-import { ButtonDirective, ButtonProps } from '@/app/button/button.directive';
+import {
+  ButtonDirective,
+  ButtonProps,
+} from '@/components/button/button.directive';
 import { CommonModule } from '@angular/common';
-import { LabelDirective } from '@/app/label/label.directive';
-import { CheckboxDirective } from '@/app/checkbox/checkbox.directive';
-import { CheckboxIndicatorDirective } from '@/app/checkbox/checkbox-indicator.directive';
+import { LabelDirective } from '@/components/label/label.directive';
+import { CheckboxDirective } from '@/components/checkbox/checkbox.directive';
+import { CheckboxIndicatorDirective } from '@/components/checkbox/checkbox-indicator.directive';
 import { Check, LucideAngularModule } from 'lucide-angular';
-import { CheckboxInputDirective } from '@/app/checkbox/checkbox-input.directive';
+import { CheckboxInputDirective } from '@/components/checkbox/checkbox-input.directive';
 
 type Story = StoryObj<any>;
 
