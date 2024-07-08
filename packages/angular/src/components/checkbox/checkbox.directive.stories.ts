@@ -1,13 +1,13 @@
-import { moduleMetadata, Meta, StoryObj } from '@storybook/angular'
-import { ButtonDirective, ButtonProps } from '@/app/button/button.directive'
-import { CommonModule } from '@angular/common'
-import { LabelDirective } from '@/app/label/label.directive'
-import { CheckboxDirective } from '@/app/checkbox/checkbox.directive'
-import { CheckboxIndicatorDirective } from '@/app/checkbox/checkbox-indicator.directive'
-import { Check, LucideAngularModule } from 'lucide-angular'
-import { CheckboxInputDirective } from '@/app/checkbox/checkbox-input.directive'
+import { moduleMetadata, Meta, StoryObj } from '@storybook/angular';
+import { ButtonDirective, ButtonProps } from '@/app/button/button.directive';
+import { CommonModule } from '@angular/common';
+import { LabelDirective } from '@/app/label/label.directive';
+import { CheckboxDirective } from '@/app/checkbox/checkbox.directive';
+import { CheckboxIndicatorDirective } from '@/app/checkbox/checkbox-indicator.directive';
+import { Check, LucideAngularModule } from 'lucide-angular';
+import { CheckboxInputDirective } from '@/app/checkbox/checkbox-input.directive';
 
-type Story = StoryObj<any>
+type Story = StoryObj<any>;
 
 const meta: Meta<any> = {
   title: 'Components/Data Manipulation/Checkbox',
@@ -19,13 +19,13 @@ const meta: Meta<any> = {
         CheckboxDirective,
         CheckboxIndicatorDirective,
         CheckboxInputDirective,
-        LucideAngularModule.pick({ Check })
-      ]
-    })
+        LucideAngularModule.pick({ Check }),
+      ],
+    }),
   ],
   args: {
     label: 'Accept terms and conditions',
-    disabled: false
+    disabled: false,
   },
   render: (args) => ({
     props: args,
@@ -42,10 +42,10 @@ const meta: Meta<any> = {
     {{label}}
   </label>
 </div>
-`
-  })
-}
+`,
+  }),
+};
 
-export const Default: Story = {}
+export const Default: Story = {};
 
-export default meta
+export default meta;

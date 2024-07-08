@@ -1,21 +1,21 @@
-import { moduleMetadata, Meta, StoryObj } from '@storybook/angular'
-import { ButtonDirective, ButtonProps } from '@/app/button/button.directive'
-import { CommonModule } from '@angular/common'
+import { moduleMetadata, Meta, StoryObj } from '@storybook/angular';
+import { ButtonDirective, ButtonProps } from '@/app/button/button.directive';
+import { CommonModule } from '@angular/common';
 
-type Story = StoryObj<any>
+type Story = StoryObj<any>;
 
 const meta: Meta<any> = {
   title: 'Components/Actions/Button',
   decorators: [
     moduleMetadata({
-      imports: [CommonModule, ButtonDirective]
-    })
+      imports: [CommonModule, ButtonDirective],
+    }),
   ],
   args: {
     variant: 'default',
     size: 'default',
     type: 'button',
-    disabled: false
+    disabled: false,
   },
   render: (args: ButtonProps) => ({
     props: args,
@@ -24,10 +24,10 @@ const meta: Meta<any> = {
       [disabled]="disabled"
       [variant]="variant"
       [size]="size"
-    >Button</button>`
-  })
-}
+    >Button</button>`,
+  }),
+};
 
-export const Default: Story = {}
+export const Default: Story = {};
 
-export default meta
+export default meta;

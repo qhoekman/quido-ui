@@ -1,21 +1,21 @@
-import { moduleMetadata, Meta, StoryObj } from '@storybook/angular'
-import { ButtonDirective, ButtonProps } from '@/app/button/button.directive'
-import { CommonModule } from '@angular/common'
-import { LabelDirective } from '@/app/label/label.directive'
-import { InputDirective } from '@/app/input/input.directive'
+import { moduleMetadata, Meta, StoryObj } from '@storybook/angular';
+import { ButtonDirective, ButtonProps } from '@/app/button/button.directive';
+import { CommonModule } from '@angular/common';
+import { LabelDirective } from '@/app/label/label.directive';
+import { InputDirective } from '@/app/input/input.directive';
 
-type Story = StoryObj<any>
+type Story = StoryObj<any>;
 
 const meta: Meta<any> = {
   title: 'Components/Data Manipulation/Input',
   decorators: [
     moduleMetadata({
-      imports: [CommonModule, InputDirective, LabelDirective]
-    })
+      imports: [CommonModule, InputDirective, LabelDirective],
+    }),
   ],
   args: {
     label: 'Label',
-    disabled: false
+    disabled: false,
   },
   render: (args: ButtonProps) => ({
     props: args,
@@ -23,10 +23,10 @@ const meta: Meta<any> = {
   <div className="max-w-sm">
     <label quiLabel for="input">{{label}}</label>
     <input quiInput id="input" type="text" [disabled]="disabled" />
-  </div>`
-  })
-}
+  </div>`,
+  }),
+};
 
-export const Default: Story = {}
+export const Default: Story = {};
 
-export default meta
+export default meta;

@@ -1,11 +1,11 @@
-import { cn } from '@/lib/utils'
-import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core'
-import { cva, VariantProps } from 'class-variance-authority'
+import { cn } from '@/lib/utils';
+import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
+import { cva, VariantProps } from 'class-variance-authority';
 
 export type ButtonProps = Partial<HTMLButtonElement> & {
-  variant?: VariantProps<typeof buttonVariants>['variant']
-  size?: VariantProps<typeof buttonVariants>['size']
-}
+  variant?: VariantProps<typeof buttonVariants>['variant'];
+  size?: VariantProps<typeof buttonVariants>['size'];
+};
 
 const buttonVariants = cva(
   'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
@@ -18,50 +18,54 @@ const buttonVariants = cva(
         outline:
           'border border-neutral-200 bg-transparent hover:bg-neutral-100 hover:text-foreground',
         ghost: 'hover:bg-neutral-100 hover:text-foreground/90',
-        link: 'text-primary underline-offset-4 hover:underline'
+        link: 'text-primary underline-offset-4 hover:underline',
       },
       size: {
         default: 'h-10 px-4 py-2',
         sm: 'h-9 rounded-md px-3',
         lg: 'h-11 rounded-md px-8',
-        icon: 'h-10 w-10'
-      }
+        icon: 'h-10 w-10',
+      },
     },
     defaultVariants: {
       variant: 'default',
-      size: 'default'
-    }
-  }
-)
+      size: 'default',
+    },
+  },
+);
 
 @Directive({
   selector: 'button[quiButton]',
-  standalone: true
+  standalone: true,
 })
 export class ButtonDirective implements OnInit {
-  private className = ''
-  @Input() variant: VariantProps<typeof buttonVariants>['variant'] = 'default'
-  @Input() size: VariantProps<typeof buttonVariants>['size'] = 'default'
+  private className = '';
+  @Input() variant: VariantProps<typeof buttonVariants>['variant'] = 'default';
+  @Input() size: VariantProps<typeof buttonVariants>['size'] = 'default';
 
   constructor(
     private el: ElementRef,
-    private renderer: Renderer2
+    private renderer: Renderer2,
   ) {}
 
   ngOnInit() {
-    this.updateClasses()
-    this.className = this.el.nativeElement.className
+    this.updateClasses();
+    this.className = this.el.nativeElement.className;
   }
 
   ngOnChanges() {
-    this.updateClasses()
+    this.updateClasses();
   }
 
   private updateClasses() {
     const classList = buttonVariants({
       variant: this.variant,
-      size: this.size
-    })
-    this.renderer.setAttribute(this.el.nativeElement, 'class', cn(this.className, classList))
+      size: this.size,
+    });
+    this.renderer.setAttribute(
+      this.el.nativeElement,
+      'class',
+      cn(this.className, classList),
+    );
   }
 }

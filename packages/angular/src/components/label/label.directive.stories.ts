@@ -1,29 +1,29 @@
-import { moduleMetadata, Meta, StoryObj } from '@storybook/angular'
-import { ButtonDirective, ButtonProps } from '@/app/button/button.directive'
-import { CommonModule } from '@angular/common'
-import { LabelDirective } from '@/app/label/label.directive'
+import { moduleMetadata, Meta, StoryObj } from '@storybook/angular';
+import { ButtonDirective, ButtonProps } from '@/app/button/button.directive';
+import { CommonModule } from '@angular/common';
+import { LabelDirective } from '@/app/label/label.directive';
 
-type Story = StoryObj<any>
+type Story = StoryObj<any>;
 
 const meta: Meta<any> = {
   title: 'Components/Data Manipulation/Label',
   decorators: [
     moduleMetadata({
-      imports: [CommonModule, LabelDirective]
-    })
+      imports: [CommonModule, LabelDirective],
+    }),
   ],
   args: {
-    content: 'Label'
+    content: 'Label',
   },
   render: (args: ButtonProps) => ({
     props: args,
     template: `
 <label quiButton>
 {{content}}
-</label>`
-  })
-}
+</label>`,
+  }),
+};
 
-export const Default: Story = {}
+export const Default: Story = {};
 
-export default meta
+export default meta;

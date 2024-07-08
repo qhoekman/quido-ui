@@ -1,17 +1,21 @@
-import { moduleMetadata, Meta, StoryObj } from '@storybook/angular'
-import { ButtonDirective, ButtonProps } from '@/app/button/button.directive'
-import { CommonModule } from '@angular/common'
-import { BadgeDirective } from '@/app/badge/badge.directive'
+import { moduleMetadata, Meta, StoryObj } from '@storybook/angular';
+import { ButtonDirective, ButtonProps } from '@/app/button/button.directive';
+import { CommonModule } from '@angular/common';
+import { BadgeDirective } from '@/app/badge/badge.directive';
 import {
   AccordionContentDirective,
   AccordionDirective,
   AccordionItemDirective,
-  AccordionTriggerDirective
-} from '@/app/accordion/accordion.directive'
-import { CdkAccordionModule } from '@angular/cdk/accordion'
-import { ChevronDown, ChevronsUpDown, LucideAngularModule } from 'lucide-angular'
+  AccordionTriggerDirective,
+} from '@/app/accordion/accordion.directive';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
+import {
+  ChevronDown,
+  ChevronsUpDown,
+  LucideAngularModule,
+} from 'lucide-angular';
 
-type Story = StoryObj<any>
+type Story = StoryObj<any>;
 
 const meta: Meta<any> = {
   title: 'Components/Data Display/Accordion',
@@ -24,12 +28,12 @@ const meta: Meta<any> = {
         AccordionItemDirective,
         AccordionContentDirective,
         AccordionTriggerDirective,
-        LucideAngularModule.pick({ ChevronsUpDown })
-      ]
-    })
+        LucideAngularModule.pick({ ChevronsUpDown }),
+      ],
+    }),
   ],
   args: {
-    type: 'single'
+    type: 'single',
   },
   render: (args) => ({
     props: args,
@@ -57,10 +61,10 @@ const meta: Meta<any> = {
   </div>
 </div>
 
-`
-  })
-}
+`,
+  }),
+};
 
-export const Default: Story = {}
+export const Default: Story = {};
 
-export default meta
+export default meta;

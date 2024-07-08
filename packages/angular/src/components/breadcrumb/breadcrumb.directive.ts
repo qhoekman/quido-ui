@@ -1,22 +1,26 @@
-import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core'
+import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[quiBreadcrumb]'
+  selector: '[quiBreadcrumb]',
 })
 export class BreadcrumbDirective implements OnInit {
-  @Input() className = ''
+  @Input() className = '';
 
   constructor(
     private el: ElementRef,
-    private renderer: Renderer2
+    private renderer: Renderer2,
   ) {}
 
   ngOnInit() {
     this.renderer.setAttribute(
       this.el.nativeElement,
       'class',
-      `flex items-center text-sm ${this.className}`
-    )
-    this.renderer.setAttribute(this.el.nativeElement, 'aria-label', 'Breadcrumb')
+      `flex items-center text-sm ${this.className}`,
+    );
+    this.renderer.setAttribute(
+      this.el.nativeElement,
+      'aria-label',
+      'Breadcrumb',
+    );
   }
 }
