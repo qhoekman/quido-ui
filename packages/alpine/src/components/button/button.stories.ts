@@ -1,4 +1,4 @@
-import Button from "./button.component.html?raw";
+import Button from "./button.html?raw";
 
 export default {
   title: "Components/Actions/Button",
