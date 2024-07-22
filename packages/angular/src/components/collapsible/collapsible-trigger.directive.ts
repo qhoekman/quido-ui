@@ -2,7 +2,6 @@ import { Directive, ElementRef, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[quiCollapsibleTrigger]',
-  standalone: true,
 })
 export class CollapsibleTriggerDirective {
   constructor(

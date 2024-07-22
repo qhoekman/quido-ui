@@ -2,7 +2,6 @@ import { Directive, ElementRef, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[quiCollapsibleContent]',
-  standalone: true,
 })
 export class CollapsibleContentDirective {
   constructor(

@@ -15,7 +15,6 @@ import { cn } from '@/lib/utils';
 
 @Directive({
   selector: '[quiCollapsible]',
-  standalone: true,
 })
 export class CollapsibleDirective implements OnInit, AfterContentInit {
   @Input() className = '';

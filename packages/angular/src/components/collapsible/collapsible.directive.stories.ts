@@ -1,8 +1,6 @@
-import { moduleMetadata, Meta, StoryObj } from '@storybook/angular';
-import { CollapsibleDirective } from './collapsible.directive';
 import { CommonModule } from '@angular/common';
-import { CollapsibleContentDirective } from './collapsible-content.directive';
-import { CollapsibleTriggerDirective } from './collapsible-trigger.directive';
+import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
+import { CollapsibleModule } from './collapsible.module';
 
 type Story = StoryObj<any>;
 
@@ -10,12 +8,7 @@ const meta: Meta<any> = {
   title: 'Components/Disclosure/Collapsible',
   decorators: [
     moduleMetadata({
-      imports: [
-        CommonModule,
-        CollapsibleDirective,
-        CollapsibleTriggerDirective,
-        CollapsibleContentDirective,
-      ],
+      imports: [CommonModule, CollapsibleModule],
     }),
   ],
   args: {
