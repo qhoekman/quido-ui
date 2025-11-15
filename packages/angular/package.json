@@ -31,7 +31,6 @@
     "@storybook/addon-essentials": "^7.6.6",
     "@storybook/addon-interactions": "^7.6.6",
     "@storybook/addon-links": "^7.6.6",
-    "@storybook/angular": "^7.6.11",
     "@storybook/blocks": "^7.6.6",
     "@storybook/test": "^7.6.11",
     "@types/jasmine": "~5.1.0",
