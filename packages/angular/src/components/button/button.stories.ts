@@ -12,7 +12,7 @@ const meta: Meta<ButtonComponent> = {
     type: 'button',
     disabled: false,
   },
-  render: (args: ButtonComponent) => ({
+  render: (args) => ({
     props: args,
     template: `<q-button
       [type]="type"
