@@ -35,11 +35,6 @@ const config: StorybookConfig = {
   },
 
   refs: {
-    alpine: {
-      title: "Alpine",
-      url: "./alpine",
-      expanded: false,
-    },
     angular: {
       title: "Angular",
       url: "./angular",

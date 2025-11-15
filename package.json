@@ -5,11 +5,10 @@
   "private": true,
   "scripts": {
     "host": "lerna run --scope @quido-ui/host --stream",
-    "alpine": "lerna run --scope @quido-ui/alpine --stream",
     "angular": "lerna run --scope @quido-ui/angular --stream",
     "react": "lerna run --scope @quido-ui/react --stream",
     "vue": "lerna run --scope @quido-ui/vue --stream",
-    "build": "npm run host build && npm run angular build && npm run react build && npm run vue build && npm run alpine build",
+    "build": "npm run host build && npm run angular build && npm run react build && npm run vue build",
     "clean": "rm -rf packages/*/storybook-static"
   },
   "keywords": [],
