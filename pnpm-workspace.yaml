@@ -1,2 +1,9 @@
 packages:
-  - "packages/*"
+  - packages/*
+
+onlyBuiltDependencies:
+  - '@swc/core'
+  - esbuild
+  - nice-napi
+  - nx
+  - vue-demi
