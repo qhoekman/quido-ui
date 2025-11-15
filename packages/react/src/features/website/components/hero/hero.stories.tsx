@@ -21,7 +21,7 @@ import {
 } from "@/features/website/components/hero/hero";
 import ReactPlayer from "react-player/lazy";
 
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 export default {
   title: "Features/Website/Components/Hero",

@@ -18,7 +18,7 @@ import {
   SidebarItemBadge,
   SidebarSection,
 } from "@/features/application/components/sidebar/sidebar";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 import { BoxesIcon, Contact2Icon, PlaySquareIcon, Radio } from "lucide-react";
 export default {
   title: "Features/Application/Components/Sidebar",

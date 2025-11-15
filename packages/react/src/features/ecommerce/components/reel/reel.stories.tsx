@@ -5,7 +5,7 @@ import {
   ReelItem,
   ReelItems,
 } from "@/features/ecommerce/components/reel/reel";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 export default {
   title: "Features/Ecommerce/Components/Reel",

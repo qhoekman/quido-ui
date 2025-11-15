@@ -1,5 +1,5 @@
 import { Button } from "@/components/button/button";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 export default {
   title: "Components/Actions/Button",

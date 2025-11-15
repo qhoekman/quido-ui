@@ -1,5 +1,5 @@
 import { NumberInput } from "@/features/ecommerce/components/number-input/number-input";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 export default {
   title: "Features/Ecommerce/Components/Number Input",

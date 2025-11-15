@@ -1,5 +1,5 @@
 import { Input } from "@/components/input/input";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 export default {
   title: "Components/Data Manipulation/Input",

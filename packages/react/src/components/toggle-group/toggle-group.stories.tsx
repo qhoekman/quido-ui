@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react-vite";
 
 import { ToggleGroup, ToggleGroupItem } from "./toggle-group";
 

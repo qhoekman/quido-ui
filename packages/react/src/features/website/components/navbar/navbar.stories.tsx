@@ -37,7 +37,7 @@ import {
   NavbarMobileLogo,
   NavbarMobileTrigger,
 } from "@/features/website/components/navbar/navbar-mobile";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 import { MenuIcon } from "lucide-react";
 import { SVGAttributes } from "react";
 

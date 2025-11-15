@@ -9,7 +9,7 @@ import {
   ActionSheetTrigger,
 } from "@/features/mobile/components/action-sheet/action-sheet";
 import { ListButton } from "@/features/mobile/components/list-button/list-button";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 export default {
   title: "Features/Mobile/Components/Action Sheet",

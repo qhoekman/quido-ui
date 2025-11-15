@@ -16,7 +16,7 @@ import {
   TabsTrigger,
 } from "@/features/application/components/tabs/tabs";
 
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 export default {
   title: "Features/Application/Components/Tabs",

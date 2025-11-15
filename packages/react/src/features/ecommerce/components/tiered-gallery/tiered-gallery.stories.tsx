@@ -2,7 +2,7 @@ import {
   TieredGallery,
   TieredGalleryImage,
 } from "@/features/ecommerce/components/tiered-gallery/tiered-gallery";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 export default {
   title: "Features/Ecommerce/Components/Tiered Gallery",

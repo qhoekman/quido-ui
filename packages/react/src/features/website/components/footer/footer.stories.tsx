@@ -14,7 +14,7 @@ import {
   FooterLink,
   FooterSection,
 } from "@/features/website/components/footer/footer";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 export default {
   title: "Features/Website/Components/Footer",

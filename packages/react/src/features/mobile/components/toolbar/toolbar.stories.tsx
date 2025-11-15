@@ -4,7 +4,7 @@ import {
   ToolbarLink,
 } from "@/features/mobile/components/toolbar/toolbar";
 import { ViewportLayout } from "@/features/mobile/layouts/viewport/viewport";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 export default {
   title: "Features/Mobile/Components/Toolbar",

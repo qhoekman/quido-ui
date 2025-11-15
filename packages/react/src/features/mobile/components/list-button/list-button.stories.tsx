@@ -1,7 +1,7 @@
 import { Block, BlockTitle } from "@/features/mobile/components/block/block";
 import { ListButton } from "@/features/mobile/components/list-button/list-button";
 import { ViewportLayout } from "@/features/mobile/layouts/viewport/viewport";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 export default {
   title: "Features/Mobile/Components/List Button",

@@ -9,7 +9,7 @@ import {
 } from "@/components/card/card";
 import { Input } from "@/components/input/input";
 import { Label } from "@radix-ui/react-label";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 export default {
   title: "Components/Data Display/Card",

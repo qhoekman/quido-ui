@@ -1,6 +1,6 @@
 import { Block, BlockTitle } from "@/features/mobile/components/block/block";
 import { ViewportLayout } from "@/features/mobile/layouts/viewport/viewport";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 export default {
   title: "Features/Mobile/Components/Block",

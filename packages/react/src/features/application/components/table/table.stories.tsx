@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/features/application/components/table/table";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 const invoices = [
   {

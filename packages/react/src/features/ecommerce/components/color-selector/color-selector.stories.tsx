@@ -4,7 +4,7 @@ import {
   ColorSelectorItem,
   ColorSelectorItems,
 } from "@/features/ecommerce/components/color-selector/color-selector";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 export default {
   title: "Features/Ecommerce/Components/Color Selector",
