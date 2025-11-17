@@ -1,23 +1,47 @@
-import { cn } from "@/lib/utils";
 import React from "react";
+import styled from "styled-components";
 
-const ListButton = React.forwardRef<
+const StyledListButton = styled.button`
+  position: relative;
+  border-bottom: var(--border-width-default) solid var(--color-neutral-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
+  gap: var(--spacing-1);
+  width: 100%;
+  transition-duration: 300ms;
+  outline: none;
+  overflow: hidden;
+  user-select: none;
+  height: var(--spacing-11);
+  color: var(--color-primary);
+
+  &:active {
+    border: none;
+    transition-duration: 0ms;
+    background-color: hsl(from var(--color-primary) h s l / 15%);
+    color: var(--color-primary-fg);
+  }
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const ListButton = React.forwardRef<
   HTMLButtonElement,
   React.ComponentPropsWithoutRef<"button">
 >(({ children, className, ...props }, ref) => {
   return (
-    <button
+    <StyledListButton
       ref={ref}
-      className={cn(
-        "relative border-b border-neutral-300 active:border-none flex items-center justify-center px-4 space-x-1 w-full duration-300 active:duration-0 focus:outline-none touch-ripple-primary overflow-hidden select-none h-11 text-primary active:bg-primary active:text-primary-fg active:bg-opacity-15",
-        className
-      )}
+      className={className}
       {...props}
     >
       {children}
-    </button>
+    </StyledListButton>
   );
 });
 ListButton.displayName = "ListButton";
-
-export { ListButton };
