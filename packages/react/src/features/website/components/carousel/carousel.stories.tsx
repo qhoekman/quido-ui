@@ -11,9 +11,18 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Features/Website/Components/Carousel",
   component: Carousel,
-} as Meta<typeof Carousel>;
+  argTypes: {
+    orientation: {
+      control: "select",
+      options: ["horizontal", "vertical"],
+    },
+  },
+  args: {
+    orientation: "horizontal",
+  },
+} satisfies Meta<typeof Carousel>;
 
-export const Default: StoryFn = (args) => (
+export const Default: StoryFn<typeof Carousel> = (args) => (
   <div className="max-w-sm mx-auto">
     <Carousel {...args}>
       <CarouselContent>
