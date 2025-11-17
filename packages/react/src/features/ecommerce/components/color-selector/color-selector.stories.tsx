@@ -9,6 +9,28 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Features/Ecommerce/Components/Color Selector",
   component: ColorSelector,
+  argTypes: {
+    disabled: {
+      control: "boolean",
+    },
+    required: {
+      control: "boolean",
+    },
+    name: {
+      control: "text",
+    },
+    defaultValue: {
+      control: "text",
+    },
+    orientation: {
+      control: "select",
+      options: ["horizontal", "vertical"],
+    },
+  },
+  args: {
+    disabled: false,
+    required: false,
+  },
 } satisfies Meta<typeof ColorSelector>;
 
 export const Default: StoryFn<typeof ColorSelector> = (args) => (

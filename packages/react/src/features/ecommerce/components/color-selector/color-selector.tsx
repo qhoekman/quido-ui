@@ -3,33 +3,95 @@ import {
   RadioGroupItem,
   RadioGroupItemIndicator,
 } from "@/components/radio-group/radio-group";
-import { cn } from "@/lib/utils";
 import {
   RadioGroupItemProps,
   RadioGroupProps,
 } from "@radix-ui/react-radio-group";
 import { VariantProps, cva } from "class-variance-authority";
 import React from "react";
+import styled, { css } from "styled-components";
 
-const colorSelectorItemVariants = cva(
-  "relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 border-gray-200 border-1 focus:outline-none",
-  {
-    variants: {
-      color: {
-        blue: "bg-blue-500",
-        gray: "bg-gray-500",
-        green: "bg-green-500",
-        indigo: "bg-indigo-500",
-        pink: "bg-pink-500",
-        purple: "bg-purple-500",
-        red: "bg-red-500",
-        yellow: "bg-yellow-500",
-      },
+const colorSelectorItemVariants = cva("q-color-selector-item", {
+  variants: {
+    color: {
+      blue: "color--blue",
+      gray: "color--gray",
+      green: "color--green",
+      indigo: "color--indigo",
+      pink: "color--pink",
+      purple: "color--purple",
+      red: "color--red",
+      yellow: "color--yellow",
     },
-  }
-);
+  },
+});
 
-type ColorSelectorItemProps = RadioGroupItemProps & {
+const colorSelectorItemStyles = css`
+  position: relative;
+  margin: calc(var(--spacing-0-5) * -1);
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-full);
+  padding: var(--spacing-0-5);
+  border: var(--border-width-default) solid var(--color-gray-200);
+
+  &:focus {
+    outline: none;
+  }
+
+  &.color--blue {
+    background-color: var(--color-blue-500);
+  }
+
+  &.color--gray {
+    background-color: var(--color-gray-500);
+  }
+
+  &.color--green {
+    background-color: var(--color-green-500);
+  }
+
+  &.color--indigo {
+    background-color: var(--color-indigo-500);
+  }
+
+  &.color--pink {
+    background-color: var(--color-pink-500);
+  }
+
+  &.color--purple {
+    background-color: var(--color-purple-500);
+  }
+
+  &.color--red {
+    background-color: var(--color-red-500);
+  }
+
+  &.color--yellow {
+    background-color: var(--color-yellow-500);
+  }
+`;
+
+const StyledColorSelectorItem = styled(RadioGroupItem)`
+  ${colorSelectorItemStyles}
+`;
+
+const StyledIndicator = styled.div`
+  width: var(--spacing-4);
+  height: var(--spacing-4);
+  border-radius: var(--border-radius-full);
+  box-shadow: 0 0 0 2px transparent, 0 0 0 3px var(--color-black);
+`;
+
+const StyledColorSelectorItems = styled.div`
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+`;
+
+export type ColorSelectorItemProps = RadioGroupItemProps & {
   color: VariantProps<typeof colorSelectorItemVariants>["color"];
   selected?: boolean;
 };
@@ -38,26 +100,13 @@ export const ColorSelectorItem = React.forwardRef<
   React.ElementRef<typeof RadioGroupItem>,
   ColorSelectorItemProps
 >(({ className, color, children, ...props }, ref) => {
-  console.warn(props, ref);
+  const classes = colorSelectorItemVariants({ color, className });
   return (
-    <RadioGroupItem
-      ref={ref}
-      className={cn(
-        colorSelectorItemVariants({
-          color,
-        }),
-        className
-      )}
-      {...props}
-    >
+    <StyledColorSelectorItem ref={ref} className={classes} {...props}>
       <RadioGroupItemIndicator>
-        {children ?? (
-          <div
-            className={"w-4 h-4 rounded-full ring-1 ring-offset-2 ring-black"}
-          />
-        )}
+        {children ?? <StyledIndicator />}
       </RadioGroupItemIndicator>
-    </RadioGroupItem>
+    </StyledColorSelectorItem>
   );
 });
 
@@ -68,18 +117,14 @@ export const ColorSelectorItems = React.forwardRef<
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => {
   return (
-    <div
-      ref={ref}
-      className={cn("flex items-center space-x-3", className)}
-      {...props}
-    >
+    <StyledColorSelectorItems ref={ref} className={className} {...props}>
       {props.children}
-    </div>
+    </StyledColorSelectorItems>
   );
 });
 ColorSelectorItems.displayName = "ColorSelectorItems";
 
-type ColorSelectorProps = RadioGroupProps;
+export type ColorSelectorProps = RadioGroupProps;
 
 export const ColorSelector = React.forwardRef<
   React.ElementRef<typeof RadioGroup>,
@@ -96,7 +141,7 @@ export const ColorSelector = React.forwardRef<
       ref={ref}
       defaultValue={selectedColor}
       onValueChange={handleChange}
-      className={cn(className)}
+      className={className}
       {...props}
     >
       {children}
