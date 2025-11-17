@@ -2,24 +2,335 @@ import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { cva } from "class-variance-authority";
 import { ChevronDownIcon } from "lucide-react";
 import * as React from "react";
+import styled, { css } from "styled-components";
 
-import { cn } from "@/lib/utils";
+const megaMenuTriggerStyle = cva("q-mega-menu-trigger");
+
+const triggerStyles = css`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--spacing-9);
+  width: max-content;
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-background);
+  padding: var(--spacing-2) var(--spacing-4);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: colors 0.3s;
+  outline: none;
+  text-decoration: none;
+
+  &:hover {
+    background-color: var(--color-muted);
+    color: var(--color-muted-fg);
+  }
+
+  &:focus {
+    background-color: var(--color-muted);
+    color: var(--color-muted-fg);
+    outline: none;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  &[data-active] {
+    background-color: hsl(from var(--color-muted) h s l / 50%);
+  }
+
+  &[data-state="open"] {
+    background-color: hsl(from var(--color-muted) h s l / 50%);
+  }
+`;
+
+const StyledMegaMenuRoot = styled(NavigationMenuPrimitive.Root)`
+  position: relative;
+  z-index: var(--z-index-10);
+  display: flex;
+  max-width: max-content;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+`;
+
+const StyledMegaMenuList = styled(NavigationMenuPrimitive.List)`
+  display: flex;
+  flex: 1;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-1);
+`;
+
+const StyledMegaMenuTrigger = styled(NavigationMenuPrimitive.Trigger)`
+  ${triggerStyles}
+`;
+
+const StyledMegaMenuTriggerWithState = styled(StyledMegaMenuTrigger)`
+  &[data-state="open"] svg {
+    transform: rotate(180deg);
+  }
+`;
+
+const StyledChevronIcon = styled(ChevronDownIcon)`
+  position: relative;
+  top: 1px;
+  margin-left: var(--spacing-1);
+  height: var(--spacing-3);
+  width: var(--spacing-3);
+  transition: transform 300ms;
+`;
+
+const StyledMegaMenuContent = styled(NavigationMenuPrimitive.Content)`
+  left: 0;
+  top: 0;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    position: absolute;
+    width: auto;
+  }
+
+  &[data-motion="from-end"] {
+    animation: slideInFromRight 0.2s ease-out;
+  }
+
+  &[data-motion="from-start"] {
+    animation: slideInFromLeft 0.2s ease-out;
+  }
+
+  &[data-motion="to-end"] {
+    animation: slideOutToRight 0.2s ease-out;
+  }
+
+  &[data-motion="to-start"] {
+    animation: slideOutToLeft 0.2s ease-out;
+  }
+
+  &[data-motion^="from-"]:not([data-motion="from-end"]):not([data-motion="from-start"]) {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  &[data-motion^="to-"]:not([data-motion="to-end"]):not([data-motion="to-start"]) {
+    animation: fadeOut 0.2s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes slideInFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(13rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-13rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideOutToRight {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(13rem);
+    }
+  }
+
+  @keyframes slideOutToLeft {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(-13rem);
+    }
+  }
+`;
+
+const StyledViewportWrapper = styled.div`
+  position: absolute;
+  left: 0;
+  top: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
+const StyledMegaMenuViewport = styled(NavigationMenuPrimitive.Viewport)`
+  transform-origin: top center;
+  position: relative;
+  margin-top: var(--spacing-1-5);
+  height: var(--radix-navigation-menu-viewport-height);
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--border-radius-md);
+  border: var(--border-width-default) solid var(--color-border);
+  background-color: var(--color-popover);
+  color: var(--color-popover-fg);
+  box-shadow: var(--box-shadow-default);
+
+  @media (min-width: 768px) {
+    width: var(--radix-navigation-menu-viewport-width);
+  }
+
+  &[data-state="open"] {
+    animation: zoomIn 0.2s ease-out;
+  }
+
+  &[data-state="closed"] {
+    animation: zoomOut 0.2s ease-out;
+  }
+
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes zoomOut {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+  }
+`;
+
+const StyledMegaMenuIndicator = styled(NavigationMenuPrimitive.Indicator)`
+  top: 100%;
+  z-index: 1;
+  display: flex;
+  height: var(--spacing-1-5);
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+
+  &[data-state="visible"] {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  &[data-state="hidden"] {
+    animation: fadeOut 0.2s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+`;
+
+const StyledIndicatorInner = styled.div`
+  position: relative;
+  top: 60%;
+  height: var(--spacing-2);
+  width: var(--spacing-2);
+  transform: rotate(45deg);
+  border-top-left-radius: var(--border-radius-sm);
+  background-color: var(--color-border);
+  box-shadow: var(--box-shadow-md);
+`;
+
+const StyledMegaMenuListItem = styled.a`
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  user-select: none;
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-3);
+  line-height: var(--line-height-none);
+  text-decoration: none;
+  outline: none;
+  transition: colors 0.3s;
+
+  &:hover {
+    background-color: var(--color-muted);
+    color: var(--color-muted-fg);
+  }
+
+  &:focus {
+    background-color: var(--color-muted);
+    color: var(--color-muted-fg);
+  }
+`;
+
+const StyledListItemTitle = styled.div`
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-none);
+`;
+
+const StyledListItemDescription = styled.p`
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-snug);
+  color: var(--color-muted-fg);
+`;
 
 const MegaMenu = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root>
 >(({ className, children, ...props }, ref) => (
-  <NavigationMenuPrimitive.Root
-    ref={ref}
-    className={cn(
-      "relative z-10 flex max-w-max flex-1 items-center justify-center",
-      className
-    )}
-    {...props}
-  >
+  <StyledMegaMenuRoot ref={ref} className={className} {...props}>
     {children}
     <MegaMenuViewport />
-  </NavigationMenuPrimitive.Root>
+  </StyledMegaMenuRoot>
 ));
 MegaMenu.displayName = "MegaMenu";
 
@@ -27,40 +338,26 @@ const MegaMenuList = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.List>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.List>
 >(({ className, ...props }, ref) => (
-  <NavigationMenuPrimitive.List
-    ref={ref}
-    className={cn(
-      "group flex flex-1 list-none items-center justify-center space-x-1",
-      className
-    )}
-    {...props}
-  />
+  <StyledMegaMenuList ref={ref} className={className} {...props} />
 ));
 MegaMenuList.displayName = "MegaMenuList";
 
 const MegaMenuItem = NavigationMenuPrimitive.Item;
 
-const megaMenuTriggerStyle = cva(
-  "group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
-);
-
 const MegaMenuTrigger = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => (
-  <NavigationMenuPrimitive.Trigger
+  <StyledMegaMenuTriggerWithState
     ref={ref}
-    className={cn(megaMenuTriggerStyle(), "group", className)}
+    className={megaMenuTriggerStyle({ className })}
     onPointerMove={(event) => event.preventDefault()}
     onPointerLeave={(event) => event.preventDefault()}
     {...props}
   >
     {children}{" "}
-    <ChevronDownIcon
-      className="relative top-[1px] ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180"
-      aria-hidden="true"
-    />
-  </NavigationMenuPrimitive.Trigger>
+    <StyledChevronIcon aria-hidden="true" />
+  </StyledMegaMenuTriggerWithState>
 ));
 MegaMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName;
 
@@ -68,12 +365,9 @@ const MegaMenuContent = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Content>
 >(({ className, ...props }, ref) => (
-  <NavigationMenuPrimitive.Content
+  <StyledMegaMenuContent
     ref={ref}
-    className={cn(
-      "left-0 top-0 w-full data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 md:absolute md:w-auto ",
-      className
-    )}
+    className={className}
     onPointerLeave={(event) => event.preventDefault()}
     onPointerEnter={(event) => event.preventDefault()}
     {...props}
@@ -87,18 +381,15 @@ const MegaMenuViewport = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Viewport>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport>
 >(({ className, ...props }, ref) => (
-  <div className={cn("absolute left-0 top-full flex justify-center")}>
-    <NavigationMenuPrimitive.Viewport
-      className={cn(
-        "origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground shadow data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]",
-        className
-      )}
+  <StyledViewportWrapper>
+    <StyledMegaMenuViewport
+      className={className}
       onPointerEnter={(event) => event.preventDefault()}
       onPointerLeave={(event) => event.preventDefault()}
       ref={ref}
       {...props}
     />
-  </div>
+  </StyledViewportWrapper>
 ));
 MegaMenuViewport.displayName = NavigationMenuPrimitive.Viewport.displayName;
 
@@ -106,16 +397,9 @@ const MegaMenuIndicator = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Indicator>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Indicator>
 >(({ className, ...props }, ref) => (
-  <NavigationMenuPrimitive.Indicator
-    ref={ref}
-    className={cn(
-      "top-full z-[1] flex h-1.5 items-end justify-center overflow-hidden data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out data-[state=visible]:fade-in",
-      className
-    )}
-    {...props}
-  >
-    <div className="relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-border shadow-md" />
-  </NavigationMenuPrimitive.Indicator>
+  <StyledMegaMenuIndicator ref={ref} className={className} {...props}>
+    <StyledIndicatorInner />
+  </StyledMegaMenuIndicator>
 ));
 MegaMenuIndicator.displayName = NavigationMenuPrimitive.Indicator.displayName;
 
@@ -126,19 +410,10 @@ const MegaMenuListItem = React.forwardRef<
   return (
     <li>
       <MegaMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
-        </a>
+        <StyledMegaMenuListItem ref={ref} className={className} {...props}>
+          <StyledListItemTitle>{title}</StyledListItemTitle>
+          <StyledListItemDescription>{children}</StyledListItemDescription>
+        </StyledMegaMenuListItem>
       </MegaMenuLink>
     </li>
   );

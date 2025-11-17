@@ -13,6 +13,25 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Features/Website/Components/Mega Menu",
   component: MegaMenu,
+  argTypes: {
+    dir: {
+      control: "select",
+      options: ["ltr", "rtl"],
+      description: "The reading direction of the navigation menu",
+    },
+    delayDuration: {
+      control: "number",
+      description: "The duration in milliseconds to wait before showing the content",
+    },
+    skipDelayDuration: {
+      control: "number",
+      description: "The duration in milliseconds to wait before hiding the content when moving to the next item",
+    },
+  },
+  args: {
+    delayDuration: 200,
+    skipDelayDuration: 300,
+  },
 } satisfies Meta<typeof MegaMenu>;
 
 const components: { title: string; href: string; description: string }[] = [
@@ -54,7 +73,7 @@ const components: { title: string; href: string; description: string }[] = [
 ];
 
 export const Default: StoryFn<typeof MegaMenu> = (args) => (
-  <MegaMenu>
+  <MegaMenu {...args}>
     <MegaMenuList>
       <MegaMenuItem>
         <MegaMenuTrigger>Getting started</MegaMenuTrigger>
