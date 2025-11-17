@@ -9,6 +9,38 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Features/Ecommerce/Components/Radio Card",
   component: RadioCard,
+  argTypes: {
+    defaultValue: {
+      control: "text",
+      description: "The value of the radio item that should be checked when initially rendered",
+    },
+    value: {
+      control: "text",
+      description: "The controlled value of the radio group",
+    },
+    disabled: {
+      control: "boolean",
+      description: "When true, prevents the user from interacting with the radio group",
+    },
+    required: {
+      control: "boolean",
+      description: "When true, indicates that the user must select a value before submitting",
+    },
+    name: {
+      control: "text",
+      description: "The name of the group, submitted as a name/value pair with form data",
+    },
+    orientation: {
+      control: "select",
+      options: ["horizontal", "vertical"],
+      description: "The orientation of the component",
+    },
+  },
+  args: {
+    defaultValue: "sm",
+    disabled: false,
+    required: false,
+  },
 } satisfies Meta<typeof RadioCard>;
 
 const sizes = ["xs", "sm", "md", "lg", "xl"];
