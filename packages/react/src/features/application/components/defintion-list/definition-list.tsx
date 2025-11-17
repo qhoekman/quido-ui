@@ -1,79 +1,90 @@
-import { cn } from "@/lib/utils";
 import React from "react";
+import styled from "styled-components";
 
-const DefinitionList = React.forwardRef<
+const StyledDefinitionList = styled.dl`
+  > * + * {
+    border-top: 1px solid var(--color-neutral-100);
+  }
+`;
+
+const StyledDefintionListItem = styled.div`
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
+  padding-top: var(--spacing-6);
+  padding-bottom: var(--spacing-6);
+
+  @media (min-width: 640px) {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-4);
+    padding-left: 0;
+    padding-right: 0;
+  }
+`;
+
+const StyledDefinitionTerm = styled.dt`
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-6);
+  color: var(--color-gray-900);
+`;
+
+const StyledDefinitionDescription = styled.dd`
+  margin-top: var(--spacing-1);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-6);
+  color: var(--color-gray-700);
+
+  @media (min-width: 640px) {
+    grid-column: span 2 / span 2;
+    margin-top: 0;
+  }
+`;
+
+export const DefinitionList = React.forwardRef<
   HTMLDListElement,
   React.ComponentPropsWithoutRef<"dl">
 >(({ children, className, ...props }, ref) => {
   return (
-    <dl
-      ref={ref}
-      className={cn("divide-y divide-neutral-100", className)}
-      {...props}
-    >
+    <StyledDefinitionList ref={ref} className={className} {...props}>
       {children}
-    </dl>
+    </StyledDefinitionList>
   );
 });
 DefinitionList.displayName = "DefinitionList";
 
-const DefintionListItem = React.forwardRef<
+export const DefintionListItem = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <div
-      ref={ref}
-      className={cn(
-        "px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0",
-        className
-      )}
-      {...props}
-    >
+    <StyledDefintionListItem ref={ref} className={className} {...props}>
       {children}
-    </div>
+    </StyledDefintionListItem>
   );
 });
 DefintionListItem.displayName = "DefintionListItem";
 
-const DefinitionTerm = React.forwardRef<
+export const DefinitionTerm = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"dt">
 >(({ children, className, ...props }, ref) => {
   return (
-    <dt
-      ref={ref}
-      className={cn("text-sm font-medium leading-6 text-gray-900", className)}
-      {...props}
-    >
+    <StyledDefinitionTerm ref={ref} className={className} {...props}>
       {children}
-    </dt>
+    </StyledDefinitionTerm>
   );
 });
 DefinitionTerm.displayName = "DefinitionTerm";
 
-const DefinitionDescription = React.forwardRef<
+export const DefinitionDescription = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"dd">
 >(({ children, className, ...props }, ref) => {
   return (
-    <dd
-      ref={ref}
-      className={cn(
-        "mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0",
-        className
-      )}
-      {...props}
-    >
+    <StyledDefinitionDescription ref={ref} className={className} {...props}>
       {children}
-    </dd>
+    </StyledDefinitionDescription>
   );
 });
 DefinitionDescription.displayName = "DefinitionDescription";
-
-export {
-  DefinitionDescription,
-  DefinitionList,
-  DefinitionTerm,
-  DefintionListItem,
-};

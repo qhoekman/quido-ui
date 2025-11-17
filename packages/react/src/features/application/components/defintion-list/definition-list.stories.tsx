@@ -9,9 +9,9 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Features/Application/Components/Definition List",
   component: DefinitionList,
-} as Meta<typeof DefinitionList>;
+} satisfies Meta<typeof DefinitionList>;
 
-export const Default: StoryFn = (args) => (
+export const Default: StoryFn<typeof DefinitionList> = (args) => (
   <div className="max-w-2xl mx-auto">
     <DefinitionList {...args}>
       <DefintionListItem>
