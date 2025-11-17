@@ -13,9 +13,8 @@ const config: StorybookConfig = {
 
   addons: [
     "@storybook/addon-links",
-    "@storybook/addon-onboarding",
     "@storybook/addon-designs",
-    "@storybook/addon-docs"
+    "@storybook/addon-docs",
   ],
 
   core: {},
@@ -33,6 +32,6 @@ const config: StorybookConfig = {
       "@": require("path").resolve(__dirname, "../src"),
     };
     return config;
-  }
+  },
 };
 export default config;
