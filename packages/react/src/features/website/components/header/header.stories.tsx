@@ -16,7 +16,7 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Features/Website/Components/Header",
   component: Header,
-} as Meta<typeof Header>;
+} satisfies Meta<typeof Header>;
 
 export const WithCenteredContent: StoryFn = (args) => (
   <Header {...args}>
