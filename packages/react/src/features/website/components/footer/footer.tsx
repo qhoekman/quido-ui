@@ -1,212 +1,291 @@
-import { cn } from "@/lib/utils";
 import React from "react";
+import styled from "styled-components";
 
-const Footer = React.forwardRef<
+const StyledFooter = styled.footer``;
+
+const StyledFooterSrOnly = styled.h2`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+`;
+
+const StyledFooterContainer = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--columns-7xl);
+  padding-left: var(--spacing-6);
+  padding-right: var(--spacing-6);
+  padding-bottom: var(--spacing-8);
+  padding-top: var(--spacing-16);
+
+  @media (min-width: 640px) {
+    padding-top: var(--spacing-24);
+  }
+
+  @media (min-width: 1024px) {
+    padding-left: var(--spacing-8);
+    padding-right: var(--spacing-8);
+    padding-top: var(--spacing-32);
+  }
+`;
+
+const StyledFooterContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--spacing-10);
+
+  @media (min-width: 768px) {
+    gap: var(--spacing-14);
+  }
+
+  @media (min-width: 1280px) {
+    flex-direction: row;
+  }
+`;
+
+const StyledFooterColumns = styled.div`
+  @media (min-width: 640px) {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--spacing-10);
+  }
+
+  @media (min-width: 1280px) {
+    gap: var(--spacing-20);
+  }
+`;
+
+const StyledFooterColumn = styled.div`
+  margin-top: var(--spacing-10);
+
+  @media (min-width: 640px) {
+    margin-top: 0;
+  }
+`;
+
+const StyledFooterHeading = styled.h3`
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-6);
+  color: var(--color-neutral-900);
+`;
+
+const StyledFooterColumnList = styled.ul`
+  margin-top: var(--spacing-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+
+  @media (min-width: 1024px) {
+    margin-top: var(--spacing-6);
+  }
+`;
+
+const StyledFooterColumnListItem = styled.li`
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-6);
+  color: var(--color-neutral-600);
+
+  &:hover {
+    color: var(--color-neutral-900);
+  }
+`;
+
+const StyledFooterSection = styled.div`
+  display: flex;
+  max-width: var(--columns-xs);
+  flex-direction: column;
+  gap: var(--spacing-4);
+
+  @media (min-width: 640px) {
+    max-width: var(--columns-lg);
+  }
+`;
+
+const StyledFooterBanner = styled.div`
+  margin-top: var(--spacing-12);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--spacing-6);
+  border-top: var(--border-width-default) solid hsl(from var(--color-neutral-900) h s l / 10%);
+  padding-top: var(--spacing-4);
+
+  @media (min-width: 640px) {
+    margin-top: var(--spacing-20);
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  @media (min-width: 1024px) {
+    margin-top: var(--spacing-16);
+  }
+`;
+
+const StyledFooterCopyright = styled.p`
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-5);
+  color: var(--color-neutral-500);
+`;
+
+const StyledFooterLink = styled.a`
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-5);
+  color: var(--color-neutral-500);
+  text-decoration: underline;
+
+  &:hover {
+    color: var(--color-neutral-600);
+  }
+`;
+
+export const Footer = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"footer">
 >(({ children, className, ...props }, ref) => {
   return (
-    <footer ref={ref} aria-labelledby="footer-heading">
-      <h2 id="footer-heading" className="sr-only">
-        Footer
-      </h2>
+    <StyledFooter ref={ref} aria-labelledby="footer-heading">
+      <StyledFooterSrOnly id="footer-heading">Footer</StyledFooterSrOnly>
 
-      <div
-        className={cn(
-          "mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32",
-          className
-        )}
-        {...props}
-      >
+      <StyledFooterContainer className={className} {...props}>
         {children}
-      </div>
-    </footer>
+      </StyledFooterContainer>
+    </StyledFooter>
   );
 });
 Footer.displayName = "Footer";
 
-const FooterContent = React.forwardRef<
+export const FooterContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <div
-      ref={ref}
-      className={cn(
-        "flex flex-col justify-between gap-10 md:gap-14 xl:flex-row",
-        className
-      )}
-      {...props}
-    >
+    <StyledFooterContent ref={ref} className={className} {...props}>
       {children}
-    </div>
+    </StyledFooterContent>
   );
 });
 FooterContent.displayName = "FooterContent";
 
-const FooterColumns = React.forwardRef<
+export const FooterColumns = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <div
-      ref={ref}
-      className={cn("sm:grid sm:grid-cols-4 sm:gap-10 xl:gap-20", className)}
-      {...props}
-    >
+    <StyledFooterColumns ref={ref} className={className} {...props}>
       {children}
-    </div>
+    </StyledFooterColumns>
   );
 });
 FooterColumns.displayName = "FooterColumns";
 
-const FooterColumn = React.forwardRef<
+export const FooterColumn = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <div ref={ref} className={cn("mt-10 sm:mt-0", className)} {...props}>
+    <StyledFooterColumn ref={ref} className={className} {...props}>
       {children}
-    </div>
+    </StyledFooterColumn>
   );
 });
 FooterColumn.displayName = "FooterColumn";
 
-const FooterHeading = React.forwardRef<
+export const FooterHeading = React.forwardRef<
   HTMLHeadingElement,
   React.ComponentPropsWithoutRef<"h3">
 >(({ children, className, ...props }, ref) => {
   return (
-    <h3
-      ref={ref}
-      className={cn(
-        "text-sm font-semibold leading-6 text-neutral-900",
-        className
-      )}
-      {...props}
-    >
+    <StyledFooterHeading ref={ref} className={className} {...props}>
       {children}
-    </h3>
+    </StyledFooterHeading>
   );
 });
 FooterHeading.displayName = "FooterHeading";
 
-const FooterColumnList = React.forwardRef<
+export const FooterColumnList = React.forwardRef<
   HTMLUListElement,
   React.ComponentPropsWithoutRef<"ul">
 >(({ children, className, ...props }, ref) => {
   return (
-    <ul
+    <StyledFooterColumnList
       ref={ref}
       role="list"
-      className={cn("mt-2 space-y-4 lg:mt-6", className)}
+      className={className}
       {...props}
     >
       {children}
-    </ul>
+    </StyledFooterColumnList>
   );
 });
 FooterColumnList.displayName = "FooterColumnList";
 
-const FooterColumnListItem = React.forwardRef<
+export const FooterColumnListItem = React.forwardRef<
   HTMLLIElement,
   React.ComponentPropsWithoutRef<"li">
 >(({ children, className, ...props }, ref) => {
   return (
-    <li
-      ref={ref}
-      className={cn(
-        "text-sm leading-6 text-neutral-600 hover:text-neutral-900",
-        className
-      )}
-      {...props}
-    >
+    <StyledFooterColumnListItem ref={ref} className={className} {...props}>
       {children}
-    </li>
+    </StyledFooterColumnListItem>
   );
 });
 FooterColumnListItem.displayName = "FooterColumnListItem";
 
-const FooterSection = React.forwardRef<
+export const FooterSection = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <div
-      ref={ref}
-      className={cn("flex max-w-xs flex-col gap-4 sm:max-w-lg", className)}
-      {...props}
-    >
+    <StyledFooterSection ref={ref} className={className} {...props}>
       {children}
-    </div>
+    </StyledFooterSection>
   );
 });
 FooterSection.displayName = "FooterSection";
 
-const FooterBanner = React.forwardRef<
+export const FooterBanner = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <div
-      ref={ref}
-      className={cn(
-        "mt-12 flex flex-col justify-between space-y-6 border-t border-neutral-900/10 pt-4 sm:mt-20 md:flex-row md:items-end lg:mt-16",
-        className
-      )}
-      {...props}
-    >
+    <StyledFooterBanner ref={ref} className={className} {...props}>
       {children}
-    </div>
+    </StyledFooterBanner>
   );
 });
 FooterBanner.displayName = "FooterBanner";
 
-const FooterCopyright = React.forwardRef<
+export const FooterCopyright = React.forwardRef<
   HTMLParagraphElement,
   React.ComponentPropsWithoutRef<"p">
 >(({ children, className, ...props }, ref) => {
   return (
-    <p
-      ref={ref}
-      className={cn("text-xs leading-5 text-neutral-500 ", className)}
-      {...props}
-    >
+    <StyledFooterCopyright ref={ref} className={className} {...props}>
       {children}
-    </p>
+    </StyledFooterCopyright>
   );
 });
-FooterBanner.displayName = "FooterBanner";
+FooterCopyright.displayName = "FooterCopyright";
 
-const FooterLink = React.forwardRef<
+export const FooterLink = React.forwardRef<
   HTMLAnchorElement,
   React.ComponentPropsWithoutRef<"a">
 >(({ children, className, ...props }, ref) => {
   return (
-    <a
-      ref={ref}
-      className={cn(
-        "text-xs leading-5 text-neutral-500 underline hover:text-neutral-600",
-        className
-      )}
-      {...props}
-    >
+    <StyledFooterLink ref={ref} className={className} {...props}>
       {children}
-    </a>
+    </StyledFooterLink>
   );
 });
 FooterLink.displayName = "FooterLink";
-
-export {
-  Footer,
-  FooterBanner,
-  FooterColumn,
-  FooterColumnList,
-  FooterColumnListItem,
-  FooterColumns,
-  FooterContent,
-  FooterCopyright,
-  FooterHeading,
-  FooterLink,
-  FooterSection,
-};

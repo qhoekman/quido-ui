@@ -19,7 +19,7 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Features/Website/Components/Footer",
   component: Footer,
-} as Meta<typeof Footer>;
+} satisfies Meta<typeof Footer>;
 
 const links = {
   company: [
@@ -109,7 +109,7 @@ const links = {
   ],
 };
 
-export const WithColumns: StoryFn = (args) => (
+export const WithColumns: StoryFn<typeof Footer> = (args) => (
   <Footer {...args}>
     <FooterContent>
       <FooterColumns>
