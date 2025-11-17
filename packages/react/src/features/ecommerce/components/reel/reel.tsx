@@ -1,77 +1,94 @@
 import { useReelButton } from "@/features/ecommerce/components/reel/useReelButton";
-import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import React from "react";
+import styled from "styled-components";
+
+const StyledReel = styled.div`
+  display: flex;
+`;
+
+const StyledReelItems = styled.div`
+  display: flex;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+`;
+
+const StyledReelItem = styled.div`
+  flex: 0 0 auto;
+  width: var(--spacing-40);
+  min-width: var(--spacing-40);
+  height: var(--spacing-40);
+`;
+
+const StyledReelButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--spacing-40);
+  min-width: var(--spacing-40);
+  height: var(--spacing-40);
+  flex-shrink: 0;
+  background-color: var(--color-gray-100);
+  border-radius: var(--border-radius-md);
+`;
 
 type ReelProps = React.HTMLAttributes<HTMLDivElement>;
 
 export const Reel = React.forwardRef<HTMLDivElement, ReelProps>(
   ({ className, ...props }, ref) => {
     return (
-      <div ref={ref} className={cn("flex", className)} {...props}>
+      <StyledReel ref={ref} className={className} {...props}>
         {props.children}
-      </div>
+      </StyledReel>
     );
   }
 );
+Reel.displayName = "Reel";
 
 type ReelItemsProps = React.HTMLAttributes<HTMLDivElement>;
 
 export const ReelItems = React.forwardRef<HTMLDivElement, ReelItemsProps>(
   ({ className, ...props }, ref) => {
     return (
-      <div
+      <StyledReelItems
         ref={ref}
         data-reel-items
-        className={cn(
-          "flex h-full overflow-x-auto overflow-y-hidden",
-          className
-        )}
+        className={className}
         {...props}
       >
         {props.children}
-      </div>
+      </StyledReelItems>
     );
   }
 );
+ReelItems.displayName = "ReelItems";
 
 type ReelItemProps = React.HTMLAttributes<HTMLDivElement>;
 
 export const ReelItem = React.forwardRef<HTMLDivElement, ReelItemProps>(
   ({ className, ...props }, ref) => {
     return (
-      <div
-        ref={ref}
-        className={cn(
-          " flex-grow-0 flex-shrink-0 flex-auto w-40 h-40",
-          className
-        )}
-        {...props}
-      >
+      <StyledReelItem ref={ref} className={className} {...props}>
         {props.children}
-      </div>
+      </StyledReelItem>
     );
   }
 );
+ReelItem.displayName = "ReelItem";
 
 type ReelButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const ReelButton = React.forwardRef<HTMLButtonElement, ReelButtonProps>(
   ({ className, ...props }, ref) => {
     return (
-      <button
-        ref={ref}
-        className={cn(
-          "flex items-center justify-center w-40 h-40 bg-gray-100 rounded-md",
-          className
-        )}
-        {...props}
-      >
+      <StyledReelButton ref={ref} className={className} {...props}>
         {props.children}
-      </button>
+      </StyledReelButton>
     );
   }
 );
+ReelButton.displayName = "ReelButton";
 
 export const ReelButtonNext: React.FC<ReelButtonProps> = ({
   className,
@@ -87,7 +104,7 @@ export const ReelButtonNext: React.FC<ReelButtonProps> = ({
   return (
     <ReelButton
       ref={containerRef}
-      className={cn(className)}
+      className={className}
       onClick={handleClick}
       disabled={canNext}
       {...props}
@@ -111,7 +128,7 @@ export const ReelButtonPrevious: React.FC<ReelButtonProps> = ({
   return (
     <ReelButton
       ref={containerRef}
-      className={cn(className)}
+      className={className}
       onClick={handleClick}
       disabled={canPrev}
       {...props}
