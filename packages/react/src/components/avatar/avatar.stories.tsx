@@ -7,17 +7,21 @@ export default {
   component: Avatar,
   argTypes: {
     variant: {
-      options: ["default"],
+      options: ["primary"],
       control: {
         type: "select",
       },
     },
     size: {
-      options: ["default", "sm", "lg"],
+      options: ["md", "sm", "lg"],
       control: {
         type: "select",
       },
     },
+  },
+  args: {
+    variant: "primary",
+    size: "md",
   },
 } as Meta<typeof Avatar>;
 
@@ -28,9 +32,4 @@ export const Default: StoryFn<typeof Avatar> = (args) => {
       <AvatarFallback>JD</AvatarFallback>
     </Avatar>
   );
-};
-
-Default.args = {
-  variant: "default",
-  size: "default",
 };
