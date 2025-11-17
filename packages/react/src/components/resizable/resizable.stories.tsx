@@ -8,12 +8,20 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Components/Layout/Resizable",
   component: ResizablePanelGroup,
+  argTypes: {
+    direction: {
+      control: "select",
+      options: ["horizontal", "vertical"],
+    },
+  },
+  args: {
+    direction: "horizontal",
+  },
 } satisfies Meta<typeof ResizablePanelGroup>;
 
 export const Default: StoryFn<typeof ResizablePanelGroup> = (args) => (
   <ResizablePanelGroup
     {...args}
-    direction="horizontal"
     className="max-w-md rounded-lg border"
   >
     <ResizablePanel defaultSize={50}>
