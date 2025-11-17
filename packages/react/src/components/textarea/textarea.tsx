@@ -1,18 +1,42 @@
-import * as React from "react";
+import React from "react";
+import styled from "styled-components";
 
-import { cn } from "@/lib/utils";
+const StyledTextarea = styled.textarea`
+  display: flex;
+  min-height: 80px;
+  width: 100%;
+  border-radius: var(--border-radius-md);
+  border: var(--border-width-default) solid var(--color-border);
+  background-color: var(--color-white);
+  padding-left: var(--spacing-3);
+  padding-right: var(--spacing-3);
+  padding-top: var(--spacing-2);
+  padding-bottom: var(--spacing-2);
+  font-size: var(--font-size-sm);
+  box-shadow: 0 0 0 0 var(--color-background);
 
-export interface TextareaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+  &::placeholder {
+    color: var(--color-muted-fg);
+  }
 
-const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-ring), 0 0 0 4px var(--color-background);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+`;
+
+export type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
+
+export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, ...props }, ref) => {
     return (
-      <textarea
-        className={cn(
-          "flex min-h-[80px] w-full rounded-md border border-input bg-white px-3 py-2 text-sm ring-offset-background placeholder:text-muted-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-          className
-        )}
+      <StyledTextarea
+        className={className}
         ref={ref}
         {...props}
       />
@@ -20,5 +44,3 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   }
 );
 Textarea.displayName = "Textarea";
-
-export { Textarea };

@@ -11,9 +11,33 @@ export default {
     disabled: {
       control: "boolean",
     },
+    readOnly: {
+      control: "boolean",
+    },
+    required: {
+      control: "boolean",
+    },
     value: {
       control: "text",
     },
+    rows: {
+      control: "number",
+    },
+    cols: {
+      control: "number",
+    },
+    maxLength: {
+      control: "number",
+    },
+    minLength: {
+      control: "number",
+    },
+  },
+  args: {
+    placeholder: "Enter your message",
+    disabled: false,
+    readOnly: false,
+    required: false,
   },
 } satisfies Meta<typeof Textarea>;
 
