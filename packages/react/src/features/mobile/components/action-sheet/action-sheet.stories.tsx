@@ -14,9 +14,36 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Features/Mobile/Components/Action Sheet",
   component: ActionSheet,
-} as Meta<typeof ActionSheet>;
+  argTypes: {
+    shouldScaleBackground: {
+      control: "boolean",
+      description: "Whether the background should scale when the drawer opens",
+    },
+    defaultOpen: {
+      control: "boolean",
+      description: "The open state of the action sheet when it is initially rendered",
+    },
+    open: {
+      control: "boolean",
+      description: "The controlled open state of the action sheet",
+    },
+    modal: {
+      control: "boolean",
+      description: "Whether the action sheet is modal",
+    },
+    dismissible: {
+      control: "boolean",
+      description: "Whether the action sheet can be dismissed by clicking outside or pressing escape",
+    },
+  },
+  args: {
+    shouldScaleBackground: true,
+    modal: true,
+    dismissible: true,
+  },
+} satisfies Meta<typeof ActionSheet>;
 
-export const Default: StoryFn = (args) => (
+export const Default: StoryFn<typeof ActionSheet> = (args) => (
   <ActionSheet {...args}>
     <ActionSheetTrigger asChild>
       <Button variant="outline">Open ActionSheet</Button>
