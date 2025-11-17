@@ -1,8 +1,7 @@
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 import * as React from "react";
-
-import { cn } from "@/lib/utils";
+import styled from "styled-components";
 
 const Dialog = DialogPrimitive.Root;
 Dialog.displayName = "Dialog";
@@ -16,20 +15,179 @@ DialogPortal.displayName = "DialogPortal";
 const DialogClose = DialogPrimitive.Close;
 DialogClose.displayName = "DialogClose";
 
+const StyledDialogOverlay = styled(DialogPrimitive.Overlay)`
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-index-50);
+  background-color: hsl(from var(--color-background) h s l / 80%);
+  backdrop-filter: blur(var(--blur-sm));
+
+  &[data-state="open"] {
+    animation: fade-in 0.2s ease-in-out;
+  }
+
+  &[data-state="closed"] {
+    animation: fade-out 0.2s ease-in-out;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+`;
+
 const DialogOverlay = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
 >(({ className, ...props }, ref) => (
-  <DialogPrimitive.Overlay
-    ref={ref}
-    className={cn(
-      "fixed inset-0 z-50 bg-background/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
-      className
-    )}
-    {...props}
-  />
+  <StyledDialogOverlay ref={ref} className={className} {...props} />
 ));
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
+
+const StyledDialogClose = styled(DialogPrimitive.Close)`
+  position: absolute;
+  right: var(--spacing-4);
+  top: var(--spacing-4);
+  border-radius: var(--border-radius-sm);
+  opacity: 0.7;
+  transition: opacity 0.3s;
+  outline: none;
+  box-shadow: 0 0 0 0 var(--color-background);
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-ring), 0 0 0 4px var(--color-background);
+  }
+
+  &:disabled {
+    pointer-events: none;
+  }
+
+  &[data-state="open"] {
+    background-color: var(--color-accent);
+    color: var(--color-muted-fg);
+  }
+`;
+
+const StyledDialogContent = styled(DialogPrimitive.Content)`
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: var(--z-index-50);
+  display: grid;
+  width: 100%;
+  max-width: var(--columns-lg);
+  transform: translate(-50%, -50%);
+  gap: var(--spacing-4);
+  border: var(--border-width-default) solid var(--color-border);
+  background-color: var(--color-background);
+  padding: var(--spacing-6);
+  box-shadow: var(--box-shadow-lg);
+  transition-duration: 200ms;
+
+  &[data-state="open"] {
+    animation: fade-in 0.2s ease-in-out, zoom-in 0.2s ease-in-out,
+      slide-in-from-left 0.2s ease-in-out, slide-in-from-top 0.2s ease-in-out;
+  }
+
+  &[data-state="closed"] {
+    animation: fade-out 0.2s ease-in-out, zoom-out 0.2s ease-in-out,
+      slide-out-to-left 0.2s ease-in-out, slide-out-to-top 0.2s ease-in-out;
+  }
+
+  @media (min-width: 640px) {
+    border-radius: var(--border-radius-lg);
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes zoom-in {
+    from {
+      transform: translate(-50%, -50%) scale(0.95);
+    }
+    to {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  @keyframes zoom-out {
+    from {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+      transform: translate(-50%, -50%) scale(0.95);
+    }
+  }
+
+  @keyframes slide-in-from-left {
+    from {
+      transform: translate(calc(-50% - 50%), -50%);
+    }
+    to {
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  @keyframes slide-in-from-top {
+    from {
+      transform: translate(-50%, calc(-50% - 48%));
+    }
+    to {
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  @keyframes slide-out-to-left {
+    from {
+      transform: translate(-50%, -50%);
+    }
+    to {
+      transform: translate(calc(-50% - 50%), -50%);
+    }
+  }
+
+  @keyframes slide-out-to-top {
+    from {
+      transform: translate(-50%, -50%);
+    }
+    to {
+      transform: translate(-50%, calc(-50% - 48%));
+    }
+  }
+`;
 
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
@@ -37,76 +195,80 @@ const DialogContent = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <DialogPortal>
     <DialogOverlay />
-    <DialogPrimitive.Content
-      ref={ref}
-      className={cn(
-        "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg",
-        className
-      )}
-      {...props}
-    >
+    <StyledDialogContent ref={ref} className={className} {...props}>
       {children}
-      <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-fg">
+      <StyledDialogClose>
         <X className="h-4 w-4" />
         <span className="sr-only">Close</span>
-      </DialogPrimitive.Close>
-    </DialogPrimitive.Content>
+      </StyledDialogClose>
+    </StyledDialogContent>
   </DialogPortal>
 ));
 DialogContent.displayName = "DialogContent";
+
+const StyledDialogHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1-5);
+  text-align: center;
+
+  @media (min-width: 640px) {
+    text-align: left;
+  }
+`;
 
 const DialogHeader = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={cn(
-      "flex flex-col space-y-1.5 text-center sm:text-left",
-      className
-    )}
-    {...props}
-  />
+  <StyledDialogHeader className={className} {...props} />
 );
 DialogHeader.displayName = "DialogHeader";
+
+const StyledDialogFooter = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--spacing-2);
+
+  @media (min-width: 640px) {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+`;
 
 const DialogFooter = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={cn(
-      "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
-      className
-    )}
-    {...props}
-  />
+  <StyledDialogFooter className={className} {...props} />
 );
 DialogFooter.displayName = "DialogFooter";
+
+const StyledDialogTitle = styled(DialogPrimitive.Title)`
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-none);
+  letter-spacing: var(--letter-spacing-tight);
+`;
 
 const DialogTitle = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
 >(({ className, ...props }, ref) => (
-  <DialogPrimitive.Title
-    ref={ref}
-    className={cn(
-      "text-lg font-semibold leading-none tracking-tight",
-      className
-    )}
-    {...props}
-  />
+  <StyledDialogTitle ref={ref} className={className} {...props} />
 ));
 DialogTitle.displayName = "DialogTitle";
+
+const StyledDialogDescription = styled(DialogPrimitive.Description)`
+  font-size: var(--font-size-sm);
+  color: var(--color-muted-fg);
+`;
 
 const DialogDescription = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
 >(({ className, ...props }, ref) => (
-  <DialogPrimitive.Description
-    ref={ref}
-    className={cn("text-sm text-muted-fg", className)}
-    {...props}
-  />
+  <StyledDialogDescription ref={ref} className={className} {...props} />
 ));
 DialogDescription.displayName = "DialogDescription";
 

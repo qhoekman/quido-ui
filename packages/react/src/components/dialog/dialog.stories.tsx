@@ -15,7 +15,22 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Components/Overlay/Dialog",
   component: Dialog,
-} as Meta<typeof Dialog>;
+  argTypes: {
+    defaultOpen: {
+      control: "boolean",
+    },
+    open: {
+      control: "boolean",
+    },
+    modal: {
+      control: "boolean",
+    },
+  },
+  args: {
+    defaultOpen: false,
+    modal: true,
+  },
+} satisfies Meta<typeof Dialog>;
 
 export const Default: StoryFn<typeof Dialog> = (args) => (
   <Dialog {...args}>
@@ -53,7 +68,3 @@ export const Default: StoryFn<typeof Dialog> = (args) => (
     </DialogContent>
   </Dialog>
 );
-
-Default.args = {
-  defaultOpen: false,
-};
