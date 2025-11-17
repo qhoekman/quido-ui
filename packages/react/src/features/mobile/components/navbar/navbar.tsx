@@ -1,24 +1,102 @@
-import { cn } from "@/lib/utils";
 import { ArrowLeft } from "lucide-react";
 import React from "react";
+import styled from "styled-components";
+
+const StyledNavbar = styled.div`
+  width: 100%;
+  z-index: var(--z-index-20);
+  top: 0;
+  padding-top: var(--spacing-1);
+  padding-bottom: var(--spacing-1);
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
+  font-size: var(--font-size-sm);
+  color: var(--color-black);
+  position: sticky;
+`;
+
+const StyledNavbarBackground = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-bottom: var(--border-width-2) solid var(--color-slate-200);
+  background-color: var(--color-neutral-50);
+`;
+
+const StyledNavbarContent = styled.div`
+  display: flex;
+  position: relative;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  padding-left: max(var(--spacing-2), env(safe-area-inset-left));
+  padding-right: max(var(--spacing-2), env(safe-area-inset-right));
+  height: var(--spacing-11);
+  justify-content: space-between;
+`;
+
+const StyledNavbarTitle = styled.h1`
+  white-space: nowrap;
+  display: block;
+  line-height: var(--line-height-tight);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+`;
+
+const StyledNavbarSubtitle = styled.span`
+  font-weight: var(--font-weight-normal);
+  display: block;
+  line-height: var(--line-height-none);
+  font-size: 0.625rem;
+  opacity: 0.5;
+`;
+
+const StyledNavbarLinkWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-inline-end: var(--spacing-2);
+`;
+
+const StyledNavbarLink = styled.a`
+  color: var(--color-primary);
+  display: inline-flex;
+  gap: var(--spacing-1);
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  height: 100%;
+  max-height: var(--spacing-12);
+  cursor: pointer;
+  transition-duration: 300ms;
+
+  &:dir(rtl) {
+    flex-direction: row-reverse;
+  }
+
+  &:active {
+    opacity: 0.3;
+    transition-duration: 0ms;
+  }
+`;
 
 const Navbar = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <div
-      ref={ref}
-      className={cn(
-        "w-full z-20 top-0 py-1 px-4 text-sm text-black sticky",
-        className
-      )}
-      {...props}
-    >
-      <div className="absolute w-full h-full left-0 top-0 border-b-2 border-slate-200 bg-neutral-50" />
-
+    <StyledNavbar ref={ref} className={className} {...props}>
+      <StyledNavbarBackground />
       {children}
-    </div>
+    </StyledNavbar>
   );
 });
 Navbar.displayName = "Navbar";
@@ -28,16 +106,9 @@ const NavbarContent = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <div
-      ref={ref}
-      className={cn(
-        "flex relative items-center w-full overflow-hidden pl-2-safe pr-2-safe h-11 justify-between",
-        className
-      )}
-      {...props}
-    >
+    <StyledNavbarContent ref={ref} className={className} {...props}>
       {children}
-    </div>
+    </StyledNavbarContent>
   );
 });
 NavbarContent.displayName = "NavbarContent";
@@ -47,16 +118,9 @@ const NavbarTitle = React.forwardRef<
   React.ComponentPropsWithoutRef<"h1">
 >(({ children, className, ...props }, ref) => {
   return (
-    <h1
-      ref={ref}
-      className={cn(
-        "whitespace-nowrap block leading-tight absolute top-1/2 left-1/2 transform-gpu -translate-x-1/2 -translate-y-1/2 text-center text-sm font-semibold",
-        className
-      )}
-      {...props}
-    >
+    <StyledNavbarTitle ref={ref} className={className} {...props}>
       {children}
-    </h1>
+    </StyledNavbarTitle>
   );
 });
 NavbarTitle.displayName = "NavbarTitle";
@@ -66,16 +130,9 @@ const NavbarSubtitle = React.forwardRef<
   React.ComponentPropsWithoutRef<"span">
 >(({ children, className, ...props }, ref) => {
   return (
-    <span
-      ref={ref}
-      className={cn(
-        "font-normal block leading-none text-2xs opacity-50",
-        className
-      )}
-      {...props}
-    >
+    <StyledNavbarSubtitle ref={ref} className={className} {...props}>
       {children}
-    </span>
+    </StyledNavbarSubtitle>
   );
 });
 NavbarSubtitle.displayName = "NavbarSubtitle";
@@ -85,19 +142,16 @@ const NavbarLink = React.forwardRef<
   React.ComponentPropsWithoutRef<"a">
 >(({ children, className, href = "#", ...props }, ref) => {
   return (
-    <div className="flex justify-center items-center h-full me-2">
-      <a
+    <StyledNavbarLinkWrapper>
+      <StyledNavbarLink
         ref={ref}
         href={href}
-        className={cn(
-          "text-primary inline-flex space-x-1 rtl:!space-x-reverse justify-center items-center select-none active:opacity-30 duration-300 active:duration-0 h-full max-h-12 cursor-pointer",
-          className
-        )}
+        className={className}
         {...props}
       >
         {children}
-      </a>
-    </div>
+      </StyledNavbarLink>
+    </StyledNavbarLinkWrapper>
   );
 });
 NavbarLink.displayName = "NavbarLink";
@@ -107,7 +161,7 @@ const NavbarBack = React.forwardRef<
   React.ComponentPropsWithoutRef<"a">
 >(({ className, children, href = "#", ...props }, ref) => {
   return (
-    <NavbarLink ref={ref} href={href} className={cn("", className)} {...props}>
+    <NavbarLink ref={ref} href={href} className={className} {...props}>
       {!children && (
         <>
           <ArrowLeft />

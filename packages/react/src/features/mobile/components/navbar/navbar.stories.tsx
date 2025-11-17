@@ -12,9 +12,9 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Features/Mobile/Components/Navbar",
   component: Navbar,
-} as Meta<typeof Navbar>;
+} satisfies Meta<typeof Navbar>;
 
-export const Default: StoryFn = (args) => (
+export const Default: StoryFn<typeof Navbar> = (args) => (
   <ViewportLayout>
     <Navbar {...args}>
       <NavbarContent>
