@@ -28,10 +28,7 @@ export default {
 
 export const Default: StoryFn<typeof Collapsible> = (args) => {
   return (
-    <Collapsible
-      className="w-[350px] space-y-2"
-      {...args}
-    >
+    <Collapsible className="w-[350px] space-y-2" {...args}>
       <div className="flex items-center justify-between space-x-4 px-4">
         <h4 className="text-sm font-semibold">Lorem ipsum...</h4>
         <CollapsibleTrigger asChild>
