@@ -34,7 +34,29 @@ import {
 export default {
   title: "Components/Overlay/Drop Down",
   component: DropdownMenu,
-} as Meta<typeof DropdownMenu>;
+  argTypes: {
+    defaultOpen: {
+      control: "boolean",
+      description: "The open state of the dropdown menu when it is initially rendered",
+    },
+    open: {
+      control: "boolean",
+      description: "The controlled open state of the dropdown menu",
+    },
+    modal: {
+      control: "boolean",
+      description: "Whether the dropdown menu is modal",
+    },
+    dir: {
+      control: "select",
+      options: ["ltr", "rtl"],
+      description: "The reading direction of the dropdown menu",
+    },
+  },
+  args: {
+    defaultOpen: false,
+  },
+} satisfies Meta<typeof DropdownMenu>;
 
 export const Default: StoryFn<typeof DropdownMenu> = (args) => (
   <DropdownMenu {...args}>
@@ -123,7 +145,3 @@ export const Default: StoryFn<typeof DropdownMenu> = (args) => (
     </DropdownMenuContent>
   </DropdownMenu>
 );
-
-Default.args = {
-  defaultOpen: false,
-};
