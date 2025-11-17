@@ -19,7 +19,11 @@ export default {
 
 export const WithLeftContent: StoryFn<typeof CTA> = (args) => (
   <CTA {...args}>
-    <CTAContent className="bg-neutral-100">
+    <CTAContent
+      style={{
+        backgroundColor: "var(--color-neutral-100)",
+      }}
+    >
       <CTATitle>Get in touch</CTATitle>
       <CTASubtitle>
         We are here to help you with any questions you may have
@@ -38,12 +42,26 @@ export const WithLeftContent: StoryFn<typeof CTA> = (args) => (
 
 export const WithCenteredContent: StoryFn<typeof CTA> = (args) => (
   <CTA {...args}>
-    <CTAContent className="text-center bg-neutral-100">
+    <CTAContent
+      style={{
+        textAlign: "center",
+        backgroundColor: "var(--color-neutral-100)",
+      }}
+    >
       <CTATitle>Get in touch</CTATitle>
-      <CTASubtitle className="mx-auto">
+      <CTASubtitle
+        style={{
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}
+      >
         We are here to help you with any questions you may have
       </CTASubtitle>
-      <CTAActions className="justify-center sm:mx-auto">
+      <CTAActions
+        style={{
+          justifyContent: "center",
+        }}
+      >
         <Button asChild>
           <a href="#">Contact us</a>
         </Button>
@@ -64,15 +82,31 @@ export const WithBackdrop: StoryFn<typeof CTA> = (args) => (
       height={1280}
     />
     <CTAContent>
-      <CTATitle className="text-white">Get in touch</CTATitle>
-      <CTASubtitle className="text-neutral-100">
+      <CTATitle
+        style={{
+          color: "var(--color-white)",
+        }}
+      >
+        Get in touch
+      </CTATitle>
+      <CTASubtitle
+        style={{
+          color: "var(--color-neutral-100)",
+        }}
+      >
         We are here to help you with any questions you may have
       </CTASubtitle>
       <CTAActions>
         <Button asChild>
           <a href="#">Contact us</a>
         </Button>
-        <Button variant="outline" className="text-neutral-100" asChild>
+        <Button
+          variant="outline"
+          style={{
+            color: "var(--color-neutral-100)",
+          }}
+          asChild
+        >
           <a href="#">Learn more</a>
         </Button>
       </CTAActions>
@@ -89,12 +123,26 @@ export const WithFormVertical: StoryFn<typeof CTA> = (args) => (
       height={1280}
     />
     <CTAContent>
-      <CTATitle className="text-white">Get in touch</CTATitle>
-      <CTASubtitle className="text-neutral-100">
+      <CTATitle
+        style={{
+          color: "var(--color-white)",
+        }}
+      >
+        Get in touch
+      </CTATitle>
+      <CTASubtitle
+        style={{
+          color: "var(--color-neutral-100)",
+        }}
+      >
         We are here to help you with any questions you may have
       </CTASubtitle>
 
-      <CTASection className="max-w-md">
+      <CTASection
+        style={{
+          maxWidth: "28rem",
+        }}
+      >
         <div className="flex items-start gap-x-4">
           <Label htmlFor="email-address" className="sr-only">
             Email address
@@ -125,8 +173,17 @@ export const WithFormVertical: StoryFn<typeof CTA> = (args) => (
 
 export const WithFormHorizontal: StoryFn<typeof CTA> = (args) => (
   <CTA {...args}>
-    <CTAContent className="bg-neutral-100 gap-7 xl:flex-row">
-      <CTASection className="text-center xl:text-left">
+    <CTAContent
+      style={{
+        backgroundColor: "var(--color-neutral-100)",
+        gap: "var(--spacing-7)",
+      }}
+    >
+      <CTASection
+        style={{
+          textAlign: "center",
+        }}
+      >
         <CTATitle>Get up-to-date</CTATitle>
         <CTASubtitle>
           Subscribe to our newsletter and be the first to know about our newest
@@ -134,7 +191,11 @@ export const WithFormHorizontal: StoryFn<typeof CTA> = (args) => (
         </CTASubtitle>
       </CTASection>
 
-      <CTASection className="max-w-md">
+      <CTASection
+        style={{
+          maxWidth: "28rem",
+        }}
+      >
         <div className="flex items-start gap-x-4">
           <Label htmlFor="email-address" className="sr-only">
             Email address
@@ -172,16 +233,38 @@ export const WithFormHorizontalBackdrop: StoryFn<typeof CTA> = (args) => (
       height={1280}
     />
 
-    <CTAContent className="gap-7 xl:flex-row">
-      <CTASection className="text-center xl:text-left">
-        <CTATitle className="text-white">Get up-to-date</CTATitle>
-        <CTASubtitle className="text-neutral-200">
+    <CTAContent
+      style={{
+        gap: "var(--spacing-7)",
+      }}
+    >
+      <CTASection
+        style={{
+          textAlign: "center",
+        }}
+      >
+        <CTATitle
+          style={{
+            color: "var(--color-white)",
+          }}
+        >
+          Get up-to-date
+        </CTATitle>
+        <CTASubtitle
+          style={{
+            color: "var(--color-neutral-200)",
+          }}
+        >
           Subscribe to our newsletter and be the first to know about our newest
           projects and resources.
         </CTASubtitle>
       </CTASection>
 
-      <CTASection className="max-w-md">
+      <CTASection
+        style={{
+          maxWidth: "28rem",
+        }}
+      >
         <div className="flex items-start gap-x-4">
           <Label htmlFor="email-address" className="sr-only">
             Email address
