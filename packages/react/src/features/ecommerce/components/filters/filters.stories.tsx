@@ -23,6 +23,47 @@ export default {
       appDirectory: true,
     },
   },
+  argTypes: {
+    labelPrefix: {
+      control: "text",
+      description: "Prefix for FilterRange labels (e.g., '€', '$')",
+    },
+    min: {
+      control: "number",
+      description: "Minimum value for FilterRange",
+    },
+    max: {
+      control: "number",
+      description: "Maximum value for FilterRange",
+    },
+    step: {
+      control: "number",
+      description: "Step value for FilterRange",
+    },
+    disabled: {
+      control: "boolean",
+      description: "Disable state for filter components",
+    },
+    variant: {
+      control: "select",
+      options: ["primary", "secondary", "destructive", "outline", "ghost", "link"],
+      description: "Variant for FilterClearButton",
+    },
+    size: {
+      control: "select",
+      options: ["sm", "md", "lg", "icon"],
+      description: "Size for FilterClearButton",
+    },
+  },
+  args: {
+    labelPrefix: "€",
+    min: 0,
+    max: 100,
+    step: 10,
+    disabled: false,
+    variant: "primary",
+    size: "md",
+  },
 } satisfies Meta<typeof FiltersForm>;
 
 const filters = {
@@ -41,6 +82,7 @@ export const Default: StoryFn<typeof FiltersForm> = (args) => (
           <FilterCheckbox
             key={`category.${category}`}
             name={`category.${category}`}
+            disabled={args.disabled}
           >
             {category}
           </FilterCheckbox>
@@ -49,7 +91,15 @@ export const Default: StoryFn<typeof FiltersForm> = (args) => (
     </SidebarSection>
     <SidebarGroupHeader>Price</SidebarGroupHeader>
     <SidebarSection className="px-4">
-      <FilterRange key={`price`} name={`price`} max={100} step={10}>
+      <FilterRange
+        key={`price`}
+        name={`price`}
+        min={args.min}
+        max={args.max}
+        step={args.step}
+        labelPrefix={args.labelPrefix}
+        disabled={args.disabled}
+      >
         Price
       </FilterRange>
     </SidebarSection>
@@ -63,6 +113,7 @@ export const Default: StoryFn<typeof FiltersForm> = (args) => (
               id={`brand.${brand}`}
               htmlFor="brand"
               value={brand}
+              disabled={args.disabled}
             >
               {brand}
             </FilterRadioGroupItem>
@@ -70,7 +121,12 @@ export const Default: StoryFn<typeof FiltersForm> = (args) => (
         </FilterRadioGroup>
       </FiltersForm>
     </SidebarSection>
-    <FilterClearButton className="w-full mx-4">
+    <FilterClearButton
+      className="w-full mx-4"
+      variant={args.variant}
+      size={args.size}
+      disabled={args.disabled}
+    >
       Clear all filters
     </FilterClearButton>
   </Sidebar>
