@@ -1,54 +1,97 @@
-import { VariantProps, cva } from "class-variance-authority";
 import React from "react";
+import styled, { css } from "styled-components";
+import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils";
-
-interface TagProps {
-  variant?: VariantProps<typeof tagVariants>["variant"];
-  size?: VariantProps<typeof tagVariants>["size"];
-  className?: string;
-  children: React.ReactNode;
-}
-
-const tagVariants = cva(
-  "inline-flex items-center justify-center rounded-full w-4 h-4 text-center text-xs",
-  {
-    variants: {
-      variant: {
-        default: "bg-primary text-primary-fg",
-        destructive: "bg-destructive text-destructive-fg",
-        outline: "border border-input hover:bg-accent",
-        secondary: "bg-secondary text-secondary-fg",
-      },
-      size: {
-        sm: "w-3 h-3",
-        md: "w-4 h-4",
-        lg: "w-5 h-5",
-      },
+const tagVariants = cva("q-tag", {
+  variants: {
+    variant: {
+      primary: "variant--primary",
+      destructive: "variant--destructive",
+      outline: "variant--outline",
+      secondary: "variant--secondary",
     },
+    size: {
+      sm: "size--sm",
+      md: "size--md",
+      lg: "size--lg",
+    },
+  },
+  defaultVariants: {
+    variant: "primary",
+    size: "md",
+  },
+});
+
+const tagStyles = css`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-full);
+  text-align: center;
+  font-size: var(--font-size-xs);
+
+  &.variant--primary {
+    background-color: var(--color-primary);
+    color: var(--color-primary-fg);
   }
-);
+
+  &.variant--destructive {
+    background-color: var(--color-danger);
+    color: var(--color-danger-fg);
+  }
+
+  &.variant--outline {
+    border: var(--border-width-default) solid var(--color-input);
+
+    &:hover {
+      background-color: var(--color-muted);
+    }
+  }
+
+  &.variant--secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-secondary-fg);
+  }
+
+  &.size--sm {
+    width: var(--spacing-3);
+    height: var(--spacing-3);
+  }
+
+  &.size--md {
+    width: var(--spacing-4);
+    height: var(--spacing-4);
+  }
+
+  &.size--lg {
+    width: var(--spacing-5);
+    height: var(--spacing-5);
+  }
+`;
+
+const StyledTag = styled.div`
+  ${tagStyles}
+`;
+
+export type TagProps = React.HTMLAttributes<HTMLDivElement> &
+  VariantProps<typeof tagVariants> & {
+    children: React.ReactNode;
+  };
 
 export const Tag: React.FC<TagProps> = ({
-  variant = "default",
+  variant = "primary",
   size = "md",
   className,
   children,
   ...props
 }) => {
   return (
-    <div
+    <StyledTag
       data-testid="tag"
-      className={cn(
-        tagVariants({
-          variant,
-          size,
-        }),
-        className
-      )}
+      className={tagVariants({ variant, size, className })}
       {...props}
     >
       {children}
-    </div>
+    </StyledTag>
   );
 };
