@@ -1,43 +1,110 @@
 import * as TogglePrimitive from "@radix-ui/react-toggle";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
+import styled, { css } from "styled-components";
 
-import { cn } from "@/lib/utils";
+const toggleVariants = cva("q-toggle", {
+  variants: {
+    variant: {
+      primary: "variant--primary",
+      outline: "variant--outline",
+    },
+    size: {
+      md: "size--md",
+      sm: "size--sm",
+      lg: "size--lg",
+    },
+  },
+  defaultVariants: {
+    variant: "primary",
+    size: "md",
+  },
+});
 
-const toggleVariants = cva(
-  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-muted hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground",
-  {
-    variants: {
-      variant: {
-        default: "bg-transparent border border-muted",
-        outline:
-          "border border-input bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground",
-      },
-      size: {
-        default: "h-9 px-3",
-        sm: "h-8 px-2",
-        lg: "h-10 px-3",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
+const toggleStyles = css`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: colors 0.3s;
+  outline: none;
+  border: 0 none;
+
+  &:hover {
+    background-color: var(--color-muted);
+    color: var(--color-muted-fg);
   }
-);
 
-const Toggle = React.forwardRef<
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 1px var(--color-ring);
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  &[data-state="on"] {
+    background-color: var(--color-muted);
+    color: var(--color-muted-fg);
+  }
+
+  &.variant--primary {
+    background-color: transparent;
+    border: var(--border-width-default) solid var(--color-muted);
+  }
+
+  &.variant--outline {
+    border: var(--border-width-default) solid var(--color-input);
+    background-color: transparent;
+    box-shadow: var(--box-shadow-sm);
+
+    &:hover {
+      background-color: var(--color-muted);
+      color: var(--color-muted-fg);
+    }
+  }
+
+  &.size--md {
+    height: var(--spacing-9);
+    padding-left: var(--spacing-3);
+    padding-right: var(--spacing-3);
+  }
+
+  &.size--sm {
+    height: var(--spacing-8);
+    padding-left: var(--spacing-2);
+    padding-right: var(--spacing-2);
+  }
+
+  &.size--lg {
+    height: var(--spacing-10);
+    padding-left: var(--spacing-3);
+    padding-right: var(--spacing-3);
+  }
+`;
+
+const StyledToggle = styled(TogglePrimitive.Root)`
+  ${toggleStyles}
+`;
+
+export type ToggleProps = React.ComponentPropsWithoutRef<
+  typeof TogglePrimitive.Root
+> &
+  VariantProps<typeof toggleVariants>;
+
+export const Toggle = React.forwardRef<
   React.ElementRef<typeof TogglePrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof TogglePrimitive.Root> &
-    VariantProps<typeof toggleVariants>
->(({ className, variant, size, ...props }, ref) => (
-  <TogglePrimitive.Root
-    ref={ref}
-    className={cn(toggleVariants({ variant, size, className }))}
-    {...props}
-  />
-));
+  ToggleProps
+>(({ className, variant, size, ...props }, ref) => {
+  const classes = toggleVariants({ variant, size, className });
+
+  return <StyledToggle ref={ref} className={classes} {...props} />;
+});
 
 Toggle.displayName = TogglePrimitive.Root.displayName;
 
-export { Toggle, toggleVariants };
+export { toggleVariants };

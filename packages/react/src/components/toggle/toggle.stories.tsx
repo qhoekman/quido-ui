@@ -5,7 +5,25 @@ import { Toggle } from "./toggle";
 export default {
   title: "Components/Data Manipulation/Toggle",
   component: Toggle,
-} as Meta<typeof Toggle>;
+  argTypes: {
+    variant: {
+      control: "select",
+      options: ["primary", "outline"],
+    },
+    size: {
+      control: "select",
+      options: ["sm", "md", "lg"],
+    },
+    disabled: {
+      control: "boolean",
+    },
+  },
+  args: {
+    variant: "primary",
+    size: "md",
+    disabled: false,
+  },
+} satisfies Meta<typeof Toggle>;
 
 export const Default: StoryFn<typeof Toggle> = (args) => (
   <form>
