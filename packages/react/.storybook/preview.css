@@ -1,0 +1,5 @@
+/* Storybook docs preview styling */
+.sbdocs-preview {
+  background-color: var(--color-background) !important;
+  color: var(--color-background-fg) !important;
+}
