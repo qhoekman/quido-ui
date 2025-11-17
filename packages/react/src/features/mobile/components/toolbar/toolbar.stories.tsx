@@ -9,7 +9,7 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Features/Mobile/Components/Toolbar",
   component: Toolbar,
-} as Meta<typeof Toolbar>;
+} satisfies Meta<typeof Toolbar>;
 
 export const WithText: StoryFn = (args) => (
   <ViewportLayout>
