@@ -1,23 +1,28 @@
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
+import styled from "styled-components";
 
-import { cn } from "@/lib/utils";
+const labelVariants = cva("q-label");
 
-const labelVariants = cva(
-  "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-);
+const StyledLabel = styled(LabelPrimitive.Root)`
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-none);
 
-export type LabelProps = LabelPrimitive.LabelProps;
+  .peer:disabled ~ & {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+`;
+
+export type LabelProps = LabelPrimitive.LabelProps &
+  VariantProps<typeof labelVariants>;
 
 export const Label = React.forwardRef<
   React.ElementRef<typeof LabelPrimitive.Root>,
-  LabelProps & VariantProps<typeof labelVariants>
+  LabelProps
 >(({ className, ...props }, ref) => (
-  <LabelPrimitive.Root
-    ref={ref}
-    className={cn(labelVariants(), className)}
-    {...props}
-  />
+  <StyledLabel ref={ref} className={labelVariants({ className })} {...props} />
 ));
 Label.displayName = LabelPrimitive.Root.displayName;
