@@ -1,41 +1,67 @@
-import { cn } from "@/lib/utils";
-import { VariantProps, cva } from "class-variance-authority";
 import React from "react";
+import styled from "styled-components";
+import { cva } from "class-variance-authority";
 
-const blockVariants = cva(
-  "text-sm z-10 relative px-4 my-8 py-4 bg-neutral-50",
-  {
-    variants: {
-      inset: {
-        true: "mx-4",
-      },
-      outline: {
-        true: "border border-neutral-300",
-      },
-    },
+const blockVariants = cva("q-block");
+
+const StyledBlock = styled.div`
+  font-size: var(--font-size-sm);
+  z-index: var(--z-index-10);
+  position: relative;
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
+  margin-top: var(--spacing-8);
+  margin-bottom: var(--spacing-8);
+  padding-top: var(--spacing-4);
+  padding-bottom: var(--spacing-4);
+  background-color: var(--color-neutral-50);
+
+  &.inset {
+    margin-left: var(--spacing-4);
+    margin-right: var(--spacing-4);
+  }
+
+  &.outline {
+    border: var(--border-width-default) solid var(--color-neutral-300);
+  }
+`;
+
+const StyledBlockTitle = styled.h2`
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
+  margin-top: var(--spacing-8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: calc(var(--spacing-6) * -1);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+`;
+
+export type BlockProps = React.ComponentPropsWithoutRef<"div"> & {
+  inset?: boolean;
+  outline?: boolean;
+};
+
+const Block = React.forwardRef<HTMLDivElement, BlockProps>(
+  ({ children, className, inset, outline, ...props }, ref) => {
+    const baseClasses = blockVariants();
+    const variantClasses = [
+      inset === true && "inset",
+      outline === true && "outline",
+    ]
+      .filter(Boolean)
+      .join(" ");
+    const allClasses = [baseClasses, variantClasses, className]
+      .filter(Boolean)
+      .join(" ");
+    return (
+      <StyledBlock ref={ref} className={allClasses} {...props}>
+        {children}
+      </StyledBlock>
+    );
   }
 );
-
-const Block = React.forwardRef<
-  HTMLDivElement,
-  React.ComponentPropsWithoutRef<"div"> & VariantProps<typeof blockVariants>
->(({ children, className, inset, outline, ...props }, ref) => {
-  return (
-    <div
-      ref={ref}
-      className={cn(
-        blockVariants({
-          inset,
-          outline,
-        }),
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-});
 Block.displayName = "Block";
 
 const BlockTitle = React.forwardRef<
@@ -43,16 +69,9 @@ const BlockTitle = React.forwardRef<
   React.ComponentPropsWithoutRef<"h2">
 >(({ children, className, ...props }, ref) => {
   return (
-    <h2
-      ref={ref}
-      className={cn(
-        "px-4 mt-8 flex justify-between items-center -mb-6 font-semibold  text-md",
-        className
-      )}
-      {...props}
-    >
+    <StyledBlockTitle ref={ref} className={className} {...props}>
       {children}
-    </h2>
+    </StyledBlockTitle>
   );
 });
 BlockTitle.displayName = "BlockTitle";
