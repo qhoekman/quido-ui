@@ -12,24 +12,39 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Features/Website/Components/Pagination",
   component: Pagination,
-} as Meta<typeof Pagination>;
+  argTypes: {
+    linkSize: {
+      control: "select",
+      options: ["sm", "md", "lg", "icon"],
+      description: "Size of the pagination links",
+    },
+    isActive: {
+      control: "boolean",
+      description: "Whether the active pagination link is highlighted",
+    },
+  },
+  args: {
+    linkSize: "icon",
+    isActive: true,
+  },
+} satisfies Meta<typeof Pagination>;
 
-export const Default: StoryFn = (args) => (
+export const Default: StoryFn<typeof Pagination> = ({ linkSize, isActive, ...args }) => (
   <Pagination {...args}>
     <PaginationContent>
       <PaginationItem>
         <PaginationPrevious href="#" />
       </PaginationItem>
       <PaginationItem>
-        <PaginationLink href="#">1</PaginationLink>
+        <PaginationLink href="#" size={linkSize}>1</PaginationLink>
       </PaginationItem>
       <PaginationItem>
-        <PaginationLink href="#" isActive>
+        <PaginationLink href="#" isActive={isActive} size={linkSize}>
           2
         </PaginationLink>
       </PaginationItem>
       <PaginationItem>
-        <PaginationLink href="#">3</PaginationLink>
+        <PaginationLink href="#" size={linkSize}>3</PaginationLink>
       </PaginationItem>
       <PaginationItem>
         <PaginationEllipsis />
