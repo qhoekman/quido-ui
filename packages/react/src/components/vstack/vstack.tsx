@@ -1,16 +1,20 @@
-import { cn } from "@/lib/utils";
 import React from "react";
+import styled from "styled-components";
 
-const VStack = React.forwardRef<
+const StyledVStack = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+`;
+
+export const VStack = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <div ref={ref} className={cn("flex flex-col gap-4", className)} {...props}>
+    <StyledVStack ref={ref} className={className} {...props}>
       {children}
-    </div>
+    </StyledVStack>
   );
 });
 VStack.displayName = "VStack";
-
-export { VStack };
