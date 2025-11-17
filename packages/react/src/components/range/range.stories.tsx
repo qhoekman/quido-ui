@@ -21,18 +21,28 @@ export default {
         type: "number",
       },
     },
+    disabled: {
+      control: "boolean",
+    },
+    orientation: {
+      control: "select",
+      options: ["horizontal", "vertical"],
+    },
   },
-} as Meta<typeof Range>;
+  args: {
+    min: 0,
+    max: 100,
+    step: 10,
+    disabled: false,
+    value: [0, 100],
+  },
+} satisfies Meta<typeof Range>;
 
 const Template: StoryFn<typeof Range> = (args) => <Range {...args}></Range>;
 
 export const Default = {
   render: Template,
   args: {
-    min: 0,
-    value: [0, 100],
-    max: 100,
-    step: 10,
-    onValueChange: (value: number) => console.log(value),
+    onValueChange: (value: number[]) => console.log(value),
   },
 };

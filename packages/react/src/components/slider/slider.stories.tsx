@@ -1,37 +1,44 @@
-import { Meta, StoryFn } from '@storybook/react-vite';
+import { Meta, StoryFn } from "@storybook/react-vite";
 
-import { Slider } from './slider';
+import { Slider } from "./slider";
 
 export default {
-  title: 'Components/Data Manipulation/Slider',
+  title: "Components/Data Manipulation/Slider",
   component: Slider,
   argTypes: {
     min: {
       control: {
-        type: 'number',
+        type: "number",
       },
     },
     max: {
       control: {
-        type: 'number',
+        type: "number",
       },
     },
     step: {
       control: {
-        type: 'number',
+        type: "number",
       },
     },
+    disabled: {
+      control: "boolean",
+    },
   },
-} as Meta<typeof Slider>;
+  args: {
+    min: 0,
+    max: 100,
+    step: 10,
+    disabled: false,
+    value: [50],
+  },
+} satisfies Meta<typeof Slider>;
 
 const Template: StoryFn<typeof Slider> = (args) => <Slider {...args}></Slider>;
 
 export const Default = {
   render: Template,
   args: {
-    min: 0,
-    max: 100,
-    step: 10,
-    onValueChange: (value: number) => console.log(value),
+    onValueChange: (value: number[]) => console.log(value),
   },
 };
