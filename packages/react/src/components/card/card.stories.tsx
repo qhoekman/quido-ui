@@ -14,9 +14,9 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Components/Data Display/Card",
   component: Card,
-} as Meta<typeof Card>;
+} satisfies Meta<typeof Card>;
 
-export const Default: StoryFn = (args) => (
+export const Default: StoryFn<typeof Card> = (args) => (
   <Card className="w-[350px]" {...args}>
     <CardHeader>
       <CardTitle>Create project</CardTitle>
