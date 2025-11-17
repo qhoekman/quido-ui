@@ -21,10 +21,35 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Features/Application/Components/Tabs",
   component: Tabs,
-} as Meta<typeof Tabs>;
+  argTypes: {
+    defaultValue: {
+      control: "text",
+      description: "The value of the tab that should be active when initially rendered",
+    },
+    value: {
+      control: "text",
+      description: "The controlled value of the tab to activate",
+    },
+    orientation: {
+      control: "select",
+      options: ["horizontal", "vertical"],
+      description: "The orientation of the component",
+    },
+    activationMode: {
+      control: "select",
+      options: ["automatic", "manual"],
+      description: "When automatic, tabs are activated when receiving focus. When manual, tabs are activated when clicked.",
+    },
+  },
+  args: {
+    defaultValue: "account",
+    orientation: "horizontal",
+    activationMode: "automatic",
+  },
+} satisfies Meta<typeof Tabs>;
 
-export const Default: StoryFn = (args) => (
-  <Tabs defaultValue="account" className="w-[400px]" {...args}>
+export const Default: StoryFn<typeof Tabs> = (args) => (
+  <Tabs className="w-[400px]" {...args}>
     <TabsList className="grid w-full grid-cols-2">
       <TabsTrigger value="account">Account</TabsTrigger>
       <TabsTrigger value="password">Password</TabsTrigger>
