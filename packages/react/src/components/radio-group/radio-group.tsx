@@ -1,16 +1,54 @@
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { Check } from "lucide-react";
 import * as React from "react";
+import styled from "styled-components";
 
-import { cn } from "@/lib/utils";
+const StyledRadioGroup = styled(RadioGroupPrimitive.Root)`
+  display: grid;
+  gap: var(--spacing-2);
+`;
+
+const StyledRadioGroupItem = styled(RadioGroupPrimitive.Item)`
+  aspect-ratio: 1 / 1;
+  height: var(--spacing-4);
+  width: var(--spacing-4);
+  border-radius: var(--border-radius-full);
+  border: var(--border-width-default) solid var(--color-primary);
+  color: var(--color-primary);
+  box-shadow: var(--box-shadow-sm);
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 1px var(--color-ring);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+`;
+
+const StyledRadioGroupItemIndicator = styled(RadioGroupPrimitive.Indicator)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const StyledCheck = styled(Check)`
+  height: var(--spacing-3-5);
+  width: var(--spacing-3-5);
+`;
 
 const RadioGroup = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>
 >(({ className, ...props }, ref) => {
   return (
-    <RadioGroupPrimitive.Root
-      className={cn("grid gap-2", className)}
+    <StyledRadioGroup
+      className={className}
       {...props}
       ref={ref}
     />
@@ -23,16 +61,13 @@ const RadioGroupItem = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item>
 >(({ className, children, ...props }, ref) => {
   return (
-    <RadioGroupPrimitive.Item
+    <StyledRadioGroupItem
       ref={ref}
-      className={cn(
-        "aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
-        className
-      )}
+      className={className}
       {...props}
     >
       {children ?? <RadioGroupItemIndicator />}
-    </RadioGroupPrimitive.Item>
+    </StyledRadioGroupItem>
   );
 });
 RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName;
@@ -41,13 +76,13 @@ const RadioGroupItemIndicator = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Indicator>,
   React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Indicator>
 >(({ className, children, ...props }, ref) => (
-  <RadioGroupPrimitive.Indicator
+  <StyledRadioGroupItemIndicator
     ref={ref}
-    className={cn("flex items-center justify-center", className)}
+    className={className}
     {...props}
   >
-    {children ?? <Check className="h-3.5 w-3.5" />}
-  </RadioGroupPrimitive.Indicator>
+    {children ?? <StyledCheck />}
+  </StyledRadioGroupItemIndicator>
 ));
 
 export { RadioGroup, RadioGroupItem, RadioGroupItemIndicator };
