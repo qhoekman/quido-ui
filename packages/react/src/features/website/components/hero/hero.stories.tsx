@@ -26,7 +26,7 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Features/Website/Components/Hero",
   component: Hero,
-} as Meta<typeof Hero>;
+} satisfies Meta<typeof Hero>;
 
 export const WithContentLeft: StoryFn = (args) => (
   <Hero {...args}>

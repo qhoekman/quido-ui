@@ -1,125 +1,178 @@
-import { cn } from "@/lib/utils";
 import React from "react";
+import styled from "styled-components";
 
-const Hero = React.forwardRef<
+const StyledHero = styled.div`
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  align-items: center;
+  gap: var(--spacing-14);
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+`;
+
+const StyledHeroTagline = styled.span`
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-neutral-800);
+`;
+
+const StyledHeroTitle = styled.h1`
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--color-neutral-900);
+
+  @media (min-width: 1280px) {
+    font-size: var(--font-size-5xl);
+  }
+`;
+
+const StyledHeroBody = styled.p`
+  font-size: var(--font-size-lg);
+  color: var(--color-neutral-600);
+`;
+
+const StyledHeroActions = styled.div`
+  display: flex;
+  gap: var(--spacing-8);
+`;
+
+const StyledHeroSection = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--columns-2xl);
+`;
+
+const StyledHeroBackdrop = styled.div`
+  position: relative;
+  height: 100%;
+  width: 100%;
+`;
+
+const StyledHeroBackdropImage = styled.img`
+  position: absolute;
+  z-index: -10;
+  height: 100%;
+  max-height: 90vh;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(0.25);
+`;
+
+const StyledHeroCoverImage = styled.img`
+  height: 100%;
+  max-height: 30vh;
+  width: 100%;
+  object-fit: cover;
+`;
+
+const StyledHeroDiagonalShape = styled.svg`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(-1 * var(--spacing-10));
+  display: none;
+  height: 100%;
+  width: var(--spacing-44);
+  transform: translateZ(0);
+  fill: var(--color-white);
+
+  @media (min-width: 1024px) {
+    display: block;
+  }
+`;
+
+export const Hero = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <div
-      ref={ref}
-      className={cn(
-        "grid grid-cols-1 items-center gap-14  lg:grid-cols-2",
-        className
-      )}
-      {...props}
-    >
+    <StyledHero ref={ref} className={className} {...props}>
       {children}
-    </div>
+    </StyledHero>
   );
 });
 Hero.displayName = "Hero";
 
-const HeroTagline = React.forwardRef<
+export const HeroTagline = React.forwardRef<
   HTMLSpanElement,
   React.ComponentPropsWithoutRef<"span">
 >(({ children, className, ...props }, ref) => {
   return (
-    <span
-      ref={ref}
-      className={cn("text-lg font-medium text-neutral-800", className)}
-      {...props}
-    >
+    <StyledHeroTagline ref={ref} className={className} {...props}>
       {children}
-    </span>
+    </StyledHeroTagline>
   );
 });
 HeroTagline.displayName = "HeroTagline";
 
-const HeroTitle = React.forwardRef<
+export const HeroTitle = React.forwardRef<
   HTMLHeadingElement,
   React.ComponentPropsWithoutRef<"h1">
 >(({ children, className, ...props }, ref) => {
   return (
-    <h1
-      ref={ref}
-      className={cn(
-        "text-4xl font-bold leading-tight tracking-wide text-neutral-900 xl:text-5xl",
-        className
-      )}
-      {...props}
-    >
+    <StyledHeroTitle ref={ref} className={className} {...props}>
       {children}
-    </h1>
+    </StyledHeroTitle>
   );
 });
 HeroTitle.displayName = "HeroTitle";
 
-const HeroBody = React.forwardRef<
+export const HeroBody = React.forwardRef<
   HTMLParagraphElement,
   React.ComponentPropsWithoutRef<"p">
 >(({ children, className, ...props }, ref) => {
   return (
-    <p
-      ref={ref}
-      className={cn("text-lg text-neutral-600", className)}
-      {...props}
-    >
+    <StyledHeroBody ref={ref} className={className} {...props}>
       {children}
-    </p>
+    </StyledHeroBody>
   );
 });
 HeroBody.displayName = "HeroBody";
 
-const HeroActions = React.forwardRef<
+export const HeroActions = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <div ref={ref} className={cn("flex space-x-8", className)} {...props}>
+    <StyledHeroActions ref={ref} className={className} {...props}>
       {children}
-    </div>
+    </StyledHeroActions>
   );
 });
 HeroActions.displayName = "HeroActions";
 
-const HeroSection = React.forwardRef<
+export const HeroSection = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <div ref={ref} className={cn("mx-auto max-w-2xl", className)} {...props}>
+    <StyledHeroSection ref={ref} className={className} {...props}>
       {children}
-    </div>
+    </StyledHeroSection>
   );
 });
 HeroSection.displayName = "HeroSection";
 
-const HeroBackdrop = React.forwardRef<
+export const HeroBackdrop = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ className, ...props }, ref) => {
-  return (
-    <div
-      ref={ref}
-      className={cn("relative h-full w-full", className)}
-      {...props}
-    />
-  );
+  return <StyledHeroBackdrop ref={ref} className={className} {...props} />;
 });
 HeroBackdrop.displayName = "HeroBackdrop";
 
-const HeroBackdropImage = React.forwardRef<
+export const HeroBackdropImage = React.forwardRef<
   HTMLImageElement,
   React.ComponentPropsWithoutRef<"img">
 >(({ className, ...props }, ref) => {
   return (
-    <img
+    <StyledHeroBackdropImage
       ref={ref}
-      className={cn(
-        "absolute -z-10 h-full max-h-[90vh] w-full object-cover brightness-[.25]",
-        className
-      )}
+      className={className}
       aria-hidden="true"
       {...props}
     />
@@ -127,14 +180,14 @@ const HeroBackdropImage = React.forwardRef<
 });
 HeroBackdropImage.displayName = "HeroBackdropImage";
 
-const HeroCoverImage = React.forwardRef<
+export const HeroCoverImage = React.forwardRef<
   HTMLImageElement,
   React.ComponentPropsWithoutRef<"img">
 >(({ className, ...props }, ref) => {
   return (
-    <img
+    <StyledHeroCoverImage
       ref={ref}
-      className={cn("h-full max-h-[30vh] w-full object-cover", className)}
+      className={className}
       loading="lazy"
       aria-hidden="true"
       {...props}
@@ -143,37 +196,21 @@ const HeroCoverImage = React.forwardRef<
 });
 HeroCoverImage.displayName = "HeroCoverImage";
 
-const HeroDiagonalShape = React.forwardRef<
+export const HeroDiagonalShape = React.forwardRef<
   SVGSVGElement,
   React.ComponentPropsWithoutRef<"svg">
 >(({ className, ...props }, ref) => {
   return (
-    <svg
+    <StyledHeroDiagonalShape
       ref={ref}
-      className={cn(
-        "absolute inset-y-0 -left-10 hidden h-full w-44 transform fill-white lg:block",
-        className
-      )}
+      className={className}
       viewBox="0 0 100 100"
       preserveAspectRatio="none"
       aria-hidden="true"
       {...props}
     >
       <polygon points="0,0 90,0 50,100 0,100" />
-    </svg>
+    </StyledHeroDiagonalShape>
   );
 });
 HeroDiagonalShape.displayName = "HeroDiagonalShape";
-
-export {
-  Hero,
-  HeroActions,
-  HeroBackdrop,
-  HeroBackdropImage,
-  HeroBody,
-  HeroCoverImage,
-  HeroDiagonalShape,
-  HeroSection,
-  HeroTagline,
-  HeroTitle,
-};
