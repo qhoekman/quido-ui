@@ -9,9 +9,26 @@ export default {
     checked: {
       control: "boolean",
     },
+    defaultChecked: {
+      control: "boolean",
+    },
     disabled: {
       control: "boolean",
     },
+    required: {
+      control: "boolean",
+    },
+    name: {
+      control: "text",
+    },
+    value: {
+      control: "text",
+    },
+  },
+  args: {
+    checked: false,
+    disabled: false,
+    required: false,
   },
 } satisfies Meta<typeof Checkbox>;
 
