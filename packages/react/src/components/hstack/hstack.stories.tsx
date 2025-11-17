@@ -5,9 +5,9 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Components/Layout/HStack",
   component: HStack,
-} as Meta<typeof HStack>;
+} satisfies Meta<typeof HStack>;
 
-export const Default: StoryFn = (args) => (
+export const Default: StoryFn<typeof HStack> = (args) => (
   <HStack {...args}>
     {Array.from({ length: 5 }).map((_, index) => (
       <Card key={index} className="w-32 bg-primary text-primary-fg">
