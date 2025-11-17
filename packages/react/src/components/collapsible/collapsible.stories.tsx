@@ -12,15 +12,23 @@ import {
 export default {
   title: "Components/Disclosure/Collapsible",
   component: Collapsible,
-} as Meta<typeof Collapsible>;
+  argTypes: {
+    defaultOpen: {
+      control: "boolean",
+    },
+    disabled: {
+      control: "boolean",
+    },
+  },
+  args: {
+    defaultOpen: false,
+    disabled: false,
+  },
+} satisfies Meta<typeof Collapsible>;
 
 export const Default: StoryFn<typeof Collapsible> = (args) => {
-  const [isOpen, setIsOpen] = React.useState(false);
-
   return (
     <Collapsible
-      open={isOpen}
-      onOpenChange={setIsOpen}
       className="w-[350px] space-y-2"
       {...args}
     >
