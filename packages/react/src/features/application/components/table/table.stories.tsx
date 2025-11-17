@@ -58,9 +58,9 @@ const invoices = [
 export default {
   title: "Features/Application/Components/Table",
   component: Table,
-} as Meta<typeof Table>;
+} satisfies Meta<typeof Table>;
 
-export const Default: StoryFn = (args) => (
+export const Default: StoryFn<typeof Table> = (args) => (
   <Table {...args}>
     <TableCaption>A list of your recent invoices.</TableCaption>
     <TableHeader>
@@ -74,6 +74,39 @@ export const Default: StoryFn = (args) => (
     <TableBody>
       {invoices.map((invoice) => (
         <TableRow key={invoice.invoice}>
+          <TableCell className="font-medium">{invoice.invoice}</TableCell>
+          <TableCell>{invoice.paymentStatus}</TableCell>
+          <TableCell>{invoice.paymentMethod}</TableCell>
+          <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+        </TableRow>
+      ))}
+    </TableBody>
+    <TableFooter>
+      <TableRow>
+        <TableCell colSpan={3}>Total</TableCell>
+        <TableCell className="text-right">$2,500.00</TableCell>
+      </TableRow>
+    </TableFooter>
+  </Table>
+);
+
+export const WithSelectedRow: StoryFn<typeof Table> = (args) => (
+  <Table {...args}>
+    <TableCaption>A list of your recent invoices with selected row.</TableCaption>
+    <TableHeader>
+      <TableRow>
+        <TableHead className="w-[100px]">Invoice</TableHead>
+        <TableHead>Status</TableHead>
+        <TableHead>Method</TableHead>
+        <TableHead className="text-right">Amount</TableHead>
+      </TableRow>
+    </TableHeader>
+    <TableBody>
+      {invoices.map((invoice, index) => (
+        <TableRow
+          key={invoice.invoice}
+          data-state={index === 2 ? "selected" : undefined}
+        >
           <TableCell className="font-medium">{invoice.invoice}</TableCell>
           <TableCell>{invoice.paymentStatus}</TableCell>
           <TableCell>{invoice.paymentMethod}</TableCell>
