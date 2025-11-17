@@ -44,7 +44,14 @@ import { SVGAttributes } from "react";
 export default {
   title: "Features/Website/Components/Navbar",
   component: Navbar,
-} as Meta<typeof Navbar>;
+  argTypes: {
+    "aria-label": {
+      control: "text",
+      description: "Accessible label for the navigation element",
+    },
+  },
+  args: {},
+} satisfies Meta<typeof Navbar>;
 
 const navigation = [
   { name: "Link One", href: "#" },
