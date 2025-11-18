@@ -69,7 +69,7 @@ const StyledSidebarFooter = styled.div`
   margin-top: auto;
   padding-left: var(--spacing-4);
   padding-right: var(--spacing-4);
-  background-color: hsl(from var(--color-gray-900) h s l / 5%);
+  background-color: hsl(from var(--color-background-fg) h s l / 5%);
 `;
 
 const StyledSidebarItem = styled(Button)`
@@ -152,12 +152,7 @@ export const SidebarGroupTrigger = React.forwardRef<
 >(({ className, ...props }, ref) => {
   return (
     <CollapsibleTrigger asChild>
-      <SidebarItem
-        ref={ref}
-        variant="ghost"
-        className={className}
-        {...props}
-      >
+      <SidebarItem ref={ref} variant="ghost" className={className} {...props}>
         {props.children}
       </SidebarItem>
     </CollapsibleTrigger>
