@@ -28,6 +28,7 @@ const toggleStyles = css`
   border-radius: var(--border-radius-md);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
+  color: var(--color-background-fg);
   transition: colors 0.3s;
   outline: none;
   border: 0 none;
