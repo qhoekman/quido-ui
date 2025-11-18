@@ -25,8 +25,8 @@ const StyledReelButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--spacing-40);
-  min-width: var(--spacing-40);
+  width: var(--spacing-4);
+  min-width: var(--spacing-4);
   height: var(--spacing-40);
   flex-shrink: 0;
   background-color: var(--color-gray-100);
