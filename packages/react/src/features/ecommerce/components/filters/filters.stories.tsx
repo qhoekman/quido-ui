@@ -46,7 +46,14 @@ export default {
     },
     variant: {
       control: "select",
-      options: ["primary", "secondary", "destructive", "outline", "ghost", "link"],
+      options: [
+        "primary",
+        "secondary",
+        "destructive",
+        "outline",
+        "ghost",
+        "link",
+      ],
       description: "Variant for FilterClearButton",
     },
     size: {
@@ -73,10 +80,15 @@ const filters = {
 };
 
 export const Default: StoryFn<typeof FiltersForm> = (args) => (
-  <Sidebar className="max-w-64">
-    <SidebarBrand className="h-4" />
+  <Sidebar style={{ maxWidth: "var(--spacing-64)" }}>
+    <SidebarBrand style={{ height: "var(--spacing-4)" }} />
     <SidebarGroupHeader>Categories</SidebarGroupHeader>
-    <SidebarSection className="px-4">
+    <SidebarSection
+      style={{
+        paddingLeft: "var(--spacing-4)",
+        paddingRight: "var(--spacing-4)",
+      }}
+    >
       <FiltersForm {...args}>
         {filters.category.map((category) => (
           <FilterCheckbox
@@ -90,7 +102,12 @@ export const Default: StoryFn<typeof FiltersForm> = (args) => (
       </FiltersForm>
     </SidebarSection>
     <SidebarGroupHeader>Price</SidebarGroupHeader>
-    <SidebarSection className="px-4">
+    <SidebarSection
+      style={{
+        paddingLeft: "var(--spacing-4)",
+        paddingRight: "var(--spacing-4)",
+      }}
+    >
       <FilterRange
         key={`price`}
         name={`price`}
@@ -104,7 +121,12 @@ export const Default: StoryFn<typeof FiltersForm> = (args) => (
       </FilterRange>
     </SidebarSection>
     <SidebarGroupHeader>Brand</SidebarGroupHeader>
-    <SidebarSection className="px-4">
+    <SidebarSection
+      style={{
+        paddingLeft: "var(--spacing-4)",
+        paddingRight: "var(--spacing-4)",
+      }}
+    >
       <FiltersForm {...args}>
         <FilterRadioGroup name="brand">
           {filters.brand.map((brand) => (
@@ -122,7 +144,11 @@ export const Default: StoryFn<typeof FiltersForm> = (args) => (
       </FiltersForm>
     </SidebarSection>
     <FilterClearButton
-      className="w-full mx-4"
+      style={{
+        width: "100%",
+        marginLeft: "var(--spacing-4)",
+        marginRight: "var(--spacing-4)",
+      }}
       variant={args.variant}
       size={args.size}
       disabled={args.disabled}
