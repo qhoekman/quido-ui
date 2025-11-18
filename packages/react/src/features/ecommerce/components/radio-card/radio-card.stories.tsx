@@ -12,7 +12,8 @@ export default {
   argTypes: {
     defaultValue: {
       control: "text",
-      description: "The value of the radio item that should be checked when initially rendered",
+      description:
+        "The value of the radio item that should be checked when initially rendered",
     },
     value: {
       control: "text",
@@ -20,15 +21,18 @@ export default {
     },
     disabled: {
       control: "boolean",
-      description: "When true, prevents the user from interacting with the radio group",
+      description:
+        "When true, prevents the user from interacting with the radio group",
     },
     required: {
       control: "boolean",
-      description: "When true, indicates that the user must select a value before submitting",
+      description:
+        "When true, indicates that the user must select a value before submitting",
     },
     name: {
       control: "text",
-      description: "The name of the group, submitted as a name/value pair with form data",
+      description:
+        "The name of the group, submitted as a name/value pair with form data",
     },
     orientation: {
       control: "select",
@@ -48,7 +52,7 @@ const deliveryMethods = ["Standard", "Next Day"];
 
 export const Default: StoryFn<typeof RadioCard> = (args) => (
   <div className="max-w-md w-full">
-    <RadioCard className="grid-cols-6" {...args}>
+    <RadioCard style={{ gridTemplateColumns: "repeat(6, 1fr)" }} {...args}>
       {sizes.map((size) => (
         <RadioCardItem
           value={size}
@@ -66,8 +70,12 @@ export const Default: StoryFn<typeof RadioCard> = (args) => (
 );
 
 export const Large: StoryFn<typeof RadioCard> = (args) => (
-  <div className="max-w-sm w-full">
-    <RadioCard className="grid-cols-2" {...args}>
+  <div
+    style={{
+      maxWidth: "var(--spacing-48)",
+    }}
+  >
+    <RadioCard style={{ gridTemplateColumns: "repeat(2, 1fr)" }} {...args}>
       {deliveryMethods.map((size) => (
         <RadioCardItem
           value={size}

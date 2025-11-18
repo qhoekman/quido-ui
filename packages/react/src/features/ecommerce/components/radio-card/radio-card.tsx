@@ -26,7 +26,7 @@ const StyledRadioCardItem = styled(RadioGroupItem)`
   width: 100%;
   height: 100%;
   border-radius: var(--border-radius-lg);
-  border: var(--border-width-default) solid var(--color-gray-200);
+  border: var(--border-width-default) solid var(--color-border);
   box-shadow: var(--box-shadow-sm);
 
   &:focus {
@@ -40,8 +40,8 @@ const StyledRadioCardItem = styled(RadioGroupItem)`
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
-    background-color: var(--color-gray-200);
-    color: var(--color-gray-800);
+    background-color: var(--color-muted);
+    color: var(--color-muted-fg);
   }
 `;
 
