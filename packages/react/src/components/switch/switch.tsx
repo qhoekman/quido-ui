@@ -39,7 +39,7 @@ const StyledSwitchThumb = styled(SwitchPrimitives.Thumb)`
   height: var(--spacing-4);
   width: var(--spacing-4);
   border-radius: var(--border-radius-full);
-  background-color: var(--color-background);
+  background-color: var(--color-white);
   box-shadow: var(--box-shadow-lg);
   transition: transform 0.3s;
 
