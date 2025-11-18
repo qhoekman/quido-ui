@@ -14,15 +14,16 @@ const buttonVariants = cva("q-number-input-button", {
 });
 
 const buttonStyles = css`
-  padding: var(--spacing-3);
+  padding: var(--spacing-1);
   height: var(--spacing-10);
-  border: var(--border-width-default) solid var(--color-neutral-200);
-  background-color: transparent;
+  border: var(--border-width-default) solid var(--color-border);
+  background-color: var(--color-muted);
+  color: var(--color-muted-fg);
   transition: background-color 0.3s, color 0.3s;
 
   &:hover {
-    background-color: var(--color-neutral-100);
-    color: var(--color-foreground);
+    background-color: hsl(from var(--color-background-fg) h s l / 10%);
+    color: hsl(from var(--color-background-fg) h s l / 90%);
   }
 
   &:focus-visible {
@@ -60,7 +61,7 @@ const StyledButton = styled.button`
 const StyledInput = styled(Input)`
   border-radius: 0;
   text-align: center;
-  border-color: var(--color-neutral-200);
+  border-color: var(--color-border);
 
   &::-webkit-outer-spin-button {
     margin: 0;
