@@ -7,7 +7,8 @@ const StyledTextarea = styled.textarea`
   width: 100%;
   border-radius: var(--border-radius-md);
   border: var(--border-width-default) solid var(--color-border);
-  background-color: var(--color-white);
+  background-color: var(--color-input);
+  color: var(--color-input-fg);
   padding-left: var(--spacing-3);
   padding-right: var(--spacing-3);
   padding-top: var(--spacing-2);
@@ -34,13 +35,7 @@ export type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, ...props }, ref) => {
-    return (
-      <StyledTextarea
-        className={className}
-        ref={ref}
-        {...props}
-      />
-    );
+    return <StyledTextarea className={className} ref={ref} {...props} />;
   }
 );
 Textarea.displayName = "Textarea";

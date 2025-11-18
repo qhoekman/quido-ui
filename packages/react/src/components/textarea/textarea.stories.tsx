@@ -1,5 +1,6 @@
 import { Textarea } from "@/components/textarea/textarea";
 import type { Meta, StoryFn } from "@storybook/react-vite";
+import { useState } from "react";
 
 export default {
   title: "Components/Data Manipulation/Textarea",
@@ -41,11 +42,18 @@ export default {
   },
 } satisfies Meta<typeof Textarea>;
 
-export const Default: StoryFn<typeof Textarea> = (args) => (
-  <div className="max-w-sm">
-    <Textarea {...args} />
-  </div>
-);
+export const Default: StoryFn<typeof Textarea> = (args) => {
+  const [value, setValue] = useState(args.value ?? "");
+  return (
+    <div style={{ maxWidth: "var(--spacing-48)" }}>
+      <Textarea
+        {...args}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+    </div>
+  );
+};
 Default.args = {
   value:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam lacinia, nunc nisl aliquet nunc, quis aliquam nis",
