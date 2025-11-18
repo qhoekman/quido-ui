@@ -15,8 +15,9 @@ const StyledToolbarInner = styled.div`
   height: 100%;
   left: 0;
   top: 0;
-  border-top: var(--border-width-2) solid var(--color-slate-200);
-  background-color: var(--color-neutral-50);
+  border-top: var(--border-width-2) solid var(--color-border);
+  background-color: var(--color-muted);
+  color: var(--color-muted-fg);
 `;
 
 const StyledToolbarContent = styled.div`
