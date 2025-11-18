@@ -43,13 +43,13 @@ const StyledTabsTrigger = styled(TabsPrimitive.Trigger)`
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   text-transform: uppercase;
-  color: var(--color-gray-900);
+  color: var(--color-muted-fg);
   border: 0 none;
   outline: none;
   overflow: hidden;
 
   &:hover {
-    background-color: var(--color-gray-50);
+    background-color: var(--color-muted);
   }
 
   &:focus {
