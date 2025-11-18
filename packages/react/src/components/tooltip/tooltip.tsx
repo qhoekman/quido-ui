@@ -80,7 +80,8 @@ const StyledTooltipContent = styled(TooltipPrimitive.Content)`
   z-index: var(--z-index-50);
   overflow: hidden;
   border-radius: var(--border-radius-md);
-  background-color: var(--color-white);
+  background-color: var(--color-tooltip);
+  color: var(--color-tooltip-fg);
   padding: var(--spacing-1-5) var(--spacing-3);
   font-size: var(--font-size-xs);
   box-shadow: var(--box-shadow-default);

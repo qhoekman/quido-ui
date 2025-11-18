@@ -7,6 +7,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "./tooltip";
+import { Button } from "../button/button";
 
 export default {
   title: "Components/Overlay/Tooltip",
@@ -18,15 +19,18 @@ export default {
     },
     defaultOpen: {
       control: "boolean",
-      description: "The open state of the tooltip when it is initially rendered",
+      description:
+        "The open state of the tooltip when it is initially rendered",
     },
     delayDuration: {
       control: "number",
-      description: "The duration from when the mouse enters the trigger until the tooltip opens",
+      description:
+        "The duration from when the mouse enters the trigger until the tooltip opens",
     },
     disableHoverableContent: {
       control: "boolean",
-      description: "When true, trying to hover the content will result in the tooltip closing",
+      description:
+        "When true, trying to hover the content will result in the tooltip closing",
     },
     side: {
       control: "select",
@@ -63,7 +67,11 @@ export const Default: StoryFn<typeof Tooltip> = ({
 }) => (
   <TooltipProvider>
     <Tooltip {...tooltipArgs}>
-      <TooltipTrigger>Hover</TooltipTrigger>
+      <TooltipTrigger>
+        <Button variant="ghost" size="sm">
+          Hover
+        </Button>
+      </TooltipTrigger>
       <TooltipContent
         side={side}
         sideOffset={sideOffset}
