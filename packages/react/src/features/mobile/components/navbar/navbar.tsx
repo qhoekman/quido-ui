@@ -21,8 +21,8 @@ const StyledNavbarBackground = styled.div`
   height: 100%;
   left: 0;
   top: 0;
-  border-bottom: var(--border-width-2) solid var(--color-slate-200);
-  background-color: var(--color-neutral-50);
+  border-bottom: var(--border-width-2) solid var(--color-border);
+  background-color: var(--color-muted);
 `;
 
 const StyledNavbarContent = styled.div`
@@ -48,10 +48,12 @@ const StyledNavbarTitle = styled.h1`
   text-align: center;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
+  color: var(--color-background-fg);
 `;
 
 const StyledNavbarSubtitle = styled.span`
   font-weight: var(--font-weight-normal);
+  color: var(--color-muted-fg);
   display: block;
   line-height: var(--line-height-none);
   font-size: 0.625rem;
@@ -143,12 +145,7 @@ const NavbarLink = React.forwardRef<
 >(({ children, className, href = "#", ...props }, ref) => {
   return (
     <StyledNavbarLinkWrapper>
-      <StyledNavbarLink
-        ref={ref}
-        href={href}
-        className={className}
-        {...props}
-      >
+      <StyledNavbarLink ref={ref} href={href} className={className} {...props}>
         {children}
       </StyledNavbarLink>
     </StyledNavbarLinkWrapper>
