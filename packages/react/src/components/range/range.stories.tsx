@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react-vite";
 
 import { Range } from "./range";
+import { useState } from "react";
 
 export default {
   title: "Components/Data Manipulation/Range",
@@ -38,7 +39,19 @@ export default {
   },
 } satisfies Meta<typeof Range>;
 
-const Template: StoryFn<typeof Range> = (args) => <Range {...args}></Range>;
+const Template: StoryFn<typeof Range> = (args) => {
+  const [value, setValue] = useState(args.value ?? [0, 100]);
+  return (
+    <Range
+      {...args}
+      value={value}
+      onValueChange={(newValue) => {
+        setValue(newValue);
+        args.onValueChange?.(newValue);
+      }}
+    />
+  );
+};
 
 export const Default = {
   render: Template,
