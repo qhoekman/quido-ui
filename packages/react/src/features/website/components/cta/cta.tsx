@@ -105,7 +105,7 @@ const StyledCTATitle = styled.h2`
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-wide);
-  color: var(--color-neutral-900);
+  color: var(--color-background-fg);
 
   @media (min-width: 768px) {
     font-size: var(--font-size-4xl);
@@ -131,7 +131,7 @@ CTATitle.displayName = "CTATitle";
 const StyledCTASubtitle = styled.p`
   max-width: 42rem;
   font-size: var(--font-size-base);
-  color: var(--color-neutral-600);
+  color: var(--color-muted-fg);
 
   @media (min-width: 768px) {
     font-size: var(--font-size-lg);

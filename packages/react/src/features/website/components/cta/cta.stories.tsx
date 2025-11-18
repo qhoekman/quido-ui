@@ -21,7 +21,7 @@ export const WithLeftContent: StoryFn<typeof CTA> = (args) => (
   <CTA {...args}>
     <CTAContent
       style={{
-        backgroundColor: "var(--color-neutral-100)",
+        backgroundColor: "var(--color-muted)",
       }}
     >
       <CTATitle>Get in touch</CTATitle>
@@ -45,7 +45,7 @@ export const WithCenteredContent: StoryFn<typeof CTA> = (args) => (
     <CTAContent
       style={{
         textAlign: "center",
-        backgroundColor: "var(--color-neutral-100)",
+        backgroundColor: "var(--color-muted)",
       }}
     >
       <CTATitle>Get in touch</CTATitle>
@@ -91,7 +91,7 @@ export const WithBackdrop: StoryFn<typeof CTA> = (args) => (
       </CTATitle>
       <CTASubtitle
         style={{
-          color: "var(--color-neutral-100)",
+          color: "var(--color-muted-fg)",
         }}
       >
         We are here to help you with any questions you may have
@@ -103,7 +103,7 @@ export const WithBackdrop: StoryFn<typeof CTA> = (args) => (
         <Button
           variant="outline"
           style={{
-            color: "var(--color-neutral-100)",
+            color: "var(--color-muted-fg)",
           }}
           asChild
         >
@@ -132,7 +132,7 @@ export const WithFormVertical: StoryFn<typeof CTA> = (args) => (
       </CTATitle>
       <CTASubtitle
         style={{
-          color: "var(--color-neutral-100)",
+          color: "var(--color-muted)",
         }}
       >
         We are here to help you with any questions you may have
@@ -160,7 +160,7 @@ export const WithFormVertical: StoryFn<typeof CTA> = (args) => (
           <Button type="submit">Subscribe</Button>
         </div>
 
-        <p className="mt-4 text-sm text-neutral-200 md:mt-3">
+        <p className="mt-4 text-sm text-muted-fg md:mt-3">
           By clicking Subscribe you&apos;re confirming that you agree with our{" "}
           <a href="#" className="underline">
             Terms and Conditions
@@ -175,7 +175,7 @@ export const WithFormHorizontal: StoryFn<typeof CTA> = (args) => (
   <CTA {...args}>
     <CTAContent
       style={{
-        backgroundColor: "var(--color-neutral-100)",
+        backgroundColor: "hsl(from var(--color-muted) h s l / 10%)",
         gap: "var(--spacing-7)",
       }}
     >
@@ -196,7 +196,13 @@ export const WithFormHorizontal: StoryFn<typeof CTA> = (args) => (
           maxWidth: "28rem",
         }}
       >
-        <div className="flex items-start gap-x-4">
+        <div
+          style={{
+            display: "flex",
+            alignItems: "start",
+            gap: "var(--spacing-4)",
+          }}
+        >
           <Label htmlFor="email-address" className="sr-only">
             Email address
           </Label>
@@ -213,7 +219,13 @@ export const WithFormHorizontal: StoryFn<typeof CTA> = (args) => (
           <Button type="submit">Subscribe</Button>
         </div>
 
-        <p className="mt-4 text-sm text-neutral-500 md:mt-3">
+        <p
+          style={{
+            marginTop: "var(--spacing-4)",
+            color: "var(--color-muted-fg)",
+            fontSize: "var(--font-size-sm)",
+          }}
+        >
           By clicking Subscribe you&apos;re confirming that you agree with our{" "}
           <a href="#" className="underline">
             Terms and Conditions
@@ -252,7 +264,7 @@ export const WithFormHorizontalBackdrop: StoryFn<typeof CTA> = (args) => (
         </CTATitle>
         <CTASubtitle
           style={{
-            color: "var(--color-neutral-200)",
+            color: "var(--color-muted-fg)",
           }}
         >
           Subscribe to our newsletter and be the first to know about our newest
@@ -282,7 +294,7 @@ export const WithFormHorizontalBackdrop: StoryFn<typeof CTA> = (args) => (
           <Button type="submit">Subscribe</Button>
         </div>
 
-        <p className="mt-4 text-sm text-neutral-200 md:mt-3">
+        <p className="mt-4 text-sm text-muted-fg md:mt-3">
           By clicking Subscribe you&apos;re confirming that you agree with our{" "}
           <a href="#" className="underline">
             Terms and Conditions
