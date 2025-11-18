@@ -40,6 +40,7 @@ const StyledAccordionTrigger = styled(AccordionPrimitive.Trigger)`
   padding-bottom: var(--spacing-4);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
+  color: var(--color-background-fg);
   transition: all 0.3s;
 
   &:hover {
