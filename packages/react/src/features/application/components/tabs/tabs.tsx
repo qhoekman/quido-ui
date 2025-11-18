@@ -10,9 +10,9 @@ const StyledTabsList = styled(TabsPrimitive.List)`
   align-items: center;
   justify-content: center;
   border-radius: var(--border-radius-md);
-  background-color: var(--color-neutral-100);
+  background-color: var(--color-card);
+  color: var(--color-card-fg);
   padding: var(--spacing-1);
-  color: var(--color-background-fg);
 `;
 
 const StyledTabsTrigger = styled(TabsPrimitive.Trigger)`
@@ -28,6 +28,7 @@ const StyledTabsTrigger = styled(TabsPrimitive.Trigger)`
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   box-shadow: 0 0 0 0 var(--color-background);
+  color: var(--color-muted-fg);
   transition: all 0.3s;
   width: 100%;
 
@@ -42,8 +43,8 @@ const StyledTabsTrigger = styled(TabsPrimitive.Trigger)`
   }
 
   &[data-state="active"] {
-    background-color: var(--color-neutral-50);
-    color: var(--color-background-fg);
+    background-color: hsl(from var(--color-background-fg) h s l / 10%);
+    color: hsl(from var(--color-background-fg) h s l / 90%);
     box-shadow: var(--box-shadow-sm);
   }
 `;
