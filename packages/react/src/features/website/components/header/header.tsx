@@ -33,17 +33,7 @@ const StyledHeaderTagline = styled.h3`
   font-weight: var(--font-weight-medium);
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing-wide);
-  color: var(--color-neutral-800);
-
-  &.text-neutral-200 {
-    color: var(--color-neutral-200) !important;
-  }
-  &.text-white {
-    color: var(--color-white) !important;
-  }
-  &.text-neutral-100 {
-    color: var(--color-neutral-100) !important;
-  }
+  color: var(--color-muted-fg);
 `;
 
 const StyledHeaderTitle = styled.h2`
@@ -51,39 +41,16 @@ const StyledHeaderTitle = styled.h2`
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-wide);
-  color: var(--color-neutral-900);
+  color: var(--color-background-fg);
 
   @media (min-width: 1280px) {
     font-size: var(--font-size-5xl);
-  }
-
-  &.text-white {
-    color: var(--color-white) !important;
-  }
-  &.text-neutral-100 {
-    color: var(--color-neutral-100) !important;
-  }
-  &.flex-1 {
-    flex: 1 1 0% !important;
   }
 `;
 
 const StyledHeaderBody = styled.p`
   font-size: var(--font-size-lg);
-  color: var(--color-neutral-600);
-
-  &.text-white {
-    color: var(--color-white) !important;
-  }
-  &.text-neutral-100 {
-    color: var(--color-neutral-100) !important;
-  }
-  &.text-neutral-200 {
-    color: var(--color-neutral-200) !important;
-  }
-  &.flex-1 {
-    flex: 1 1 0% !important;
-  }
+  color: var(--color-muted-fg);
 `;
 
 const StyledHeaderContent = styled.div`
@@ -158,7 +125,7 @@ export const Header = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledHeader ref={ref} className={cn(className)} {...props}>
+    <StyledHeader ref={ref} className={className} {...props}>
       {children}
     </StyledHeader>
   );
@@ -170,7 +137,7 @@ export const HeaderTagline = React.forwardRef<
   React.ComponentPropsWithoutRef<"h3">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledHeaderTagline ref={ref} className={cn(className)} {...props}>
+    <StyledHeaderTagline ref={ref} className={className} {...props}>
       {children}
     </StyledHeaderTagline>
   );
@@ -182,7 +149,7 @@ export const HeaderTitle = React.forwardRef<
   React.ComponentPropsWithoutRef<"h2">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledHeaderTitle ref={ref} className={cn(className)} {...props}>
+    <StyledHeaderTitle ref={ref} className={className} {...props}>
       {children}
     </StyledHeaderTitle>
   );
@@ -194,7 +161,7 @@ export const HeaderBody = React.forwardRef<
   React.ComponentPropsWithoutRef<"p">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledHeaderBody ref={ref} className={cn(className)} {...props}>
+    <StyledHeaderBody ref={ref} className={className} {...props}>
       {children}
     </StyledHeaderBody>
   );
@@ -206,7 +173,7 @@ export const HeaderContent = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledHeaderContent ref={ref} className={cn(className)} {...props}>
+    <StyledHeaderContent ref={ref} className={className} {...props}>
       {children}
     </StyledHeaderContent>
   );
@@ -218,7 +185,7 @@ export const HeaderActions = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledHeaderActions ref={ref} className={cn(className)} {...props}>
+    <StyledHeaderActions ref={ref} className={className} {...props}>
       {children}
     </StyledHeaderActions>
   );
@@ -230,7 +197,7 @@ export const HeaderBackdrop = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledHeaderBackdrop ref={ref} className={cn(className)} {...props}>
+    <StyledHeaderBackdrop ref={ref} className={className} {...props}>
       {children}
     </StyledHeaderBackdrop>
   );
@@ -248,7 +215,7 @@ export const HeaderBackdropImage = React.forwardRef<
       src="https://dummyimage.com/1920x1200/d4d4d4/171717"
       alt="hero image"
       aria-hidden="true"
-      className={cn(className)}
+      className={className}
       {...props}
     />
   );
