@@ -31,10 +31,15 @@ const Slider = React.forwardRef<
   return (
     <SliderPrimitive.Root
       ref={ref}
-      className={cn(
-        "relative flex w-full touch-none select-none items-center",
-        className
-      )}
+      className={className}
+      style={{
+        position: "relative",
+        display: "flex",
+        width: "100%",
+        touchAction: "none",
+        userSelect: "none",
+        alignItems: "center",
+      }}
       value={sliderValue}
       onValueChange={handleValueChange}
       defaultValue={sliderDefaultValue}
