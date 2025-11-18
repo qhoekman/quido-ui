@@ -33,6 +33,7 @@ const StyledTabsList = styled(TabsPrimitive.List)`
 const StyledTabsTrigger = styled(TabsPrimitive.Trigger)`
   position: relative;
   display: flex;
+  aspect-ratio: 1 / 1;
   height: var(--spacing-24);
   cursor: pointer;
   align-items: center;
@@ -45,6 +46,7 @@ const StyledTabsTrigger = styled(TabsPrimitive.Trigger)`
   color: var(--color-gray-900);
   border: 0 none;
   outline: none;
+  overflow: hidden;
 
   &:hover {
     background-color: var(--color-gray-50);
@@ -52,7 +54,8 @@ const StyledTabsTrigger = styled(TabsPrimitive.Trigger)`
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px hsl(from var(--color-ring) h s l / 50%), 0 0 0 4px var(--color-background);
+    box-shadow: 0 0 0 2px hsl(from var(--color-ring) h s l / 50%),
+      0 0 0 4px var(--color-background);
   }
 `;
 
@@ -100,7 +103,7 @@ export const TieredGallery = React.forwardRef<
 TieredGallery.displayName = "TieredGallery";
 
 const StyledTieredGalleryImage = styled.img`
-  height: 100%;
+  aspect-ratio: 1 / 1;
   width: 100%;
   object-fit: cover;
   object-position: center;
@@ -110,7 +113,9 @@ export const TieredGalleryImage = React.forwardRef<
   HTMLImageElement,
   React.ImgHTMLAttributes<HTMLImageElement>
 >(({ className, ...props }, ref) => {
-  return <StyledTieredGalleryImage ref={ref} className={className} {...props} />;
+  return (
+    <StyledTieredGalleryImage ref={ref} className={className} {...props} />
+  );
 });
 
 TieredGalleryImage.displayName = "TieredGalleryImage";
