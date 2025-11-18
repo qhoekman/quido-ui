@@ -48,6 +48,10 @@ export const WithInset: StoryFn<typeof Block> = (args) => (
   </ViewportLayout>
 );
 
+WithInset.args = {
+  inset: true,
+};
+
 WithInset.parameters = {
   layout: "fullscreen",
   viewport: {
@@ -65,6 +69,10 @@ export const WithOutline: StoryFn<typeof Block> = (args) => (
     </Block>
   </ViewportLayout>
 );
+
+WithOutline.args = {
+  outline: true,
+};
 
 WithOutline.parameters = {
   layout: "fullscreen",

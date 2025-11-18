@@ -14,7 +14,8 @@ const StyledBlock = styled.div`
   margin-bottom: var(--spacing-8);
   padding-top: var(--spacing-4);
   padding-bottom: var(--spacing-4);
-  background-color: var(--color-neutral-50);
+  background-color: var(--color-muted);
+  color: var(--color-muted-fg);
 
   &.inset {
     margin-left: var(--spacing-4);
@@ -22,7 +23,7 @@ const StyledBlock = styled.div`
   }
 
   &.outline {
-    border: var(--border-width-default) solid var(--color-neutral-300);
+    border: var(--border-width-default) solid var(--color-border);
   }
 `;
 
