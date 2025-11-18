@@ -82,18 +82,20 @@ const buttonStyles = css`
   }
 
   &.variant--outline {
-    border: var(--border-width-default) solid var(--color-neutral-200);
+    color: var(--color-background-fg);
+    border: var(--border-width-default) solid var(--color-border);
     background-color: transparent;
 
     &:hover {
-      background-color: var(--color-neutral-100);
-      color: var(--color-background-fg);
+      background-color: hsl(from var(--color-background-fg) h s l / 10%);
+      color: hsl(from var(--color-background-fg) h s l / 90%);
     }
   }
 
   &.variant--ghost {
+    color: var(--color-background-fg);
     &:hover {
-      background-color: var(--color-neutral-100);
+      background-color: hsl(from var(--color-background-fg) h s l / 10%);
       color: hsl(from var(--color-background-fg) h s l / 90%);
     }
   }
