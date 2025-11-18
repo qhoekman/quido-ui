@@ -103,13 +103,11 @@ const StyledDialogContent = styled(DialogPrimitive.Content)`
   transition-duration: 200ms;
 
   &[data-state="open"] {
-    animation: fade-in 0.2s ease-in-out, zoom-in 0.2s ease-in-out,
-      slide-in-from-left 0.2s ease-in-out, slide-in-from-top 0.2s ease-in-out;
+    animation: fade-in 0.2s ease-in-out;
   }
 
   &[data-state="closed"] {
-    animation: fade-out 0.2s ease-in-out, zoom-out 0.2s ease-in-out,
-      slide-out-to-left 0.2s ease-in-out, slide-out-to-top 0.2s ease-in-out;
+    animation: fade-out 0.2s ease-in-out;
   }
 
   @media (min-width: 640px) {
@@ -131,60 +129,6 @@ const StyledDialogContent = styled(DialogPrimitive.Content)`
     }
     to {
       opacity: 0;
-    }
-  }
-
-  @keyframes zoom-in {
-    from {
-      transform: translate(-50%, -50%) scale(0.95);
-    }
-    to {
-      transform: translate(-50%, -50%) scale(1);
-    }
-  }
-
-  @keyframes zoom-out {
-    from {
-      transform: translate(-50%, -50%) scale(1);
-    }
-    to {
-      transform: translate(-50%, -50%) scale(0.95);
-    }
-  }
-
-  @keyframes slide-in-from-left {
-    from {
-      transform: translate(calc(-50% - 50%), -50%);
-    }
-    to {
-      transform: translate(-50%, -50%);
-    }
-  }
-
-  @keyframes slide-in-from-top {
-    from {
-      transform: translate(-50%, calc(-50% - 48%));
-    }
-    to {
-      transform: translate(-50%, -50%);
-    }
-  }
-
-  @keyframes slide-out-to-left {
-    from {
-      transform: translate(-50%, -50%);
-    }
-    to {
-      transform: translate(calc(-50% - 50%), -50%);
-    }
-  }
-
-  @keyframes slide-out-to-top {
-    from {
-      transform: translate(-50%, -50%);
-    }
-    to {
-      transform: translate(-50%, calc(-50% - 48%));
     }
   }
 `;
