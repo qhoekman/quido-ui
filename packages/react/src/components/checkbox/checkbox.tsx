@@ -2,6 +2,7 @@ import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { Check } from "lucide-react";
 import * as React from "react";
 import styled from "styled-components";
+import { Label } from "../label/label";
 
 const StyledCheckboxRoot = styled(CheckboxPrimitive.Root)`
   height: var(--spacing-4);
@@ -35,6 +36,20 @@ const StyledCheckboxIndicator = styled(CheckboxPrimitive.Indicator)`
   color: currentColor;
 `;
 
+const CheckboxLabel = styled(Label)`
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-none);
+
+  /* Peer disabled styles */
+  [data-disabled] &,
+  .peer:disabled ~ &,
+  .peer[data-disabled="true"] ~ & {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+`;
+
 const StyledCheckIcon = styled(Check)`
   height: var(--spacing-4);
   width: var(--spacing-4);
@@ -56,4 +71,4 @@ const Checkbox = React.forwardRef<
 ));
 Checkbox.displayName = CheckboxPrimitive.Root.displayName;
 
-export { Checkbox };
+export { Checkbox, CheckboxLabel };

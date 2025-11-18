@@ -1,6 +1,7 @@
-import { Checkbox } from "@/components/checkbox/checkbox";
+import { Checkbox, CheckboxLabel } from "@/components/checkbox/checkbox";
 import { Label } from "@/components/label/label";
 import type { Meta, StoryFn } from "@storybook/react-vite";
+import { useState } from "react";
 
 export default {
   title: "Components/Data Manipulation/Checkbox",
@@ -32,14 +33,19 @@ export default {
   },
 } satisfies Meta<typeof Checkbox>;
 
-export const Default: StoryFn<typeof Checkbox> = (args) => (
-  <div className="flex items-center space-x-2">
-    <Checkbox id="terms" {...args} />
-    <Label
-      htmlFor="terms"
-      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+export const Default: StoryFn<typeof Checkbox> = (args) => {
+  const [checked, setChecked] = useState(args.checked ?? false);
+  return (
+    <div
+      style={{ display: "flex", alignItems: "center", gap: "var(--spacing-2)" }}
     >
-      Accept terms and conditions
-    </Label>
-  </div>
-);
+      <Checkbox
+        id="terms"
+        {...args}
+        checked={checked}
+        onCheckedChange={setChecked}
+      />
+      <CheckboxLabel htmlFor="terms">Accept terms and conditions</CheckboxLabel>
+    </div>
+  );
+};
