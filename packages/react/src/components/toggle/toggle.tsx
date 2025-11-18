@@ -47,14 +47,17 @@ const toggleStyles = css`
     opacity: 0.5;
   }
 
-  &[data-state="on"] {
-    background-color: var(--color-muted);
-    color: var(--color-muted-fg);
-  }
-
   &.variant--primary {
     background-color: transparent;
     border: var(--border-width-default) solid var(--color-muted);
+  }
+  &.variant--primary:not([data-state="on"]) {
+    background-color: transparent;
+    border: var(--border-width-default) solid var(--color-muted);
+  }
+  &.variant--primary[data-state="on"] {
+    background-color: var(--color-primary);
+    color: var(--color-primary-fg);
   }
 
   &.variant--outline {
@@ -66,6 +69,15 @@ const toggleStyles = css`
       background-color: var(--color-muted);
       color: var(--color-muted-fg);
     }
+  }
+
+  &.variant--outline:not([data-state="on"]) {
+    border: var(--border-width-default) solid var(--color-input);
+    background-color: transparent;
+    box-shadow: var(--box-shadow-sm);
+  }
+  &.variant--outline[data-state="on"] {
+    border: var(--border-width-default) solid var(--color-primary);
   }
 
   &.size--md {
