@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledDefinitionList = styled.dl`
   > * + * {
-    border-top: 1px solid var(--color-neutral-100);
+    border-top: 1px solid var(--color-border);
   }
 `;
 
@@ -26,14 +26,14 @@ const StyledDefinitionTerm = styled.dt`
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-6);
-  color: var(--color-gray-900);
+  color: var(--color-background-fg);
 `;
 
 const StyledDefinitionDescription = styled.dd`
   margin-top: var(--spacing-1);
   font-size: var(--font-size-sm);
   line-height: var(--line-height-6);
-  color: var(--color-gray-700);
+  color: var(--color-muted-fg);
 
   @media (min-width: 640px) {
     grid-column: span 2 / span 2;
