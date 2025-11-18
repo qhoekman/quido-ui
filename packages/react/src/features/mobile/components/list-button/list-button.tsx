@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledListButton = styled.button`
   position: relative;
-  border-bottom: var(--border-width-default) solid var(--color-neutral-300);
+  border-bottom: var(--border-width-default) solid var(--color-muted-fg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,11 +35,7 @@ export const ListButton = React.forwardRef<
   React.ComponentPropsWithoutRef<"button">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledListButton
-      ref={ref}
-      className={className}
-      {...props}
-    >
+    <StyledListButton ref={ref} className={className} {...props}>
       {children}
     </StyledListButton>
   );

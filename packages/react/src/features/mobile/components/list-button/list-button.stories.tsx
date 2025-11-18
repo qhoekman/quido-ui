@@ -27,7 +27,7 @@ export const Default: StoryFn<typeof ListButton> = (args) => (
     <Block className="p-0" inset>
       <ul>
         {Array.from({ length: 5 }).map((_, index) => (
-          <li key={index}>
+          <li key={index} style={{ listStyle: "none" }}>
             <ListButton {...args}>
               <span>Button</span>
             </ListButton>
