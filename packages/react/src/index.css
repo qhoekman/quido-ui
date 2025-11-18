@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer base {
   /* Variables */
   :root {
@@ -516,6 +512,25 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+  }
+
+  a {
+    color: var(--color-background-fg);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
   }
 
   @media (prefers-reduced-motion: reduce) {
