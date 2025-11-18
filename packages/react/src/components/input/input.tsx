@@ -7,7 +7,8 @@ const StyledInput = styled.input`
   width: 100%;
   border-radius: var(--border-radius-md);
   border: var(--border-width-default) solid var(--color-border);
-  background-color: var(--color-white);
+  background-color: var(--color-input);
+  color: var(--color-input-fg);
   padding-left: var(--spacing-3);
   padding-right: var(--spacing-3);
   padding-top: var(--spacing-2);
@@ -42,12 +43,7 @@ export type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, ...props }, ref) => {
     return (
-      <StyledInput
-        type={type}
-        className={className}
-        ref={ref}
-        {...props}
-      />
+      <StyledInput type={type} className={className} ref={ref} {...props} />
     );
   }
 );
