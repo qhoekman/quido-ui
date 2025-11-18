@@ -82,7 +82,8 @@ const StyledIndicator = styled.div`
   width: var(--spacing-4);
   height: var(--spacing-4);
   border-radius: var(--border-radius-full);
-  box-shadow: 0 0 0 2px transparent, 0 0 0 3px var(--color-black);
+  box-shadow: 0 0 0 2px transparent,
+    0 0 0 var(--border-width-default) var(--color-black);
 `;
 
 const StyledColorSelectorItems = styled.div`
