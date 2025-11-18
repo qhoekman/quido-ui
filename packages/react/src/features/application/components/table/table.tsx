@@ -27,7 +27,8 @@ const StyledTableBody = styled.tbody`
 
 const StyledTableFooter = styled.tfoot`
   border-top: var(--border-width-default) solid var(--color-border);
-  background-color: var(--color-neutral-50);
+  background-color: var(--color-muted);
+  color: var(--color-muted-fg);
   font-weight: var(--font-weight-medium);
 
   & > tr:last-child {
@@ -40,11 +41,11 @@ const StyledTableRow = styled.tr`
   transition: colors 0.3s;
 
   &:hover {
-    background-color: var(--color-neutral-50);
+    background-color: hsl(from var(--color-background-fg) h s l / 10%);
   }
 
   &[data-state="selected"] {
-    background-color: var(--color-neutral-100);
+    background-color: hsl(from var(--color-background-fg) h s l / 30%);
   }
 `;
 
