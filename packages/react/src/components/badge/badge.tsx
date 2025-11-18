@@ -32,6 +32,9 @@ const badgeStyles = css`
   font-weight: var(--font-weight-semibold);
   line-height: 1;
   white-space: nowrap;
+  position: relative;
+  top: calc(var(--spacing-1) * -1);
+  margin-left: var(--spacing-1);
 
   &.variant--primary {
     background-color: var(--color-primary);
