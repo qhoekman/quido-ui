@@ -80,7 +80,13 @@ export const WithMenuRight: StoryFn<typeof Navbar> = (args) => (
   <Navbar {...args}>
     <NavbarBrand>
       <NavbarLogo aria-label="Your company">
-        <CompanyLogo className="h-8 w-auto fill-neutral-900" />
+        <CompanyLogo
+          style={{
+            height: "var(--spacing-8)",
+            width: "auto",
+            fill: "var(--color-background-fg)",
+          }}
+        />
       </NavbarLogo>
     </NavbarBrand>
 
@@ -131,7 +137,13 @@ export const WithMenuLeft: StoryFn<typeof Navbar> = (args) => (
   <Navbar {...args}>
     <NavbarBrand className="lg:flex-grow-0 lg:mr-6">
       <NavbarLogo aria-label="Your company">
-        <CompanyLogo className="h-8 w-auto fill-neutral-900" />
+        <CompanyLogo
+          style={{
+            height: "var(--spacing-8)",
+            width: "auto",
+            fill: "var(--color-background-fg)",
+          }}
+        />
       </NavbarLogo>
     </NavbarBrand>
     <NavbarItems>
@@ -177,7 +189,13 @@ export const WithMenuCenter: StoryFn<typeof Navbar> = (args) => (
   <Navbar {...args}>
     <NavbarBrand>
       <NavbarLogo aria-label="Your company">
-        <CompanyLogo className="h-8 w-auto fill-neutral-900" />
+        <CompanyLogo
+          style={{
+            height: "var(--spacing-8)",
+            width: "auto",
+            fill: "var(--color-background-fg)",
+          }}
+        />
       </NavbarLogo>
     </NavbarBrand>
     <NavbarItems>
@@ -251,7 +269,13 @@ export const WithLogoCenter: StoryFn<typeof Navbar> = (args) => (
     </NavbarItems>
     <NavbarBrand className="lg:flex-grow-0">
       <NavbarLogo aria-label="Your company">
-        <CompanyLogo className="h-8 w-auto fill-neutral-900" />
+        <CompanyLogo
+          style={{
+            height: "var(--spacing-8)",
+            width: "auto",
+            fill: "var(--color-background-fg)",
+          }}
+        />
       </NavbarLogo>
     </NavbarBrand>
     <NavbarActions className="lg:flex-none w-[400px]">
@@ -266,7 +290,13 @@ export const WithActionsCenter: StoryFn<typeof Navbar> = (args) => (
   <Navbar {...args}>
     <NavbarBrand className="lg:flex-grow-0">
       <NavbarLogo aria-label="Your company">
-        <CompanyLogo className="h-8 w-auto fill-neutral-900" />
+        <CompanyLogo
+          style={{
+            height: "var(--spacing-8)",
+            width: "auto",
+            fill: "var(--color-background-fg)",
+          }}
+        />
       </NavbarLogo>
     </NavbarBrand>
     <NavbarActions className="lg:justify-start ml-6">
@@ -308,7 +338,13 @@ export const WithMobileMenu: StoryFn<typeof Navbar> = (args) => (
   <Navbar {...args}>
     <NavbarBrand>
       <NavbarLogo aria-label="Your company">
-        <CompanyLogo className="h-8 w-auto fill-neutral-900" />
+        <CompanyLogo
+          style={{
+            height: "var(--spacing-8)",
+            width: "auto",
+            fill: "var(--color-background-fg)",
+          }}
+        />
       </NavbarLogo>
     </NavbarBrand>
 
@@ -353,12 +389,25 @@ export const WithMobileMenu: StoryFn<typeof Navbar> = (args) => (
     </NavbarItems>
     <NavbarMobile>
       <NavbarMobileTrigger>
-        <MenuIcon className="h-6 w-6 stroke-neutral-800" aria-hidden="true" />
+        <MenuIcon
+          style={{
+            height: "var(--spacing-6)",
+            width: "var(--spacing-6)",
+            stroke: "var(--color-background-fg)",
+          }}
+          aria-hidden="true"
+        />
       </NavbarMobileTrigger>
       <NavbarMobileContent>
         <NavbarMobileHeader>
           <NavbarMobileLogo aria-label="Your company">
-            <CompanyLogo className="h-8 w-auto fill-neutral-900" />
+            <CompanyLogo
+              style={{
+                height: "var(--spacing-8)",
+                width: "auto",
+                fill: "var(--color-background-fg)",
+              }}
+            />
           </NavbarMobileLogo>
           <NavbarMobileClose />
         </NavbarMobileHeader>
@@ -419,7 +468,13 @@ export const WithMegaMenu: StoryFn<typeof Navbar> = (args) => (
   <Navbar {...args}>
     <NavbarBrand className="lg:flex-grow-0 lg:mr-6">
       <NavbarLogo aria-label="Your company">
-        <CompanyLogo className="h-8 w-auto fill-neutral-900" />
+        <CompanyLogo
+          style={{
+            height: "var(--spacing-8)",
+            width: "auto",
+            fill: "var(--color-background-fg)",
+          }}
+        />
       </NavbarLogo>
     </NavbarBrand>
 

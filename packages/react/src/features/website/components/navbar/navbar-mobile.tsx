@@ -26,7 +26,7 @@ const StyledNavbarMobileTriggerWrapper = styled.div`
 const StyledXIcon = styled(XIcon)`
   height: var(--spacing-6);
   width: var(--spacing-6);
-  stroke: var(--color-neutral-800);
+  stroke: var(--color-background-fg);
 `;
 
 const StyledNavbarMobileHeader = styled.div`
@@ -59,7 +59,7 @@ const StyledNavbarMobileContent = styled(DialogPrimitive.Content)`
 
   @media (min-width: 640px) {
     max-width: 24rem;
-    box-shadow: 0 0 0 1px hsl(from var(--color-neutral-900) h s l / 10%);
+    box-shadow: 0 0 0 1px hsl(from var(--color-background-fg) h s l / 10%);
   }
 `;
 
@@ -73,7 +73,8 @@ const StyledNavbarMobileGroup = styled.div`
   margin-bottom: calc(var(--spacing-6) * -1);
 
   > * + * {
-    border-top: var(--border-width-default) solid hsl(from var(--color-neutral-500) h s l / 30%);
+    border-top: var(--border-width-default) solid
+      hsl(from var(--color-border) h s l / 30%);
   }
 `;
 
@@ -97,10 +98,10 @@ const StyledNavbarMobileLink = styled.a`
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-7);
-  color: var(--color-neutral-900);
+  color: var(--color-background-fg);
 
   &:hover {
-    background-color: var(--color-neutral-100);
+    background-color: var(--color-muted);
   }
 `;
 
@@ -116,7 +117,7 @@ const StyledNavbarMobileDropdownLabel = styled.span`
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-7);
-  color: var(--color-neutral-900);
+  color: var(--color-background-fg);
 `;
 
 const StyledNavbarMobileDropdownGroup = styled.div`
@@ -136,10 +137,10 @@ const StyledNavbarMobileDropdownLink = styled.a`
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-7);
-  color: var(--color-neutral-600);
+  color: var(--color-muted-fg);
 
   &:hover {
-    background-color: var(--color-neutral-100);
+    background-color: var(--color-muted);
   }
 `;
 
@@ -274,7 +275,12 @@ const NavbarMobileLink = React.forwardRef<
   React.ComponentPropsWithoutRef<"a">
 >(({ className, href, children, ...props }, ref) => {
   return (
-    <StyledNavbarMobileLink ref={ref} href={href} className={className} {...props}>
+    <StyledNavbarMobileLink
+      ref={ref}
+      href={href}
+      className={className}
+      {...props}
+    >
       {children}
     </StyledNavbarMobileLink>
   );
@@ -292,12 +298,7 @@ const NavbarMobileLogo = React.forwardRef<
 >(({ children, "aria-label": title, href, className, ...props }, ref) => {
   return (
     <StyledNavbarMobileLogoWrapper>
-      <NavbarLink
-        ref={ref}
-        href={href}
-        className={className}
-        {...props}
-      >
+      <NavbarLink ref={ref} href={href} className={className} {...props}>
         <span className="sr-only">{title}</span>
         {children}
       </NavbarLink>
@@ -335,7 +336,12 @@ const NavbarMobileDropdownLink = React.forwardRef<
   React.ComponentPropsWithoutRef<"a">
 >(({ className, href, children, ...props }, ref) => {
   return (
-    <StyledNavbarMobileDropdownLink ref={ref} href={href} className={className} {...props}>
+    <StyledNavbarMobileDropdownLink
+      ref={ref}
+      href={href}
+      className={className}
+      {...props}
+    >
       {children}
     </StyledNavbarMobileDropdownLink>
   );

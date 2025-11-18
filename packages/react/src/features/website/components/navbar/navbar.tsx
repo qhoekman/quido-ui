@@ -15,7 +15,7 @@ const StyledNavbarHeader = styled.header`
   right: 0;
   top: 0;
   z-index: var(--z-index-50);
-  border-bottom: var(--border-width-default) solid var(--color-neutral-300);
+  border-bottom: var(--border-width-default) solid var(--color-border);
   padding: var(--spacing-6);
 `;
 
@@ -47,14 +47,14 @@ const StyledNavbarLink = styled.a`
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-6);
-  color: var(--color-neutral-900);
+  color: var(--color-background-fg);
 `;
 
 const StyledChevronDown = styled(ChevronDown)`
   margin-left: var(--spacing-2);
   height: var(--spacing-5);
   width: var(--spacing-5);
-  stroke: var(--color-neutral-700);
+  stroke: var(--color-muted-fg);
 `;
 
 const StyledNavbarDropdownContent = styled(DropdownMenuContent)`
@@ -77,10 +77,10 @@ const StyledNavbarDropdownLink = styled.a<{ $isActive?: boolean }>`
   padding-bottom: var(--spacing-2);
   width: 100%;
   background-color: ${(props) =>
-    props.$isActive ? "var(--color-neutral-100)" : "transparent"};
+    props.$isActive ? "var(--color-primary)" : "transparent"};
 
   &:hover {
-    background-color: var(--color-neutral-100);
+    background-color: var(--color-muted);
   }
 `;
 
@@ -114,11 +114,7 @@ const Navbar = React.forwardRef<
 >(({ children, className, "aria-label": ariaLabel, ...props }, ref) => {
   return (
     <StyledNavbarHeader className={className}>
-      <StyledNavbarNav
-        ref={ref}
-        aria-label={ariaLabel}
-        {...props}
-      >
+      <StyledNavbarNav ref={ref} aria-label={ariaLabel} {...props}>
         {children}
       </StyledNavbarNav>
     </StyledNavbarHeader>
