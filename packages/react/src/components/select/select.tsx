@@ -46,6 +46,12 @@ const StyledSelectTrigger = styled(SelectPrimitive.Trigger)`
   }
 `;
 
+const StyledSelectIcon = styled(ChevronsUpDown)`
+  height: var(--spacing-4);
+  width: var(--spacing-4);
+  opacity: 0.5;
+`;
+
 const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
@@ -53,7 +59,7 @@ const SelectTrigger = React.forwardRef<
   <StyledSelectTrigger ref={ref} className={className} {...props}>
     {children}
     <SelectPrimitive.Icon asChild>
-      <ChevronsUpDown className="h-4 w-4 opacity-50" />
+      <StyledSelectIcon />
     </SelectPrimitive.Icon>
   </StyledSelectTrigger>
 ));
@@ -68,12 +74,17 @@ const StyledSelectScrollUpButton = styled(SelectPrimitive.ScrollUpButton)`
   padding-bottom: var(--spacing-1);
 `;
 
+const StyledChevronUp = styled(ChevronUp)`
+  height: var(--spacing-4);
+  width: var(--spacing-4);
+`;
+
 const SelectScrollUpButton = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.ScrollUpButton>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollUpButton>
 >(({ className, ...props }, ref) => (
   <StyledSelectScrollUpButton ref={ref} className={className} {...props}>
-    <ChevronUp />
+    <StyledChevronUp />
   </StyledSelectScrollUpButton>
 ));
 SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName;
@@ -87,12 +98,17 @@ const StyledSelectScrollDownButton = styled(SelectPrimitive.ScrollDownButton)`
   padding-bottom: var(--spacing-1);
 `;
 
+const StyledChevronDown = styled(ChevronDown)`
+  height: var(--spacing-4);
+  width: var(--spacing-4);
+`;
+
 const SelectScrollDownButton = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.ScrollDownButton>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollDownButton>
 >(({ className, ...props }, ref) => (
   <StyledSelectScrollDownButton ref={ref} className={className} {...props}>
-    <ChevronDown />
+    <StyledChevronDown />
   </StyledSelectScrollDownButton>
 ));
 SelectScrollDownButton.displayName =
@@ -104,7 +120,7 @@ const StyledSelectContent = styled(SelectPrimitive.Content)<{
   color: var(--color-popover-fg);
   z-index: var(--z-index-100);
   position: relative;
-  max-height: var(--spacing-96);
+  max-height: 24rem;
   min-width: 8rem;
   overflow: hidden;
   border-radius: var(--border-radius-md);
@@ -112,36 +128,28 @@ const StyledSelectContent = styled(SelectPrimitive.Content)<{
   background-color: var(--color-white);
   box-shadow: var(--box-shadow-md);
 
-  &[data-state="open"][data-side="bottom"] {
-    animation: fadeInZoomInSlideFromTop 0.15s ease-out;
+  &[data-state="open"] {
+    animation: fadeIn 0.15s ease-out, zoomIn 0.15s ease-out;
   }
 
-  &[data-state="open"][data-side="left"] {
-    animation: fadeInZoomInSlideFromRight 0.15s ease-out;
+  &[data-state="closed"] {
+    animation: fadeOut 0.15s ease-in, zoomOut 0.15s ease-in;
   }
 
-  &[data-state="open"][data-side="right"] {
-    animation: fadeInZoomInSlideFromLeft 0.15s ease-out;
+  &[data-side="bottom"] {
+    animation: slideInFromTop 0.15s ease-out;
   }
 
-  &[data-state="open"][data-side="top"] {
-    animation: fadeInZoomInSlideFromBottom 0.15s ease-out;
+  &[data-side="left"] {
+    animation: slideInFromRight 0.15s ease-out;
   }
 
-  &[data-state="closed"][data-side="bottom"] {
-    animation: fadeOutZoomOutSlideToTop 0.15s ease-in;
+  &[data-side="right"] {
+    animation: slideInFromLeft 0.15s ease-out;
   }
 
-  &[data-state="closed"][data-side="left"] {
-    animation: fadeOutZoomOutSlideToRight 0.15s ease-in;
-  }
-
-  &[data-state="closed"][data-side="right"] {
-    animation: fadeOutZoomOutSlideToLeft 0.15s ease-in;
-  }
-
-  &[data-state="closed"][data-side="top"] {
-    animation: fadeOutZoomOutSlideToBottom 0.15s ease-in;
+  &[data-side="top"] {
+    animation: slideInFromBottom 0.15s ease-out;
   }
 
   ${(props) =>
@@ -161,91 +169,75 @@ const StyledSelectContent = styled(SelectPrimitive.Content)<{
     }
   `}
 
-  @keyframes fadeInZoomInSlideFromTop {
+  @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: scale(0.95) translateY(calc(-1 * var(--spacing-2)));
     }
     to {
       opacity: 1;
-      transform: scale(1) translateY(0);
     }
   }
 
-  @keyframes fadeInZoomInSlideFromRight {
+  @keyframes fadeOut {
     from {
-      opacity: 0;
-      transform: scale(0.95) translateX(var(--spacing-2));
+      opacity: 1;
     }
     to {
-      opacity: 1;
-      transform: scale(1) translateX(0);
+      opacity: 0;
     }
   }
 
-  @keyframes fadeInZoomInSlideFromLeft {
+  @keyframes zoomIn {
     from {
-      opacity: 0;
-      transform: scale(0.95) translateX(calc(-1 * var(--spacing-2)));
+      transform: scale(0.95);
     }
     to {
-      opacity: 1;
-      transform: scale(1) translateX(0);
+      transform: scale(1);
     }
   }
 
-  @keyframes fadeInZoomInSlideFromBottom {
+  @keyframes zoomOut {
     from {
-      opacity: 0;
-      transform: scale(0.95) translateY(var(--spacing-2));
+      transform: scale(1);
     }
     to {
-      opacity: 1;
-      transform: scale(1) translateY(0);
+      transform: scale(0.95);
     }
   }
 
-  @keyframes fadeOutZoomOutSlideToTop {
+  @keyframes slideInFromTop {
     from {
-      opacity: 1;
-      transform: scale(1) translateY(0);
+      transform: translateY(calc(-1 * var(--spacing-2)));
     }
     to {
-      opacity: 0;
-      transform: scale(0.95) translateY(calc(-1 * var(--spacing-2)));
+      transform: translateY(0);
     }
   }
 
-  @keyframes fadeOutZoomOutSlideToRight {
+  @keyframes slideInFromRight {
     from {
-      opacity: 1;
-      transform: scale(1) translateX(0);
+      transform: translateX(var(--spacing-2));
     }
     to {
-      opacity: 0;
-      transform: scale(0.95) translateX(var(--spacing-2));
+      transform: translateX(0);
     }
   }
 
-  @keyframes fadeOutZoomOutSlideToLeft {
+  @keyframes slideInFromLeft {
     from {
-      opacity: 1;
-      transform: scale(1) translateX(0);
+      transform: translateX(calc(-1 * var(--spacing-2)));
     }
     to {
-      opacity: 0;
-      transform: scale(0.95) translateX(calc(-1 * var(--spacing-2)));
+      transform: translateX(0);
     }
   }
 
-  @keyframes fadeOutZoomOutSlideToBottom {
+  @keyframes slideInFromBottom {
     from {
-      opacity: 1;
-      transform: scale(1) translateY(0);
+      transform: translateY(var(--spacing-2));
     }
     to {
-      opacity: 0;
-      transform: scale(0.95) translateY(var(--spacing-2));
+      transform: translateY(0);
     }
   }
 `;
@@ -303,6 +295,21 @@ const SelectLabel = React.forwardRef<
 ));
 SelectLabel.displayName = SelectPrimitive.Label.displayName;
 
+const StyledSelectItemIndicatorWrapper = styled.span`
+  position: absolute;
+  right: var(--spacing-2);
+  display: flex;
+  height: var(--spacing-3-5);
+  width: var(--spacing-3-5);
+  align-items: center;
+  justify-content: center;
+`;
+
+const StyledCheckIcon = styled(Check)`
+  height: var(--spacing-4);
+  width: var(--spacing-4);
+`;
+
 const StyledSelectItem = styled(SelectPrimitive.Item)`
   position: relative;
   display: flex;
@@ -319,23 +326,13 @@ const StyledSelectItem = styled(SelectPrimitive.Item)`
   outline: none;
 
   &:focus {
-    color: var(--color-accent-fg);
-    background-color: var(--color-accent);
+    color: var(--color-background-fg);
+    background-color: var(--color-muted);
   }
 
   &[data-disabled] {
     pointer-events: none;
     opacity: 0.5;
-  }
-
-  & > span {
-    position: absolute;
-    right: var(--spacing-2);
-    display: flex;
-    height: var(--spacing-3-5);
-    width: var(--spacing-3-5);
-    align-items: center;
-    justify-content: center;
   }
 `;
 
@@ -344,11 +341,11 @@ const SelectItem = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
 >(({ className, children, ...props }, ref) => (
   <StyledSelectItem ref={ref} className={className} {...props}>
-    <span>
+    <StyledSelectItemIndicatorWrapper>
       <SelectPrimitive.ItemIndicator>
-        <Check className="h-4 w-4" />
+        <StyledCheckIcon />
       </SelectPrimitive.ItemIndicator>
-    </span>
+    </StyledSelectItemIndicatorWrapper>
     <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
   </StyledSelectItem>
 ));
