@@ -8,24 +8,23 @@ export default {
   argTypes: {
     variant: {
       control: "select",
-      options: ["primary", "destructive", "outline", "secondary"],
-    },
-    size: {
-      control: "select",
-      options: ["sm", "md", "lg"],
+      options: ["primary", "secondary", "destructive", "outline"],
     },
   },
   args: {
     variant: "primary",
-    size: "md",
   },
 } satisfies Meta<typeof Tag>;
 
 export const Default: StoryFn<typeof Tag> = (args) => (
-  <div>
-    Lorem ipsum dolor sit amet
-    <Tag {...args} className="relative -top-1 ml-1">
-      Tag
-    </Tag>
+  <Tag {...args}>New</Tag>
+);
+
+export const Variants: StoryFn<typeof Tag> = () => (
+  <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+    <Tag variant="primary">Primary</Tag>
+    <Tag variant="secondary">Secondary</Tag>
+    <Tag variant="destructive">Destructive</Tag>
+    <Tag variant="outline">Outline</Tag>
   </div>
 );

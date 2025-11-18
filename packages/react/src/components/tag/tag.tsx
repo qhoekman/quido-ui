@@ -6,66 +6,70 @@ const tagVariants = cva("q-tag", {
   variants: {
     variant: {
       primary: "variant--primary",
+      secondary: "variant--secondary",
       destructive: "variant--destructive",
       outline: "variant--outline",
-      secondary: "variant--secondary",
-    },
-    size: {
-      sm: "size--sm",
-      md: "size--md",
-      lg: "size--lg",
     },
   },
   defaultVariants: {
     variant: "primary",
-    size: "md",
   },
 });
 
 const tagStyles = css`
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  border-radius: var(--border-radius-full);
-  text-align: center;
+  border-radius: var(--border-radius-md);
+  border: var(--border-width-default) solid var(--color-border);
+  padding-left: var(--spacing-2-5);
+  padding-right: var(--spacing-2-5);
+  padding-top: var(--spacing-0-5);
+  padding-bottom: var(--spacing-0-5);
   font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  transition: colors 0.3s;
+  outline: none;
+  box-shadow: 0 0 0 0 var(--color-background);
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-ring), 0 0 0 4px var(--color-background);
+  }
 
   &.variant--primary {
+    border-color: transparent;
     background-color: var(--color-primary);
     color: var(--color-primary-fg);
-  }
-
-  &.variant--destructive {
-    background-color: var(--color-danger);
-    color: var(--color-danger-fg);
-  }
-
-  &.variant--outline {
-    border: var(--border-width-default) solid var(--color-input);
+    box-shadow: var(--box-shadow-sm);
 
     &:hover {
-      background-color: var(--color-muted);
+      background-color: hsl(from var(--color-primary) h s l / 80%);
     }
   }
 
   &.variant--secondary {
+    border-color: transparent;
     background-color: var(--color-secondary);
     color: var(--color-secondary-fg);
+
+    &:hover {
+      background-color: hsl(from var(--color-secondary) h s l / 80%);
+    }
   }
 
-  &.size--sm {
-    width: var(--spacing-3);
-    height: var(--spacing-3);
+  &.variant--destructive {
+    border-color: transparent;
+    background-color: var(--color-danger);
+    color: var(--color-danger-fg);
+    box-shadow: var(--box-shadow-sm);
+
+    &:hover {
+      background-color: hsl(from var(--color-danger) h s l / 80%);
+    }
   }
 
-  &.size--md {
-    width: var(--spacing-4);
-    height: var(--spacing-4);
-  }
-
-  &.size--lg {
-    width: var(--spacing-5);
-    height: var(--spacing-5);
+  &.variant--outline {
+    color: var(--color-background-fg);
   }
 `;
 
@@ -79,8 +83,7 @@ export type TagProps = React.HTMLAttributes<HTMLDivElement> &
   };
 
 export const Tag: React.FC<TagProps> = ({
-  variant = "primary",
-  size = "md",
+  variant,
   className,
   children,
   ...props
@@ -88,7 +91,7 @@ export const Tag: React.FC<TagProps> = ({
   return (
     <StyledTag
       data-testid="tag"
-      className={tagVariants({ variant, size, className })}
+      className={tagVariants({ variant, className })}
       {...props}
     >
       {children}
