@@ -12,7 +12,7 @@ const StyledPopoverContent = styled(PopoverPrimitive.Content)`
   width: var(--columns-xs);
   border-radius: var(--border-radius-md);
   border: var(--border-width-default) solid var(--color-border);
-  background-color: var(--color-white);
+  background-color: var(--color-popover);
   padding: var(--spacing-4);
   box-shadow: var(--box-shadow-md);
   outline: none;

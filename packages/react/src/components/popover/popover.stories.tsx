@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react-vite";
 
 import { Popover, PopoverContent, PopoverTrigger } from "./popover";
+import { Button } from "../button/button";
 
 export default {
   title: "Components/Overlay/Popover",
@@ -35,7 +36,11 @@ export const Default: StoryFn<typeof Popover> = (args) => {
   const { align, side, sideOffset, ...popoverProps } = args;
   return (
     <Popover {...popoverProps}>
-      <PopoverTrigger>Open</PopoverTrigger>
+      <PopoverTrigger asChild>
+        <Button variant="ghost" size="sm">
+          Open
+        </Button>
+      </PopoverTrigger>
       <PopoverContent align={align} side={side} sideOffset={sideOffset}>
         Place content for the popover here.
       </PopoverContent>
