@@ -115,7 +115,11 @@ export const WithColumns: StoryFn<typeof Footer> = (args) => (
       <FooterColumns>
         <FooterColumn className="mt-0">
           <Logo
-            className="h-7 w-auto fill-neutral-950"
+            style={{
+              height: "var(--spacing-7)",
+              width: "auto",
+              fill: "var(--color-primary)",
+            }}
             aria-label="Company name"
           />
         </FooterColumn>
@@ -158,11 +162,22 @@ export const WithColumns: StoryFn<typeof Footer> = (args) => (
       </FooterColumns>
       <FooterSection>
         <FooterHeading>Newsletter</FooterHeading>
-        <p className="text-sm text-neutral-600">
+        <p
+          style={{
+            fontSize: "var(--font-size-sm)",
+            color: "var(--color-muted-fg)",
+          }}
+        >
           Join our newsletter to stay up to date on features and releases.
         </p>
 
-        <div className="flex items-start gap-x-4">
+        <div
+          style={{
+            display: "flex",
+            alignItems: "start",
+            gap: "var(--spacing-4)",
+          }}
+        >
           <Label htmlFor="email-address" className="sr-only">
             Email address
           </Label>
@@ -179,9 +194,21 @@ export const WithColumns: StoryFn<typeof Footer> = (args) => (
           <Button type="submit">Subscribe</Button>
         </div>
 
-        <div className="max-w-md text-xs text-neutral-500">
+        <div
+          style={{
+            maxWidth: "var(--columns-md)",
+            fontSize: "var(--font-size-xs)",
+            color: "var(--color-muted-fg)",
+          }}
+        >
           By subscribing you agree to with our{" "}
-          <a href="#" className="text-xs underline">
+          <a
+            href="#"
+            style={{
+              fontSize: "var(--font-size-xs)",
+              textDecoration: "underline",
+            }}
+          >
             Privacy Policy
           </a>{" "}
           and provide consent to receive updates from our company.
@@ -198,7 +225,12 @@ export const WithColumns: StoryFn<typeof Footer> = (args) => (
           <FooterLink
             key={item.name}
             href={item.href}
-            className="text-xs leading-5 text-neutral-500 underline hover:text-neutral-600 "
+            style={{
+              fontSize: "var(--font-size-xs)",
+              lineHeight: "var(--line-height-5)",
+              color: "var(--color-muted-fg)",
+              textDecoration: "underline",
+            }}
           >
             {item.name}
           </FooterLink>
@@ -211,7 +243,11 @@ export const WithColumns: StoryFn<typeof Footer> = (args) => (
             <FooterLink
               key={item.name}
               href={item.href}
-              className="group flex items-center text-neutral-600 hover:text-neutral-900 "
+              style={{
+                display: "flex",
+                alignItems: "center",
+                color: "var(--color-muted-fg)",
+              }}
             >
               <span className="sr-only">{item.name}</span>
               <item.icon className="h-6 w-6" aria-hidden="true" />

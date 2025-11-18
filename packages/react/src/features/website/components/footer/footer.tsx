@@ -74,7 +74,7 @@ const StyledFooterHeading = styled.h3`
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-6);
-  color: var(--color-neutral-900);
+  color: var(--color-muted-fg);
 `;
 
 const StyledFooterColumnList = styled.ul`
@@ -91,10 +91,10 @@ const StyledFooterColumnList = styled.ul`
 const StyledFooterColumnListItem = styled.li`
   font-size: var(--font-size-sm);
   line-height: var(--line-height-6);
-  color: var(--color-neutral-600);
+  color: var(--color-muted-fg);
 
   &:hover {
-    color: var(--color-neutral-900);
+    color: var(--color-primary);
   }
 `;
 
@@ -115,7 +115,8 @@ const StyledFooterBanner = styled.div`
   flex-direction: column;
   justify-content: space-between;
   gap: var(--spacing-6);
-  border-top: var(--border-width-default) solid hsl(from var(--color-neutral-900) h s l / 10%);
+  border-top: var(--border-width-default) solid
+    hsl(from var(--color-border) h s l / 10%);
   padding-top: var(--spacing-4);
 
   @media (min-width: 640px) {
@@ -135,17 +136,17 @@ const StyledFooterBanner = styled.div`
 const StyledFooterCopyright = styled.p`
   font-size: var(--font-size-xs);
   line-height: var(--line-height-5);
-  color: var(--color-neutral-500);
+  color: var(--color-muted-fg);
 `;
 
 const StyledFooterLink = styled.a`
   font-size: var(--font-size-xs);
   line-height: var(--line-height-5);
-  color: var(--color-neutral-500);
+  color: var(--color-muted-fg);
   text-decoration: underline;
 
   &:hover {
-    color: var(--color-neutral-600);
+    color: var(--color-primary);
   }
 `;
 
