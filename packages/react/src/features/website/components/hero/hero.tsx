@@ -15,7 +15,7 @@ const StyledHero = styled.div`
 const StyledHeroTagline = styled.span`
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-medium);
-  color: var(--color-neutral-800);
+  color: var(--color-muted-fg);
 `;
 
 const StyledHeroTitle = styled.h1`
@@ -23,7 +23,7 @@ const StyledHeroTitle = styled.h1`
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-wide);
-  color: var(--color-neutral-900);
+  color: var(--color-background-fg);
 
   @media (min-width: 1280px) {
     font-size: var(--font-size-5xl);
@@ -32,7 +32,7 @@ const StyledHeroTitle = styled.h1`
 
 const StyledHeroBody = styled.p`
   font-size: var(--font-size-lg);
-  color: var(--color-neutral-600);
+  color: var(--color-muted-fg);
 `;
 
 const StyledHeroActions = styled.div`
