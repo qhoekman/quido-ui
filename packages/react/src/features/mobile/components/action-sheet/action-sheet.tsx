@@ -41,7 +41,8 @@ const StyledActionSheetHandle = styled.div`
   height: var(--spacing-2);
   width: 100px;
   border-radius: var(--border-radius-full);
-  background-color: var(--color-neutral-100);
+  background-color: var(--color-muted);
+  color: var(--color-muted-fg);
 `;
 
 const StyledActionSheetContent = styled(ActionSheetPrimitive.Content)`
