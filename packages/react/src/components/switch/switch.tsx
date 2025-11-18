@@ -29,7 +29,7 @@ const StyledSwitchRoot = styled(SwitchPrimitives.Root)`
   }
 
   &[data-state="unchecked"] {
-    background-color: var(--color-input);
+    background-color: var(--color-border);
   }
 `;
 
