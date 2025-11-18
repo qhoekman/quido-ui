@@ -3,6 +3,7 @@ import { Meta, StoryFn } from "@storybook/react-vite";
 import { Label } from "@/components/label/label";
 
 import { RadioGroup, RadioGroupItem } from "./radio-group";
+import { useState } from "react";
 
 export default {
   title: "Components/Data Manipulation/Radio Group",
@@ -10,7 +11,8 @@ export default {
   argTypes: {
     defaultValue: {
       control: "text",
-      description: "The value of the radio item that should be checked when initially rendered",
+      description:
+        "The value of the radio item that should be checked when initially rendered",
     },
     value: {
       control: "text",
@@ -18,15 +20,18 @@ export default {
     },
     disabled: {
       control: "boolean",
-      description: "When true, prevents the user from interacting with the radio group",
+      description:
+        "When true, prevents the user from interacting with the radio group",
     },
     required: {
       control: "boolean",
-      description: "When true, indicates that the user must select a value before submitting",
+      description:
+        "When true, indicates that the user must select a value before submitting",
     },
     name: {
       control: "text",
-      description: "The name of the group, submitted as a name/value pair with form data",
+      description:
+        "The name of the group, submitted as a name/value pair with form data",
     },
     orientation: {
       control: "select",
@@ -41,17 +46,36 @@ export default {
   },
 } satisfies Meta<typeof RadioGroup>;
 
-export const Default: StoryFn<typeof RadioGroup> = (args) => (
-  <form>
-    <RadioGroup {...args}>
-      <div className="flex items-center space-x-2">
-        <RadioGroupItem value="option-one" id="option-one" />
-        <Label htmlFor="option-one">Option One</Label>
-      </div>
-      <div className="flex items-center space-x-2">
-        <RadioGroupItem value="option-two" id="option-two" />
-        <Label htmlFor="option-two">Option Two</Label>
-      </div>
-    </RadioGroup>
-  </form>
-);
+export const Default: StoryFn<typeof RadioGroup> = (args) => {
+  const [value, setValue] = useState(args.defaultValue ?? "");
+  return (
+    <form>
+      <RadioGroup
+        {...args}
+        value={value}
+        onValueChange={(newValue) => setValue(newValue)}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "var(--spacing-2)",
+          }}
+        >
+          <RadioGroupItem value="option-one" id="option-one" />
+          <Label htmlFor="option-one">Option One</Label>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "var(--spacing-2)",
+          }}
+        >
+          <RadioGroupItem value="option-two" id="option-two" />
+          <Label htmlFor="option-two">Option Two</Label>
+        </div>
+      </RadioGroup>
+    </form>
+  );
+};
