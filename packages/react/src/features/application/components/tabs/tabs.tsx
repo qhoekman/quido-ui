@@ -29,6 +29,7 @@ const StyledTabsTrigger = styled(TabsPrimitive.Trigger)`
   font-weight: var(--font-weight-medium);
   box-shadow: 0 0 0 0 var(--color-background);
   transition: all 0.3s;
+  width: 100%;
 
   &:focus-visible {
     outline: none;
