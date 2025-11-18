@@ -61,18 +61,18 @@ const buttonStyles = css`
   }
 
   &.variant--outline {
-    border: var(--border-width-default) solid var(--color-neutral-200);
+    border: var(--border-width-default) solid var(--color-border);
     background-color: transparent;
 
     &:hover {
-      background-color: var(--color-neutral-100);
-      color: var(--color-background-fg);
+      background-color: hsl(from var(--color-background-fg) h s l / 10%);
+      color: hsl(from var(--color-background-fg) h s l / 90%);
     }
   }
 
   &.variant--ghost {
     &:hover {
-      background-color: var(--color-neutral-100);
+      background-color: hsl(from var(--color-background-fg) h s l / 10%);
       color: hsl(from var(--color-background-fg) h s l / 90%);
     }
   }
@@ -127,6 +127,7 @@ const StyledPaginationContent = styled.ul`
   display: flex;
   flex-direction: row;
   align-items: center;
+  list-style: none;
   gap: var(--spacing-1);
 `;
 
