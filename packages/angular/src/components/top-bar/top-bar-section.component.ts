@@ -8,11 +8,11 @@ export type TopBarSectionVariants = {
 };
 
 @Component({
-  selector: 'section[pui-top-bar-section], div[pui-top-bar-section]',
+  selector: 'section[qui-top-bar-section], div[qui-top-bar-section]',
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-top-bar-section',
+    'data-testid': 'qui-top-bar-section',
   },
   template: ` <ng-content></ng-content> `,
   styles: [

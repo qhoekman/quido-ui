@@ -9,7 +9,10 @@ import { DropdownMenuSeparatorComponent } from '../dropdown-menu/dropdown-menu-s
 import { DropdownMenuTriggerDirective } from '../dropdown-menu/dropdown-menu-trigger.directive';
 import { ButtonComponent } from '../button/button.component';
 import { TopBarSectionComponent } from './top-bar-section.component';
-import { IconCaretSortComponent, IconHamburgerMenuComponent } from '../../icons';
+import {
+  IconCaretSortComponent,
+  IconHamburgerMenuComponent,
+} from '../../icons';
 
 type EnhancedTopBarComponent = TopBarComponent & {
   icon: string;
@@ -45,33 +48,33 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <header pui-top-bar>
-        <div pui-top-bar-section>
-          <button pui-button variant="ghost" size="icon">
-           <i pui-icon name="hamburger-menu"></i>
+      <header qui-top-bar>
+        <div qui-top-bar-section>
+          <button qui-button variant="ghost" size="icon">
+           <i qui-icon name="hamburger-menu"></i>
           </button>
         </div>
-        <div pui-top-bar-section>
+        <div qui-top-bar-section>
           <!-- Empty section -->
         </div>
-        <div pui-top-bar-section items="end">
-          <div pui-dropdown-menu>
-            <button pui-button puiDropdownMenuTrigger [dropdownMenuFor]="dropdownAccountMenu">
+        <div qui-top-bar-section items="end">
+          <div qui-dropdown-menu>
+            <button qui-button puiDropdownMenuTrigger [dropdownMenuFor]="dropdownAccountMenu">
             My profile
-            <i pui-icon name="caret-sort"></i>
+            <i qui-icon name="caret-sort"></i>
             </button>
             <ng-template #dropdownAccountMenu>
-              <div pui-dropdown-menu-content>
-                 <ol pui-dropdown-menu-group>
-                  <li pui-dropdown-menu-item>Profile</li>
-                  <li pui-dropdown-menu-item>Billing</li>
-                  <li pui-dropdown-menu-item>Team</li>
-                  <li pui-dropdown-menu-item>Subscription</li>
+              <div qui-dropdown-menu-content>
+                 <ol qui-dropdown-menu-group>
+                  <li qui-dropdown-menu-item>Profile</li>
+                  <li qui-dropdown-menu-item>Billing</li>
+                  <li qui-dropdown-menu-item>Team</li>
+                  <li qui-dropdown-menu-item>Subscription</li>
                 </ol>
-                <div pui-dropdown-menu-separator></div>
-                <ol pui-dropdown-menu-group>
-                  <li pui-dropdown-menu-item>Settings</li>
-                  <li pui-dropdown-menu-item>Logout</li>
+                <div qui-dropdown-menu-separator></div>
+                <ol qui-dropdown-menu-group>
+                  <li qui-dropdown-menu-item>Settings</li>
+                  <li qui-dropdown-menu-item>Logout</li>
                 </ol>
               </div>
             </ng-template>
