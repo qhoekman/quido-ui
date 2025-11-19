@@ -1,0 +1,10 @@
+import * as LoaderStories from "./loader.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import LoaderCode from "!!raw-loader!./loader.component.ts";
+
+# Loader
+
+<Meta of={LoaderStories} />
+<Canvas of={LoaderStories.Default} />
+<Controls of={LoaderStories.Default} />
+<Source code={LoaderCode} language="typescript" />
