@@ -1,10 +1,10 @@
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 
 @Component({
-  selector: 'pui-signature-pad',
+  selector: 'qui-signature-pad',
   standalone: true,
   host: {
-    'data-testid': 'pui-signature-pad',
+    'data-testid': 'qui-signature-pad',
   },
   styles: [
     `
@@ -69,7 +69,12 @@ export class SignaturePadComponent implements AfterViewInit {
   }
 
   clear() {
-    this.ctx.clearRect(0, 0, this.canvasRef.nativeElement.width, this.canvasRef.nativeElement.height);
+    this.ctx.clearRect(
+      0,
+      0,
+      this.canvasRef.nativeElement.width,
+      this.canvasRef.nativeElement.height
+    );
   }
 
   getDataURL() {

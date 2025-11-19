@@ -10,7 +10,12 @@ const meta: Meta<SignaturePadComponent> = {
   component: SignaturePadComponent,
   decorators: [
     moduleMetadata({
-      imports: [ButtonComponent, ButtonGroupComponent, IconEraserComponent, IconDownloadComponent],
+      imports: [
+        ButtonComponent,
+        ButtonGroupComponent,
+        IconEraserComponent,
+        IconDownloadComponent,
+      ],
     }),
   ],
   argTypes: {},
@@ -23,13 +28,13 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-signature-pad #signaturePad></pui-signature-pad>
-    <div pui-button-group>
-      <button pui-button pui-button-group-item (click)="signaturePad.clear()">
-        <i pui-icon name="eraser"></i>
+    <qui-signature-pad #signaturePad></qui-signature-pad>
+    <div qui-button-group>
+      <button qui-button qui-button-group-item (click)="signaturePad.clear()">
+        <i qui-icon name="eraser"></i>
       </button>
-      <button pui-button pui-button-group-item (click)="signaturePad.download()">
-        <i pui-icon name="download"></i>
+      <button qui-button qui-button-group-item (click)="signaturePad.download()">
+        <i qui-icon name="download"></i>
       </button>
     </div>
     `,
