@@ -1,0 +1,11 @@
+import * as CollapsibleStories from "./collapsible.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import CollapsibleCode from "!!raw-loader!./collapsible.component.ts";
+
+# Collapsible
+
+<Meta of={CollapsibleStories} />
+<Canvas of={CollapsibleStories.Default} />
+<Controls of={CollapsibleStories.Default} />
+<Source code={CollapsibleCode} language="typescript" />
+
