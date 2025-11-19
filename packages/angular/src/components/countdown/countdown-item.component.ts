@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'span[pui-countdown-item]',
+  selector: 'span[qui-countdown-item]',
   template: `<ng-content></ng-content>`,
   styles: [
     `

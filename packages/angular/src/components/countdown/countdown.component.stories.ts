@@ -25,19 +25,19 @@ export const Default: Story = {
         ...args,
         date,
       },
-      template: `<pui-story>
-        <div pui-countdown #countdown [date]="date">
-          <span pui-countdown-item>
+      template: `<qui-story>
+        <div qui-countdown #countdown [date]="date">
+          <span qui-countdown-item>
             {{ countdown.hours }}
           </span>:
-          <span pui-countdown-item>
+          <span qui-countdown-item>
           {{ countdown.minutes }}
           </span>:
-          <span pui-countdown-item>
+          <span qui-countdown-item>
             {{ countdown.seconds }}
           </span>
         </div>
-      </pui-story>`,
+      </qui-story>`,
     };
   },
 };

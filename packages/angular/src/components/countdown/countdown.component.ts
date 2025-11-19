@@ -1,22 +1,22 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'div[pui-countdown]',
+  selector: 'div[qui-countdown]',
   host: {
-    'data-testid': 'pui-countdown',
+    'data-testid': 'qui-countdown',
   },
   template: `
     <ng-content #countdown>
-      <span pui-countdown-element data-testid="pui-countdown-days">{{
+      <span qui-countdown-element data-testid="qui-countdown-days">{{
         days
       }}</span>
-      <span pui-countdown-element data-testid="pui-countdown-hours">{{
+      <span qui-countdown-element data-testid="qui-countdown-hours">{{
         hours
       }}</span>
-      <span pui-countdown-element data-testid="pui-countdown-minutes">{{
+      <span qui-countdown-element data-testid="qui-countdown-minutes">{{
         minutes
       }}</span>
-      <span pui-countdown-element data-testid="pui-countdown-seconds">{{
+      <span qui-countdown-element data-testid="qui-countdown-seconds">{{
         seconds
       }}</span>
     </ng-content>
