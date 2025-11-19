@@ -1,59 +1,59 @@
-.pui-icon {
+.qui-icon {
   display: inline-flex;
   flex-shrink: 0;
 }
 
-.pui-icon svg {
+.qui-icon svg {
   width: 100%;
   height: 100%;
 }
 
-.pui-icon.size--xs {
+.qui-icon.size--xs {
   width: var(--spacing-2);
   height: var(--spacing-2);
 }
 
-.pui-icon.size--sm {
+.qui-icon.size--sm {
   width: var(--spacing-3);
   height: var(--spacing-3);
 }
 
-.pui-icon.size--md {
+.qui-icon.size--md {
   width: var(--spacing-4);
   height: var(--spacing-4);
 }
 
-.pui-icon.size--lg {
+.qui-icon.size--lg {
   width: var(--spacing-5);
   height: var(--spacing-5);
 }
 
-.pui-icon.size--xl {
+.qui-icon.size--xl {
   width: var(--spacing-6);
   height: var(--spacing-6);
 }
 
-.pui-icon.size--2xl {
+.qui-icon.size--2xl {
   width: var(--spacing-8);
   height: var(--spacing-8);
 }
 
-.pui-icon.size--3xl {
+.qui-icon.size--3xl {
   width: var(--spacing-10);
   height: var(--spacing-10);
 }
 
-.pui-icon.size--4xl {
+.qui-icon.size--4xl {
   width: var(--spacing-12);
   height: var(--spacing-12);
 }
 
-.pui-icon.size--5xl {
+.qui-icon.size--5xl {
   width: var(--spacing-16);
   height: var(--spacing-16);
 }
 
-.pui-icon.size--auto {
+.qui-icon.size--auto {
   width: 100%;
   height: 100%;
 }

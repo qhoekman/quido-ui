@@ -1,11 +1,21 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 export type IconVariants = {
-  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | 'auto';
+  size:
+    | 'xs'
+    | 'sm'
+    | 'md'
+    | 'lg'
+    | 'xl'
+    | '2xl'
+    | '3xl'
+    | '4xl'
+    | '5xl'
+    | 'auto';
 };
 
 @Component({
-  selector: 'pui-icon',
+  selector: 'qui-icon',
   standalone: true,
   host: {
     '[class]': 'getClassList()',
@@ -20,7 +30,7 @@ export class IconComponent {
 
   getClassList() {
     return {
-      ['pui-icon']: true,
+      ['qui-icon']: true,
       [`size--${this.size}`]: this.size,
     };
   }
