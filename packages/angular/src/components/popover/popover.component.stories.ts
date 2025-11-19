@@ -36,16 +36,16 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <div pui-stack items="center" align="center">
-        <pui-popover [popoverContent]="popoverContent">
-          <button pui-button puiPopoverTrigger>Popover</button>
+      <div qui-stack items="center" align="center">
+        <qui-popover [popoverContent]="popoverContent">
+          <button qui-button puiPopoverTrigger>Popover</button>
           <ng-template #popoverContent>
-            <div pui-popover-content>
-              <pui-popover-indicator></pui-popover-indicator>
+            <div qui-popover-content>
+              <qui-popover-indicator></qui-popover-indicator>
               <span>Popover content goes here!</span>
             </div>
           </ng-template>
-        </pui-popover>
+        </qui-popover>
       </div>
     `,
   }),

@@ -4,7 +4,7 @@ import { PopoverComponent } from './popover.component';
 @Directive({
   selector: '[puiPopoverTrigger]',
   host: {
-    'data-testid': 'pui-popover-trigger',
+    'data-testid': 'qui-popover-trigger',
   },
   standalone: true,
 })

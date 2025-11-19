@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '*[pui-popover-content]',
+  selector: '*[qui-popover-content]',
   standalone: true,
   host: {
-    'data-testid': 'pui-popover-content',
+    'data-testid': 'qui-popover-content',
   },
   styles: [
     `
@@ -19,9 +19,7 @@ import { Component } from '@angular/core';
         color: var(--color-card-fg);
         font-size: var(--font-size-xs);
         box-shadow: var(--box-shadow-default);
-        animation:
-          fadeIn 0.2s ease-out,
-          zoomIn 0.2s ease-out;
+        animation: fadeIn 0.2s ease-out, zoomIn 0.2s ease-out;
       }
     `,
   ],

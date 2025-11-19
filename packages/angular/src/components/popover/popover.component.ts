@@ -1,4 +1,8 @@
-import { Overlay, OverlayPositionBuilder, OverlayRef } from '@angular/cdk/overlay';
+import {
+  Overlay,
+  OverlayPositionBuilder,
+  OverlayRef,
+} from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 import {
   Component,
@@ -12,10 +16,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'pui-popover',
+  selector: 'qui-popover',
   standalone: true,
   host: {
-    'data-testid': 'pui-popover',
+    'data-testid': 'qui-popover',
   },
   template: `<ng-content></ng-content> `,
 })
@@ -29,7 +33,7 @@ export class PopoverComponent implements OnDestroy, OnInit {
     private overlay: Overlay,
     private overlayPositionBuilder: OverlayPositionBuilder,
     private elementRef: ElementRef,
-    private viewContainerRef: ViewContainerRef,
+    private viewContainerRef: ViewContainerRef
   ) {}
 
   ngOnInit() {
@@ -69,7 +73,7 @@ export class PopoverComponent implements OnDestroy, OnInit {
           }
         });
       },
-      { threshold: 0.1 },
+      { threshold: 0.1 }
     );
 
     this.intersectionObserver.observe(this.elementRef.nativeElement);
@@ -80,7 +84,10 @@ export class PopoverComponent implements OnDestroy, OnInit {
 
   show() {
     if (!this.overlayRef.hasAttached()) {
-      const popoverPortal = new TemplatePortal(this.popoverContent, this.viewContainerRef);
+      const popoverPortal = new TemplatePortal(
+        this.popoverContent,
+        this.viewContainerRef
+      );
       this.overlayRef.attach(popoverPortal);
 
       if (this.autoSize) {
@@ -115,7 +122,10 @@ export class PopoverComponent implements OnDestroy, OnInit {
     const target = event.target as HTMLElement;
     const popoverElement = this.overlayRef.overlayElement;
 
-    if (!this.elementRef.nativeElement.contains(target) && !popoverElement.contains(target)) {
+    if (
+      !this.elementRef.nativeElement.contains(target) &&
+      !popoverElement.contains(target)
+    ) {
       this.hide();
     }
   }
@@ -124,6 +134,10 @@ export class PopoverComponent implements OnDestroy, OnInit {
     if (this.intersectionObserver) {
       this.intersectionObserver.disconnect();
     }
-    document.removeEventListener('click', this.onDocumentClick.bind(this), true);
+    document.removeEventListener(
+      'click',
+      this.onDocumentClick.bind(this),
+      true
+    );
   }
 }
