@@ -2,10 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'div[pui-footer-section]',
+  selector: 'div[qui-footer-section]',
   standalone: true,
   host: {
-    'data-testid': 'pui-footer-section',
+    'data-testid': 'qui-footer-section',
   },
   imports: [CommonModule],
   template: `<ng-content></ng-content>`,
