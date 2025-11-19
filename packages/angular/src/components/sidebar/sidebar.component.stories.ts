@@ -243,35 +243,35 @@ export const Default: Story = {
       activeTeam: args.menuData.teams[0],
     } as never,
     template: `
-      <div pui-sidebar-viewport>
-        <div pui-sidebar collapsible="icon">
-          <div pui-sidebar-header>
-            <ul pui-sidebar-menu>
-              <li pui-sidebar-menu-item>
-                <div pui-dropdown-menu>
-                  <button pui-sidebar-menu-button puiDropdownMenuTrigger [dropdownMenuFor]="dropdownTeam" spacing="outset" dropdownMenuSide="right">
+      <div qui-sidebar-viewport>
+        <div qui-sidebar collapsible="icon">
+          <div qui-sidebar-header>
+            <ul qui-sidebar-menu>
+              <li qui-sidebar-menu-item>
+                <div qui-dropdown-menu>
+                  <button qui-sidebar-menu-button puiDropdownMenuTrigger [dropdownMenuFor]="dropdownTeam" spacing="outset" dropdownMenuSide="right">
                     <div style="display: flex; aspect-ratio: 1; width: var(--spacing-8); height: var(--spacing-8);align-items: center; justify-content: center; border-radius: var(--border-radius-lg); background-color: var(--color-sidebar-primary); color: var(--color-sidebar-primary-fg);">
                       <ng-container *ngComponentOutlet="activeTeam.logo"></ng-container>
                     </div>
                     <span>{{ activeTeam.name }}</span>
-                    <i pui-icon name="caret-sort" style="margin-left: auto;"></i>
+                    <i qui-icon name="caret-sort" style="margin-left: auto;"></i>
                   </button>
                   <ng-template #dropdownTeam>
-                    <div pui-dropdown-menu-content>
-                      <div pui-dropdown-menu-label>Teams</div>
-                      <ol pui-dropdown-menu-group>
+                    <div qui-dropdown-menu-content>
+                      <div qui-dropdown-menu-label>Teams</div>
+                      <ol qui-dropdown-menu-group>
                         @for (team of menuData.teams; track team.name) {
-                          <li pui-dropdown-menu-item>
+                          <li qui-dropdown-menu-item>
                             <ng-container *ngComponentOutlet="team.logo"></ng-container>
                             <span>{{ team.name }}</span>
 
                           </li>
                         }
                       </ol>
-                      <div pui-dropdown-menu-separator></div>
-                      <ol pui-dropdown-menu-group>
-                        <li pui-dropdown-menu-item>
-                          <i pui-icon name="plus"></i>
+                      <div qui-dropdown-menu-separator></div>
+                      <ol qui-dropdown-menu-group>
+                        <li qui-dropdown-menu-item>
+                          <i qui-icon name="plus"></i>
                           <span>Add Team</span>
                         </li>
                       </ol>
@@ -281,30 +281,30 @@ export const Default: Story = {
               </li>
             </ul>
           </div>
-          <div pui-sidebar-content>
-            <div pui-sidebar-group hide="icon">
-              <span pui-sidebar-group-label>
+          <div qui-sidebar-content>
+            <div qui-sidebar-group hide="icon">
+              <span qui-sidebar-group-label>
                 Platform
               </span>
-              <ul pui-sidebar-menu>
+              <ul qui-sidebar-menu>
                 @for (item of menuData.navMain; track item.title) {
-                  <li pui-sidebar-menu-item>
-                    <div pui-collapsible #collapsible [expanded]="expanded" style="max-width: var(--breakpoint-xs);">
+                  <li qui-sidebar-menu-item>
+                    <div qui-collapsible #collapsible [expanded]="expanded" style="max-width: var(--breakpoint-xs);">
                       <ng-template #trigger>
-                        <button pui-sidebar-menu-button [tooltip]="item.title"  (click)="collapsible.toggle()">
+                        <button qui-sidebar-menu-button [tooltip]="item.title"  (click)="collapsible.toggle()">
                           @if (item.icon) {
                             <ng-container *ngComponentOutlet="item.icon"></ng-container>
                           }
                           <span>{{ item.title }}</span>
-                          <i pui-icon name="chevron-down" *ngIf="!collapsible.expanded" style="margin-left: auto;"></i>
-                          <i pui-icon name="chevron-right" *ngIf="collapsible.expanded" style="margin-left: auto;"></i>
+                          <i qui-icon name="chevron-down" *ngIf="!collapsible.expanded" style="margin-left: auto;"></i>
+                          <i qui-icon name="chevron-right" *ngIf="collapsible.expanded" style="margin-left: auto;"></i>
                         </button>
                       </ng-template>
                       <ng-template #content>
-                        <ul pui-sidebar-menu-sub>
+                        <ul qui-sidebar-menu-sub>
                           @for (subItem of item.items; track subItem.title) {
-                            <li pui-sidebar-menu-sub-item>
-                              <a pui-sidebar-menu-sub-button [href]="subItem.url">
+                            <li qui-sidebar-menu-sub-item>
+                              <a qui-sidebar-menu-sub-button [href]="subItem.url">
                                 {{ subItem.title }}
                               </a>
                             </li>
@@ -316,31 +316,31 @@ export const Default: Story = {
                 }
               </ul>
             </div>
-            <div pui-sidebar-group>
-              <span pui-sidebar-group-label>
+            <div qui-sidebar-group>
+              <span qui-sidebar-group-label>
                 Projects
               </span>
               @for (project of menuData.projects; track project.name) {
-                <div pui-sidebar-menu-item>
-                  <a pui-sidebar-menu-button [href]="project.url">
+                <div qui-sidebar-menu-item>
+                  <a qui-sidebar-menu-button [href]="project.url">
                     <ng-container *ngComponentOutlet="project.icon"></ng-container>
                     <span>{{ project.name }}</span>
                     @if (project.badge) {
-                      <div pui-sidebar-menu-badge>{{ project.badge }}</div>
+                      <div qui-sidebar-menu-badge>{{ project.badge }}</div>
                     }
                   </a>
-                  <div pui-dropdown-menu>
-                    <button pui-sidebar-menu-action puiDropdownMenuTrigger [dropdownMenuFor]="dropdownProject" showOnHover="true">
-                      <i pui-icon name="dots-horizontal"></i>
-                      <span pui-visually-hidden>More</span>
+                  <div qui-dropdown-menu>
+                    <button qui-sidebar-menu-action puiDropdownMenuTrigger [dropdownMenuFor]="dropdownProject" showOnHover="true">
+                      <i qui-icon name="dots-horizontal"></i>
+                      <span qui-visually-hidden>More</span>
                     </button>
                     <ng-template #dropdownProject>
-                      <div pui-dropdown-menu-content>
-                        <ol pui-dropdown-menu-group>
-                          <li pui-dropdown-menu-item>View project</li>
-                          <li pui-dropdown-menu-item>Share project</li>
-                          <div pui-dropdown-menu-separator></div>
-                          <li pui-dropdown-menu-item>Delete project</li>
+                      <div qui-dropdown-menu-content>
+                        <ol qui-dropdown-menu-group>
+                          <li qui-dropdown-menu-item>View project</li>
+                          <li qui-dropdown-menu-item>Share project</li>
+                          <div qui-dropdown-menu-separator></div>
+                          <li qui-dropdown-menu-item>Delete project</li>
                         </ol>
                       </div>
                     </ng-template>
@@ -349,33 +349,33 @@ export const Default: Story = {
               }
             </div>
           </div>
-          <div pui-sidebar-footer>
-            <ul pui-sidebar-menu>
-              <li pui-sidebar-menu-item>
-                <div pui-dropdown-menu>
-                  <button pui-sidebar-menu-button puiDropdownMenuTrigger [dropdownMenuFor]="dropdownUser" dropdownMenuSide="right" spacing="outset">
-                    <div pui-avatar #avatar size="sm">
-                      <img pui-avatar-image [src]="menuData.user.avatar" alt="User Avatar" (fallback)="avatar.onFallback($event)">
-                      <span pui-avatar-fallback>{{ menuData.user.name.slice(0, 2) }}</span>
+          <div qui-sidebar-footer>
+            <ul qui-sidebar-menu>
+              <li qui-sidebar-menu-item>
+                <div qui-dropdown-menu>
+                  <button qui-sidebar-menu-button puiDropdownMenuTrigger [dropdownMenuFor]="dropdownUser" dropdownMenuSide="right" spacing="outset">
+                    <div qui-avatar #avatar size="sm">
+                      <img qui-avatar-image [src]="menuData.user.avatar" alt="User Avatar" (fallback)="avatar.onFallback($event)">
+                      <span qui-avatar-fallback>{{ menuData.user.name.slice(0, 2) }}</span>
                     </div>
                     <span>{{ menuData.user.name }}</span>
-                    <i pui-icon name="caret-sort" style="margin-left: auto;"></i>
+                    <i qui-icon name="caret-sort" style="margin-left: auto;"></i>
                   </button>
                   <ng-template #dropdownUser>
-                    <div pui-dropdown-menu-content>
-                      <div pui-dropdown-menu-label>
-                        <div pui-avatar #avatar>
-                          <img pui-avatar-image [src]="menuData.user.avatar" alt="User Avatar" (fallback)="avatar.onFallback($event)">
-                          <span pui-avatar-fallback>{{ menuData.user.name.slice(0, 2) }}</span>
+                    <div qui-dropdown-menu-content>
+                      <div qui-dropdown-menu-label>
+                        <div qui-avatar #avatar>
+                          <img qui-avatar-image [src]="menuData.user.avatar" alt="User Avatar" (fallback)="avatar.onFallback($event)">
+                          <span qui-avatar-fallback>{{ menuData.user.name.slice(0, 2) }}</span>
                         </div>
                         <span>{{ menuData.user.name }}</span>
                       </div>
-                      <div pui-dropdown-menu-separator></div>
-                      <ol pui-dropdown-menu-group>
-                        <li pui-dropdown-menu-item>Profile</li>
-                        <li pui-dropdown-menu-item>Billing</li>
-                        <li pui-dropdown-menu-item>Team</li>
-                        <li pui-dropdown-menu-item>Subscription</li>
+                      <div qui-dropdown-menu-separator></div>
+                      <ol qui-dropdown-menu-group>
+                        <li qui-dropdown-menu-item>Profile</li>
+                        <li qui-dropdown-menu-item>Billing</li>
+                        <li qui-dropdown-menu-item>Team</li>
+                        <li qui-dropdown-menu-item>Subscription</li>
                       </ol>
                     </div>
                   </ng-template>
@@ -383,14 +383,14 @@ export const Default: Story = {
               </li>
             </ul>
           </div>
-          <button pui-sidebar-rail></button>
+          <button qui-sidebar-rail></button>
         </div>
-        <main pui-sidebar-inset>
-          <header pui-top-bar>
-            <div pui-top-bar-section>
-              <button pui-sidebar-trigger aria-label="Toggle Sidebar">
-                <i pui-icon name="hamburger-menu"></i>
-                <span pui-visually-hidden>Toggle Sidebar</span>
+        <main qui-sidebar-inset>
+          <header qui-top-bar>
+            <div qui-top-bar-section>
+              <button qui-sidebar-trigger aria-label="Toggle Sidebar">
+                <i qui-icon name="hamburger-menu"></i>
+                <span qui-visually-hidden>Toggle Sidebar</span>
               </button>
             </div>
           </header>

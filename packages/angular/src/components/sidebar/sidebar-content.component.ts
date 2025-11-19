@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'div[pui-sidebar-content]',
+  selector: 'div[qui-sidebar-content]',
   standalone: true,
   imports: [CommonModule],
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-sidebar-content',
+    'data-testid': 'qui-sidebar-content',
   },
   template: `<ng-content></ng-content>`,
   styles: [

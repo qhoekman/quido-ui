@@ -7,13 +7,14 @@ export type SidebarMenuSubButtonProps = {
 };
 
 @Component({
-  selector: 'button[pui-sidebar-menu-sub-button], a[pui-sidebar-menu-sub-button]',
+  selector:
+    'button[qui-sidebar-menu-sub-button], a[qui-sidebar-menu-sub-button]',
   standalone: true,
   host: {
     'data-sidebar': 'menu-sub-button',
     'data-size': 'size',
     'data-active': 'isActive',
-    'data-testid': 'pui-sidebar-menu-sub-button',
+    'data-testid': 'qui-sidebar-menu-sub-button',
     '[class]': 'getClassList()',
   },
   template: `<ng-content></ng-content>`,
@@ -31,9 +32,7 @@ export type SidebarMenuSubButtonProps = {
         padding: 0 var(--spacing-2);
         color: var(--color-sidebar-fg);
         outline: none;
-        transition:
-          background-color 0.3s,
-          color 0.3s;
+        transition: background-color 0.3s, color 0.3s;
         text-decoration: none;
       }
 

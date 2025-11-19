@@ -2,11 +2,11 @@ import { Component, HostListener } from '@angular/core';
 import { SidebarService } from './sidebar.service';
 
 @Component({
-  selector: 'button[pui-sidebar-trigger]',
+  selector: 'button[qui-sidebar-trigger]',
   standalone: true,
   host: {
     'data-sidebar': 'trigger',
-    'data-testid': 'pui-sidebar-trigger',
+    'data-testid': 'qui-sidebar-trigger',
   },
   template: `<ng-content></ng-content>`,
   styles: [

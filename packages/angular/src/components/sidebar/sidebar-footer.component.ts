@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'div[pui-sidebar-footer]',
+  selector: 'div[qui-sidebar-footer]',
   standalone: true,
   host: {
-    'data-testid': 'pui-sidebar-footer',
+    'data-testid': 'qui-sidebar-footer',
   },
   template: `<ng-content></ng-content>`,
   styles: [

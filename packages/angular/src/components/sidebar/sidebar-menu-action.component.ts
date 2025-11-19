@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'button[pui-sidebar-menu-action], a[pui-sidebar-menu-action]',
+  selector: 'button[qui-sidebar-menu-action], a[qui-sidebar-menu-action]',
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-sidebar-menu-action',
+    'data-testid': 'qui-sidebar-menu-action',
   },
   template: `<ng-content></ng-content>`,
   styles: [

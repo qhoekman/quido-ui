@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'div[pui-sidebar-menu-badge]',
+  selector: 'div[qui-sidebar-menu-badge]',
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-sidebar-menu-badge',
+    'data-testid': 'qui-sidebar-menu-badge',
   },
   template: `<ng-content></ng-content>`,
   styles: [

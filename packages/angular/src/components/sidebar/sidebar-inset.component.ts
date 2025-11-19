@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'main[pui-sidebar-inset]',
+  selector: 'main[qui-sidebar-inset]',
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-sidebar-inset',
+    'data-testid': 'qui-sidebar-inset',
   },
   template: `<ng-content></ng-content>`,
   styles: [
@@ -17,10 +17,7 @@ import { Component, Input } from '@angular/core';
         min-height: var(--size-svh);
         flex: 1;
         background-color: var(--color-background);
-        transition:
-          min-height 0.3s,
-          margin 0.3s,
-          border-radius 0.3s,
+        transition: min-height 0.3s, margin 0.3s, border-radius 0.3s,
           box-shadow 0.3s;
       }
 

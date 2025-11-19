@@ -1,17 +1,17 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'div[pui-sidebar-viewport]',
+  selector: 'div[qui-sidebar-viewport]',
   host: {
     'data-sidebar': 'viewport',
-    'data-testid': 'pui-sidebar-viewport',
+    'data-testid': 'qui-sidebar-viewport',
     '[class]': 'getClassList()',
     '[style]': 'getStyle()',
   },
   template: ` <ng-content></ng-content> `,
   styles: [
     `
-      .pui-sidebar-viewport {
+      .qui-sidebar-viewport {
         display: flex;
         min-height: var(--size-svh);
         width: 100%;
@@ -19,7 +19,7 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
         color: var(--color-sidebar-fg);
       }
 
-      .pui-sidebar-viewport.variant--inset {
+      .qui-sidebar-viewport.variant--inset {
         background-color: var(--color-sidebar-accent);
       }
     `,
@@ -67,7 +67,7 @@ export class SidebarViewportComponent {
 
   getClassList() {
     return {
-      ['pui-sidebar-viewport']: true,
+      ['qui-sidebar-viewport']: true,
       [`variant--${this.variant}`]: true,
     };
   }

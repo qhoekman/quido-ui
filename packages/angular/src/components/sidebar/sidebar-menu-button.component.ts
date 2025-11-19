@@ -13,18 +13,23 @@ export type SidebarMenuButtonVariants = {
 };
 
 @Component({
-  selector: 'button[pui-sidebar-menu-button], a[pui-sidebar-menu-button]',
+  selector: 'button[qui-sidebar-menu-button], a[qui-sidebar-menu-button]',
   standalone: true,
-  imports: [CommonModule, TooltipComponent, TooltipTriggerDirective, TooltipContentComponent],
+  imports: [
+    CommonModule,
+    TooltipComponent,
+    TooltipTriggerDirective,
+    TooltipContentComponent,
+  ],
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-sidebar-menu-button',
+    'data-testid': 'qui-sidebar-menu-button',
   },
   template: `
     <ng-content></ng-content>
     <ng-container *ngIf="tooltip && !hideTooltip">
       <ng-template #tooltipTemplate>
-        <div pui-tooltip-content>
+        <div qui-tooltip-content>
           <span>{{ tooltip }}</span>
         </div>
       </ng-template>
@@ -47,10 +52,7 @@ export type SidebarMenuButtonVariants = {
         outline: none;
         color: var(--color-sidebar-fg);
         text-decoration: none;
-        transition:
-          width 0.3s,
-          height 0.3s,
-          padding 0.3s;
+        transition: width 0.3s, height 0.3s, padding 0.3s;
 
         &:hover {
           background-color: var(--color-sidebar-accent);
@@ -120,11 +122,12 @@ export class SidebarMenuButtonComponent implements OnInit {
   constructor(private sidebarService: SidebarService) {}
 
   ngOnInit() {
-    combineLatest([this.sidebarService.sidebarState$, this.sidebarService.isMobile$]).subscribe(
-      ([sidebarState, isMobile]) => {
-        this.hideTooltip = sidebarState === 'expanded' && isMobile;
-      },
-    );
+    combineLatest([
+      this.sidebarService.sidebarState$,
+      this.sidebarService.isMobile$,
+    ]).subscribe(([sidebarState, isMobile]) => {
+      this.hideTooltip = sidebarState === 'expanded' && isMobile;
+    });
   }
 
   getClassList() {

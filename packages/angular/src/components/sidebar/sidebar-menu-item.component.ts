@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'li[pui-sidebar-menu-item], div[pui-sidebar-menu-item]',
+  selector: 'li[qui-sidebar-menu-item], div[qui-sidebar-menu-item]',
   standalone: true,
   host: {
     'data-sidebar': 'menu-item',
-    'data-testid': 'pui-sidebar-menu-item',
+    'data-testid': 'qui-sidebar-menu-item',
   },
   template: `<ng-content></ng-content>`,
   styles: [

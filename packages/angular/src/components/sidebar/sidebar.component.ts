@@ -1,5 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 import { DrawerContentComponent } from '../drawer/drawer-content.component';
 import { DrawerOverlayComponent } from '../drawer/drawer-overlay.component';
@@ -14,15 +21,20 @@ export type SidebarVariants = {
 };
 
 @Component({
-  selector: 'div[pui-sidebar]',
+  selector: 'div[qui-sidebar]',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     'data-sidebar': 'sidebar',
-    'data-testid': 'pui-sidebar',
+    'data-testid': 'qui-sidebar',
     '[class]': 'getClassList()',
   },
-  imports: [CommonModule, DrawerComponent, DrawerOverlayComponent, DrawerContentComponent],
+  imports: [
+    CommonModule,
+    DrawerComponent,
+    DrawerOverlayComponent,
+    DrawerContentComponent,
+  ],
   template: `
     <ng-container *ngIf="collapsible === 'none'; else sidebar">
       <div class="sidebar collapsible--none"></div>
@@ -30,7 +42,7 @@ export type SidebarVariants = {
     <ng-template #sidebar>
       <ng-container *ngIf="isMobile$ | async; else desktop">
         <div
-          pui-drawer
+          qui-drawer
           #drawer
           [opened]="openMobile$ | async"
           variant="over"
@@ -81,7 +93,8 @@ export type SidebarVariants = {
         width: var(--sidebar-width-icon);
       }
 
-      :host-context(.state--collapsed.collapsible--offcanvas) .sidebar-backdrop {
+      :host-context(.state--collapsed.collapsible--offcanvas)
+        .sidebar-backdrop {
         width: 0;
       }
 
@@ -124,11 +137,13 @@ export type SidebarVariants = {
         left: auto;
       }
 
-      :host-context(.side--left.state--collapsed.collapsible--offcanvas) .sidebar-fixed {
+      :host-context(.side--left.state--collapsed.collapsible--offcanvas)
+        .sidebar-fixed {
         left: calc(var(--sidebar-width) * -1);
       }
 
-      :host-context(.side--right.state--collapsed.collapsible--offcanvas) .sidebar-fixed {
+      :host-context(.side--right.state--collapsed.collapsible--offcanvas)
+        .sidebar-fixed {
         right: calc(var(--sidebar-width) * -1);
       }
 
@@ -208,7 +223,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   constructor(
     private sidebarService: SidebarService,
     private sidebarViewport: SidebarViewportComponent,
-    private cdr: ChangeDetectorRef,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -217,25 +232,33 @@ export class SidebarComponent implements OnInit, OnDestroy {
   }
 
   private setupSubscriptions(): void {
-    this.sidebarService.isMobile$.pipe(takeUntil(this.destroy$)).subscribe((isMobile) => {
-      this.isMobile.next(isMobile);
-      this.cdr.markForCheck();
-    });
+    this.sidebarService.isMobile$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((isMobile) => {
+        this.isMobile.next(isMobile);
+        this.cdr.markForCheck();
+      });
 
-    this.sidebarService.sidebarState$.pipe(takeUntil(this.destroy$)).subscribe((state) => {
-      this.state.next(state);
-      this.cdr.markForCheck();
-    });
+    this.sidebarService.sidebarState$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((state) => {
+        this.state.next(state);
+        this.cdr.markForCheck();
+      });
 
-    this.sidebarService.openMobile$.pipe(takeUntil(this.destroy$)).subscribe((open) => {
-      this.openMobile.next(open);
-      this.cdr.markForCheck();
-    });
+    this.sidebarService.openMobile$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((open) => {
+        this.openMobile.next(open);
+        this.cdr.markForCheck();
+      });
 
-    this.sidebarService.open$.pipe(takeUntil(this.destroy$)).subscribe((open) => {
-      this.open.next(open);
-      this.cdr.markForCheck();
-    });
+    this.sidebarService.open$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((open) => {
+        this.open.next(open);
+        this.cdr.markForCheck();
+      });
   }
 
   private setupViewport(): void {

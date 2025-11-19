@@ -7,18 +7,26 @@ export type SidebarMenuSkeletonVariants = {
 };
 
 @Component({
-  selector: 'div[pui-sidebar-menu-skeleton]',
+  selector: 'div[qui-sidebar-menu-skeleton]',
   standalone: true,
   imports: [CommonModule, SkeletonComponent],
   host: {
     'data-sidebar': 'menu-skeleton',
-    'data-testid': 'pui-sidebar-menu-skeleton',
+    'data-testid': 'qui-sidebar-menu-skeleton',
   },
   template: `
     <ng-container *ngIf="variant === 'with-icon'">
-      <div pui-skeleton class="skeleton-icon" [attr.data-sidebar]="'menu-skeleton-icon'"></div>
+      <div
+        qui-skeleton
+        class="skeleton-icon"
+        [attr.data-sidebar]="'menu-skeleton-icon'"
+      ></div>
     </ng-container>
-    <div pui-skeleton class="skeleton-text" [attr.data-sidebar]="'menu-skeleton-text'"></div>
+    <div
+      qui-skeleton
+      class="skeleton-text"
+      [attr.data-sidebar]="'menu-skeleton-text'"
+    ></div>
   `,
   styles: [
     `

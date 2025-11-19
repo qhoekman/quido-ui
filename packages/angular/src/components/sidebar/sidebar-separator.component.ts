@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'div[pui-sidebar-separator]',
+  selector: 'div[qui-sidebar-separator]',
   standalone: true,
   host: {
     'data-sidebar': 'separator',
-    'data-testid': 'pui-sidebar-separator',
+    'data-testid': 'qui-sidebar-separator',
     '[class]': 'getClassList()',
   },
   template: '',

@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'ul[pui-sidebar-menu-sub]',
+  selector: 'ul[qui-sidebar-menu-sub]',
   standalone: true,
   host: {
     'data-sidebar': 'menu-sub',
-    'data-testid': 'pui-sidebar-menu-sub',
+    'data-testid': 'qui-sidebar-menu-sub',
     '[class]': 'getClassList()',
   },
   template: `<ng-content></ng-content>`,
@@ -15,7 +15,8 @@ import { Component, Input } from '@angular/core';
         display: flex;
         flex-direction: column;
         gap: var(--spacing-1);
-        border-left: var(--border-width-default) solid var(--color-sidebar-border);
+        border-left: var(--border-width-default) solid
+          var(--color-sidebar-border);
         margin: 0;
         padding: 0;
         padding: var(--spacing-2-5) var(--spacing-0-5);

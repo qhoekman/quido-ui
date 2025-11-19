@@ -5,10 +5,10 @@ export type SidebarGroupVariants = {
 };
 
 @Component({
-  selector: 'div[pui-sidebar-group]',
+  selector: 'div[qui-sidebar-group]',
   standalone: true,
   host: {
-    'data-testid': 'pui-sidebar-group',
+    'data-testid': 'qui-sidebar-group',
     '[class]': 'getClassList()',
   },
   template: `<ng-content></ng-content>`,
@@ -34,7 +34,7 @@ export class SidebarGroupComponent {
 
   getClassList() {
     return {
-      ['pui-sidebar-group']: true,
+      ['qui-sidebar-group']: true,
       [`hide--${this.hide}`]: true,
     };
   }

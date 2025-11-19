@@ -2,12 +2,12 @@ import { Component, HostListener, Input } from '@angular/core';
 import { SidebarService } from './sidebar.service';
 
 @Component({
-  selector: 'button[pui-sidebar-rail]',
+  selector: 'button[qui-sidebar-rail]',
   standalone: true,
   host: {
     'aria-label': 'Toggle Sidebar',
     'data-sidebar': 'rail',
-    'data-testid': 'pui-sidebar-rail',
+    'data-testid': 'qui-sidebar-rail',
     tabindex: '-1',
     title: 'Toggle Sidebar',
     '[class]': 'getClassList()',

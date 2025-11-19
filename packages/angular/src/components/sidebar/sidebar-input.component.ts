@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'input[pui-sidebar-input]',
+  selector: 'input[qui-sidebar-input]',
   standalone: true,
   host: {
-    'data-testid': 'pui-sidebar-input',
+    'data-testid': 'qui-sidebar-input',
     '[attr.data-sidebar]': '"input"',
   },
   template: '',
@@ -21,8 +21,7 @@ import { Component } from '@angular/core';
       }
 
       :host(:focus-visible) {
-        box-shadow:
-          0 0 0 2px var(--color-ring),
+        box-shadow: 0 0 0 2px var(--color-ring),
           0 0 0 4px var(--color-background);
       }
     `,

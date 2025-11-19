@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: '[pui-sidebar-group-label]',
+  selector: '[qui-sidebar-group-label]',
   standalone: true,
   host: {
-    'data-testid': 'pui-sidebar-group-label',
+    'data-testid': 'qui-sidebar-group-label',
     '[class]': 'getClassList()',
   },
   template: `<ng-content></ng-content>`,
@@ -21,9 +21,7 @@ import { Component, Input } from '@angular/core';
         font-size: var(--font-size-xs);
         font-weight: var(--font-weight-medium);
         color: var(--color-sidebar-fg);
-        transition:
-          margin 0.2s ease-linear,
-          opacity 0.2s ease-linear;
+        transition: margin 0.2s ease-linear, opacity 0.2s ease-linear;
         outline: none;
 
         &:focus-visible {

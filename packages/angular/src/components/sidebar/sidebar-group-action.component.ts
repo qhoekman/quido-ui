@@ -1,10 +1,10 @@
 import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
-  selector: 'button[pui-sidebar-group-action], a[pui-sidebar-group-action]',
+  selector: 'button[qui-sidebar-group-action], a[qui-sidebar-group-action]',
   standalone: true,
   host: {
-    'data-testid': 'pui-sidebar-group-action',
+    'data-testid': 'qui-sidebar-group-action',
   },
   template: `<ng-content></ng-content>`,
   styles: [
