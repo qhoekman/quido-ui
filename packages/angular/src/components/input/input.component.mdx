@@ -1,0 +1,11 @@
+import * as InputStories from "./input.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import InputCode from "!!raw-loader!./input.component.ts";
+
+# Input
+
+<Meta of={InputStories} />
+<Canvas of={InputStories.Default} />
+<Controls of={InputStories.Default} />
+<Source code={InputCode} language="typescript" />
+
