@@ -28,36 +28,36 @@ type Story = StoryObj<DefinitionListComponent>;
 export const Default: Story = {
   render: () => ({
     template: `
-    <pui-story>
-      <dl pui-definition-list>
-        <div pui-definition-list-item>
-          <dt pui-definition-term>
+    <qui-story>
+      <dl qui-definition-list>
+        <div qui-definition-list-item>
+          <dt qui-definition-term>
             Full name
           </dt>
-          <dd pui-definition-description>
+          <dd qui-definition-description>
             John Doe
           </dd>
         </div>
-        <div pui-definition-list-item>
-          <dt pui-definition-term>
+        <div qui-definition-list-item>
+          <dt qui-definition-term>
             Phone number
           </dt>
-          <dd pui-definition-description>
+          <dd qui-definition-description>
             +1 (555) 123-4567
           </dd>
         </div>
-        <div pui-definition-list-item>
-          <dt pui-definition-term>
+        <div qui-definition-list-item>
+          <dt qui-definition-term>
             Email address
           </dt>
-          <dd pui-definition-description>
-            <a pui-link href="mailto:johndoe@example.com">
+          <dd qui-definition-description>
+            <a qui-link href="mailto:johndoe@example.com">
               johndoe&#64;example.com
             </a>
             </dd>
         </div>
       </dl>
-    </pui-story>
+    </qui-story>
   `,
   }),
 };

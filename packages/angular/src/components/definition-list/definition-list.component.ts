@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'dl[pui-definition-list]',
+  selector: 'dl[qui-definition-list]',
   standalone: true,
   template: `<ng-content></ng-content>`,
   styles: [
