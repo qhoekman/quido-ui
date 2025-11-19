@@ -14,7 +14,12 @@ const meta: Meta<EnhancedAvatarComponent> = {
   component: AvatarComponent,
   decorators: [
     moduleMetadata({
-      imports: [AvatarComponent, AvatarImageComponent, AvatarFallbackComponent, StoryComponent],
+      imports: [
+        AvatarComponent,
+        AvatarImageComponent,
+        AvatarFallbackComponent,
+        StoryComponent,
+      ],
     }),
   ],
   argTypes: {},
@@ -31,12 +36,12 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
-        <div pui-avatar #avatar>
-          <img pui-avatar-image [src]="src" alt="Avatar Image" (fallback)="avatar.onFallback($event)" />
-          <div pui-avatar-fallback>{{ fallback }}</div>
+      <qui-story>
+        <div qui-avatar #avatar>
+          <img qui-avatar-image [src]="src" alt="Avatar Image" (fallback)="avatar.onFallback($event)" />
+          <div qui-avatar-fallback>{{ fallback }}</div>
         </div>
-      </pui-story>
+      </qui-story>
     `,
   }),
 };

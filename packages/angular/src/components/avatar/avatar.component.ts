@@ -7,18 +7,23 @@ export type AvatarVariants = {
 };
 
 @Component({
-  selector: 'div[pui-avatar], pui-avatar',
+  selector: 'div[qui-avatar], qui-avatar',
   standalone: true,
   host: {
-    'data-testid': 'pui-avatar',
+    'data-testid': 'qui-avatar',
     '[class]': 'getClassList()',
   },
   imports: [AsyncPipe, NgIf],
   template: `
     @let hasFallback = needsFallback | async;
-    <ng-content select="img[pui-avatar-image]" *ngIf="!hasFallback; else fallback"></ng-content>
+    <ng-content
+      select="img[qui-avatar-image]"
+      *ngIf="!hasFallback; else fallback"
+    ></ng-content>
     <ng-template #fallback>
-      <ng-content select="div[pui-avatar-fallback], pui-avatar-fallback"></ng-content>
+      <ng-content
+        select="div[qui-avatar-fallback], qui-avatar-fallback"
+      ></ng-content>
     </ng-template>
   `,
   styles: [

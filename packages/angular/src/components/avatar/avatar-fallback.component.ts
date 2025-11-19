@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'div[pui-avatar-fallback], pui-avatar-fallback',
+  selector: 'div[qui-avatar-fallback], qui-avatar-fallback',
   standalone: true,
   host: {
-    'data-testid': 'pui-avatar-fallback',
+    'data-testid': 'qui-avatar-fallback',
   },
   template: ` <ng-content></ng-content> `,
   styles: [

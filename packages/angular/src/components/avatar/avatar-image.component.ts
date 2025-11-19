@@ -11,10 +11,10 @@ import {
 import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Component({
-  selector: 'img[pui-avatar-image]',
+  selector: 'img[qui-avatar-image]',
   standalone: true,
   host: {
-    'data-testid': 'pui-avatar-image',
+    'data-testid': 'qui-avatar-image',
   },
   template: ``,
   styles: [
@@ -44,7 +44,10 @@ export class AvatarImageComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['src'] || (changes['elementRef'] && !changes['elementRef'].firstChange)) {
+    if (
+      changes['src'] ||
+      (changes['elementRef'] && !changes['elementRef'].firstChange)
+    ) {
       this.loadImage();
     }
   }
