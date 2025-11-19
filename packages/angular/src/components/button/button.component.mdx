@@ -1,0 +1,10 @@
+import * as ButtonStories from "./button.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import ButtonCode from "!!raw-loader!./button.component.ts";
+
+# Button
+
+<Meta of={ButtonStories} />
+<Canvas of={ButtonStories.Default} />
+<Controls of={ButtonStories.Default} />
+<Source code={ButtonCode} language="typescript" />
