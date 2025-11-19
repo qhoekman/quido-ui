@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-collapsible-trigger]',
+  selector: '[qui-collapsible-trigger]',
   template: `<ng-content></ng-content>`,
   host: {
-    'data-testid': 'pui-collapsible-trigger',
+    'data-testid': 'qui-collapsible-trigger',
   },
   styles: [
     `

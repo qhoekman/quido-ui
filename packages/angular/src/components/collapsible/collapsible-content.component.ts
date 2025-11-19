@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-collapsible-content]',
+  selector: '[qui-collapsible-content]',
   standalone: true,
   host: {
-    'data-testid': 'pui-collapsible-content',
+    'data-testid': 'qui-collapsible-content',
   },
   styles: [
     `

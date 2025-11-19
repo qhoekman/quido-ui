@@ -37,19 +37,19 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <div pui-collapsible #collapsible [expanded]="expanded" style="max-width: var(--breakpoint-xs);">
-        <button pui-collapsible-trigger (click)="collapsible.toggle()">
+    <qui-story>
+      <div qui-collapsible #collapsible [expanded]="expanded" style="max-width: var(--breakpoint-xs);">
+        <button qui-collapsible-trigger (click)="collapsible.toggle()">
           <span>Recipe list</span>
-          <i pui-icon name="caret-sort" size="sm"></i>
+          <i qui-icon name="caret-sort" size="sm"></i>
         </button>
         <ng-template #content>
-          <div pui-collapsible-content>
+          <div qui-collapsible-content>
             <p>The recipe list is empty.</p>
           </div>
         </ng-template>
       </div>
-    </pui-story>
+    </qui-story>
     `,
   }),
 };

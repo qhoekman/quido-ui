@@ -3,12 +3,16 @@ import { CommonModule } from '@angular/common';
 import { Component, ContentChild, TemplateRef } from '@angular/core';
 
 @Component({
-  selector: 'div[pui-collapsible]',
+  selector: 'div[qui-collapsible]',
   standalone: true,
   imports: [CdkAccordionModule, CommonModule],
   template: `
-    <div data-testid="pui-collapsible" cdkAccordion [class.collapsible--expanded]="expanded">
-      <ng-content select="[pui-collapsible-trigger]"></ng-content>
+    <div
+      data-testid="qui-collapsible"
+      cdkAccordion
+      [class.collapsible--expanded]="expanded"
+    >
+      <ng-content select="[qui-collapsible-trigger]"></ng-content>
       <ng-container *ngIf="expanded">
         <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
       </ng-container>
