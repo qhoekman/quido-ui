@@ -1,0 +1,10 @@
+import * as LinkStories from "./link.component.stories.ts";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import LinkCode from "!!raw-loader!./link.component.ts";
+
+# Link
+
+<Meta of={LinkStories} />
+<Canvas of={LinkStories.Default} />
+<Controls of={LinkStories.Default} />
+<Source code={LinkCode} language="typescript" />
