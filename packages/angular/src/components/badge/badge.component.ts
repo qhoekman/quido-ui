@@ -7,11 +7,11 @@ export type BadgeVariants = {
 };
 
 @Component({
-  selector: 'div[pui-badge]',
+  selector: 'div[qui-badge]',
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-badge',
+    'data-testid': 'qui-badge',
   },
   template: `<ng-content></ng-content>`,
   styles: [
@@ -30,9 +30,7 @@ export type BadgeVariants = {
         outline: none;
 
         &:focus-visible {
-          box-shadow:
-            0 0 0 2px var(--color-ring),
-            0 0 0 4px var(--background);
+          box-shadow: 0 0 0 2px var(--color-ring), 0 0 0 4px var(--background);
         }
       }
 
@@ -126,6 +124,10 @@ export class BadgeComponent {
   @Input() rounded: BadgeVariants['rounded'] = 'default';
 
   getClassList() {
-    return [`variant--${this.variant}`, `size--${this.size}`, `rounded--${this.rounded}`].join(' ');
+    return [
+      `variant--${this.variant}`,
+      `size--${this.size}`,
+      `rounded--${this.rounded}`,
+    ].join(' ');
   }
 }

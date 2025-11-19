@@ -14,7 +14,12 @@ const meta: Meta<EnhancedBadgeComponent> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: Array<BadgeVariants['variant']>('primary', 'secondary', 'destructive', 'outline'),
+      options: Array<BadgeVariants['variant']>(
+        'primary',
+        'secondary',
+        'destructive',
+        'outline'
+      ),
     },
     size: {
       control: 'select',
@@ -39,8 +44,8 @@ export const Default: Story = {
   },
   render: (args) => ({
     props: args,
-    template: `<pui-story>
-      <div pui-badge [variant]="variant" [size]="size" [rounded]="rounded">{{content}}</div>
-    </pui-story>`,
+    template: `<qui-story>
+      <div qui-badge [variant]="variant" [size]="size" [rounded]="rounded">{{content}}</div>
+    </qui-story>`,
   }),
 };
