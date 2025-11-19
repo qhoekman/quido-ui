@@ -1,0 +1,10 @@
+import * as SignaturePadStories from "./signature-pad.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import SignaturePadCode from "!!raw-loader!./signature-pad.component.ts";
+
+# Signature Pad
+
+<Meta of={SignaturePadStories} />
+<Canvas of={SignaturePadStories.Default} />
+<Controls of={SignaturePadStories.Default} />
+<Source code={SignaturePadCode} language="typescript" />
