@@ -28,23 +28,73 @@ export default {
 
 export const Default: StoryFn<typeof Collapsible> = (args) => {
   return (
-    <Collapsible className="w-[350px] space-y-2" {...args}>
-      <div className="flex items-center justify-between space-x-4 px-4">
-        <h4 className="text-sm font-semibold">Lorem ipsum...</h4>
+    <Collapsible
+      style={{
+        width: "350px",
+        display: "flex",
+        flexDirection: "column",
+        gap: "var(--spacing-2)",
+      }}
+      {...args}
+    >
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: "var(--spacing-4)",
+          padding: "var(--spacing-4)",
+        }}
+      >
+        <h4
+          style={{
+            fontSize: "var(--font-size-sm)",
+            fontWeight: "var(--font-weight-semibold)",
+          }}
+        >
+          Lorem ipsum...
+        </h4>
         <CollapsibleTrigger asChild>
           <Button variant="ghost" size="sm">
             Toggle
           </Button>
         </CollapsibleTrigger>
       </div>
-      <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
+      <div
+        style={{
+          borderRadius: "var(--border-radius-md)",
+          border: "var(--border-width-default) solid var(--color-border)",
+          padding: "var(--spacing-4)",
+          fontSize: "var(--font-size-sm)",
+          fontFamily: "var(--font-family-mono)",
+          boxShadow: "var(--box-shadow-sm)",
+        }}
+      >
         Dolor sit amet.
       </div>
-      <CollapsibleContent className="space-y-2">
-        <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
+      <CollapsibleContent>
+        <div
+          style={{
+            borderRadius: "var(--border-radius-md)",
+            border: "var(--border-width-default) solid var(--color-border)",
+            padding: "var(--spacing-4)",
+            fontSize: "var(--font-size-sm)",
+            fontFamily: "var(--font-family-mono)",
+            boxShadow: "var(--box-shadow-sm)",
+          }}
+        >
           Consectetur.
         </div>
-        <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
+        <div
+          style={{
+            borderRadius: "var(--border-radius-md)",
+            border: "var(--border-width-default) solid var(--color-border)",
+            padding: "var(--spacing-4)",
+            fontSize: "var(--font-size-sm)",
+            fontFamily: "var(--font-family-mono)",
+            boxShadow: "var(--box-shadow-sm)",
+          }}
+        >
           Adipisicing elit.
         </div>
       </CollapsibleContent>
