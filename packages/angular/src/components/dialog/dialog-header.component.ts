@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-dialog-header]',
+  selector: '[qui-dialog-header]',
   standalone: true,
   host: {
-    'data-testid': 'pui-dialog-header',
+    'data-testid': 'qui-dialog-header',
   },
-  template: `<ng-content select="[pui-dialog-title]"></ng-content>
-    <ng-content select="[pui-dialog-description]"></ng-content> `,
+  template: `<ng-content select="[qui-dialog-title]"></ng-content>
+    <ng-content select="[qui-dialog-description]"></ng-content> `,
 })
 export class DialogHeaderComponent {}

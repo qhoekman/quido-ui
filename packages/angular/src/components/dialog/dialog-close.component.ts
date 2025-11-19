@@ -3,12 +3,18 @@ import { ButtonComponent } from '../button/button.component';
 import { IconCross2Component } from '../../icons';
 
 @Component({
-  selector: '[pui-dialog-close]',
+  selector: '[qui-dialog-close]',
   standalone: true,
   imports: [ButtonComponent, IconCross2Component],
   template: `<ng-content>
-    <button pui-button variant="ghost" size="sm" (click)="handleClose()" data-testid="pui-dialog-close">
-      <i pui-icon name="cross2" size="md"></i>
+    <button
+      qui-button
+      variant="ghost"
+      size="sm"
+      (click)="handleClose()"
+      data-testid="qui-dialog-close"
+    >
+      <i qui-icon name="cross2" size="md"></i>
     </button>
   </ng-content>`,
   styles: [

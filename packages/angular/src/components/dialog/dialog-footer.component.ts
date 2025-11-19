@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-dialog-footer]',
+  selector: '[qui-dialog-footer]',
   standalone: true,
   host: {
-    'data-testid': 'pui-dialog-footer',
+    'data-testid': 'qui-dialog-footer',
   },
   template: `<ng-content></ng-content>`,
   styles: [

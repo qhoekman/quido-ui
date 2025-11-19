@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-dialog-title]',
+  selector: '[qui-dialog-title]',
   standalone: true,
   host: {
-    'data-testid': 'pui-dialog-title',
+    'data-testid': 'qui-dialog-title',
   },
   template: `<ng-content></ng-content>`,
   styles: [

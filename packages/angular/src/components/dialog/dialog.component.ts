@@ -6,17 +6,17 @@ export type DialogVariants = {
 };
 
 @Component({
-  selector: 'dialog[pui-dialog]',
+  selector: 'dialog[qui-dialog]',
   standalone: true,
   imports: [CommonModule],
   host: {
     '[class]': 'getClassList()',
   },
   template: `
-    <ng-content select="[pui-dialog-close]"></ng-content>
-    <ng-content select="[pui-dialog-header]"></ng-content>
-    <ng-content select="[pui-dialog-content]"></ng-content>
-    <ng-content select="[pui-dialog-footer]"></ng-content>
+    <ng-content select="[qui-dialog-close]"></ng-content>
+    <ng-content select="[qui-dialog-header]"></ng-content>
+    <ng-content select="[qui-dialog-content]"></ng-content>
+    <ng-content select="[qui-dialog-footer]"></ng-content>
   `,
   styles: [
     `

@@ -48,22 +48,22 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <dialog pui-dialog [size]="size">
-        <div pui-dialog-close></div>
-        <div pui-dialog-header>
-          <div pui-dialog-title>Dialog Title</div>
-          <div pui-dialog-description>Dialog description goes here.</div>
+    <qui-story>
+      <dialog qui-dialog [size]="size">
+        <div qui-dialog-close></div>
+        <div qui-dialog-header>
+          <div qui-dialog-title>Dialog Title</div>
+          <div qui-dialog-description>Dialog description goes here.</div>
         </div>
-        <div pui-dialog-content>
+        <div qui-dialog-content>
           <p>This is the content of the dialog.</p>
         </div>
-        <div pui-dialog-footer>
-          <button pui-button variant="outline">Cancel</button>
-          <button pui-button>Confirm</button>
+        <div qui-dialog-footer>
+          <button qui-button variant="outline">Cancel</button>
+          <button qui-button>Confirm</button>
         </div>
       </dialog>
-    </pui-story>
+    </qui-story>
     `,
   }),
 };
@@ -75,18 +75,18 @@ export const Confirm: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <dialog pui-dialog [size]="size">
-        <div pui-dialog-header>
-          <div pui-dialog-title>Are you absolutely sure?</div>
+      <dialog qui-dialog [size]="size">
+        <div qui-dialog-header>
+          <div qui-dialog-title>Are you absolutely sure?</div>
         </div>
 
-        <div pui-dialog-content>
+        <div qui-dialog-content>
           <p>This action cannot be undone. This will permanently delete your account and remove your data from our servers.</p>
         </div>
 
-        <div pui-dialog-footer>
-          <button pui-button variant="outline">Cancel</button>
-          <button pui-button>Confirm</button>
+        <div qui-dialog-footer>
+          <button qui-button variant="outline">Cancel</button>
+          <button qui-button>Confirm</button>
         </div>
       </dialog>
     `,
