@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 @Component({
-  selector: '[pui-chat-message-user]',
+  selector: '[qui-chat-message-user]',
   template: ` <ng-content></ng-content> `,
   host: {
-    'data-testid': 'pui-chat-message-user',
+    'data-testid': 'qui-chat-message-user',
   },
   styles: [
     `

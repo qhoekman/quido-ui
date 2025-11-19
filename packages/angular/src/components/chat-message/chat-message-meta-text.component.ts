@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-chat-message-meta-text]',
+  selector: '[qui-chat-message-meta-text]',
   template: ` <ng-content></ng-content> `,
   host: {
-    'data-testid': 'pui-chat-message-meta-text',
+    'data-testid': 'qui-chat-message-meta-text',
   },
   styles: [
     `

@@ -44,42 +44,42 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story variant="default">
-        <div pui-chat-message variant="sender">
-          <pui-avatar #avatar1>
+      <qui-story variant="default">
+        <div qui-chat-message variant="sender">
+          <qui-avatar #avatar1>
             <img
-              pui-avatar-image
+              qui-avatar-image
               src="https://pagedone.io/asset/uploads/1710412177.png"
               (fallback)="avatar1.onFallback($event)"
             />
-            <pui-avatar-fallback>UN</pui-avatar-fallback>
-          </pui-avatar>
-          <div pui-chat-message-user>User Name</div>
-          <div pui-chat-message-bubble>
-            <h5 pui-chat-message-bubble-text>Message content goes here.</h5>
+            <qui-avatar-fallback>UN</qui-avatar-fallback>
+          </qui-avatar>
+          <div qui-chat-message-user>User Name</div>
+          <div qui-chat-message-bubble>
+            <h5 qui-chat-message-bubble-text>Message content goes here.</h5>
           </div>
-          <div pui-chat-message-meta>
-            <h6 pui-chat-message-meta-text>12:00 PM</h6>
+          <div qui-chat-message-meta>
+            <h6 qui-chat-message-meta-text>12:00 PM</h6>
           </div>
         </div>
-        <div pui-chat-message variant="receiver">
-          <pui-avatar #avatar2>
+        <div qui-chat-message variant="receiver">
+          <qui-avatar #avatar2>
             <img
-              pui-avatar-image
+              qui-avatar-image
               src="https://pagedone.io/asset/uploads/1710412188.png"
               (fallback)="avatar2.onFallback($event)"
             />
-            <pui-avatar-fallback>JD</pui-avatar-fallback>
-          </pui-avatar>
-          <div pui-chat-message-user>John Doe</div>
-          <div pui-chat-message-bubble>
-            <h5 pui-chat-message-bubble-text>Message content goes here.</h5>
+            <qui-avatar-fallback>JD</qui-avatar-fallback>
+          </qui-avatar>
+          <div qui-chat-message-user>John Doe</div>
+          <div qui-chat-message-bubble>
+            <h5 qui-chat-message-bubble-text>Message content goes here.</h5>
           </div>
-          <div pui-chat-message-meta>
-            <h6 pui-chat-message-meta-text>12:01 PM</h6>
+          <div qui-chat-message-meta>
+            <h6 qui-chat-message-meta-text>12:01 PM</h6>
           </div>
         </div>
-      </pui-story>
+      </qui-story>
     `,
   }),
 };

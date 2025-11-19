@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-chat-message-bubble-text]',
+  selector: '[qui-chat-message-bubble-text]',
   template: ` <ng-content></ng-content> `,
   host: {
-    'data-testid': 'pui-chat-message-bubble-text',
+    'data-testid': 'qui-chat-message-bubble-text',
   },
   styles: [
     `

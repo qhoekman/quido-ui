@@ -5,18 +5,18 @@ export type ChatMessageVariants = {
 };
 
 @Component({
-  selector: 'div[pui-chat-message]',
+  selector: 'div[qui-chat-message]',
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-chat-message',
+    'data-testid': 'qui-chat-message',
   },
   template: `
-    <ng-content select="[pui-avatar], pui-avatar"></ng-content>
-    <div class="pui-chat-message__grid">
-      <ng-content select="[pui-chat-message-user]"></ng-content>
-      <div class="pui-chat-message__bubble">
-        <ng-content select="[pui-chat-message-bubble]"></ng-content>
-        <ng-content select="[pui-chat-message-meta]"></ng-content>
+    <ng-content select="[qui-avatar], qui-avatar"></ng-content>
+    <div class="qui-chat-message__grid">
+      <ng-content select="[qui-chat-message-user]"></ng-content>
+      <div class="qui-chat-message__bubble">
+        <ng-content select="[qui-chat-message-bubble]"></ng-content>
+        <ng-content select="[qui-chat-message-meta]"></ng-content>
       </div>
     </div>
   `,
@@ -37,37 +37,37 @@ export type ChatMessageVariants = {
         flex-direction: row;
       }
 
-      :host(.variant--sender) ::ng-deep [pui-chat-message-bubble] {
+      :host(.variant--sender) ::ng-deep [qui-chat-message-bubble] {
         background-color: var(--color-primary);
         color: var(--color-primary-fg);
       }
 
-      :host(.variant--receiver) ::ng-deep [pui-chat-message-bubble] {
+      :host(.variant--receiver) ::ng-deep [qui-chat-message-bubble] {
         background-color: var(--color-secondary);
         color: var(--color-secondary-fg);
       }
 
-      :host(.variant--sender) ::ng-deep [pui-chat-message-user] {
+      :host(.variant--sender) ::ng-deep [qui-chat-message-user] {
         text-align: right;
       }
 
-      :host(.variant--receiver) ::ng-deep [pui-chat-message-user] {
+      :host(.variant--receiver) ::ng-deep [qui-chat-message-user] {
         text-align: left;
       }
 
-      :host(.variant--sender) ::ng-deep [pui-chat-message-meta] {
+      :host(.variant--sender) ::ng-deep [qui-chat-message-meta] {
         text-align: left;
       }
 
-      :host(.variant--receiver) ::ng-deep [pui-chat-message-meta] {
+      :host(.variant--receiver) ::ng-deep [qui-chat-message-meta] {
         text-align: right;
       }
 
-      :host .pui-chat-message__grid {
+      :host .qui-chat-message__grid {
         display: grid;
       }
 
-      :host .pui-chat-message__bubble {
+      :host .qui-chat-message__bubble {
         display: grid;
         width: max-content;
       }
