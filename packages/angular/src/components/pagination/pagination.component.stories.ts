@@ -35,30 +35,30 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
-      <nav pui-pagination aria-label="pagination">
-        <ul pui-pagination-content>
-          <li pui-pagination-item>
-            <a pui-pagination-previous></a>
+      <qui-story>
+      <nav qui-pagination aria-label="pagination">
+        <ul qui-pagination-content>
+          <li qui-pagination-item>
+            <a qui-pagination-previous></a>
           </li>
-          <li pui-pagination-item>
-            <a pui-pagination-link [isActive]="true">1</a>
+          <li qui-pagination-item>
+            <a qui-pagination-link [isActive]="true">1</a>
           </li>
-          <li pui-pagination-item>
-            <a pui-pagination-link>2</a>
+          <li qui-pagination-item>
+            <a qui-pagination-link>2</a>
           </li>
-          <li pui-pagination-item>
-            <span pui-pagination-ellipsis></span>
+          <li qui-pagination-item>
+            <span qui-pagination-ellipsis></span>
           </li>
-          <li pui-pagination-item>
-            <a pui-pagination-link>10</a>
+          <li qui-pagination-item>
+            <a qui-pagination-link>10</a>
           </li>
-          <li pui-pagination-item>
-            <a pui-pagination-next></a>
+          <li qui-pagination-item>
+            <a qui-pagination-next></a>
           </li>
         </ul>
       </nav>
-    </pui-story>
+    </qui-story>
     `,
   }),
 };

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'ul[pui-pagination-content]',
+  selector: 'ul[qui-pagination-content]',
   standalone: true,
   template: `<ng-content></ng-content>`,
   host: {
-    'data-testid': 'pui-pagination-content',
+    'data-testid': 'qui-pagination-content',
   },
   styles: [
     `

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'a[pui-pagination-link]',
+  selector: 'a[qui-pagination-link]',
   standalone: true,
   template: `<ng-content></ng-content>`,
   host: {

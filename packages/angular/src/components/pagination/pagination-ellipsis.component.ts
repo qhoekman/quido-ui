@@ -3,17 +3,17 @@ import { IconDotsHorizontalComponent } from '../../icons';
 import { VisuallyHiddenComponent } from '../visually-hidden/visually-hidden.component';
 
 @Component({
-  selector: 'span[pui-pagination-ellipsis]',
+  selector: 'span[qui-pagination-ellipsis]',
   standalone: true,
   host: {
     '[attr.aria-hidden]': 'true',
-    'data-testid': 'pui-pagination-ellipsis',
+    'data-testid': 'qui-pagination-ellipsis',
   },
   imports: [IconDotsHorizontalComponent, VisuallyHiddenComponent],
   template: `
     <ng-content>
-      <i pui-icon name="dots-horizontal"></i>
-      <span pui-visually-hidden>More</span>
+      <i qui-icon name="dots-horizontal"></i>
+      <span qui-visually-hidden>More</span>
     </ng-content>
   `,
   styles: [
