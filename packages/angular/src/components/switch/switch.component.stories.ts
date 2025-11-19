@@ -14,7 +14,12 @@ const meta: Meta<EnhancedSwitchComponent> = {
   component: SwitchComponent,
   decorators: [
     moduleMetadata({
-      imports: [SwitchComponent, StackComponent, LabelComponent, StoryComponent],
+      imports: [
+        SwitchComponent,
+        StackComponent,
+        LabelComponent,
+        StoryComponent,
+      ],
     }),
   ],
   argTypes: {
@@ -38,12 +43,12 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
-        <div pui-stack align="center" justify="center" gap="sm">
-          <button id="switch" pui-switch [checked]="checked"></button>
-          <label pui-label for="switch">{{ label }}</label>
+      <qui-story>
+        <div qui-stack align="center" justify="center" gap="sm">
+          <button id="switch" qui-switch [checked]="checked"></button>
+          <label qui-label for="switch">{{ label }}</label>
         </div>
-      </pui-story>
+      </qui-story>
     `,
   }),
 };

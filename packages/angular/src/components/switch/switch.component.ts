@@ -1,19 +1,23 @@
 import { Component, ElementRef, HostListener, Input } from '@angular/core';
 
 @Component({
-  selector: 'button[pui-switch]',
+  selector: 'button[qui-switch]',
   host: {
     type: 'button',
     role: 'switch',
-    'data-testid': 'pui-switch',
+    'data-testid': 'qui-switch',
     '[attr.aria-checked]': 'checked',
     '[attr.data-state]': 'checked ? "checked" : "unchecked"',
   },
   standalone: true,
   template: `
-    <span class="thumb" [class.checked]="checked" data-testid="pui-switch-thumb"></span>
+    <span
+      class="thumb"
+      [class.checked]="checked"
+      data-testid="qui-switch-thumb"
+    ></span>
     <input
-      data-testid="pui-switch-input"
+      data-testid="qui-switch-input"
       type="hidden"
       [attr.name]="elementRef.nativeElement.getAttribute('name')"
       [value]="checked ? 'true' : 'false'"
