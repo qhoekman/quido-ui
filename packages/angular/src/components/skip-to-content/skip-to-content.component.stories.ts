@@ -25,7 +25,7 @@ export const Default: Story = {
     props: args,
     template: `
       <div style="height: 100vh; background-color: lightgray;">
-        <button pui-skip-to-content [targetId]="targetId">
+        <button qui-skip-to-content [targetId]="targetId">
           Skip to main content
         </button>
       </div>

@@ -1,9 +1,9 @@
 import { Component, HostListener, Input } from '@angular/core';
 
 @Component({
-  selector: '[pui-skip-to-content]',
+  selector: '[qui-skip-to-content]',
   host: {
-    'data-testid': 'pui-skip-to-content',
+    'data-testid': 'qui-skip-to-content',
     '[class]': 'getClassList()',
   },
   template: ` <ng-content></ng-content> `,
@@ -30,8 +30,7 @@ import { Component, HostListener, Input } from '@angular/core';
         transition: transform 0.3s;
 
         &:focus-visible {
-          box-shadow:
-            0 0 0 2px var(--color-ring),
+          box-shadow: 0 0 0 2px var(--color-ring),
             0 0 0 4px var(--color-background);
         }
 
@@ -98,7 +97,11 @@ export class SkipToContentComponent {
       return;
     }
 
-    if ((event.key === ' ' || event.key === 'Enter') && this.isVisible && this.targetId) {
+    if (
+      (event.key === ' ' || event.key === 'Enter') &&
+      this.isVisible &&
+      this.targetId
+    ) {
       const targetElement = document.getElementById(this.targetId);
       targetElement?.scrollIntoView({ behavior: 'smooth' });
     }
