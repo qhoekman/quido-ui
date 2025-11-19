@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-callout-indicator]',
+  selector: '[qui-callout-indicator]',
   standalone: true,
   host: {
-    'data-testid': 'pui-callout-indicator',
+    'data-testid': 'qui-callout-indicator',
   },
   template: `<ng-content></ng-content>`,
   styles: [

@@ -38,17 +38,17 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <div pui-callout [variant]="variant" style="max-width: var(--breakpoint-md);">
-        <div pui-callout-indicator>
-          <i pui-icon name="info-circled" size="lg"></i>
+    <qui-story>
+      <div qui-callout [variant]="variant" style="max-width: var(--breakpoint-md);">
+        <div qui-callout-indicator>
+          <i qui-icon name="info-circled" size="lg"></i>
         </div>
-        <h5 pui-callout-title>Callout Title</h5>
-        <div pui-callout-description>
+        <h5 qui-callout-title>Callout Title</h5>
+        <div qui-callout-description>
           <p>This is a description inside the callout component.</p>
         </div>
       </div>
-    </pui-story>
+    </qui-story>
     `,
   }),
 };

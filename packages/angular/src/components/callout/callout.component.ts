@@ -1,14 +1,14 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'div[pui-callout]',
+  selector: 'div[qui-callout]',
   standalone: true,
   template: `<ng-content></ng-content>`,
   host: {
     role: 'alert',
     '[class]': 'getClassList()',
     '[attr.aria-label]': 'alert',
-    'data-testid': 'pui-callout',
+    'data-testid': 'qui-callout',
   },
   styles: [
     `
