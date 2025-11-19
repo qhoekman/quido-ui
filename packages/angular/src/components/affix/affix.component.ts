@@ -1,10 +1,16 @@
-import { Component, ElementRef, HostListener, Input, OnDestroy } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Input,
+  OnDestroy,
+} from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
-  selector: '[pui-affix]',
+  selector: '[qui-affix]',
   host: {
-    'data-testid': 'pui-affix',
+    'data-testid': 'qui-affix',
     '[class]': 'getClassList()',
   },
   template: ` <ng-content></ng-content> `,

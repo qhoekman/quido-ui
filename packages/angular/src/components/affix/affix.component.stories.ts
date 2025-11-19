@@ -33,21 +33,21 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <div pui-skeleton style="width: 100%; height: 120vh;"></div>
+      <div qui-skeleton style="width: 100%; height: 120vh;"></div>
 
-        <div pui-affix [offsetTop]="0">
-          <button pui-button>
+        <div qui-affix [offsetTop]="0">
+          <button qui-button>
             Affix top
           </button>
 
         </div>
-        <div pui-affix [offsetBottom]="0">
-          <button pui-button>
+        <div qui-affix [offsetBottom]="0">
+          <button qui-button>
             Affix bottom
           </button>
         </div>
 
-      <div pui-skeleton style="width: 100%; height: 120vh;"></div>
+      <div qui-skeleton style="width: 100%; height: 120vh;"></div>
     `,
   }),
 };
