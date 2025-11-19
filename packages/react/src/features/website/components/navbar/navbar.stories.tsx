@@ -590,14 +590,13 @@ export const WithMegaMenu: StoryFn<typeof Navbar> = (args) => (
                           color: "var(--color-muted-fg)",
                         }}
                       >
-                        Beautifully designed components built with Radix UI and
-                        Tailwind CSS.
+                        Beautifully designed components built with Radix UI.
                       </p>
                     </a>
                   </MegaMenuLink>
                 </li>
                 <MegaMenuListItem href="/docs" title="Introduction">
-                  Re-usable components built using Radix UI and Tailwind CSS.
+                  Re-usable components built using Radix UI.
                 </MegaMenuListItem>
                 <MegaMenuListItem
                   href="/docs/installation"

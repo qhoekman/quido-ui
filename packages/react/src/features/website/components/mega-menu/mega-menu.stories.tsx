@@ -21,11 +21,13 @@ export default {
     },
     delayDuration: {
       control: "number",
-      description: "The duration in milliseconds to wait before showing the content",
+      description:
+        "The duration in milliseconds to wait before showing the content",
     },
     skipDelayDuration: {
       control: "number",
-      description: "The duration in milliseconds to wait before hiding the content when moving to the next item",
+      description:
+        "The duration in milliseconds to wait before hiding the content when moving to the next item",
     },
   },
   args: {
@@ -136,14 +138,13 @@ export const Default: StoryFn<typeof MegaMenu> = (args) => (
                       color: "var(--color-muted-fg)",
                     }}
                   >
-                    Beautifully designed components built with Radix UI and
-                    Tailwind CSS.
+                    Beautifully designed components built with Radix UI.
                   </p>
                 </a>
               </MegaMenuLink>
             </li>
             <MegaMenuListItem href="/docs" title="Introduction">
-              Re-usable components built using Radix UI and Tailwind CSS.
+              Re-usable components built using Radix UI.
             </MegaMenuListItem>
             <MegaMenuListItem href="/docs/installation" title="Installation">
               How to install dependencies and structure your app.
