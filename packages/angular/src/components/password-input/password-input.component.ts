@@ -6,12 +6,12 @@ export type PasswordInputVariants = {
 };
 
 @Component({
-  selector: 'input[pui-password-input]',
+  selector: 'input[qui-password-input]',
   standalone: true,
   imports: [CommonModule],
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-password-input',
+    'data-testid': 'qui-password-input',
     type: 'password',
   },
   template: ``,

@@ -16,7 +16,11 @@ const meta: Meta<EnhancedPasswordInputComponent> = {
   component: PasswordInputFieldComponent,
   decorators: [
     moduleMetadata({
-      imports: [PasswordInputFieldComponent, PasswordInputComponent, StoryComponent],
+      imports: [
+        PasswordInputFieldComponent,
+        PasswordInputComponent,
+        StoryComponent,
+      ],
     }),
   ],
   argTypes: {
@@ -49,9 +53,9 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
-        <pui-password-inputfield><input pui-password-input [placeholder]="placeholder" [disabled]="disabled" [required]="required" [size]="size" /></pui-password-inputfield>
-      </pui-story>
+      <qui-story>
+        <qui-password-inputfield><input qui-password-input [placeholder]="placeholder" [disabled]="disabled" [required]="required" [size]="size" /></qui-password-inputfield>
+      </qui-story>
     `,
   }),
 };

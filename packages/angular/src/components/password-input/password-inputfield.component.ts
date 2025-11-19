@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ContentChild, ElementRef, Input } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ContentChild,
+  ElementRef,
+  Input,
+} from '@angular/core';
 import { PasswordInputButtonComponent } from './password-input-button.component';
 import { BehaviorSubject } from 'rxjs';
 import { PasswordInputComponent } from './password-input.component';
@@ -10,19 +16,34 @@ export type PasswordInputVariants = {
 };
 
 @Component({
-  selector: 'pui-password-inputfield',
+  selector: 'qui-password-inputfield',
   standalone: true,
-  imports: [CommonModule, PasswordInputButtonComponent, IconEyeOpenComponent, IconEyeClosedComponent],
+  imports: [
+    CommonModule,
+    PasswordInputButtonComponent,
+    IconEyeOpenComponent,
+    IconEyeClosedComponent,
+  ],
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-password-inputfield',
+    'data-testid': 'qui-password-inputfield',
   },
   template: `
     @let canSeePassword = isPasswordVisible | async;
     <ng-content select="input"></ng-content>
-    <button pui-password-input-button (click)="togglePasswordVisibility()">
-      <i pui-icon name="eye-closed" [class]="getIconClassList()" *ngIf="canSeePassword === false"></i>
-      <i pui-icon name="eye-open" [class]="getIconClassList()" *ngIf="canSeePassword === true"></i>
+    <button qui-password-input-button (click)="togglePasswordVisibility()">
+      <i
+        qui-icon
+        name="eye-closed"
+        [class]="getIconClassList()"
+        *ngIf="canSeePassword === false"
+      ></i>
+      <i
+        qui-icon
+        name="eye-open"
+        [class]="getIconClassList()"
+        *ngIf="canSeePassword === true"
+      ></i>
     </button>
   `,
   styles: [

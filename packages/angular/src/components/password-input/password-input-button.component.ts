@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'button[pui-password-input-button]',
+  selector: 'button[qui-password-input-button]',
   standalone: true,
   host: {
-    'data-testid': 'pui-password-input-button',
+    'data-testid': 'qui-password-input-button',
   },
   template: ` <ng-content></ng-content> `,
   styles: [
