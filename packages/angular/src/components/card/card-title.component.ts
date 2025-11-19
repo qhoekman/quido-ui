@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-card-title]',
+  selector: '[qui-card-title]',
   host: {
-    'data-testid': 'pui-card-title',
+    'data-testid': 'qui-card-title',
   },
   template: `<ng-content></ng-content>`,
   styles: [

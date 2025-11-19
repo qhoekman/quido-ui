@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-card]',
+  selector: '[qui-card]',
   host: {
-    'data-testid': 'pui-card',
+    'data-testid': 'qui-card',
   },
   template: `<ng-content></ng-content>`,
   standalone: true,

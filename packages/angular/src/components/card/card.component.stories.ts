@@ -40,23 +40,23 @@ type Story = StoryObj<CardComponent>;
 export const Default: Story = {
   render: () => ({
     template: `
-      <pui-story>
-        <div pui-card style="width: var(--breakpoint-xs)">
-          <div pui-card-header>
-            <h3 pui-card-title>Add item</h3>
-            <p pui-card-description>You can add items to your recipe.</p>
+      <qui-story>
+        <div qui-card style="width: var(--breakpoint-xs)">
+          <div qui-card-header>
+            <h3 qui-card-title>Add item</h3>
+            <p qui-card-description>You can add items to your recipe.</p>
         </div>
-        <div pui-card-content>
-          <div pui-stack direction="column" gap="sm">
-            <label pui-label>Name</label>
-            <input pui-input />
+        <div qui-card-content>
+          <div qui-stack direction="column" gap="sm">
+            <label qui-label>Name</label>
+            <input qui-input />
             </div>
           </div>
-          <div pui-card-footer>
-            <button pui-button>Add</button>
+          <div qui-card-footer>
+            <button qui-button>Add</button>
           </div>
           </div>
-        </pui-story>
+        </qui-story>
       `,
   }),
 };

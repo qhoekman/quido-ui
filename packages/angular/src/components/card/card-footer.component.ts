@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-card-footer]',
+  selector: '[qui-card-footer]',
   host: {
-    'data-testid': 'pui-card-footer',
+    'data-testid': 'qui-card-footer',
   },
   template: `<ng-content></ng-content>`,
   styles: [
