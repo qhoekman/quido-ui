@@ -7,7 +7,7 @@ export default {
 } satisfies Meta<typeof Label>;
 
 export const Default: StoryFn<typeof Label> = (args) => (
-  <div className="max-w-sm">
+  <div style={{ maxWidth: "var(--spacing-sm)" }}>
     <Label {...args}>Label</Label>
   </div>
 );
