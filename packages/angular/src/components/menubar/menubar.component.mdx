@@ -1,0 +1,32 @@
+import * as MenubarStories from "./menubar.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import MenubarCode from "!!raw-loader!./menubar.component.ts";
+import MenubarGroupCode from "!!raw-loader!./menubar-group.component.ts";
+import MenubarItemCode from "!!raw-loader!./menubar-item.component.ts";
+import MenubarMenuCode from "!!raw-loader!./menubar-menu.component.ts";
+import MenubarTriggerCode from "!!raw-loader!./menubar-trigger.component.ts";
+
+# Menubar
+
+<Meta of={MenubarStories} />
+<Canvas of={MenubarStories.Default} />
+<Controls of={MenubarStories.Default} />
+
+## Installation
+
+Copy the following code into your project.
+
+> **menubar.component.ts**
+> <Source code={MenubarCode} language="typescript" />
+
+> **menubar-group.component.ts**
+> <Source code={MenubarGroupCode} language="typescript" />
+
+> **menubar-item.component.ts**
+> <Source code={MenubarItemCode} language="typescript" />
+
+> **menubar-menu.component.ts**
+> <Source code={MenubarMenuCode} language="typescript" />
+
+> **menubar-trigger.component.ts**
+> <Source code={MenubarTriggerCode} language="typescript" />
