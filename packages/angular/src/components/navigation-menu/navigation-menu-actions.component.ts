@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-navigation-menu-actions]',
+  selector: '[qui-navigation-menu-actions]',
   template: ` <ng-content></ng-content> `,
   host: {
-    'data-testid': 'pui-navigation-menu-actions',
+    'data-testid': 'qui-navigation-menu-actions',
   },
   styles: [
     `

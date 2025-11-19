@@ -4,14 +4,14 @@ import { Component } from '@angular/core';
 import { IconChevronDownComponent, IconChevronUpComponent } from '../../icons';
 
 @Component({
-  selector: 'pui-navigation-menu-dropdown-indicator',
+  selector: 'qui-navigation-menu-dropdown-indicator',
   imports: [NgIf, IconChevronUpComponent, IconChevronDownComponent],
   template: `
     <ng-container *ngIf="this.menuTrigger.isOpen(); else caretDown">
-      <i pui-icon name="chevron-up"></i>
+      <i qui-icon name="chevron-up"></i>
     </ng-container>
     <ng-template #caretDown>
-      <i pui-icon name="chevron-down"></i>
+      <i qui-icon name="chevron-down"></i>
     </ng-template>
   `,
   styles: [

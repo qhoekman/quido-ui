@@ -2,11 +2,11 @@ import { CdkMenuItem } from '@angular/cdk/menu';
 import { Component, ElementRef, HostListener } from '@angular/core';
 
 @Component({
-  selector: 'a[pui-navigation-menu-dropdown-item]',
+  selector: 'a[qui-navigation-menu-dropdown-item]',
   template: `<ng-content></ng-content>`,
   host: {
     role: 'menuitem',
-    'data-testid': 'pui-navigation-menu-dropdown-item',
+    'data-testid': 'qui-navigation-menu-dropdown-item',
     tabindex: '0',
   },
   hostDirectives: [CdkMenuItem],
@@ -21,12 +21,11 @@ import { Component, ElementRef, HostListener } from '@angular/core';
         align-items: center;
         gap: var(--spacing-2);
         border-radius: var(--border-radius-sm);
-        padding: var(--spacing-1-5) var(--spacing-2) var(--spacing-1-5) var(--spacing-2);
+        padding: var(--spacing-1-5) var(--spacing-2) var(--spacing-1-5)
+          var(--spacing-2);
         font-size: var(--font-size-sm);
         outline: none;
-        transition:
-          background-color 0.2s,
-          color 0.2s;
+        transition: background-color 0.2s, color 0.2s;
       }
 
       :host:hover {
@@ -52,7 +51,9 @@ export class NavigationMenuDropdownItemComponent {
 
   @HostListener('keydown.enter')
   triggerSpace() {
-    this.elementRef.nativeElement.dispatchEvent(new KeyboardEvent('keydown', { key: ' ', code: 'Space' }));
+    this.elementRef.nativeElement.dispatchEvent(
+      new KeyboardEvent('keydown', { key: ' ', code: 'Space' })
+    );
   }
 
   @HostListener('keydown.arrowup')

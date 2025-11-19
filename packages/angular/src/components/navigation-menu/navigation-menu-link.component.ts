@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'a[pui-navigation-menu-link]',
+  selector: 'a[qui-navigation-menu-link]',
   host: {
-    'data-testid': 'pui-navigation-menu-link',
+    'data-testid': 'qui-navigation-menu-link',
   },
   template: ` <ng-content></ng-content> `,
   styles: [

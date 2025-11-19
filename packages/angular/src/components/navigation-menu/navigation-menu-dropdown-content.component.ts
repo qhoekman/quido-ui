@@ -2,10 +2,10 @@ import { CdkMenu, CdkMenuTrigger } from '@angular/cdk/menu';
 import { Component, HostListener } from '@angular/core';
 
 @Component({
-  selector: '[pui-navigation-menu-dropdown-content]',
+  selector: '[qui-navigation-menu-dropdown-content]',
   template: `<ng-content></ng-content>`,
   host: {
-    'data-testid': 'pui-navigation-menu-dropdown-content',
+    'data-testid': 'qui-navigation-menu-dropdown-content',
     role: 'menu',
     'aria-orientation': 'vertical',
     tabindex: '-1',
