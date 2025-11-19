@@ -1,11 +1,19 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
-  selector: 'pui-color-palette,[pui-color-palette]',
+  selector: 'qui-color-palette,[qui-color-palette]',
   imports: [CommonModule],
   host: {
-    'data-testid': 'pui-color-palette',
+    'data-testid': 'qui-color-palette',
   },
   standalone: true,
   template: `
@@ -17,7 +25,12 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
       [class.selected]="hex === selectedColor"
       (click)="selectColor(hex)"
     >
-      <input data-testid="color-square-input" type="hidden" [value]="selectedColor?.value" name="selectedColor" />
+      <input
+        data-testid="color-square-input"
+        type="hidden"
+        [value]="selectedColor?.value"
+        name="selectedColor"
+      />
     </button>
   `,
   styles: [
@@ -37,9 +50,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
       }
 
       :host .color-square.selected {
-        box-shadow:
-          inset 0 0 0 1px white,
-          0 0 0 1px black;
+        box-shadow: inset 0 0 0 1px white, 0 0 0 1px black;
       }
     `,
   ],
@@ -73,7 +84,19 @@ export class ColorPaletteComponent implements OnInit, OnChanges {
     'rose',
   ];
 
-  shades = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', '950'];
+  shades = [
+    '50',
+    '100',
+    '200',
+    '300',
+    '400',
+    '500',
+    '600',
+    '700',
+    '800',
+    '900',
+    '950',
+  ];
 
   // Colors without shades
   singleColors = [
@@ -88,7 +111,7 @@ export class ColorPaletteComponent implements OnInit, OnChanges {
       color,
       shade,
       value: `var(--color-${color}-${shade})`,
-    })),
+    }))
   );
 
   sortedColorHexagons = [
@@ -96,7 +119,10 @@ export class ColorPaletteComponent implements OnInit, OnChanges {
       if (a.color === b.color) {
         return parseInt(a.shade, 10) - parseInt(b.shade, 10);
       }
-      return this.colorFamilies.indexOf(a.color) - this.colorFamilies.indexOf(b.color);
+      return (
+        this.colorFamilies.indexOf(a.color) -
+        this.colorFamilies.indexOf(b.color)
+      );
     }),
     ...this.singleColors,
   ];
@@ -104,12 +130,14 @@ export class ColorPaletteComponent implements OnInit, OnChanges {
   selectedColor: { color: string; shade?: string; value: string } | null = null;
 
   ngOnInit() {
-    this.selectedColor = this.colorHexagons.find((hex) => hex.value === this.color) ?? null;
+    this.selectedColor =
+      this.colorHexagons.find((hex) => hex.value === this.color) ?? null;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['color']) {
-      this.selectedColor = this.colorHexagons.find((hex) => hex.value === this.color) ?? null;
+      this.selectedColor =
+        this.colorHexagons.find((hex) => hex.value === this.color) ?? null;
     }
   }
 

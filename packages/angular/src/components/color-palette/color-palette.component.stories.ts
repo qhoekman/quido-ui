@@ -21,9 +21,9 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
-        <div pui-color-palette></div>
-      </pui-story>
+      <qui-story>
+        <div qui-color-palette></div>
+      </qui-story>
     `,
   }),
 };
