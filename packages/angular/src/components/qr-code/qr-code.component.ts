@@ -2,7 +2,7 @@ import { Component, Input, OnChanges } from '@angular/core';
 import { QRCodeSVG } from '@akamfoad/qrcode';
 
 @Component({
-  selector: 'img[pui-qr-code]',
+  selector: 'img[qui-qr-code]',
   host: {
     '[attr.src]': 'qrCodeSVG',
   },

@@ -22,9 +22,9 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <img pui-qr-code [value]="value" width="100" height="100" />
-    </pui-story>
+    <qui-story>
+      <img qui-qr-code [value]="value" width="100" height="100" />
+    </qui-story>
     `,
   }),
   args: {
