@@ -34,9 +34,9 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
-        <p>Press <kbd pui-kbd [variant]="variant" [size]="size">CMD</kbd> + <kbd pui-kbd [variant]="variant" [size]="size">K</kbd> to see the effect</p>
-      </pui-story>
+      <qui-story>
+        <p>Press <kbd qui-kbd [variant]="variant" [size]="size">CMD</kbd> + <kbd qui-kbd [variant]="variant" [size]="size">K</kbd> to see the effect</p>
+      </qui-story>
     `,
   }),
 };

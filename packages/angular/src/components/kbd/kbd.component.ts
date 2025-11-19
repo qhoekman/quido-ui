@@ -6,10 +6,10 @@ export type KbdVariants = {
 };
 
 @Component({
-  selector: 'kbd[pui-kbd]',
+  selector: 'kbd[qui-kbd]',
   standalone: true,
   host: {
-    'data-testid': 'pui-kbd',
+    'data-testid': 'qui-kbd',
     '[class]': 'getClassList()',
   },
   template: `<ng-content></ng-content>`,
