@@ -24,7 +24,8 @@ export default {
   argTypes: {
     defaultValue: {
       control: "text",
-      description: "The value of the tab that should be active when initially rendered",
+      description:
+        "The value of the tab that should be active when initially rendered",
     },
     value: {
       control: "text",
@@ -38,7 +39,8 @@ export default {
     activationMode: {
       control: "select",
       options: ["automatic", "manual"],
-      description: "When automatic, tabs are activated when receiving focus. When manual, tabs are activated when clicked.",
+      description:
+        "When automatic, tabs are activated when receiving focus. When manual, tabs are activated when clicked.",
     },
   },
   args: {
@@ -49,8 +51,8 @@ export default {
 } satisfies Meta<typeof Tabs>;
 
 export const Default: StoryFn<typeof Tabs> = (args) => (
-  <Tabs className="w-[400px]" {...args}>
-    <TabsList className="grid w-full grid-cols-2">
+  <Tabs style={{ width: "var(--spacing-sm)" }} {...args}>
+    <TabsList>
       <TabsTrigger value="account">Account</TabsTrigger>
       <TabsTrigger value="password">Password</TabsTrigger>
     </TabsList>
@@ -62,12 +64,12 @@ export const Default: StoryFn<typeof Tabs> = (args) => (
             Make changes to your account here. Click save when you're done.
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-2">
-          <div className="space-y-1">
+        <CardContent>
+          <div>
             <Label htmlFor="name">Name</Label>
             <Input id="name" defaultValue="Pedro Duarte" />
           </div>
-          <div className="space-y-1">
+          <div>
             <Label htmlFor="username">Username</Label>
             <Input id="username" defaultValue="@peduarte" />
           </div>
@@ -85,12 +87,12 @@ export const Default: StoryFn<typeof Tabs> = (args) => (
             Change your password here. After saving, you'll be logged out.
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-2">
-          <div className="space-y-1">
+        <CardContent>
+          <div>
             <Label htmlFor="current">Current password</Label>
             <Input id="current" type="password" />
           </div>
-          <div className="space-y-1">
+          <div>
             <Label htmlFor="new">New password</Label>
             <Input id="new" type="password" />
           </div>
