@@ -32,12 +32,12 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <div pui-story>
-        <pui-draggable-list [items]="items" [itemTemplate]="itemTemplate" (reorder)="onReorder($event)">
+      <div qui-story>
+        <qui-draggable-list [items]="items" [itemTemplate]="itemTemplate" (reorder)="onReorder($event)">
           <ng-template #itemTemplate let-item let-index="index">
             {{ index + 1 }}. {{ item }}
           </ng-template>
-        </pui-draggable-list>
+        </qui-draggable-list>
       </div>
     `,
     methods: {

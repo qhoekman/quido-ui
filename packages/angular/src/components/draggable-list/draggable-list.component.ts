@@ -1,15 +1,22 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Output, EventEmitter, OnInit, TemplateRef } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  OnInit,
+  TemplateRef,
+} from '@angular/core';
 import { IconDragHandleDots2Component } from '../../icons';
 
 @Component({
-  selector: 'pui-draggable-list',
+  selector: 'qui-draggable-list',
   standalone: true,
   imports: [CommonModule, IconDragHandleDots2Component],
   template: `
-    <ul class="draggable-list" role="list" data-testid="pui-draggable-list">
+    <ul class="draggable-list" role="list" data-testid="qui-draggable-list">
       <li
-        data-testid="pui-draggable-list-item"
+        data-testid="qui-draggable-list-item"
         *ngFor="let item of list; let i = index"
         class="draggable-item"
         [class.dragging]="draggedIndex === i"
@@ -21,9 +28,14 @@ import { IconDragHandleDots2Component } from '../../icons';
         [attr.aria-grabbed]="draggedIndex === i"
       >
         <div class="drag-handle" aria-hidden="true">
-          <i pui-icon name="drag-handle-dots-2" size="md"></i>
+          <i qui-icon name="drag-handle-dots-2" size="md"></i>
         </div>
-        <ng-container *ngTemplateOutlet="itemTemplate; context: { $implicit: item, index: i }"></ng-container>
+        <ng-container
+          *ngTemplateOutlet="
+            itemTemplate;
+            context: { $implicit: item, index: i }
+          "
+        ></ng-container>
       </li>
     </ul>
   `,
