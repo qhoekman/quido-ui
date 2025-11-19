@@ -1,5 +1,8 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { AutocompleteComponent, AutocompleteOption } from './autocomplete.component';
+import {
+  AutocompleteComponent,
+  AutocompleteOption,
+} from './autocomplete.component';
 import { AutocompleteTriggerComponent } from './autocomplete-trigger.component';
 import { AutocompleteContentComponent } from './autocomplete-content.component';
 import { AutocompleteItemComponent } from './autocomplete-item.component';
@@ -17,7 +20,8 @@ const data = [
   {
     userId: 1,
     id: 1,
-    title: 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
+    title:
+      'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
     body: 'quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto',
   },
   {
@@ -107,7 +111,8 @@ const data = [
   {
     userId: 2,
     id: 16,
-    title: 'sint suscipit perspiciatis velit dolorum rerum ipsa laboriosam odio',
+    title:
+      'sint suscipit perspiciatis velit dolorum rerum ipsa laboriosam odio',
     body: 'suscipit nam nisi quo aperiam aut\nasperiores eos fugit maiores voluptatibus quia\nvoluptatem quis ullam qui in alias quia est\nconsequatur magni mollitia accusamus ea nisi voluptate dicta',
   },
   {
@@ -263,13 +268,15 @@ const data = [
   {
     userId: 5,
     id: 42,
-    title: 'commodi ullam sint et excepturi error explicabo praesentium voluptas',
+    title:
+      'commodi ullam sint et excepturi error explicabo praesentium voluptas',
     body: 'odio fugit voluptatum ducimus earum autem est incidunt voluptatem\nodit reiciendis aliquam sunt sequi nulla dolorem\nnon facere repellendus voluptates quia\nratione harum vitae ut',
   },
   {
     userId: 5,
     id: 43,
-    title: 'eligendi iste nostrum consequuntur adipisci praesentium sit beatae perferendis',
+    title:
+      'eligendi iste nostrum consequuntur adipisci praesentium sit beatae perferendis',
     body: 'similique fugit est\nillum et dolorum harum et voluptate eaque quidem\nexercitationem quos nam commodi possimus cum odio nihil nulla\ndolorum exercitationem magnam ex et a et distinctio debitis',
   },
   {
@@ -311,7 +318,8 @@ const data = [
   {
     userId: 5,
     id: 50,
-    title: 'repellendus qui recusandae incidunt voluptates tenetur qui omnis exercitationem',
+    title:
+      'repellendus qui recusandae incidunt voluptates tenetur qui omnis exercitationem',
     body: 'error suscipit maxime adipisci consequuntur recusandae\nvoluptas eligendi et est et voluptates\nquia distinctio ab amet quaerat molestiae et vitae\nadipisci impedit sequi nesciunt quis consectetur',
   },
   {
@@ -371,7 +379,8 @@ const data = [
   {
     userId: 6,
     id: 60,
-    title: 'consequatur placeat omnis quisquam quia reprehenderit fugit veritatis facere',
+    title:
+      'consequatur placeat omnis quisquam quia reprehenderit fugit veritatis facere',
     body: 'asperiores sunt ab assumenda cumque modi velit\nqui esse omnis\nvoluptate et fuga perferendis voluptas\nillo ratione amet aut et omnis',
   },
   {
@@ -389,7 +398,8 @@ const data = [
   {
     userId: 7,
     id: 63,
-    title: 'voluptas blanditiis repellendus animi ducimus error sapiente et suscipit',
+    title:
+      'voluptas blanditiis repellendus animi ducimus error sapiente et suscipit',
     body: 'enim adipisci aspernatur nemo\nnumquam omnis facere dolorem dolor ex quis temporibus incidunt\nab delectus culpa quo reprehenderit blanditiis asperiores\naccusantium ut quam in voluptatibus voluptas ipsam dicta',
   },
   {
@@ -515,7 +525,8 @@ const data = [
   {
     userId: 9,
     id: 84,
-    title: 'optio ipsam molestias necessitatibus occaecati facilis veritatis dolores aut',
+    title:
+      'optio ipsam molestias necessitatibus occaecati facilis veritatis dolores aut',
     body: 'sint molestiae magni a et quos\neaque et quasi\nut rerum debitis similique veniam\nrecusandae dignissimos dolor incidunt consequatur odio',
   },
   {
@@ -652,18 +663,20 @@ export const Default: Story = {
       data.map((item) => ({
         value: item.id,
         label: item.title,
-      })),
+      }))
     );
     const handleSearchChange = (value: string) => {
       searchValueSubject.next(value);
     };
     searchValueSubject.subscribe((value) => {
-      const filteredOptions = data.filter((item) => item.title.toLowerCase().includes(value.toLowerCase()));
+      const filteredOptions = data.filter((item) =>
+        item.title.toLowerCase().includes(value.toLowerCase())
+      );
       optionsSubject.next(
         filteredOptions.map((item) => ({
           value: item.id,
           label: item.title,
-        })),
+        }))
       );
     });
 
@@ -675,18 +688,18 @@ export const Default: Story = {
         onSearchChange: handleSearchChange,
       },
       template: `
-      <pui-story>
-        <pui-autocomplete>
-          <div pui-autocomplete-trigger [searchValue]="searchValue" (valueChange)="onSearchChange($event)"></div>
-          <div pui-autocomplete-content>
-            <ul pui-autocomplete-group>
-              <li pui-autocomplete-item *ngFor="let option of options$ | async" [value]="option.value" [label]="option.label">
+      <qui-story>
+        <qui-autocomplete>
+          <div qui-autocomplete-trigger [searchValue]="searchValue" (valueChange)="onSearchChange($event)"></div>
+          <div qui-autocomplete-content>
+            <ul qui-autocomplete-group>
+              <li qui-autocomplete-item *ngFor="let option of options$ | async" [value]="option.value" [label]="option.label">
                 {{ option.label }}
               </li>
             </ul>
           </div>
-        </pui-autocomplete>
-      </pui-story>
+        </qui-autocomplete>
+      </qui-story>
       `,
     };
   },

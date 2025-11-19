@@ -10,20 +10,20 @@ export interface AutocompleteOption {
 }
 
 @Component({
-  selector: 'pui-autocomplete',
+  selector: 'qui-autocomplete',
   standalone: true,
   host: {
-    'data-testid': 'pui-autocomplete',
+    'data-testid': 'qui-autocomplete',
   },
   imports: [CommonModule, PopoverComponent, FormsModule],
   template: `
-    <pui-popover #popover [popoverContent]="popoverContent" [autoSize]="true">
-      <ng-content select="[pui-autocomplete-trigger]"></ng-content>
+    <qui-popover #popover [popoverContent]="popoverContent" [autoSize]="true">
+      <ng-content select="[qui-autocomplete-trigger]"></ng-content>
 
       <ng-template #popoverContent>
-        <ng-content select="[pui-autocomplete-content]"></ng-content>
+        <ng-content select="[qui-autocomplete-content]"></ng-content>
       </ng-template>
-    </pui-popover>
+    </qui-popover>
   `,
   styles: [
     `
@@ -35,7 +35,8 @@ export interface AutocompleteOption {
   ],
 })
 export class AutocompleteComponent {
-  protected selectedOptionSubject = new BehaviorSubject<AutocompleteOption | null>(null);
+  protected selectedOptionSubject =
+    new BehaviorSubject<AutocompleteOption | null>(null);
   protected selectedOption$ = this.selectedOptionSubject.asObservable();
   @Output() valueChange = new EventEmitter<AutocompleteOption>();
   @ViewChild('popover') popover!: PopoverComponent;

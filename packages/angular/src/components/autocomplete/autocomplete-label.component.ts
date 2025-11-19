@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-autocomplete-label]',
+  selector: '[qui-autocomplete-label]',
   standalone: true,
   host: {
-    'data-testid': 'pui-autocomplete-label',
+    'data-testid': 'qui-autocomplete-label',
   },
   template: `<ng-content></ng-content>`,
   styles: [

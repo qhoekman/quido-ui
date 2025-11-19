@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { CdkListbox, CdkListboxModule } from '@angular/cdk/listbox';
 
 @Component({
-  selector: '[pui-autocomplete-content]',
+  selector: '[qui-autocomplete-content]',
   standalone: true,
   imports: [CommonModule, CdkListboxModule],
   host: {
     role: 'listbox',
     id: 'autocomplete-content',
-    'data-testid': 'pui-autocomplete-content',
+    'data-testid': 'qui-autocomplete-content',
     '[attr.tabindex]': '-1',
   },
   hostDirectives: [CdkListbox],

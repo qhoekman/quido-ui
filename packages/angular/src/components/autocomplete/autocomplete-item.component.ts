@@ -1,13 +1,19 @@
-import { Component, Input, OnInit, HostListener, ElementRef } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  HostListener,
+  ElementRef,
+} from '@angular/core';
 import { AutocompleteComponent } from './autocomplete.component';
 
 @Component({
-  selector: '[pui-autocomplete-item]',
+  selector: '[qui-autocomplete-item]',
   standalone: true,
   host: {
     role: 'option',
     '[attr.aria-selected]': 'isSelected',
-    'data-testid': 'pui-autocomplete-item',
+    'data-testid': 'qui-autocomplete-item',
     tabindex: '0',
   },
   template: `<ng-content></ng-content>`,
@@ -35,11 +41,12 @@ export class AutocompleteItemComponent implements OnInit {
 
   constructor(
     private autocomplete: AutocompleteComponent,
-    private el: ElementRef,
+    private el: ElementRef
   ) {}
 
   ngOnInit() {
-    this.isSelected = this.autocomplete.getSelectedOption()?.value === this.value;
+    this.isSelected =
+      this.autocomplete.getSelectedOption()?.value === this.value;
     this.autocomplete.getSelectedOption$().subscribe((option) => {
       this.isSelected = option?.value === this.value;
     });
