@@ -1,0 +1,36 @@
+import * as TabsStories from "./tabs.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import TabsCode from "!!raw-loader!./tabs.component.ts";
+import TabsListCode from "!!raw-loader!./tabs-list.component.ts";
+import TabsTriggerCode from "!!raw-loader!./tabs-trigger.component.ts";
+import TabsContentCode from "!!raw-loader!./tabs-content.component.ts";
+
+# Tabs
+
+<Meta of={TabsStories} />
+<Canvas of={TabsStories.Default} />
+<Controls of={TabsStories.Default} />
+
+## Installation
+
+Copy the following code into your project.
+
+> **tabs.component.ts**
+>
+> <Source code={TabsCode} language="typescript" />
+
+> **tabs-list.component.ts**
+>
+> <Source code={TabsListCode} language="typescript" />
+
+> **tabs-trigger.component.ts**
+>
+> <Source code={TabsTriggerCode} language="typescript" />
+
+> **tabs-content.component.ts**
+>
+> <Source code={TabsContentCode} language="typescript" />
+> import TabsContentCode from "!!raw-loader!./tabs-content.component.ts"; import TabsListCode from
+> "!!raw-loader!./tabs-list.component.ts"; import TabsTriggerCode from "!!raw-loader!./tabs-trigger.component.ts";
+> import TabsCode from "!!raw-loader!./tabs.component.ts"; import {(ArgTypes, Canvas, Controls, Meta, Source)} from
+> "@storybook/addon-docs/blocks"; import * as TabsStories from "./tabs.component.stories";
