@@ -1,37 +1,48 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, ElementRef, AfterViewInit, OnDestroy, Renderer2 } from '@angular/core';
+import {
+  Component,
+  Input,
+  ElementRef,
+  AfterViewInit,
+  OnDestroy,
+  Renderer2,
+} from '@angular/core';
 import { ScrollBarComponent } from './scroll-bar.component';
 
 @Component({
-  selector: 'pui-scroll-area',
+  selector: 'qui-scroll-area',
   standalone: true,
   imports: [CommonModule, ScrollBarComponent],
   host: {
-    'data-testid': 'pui-scroll-area',
+    'data-testid': 'qui-scroll-area',
   },
   template: `
     <div
       #container
       class="scroll-area-container"
       [ngStyle]="getContainerStyles()"
-      data-testid="pui-scroll-area-container"
+      data-testid="qui-scroll-area-container"
     >
-      <div #content data-testid="pui-scroll-area-content">
+      <div #content data-testid="qui-scroll-area-content">
         <ng-content></ng-content>
       </div>
     </div>
-    <pui-scroll-bar
-      *ngIf="scrollable && (orientation === 'vertical' || orientation === 'both')"
+    <qui-scroll-bar
+      *ngIf="
+        scrollable && (orientation === 'vertical' || orientation === 'both')
+      "
       orientation="vertical"
       [thumbPosition]="thumbPosition.y"
       [thumbSize]="thumbSize.height"
-    ></pui-scroll-bar>
-    <pui-scroll-bar
-      *ngIf="scrollable && (orientation === 'horizontal' || orientation === 'both')"
+    ></qui-scroll-bar>
+    <qui-scroll-bar
+      *ngIf="
+        scrollable && (orientation === 'horizontal' || orientation === 'both')
+      "
       orientation="horizontal"
       [thumbPosition]="thumbPosition.x"
       [thumbSize]="thumbSize.width"
-    ></pui-scroll-bar>
+    ></qui-scroll-bar>
   `,
   styles: [
     `
@@ -67,20 +78,21 @@ export class ScrollAreaComponent implements AfterViewInit, OnDestroy {
   private content!: HTMLElement;
   private resizeObserver!: ResizeObserver;
 
-  constructor(
-    private el: ElementRef,
-    private renderer: Renderer2,
-  ) {}
+  constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   ngAfterViewInit() {
-    this.container = this.el.nativeElement.querySelector('.scroll-area-container');
+    this.container = this.el.nativeElement.querySelector(
+      '.scroll-area-container'
+    );
     this.content = this.el.nativeElement.querySelector('div');
 
     this.resizeObserver = new ResizeObserver(() => this.updateScrollState());
     this.resizeObserver.observe(this.container);
     this.resizeObserver.observe(this.content);
 
-    this.renderer.listen(this.container, 'scroll', () => this.updateScrollState());
+    this.renderer.listen(this.container, 'scroll', () =>
+      this.updateScrollState()
+    );
   }
 
   ngOnDestroy() {
@@ -88,11 +100,21 @@ export class ScrollAreaComponent implements AfterViewInit, OnDestroy {
   }
 
   updateScrollState() {
-    const { clientHeight, clientWidth, scrollHeight, scrollWidth, scrollTop, scrollLeft } = this.container;
+    const {
+      clientHeight,
+      clientWidth,
+      scrollHeight,
+      scrollWidth,
+      scrollTop,
+      scrollLeft,
+    } = this.container;
 
     this.scrollable = scrollHeight > clientHeight || scrollWidth > clientWidth;
 
-    const verticalThumbHeight = Math.max((clientHeight / scrollHeight) * clientHeight, 20);
+    const verticalThumbHeight = Math.max(
+      (clientHeight / scrollHeight) * clientHeight,
+      20
+    );
     const horizontalThumbWidth = 40;
 
     this.thumbSize = {
@@ -101,15 +123,25 @@ export class ScrollAreaComponent implements AfterViewInit, OnDestroy {
     };
 
     this.thumbPosition = {
-      y: (scrollTop / (scrollHeight - clientHeight)) * (clientHeight - verticalThumbHeight),
-      x: (scrollLeft / (scrollWidth - clientWidth)) * (clientWidth - horizontalThumbWidth),
+      y:
+        (scrollTop / (scrollHeight - clientHeight)) *
+        (clientHeight - verticalThumbHeight),
+      x:
+        (scrollLeft / (scrollWidth - clientWidth)) *
+        (clientWidth - horizontalThumbWidth),
     };
   }
 
   getContainerStyles() {
     return {
-      'overflow-y': this.orientation === 'vertical' || this.orientation === 'both' ? 'auto' : 'hidden',
-      'overflow-x': this.orientation === 'horizontal' || this.orientation === 'both' ? 'auto' : 'hidden',
+      'overflow-y':
+        this.orientation === 'vertical' || this.orientation === 'both'
+          ? 'auto'
+          : 'hidden',
+      'overflow-x':
+        this.orientation === 'horizontal' || this.orientation === 'both'
+          ? 'auto'
+          : 'hidden',
     };
   }
 }

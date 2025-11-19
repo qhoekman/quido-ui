@@ -29,18 +29,18 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
+    <qui-story>
       <div style="width: 300px; height: 200px; border: 1px solid var(--color-border); border-radius: var(--border-radius-sm);">
-        <pui-scroll-area [orientation]="orientation" style="height: 100%;">
+        <qui-scroll-area [orientation]="orientation" style="height: 100%;">
           <div style="padding: 16px">
             <h4 style="margin-bottom: 16px; font-size: 14px; font-weight: 500;">Tags</h4>
             <div *ngFor="let item of [].constructor(50); let i = index" style="font-size: 14px;">
               Item {{ i + 1 }}
             </div>
           </div>
-        </pui-scroll-area>
+        </qui-scroll-area>
       </div>
-    </pui-story>
+    </qui-story>
     `,
   }),
 };

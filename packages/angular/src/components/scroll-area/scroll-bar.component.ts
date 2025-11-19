@@ -1,15 +1,23 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 @Component({
-  selector: 'pui-scroll-bar',
+  selector: 'qui-scroll-bar',
   standalone: true,
   imports: [CommonModule],
   host: {
-    'data-testid': 'pui-scroll-bar',
+    'data-testid': 'qui-scroll-bar',
   },
   template: `
-    <div class="scroll-bar" [ngStyle]="getBarStyles()" data-testid="pui-scroll-bar-container">
-      <div class="scroll-thumb" [ngStyle]="getThumbStyles()" data-testid="pui-scroll-bar-thumb"></div>
+    <div
+      class="scroll-bar"
+      [ngStyle]="getBarStyles()"
+      data-testid="qui-scroll-bar-container"
+    >
+      <div
+        class="scroll-thumb"
+        [ngStyle]="getThumbStyles()"
+        data-testid="qui-scroll-bar-thumb"
+      ></div>
     </div>
   `,
   styles: [
@@ -50,8 +58,12 @@ export class ScrollBarComponent {
 
   getThumbStyles() {
     return {
-      [this.orientation === 'vertical' ? 'height' : 'width']: `${this.thumbSize}px`,
-      transform: `translate${this.orientation === 'vertical' ? 'Y' : 'X'}(${this.thumbPosition}px)`,
+      [this.orientation === 'vertical'
+        ? 'height'
+        : 'width']: `${this.thumbSize}px`,
+      transform: `translate${this.orientation === 'vertical' ? 'Y' : 'X'}(${
+        this.thumbPosition
+      }px)`,
     };
   }
 }
