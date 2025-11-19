@@ -2,11 +2,11 @@ import { CdkMenu } from '@angular/cdk/menu';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-menubar-menu]',
+  selector: '[qui-menubar-menu]',
   template: `<ng-content></ng-content>`,
   host: {
     role: 'menu',
-    'data-testid': 'pui-menubar-menu',
+    'data-testid': 'qui-menubar-menu',
     'aria-orientation': 'vertical',
     tabindex: '-1',
   },

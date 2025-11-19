@@ -38,43 +38,43 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <div pui-menubar>
-        <button pui-menubar-trigger [cdkMenuTriggerFor]="menubarFile">File</button>
-        <button pui-menubar-trigger [cdkMenuTriggerFor]="menubarEdit">Edit</button>
+    <qui-story>
+      <div qui-menubar>
+        <button qui-menubar-trigger [cdkMenuTriggerFor]="menubarFile">File</button>
+        <button qui-menubar-trigger [cdkMenuTriggerFor]="menubarEdit">Edit</button>
       </div>
 
       <ng-template #menubarFile>
-        <div pui-menubar-menu>
-          <ol pui-menubar-group>
-            <li pui-menubar-item>New</li>
-            <li pui-menubar-item>Open...</li>
-            <li pui-menubar-item>Save</li>
-            <li pui-menubar-item>Save As...</li>
+        <div qui-menubar-menu>
+          <ol qui-menubar-group>
+            <li qui-menubar-item>New</li>
+            <li qui-menubar-item>Open...</li>
+            <li qui-menubar-item>Save</li>
+            <li qui-menubar-item>Save As...</li>
           </ol>
-          <div pui-menubar-separator></div>
-          <ol pui-menubar-group>
-            <li pui-menubar-item>Close window</li>
-            <li pui-menubar-item>Close</li>
-            <li pui-menubar-item>Quit</li>
+          <div qui-menubar-separator></div>
+          <ol qui-menubar-group>
+            <li qui-menubar-item>Close window</li>
+            <li qui-menubar-item>Close</li>
+            <li qui-menubar-item>Quit</li>
           </ol>
         </div>
       </ng-template>
       <ng-template #menubarEdit>
-        <div pui-menubar-menu>
-          <ol pui-menubar-group>
-            <li pui-menubar-item>Undo</li>
-            <li pui-menubar-item>Redo</li>
+        <div qui-menubar-menu>
+          <ol qui-menubar-group>
+            <li qui-menubar-item>Undo</li>
+            <li qui-menubar-item>Redo</li>
           </ol>
-          <div pui-menubar-separator></div>
-          <ol pui-menubar-group>
-            <li pui-menubar-item>Cut</li>
-            <li pui-menubar-item>Copy</li>
-            <li pui-menubar-item>Paste</li>
+          <div qui-menubar-separator></div>
+          <ol qui-menubar-group>
+            <li qui-menubar-item>Cut</li>
+            <li qui-menubar-item>Copy</li>
+            <li qui-menubar-item>Paste</li>
           </ol>
         </div>
       </ng-template>
-    </pui-story>
+    </qui-story>
     `,
   }),
 };

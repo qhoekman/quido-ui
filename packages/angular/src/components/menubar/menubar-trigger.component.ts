@@ -8,20 +8,20 @@ type MenubarTriggerVariants = {
 };
 
 @Component({
-  selector: '[pui-menubar-trigger]',
+  selector: '[qui-menubar-trigger]',
   imports: [NgIf, IconCaretUpComponent, IconCaretDownComponent],
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-menubar-trigger',
+    'data-testid': 'qui-menubar-trigger',
   },
   hostDirectives: [CdkMenuItem],
   template: `
     <ng-content></ng-content>
     <ng-container *ngIf="this.menuTrigger.isOpen(); else caretDown">
-      <i pui-icon name="caret-up"></i>
+      <i qui-icon name="caret-up"></i>
     </ng-container>
     <ng-template #caretDown>
-      <i pui-icon name="caret-down"></i>
+      <i qui-icon name="caret-down"></i>
     </ng-template>
   `,
   styles: [
@@ -66,10 +66,7 @@ type MenubarTriggerVariants = {
 export class MenubarTriggerComponent {
   @Input() variant: MenubarTriggerVariants['variant'] = 'default';
 
-  constructor(
-    public menuTrigger: CdkMenuTrigger,
-    private el: ElementRef,
-  ) {}
+  constructor(public menuTrigger: CdkMenuTrigger, private el: ElementRef) {}
 
   getClassList(): string[] {
     return [`variant--${this.variant}`];

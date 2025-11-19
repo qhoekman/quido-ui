@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-menubar-separator]',
+  selector: '[qui-menubar-separator]',
   template: '',
   standalone: true,
   host: {
     role: 'separator',
-    'data-testid': 'pui-menubar-separator',
+    'data-testid': 'qui-menubar-separator',
     'aria-orientation': 'horizontal',
   },
   styles: [

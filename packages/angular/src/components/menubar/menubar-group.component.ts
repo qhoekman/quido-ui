@@ -2,9 +2,9 @@ import { CdkMenuGroup } from '@angular/cdk/menu';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-menubar-group]',
+  selector: '[qui-menubar-group]',
   host: {
-    'data-testid': 'pui-menubar-group',
+    'data-testid': 'qui-menubar-group',
   },
   template: '<ng-content></ng-content>',
   hostDirectives: [CdkMenuGroup],
