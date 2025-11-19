@@ -9,7 +9,7 @@ interface Requirement {
 }
 
 @Component({
-  selector: 'div[pui-password-strength]',
+  selector: 'div[qui-password-strength]',
   standalone: true,
   imports: [CommonModule],
   host: {
@@ -61,7 +61,9 @@ export class PasswordStrengthComponent implements OnChanges {
   }
 
   evaluateStrength(): void {
-    const metRequirements = this.requirements.filter((req) => req.regex.test(this.value));
+    const metRequirements = this.requirements.filter((req) =>
+      req.regex.test(this.value)
+    );
 
     if (metRequirements.length <= this.thresholds[0]) {
       this.strength = 'weak';

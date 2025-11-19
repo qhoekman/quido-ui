@@ -38,6 +38,6 @@ export const Default: Story = {
   },
   render: (args) => ({
     props: args,
-    template: `<div pui-password-strength [value]="value" [requirements]="requirements" [thresholds]="thresholds"></div>`,
+    template: `<div qui-password-strength [value]="value" [requirements]="requirements" [thresholds]="thresholds"></div>`,
   }),
 };
