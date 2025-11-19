@@ -12,7 +12,7 @@ export default {
 } satisfies Meta<typeof DefinitionList>;
 
 export const Default: StoryFn<typeof DefinitionList> = (args) => (
-  <div className="max-w-2xl mx-auto">
+  <div style={{ maxWidth: "var(--spacing-2xl)", margin: "0 auto" }}>
     <DefinitionList {...args}>
       <DefintionListItem>
         <DefinitionTerm>Full name</DefinitionTerm>
