@@ -3,16 +3,16 @@ import { IconStarComponent } from '../../icons';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: '[pui-star-rating]',
+  selector: '[qui-star-rating]',
   imports: [CommonModule, IconStarComponent],
   standalone: true,
   host: {
-    'data-testid': 'pui-star-rating',
+    'data-testid': 'qui-star-rating',
   },
   template: `
     <i
-      data-testid="pui-star-rating-star"
-      pui-icon
+      data-testid="qui-star-rating-star"
+      qui-icon
       name="star"
       [ngClass]="getStarClassList(star)"
       *ngFor="let star of total; track: star"

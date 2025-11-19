@@ -24,9 +24,9 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <div pui-star-rating [rating]="rating" [stars]="stars"></div>
-    </pui-story>
+    <qui-story>
+      <div qui-star-rating [rating]="rating" [stars]="stars"></div>
+    </qui-story>
     `,
   }),
   args: {
