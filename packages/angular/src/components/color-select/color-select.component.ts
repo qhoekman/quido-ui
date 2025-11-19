@@ -1,11 +1,16 @@
-import { Component, ContentChildren, QueryList, AfterContentInit } from '@angular/core';
+import {
+  Component,
+  ContentChildren,
+  QueryList,
+  AfterContentInit,
+} from '@angular/core';
 import { ColorSelectItemComponent } from './color-select-item.component';
 
 @Component({
-  selector: 'div[pui-color-select]',
+  selector: 'div[qui-color-select]',
   standalone: true,
   host: {
-    'data-testid': 'pui-color-select',
+    'data-testid': 'qui-color-select',
   },
   template: ` <ng-content></ng-content> `,
   styles: [

@@ -1,19 +1,26 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, HostListener, Input, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Input,
+  EventEmitter,
+  Output,
+} from '@angular/core';
 
 @Component({
-  selector: 'button[pui-color-select-item]',
+  selector: 'button[qui-color-select-item]',
   standalone: true,
   imports: [CommonModule],
   template: `
     <div
-      data-testid="pui-color-select-item-color-indicator"
+      data-testid="qui-color-select-item-color-indicator"
       class="color-indicator"
       [style.backgroundColor]="color"
       [class.checked]="checked"
     ></div>
     <input
-      data-testid="pui-color-select-item-input"
+      data-testid="qui-color-select-item-input"
       type="hidden"
       [attr.id]="elementRef.nativeElement.id"
       [attr.name]="elementRef.nativeElement.name"
@@ -61,7 +68,7 @@ import { Component, ElementRef, HostListener, Input, EventEmitter, Output } from
   host: {
     type: 'button',
     role: 'radio',
-    'data-testid': 'pui-color-select-item',
+    'data-testid': 'qui-color-select-item',
     '[attr.aria-checked]': 'checked',
     '[attr.data-state]': 'checked ? "checked" : "unchecked"',
   },

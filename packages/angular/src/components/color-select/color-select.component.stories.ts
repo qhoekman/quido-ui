@@ -14,7 +14,12 @@ const meta: Meta<EnhancedColorSelectComponent> = {
   component: ColorSelectComponent,
   decorators: [
     moduleMetadata({
-      imports: [ColorSelectComponent, ColorSelectItemComponent, StackComponent, StoryComponent],
+      imports: [
+        ColorSelectComponent,
+        ColorSelectItemComponent,
+        StackComponent,
+        StoryComponent,
+      ],
     }),
   ],
   argTypes: {
@@ -38,18 +43,18 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
-        <div pui-color-select>
-          <div pui-stack>
+      <qui-story>
+        <div qui-color-select>
+          <div qui-stack>
             <button
               *ngFor="let item of items"
-              pui-color-select-item
+              qui-color-select-item
               [color]="item.color"
               [checked]="item.checked"
               ></button>
             </div>
         </div>
-      </pui-story>
+      </qui-story>
     `,
   }),
 };
