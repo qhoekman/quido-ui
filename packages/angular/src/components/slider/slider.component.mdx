@@ -1,0 +1,13 @@
+import * as SliderStories from "./slider.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import SliderCode from "!!raw-loader!./slider.component.ts";
+
+# Slider
+
+<Meta of={SliderStories} />
+<Canvas of={SliderStories.Default} />
+<Controls of={SliderStories.Default} />
+
+> **slider.component.ts**
+>
+> <Source code={SliderCode} language="typescript" />{" "}
