@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 
 @Component({
-  selector: 'div[pui-back-to-top]',
+  selector: 'div[qui-back-to-top]',
   standalone: true,
   imports: [CommonModule],
   host: {
-    'data-testid': 'pui-back-to-top',
+    'data-testid': 'qui-back-to-top',
   },
   template: `<ng-content *ngIf="isVisible"></ng-content>`,
   styles: [
@@ -25,7 +25,11 @@ export class BackToTopComponent {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    const scrollPosition =
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0;
     this.isVisible = scrollPosition > document.documentElement.clientHeight / 2;
   }
 

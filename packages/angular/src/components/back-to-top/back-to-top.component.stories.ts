@@ -20,8 +20,8 @@ export const Default: Story = {
   render: () => ({
     template: `
       <div style="height: 200vh; position: relative;">
-        <div pui-back-to-top>
-          <button pui-button variant="primary" size="md">Back to Top</button>
+        <div qui-back-to-top>
+          <button qui-button variant="primary" size="md">Back to Top</button>
         </div>
       </div>
     `,
