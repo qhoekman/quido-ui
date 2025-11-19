@@ -1,0 +1,27 @@
+import * as MapsStories from "./maps.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import MapsCode from "!!raw-loader!./maps.component.ts";
+import MapsCSSCode from "!!raw-loader!./maps.component.css";
+
+# Maps
+
+<Meta of={MapsStories} />
+<Canvas of={MapsStories.Default} />
+<Controls of={MapsStories.Default} />
+
+## Installation
+
+```bash
+npm install leaflet
+npm install @types/leaflet --save-dev
+```
+
+## Code
+
+> **maps.component.ts**
+>
+> <Source code={MapsCode} language="typescript" />
+
+> **maps.component.css**
+>
+> <Source code={MapsCSSCode} language="css" />
