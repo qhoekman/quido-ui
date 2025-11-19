@@ -15,7 +15,13 @@ const meta: Meta<EnhancedLoaderComponent> = {
   component: LoaderComponent,
   decorators: [
     moduleMetadata({
-      imports: [CommonModule, LoaderComponent, StackComponent, LabelComponent, StoryComponent],
+      imports: [
+        CommonModule,
+        LoaderComponent,
+        StackComponent,
+        LabelComponent,
+        StoryComponent,
+      ],
     }),
   ],
   argTypes: {
@@ -40,12 +46,12 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <div pui-stack gap="sm">
-        <div pui-loader [loading]="loading" [variant]="variant"></div>
-        <label *ngIf="loading" pui-label>{{ label }}</label>
+    <qui-story>
+      <div qui-stack gap="sm">
+        <div qui-loader [loading]="loading" [variant]="variant"></div>
+        <label *ngIf="loading" qui-label>{{ label }}</label>
       </div>
-    </pui-story>
+    </qui-story>
     `,
   }),
 };

@@ -6,16 +6,16 @@ export type LoaderVariants = {
 };
 
 @Component({
-  selector: '[pui-loader]',
+  selector: '[qui-loader]',
   standalone: true,
   imports: [IconUpdateComponent],
   host: {
-    'data-testid': 'pui-loader',
+    'data-testid': 'qui-loader',
     '[class]': 'getClassList()',
   },
   template: `
     <ng-content></ng-content>
-    <i *ngIf="active && variant === 'spinner'" pui-icon name="update"> </i>
+    <i *ngIf="active && variant === 'spinner'" qui-icon name="update"> </i>
   `,
   styles: [
     `
