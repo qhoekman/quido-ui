@@ -2,9 +2,9 @@ import { Component, HostListener } from '@angular/core';
 import { HoverCardComponent } from './hover-card.component';
 
 @Component({
-  selector: '[pui-hover-card-content]',
+  selector: '[qui-hover-card-content]',
   host: {
-    'data-testid': 'pui-hover-card-content',
+    'data-testid': 'qui-hover-card-content',
   },
   template: `<ng-content></ng-content>`,
   standalone: true,

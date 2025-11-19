@@ -1,11 +1,17 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, ContentChild, TemplateRef, HostListener } from '@angular/core';
+import {
+  Component,
+  Input,
+  ContentChild,
+  TemplateRef,
+  HostListener,
+} from '@angular/core';
 
 @Component({
-  selector: 'pui-hover-card',
+  selector: 'qui-hover-card',
   standalone: true,
   host: {
-    'data-testid': 'pui-hover-card',
+    'data-testid': 'qui-hover-card',
   },
   imports: [CommonModule],
   template: `
