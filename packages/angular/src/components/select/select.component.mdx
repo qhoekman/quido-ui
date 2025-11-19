@@ -1,0 +1,64 @@
+import * as SelectStories from "./select.component.stories";
+import * as PopoverStories from "../popover/popover.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import SelectCode from "!!raw-loader!./select.component.ts";
+import SelectTriggerCode from "!!raw-loader!./select-trigger.component.ts";
+import SelectContentCode from "!!raw-loader!./select-content.component.ts";
+import SelectGroupCode from "!!raw-loader!./select-group.component.ts";
+import SelectItemCode from "!!raw-loader!./select-item.component.ts";
+import SelectLabelCode from "!!raw-loader!./select-label.component.ts";
+import PopoverCode from "!!raw-loader!../popover/popover.component.ts";
+import PopoverContentCode from "!!raw-loader!../popover/popover-content.component.ts";
+import PopoverTriggerCode from "!!raw-loader!../popover/popover-trigger.directive.ts";
+
+# Select
+
+<Meta of={SelectStories} />
+<Canvas of={SelectStories.Default} />
+<Controls of={SelectStories.Default} />
+
+## Installation
+
+Add the following packages to your project:
+
+```bash
+npm install @angular/cdk
+```
+
+Copy the following code into your project.
+
+> **select.component.ts**
+>
+> <Source code={SelectCode} language="typescript" />
+
+> **select-trigger.component.ts**
+>
+> <Source code={SelectTriggerCode} language="typescript" />
+
+> **select-content.component.ts**
+>
+> <Source code={SelectContentCode} language="typescript" />
+
+> **select-group.component.ts**
+>
+> <Source code={SelectGroupCode} language="typescript" />
+
+> **select-item.component.ts**
+>
+> <Source code={SelectItemCode} language="typescript" />
+
+> **select-label.component.ts**
+>
+> <Source code={SelectLabelCode} language="typescript" />
+
+> **popover.component.ts**
+>
+> <Source code={PopoverCode} language="typescript" />
+
+> **popover-content.component.ts**
+>
+> <Source code={PopoverContentCode} language="typescript" />
+
+> **popover-trigger.directive.ts**
+>
+> <Source code={PopoverTriggerCode} language="typescript" />
