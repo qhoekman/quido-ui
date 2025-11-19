@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'div[pui-reel]',
+  selector: 'div[qui-reel]',
   template: ` <ng-content></ng-content> `,
   standalone: true,
   host: {
-    'data-testid': 'pui-reel',
+    'data-testid': 'qui-reel',
   },
   styles: [
     `

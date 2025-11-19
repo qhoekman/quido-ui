@@ -1,5 +1,8 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { IconChevronLeftComponent, IconChevronRightComponent } from '../../icons';
+import {
+  IconChevronLeftComponent,
+  IconChevronRightComponent,
+} from '../../icons';
 import { StoryComponent } from '../../system/components/story/story.component';
 import { CardContentComponent } from '../card/card-content.component';
 import { CardComponent } from '../card/card.component';
@@ -47,31 +50,33 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <div pui-reel style="width: 300px; height: 200px;">
-        <button pui-reel-button puiReelPrevious direction="prev">
-          <i pui-icon name="chevron-left" size="md"></i>
+    <qui-story>
+      <div qui-reel style="width: 300px; height: 200px;">
+        <button qui-reel-button puiReelPrevious direction="prev">
+          <i qui-icon name="chevron-left" size="md"></i>
         </button>
-        <div pui-reel-content>
+        <div qui-reel-content>
           ${Array.from({ length: 10 })
             .map(
               (_, index) => `
-            <div pui-reel-item>
-              <div pui-card style="margin: 0.25rem; height: 100%;">
-                <div pui-card-content style="padding: 1.5rem;">
-                  <span style="font-size: 1.5rem; font-weight: 600;">${index + 1}</span>
+            <div qui-reel-item>
+              <div qui-card style="margin: 0.25rem; height: 100%;">
+                <div qui-card-content style="padding: 1.5rem;">
+                  <span style="font-size: 1.5rem; font-weight: 600;">${
+                    index + 1
+                  }</span>
                 </div>
               </div>
             </div>
-          `,
+          `
             )
             .join('')}
         </div>
-        <button pui-reel-button puiReelNext direction="next">
-          <i pui-icon name="chevron-right" size="md"></i>
+        <button qui-reel-button puiReelNext direction="next">
+          <i qui-icon name="chevron-right" size="md"></i>
         </button>
       </div>
-    </pui-story>
+    </qui-story>
     `,
   }),
 };

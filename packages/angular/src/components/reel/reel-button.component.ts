@@ -5,11 +5,11 @@ type ReelButtonVariants = {
 };
 
 @Component({
-  selector: 'button[pui-reel-button]',
+  selector: 'button[qui-reel-button]',
   template: ` <ng-content></ng-content> `,
   standalone: true,
   host: {
-    'data-testid': 'pui-reel-button',
+    'data-testid': 'qui-reel-button',
     '[class]': 'getClassList()',
   },
   styles: [

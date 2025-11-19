@@ -5,7 +5,7 @@ import { ReelService } from './reel.service';
   selector: '[puiReelNext]',
   standalone: true,
   host: {
-    'data-testid': 'pui-reel-next',
+    'data-testid': 'qui-reel-next',
   },
 })
 export class ReelNextDirective {

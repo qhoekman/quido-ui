@@ -2,11 +2,11 @@ import { Component, ElementRef, AfterViewInit, Inject } from '@angular/core';
 import { ReelService } from './reel.service';
 
 @Component({
-  selector: 'div[pui-reel-content]',
+  selector: 'div[qui-reel-content]',
   template: `<ng-content></ng-content>`,
   standalone: true,
   host: {
-    'data-testid': 'pui-reel-content',
+    'data-testid': 'qui-reel-content',
   },
   styles: [
     `
@@ -21,7 +21,7 @@ import { ReelService } from './reel.service';
 export class ReelContentComponent implements AfterViewInit {
   constructor(
     @Inject(ReelService) private reelService: ReelService,
-    private el: ElementRef,
+    private el: ElementRef
   ) {}
 
   ngAfterViewInit() {
