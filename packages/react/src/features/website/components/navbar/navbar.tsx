@@ -189,7 +189,7 @@ const NavbarDropdownLink = React.forwardRef<
   const isActive = false;
 
   return (
-    <DropdownMenuItem key={href} className="px-0">
+    <DropdownMenuItem key={href} style={{ paddingLeft: 0, paddingRight: 0 }}>
       <StyledNavbarDropdownLink
         ref={ref}
         href={href}
@@ -234,7 +234,19 @@ const NavbarLogo = React.forwardRef<
 >(({ children, "aria-label": title, href, className, ...props }, ref) => {
   return (
     <StyledNavbarLogo ref={ref} href={href} className={className} {...props}>
-      <span className="sr-only">{title}</span>
+      <span
+        style={{
+          position: "absolute",
+          width: "1px",
+          height: "1px",
+          padding: 0,
+          margin: "-1px",
+          overflow: "hidden",
+          clip: "rect(0, 0, 0, 0)",
+        }}
+      >
+        {title}
+      </span>
       {children}
     </StyledNavbarLogo>
   );
