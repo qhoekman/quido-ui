@@ -1,0 +1,18 @@
+import * as RadioGroupStories from "./radio-group.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import RadioGroupCode from "!!raw-loader!./radio-group.component.ts";
+import RadioGroupItemCode from "!!raw-loader!./radio-group-item.component.ts";
+
+# Radio Group
+
+<Meta of={RadioGroupStories} />
+<Canvas of={RadioGroupStories.Default} />
+<Controls of={RadioGroupStories.Default} />
+
+> **radio-group.component.ts**
+>
+> <Source code={RadioGroupCode} language="typescript" />{" "}
+
+> **radio-group-item.component.ts**
+>
+> <Source code={RadioGroupItemCode} language="typescript" />{" "}
