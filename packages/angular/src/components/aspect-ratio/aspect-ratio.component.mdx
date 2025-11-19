@@ -1,0 +1,10 @@
+import * as AspectRatioStories from "./aspect-ratio.component.stories.ts";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import AspectRatioCode from "!!raw-loader!./aspect-ratio.component.ts";
+
+# Aspect Ratio
+
+<Meta of={AspectRatioStories} />
+<Canvas of={AspectRatioStories.Default} />
+<Controls of={AspectRatioStories.Default} />
+<Source code={AspectRatioCode} language="typescript" />
