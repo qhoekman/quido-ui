@@ -10,7 +10,13 @@ const meta: Meta<TooltipComponent> = {
   component: TooltipComponent,
   decorators: [
     moduleMetadata({
-      imports: [ButtonComponent, TooltipComponent, TooltipContentComponent, TooltipTriggerDirective, StoryComponent],
+      imports: [
+        ButtonComponent,
+        TooltipComponent,
+        TooltipContentComponent,
+        TooltipTriggerDirective,
+        StoryComponent,
+      ],
     }),
   ],
   argTypes: {},
@@ -24,18 +30,18 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <div pui-tooltip strategy="always">
-        <button pui-button pui-tooltip-trigger [tooltipContentFor]="tooltipConfirm">
+    <qui-story>
+      <div qui-tooltip strategy="always">
+        <button qui-button qui-tooltip-trigger [tooltipContentFor]="tooltipConfirm">
           Tooltip
         </button>
         <ng-template #tooltipConfirm>
-          <div pui-tooltip-content>
+          <div qui-tooltip-content>
             <span>Are you sure?</span>
           </div>
         </ng-template>
       </div>
-    </pui-story>
+    </qui-story>
     `,
   }),
 };

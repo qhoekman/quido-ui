@@ -5,10 +5,10 @@ export type TooltipContentVariants = {
 };
 
 @Component({
-  selector: '[pui-tooltip-content]',
+  selector: '[qui-tooltip-content]',
   standalone: true,
   host: {
-    'data-testid': 'pui-tooltip-content',
+    'data-testid': 'qui-tooltip-content',
   },
   styles: [
     `
@@ -23,9 +23,7 @@ export type TooltipContentVariants = {
         color: var(--color-card-fg);
         font-size: var(--font-size-xs);
         box-shadow: var(--box-shadow-default);
-        animation:
-          fadeIn 0.2s ease-out,
-          zoomIn 0.2s ease-out;
+        animation: fadeIn 0.2s ease-out, zoomIn 0.2s ease-out;
       }
 
       :host svg {
@@ -38,7 +36,12 @@ export type TooltipContentVariants = {
     `,
   ],
   template: `
-    <svg width="20" height="10" viewBox="0 0 20 10" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width="20"
+      height="10"
+      viewBox="0 0 20 10"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <polygon points="0,10 10,0 20,10" fill="currentColor" />
     </svg>
     <ng-content></ng-content>

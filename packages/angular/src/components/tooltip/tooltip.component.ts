@@ -22,10 +22,10 @@ import { TooltipTriggerDirective } from './tooltip-trigger.directive';
 type TooltipStrategy = 'always' | 'overflow';
 
 @Component({
-  selector: '*[pui-tooltip]',
+  selector: '*[qui-tooltip]',
   standalone: true,
   host: {
-    'data-testid': 'pui-tooltip',
+    'data-testid': 'qui-tooltip',
   },
   imports: [OverlayModule],
   styles: [
@@ -49,7 +49,7 @@ export class TooltipComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private overlay: Overlay,
     private overlayPositionBuilder: OverlayPositionBuilder,
-    private viewContainerRef: ViewContainerRef,
+    private viewContainerRef: ViewContainerRef
   ) {}
 
   ngOnInit() {
@@ -59,17 +59,27 @@ export class TooltipComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.observer = new IntersectionObserver(
       () => {
-        this.isOverflowing = this.checkOverflow(this.trigger.elementRef.nativeElement);
-        if (this.isStrategyOverflow() && !this.isOverflowing && this.overlayRef?.hasAttached()) {
+        this.isOverflowing = this.checkOverflow(
+          this.trigger.elementRef.nativeElement
+        );
+        if (
+          this.isStrategyOverflow() &&
+          !this.isOverflowing &&
+          this.overlayRef?.hasAttached()
+        ) {
           this.overlayRef.detach();
         }
       },
-      { threshold: 1.0 },
+      { threshold: 1.0 }
     );
   }
 
   ngAfterViewInit() {
-    if (this.isStrategyOverflow() && this.observer && this.trigger?.elementRef?.nativeElement) {
+    if (
+      this.isStrategyOverflow() &&
+      this.observer &&
+      this.trigger?.elementRef?.nativeElement
+    ) {
       this.observer.observe(this.trigger.elementRef.nativeElement);
     }
     this.positionStrategy = this.overlayPositionBuilder
@@ -134,14 +144,21 @@ export class TooltipComponent implements OnInit, AfterViewInit, OnDestroy {
     if (!this.overlayRef) {
       return;
     }
-    if (this.isStrategyAlways() || (this.isStrategyOverflow() && this.isOverflowing)) {
+    if (
+      this.isStrategyAlways() ||
+      (this.isStrategyOverflow() && this.isOverflowing)
+    ) {
       this.overlayRef.detach();
 
-      const tooltipPortal = new TemplatePortal(this.trigger.tooltipContentFor, this.viewContainerRef, {
-        $implicit: {
-          position: this.currentPosition ?? 'none',
-        },
-      });
+      const tooltipPortal = new TemplatePortal(
+        this.trigger.tooltipContentFor,
+        this.viewContainerRef,
+        {
+          $implicit: {
+            position: this.currentPosition ?? 'none',
+          },
+        }
+      );
       this.overlayRef.attach(tooltipPortal);
     }
   }
@@ -155,7 +172,10 @@ export class TooltipComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private checkOverflow(element: HTMLElement) {
-    return element.scrollWidth > element.clientWidth || element.scrollHeight > element.clientHeight;
+    return (
+      element.scrollWidth > element.clientWidth ||
+      element.scrollHeight > element.clientHeight
+    );
   }
 
   private isStrategyOverflow() {

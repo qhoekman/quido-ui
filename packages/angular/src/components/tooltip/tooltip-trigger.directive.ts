@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Input, TemplateRef } from '@angular/core';
 
 @Directive({
-  selector: '[pui-tooltip-trigger]',
+  selector: '[qui-tooltip-trigger]',
   standalone: true,
 })
 export class TooltipTriggerDirective {
