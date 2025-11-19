@@ -78,20 +78,64 @@ export const Default: StoryFn<typeof MegaMenu> = (args) => (
       <MegaMenuItem>
         <MegaMenuTrigger>Getting started</MegaMenuTrigger>
         <MegaMenuContent>
-          <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-            <li className="row-span-3">
+          <ul
+            style={{
+              display: "grid",
+              gap: "var(--spacing-3)",
+              padding: "var(--spacing-4)",
+              "@media (min-width: 768px)": {
+                width: "400px",
+              },
+              "@media (min-width: 1024px)": {
+                width: "500px",
+                gridTemplateColumns: ".75fr 1fr",
+              },
+            }}
+          >
+            <li style={{ gridRow: "span 3 / span 3" }}>
               <MegaMenuLink asChild>
                 <a
-                  className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                  style={{
+                    display: "flex",
+                    height: "100%",
+                    width: "100%",
+                    userSelect: "none",
+                    flexDirection: "column",
+                    justifyContent: "flex-end",
+                    borderRadius: "var(--border-radius-md)",
+                    background:
+                      "linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.1))",
+                    padding: "var(--spacing-6)",
+                    textDecoration: "none",
+                    outline: "none",
+                  }}
                   href="/"
                 >
                   <img
                     src="https://tailwindui.com/img/logos/mark.svg?color=indigo"
                     alt="Logo"
-                    className="w-8 h-8"
+                    style={{
+                      width: "var(--spacing-8)",
+                      height: "var(--spacing-8)",
+                    }}
                   />
-                  <div className="mb-2 mt-4 text-lg font-medium">shadcn/ui</div>
-                  <p className="text-sm leading-tight text-muted-foreground">
+                  <div
+                    style={{
+                      marginBottom: "var(--spacing-2)",
+                      marginTop: "var(--spacing-4)",
+                      fontSize: "var(--font-size-lg)",
+                      fontWeight: "var(--font-weight-medium)",
+                    }}
+                  >
+                    shadcn/ui
+                  </div>
+                  <p
+                    style={{
+                      fontSize: "var(--font-size-sm)",
+                      lineHeight: "var(--line-height-tight)",
+                      color: "var(--color-muted-fg)",
+                    }}
+                  >
                     Beautifully designed components built with Radix UI and
                     Tailwind CSS.
                   </p>
@@ -116,7 +160,21 @@ export const Default: StoryFn<typeof MegaMenu> = (args) => (
       <MegaMenuItem>
         <MegaMenuTrigger>Components</MegaMenuTrigger>
         <MegaMenuContent>
-          <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+          <ul
+            style={{
+              display: "grid",
+              width: "400px",
+              gap: "var(--spacing-3)",
+              padding: "var(--spacing-4)",
+              "@media (min-width: 768px)": {
+                width: "500px",
+                gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+              },
+              "@media (min-width: 1024px)": {
+                width: "600px",
+              },
+            }}
+          >
             {components.map((component) => (
               <MegaMenuListItem
                 key={component.title}
