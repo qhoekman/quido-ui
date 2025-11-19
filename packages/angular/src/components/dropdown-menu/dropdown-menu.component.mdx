@@ -1,0 +1,44 @@
+import * as DropdownMenuStories from "./dropdown-menu.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import DropdownMenuCode from "!!raw-loader!./dropdown-menu.component.ts";
+import DropdownMenuContentCode from "!!raw-loader!./dropdown-menu-content.component.ts";
+import DropdownMenuGroupCode from "!!raw-loader!./dropdown-menu-group.component.ts";
+import DropdownMenuItemCode from "!!raw-loader!./dropdown-menu-item.component.ts";
+import DropdownMenuLabelCode from "!!raw-loader!./dropdown-menu-label.component.ts";
+import DropdownMenuSeparatorCode from "!!raw-loader!./dropdown-menu-separator.component.ts";
+import DropdownMenuTriggerCode from "!!raw-loader!./dropdown-menu-trigger.directive.ts";
+import DropdownMenuHeaderCode from "!!raw-loader!./dropdown-menu-header.component.ts";
+
+# Dropdown Menu
+
+<Meta of={DropdownMenuStories} />
+<Canvas of={DropdownMenuStories.Default} />
+<Controls of={DropdownMenuStories.Default} />
+
+## Installation
+
+Copy the following code into your project.
+
+> **dropdown-menu.component.ts**
+> <Source code={DropdownMenuCode} language="typescript" />
+
+> **dropdown-menu-content.component.ts**
+> <Source code={DropdownMenuContentCode} language="typescript" />
+
+> **dropdown-menu-group.component.ts**
+> <Source code={DropdownMenuGroupCode} language="typescript" />
+
+> **dropdown-menu-item.component.ts**
+> <Source code={DropdownMenuItemCode} language="typescript" />
+
+> **dropdown-menu-header.component.ts**
+> <Source code={DropdownMenuHeaderCode} language="typescript" />
+
+> **dropdown-menu-label.component.ts**
+> <Source code={DropdownMenuLabelCode} language="typescript" />
+
+> **dropdown-menu-separator.component.ts**
+> <Source code={DropdownMenuSeparatorCode} language="typescript" />
+
+> **dropdown-menu-trigger.directive.ts**
+> <Source code={DropdownMenuTriggerCode} language="typescript" />
