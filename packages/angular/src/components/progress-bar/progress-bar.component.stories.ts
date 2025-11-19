@@ -26,10 +26,10 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-        <div pui-progress-bar [value]="value"></div>
+    <qui-story>
+        <div qui-progress-bar [value]="value"></div>
 
-    </pui-story>
+    </qui-story>
     `,
   }),
   args: {
@@ -45,7 +45,7 @@ export const Indeterminate: Story = {
     props: args,
     template: `
       <div style="width: 100%; padding: 10px;">
-        <div pui-progress-bar [value]="value"></div>
+        <div qui-progress-bar [value]="value"></div>
       </div>
     `,
   }),

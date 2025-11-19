@@ -2,14 +2,14 @@ import { NgStyle } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: '[pui-progress-bar]',
+  selector: '[qui-progress-bar]',
   imports: [NgStyle],
   host: {
-    'data-testid': 'pui-progress-bar',
+    'data-testid': 'qui-progress-bar',
   },
   template: `
     <div
-      data-testid="pui-progress-bar-indicator"
+      data-testid="qui-progress-bar-indicator"
       [ngStyle]="getIndicatorStyle()"
       [class]="getIndicatorClassList()"
     ></div>
@@ -54,10 +54,17 @@ export class ProgressBarComponent {
   @Input() value?: number;
 
   getIndicatorClassList() {
-    return ['indicator', this.value === undefined ? 'variant--indeterminate' : 'variant--determinate'].join(' ');
+    return [
+      'indicator',
+      this.value === undefined
+        ? 'variant--indeterminate'
+        : 'variant--determinate',
+    ].join(' ');
   }
 
   getIndicatorStyle() {
-    return this.value !== undefined ? { transform: 'translateX(' + (-100 + this.value) + '%)' } : {};
+    return this.value !== undefined
+      ? { transform: 'translateX(' + (-100 + this.value) + '%)' }
+      : {};
   }
 }
