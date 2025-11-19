@@ -51,7 +51,7 @@ const sizes = ["xs", "sm", "md", "lg", "xl"];
 const deliveryMethods = ["Standard", "Next Day"];
 
 export const Default: StoryFn<typeof RadioCard> = (args) => (
-  <div className="max-w-md w-full">
+  <div style={{ maxWidth: "var(--spacing-md)", width: "100%" }}>
     <RadioCard style={{ gridTemplateColumns: "repeat(6, 1fr)" }} {...args}>
       {sizes.map((size) => (
         <RadioCardItem
@@ -81,7 +81,7 @@ export const Large: StoryFn<typeof RadioCard> = (args) => (
           value={size}
           id={`opt-${size}`}
           key={size}
-          className="items-start"
+          style={{ alignItems: "flex-start" }}
           disabled={size === "Standard"}
         >
           <RadioCardItemLabel htmlFor={`opt-${size}`}>
