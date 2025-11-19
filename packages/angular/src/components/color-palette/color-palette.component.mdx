@@ -1,0 +1,10 @@
+import * as ColorPaletteStories from "./color-palette.component.stories.ts";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import ColorPaletteCode from "!!raw-loader!./color-palette.component.ts";
+
+# Color Palette
+
+<Meta of={ColorPaletteStories} />
+<Canvas of={ColorPaletteStories.Default} />
+<Controls of={ColorPaletteStories.Default} />
+<Source code={ColorPaletteCode} language="typescript" /> 
