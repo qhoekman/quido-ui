@@ -1,0 +1,28 @@
+import * as AccordionStories from "./accordion.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import AccordionCode from "!!raw-loader!./accordion.component.ts";
+import AccordionContentCode from "!!raw-loader!./accordion-content.component.ts";
+import AccordionItemCode from "!!raw-loader!./accordion-item.component.ts";
+import AccordionTriggerCode from "!!raw-loader!./accordion-trigger.directive.ts";
+
+# Accordion
+
+<Meta of={AccordionStories} />
+<Canvas of={AccordionStories.Default} />
+<Controls of={AccordionStories.Default} />
+
+## Installation
+
+Copy the following code into your project.
+
+> **accordion.component.ts**
+> <Source code={AccordionCode} language="typescript" />
+
+> **accordion-content.component.ts**
+> <Source code={AccordionContentCode} language="typescript" />
+
+> **accordion-item.component.ts**
+> <Source code={AccordionItemCode} language="typescript" />
+
+> **accordion-trigger.directive.ts**
+> <Source code={AccordionTriggerCode} language="typescript" />

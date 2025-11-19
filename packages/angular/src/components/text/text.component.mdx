@@ -1,0 +1,10 @@
+import * as TextStories from "./text.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import TextCode from "!!raw-loader!./text.component.ts";
+
+# Text
+
+<Meta of={TextStories} />
+<Canvas of={TextStories.Default} />
+<Controls of={TextStories.Default} />
+<Source code={TextCode} language="typescript" />

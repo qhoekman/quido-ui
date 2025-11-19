@@ -1,0 +1,40 @@
+import * as DialogStories from "./dialog.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import DialogCode from "!!raw-loader!./dialog.component.ts";
+import DialogCloseCode from "!!raw-loader!./dialog-close.component.ts";
+import DialogContentCode from "!!raw-loader!./dialog-content.component.ts";
+import DialogDescriptionCode from "!!raw-loader!./dialog-description.component.ts";
+import DialogFooterCode from "!!raw-loader!./dialog-footer.component.ts";
+import DialogHeaderCode from "!!raw-loader!./dialog-header.component.ts";
+import DialogTitleCode from "!!raw-loader!./dialog-title.component.ts";
+
+# Dialog
+
+<Meta of={DialogStories} />
+<Canvas of={DialogStories.Default} />
+<Controls of={DialogStories.Default} />
+
+## Installation
+
+Copy the following code into your project.
+
+> **dialog.component.ts**
+> <Source code={DialogCode} language="typescript" />
+
+> **dialog-close.component.ts**
+> <Source code={DialogCloseCode} language="typescript" />
+
+> **dialog-content.component.ts**
+> <Source code={DialogContentCode} language="typescript" />
+
+> **dialog-description.component.ts**
+> <Source code={DialogDescriptionCode} language="typescript" />
+
+> **dialog-footer.component.ts**
+> <Source code={DialogFooterCode} language="typescript" />
+
+> **dialog-header.component.ts**
+> <Source code={DialogHeaderCode} language="typescript" />
+
+> **dialog-title.component.ts**
+> <Source code={DialogTitleCode} language="typescript" />

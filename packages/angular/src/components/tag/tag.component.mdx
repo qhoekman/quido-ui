@@ -1,0 +1,10 @@
+import * as TagStories from "./tag.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import TagCode from "!!raw-loader!./tag.component.ts";
+
+# Tag
+
+<Meta of={TagStories} />
+<Canvas of={TagStories.Default} />
+<Controls of={TagStories.Default} />
+<Source code={TagCode} language="typescript" />

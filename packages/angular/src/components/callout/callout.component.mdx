@@ -1,0 +1,32 @@
+import * as CalloutStories from "./callout.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import CalloutCode from "!!raw-loader!./callout.component.ts";
+import CalloutTitleCode from "!!raw-loader!./callout-title.component.ts";
+import CalloutDescriptionCode from "!!raw-loader!./callout-description.component.ts";
+import CalloutIndicatorCode from "!!raw-loader!./callout-indicator.component.ts";
+
+# Callout
+
+<Meta of={CalloutStories} />
+<Canvas of={CalloutStories.Default} />
+<Controls of={CalloutStories.Default} />
+
+## Installation
+
+Copy the following code into your project.
+
+> **callout.component.ts**
+>
+> <Source code={CalloutCode} language="typescript" />
+
+> **callout-title.component.ts**
+>
+> <Source code={CalloutTitleCode} language="typescript" />
+
+> **callout-description.component.ts**
+>
+> <Source code={CalloutDescriptionCode} language="typescript" />
+
+> **callout-indicator.component.ts**
+>
+> <Source code={CalloutIndicatorCode} language="typescript" />

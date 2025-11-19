@@ -1,0 +1,16 @@
+import * as CheckboxStories from "./checkbox.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import CheckboxCode from "!!raw-loader!./checkbox.component.ts";
+import CheckboxIndicatorCode from "!!raw-loader!./checkbox-indicator.component.ts";
+
+# Checkbox
+
+<Meta of={CheckboxStories} />
+<Canvas of={CheckboxStories.Default} />
+<Controls of={CheckboxStories.Default} />
+
+> **checkbox.component.ts**
+> <Source code={CheckboxCode} language="typescript" /> 
+
+> **checkbox-indicator.component.ts**
+> <Source code={CheckboxIndicatorCode} language="typescript" /> 

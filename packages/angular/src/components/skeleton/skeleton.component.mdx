@@ -1,0 +1,10 @@
+import * as SkeletonStories from "./skeleton.component.stories.ts";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import SkeletonCode from "!!raw-loader!./skeleton.component.ts";
+
+# Skeleton
+
+<Meta of={SkeletonStories} />
+<Canvas of={SkeletonStories.Default} />
+<Controls of={SkeletonStories.Default} />
+<Source code={SkeletonCode} language="typescript" />

@@ -1,0 +1,10 @@
+import * as ProgressBarStories from "./progress-bar.component.stories.ts";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import ProgressBarCode from "!!raw-loader!./progress-bar.component.ts";
+
+# Progress Bar
+
+<Meta of={ProgressBarStories} />
+<Canvas of={ProgressBarStories.Default} />
+<Controls of={ProgressBarStories.Default} />
+<Source code={ProgressBarCode} language="typescript" />

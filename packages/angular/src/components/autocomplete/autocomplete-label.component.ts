@@ -1,0 +1,21 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: '[pui-autocomplete-label]',
+  standalone: true,
+  host: {
+    'data-testid': 'pui-autocomplete-label',
+  },
+  template: `<ng-content></ng-content>`,
+  styles: [
+    `
+      :host {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-semibold);
+        margin: 0;
+        margin-bottom: var(--spacing-2);
+      }
+    `,
+  ],
+})
+export class AutocompleteLabelComponent {}

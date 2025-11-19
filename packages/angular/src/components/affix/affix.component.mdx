@@ -1,0 +1,16 @@
+import * as AffixStories from "./affix.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import AffixCode from "!!raw-loader!./affix.component.ts";
+
+# Affix
+
+<Meta of={AffixStories} />
+<Canvas of={AffixStories.Default} />
+<Controls of={AffixStories.Default} />
+
+## Installation
+
+Copy the following code into your project.
+
+> **affix.component.ts**
+> <Source code={AffixCode} language="typescript" />

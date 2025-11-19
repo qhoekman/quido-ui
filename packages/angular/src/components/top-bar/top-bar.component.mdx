@@ -1,0 +1,18 @@
+import * as TopBarStories from "./top-bar.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import TopBarCode from "!!raw-loader!./top-bar.component.ts";
+import TopBarSectionCode from "!!raw-loader!./top-bar-section.component.ts";
+
+# Top Bar
+
+<Meta of={TopBarStories} />
+<Canvas of={TopBarStories.Default} />
+<Controls of={TopBarStories.Default} />
+
+> **top-bar.component.ts**
+>
+> <Source code={TopBarCode} language="typescript" />
+
+> **top-bar-section.component.ts**
+>
+> <Source code={TopBarSectionCode} language="typescript" />

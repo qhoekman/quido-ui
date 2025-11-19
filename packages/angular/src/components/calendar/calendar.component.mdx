@@ -1,0 +1,10 @@
+import * as CalendarStories from "./calendar.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import CalendarCode from "!!raw-loader!./calendar.component.ts";
+
+# Calendar
+
+<Meta of={CalendarStories} />
+<Canvas of={CalendarStories.Default} />
+<Controls of={CalendarStories.Default} />
+<Source code={CalendarCode} language="typescript" />

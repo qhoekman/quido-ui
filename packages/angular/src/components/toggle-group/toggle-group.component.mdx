@@ -1,0 +1,10 @@
+import * as ToggleGroupStories from "./toggle-group.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import ToggleGroupCode from "!!raw-loader!./toggle-group.component.ts";
+
+# Toggle Group
+
+<Meta of={ToggleGroupStories} />
+<Canvas of={ToggleGroupStories.Default} />
+<Controls of={ToggleGroupStories.Default} />
+<Source code={ToggleGroupCode} language="typescript" />

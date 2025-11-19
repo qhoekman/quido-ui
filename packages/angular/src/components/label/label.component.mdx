@@ -1,0 +1,11 @@
+import * as LabelStories from "./label.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import LabelCode from "!!raw-loader!./label.component.ts";
+
+# Label
+
+<Meta of={LabelStories} />
+<Canvas of={LabelStories.Default} />
+<Controls of={LabelStories.Default} />
+<Source code={LabelCode} language="typescript" />
+

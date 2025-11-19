@@ -1,0 +1,12 @@
+import * as DraggableListStories from "./draggable-list.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import DraggableListCode from "!!raw-loader!./draggable-list.component.ts";
+
+# Draggable List
+
+<Meta of={DraggableListStories} />
+<Canvas of={DraggableListStories.Default} />
+<Controls of={DraggableListStories.Default} />
+
+> **draggable-list.component.ts**
+> <Source code={DraggableListCode} language="typescript" /> 

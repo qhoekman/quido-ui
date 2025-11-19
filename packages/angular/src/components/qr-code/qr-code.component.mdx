@@ -1,0 +1,20 @@
+import * as QrCodeStories from "./qr-code.component.stories.ts";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import QrCodeCode from "!!raw-loader!./qr-code.component.ts";
+
+# QR Code
+
+<Meta of={QrCodeStories} />
+<Canvas of={QrCodeStories.Default} />
+<Controls of={QrCodeStories.Default} />
+
+## Installation
+
+Install the `@akamfoad/qrcode` for the QR code generation.
+
+```bash
+npm install @akamfoad/qrcode --save
+```
+
+> **qr-code.component.ts**
+> <Source code={QrCodeCode} language="typescript" />

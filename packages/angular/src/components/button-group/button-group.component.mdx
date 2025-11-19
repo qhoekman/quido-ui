@@ -1,0 +1,11 @@
+import * as ButtonGroupStories from "./button-group.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import ButtonGroupCode from "!!raw-loader!./button-group.component.ts";
+
+# Button Group
+
+<Meta of={ButtonGroupStories} />
+<Canvas of={ButtonGroupStories.Default} />
+<Controls of={ButtonGroupStories.Default} />
+<Source code={ButtonGroupCode} language="typescript" />
+

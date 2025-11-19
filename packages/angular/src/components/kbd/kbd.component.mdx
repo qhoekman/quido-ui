@@ -1,0 +1,11 @@
+import * as KbdStories from "./kbd.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import KbdCode from "!!raw-loader!./kbd.component.ts";
+
+# Kbd
+
+<Meta of={KbdStories} />
+<Canvas of={KbdStories.Default} />
+<Controls of={KbdStories.Default} />
+<Source code={KbdCode} language="typescript" />
+

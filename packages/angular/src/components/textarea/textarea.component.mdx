@@ -1,0 +1,11 @@
+import * as TextareaStories from "./textarea.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import TextareaCode from "!!raw-loader!./textarea.component.ts";
+
+# Textarea
+
+<Meta of={TextareaStories} />
+<Canvas of={TextareaStories.Default} />
+<Controls of={TextareaStories.Default} />
+<Source code={TextareaCode} language="typescript" />
+

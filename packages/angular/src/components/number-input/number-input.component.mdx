@@ -1,0 +1,20 @@
+import * as NumberInputStories from "./number-input.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import NumberInputCode from "!!raw-loader!./number-input.component.ts";
+import NumberInputFieldCode from "!!raw-loader!./number-inputfield.component.ts";
+import NumberInputButtonCode from "!!raw-loader!./number-input-button.component.ts";
+
+# Number Input
+
+<Meta of={NumberInputStories} />
+<Canvas of={NumberInputStories.Default} />
+<Controls of={NumberInputStories.Default} />
+
+> **number-inputfield.component.ts**
+> <Source code={NumberInputFieldCode} language="typescript" />
+
+> **number-input.component.ts**
+> <Source code={NumberInputCode} language="typescript" />
+
+> **number-input-button.component.ts**
+> <Source code={NumberInputButtonCode} language="typescript" />

@@ -1,0 +1,25 @@
+import * as TooltipStories from "./tooltip.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import TooltipCode from "!!raw-loader!./tooltip.component.ts";
+import TooltipContentCode from "!!raw-loader!./tooltip-content.component.ts";
+import TooltipTriggerCode from "!!raw-loader!./tooltip-trigger.directive.ts";
+
+# Tooltip
+
+<Meta of={TooltipStories} />
+<Canvas of={TooltipStories.Default} />
+<Controls of={TooltipStories.Default} />
+
+## Installation
+
+Copy the following code into your project.
+
+> **tooltip.component.ts**
+> <Source code={TooltipCode} language="typescript" />
+
+> **tooltip-trigger.directive.ts**
+> <Source code={TooltipTriggerCode} language="typescript" />
+
+> **tooltip-content.component.ts**
+> <Source code={TooltipContentCode} language="typescript" />
+

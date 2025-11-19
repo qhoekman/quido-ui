@@ -1,0 +1,10 @@
+import * as HeadingStories from "./heading.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import HeadingCode from "!!raw-loader!./heading.component.ts";
+
+# Heading
+
+<Meta of={HeadingStories} />
+<Canvas of={HeadingStories.Default} />
+<Controls of={HeadingStories.Default} />
+<Source code={HeadingCode} language="typescript" />{" "}

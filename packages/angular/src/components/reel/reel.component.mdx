@@ -1,0 +1,43 @@
+import * as ReelStories from "./reel.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import ReelCode from "!!raw-loader!./reel.component.ts";
+import ReelButtonCode from "!!raw-loader!./reel-button.component.ts";
+import ReelContentCode from "!!raw-loader!./reel-content.component.ts";
+import ReelItemCode from "!!raw-loader!./reel-item.component.ts";
+import ReelNextDirectiveCode from "!!raw-loader!./reel-next.directive.ts";
+import ReelPreviousDirectiveCode from "!!raw-loader!./reel-previous.directive.ts";
+import ReelServiceCode from "!!raw-loader!./reel.service.ts";
+
+# Reel
+
+<Meta of={ReelStories} />
+<Canvas of={ReelStories.Default} />
+<Controls of={ReelStories.Default} />
+
+> **reel.component.ts**
+>
+> <Source code={ReelCode} language="typescript" />
+
+> **reel-button.component.ts**
+>
+> <Source code={ReelButtonCode} language="typescript" />
+
+> **reel-content.component.ts**
+>
+> <Source code={ReelContentCode} language="typescript" />
+
+> **reel-item.component.ts**
+>
+> <Source code={ReelItemCode} language="typescript" />
+
+> **reel-next.directive.ts**
+>
+> <Source code={ReelNextDirectiveCode} language="typescript" />
+
+> **reel-previous.directive.ts**
+>
+> <Source code={ReelPreviousDirectiveCode} language="typescript" />
+
+> **reel.service.ts**
+>
+> <Source code={ReelServiceCode} language="typescript" />

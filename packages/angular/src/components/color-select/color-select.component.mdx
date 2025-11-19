@@ -1,0 +1,16 @@
+import * as ColorSelectStories from "./color-select.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import ColorSelectCode from "!!raw-loader!./color-select.component.ts";
+import ColorSelectItemCode from "!!raw-loader!./color-select-item.component.ts";
+
+# Color Select
+
+<Meta of={ColorSelectStories} />
+<Canvas of={ColorSelectStories.Default} />
+<Controls of={ColorSelectStories.Default} />
+
+> **color-select.component.ts**
+> <Source code={ColorSelectCode} language="typescript" />{" "}
+
+> **color-select-item.component.ts**
+> <Source code={ColorSelectItemCode} language="typescript" />{" "}

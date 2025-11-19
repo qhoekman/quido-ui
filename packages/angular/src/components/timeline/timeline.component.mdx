@@ -1,0 +1,32 @@
+import * as TimelineStories from "./timeline.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import TimelineCode from "!!raw-loader!./timeline.component.ts";
+import TimelineItemCode from "!!raw-loader!./timeline-item.component.ts";
+import TimelineConnectorCode from "!!raw-loader!./timeline-connector.component.ts";
+import TimelineContentCode from "!!raw-loader!./timeline-content.component.ts";
+import TimelineTitleCode from "!!raw-loader!./timeline-title.component.ts";
+import TimelineDescriptionCode from "!!raw-loader!./timeline-description.component.ts";
+
+# Timeline
+
+<Meta of={TimelineStories} />
+<Canvas of={TimelineStories.Default} />
+<Controls of={TimelineStories.Default} />
+
+> **timeline.component.ts**
+> <Source code={TimelineCode} language="typescript" />
+
+> **timeline-item.component.ts**
+> <Source code={TimelineItemCode} language="typescript" />
+
+> **timeline-connector.component.ts**
+> <Source code={TimelineConnectorCode} language="typescript" />
+
+> **timeline-content.component.ts**
+> <Source code={TimelineContentCode} language="typescript" />
+
+> **timeline-title.component.ts**
+> <Source code={TimelineTitleCode} language="typescript" />
+
+> **timeline-description.component.ts**
+> <Source code={TimelineDescriptionCode} language="typescript" />

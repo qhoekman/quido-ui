@@ -1,0 +1,28 @@
+import * as StatisticStories from "./statistic.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import StatisticCode from "!!raw-loader!./statistic.component.ts";
+import StatisticLabelCode from "!!raw-loader!./statistic-label.component.ts";
+import StatisticValueCode from "!!raw-loader!./statistic-value.component.ts";
+import StatisticTrendCode from "!!raw-loader!./statistic-trend.component.ts";
+import StatisticHelperTextCode from "!!raw-loader!./statistic-helper-text.component.ts";
+
+# Statistic
+
+<Meta of={StatisticStories} />
+<Canvas of={StatisticStories.Default} />
+<Controls of={StatisticStories.Default} />
+
+> **statistic.component.ts**
+> <Source code={StatisticCode} language="typescript" />
+
+> **statistic-label.component.ts**
+> <Source code={StatisticLabelCode} language="typescript" />
+
+> **statistic-value.component.ts**
+> <Source code={StatisticValueCode} language="typescript" />
+
+> **statistic-trend.component.ts**
+> <Source code={StatisticTrendCode} language="typescript" />
+
+> **statistic-helper-text.component.ts**
+> <Source code={StatisticHelperTextCode} language="typescript" />

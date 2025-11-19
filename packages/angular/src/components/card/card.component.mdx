@@ -1,0 +1,37 @@
+import * as CardStories from "./card.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import CardCode from "!!raw-loader!./card.component.ts";
+import CardHeaderCode from "!!raw-loader!./card-header.component.ts";
+import CardTitleCode from "!!raw-loader!./card-title.component.ts";
+import CardDescriptionCode from "!!raw-loader!./card-description.component.ts";
+import CardContentCode from "!!raw-loader!./card-content.component.ts";
+import CardFooterCode from "!!raw-loader!./card-footer.component.ts";
+
+# Card
+
+<Meta of={CardStories} />
+<Canvas of={CardStories.Default} />
+<Controls of={CardStories.Default} />
+
+## Installation
+
+Copy the following code into your project.
+
+> **card.component.ts**
+> <Source code={CardCode} language="typescript" />
+
+> **card-header.component.ts**
+> <Source code={CardHeaderCode} language="typescript" />
+
+> **card-title.component.ts**
+> <Source code={CardTitleCode} language="typescript" />
+
+> **card-description.component.ts**
+> <Source code={CardDescriptionCode} language="typescript" />
+
+> **card-content.component.ts**
+> <Source code={CardContentCode} language="typescript" />
+
+> **card-footer.component.ts**
+> <Source code={CardFooterCode} language="typescript" />
+

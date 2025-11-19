@@ -1,0 +1,16 @@
+import * as CookieConsentStories from "./cookie-consent.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import CookieConsentCode from "!!raw-loader!./cookie-consent.component.ts";
+import CookieConsentServiceCode from "!!raw-loader!./cookie-consent.service.ts";
+
+# Cookie Consent
+
+<Meta of={CookieConsentStories} />
+<Canvas of={CookieConsentStories.Default} />
+<Controls of={CookieConsentStories.Default} />
+
+> **cookie-consent.component.ts**
+> <Source code={CookieConsentCode} language="typescript" />
+
+> **cookie-consent.service.ts**
+> <Source code={CookieConsentServiceCode} language="typescript" />

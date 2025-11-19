@@ -1,0 +1,10 @@
+import * as ColorWheelStories from "./color-wheel.component.stories.ts";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import ColorWheelCode from "!!raw-loader!./color-wheel.component.ts";
+
+# Color Wheel
+
+<Meta of={ColorWheelStories} />
+<Canvas of={ColorWheelStories.Default} />
+<Controls of={ColorWheelStories.Default} />
+<Source code={ColorWheelCode} language="typescript" />

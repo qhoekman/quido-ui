@@ -1,0 +1,12 @@
+import * as FileDropzoneStories from "./file-dropzone.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import FileDropzoneCode from "!!raw-loader!./file-dropzone.component.ts";
+
+# File Dropzone
+
+<Meta of={FileDropzoneStories} />
+<Canvas of={FileDropzoneStories.Default} />
+<Controls of={FileDropzoneStories.Default} />
+
+> **file-dropzone.component.ts**
+> <Source code={FileDropzoneCode} language="typescript" />

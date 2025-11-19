@@ -1,0 +1,42 @@
+import * as SpotlightGalleryStories from "./spotlight-gallery.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import SpotlightGalleryCode from "!!raw-loader!./spotlight-gallery.component.ts";
+import SpotlightGalleryContentCode from "!!raw-loader!./spotlight-gallery-content.component.ts";
+import SpotlightGalleryImageCode from "!!raw-loader!./spotlight-gallery-image.component.ts";
+import SpotlightGalleryItemDirectiveCode from "!!raw-loader!./spotlight-gallery-item.directive.ts";
+import SpotlightGalleryListCode from "!!raw-loader!./spotlight-gallery-list.component.ts";
+import SpotlightGalleryTriggerCode from "!!raw-loader!./spotlight-gallery-trigger.component.ts";
+
+# Spotlight Gallery
+
+<Meta of={SpotlightGalleryStories} />
+<Canvas of={SpotlightGalleryStories.Default} />
+<Controls of={SpotlightGalleryStories.Default} />
+
+## Installation
+
+Copy the following code into your project.
+
+> **spotlight-gallery.component.ts**
+>
+> <Source code={SpotlightGalleryCode} language="typescript" />
+
+> **spotlight-gallery-content.component.ts**
+>
+> <Source code={SpotlightGalleryContentCode} language="typescript" />
+
+> **spotlight-gallery-image.component.ts**
+>
+> <Source code={SpotlightGalleryImageCode} language="typescript" />
+
+> **spotlight-gallery-item.directive.ts**
+>
+> <Source code={SpotlightGalleryItemDirectiveCode} language="typescript" />
+
+> **spotlight-gallery-list.component.ts**
+>
+> <Source code={SpotlightGalleryListCode} language="typescript" />
+
+> **spotlight-gallery-trigger.component.ts**
+>
+> <Source code={SpotlightGalleryTriggerCode} language="typescript" />

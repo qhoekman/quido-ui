@@ -1,0 +1,10 @@
+import * as ToggleStories from "./toggle.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import ToggleCode from "!!raw-loader!./toggle.component.ts";
+
+# Toggle
+
+<Meta of={ToggleStories} />
+<Canvas of={ToggleStories.Default} />
+<Controls of={ToggleStories.Default} />
+<Source code={ToggleCode} language="typescript" />

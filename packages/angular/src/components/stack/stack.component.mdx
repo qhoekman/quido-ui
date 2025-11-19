@@ -1,0 +1,10 @@
+import * as StackStories from "./stack.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import StackCode from "!!raw-loader!./stack.component.ts";
+
+# Stack
+
+<Meta of={StackStories} />
+<Canvas of={StackStories.Default} />
+<Controls of={StackStories.Default} />
+<Source code={StackCode} language="typescript" />

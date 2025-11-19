@@ -1,0 +1,42 @@
+import * as AutocompleteStories from "./autocomplete.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import AutocompleteCode from "!!raw-loader!./autocomplete.component.ts";
+import AutocompleteTriggerCode from "!!raw-loader!./autocomplete-trigger.component.ts";
+import AutocompleteContentCode from "!!raw-loader!./autocomplete-content.component.ts";
+import AutocompleteItemCode from "!!raw-loader!./autocomplete-item.component.ts";
+import AutocompleteGroupCode from "!!raw-loader!./autocomplete-group.component.ts";
+import AutocompleteLabelCode from "!!raw-loader!./autocomplete-label.component.ts";
+
+# Autocomplete
+
+<Meta of={AutocompleteStories} />
+<Canvas of={AutocompleteStories.Default} />
+<Controls of={AutocompleteStories.Default} />
+
+## Installation
+
+Copy the following code into your project.
+
+> **autocomplete.component.ts**
+>
+> <Source code={AutocompleteCode} language="typescript" />
+
+> **autocomplete-trigger.component.ts**
+>
+> <Source code={AutocompleteTriggerCode} language="typescript" />
+
+> **autocomplete-content.component.ts**
+>
+> <Source code={AutocompleteContentCode} language="typescript" />
+
+> **autocomplete-item.component.ts**
+>
+> <Source code={AutocompleteItemCode} language="typescript" />
+
+> **autocomplete-group.component.ts**
+>
+> <Source code={AutocompleteGroupCode} language="typescript" />
+
+> **autocomplete-label.component.ts**
+>
+> <Source code={AutocompleteLabelCode} language="typescript" />

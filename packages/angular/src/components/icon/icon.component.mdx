@@ -1,0 +1,13 @@
+import * as IconStories from "./icon.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import IconCode from "!!raw-loader!./icon.component.ts";
+
+# Icon
+
+<Meta of={IconStories} />
+<Canvas of={IconStories.Default} />
+<Controls of={IconStories.Default} />
+
+> **icon.component.ts**
+>
+> <Source code={IconCode} language="typescript" />

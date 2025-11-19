@@ -1,0 +1,10 @@
+import * as TimeSelectStories from "./time-select.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import TimeSelectCode from "!!raw-loader!./time-select.component.ts";
+
+# Time Select
+
+<Meta of={TimeSelectStories} />
+<Canvas of={TimeSelectStories.Default} />
+<Controls of={TimeSelectStories.Default} />
+<Source code={TimeSelectCode} language="typescript" />

@@ -1,0 +1,47 @@
+import * as CTAStories from "./cta.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import CTACode from "!!raw-loader!./cta.component.ts";
+import CTAContentCode from "!!raw-loader!./cta-content.component.ts";
+import CTASectionCode from "!!raw-loader!./cta-section.component.ts";
+import CTATitleCode from "!!raw-loader!./cta-title.component.ts";
+import CTASubtitleCode from "!!raw-loader!./cta-subtitle.component.ts";
+import CTAActionsCode from "!!raw-loader!./cta-actions.component.ts";
+import CTABackdropCode from "!!raw-loader!./cta-backdrop.component.ts";
+
+# Call To Action
+
+<Meta of={CTAStories} />
+<Canvas of={CTAStories.Default} />
+<Controls of={CTAStories.Default} />
+
+## Installation
+
+Copy the following code into your project.
+
+> **cta.component.ts**
+>
+> <Source code={CTACode} language="typescript" />
+
+> **cta-content.component.ts**
+>
+> <Source code={CTAContentCode} language="typescript" />
+
+> **cta-section.component.ts**
+>
+> <Source code={CTASectionCode} language="typescript" />
+
+> **cta-title.component.ts**
+>
+> <Source code={CTATitleCode} language="typescript" />
+
+> **cta-subtitle.component.ts**
+>
+> <Source code={CTASubtitleCode} language="typescript" />
+
+> **cta-actions.component.ts**
+>
+> <Source code={CTAActionsCode} language="typescript" />
+
+> **cta-backdrop.component.ts**
+>
+> <Source code={CTABackdropCode} language="typescript" />

@@ -1,0 +1,10 @@
+import * as BackToTopStories from "./back-to-top.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import BackToTopCode from "!!raw-loader!./back-to-top.component.ts";
+
+# Back to Top
+
+<Meta of={BackToTopStories} />
+<Canvas of={BackToTopStories.Default} />
+<Controls of={BackToTopStories.Default} />
+<Source code={BackToTopCode} language="typescript" />

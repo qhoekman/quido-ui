@@ -1,0 +1,52 @@
+import * as TableStories from "./table.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import TableComponentCode from "!!raw-loader!./table.component.ts";
+import TableCaptionCode from "!!raw-loader!./table-caption.component.ts";
+import TableCellCode from "!!raw-loader!./table-cell.component.ts";
+import TableColumnCode from "!!raw-loader!./table-column.directive.ts";
+import TableFooterCellCode from "!!raw-loader!./table-footer-cell.component.ts";
+import TableFooterRowCode from "!!raw-loader!./table-footer-row.component.ts";
+import TableHeaderCellCode from "!!raw-loader!./table-header-cell.component.ts";
+import TableHeaderRowCode from "!!raw-loader!./table-header-row.component.ts";
+import TableRowCode from "!!raw-loader!./table-row.component.ts";
+import TableModuleCode from "!!raw-loader!./table.module.ts";
+
+# Table
+
+<Meta of={TableStories} />
+<Canvas of={TableStories.Default} />
+<Controls of={TableStories.Default} />
+
+## Installation
+
+Copy the following code into your project.
+
+> **table.component.ts**
+> <Source code={TableComponentCode} language="typescript" />
+
+> **table-caption.component.ts**
+> <Source code={TableCaptionCode} language="typescript" />
+
+> **table-cell.component.ts**
+> <Source code={TableCellCode} language="typescript" />
+
+> **table-column.directive.ts**
+> <Source code={TableColumnCode} language="typescript" />
+
+> **table-footer-cell.component.ts**
+> <Source code={TableFooterCellCode} language="typescript" />
+
+> **table-footer-row.component.ts**
+> <Source code={TableFooterRowCode} language="typescript" />
+
+> **table-header-cell.component.ts**
+> <Source code={TableHeaderCellCode} language="typescript" />
+
+> **table-header-row.component.ts**
+> <Source code={TableHeaderRowCode} language="typescript" />
+
+> **table-row.component.ts**
+> <Source code={TableRowCode} language="typescript" />
+
+> **table.module.ts**
+> <Source code={TableModuleCode} language="typescript" />

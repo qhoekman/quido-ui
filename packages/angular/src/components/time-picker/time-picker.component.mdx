@@ -1,0 +1,32 @@
+import * as TimePickerStories from "./time-picker.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import TimePickerCode from "!!raw-loader!./time-picker.component.ts";
+import InputCode from "!!raw-loader!../input/input.component.ts";
+import PopoverCode from "!!raw-loader!../popover/popover.component.ts";
+import PopoverTriggerCode from "!!raw-loader!../popover/popover-trigger.directive.ts";
+import TimeSelectCode from "!!raw-loader!../time-select/time-select.component.ts";
+
+# Time Picker
+
+<Meta of={TimePickerStories} />
+<Canvas of={TimePickerStories.Default} />
+<Controls of={TimePickerStories.Default} />
+
+## Installation
+
+Copy the following code into your project.
+
+> **popover.component.ts**
+> <Source code={PopoverCode} language="typescript" />
+
+> **popover-trigger.directive.ts**
+> <Source code={PopoverTriggerCode} language="typescript" />
+
+> **input.component.ts**
+> <Source code={InputCode} language="typescript" />
+
+> **time-select.component.ts**
+> <Source code={TimeSelectCode} language="typescript" />
+
+> **time-picker.component.ts**
+> <Source code={TimePickerCode} language="typescript" />
