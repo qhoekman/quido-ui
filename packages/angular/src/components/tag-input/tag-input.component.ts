@@ -1,29 +1,42 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from '../button/button.component';
 import { InputComponent } from '../input/input.component';
 import { TagComponent } from '../tag/tag.component';
 
 @Component({
-  selector: '[pui-tag-input]',
+  selector: '[qui-tag-input]',
   standalone: true,
   host: {
     role: 'textbox',
   },
-  imports: [CommonModule, FormsModule, ButtonComponent, TagComponent, InputComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ButtonComponent,
+    TagComponent,
+    InputComponent,
+  ],
   template: `
     <div
       class="tag-input-container"
-      data-testid="pui-tag-input"
+      data-testid="qui-tag-input"
       (click)="handleClick()"
       (keydown)="handleKeydown($event)"
       tabindex="0"
     >
       <input
         #tagInput
-        pui-input
-        data-testid="pui-tag-input-input"
+        qui-input
+        data-testid="qui-tag-input-input"
         type="text"
         placeholder="Enter tags (comma-separated)..."
         [(ngModel)]="inputValue"
@@ -32,20 +45,30 @@ import { TagComponent } from '../tag/tag.component';
         class="tag-input"
         aria-label="Enter tags"
       />
-      <input type="hidden" [attr.name]="name" [attr.id]="elementRef.nativeElement.id" [ngModel]="tags" />
+      <input
+        type="hidden"
+        [attr.name]="name"
+        [attr.id]="elementRef.nativeElement.id"
+        [ngModel]="tags"
+      />
 
-      <div *ngIf="tags.length > 0" class="tags-container" role="list" aria-live="polite">
+      <div
+        *ngIf="tags.length > 0"
+        class="tags-container"
+        role="list"
+        aria-live="polite"
+      >
         <div
-          pui-tag
+          qui-tag
           size="sm"
-          data-testid="pui-tag-input-tag"
+          data-testid="qui-tag-input-tag"
           *ngFor="let tag of tags; let i = index"
           class="tag"
           role="listitem"
         >
           <span>{{ tag }}</span>
           <button
-            pui-button
+            qui-button
             size="icon"
             (click)="removeTag(i)"
             class="remove-tag"

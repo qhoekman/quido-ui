@@ -32,8 +32,8 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <div pui-story style="width: 300px;">
-      <div pui-tag-input [tags]="tags" (tagsChange)="tags = $event" [name]="name" [id]="id">
+    <div qui-story style="width: 300px;">
+      <div qui-tag-input [tags]="tags" (tagsChange)="tags = $event" [name]="name" [id]="id">
       </div>
     </div>`,
   }),
