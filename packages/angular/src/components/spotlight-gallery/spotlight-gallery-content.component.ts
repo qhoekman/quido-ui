@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'div[pui-spotlight-gallery-content]',
+  selector: 'div[qui-spotlight-gallery-content]',
   standalone: true,
   imports: [CommonModule],
   host: {
-    'data-testid': 'pui-spotlight-gallery-content',
+    'data-testid': 'qui-spotlight-gallery-content',
   },
   template: `<ng-content></ng-content>`,
   styles: [

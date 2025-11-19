@@ -2,12 +2,12 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'div[pui-spotlight-gallery-trigger]',
+  selector: 'div[qui-spotlight-gallery-trigger]',
   standalone: true,
   imports: [CommonModule],
   host: {
     '[class.active]': 'active',
-    'data-testid': 'pui-spotlight-gallery-trigger',
+    'data-testid': 'qui-spotlight-gallery-trigger',
   },
   template: `<ng-content></ng-content>`,
   styles: [

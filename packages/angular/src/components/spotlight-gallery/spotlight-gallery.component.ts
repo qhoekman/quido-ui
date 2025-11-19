@@ -1,4 +1,9 @@
-import { Component, ContentChildren, QueryList, AfterContentInit } from '@angular/core';
+import {
+  Component,
+  ContentChildren,
+  QueryList,
+  AfterContentInit,
+} from '@angular/core';
 import { SpotlightGalleryItemDirective } from './spotlight-gallery-item.directive';
 import { CommonModule } from '@angular/common';
 import { SpotlightGalleryListComponent } from './spotlight-gallery-list.component';
@@ -6,7 +11,7 @@ import { SpotlightGalleryTriggerComponent } from './spotlight-gallery-trigger.co
 import { SpotlightGalleryContentComponent } from './spotlight-gallery-content.component';
 
 @Component({
-  selector: 'pui-spotlight-gallery',
+  selector: 'qui-spotlight-gallery',
   standalone: true,
   imports: [
     CommonModule,
@@ -15,10 +20,10 @@ import { SpotlightGalleryContentComponent } from './spotlight-gallery-content.co
     SpotlightGalleryContentComponent,
   ],
   template: `
-    <div pui-spotlight-gallery-list>
+    <div qui-spotlight-gallery-list>
       <ng-container *ngFor="let item of items; let i = index">
         <div
-          pui-spotlight-gallery-trigger
+          qui-spotlight-gallery-trigger
           [active]="i === activeIndex"
           (click)="handleClick(i)"
           (keydown)="handleKeydown(i)"
@@ -28,8 +33,10 @@ import { SpotlightGalleryContentComponent } from './spotlight-gallery-content.co
         </div>
       </ng-container>
     </div>
-    <div pui-spotlight-gallery-content>
-      <ng-container *ngTemplateOutlet="items.get(activeIndex)?.template!"></ng-container>
+    <div qui-spotlight-gallery-content>
+      <ng-container
+        *ngTemplateOutlet="items.get(activeIndex)?.template!"
+      ></ng-container>
     </div>
   `,
   styles: [

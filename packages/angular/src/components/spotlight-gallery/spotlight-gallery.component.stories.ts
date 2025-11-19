@@ -30,18 +30,18 @@ type Story = StoryObj<SpotlightGalleryComponent>;
 export const Default: Story = {
   render: () => ({
     template: `
-      <div pui-story style="width: 300px;">
-      <pui-spotlight-gallery>
+      <div qui-story style="width: 300px;">
+      <qui-spotlight-gallery>
         <ng-template puiSpotlightGalleryItem>
-          <img pui-spotlight-gallery-image src="https://placehold.co/150x150" alt="Image 1" />
+          <img qui-spotlight-gallery-image src="https://placehold.co/150x150" alt="Image 1" />
         </ng-template>
         <ng-template puiSpotlightGalleryItem>
-          <img pui-spotlight-gallery-image src="https://placehold.co/151x151" alt="Image 2" />
+          <img qui-spotlight-gallery-image src="https://placehold.co/151x151" alt="Image 2" />
         </ng-template>
         <ng-template puiSpotlightGalleryItem>
-          <img pui-spotlight-gallery-image src="https://placehold.co/152x152" alt="Image 3" />
+          <img qui-spotlight-gallery-image src="https://placehold.co/152x152" alt="Image 3" />
         </ng-template>
-        </pui-spotlight-gallery>
+        </qui-spotlight-gallery>
       </div>
     `,
   }),

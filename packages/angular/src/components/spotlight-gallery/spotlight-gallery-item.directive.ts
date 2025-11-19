@@ -4,7 +4,7 @@ import { Directive, TemplateRef } from '@angular/core';
   selector: '[puiSpotlightGalleryItem]',
   standalone: true,
   host: {
-    'data-testid': 'pui-spotlight-gallery-item',
+    'data-testid': 'qui-spotlight-gallery-item',
   },
 })
 export class SpotlightGalleryItemDirective {

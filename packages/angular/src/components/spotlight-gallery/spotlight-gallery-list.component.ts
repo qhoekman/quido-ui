@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'div[pui-spotlight-gallery-list]',
+  selector: 'div[qui-spotlight-gallery-list]',
   standalone: true,
   host: {
-    'data-testid': 'pui-spotlight-gallery-list',
+    'data-testid': 'qui-spotlight-gallery-list',
   },
   template: `<ng-content></ng-content>`,
   styles: [
