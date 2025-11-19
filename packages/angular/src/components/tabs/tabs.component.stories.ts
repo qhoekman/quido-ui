@@ -51,58 +51,58 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
-        <div pui-tabs>
-          <div pui-tabs-list>
-            <button pui-tabs-trigger [tabContentFor]="tabContentAccount">Account</button>
-            <button pui-tabs-trigger [tabContentFor]="tabContentPassword">Password</button>
-            <button pui-tabs-trigger disabled [tabContentFor]="tabContentDisabled">Disabled</button>
+      <qui-story>
+        <div qui-tabs>
+          <div qui-tabs-list>
+            <button qui-tabs-trigger [tabContentFor]="tabContentAccount">Account</button>
+            <button qui-tabs-trigger [tabContentFor]="tabContentPassword">Password</button>
+            <button qui-tabs-trigger disabled [tabContentFor]="tabContentDisabled">Disabled</button>
           </div>
           <ng-template #tabContentAccount>
-            <div pui-tabs-content>
-              <div pui-card>
-                <div pui-card-header>
-                  <h3 pui-card-title>Account</h3>
-                  <p pui-card-description>Make changes to your account here. Click save when you're done.</p>
+            <div qui-tabs-content>
+              <div qui-card>
+                <div qui-card-header>
+                  <h3 qui-card-title>Account</h3>
+                  <p qui-card-description>Make changes to your account here. Click save when you're done.</p>
                 </div>
-                <div pui-card-content>
-                  <div pui-stack>
-                    <label pui-label for="name">Name</label>
-                    <input pui-input id="name" defaultValue="Pedro Duarte" />
+                <div qui-card-content>
+                  <div qui-stack>
+                    <label qui-label for="name">Name</label>
+                    <input qui-input id="name" defaultValue="Pedro Duarte" />
                   </div>
                 </div>
-                <div pui-card-footer>
-                  <button pui-button>Save changes</button>
+                <div qui-card-footer>
+                  <button qui-button>Save changes</button>
                 </div>
               </div>
             </div>
           </ng-template>
           <ng-template #tabContentPassword>
-            <div pui-tabs-content>
-              <div pui-card>
-                <div pui-card-header>
-                  <h3 pui-card-title>Password</h3>
-                  <p pui-card-description>Change your password here. After saving, you'll be logged out.</p>
+            <div qui-tabs-content>
+              <div qui-card>
+                <div qui-card-header>
+                  <h3 qui-card-title>Password</h3>
+                  <p qui-card-description>Change your password here. After saving, you'll be logged out.</p>
                 </div>
-                <div pui-card-content>
-                  <div pui-stack>
-                    <label pui-label for="new">New password</label>
-                    <input pui-input id="new" type="password" />
+                <div qui-card-content>
+                  <div qui-stack>
+                    <label qui-label for="new">New password</label>
+                    <input qui-input id="new" type="password" />
                   </div>
                 </div>
-                <div pui-card-footer>
-                  <button pui-button>Save password</button>
+                <div qui-card-footer>
+                  <button qui-button>Save password</button>
                 </div>
               </div>
             </div>
           </ng-template>
           <ng-template #tabContentDisabled>
-            <div pui-tabs-content>
+            <div qui-tabs-content>
               <p>Disabled</p>
             </div>
           </ng-template>
         </div>
-      </pui-story>
+      </qui-story>
     `,
   }),
 };

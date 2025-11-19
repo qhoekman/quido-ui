@@ -2,10 +2,10 @@ import { Component, ContentChildren, QueryList } from '@angular/core';
 import { TabsTriggerComponent } from './tabs-trigger.component';
 
 @Component({
-  selector: '[pui-tabs-list]',
+  selector: '[qui-tabs-list]',
   template: `<ng-content></ng-content>`,
   host: {
-    'data-testid': 'pui-tabs-list',
+    'data-testid': 'qui-tabs-list',
   },
   styles: [
     `

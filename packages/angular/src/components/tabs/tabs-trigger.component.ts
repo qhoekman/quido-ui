@@ -5,11 +5,11 @@ type TabsTriggerVariants = {
 };
 
 @Component({
-  selector: '[pui-tabs-trigger]',
+  selector: '[qui-tabs-trigger]',
   template: `<ng-content></ng-content>`,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-tabs-trigger',
+    'data-testid': 'qui-tabs-trigger',
     '[attr.aria-expanded]': 'variant === "active"',
   },
   styles: [

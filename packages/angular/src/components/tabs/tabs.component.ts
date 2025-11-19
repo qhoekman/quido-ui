@@ -1,14 +1,22 @@
 import { AsyncPipe, NgTemplateOutlet } from '@angular/common';
-import { AfterContentInit, Component, ContentChild, Input, OnDestroy, OnInit, TemplateRef } from '@angular/core';
+import {
+  AfterContentInit,
+  Component,
+  ContentChild,
+  Input,
+  OnDestroy,
+  OnInit,
+  TemplateRef,
+} from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { TabsListComponent } from './tabs-list.component';
 
 @Component({
-  selector: '[pui-tabs]',
+  selector: '[qui-tabs]',
   imports: [NgTemplateOutlet, AsyncPipe],
   template: `
-    <ng-content select="[pui-tabs-list]">
-      <ng-content select="[pui-tabs-trigger]"></ng-content>
+    <ng-content select="[qui-tabs-list]">
+      <ng-content select="[qui-tabs-trigger]"></ng-content>
     </ng-content>
     <ng-container *ngTemplateOutlet="tabsContent | async"></ng-container>
   `,
