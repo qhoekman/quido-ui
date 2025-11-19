@@ -13,11 +13,11 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'pui-color-wheel',
+  selector: 'qui-color-wheel',
   standalone: true,
   imports: [CommonModule],
   host: {
-    'data-testid': 'pui-color-wheel',
+    'data-testid': 'qui-color-wheel',
   },
   template: `
     <svg #svgRef width="200" height="200" viewBox="0 0 200 200">
@@ -61,7 +61,10 @@ export class ColorWheelComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if ((changes['hue'] || changes['saturation'] || changes['lightness']) && !this.valueChange.observed) {
+    if (
+      (changes['hue'] || changes['saturation'] || changes['lightness']) &&
+      !this.valueChange.observed
+    ) {
       this.generateColorWheel();
       this.updateIndicatorPosition();
     }
@@ -89,8 +92,12 @@ export class ColorWheelComponent implements OnInit, OnChanges {
 
   updateIndicatorPosition() {
     this.indicatorPosition = {
-      x: 100 + (this.saturation / 100) * 100 * Math.cos((this.hue * Math.PI) / 180),
-      y: 100 + (this.saturation / 100) * 100 * Math.sin((this.hue * Math.PI) / 180),
+      x:
+        100 +
+        (this.saturation / 100) * 100 * Math.cos((this.hue * Math.PI) / 180),
+      y:
+        100 +
+        (this.saturation / 100) * 100 * Math.sin((this.hue * Math.PI) / 180),
     };
   }
 
@@ -131,6 +138,8 @@ export class ColorWheelComponent implements OnInit, OnChanges {
     this.hue = newHue;
     this.saturation = newSaturation;
     this.updateIndicatorPosition();
-    this.valueChange.emit(`hsl(${Math.round(newHue)}, ${Math.round(newSaturation)}%, 50%)`);
+    this.valueChange.emit(
+      `hsl(${Math.round(newHue)}, ${Math.round(newSaturation)}%, 50%)`
+    );
   }
 }

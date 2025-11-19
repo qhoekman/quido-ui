@@ -20,9 +20,9 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
-        <pui-color-wheel></pui-color-wheel>
-      </pui-story>
+      <qui-story>
+        <qui-color-wheel></qui-color-wheel>
+      </qui-story>
     `,
   }),
 };
