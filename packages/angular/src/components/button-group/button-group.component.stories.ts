@@ -23,13 +23,13 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
-        <div pui-button-group>
-          <button pui-button variant="outline">Button 1</button>
-          <button pui-button variant="outline">Button 2</button>
-          <button pui-button variant="outline">Button 3</button>
+      <qui-story>
+        <div qui-button-group>
+          <button qui-button variant="outline">Button 1</button>
+          <button qui-button variant="outline">Button 2</button>
+          <button qui-button variant="outline">Button 3</button>
         </div>
-      </pui-story>
+      </qui-story>
     `,
   }),
 };

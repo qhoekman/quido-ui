@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'div[pui-button-group]',
+  selector: 'div[qui-button-group]',
   standalone: true,
   imports: [CommonModule],
   host: {
-    'data-testid': 'pui-button-group',
+    'data-testid': 'qui-button-group',
   },
   template: `<ng-content></ng-content>`,
   styles: [
