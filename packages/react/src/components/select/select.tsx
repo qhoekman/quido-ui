@@ -19,6 +19,7 @@ const StyledSelectTrigger = styled(SelectPrimitive.Trigger)`
   border-radius: var(--border-radius-md);
   border: var(--border-width-default) solid var(--color-input);
   background-color: transparent;
+  color: var(--color-background-fg);
   padding: var(--spacing-2) var(--spacing-3);
   font-size: var(--font-size-sm);
   box-shadow: var(--box-shadow-sm);
@@ -125,7 +126,8 @@ const StyledSelectContent = styled(SelectPrimitive.Content)<{
   overflow: hidden;
   border-radius: var(--border-radius-md);
   border: var(--border-width-default) solid var(--color-border);
-  background-color: var(--color-white);
+  background-color: var(--color-popover);
+  color: var(--color-popover-fg);
   box-shadow: var(--box-shadow-md);
 
   &[data-state="open"] {

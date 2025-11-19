@@ -16,7 +16,7 @@ export default {
 export const Default: StoryFn<typeof Select> = (args) => (
   <form>
     <Select {...args}>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger style={{ width: "var(--spacing-18)" }}>
         <SelectValue placeholder="Theme" />
       </SelectTrigger>
       <SelectContent>
