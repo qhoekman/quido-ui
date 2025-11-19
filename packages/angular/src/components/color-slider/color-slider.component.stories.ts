@@ -49,7 +49,7 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <div pui-color-slider
+      <div qui-color-slider
         [mode]="mode"
         [hue]="hue"
         [saturation]="saturation"

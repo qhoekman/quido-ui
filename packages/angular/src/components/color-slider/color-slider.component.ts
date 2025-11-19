@@ -13,15 +13,24 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'div[pui-color-slider]',
+  selector: 'div[qui-color-slider]',
   standalone: true,
   template: `
-    <div #track class="color-slider-track" data-testid="pui-color-slider-track">
-      <div #range class="color-slider-range" data-testid="pui-color-slider-range"></div>
-      <div #thumb class="color-slider-thumb" tabindex="0" data-testid="pui-color-slider-thumb"></div>
+    <div #track class="color-slider-track" data-testid="qui-color-slider-track">
+      <div
+        #range
+        class="color-slider-range"
+        data-testid="qui-color-slider-range"
+      ></div>
+      <div
+        #thumb
+        class="color-slider-thumb"
+        tabindex="0"
+        data-testid="qui-color-slider-thumb"
+      ></div>
     </div>
     <input
-      data-testid="pui-color-slider-input"
+      data-testid="qui-color-slider-input"
       type="hidden"
       [attr.id]="elementRef.nativeElement.id"
       [attr.name]="elementRef.nativeElement.name"
@@ -74,10 +83,7 @@ export class ColorSliderComponent implements AfterViewInit, OnChanges {
   @ViewChild('range') range!: ElementRef;
   @ViewChild('thumb') thumb!: ElementRef;
 
-  constructor(
-    protected elementRef: ElementRef,
-    private renderer: Renderer2,
-  ) {}
+  constructor(protected elementRef: ElementRef, private renderer: Renderer2) {}
 
   ngAfterViewInit() {
     this.updateSlider();
@@ -96,7 +102,8 @@ export class ColorSliderComponent implements AfterViewInit, OnChanges {
 
   private updateSlider() {
     const trackWidth = this.track.nativeElement.offsetWidth;
-    const thumbPosition = ((this.value - this.min) / (this.max - this.min)) * trackWidth;
+    const thumbPosition =
+      ((this.value - this.min) / (this.max - this.min)) * trackWidth;
     this.range.nativeElement.style.width = `${thumbPosition}px`;
     this.thumb.nativeElement.style.left = `${thumbPosition}px`;
 
@@ -143,7 +150,10 @@ export class ColorSliderComponent implements AfterViewInit, OnChanges {
 
   private updateValueFromEvent(event: MouseEvent) {
     const trackRect = this.track.nativeElement.getBoundingClientRect();
-    let newValue = ((event.clientX - trackRect.left) / trackRect.width) * (this.max - this.min) + this.min;
+    let newValue =
+      ((event.clientX - trackRect.left) / trackRect.width) *
+        (this.max - this.min) +
+      this.min;
 
     // Round to nearest step
     const steps = Math.round((newValue - this.min) / this.step);
