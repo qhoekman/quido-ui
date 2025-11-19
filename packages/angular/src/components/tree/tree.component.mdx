@@ -1,0 +1,37 @@
+import * as TreeStories from "./tree.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import TreeCode from "!!raw-loader!./tree.component.ts";
+import TreeItemCode from "!!raw-loader!./tree-item.component.ts";
+import TreeGroupCode from "!!raw-loader!./tree-group.component.ts";
+import TreeItemIconCode from "!!raw-loader!./tree-item-icon.component.ts";
+import TreeItemLabelCode from "!!raw-loader!./tree-item-label.component.ts";
+
+# Tree Component
+
+<Meta of={TreeStories} />
+<Canvas of={TreeStories.Default} />
+<Controls of={TreeStories.Default} />
+
+## Installation
+
+Copy the following code into your project.
+
+> **tree.component.ts**
+>
+> <Source code={TreeCode} language="typescript" />
+
+> **tree-item.component.ts**
+>
+> <Source code={TreeItemCode} language="typescript" />
+
+> **tree-group.component.ts**
+>
+> <Source code={TreeGroupCode} language="typescript" />
+
+> **tree-item-icon.component.ts**
+>
+> <Source code={TreeItemIconCode} language="typescript" />
+
+> **tree-item-label.component.ts**
+>
+> <Source code={TreeItemLabelCode} language="typescript" />
