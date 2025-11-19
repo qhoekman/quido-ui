@@ -1,0 +1,22 @@
+import * as GridStories from "./grid.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import GridCode from "!!raw-loader!./grid.component.ts";
+import GridItemCode from "!!raw-loader!./grid-item.component.ts";
+
+# Grid Component
+
+<Meta of={GridStories} />
+<Canvas of={GridStories.DefaultGridItem} />
+<Controls of={GridStories.DefaultGridItem} />
+
+## Installation
+
+Copy the following code into your project.
+
+> **grid.component.ts**
+>
+> <Source code={GridCode} language="typescript" />
+
+> **grid-item.component.ts**
+>
+> <Source code={GridItemCode} language="typescript" />
