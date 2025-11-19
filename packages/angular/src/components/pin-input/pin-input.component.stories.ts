@@ -39,9 +39,9 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
-        <pui-pin-input [length]="length" [size]="size"></pui-pin-input>
-      </pui-story>
+      <qui-story>
+        <qui-pin-input [length]="length" [size]="size"></qui-pin-input>
+      </qui-story>
     `,
   }),
 };

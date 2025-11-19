@@ -12,16 +12,16 @@ import {
 import { InputComponent, InputVariants } from '../input/input.component';
 
 @Component({
-  selector: 'pui-pin-input',
+  selector: 'qui-pin-input',
   standalone: true,
   imports: [CommonModule, InputComponent],
   host: {
-    'data-testid': 'pui-pin-input',
+    'data-testid': 'qui-pin-input',
   },
   template: `
     <input
-      pui-input
-      data-testid="pui-pin-input-input"
+      qui-input
+      data-testid="qui-pin-input-input"
       [name]="name + '-' + (i + 1)"
       *ngFor="let pin of [].constructor(length); let i = index"
       [attr.maxlength]="1"
@@ -35,19 +35,19 @@ import { InputComponent, InputVariants } from '../input/input.component';
   `,
   styles: [
     `
-      :host [pui-input].size--md {
+      :host [qui-input].size--md {
         margin-inline: var(--spacing-2);
         width: var(--spacing-8);
         height: var(--spacing-8);
       }
 
-      :host [pui-input].size--sm {
+      :host [qui-input].size--sm {
         margin-inline: var(--spacing-1);
         width: var(--spacing-6);
         height: var(--spacing-6);
       }
 
-      :host [pui-input].size--lg {
+      :host [qui-input].size--lg {
         margin-inline: var(--spacing-3);
         width: var(--spacing-10);
         height: var(--spacing-8);
