@@ -21,7 +21,8 @@ export default {
     },
     defaultOpen: {
       control: "boolean",
-      description: "The open state of the action sheet when it is initially rendered",
+      description:
+        "The open state of the action sheet when it is initially rendered",
     },
     open: {
       control: "boolean",
@@ -33,7 +34,8 @@ export default {
     },
     dismissible: {
       control: "boolean",
-      description: "Whether the action sheet can be dismissed by clicking outside or pressing escape",
+      description:
+        "Whether the action sheet can be dismissed by clicking outside or pressing escape",
     },
   },
   args: {
@@ -49,7 +51,13 @@ export const Default: StoryFn<typeof ActionSheet> = (args) => (
       <Button variant="outline">Open ActionSheet</Button>
     </ActionSheetTrigger>
     <ActionSheetContent>
-      <div className="mx-auto w-full max-w-sm">
+      <div
+        style={{
+          margin: "0 auto",
+          width: "100%",
+          maxWidth: "var(--spacing-sm)",
+        }}
+      >
         <ActionSheetHeader>
           <ActionSheetTitle>Choose action</ActionSheetTitle>
           <ActionSheetDescription>
