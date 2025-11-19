@@ -4,14 +4,14 @@ import { IconCaretDownComponent, IconCaretUpComponent } from '../../icons';
 
 import { CdkMenuTrigger } from '@angular/cdk/menu';
 @Component({
-  selector: 'pui-tab-navigation-indicator',
+  selector: 'qui-tab-navigation-indicator',
   imports: [NgIf, IconCaretUpComponent, IconCaretDownComponent],
   template: `
     <ng-container *ngIf="menuTrigger.isOpen(); else caretDown">
-      <i pui-icon name="caret-up"></i>
+      <i qui-icon name="caret-up"></i>
     </ng-container>
     <ng-template #caretDown>
-      <i pui-icon name="caret-down"></i>
+      <i qui-icon name="caret-down"></i>
     </ng-template>
   `,
   styles: [

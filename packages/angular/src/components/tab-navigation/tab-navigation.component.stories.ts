@@ -47,50 +47,50 @@ export const Link: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
-        <ul pui-tab-navigation>
-          <li pui-tab-navigation-item>
-            <a pui-tab-navigation-link state="active">
-              <i pui-icon name="home"></i>
+      <qui-story>
+        <ul qui-tab-navigation>
+          <li qui-tab-navigation-item>
+            <a qui-tab-navigation-link state="active">
+              <i qui-icon name="home"></i>
               Home
             </a>
           </li>
-          <li pui-tab-navigation-item>
-            <a pui-tab-navigation-link [cdkMenuTriggerFor]="tabNavigationBalances">Balances
-                <pui-tab-navigation-indicator></pui-tab-navigation-indicator>
+          <li qui-tab-navigation-item>
+            <a qui-tab-navigation-link [cdkMenuTriggerFor]="tabNavigationBalances">Balances
+                <qui-tab-navigation-indicator></qui-tab-navigation-indicator>
             </a>
           </li>
-          <li pui-tab-navigation-item>
-            <a pui-tab-navigation-link [cdkMenuTriggerFor]="tabNavigationTransactions">Transactions</a>
+          <li qui-tab-navigation-item>
+            <a qui-tab-navigation-link [cdkMenuTriggerFor]="tabNavigationTransactions">Transactions</a>
           </li>
-          <li pui-tab-navigation-item>
-            <a pui-tab-navigation-link>
+          <li qui-tab-navigation-item>
+            <a qui-tab-navigation-link>
               Messages
-              <div pui-badge variant="destructive" size="sm" rounded="full">1</div>
+              <div qui-badge variant="destructive" size="sm" rounded="full">1</div>
             </a>
           </li>
-          <li pui-tab-navigation-item>
-            <a pui-tab-navigation-link aria-disabled="true" disabled>Support</a>
+          <li qui-tab-navigation-item>
+            <a qui-tab-navigation-link aria-disabled="true" disabled>Support</a>
           </li>
-          <div pui-tab-navigation-rail></div>
+          <div qui-tab-navigation-rail></div>
         </ul>
         <ng-template #tabNavigationBalances>
-          <div pui-tab-navigation-menu>
-            <ol pui-tab-navigation-menugroup>
-              <li pui-tab-navigation-menuitem>View Balance</li>
-              <li pui-tab-navigation-menuitem>Transfer Funds</li>
-              <li pui-tab-navigation-menuitem>Deposit</li>
-              <li pui-tab-navigation-menuitem>Withdraw</li>
+          <div qui-tab-navigation-menu>
+            <ol qui-tab-navigation-menugroup>
+              <li qui-tab-navigation-menuitem>View Balance</li>
+              <li qui-tab-navigation-menuitem>Transfer Funds</li>
+              <li qui-tab-navigation-menuitem>Deposit</li>
+              <li qui-tab-navigation-menuitem>Withdraw</li>
             </ol>
-            <div pui-tab-navigation-separator></div>
-            <ol pui-tab-navigation-menugroup>
-              <li pui-tab-navigation-menuitem>Transaction History</li>
-              <li pui-tab-navigation-menuitem>Account Settings</li>
-              <li pui-tab-navigation-menuitem>Support</li>
+            <div qui-tab-navigation-separator></div>
+            <ol qui-tab-navigation-menugroup>
+              <li qui-tab-navigation-menuitem>Transaction History</li>
+              <li qui-tab-navigation-menuitem>Account Settings</li>
+              <li qui-tab-navigation-menuitem>Support</li>
             </ol>
           </div>
         </ng-template>
-      </pui-story>
+      </qui-story>
     `,
   }),
 };
@@ -99,49 +99,49 @@ export const Border: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
-        <ul pui-tab-navigation gap="sm">
-          <li pui-tab-navigation-item>
-            <a pui-tab-navigation-link variant="border" state="active">
-              <i pui-icon name="home"></i>
+      <qui-story>
+        <ul qui-tab-navigation gap="sm">
+          <li qui-tab-navigation-item>
+            <a qui-tab-navigation-link variant="border" state="active">
+              <i qui-icon name="home"></i>
               Home
             </a>
           </li>
-          <li pui-tab-navigation-item>
-            <a pui-tab-navigation-link variant="border" [cdkMenuTriggerFor]="tabNavigationBalances">Balances
-                <pui-tab-navigation-indicator></pui-tab-navigation-indicator>
+          <li qui-tab-navigation-item>
+            <a qui-tab-navigation-link variant="border" [cdkMenuTriggerFor]="tabNavigationBalances">Balances
+                <qui-tab-navigation-indicator></qui-tab-navigation-indicator>
             </a>
           </li>
-          <li pui-tab-navigation-item>
-            <a pui-tab-navigation-link variant="border" [cdkMenuTriggerFor]="tabNavigationTransactions">Transactions</a>
+          <li qui-tab-navigation-item>
+            <a qui-tab-navigation-link variant="border" [cdkMenuTriggerFor]="tabNavigationTransactions">Transactions</a>
           </li>
-          <li pui-tab-navigation-item>
-            <a pui-tab-navigation-link variant="border">
+          <li qui-tab-navigation-item>
+            <a qui-tab-navigation-link variant="border">
               Messages
-              <div pui-badge variant="destructive" size="sm" rounded="full">1</div>
+              <div qui-badge variant="destructive" size="sm" rounded="full">1</div>
             </a>
           </li>
-          <li pui-tab-navigation-item>
-            <a pui-tab-navigation-link variant="border" aria-disabled="true" disabled>Support</a>
+          <li qui-tab-navigation-item>
+            <a qui-tab-navigation-link variant="border" aria-disabled="true" disabled>Support</a>
           </li>
         </ul>
         <ng-template #tabNavigationBalances>
-          <div pui-tab-navigation-menu>
-            <ol pui-tab-navigation-menugroup>
-              <li pui-tab-navigation-menuitem>View Balance</li>
-              <li pui-tab-navigation-menuitem>Transfer Funds</li>
-              <li pui-tab-navigation-menuitem>Deposit</li>
-              <li pui-tab-navigation-menuitem>Withdraw</li>
+          <div qui-tab-navigation-menu>
+            <ol qui-tab-navigation-menugroup>
+              <li qui-tab-navigation-menuitem>View Balance</li>
+              <li qui-tab-navigation-menuitem>Transfer Funds</li>
+              <li qui-tab-navigation-menuitem>Deposit</li>
+              <li qui-tab-navigation-menuitem>Withdraw</li>
             </ol>
-            <div pui-tab-navigation-separator></div>
-            <ol pui-tab-navigation-menugroup>
-              <li pui-tab-navigation-menuitem>Transaction History</li>
-              <li pui-tab-navigation-menuitem>Account Settings</li>
-              <li pui-tab-navigation-menuitem>Support</li>
+            <div qui-tab-navigation-separator></div>
+            <ol qui-tab-navigation-menugroup>
+              <li qui-tab-navigation-menuitem>Transaction History</li>
+              <li qui-tab-navigation-menuitem>Account Settings</li>
+              <li qui-tab-navigation-menuitem>Support</li>
             </ol>
           </div>
         </ng-template>
-      </pui-story>
+      </qui-story>
     `,
   }),
 };
@@ -150,49 +150,49 @@ export const Pill: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
-        <ul pui-tab-navigation variant="inset">
-          <li pui-tab-navigation-item>
-            <a pui-tab-navigation-link variant="pill" state="active">
-              <i pui-icon name="home"></i>
+      <qui-story>
+        <ul qui-tab-navigation variant="inset">
+          <li qui-tab-navigation-item>
+            <a qui-tab-navigation-link variant="pill" state="active">
+              <i qui-icon name="home"></i>
               Home
             </a>
           </li>
-          <li pui-tab-navigation-item>
-            <a pui-tab-navigation-link variant="pill" [cdkMenuTriggerFor]="tabNavigationBalances">Balances
-                <pui-tab-navigation-indicator></pui-tab-navigation-indicator>
+          <li qui-tab-navigation-item>
+            <a qui-tab-navigation-link variant="pill" [cdkMenuTriggerFor]="tabNavigationBalances">Balances
+                <qui-tab-navigation-indicator></qui-tab-navigation-indicator>
             </a>
           </li>
-          <li pui-tab-navigation-item>
-            <a pui-tab-navigation-link variant="pill" [cdkMenuTriggerFor]="tabNavigationTransactions">Transactions</a>
+          <li qui-tab-navigation-item>
+            <a qui-tab-navigation-link variant="pill" [cdkMenuTriggerFor]="tabNavigationTransactions">Transactions</a>
           </li>
-          <li pui-tab-navigation-item>
-            <a pui-tab-navigation-link variant="pill">
+          <li qui-tab-navigation-item>
+            <a qui-tab-navigation-link variant="pill">
               Messages
-              <div pui-badge variant="destructive" size="sm" rounded="full">1</div>
+              <div qui-badge variant="destructive" size="sm" rounded="full">1</div>
             </a>
           </li>
-          <li pui-tab-navigation-item>
-            <a pui-tab-navigation-link variant="pill" aria-disabled="true" disabled>Support</a>
+          <li qui-tab-navigation-item>
+            <a qui-tab-navigation-link variant="pill" aria-disabled="true" disabled>Support</a>
           </li>
         </ul>
         <ng-template #tabNavigationBalances>
-          <div pui-tab-navigation-menu>
-            <ol pui-tab-navigation-menugroup>
-              <li pui-tab-navigation-menuitem>View Balance</li>
-              <li pui-tab-navigation-menuitem>Transfer Funds</li>
-              <li pui-tab-navigation-menuitem>Deposit</li>
-              <li pui-tab-navigation-menuitem>Withdraw</li>
+          <div qui-tab-navigation-menu>
+            <ol qui-tab-navigation-menugroup>
+              <li qui-tab-navigation-menuitem>View Balance</li>
+              <li qui-tab-navigation-menuitem>Transfer Funds</li>
+              <li qui-tab-navigation-menuitem>Deposit</li>
+              <li qui-tab-navigation-menuitem>Withdraw</li>
             </ol>
-            <div pui-tab-navigation-separator></div>
-            <ol pui-tab-navigation-menugroup>
-              <li pui-tab-navigation-menuitem>Transaction History</li>
-              <li pui-tab-navigation-menuitem>Account Settings</li>
-              <li pui-tab-navigation-menuitem>Support</li>
+            <div qui-tab-navigation-separator></div>
+            <ol qui-tab-navigation-menugroup>
+              <li qui-tab-navigation-menuitem>Transaction History</li>
+              <li qui-tab-navigation-menuitem>Account Settings</li>
+              <li qui-tab-navigation-menuitem>Support</li>
             </ol>
           </div>
         </ng-template>
-      </pui-story>
+      </qui-story>
     `,
   }),
 };

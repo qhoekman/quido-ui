@@ -9,7 +9,7 @@ type TabNavigationLinkVariants = {
 };
 
 @Component({
-  selector: 'a[pui-tab-navigation-link], button[pui-tab-navigation-link]',
+  selector: 'a[qui-tab-navigation-link], button[qui-tab-navigation-link]',
   host: {
     '[class]': 'getClassList()',
     '[attr.aria-disabled]': 'disabled ? true : null',

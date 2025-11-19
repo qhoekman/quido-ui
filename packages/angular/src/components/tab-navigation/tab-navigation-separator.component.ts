@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-tab-navigation-separator]',
+  selector: '[qui-tab-navigation-separator]',
   template: '',
   host: {
     role: 'separator',
-    'data-testid': 'pui-tab-navigation-separator',
+    'data-testid': 'qui-tab-navigation-separator',
     'aria-orientation': 'horizontal',
   },
   styles: [

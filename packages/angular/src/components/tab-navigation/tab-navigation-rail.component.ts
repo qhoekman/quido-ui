@@ -2,7 +2,7 @@ import { CdkMenuBar } from '@angular/cdk/menu';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'div[pui-tab-navigation-rail]',
+  selector: 'div[qui-tab-navigation-rail]',
   template: ` <ng-content></ng-content> `,
   hostDirectives: [CdkMenuBar],
   styles: [

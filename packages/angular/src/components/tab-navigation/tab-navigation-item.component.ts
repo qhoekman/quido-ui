@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'li[pui-tab-navigation-item]',
+  selector: 'li[qui-tab-navigation-item]',
   template: ` <ng-content></ng-content> `,
   styles: [
     `

@@ -7,7 +7,7 @@ type TabNavigationVariants = {
 };
 
 @Component({
-  selector: 'ul[pui-tab-navigation]',
+  selector: 'ul[qui-tab-navigation]',
   template: ` <ng-content></ng-content> `,
   hostDirectives: [CdkMenuBar],
   host: {
