@@ -21,7 +21,7 @@ export default {
 } satisfies Meta<typeof Separator>;
 
 export const Default: StoryFn<typeof Separator> = (args) => (
-  <div className="h-[100px]">
+  <div style={{ height: "100px" }}>
     <Separator {...args}></Separator>
   </div>
 );
