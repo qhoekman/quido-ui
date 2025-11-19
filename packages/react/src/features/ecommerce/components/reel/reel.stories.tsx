@@ -28,7 +28,7 @@ const unsplashImages = [
 ];
 
 export const Default: StoryFn<typeof Reel> = (args) => (
-  <div className="max-w-5xl w-full">
+  <div style={{ maxWidth: "var(--spacing-5xl)", width: "100%" }}>
     <Reel {...args}>
       <ReelButtonPrevious />
       <ReelItems>

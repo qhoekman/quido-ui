@@ -110,7 +110,14 @@ export const ReelButtonNext: React.FC<ReelButtonProps> = ({
       disabled={canNext}
       {...props}
     >
-      {children ?? <ChevronRight className="w-6 h-6" />}
+      {children ?? (
+        <ChevronRight
+          style={{
+            width: "var(--spacing-6)",
+            height: "var(--spacing-6)",
+          }}
+        />
+      )}
     </ReelButton>
   );
 };
@@ -134,7 +141,14 @@ export const ReelButtonPrevious: React.FC<ReelButtonProps> = ({
       disabled={canPrev}
       {...props}
     >
-      {children ?? <ChevronLeft className="w-6 h-6" />}
+      {children ?? (
+        <ChevronLeft
+          style={{
+            width: "var(--spacing-6)",
+            height: "var(--spacing-6)",
+          }}
+        />
+      )}
     </ReelButton>
   );
 };
