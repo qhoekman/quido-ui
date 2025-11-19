@@ -15,7 +15,11 @@ const meta: Meta<EnhancedNumberInputComponent> = {
   component: NumberInputComponent,
   decorators: [
     moduleMetadata({
-      imports: [NumberInputComponent, NumberInputFieldComponent, StoryComponent],
+      imports: [
+        NumberInputComponent,
+        NumberInputFieldComponent,
+        StoryComponent,
+      ],
     }),
   ],
   argTypes: {
@@ -48,11 +52,11 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
-        <pui-number-inputfield [size]="size">
-          <input pui-number-input [placeholder]="placeholder" [disabled]="disabled" [required]="required" />
-        </pui-number-inputfield>
-      </pui-story>
+      <qui-story>
+        <qui-number-inputfield [size]="size">
+          <input qui-number-input [placeholder]="placeholder" [disabled]="disabled" [required]="required" />
+        </qui-number-inputfield>
+      </qui-story>
     `,
   }),
 };

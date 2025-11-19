@@ -2,12 +2,12 @@ import { Component, ElementRef, HostListener, Input } from '@angular/core';
 import { NumberInputFieldVariants } from './number-inputfield.component';
 
 @Component({
-  selector: 'input[pui-number-input]',
+  selector: 'input[qui-number-input]',
   standalone: true,
   host: {
     type: 'number',
     '[class]': 'getClassList()',
-    'data-testid': 'pui-number-input',
+    'data-testid': 'qui-number-input',
   },
   template: ``,
   styles: [

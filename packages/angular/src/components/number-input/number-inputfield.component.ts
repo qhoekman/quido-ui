@@ -1,20 +1,30 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ContentChild, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ContentChild,
+  Input,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { InputComponent } from '../input/input.component';
 import { NumberInputButtonComponent } from './number-input-button.component';
 import { NumberInputComponent } from './number-input.component';
-import { IconChevronLeftComponent, IconChevronRightComponent } from '../../icons';
+import {
+  IconChevronLeftComponent,
+  IconChevronRightComponent,
+} from '../../icons';
 
 export type NumberInputFieldVariants = {
   size: 'sm' | 'md' | 'lg';
 };
 
 @Component({
-  selector: 'pui-number-inputfield',
+  selector: 'qui-number-inputfield',
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-number-inputfield',
+    'data-testid': 'qui-number-inputfield',
   },
   imports: [
     CommonModule,
@@ -24,12 +34,23 @@ export type NumberInputFieldVariants = {
     IconChevronRightComponent,
   ],
   template: `
-    <button type="button" pui-number-input-button aria-label="Decrement" (click)="handleDecrement()" [size]="size">
-      <i [class]="getIconClassList()" pui-icon name="chevron-left"> </i>
+    <button
+      type="button"
+      qui-number-input-button
+      aria-label="Decrement"
+      (click)="handleDecrement()"
+      [size]="size"
+    >
+      <i [class]="getIconClassList()" qui-icon name="chevron-left"> </i>
     </button>
-    <ng-content select="[pui-number-input]"></ng-content>
-    <button pui-number-input-button [size]="size" aria-label="Increment" (click)="handleIncrement()">
-      <i [class]="getIconClassList()" pui-icon name="chevron-right"> </i>
+    <ng-content select="[qui-number-input]"></ng-content>
+    <button
+      qui-number-input-button
+      [size]="size"
+      aria-label="Increment"
+      (click)="handleIncrement()"
+    >
+      <i [class]="getIconClassList()" qui-icon name="chevron-right"> </i>
     </button>
   `,
   styles: [

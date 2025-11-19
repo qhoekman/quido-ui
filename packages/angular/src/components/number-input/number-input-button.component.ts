@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { NumberInputFieldVariants } from './number-inputfield.component';
 
 @Component({
-  selector: 'button[pui-number-input-button]',
+  selector: 'button[qui-number-input-button]',
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-number-input-button',
+    'data-testid': 'qui-number-input-button',
   },
   template: ` <ng-content></ng-content> `,
   styles: [
@@ -16,9 +16,7 @@ import { NumberInputFieldVariants } from './number-inputfield.component';
         border: var(--border-width-default) solid var(--color-border);
         color: var(--color-input-fg);
         cursor: pointer;
-        transition:
-          background-color 0.2s,
-          color 0.2s;
+        transition: background-color 0.2s, color 0.2s;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -32,8 +30,7 @@ import { NumberInputFieldVariants } from './number-inputfield.component';
 
       :host:focus-visible {
         outline: none;
-        box-shadow:
-          0 0 0 var(--border-width-2) var(--color-ring),
+        box-shadow: 0 0 0 var(--border-width-2) var(--color-ring),
           0 0 0 var(--border-width-4) var(--color-muted);
       }
 
