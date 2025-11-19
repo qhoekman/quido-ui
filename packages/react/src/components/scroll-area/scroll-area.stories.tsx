@@ -18,7 +18,16 @@ export default {
 } satisfies Meta<typeof ScrollArea>;
 
 const Template: StoryFn<typeof ScrollArea> = (args) => (
-  <ScrollArea className="h-[200px] w-[350px] rounded-md border p-4" {...args}>
+  <ScrollArea
+    style={{
+      height: "200px",
+      width: "350px",
+      borderRadius: "var(--border-radius-md)",
+      border: "var(--border-width-default) solid var(--color-border)",
+      padding: "var(--spacing-4)",
+    }}
+    {...args}
+  >
     Jokester began sneaking into the castle in the middle of the night and
     leaving jokes all over the place: under the king's pillow, in his soup, even
     in the royal toilet. The king was furious, but he couldn't seem to stop
