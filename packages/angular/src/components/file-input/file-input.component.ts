@@ -1,41 +1,55 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
 import { IconCross2Component } from '../../icons';
 import { IconFileComponent } from '../../icons';
 
 @Component({
-  selector: 'pui-file-input',
+  selector: 'qui-file-input',
   standalone: true,
-  imports: [CommonModule, ButtonComponent, IconFileComponent, IconCross2Component],
+  imports: [
+    CommonModule,
+    ButtonComponent,
+    IconFileComponent,
+    IconCross2Component,
+  ],
   template: `
     <div
       class="file-input"
       (click)="handleClick()"
       tabindex="0"
       (keydown)="handleKeyDown($event)"
-      data-testid="pui-file-input"
+      data-testid="qui-file-input"
     >
       <input
         #input
-        data-testid="pui-file-input-input"
+        data-testid="qui-file-input-input"
         type="file"
         class="hidden"
         (change)="handleChange($event)"
         [attr.multiple]="multiple ? '' : null"
       />
-      <i pui-icon name="file" size="sm"></i>
+      <i qui-icon name="file" size="sm"></i>
       <span *ngIf="files.length > 0">{{ files.length }} file(s) selected</span>
-      <span *ngIf="files.length === 0" class="placeholder">Choose a file...</span>
+      <span *ngIf="files.length === 0" class="placeholder"
+        >Choose a file...</span
+      >
       <button
         class="clear-button"
-        pui-button
+        qui-button
         variant="ghost"
         size="icon"
         *ngIf="files.length > 0"
         (click)="handleClear($event)"
       >
-        <i pui-icon name="cross-2" size="sm"></i>
+        <i qui-icon name="cross-2" size="sm"></i>
       </button>
     </div>
   `,

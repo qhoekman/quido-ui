@@ -31,6 +31,6 @@ export const Default: Story = {
   },
   render: (args) => ({
     props: args,
-    template: `<pui-story><pui-file-input [multiple]="multiple"></pui-file-input></pui-story>`,
+    template: `<qui-story><qui-file-input [multiple]="multiple"></qui-file-input></qui-story>`,
   }),
 };
