@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-dropdown-menu-label]',
+  selector: '[qui-dropdown-menu-label]',
   template: `<ng-content></ng-content>`,
   standalone: true,
   host: {
-    'data-testid': 'pui-dropdown-menu-label',
+    'data-testid': 'qui-dropdown-menu-label',
   },
   styles: [
     `

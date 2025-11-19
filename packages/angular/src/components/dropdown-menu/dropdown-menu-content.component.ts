@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-dropdown-menu-content]',
+  selector: '[qui-dropdown-menu-content]',
   template: `<ng-content></ng-content>`,
   standalone: true,
   host: {
     role: 'menu',
     'aria-orientation': 'vertical',
-    'data-testid': 'pui-dropdown-menu-content',
+    'data-testid': 'qui-dropdown-menu-content',
     tabindex: '-1',
   },
   styles: [

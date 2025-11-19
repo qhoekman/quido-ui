@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-dropdown-menu-separator]',
+  selector: '[qui-dropdown-menu-separator]',
   template: '',
   standalone: true,
   host: {
     role: 'separator',
     'aria-orientation': 'horizontal',
-    'data-testid': 'pui-dropdown-menu-separator',
+    'data-testid': 'qui-dropdown-menu-separator',
   },
   styles: [
     `

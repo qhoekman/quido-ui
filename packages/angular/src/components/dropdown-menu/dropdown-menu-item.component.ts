@@ -1,12 +1,12 @@
 import { Component, ElementRef, HostListener } from '@angular/core';
 
 @Component({
-  selector: '[pui-dropdown-menu-item]',
+  selector: '[qui-dropdown-menu-item]',
   template: `<ng-content></ng-content>`,
   standalone: true,
   host: {
     role: 'menuitem',
-    'data-testid': 'pui-dropdown-menu-item',
+    'data-testid': 'qui-dropdown-menu-item',
   },
   styles: [
     `
@@ -19,12 +19,11 @@ import { Component, ElementRef, HostListener } from '@angular/core';
         align-items: center;
         gap: var(--spacing-2);
         border-radius: var(--border-radius-sm);
-        padding: var(--spacing-1-5) var(--spacing-2) var(--spacing-1-5) var(--spacing-2);
+        padding: var(--spacing-1-5) var(--spacing-2) var(--spacing-1-5)
+          var(--spacing-2);
         font-size: var(--font-size-sm);
         outline: none;
-        transition:
-          background-color 0.2s,
-          color 0.2s;
+        transition: background-color 0.2s, color 0.2s;
       }
 
       :host:hover {

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-dropdown-menu]',
+  selector: '[qui-dropdown-menu]',
   host: {
-    'data-testid': 'pui-dropdown-menu',
+    'data-testid': 'qui-dropdown-menu',
   },
   template: `<ng-content></ng-content>`,
   standalone: true,

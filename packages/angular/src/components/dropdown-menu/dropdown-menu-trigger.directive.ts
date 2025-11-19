@@ -1,6 +1,19 @@
-import { ConnectedPosition, Overlay, OverlayPositionBuilder, OverlayRef } from '@angular/cdk/overlay';
+import {
+  ConnectedPosition,
+  Overlay,
+  OverlayPositionBuilder,
+  OverlayRef,
+} from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
-import { Directive, ElementRef, HostListener, Input, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  HostListener,
+  Input,
+  OnInit,
+  TemplateRef,
+  ViewContainerRef,
+} from '@angular/core';
 
 type DropdownMenuVariants = {
   side: 'top' | 'bottom' | 'left' | 'right';
@@ -9,7 +22,7 @@ type DropdownMenuVariants = {
 @Directive({
   selector: '[puiDropdownMenuTrigger]',
   host: {
-    'data-testid': 'pui-dropdown-menu-trigger',
+    'data-testid': 'qui-dropdown-menu-trigger',
   },
   standalone: true,
 })
@@ -22,7 +35,7 @@ export class DropdownMenuTriggerDirective implements OnInit {
     private overlay: Overlay,
     private overlayPositionBuilder: OverlayPositionBuilder,
     private elementRef: ElementRef,
-    private viewContainerRef: ViewContainerRef,
+    private viewContainerRef: ViewContainerRef
   ) {}
 
   ngOnInit() {
@@ -43,7 +56,10 @@ export class DropdownMenuTriggerDirective implements OnInit {
     if (this.overlayRef.hasAttached()) {
       this.overlayRef.detach();
     } else {
-      const dropdownPortal = new TemplatePortal(this.dropdownMenuFor, this.viewContainerRef);
+      const dropdownPortal = new TemplatePortal(
+        this.dropdownMenuFor,
+        this.viewContainerRef
+      );
       this.overlayRef.attach(dropdownPortal);
     }
   }
@@ -63,7 +79,7 @@ export class DropdownMenuTriggerDirective implements OnInit {
       this.overlayRef.hasAttached() &&
       event.target &&
       event.target instanceof HTMLElement &&
-      event.target.closest('li[pui-dropdown-menu-item]') &&
+      event.target.closest('li[qui-dropdown-menu-item]') &&
       this.overlayRef.overlayElement.contains(event.target as Node)
     ) {
       this.overlayRef.detach();
@@ -76,7 +92,10 @@ export class DropdownMenuTriggerDirective implements OnInit {
   }
 
   open() {
-    const dropdownPortal = new TemplatePortal(this.dropdownMenuFor, this.viewContainerRef);
+    const dropdownPortal = new TemplatePortal(
+      this.dropdownMenuFor,
+      this.viewContainerRef
+    );
     return this.overlayRef.attach(dropdownPortal);
   }
 

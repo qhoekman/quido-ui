@@ -37,28 +37,28 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <div pui-dropdown-menu>
-        <button pui-button puiDropdownMenuTrigger [dropdownMenuFor]="dropdownAccountMenu">My profile</button>
+    <qui-story>
+      <div qui-dropdown-menu>
+        <button qui-button puiDropdownMenuTrigger [dropdownMenuFor]="dropdownAccountMenu">My profile</button>
         <ng-template #dropdownAccountMenu>
-          <div pui-dropdown-menu-content>
-            <div pui-dropdown-menu-label>My Account</div>
-            <div pui-dropdown-menu-separator></div>
-            <ol pui-dropdown-menu-group>
-              <li pui-dropdown-menu-item>Profile</li>
-              <li pui-dropdown-menu-item>Billing</li>
-              <li pui-dropdown-menu-item>Team</li>
-              <li pui-dropdown-menu-item>Subscription</li>
+          <div qui-dropdown-menu-content>
+            <div qui-dropdown-menu-label>My Account</div>
+            <div qui-dropdown-menu-separator></div>
+            <ol qui-dropdown-menu-group>
+              <li qui-dropdown-menu-item>Profile</li>
+              <li qui-dropdown-menu-item>Billing</li>
+              <li qui-dropdown-menu-item>Team</li>
+              <li qui-dropdown-menu-item>Subscription</li>
             </ol>
-            <div pui-dropdown-menu-separator></div>
-            <ol pui-dropdown-menu-group>
-              <li pui-dropdown-menu-item>Settings</li>
-              <li pui-dropdown-menu-item>Logout</li>
+            <div qui-dropdown-menu-separator></div>
+            <ol qui-dropdown-menu-group>
+              <li qui-dropdown-menu-item>Settings</li>
+              <li qui-dropdown-menu-item>Logout</li>
             </ol>
           </div>
         </ng-template>
       </div>
-    </pui-story>
+    </qui-story>
     `,
   }),
 };
