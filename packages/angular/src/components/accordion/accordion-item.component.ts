@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: '[pui-accordion-item]',
+  selector: '[qui-accordion-item]',
   host: {
-    'data-testid': 'pui-accordion-item',
+    'data-testid': 'qui-accordion-item',
   },
   template: `<ng-content></ng-content>`,
   styles: [

@@ -31,24 +31,24 @@ type Story = StoryObj<AccordionComponent>;
 export const Default: Story = {
   render: () => ({
     template: `
-     <pui-story>
-      <div [pui-accordion]>
-        <div [pui-accordion-item] #item1>
-          <button pui-button pui-accordion-trigger [item]="item1" variant="ghost" size="sm" fullWidth="true">
+     <qui-story>
+      <div [qui-accordion]>
+        <div [qui-accordion-item] #item1>
+          <button qui-button qui-accordion-trigger [item]="item1" variant="ghost" size="sm" fullWidth="true">
             <span>Toggle item 1</span>
-            <i pui-icon name="caret-sort"></i>
+            <i qui-icon name="caret-sort"></i>
           </button>
-          <div pui-accordion-content [item]="item1">Content 1</div>
+          <div qui-accordion-content [item]="item1">Content 1</div>
         </div>
-        <div [pui-accordion-item] #item2>
-          <button pui-button pui-accordion-trigger [item]="item2" variant="ghost" size="sm" fullWidth="true">
+        <div [qui-accordion-item] #item2>
+          <button qui-button qui-accordion-trigger [item]="item2" variant="ghost" size="sm" fullWidth="true">
             <span>Toggle item 2</span>
-            <i pui-icon name="caret-sort"></i>
+            <i qui-icon name="caret-sort"></i>
           </button>
-          <div pui-accordion-content [item]="item2">Content 2</div>
+          <div qui-accordion-content [item]="item2">Content 2</div>
         </div>
       </div>
-     </pui-story>
+     </qui-story>
     `,
   }),
 };

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-accordion]',
+  selector: '[qui-accordion]',
   host: {
-    'data-testid': 'pui-accordion',
+    'data-testid': 'qui-accordion',
   },
   template: `<ng-content></ng-content>`,
   standalone: true,

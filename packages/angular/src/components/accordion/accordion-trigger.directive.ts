@@ -2,9 +2,9 @@ import { Directive, HostListener, Input } from '@angular/core';
 import { AccordionItemComponent } from './accordion-item.component';
 
 @Directive({
-  selector: '*[pui-accordion-trigger]',
+  selector: '*[qui-accordion-trigger]',
   host: {
-    'data-testid': 'pui-accordion-trigger',
+    'data-testid': 'qui-accordion-trigger',
   },
   standalone: true,
 })

@@ -2,10 +2,10 @@ import { Component, Input } from '@angular/core';
 import { AccordionItemComponent } from './accordion-item.component';
 
 @Component({
-  selector: '[pui-accordion-content]',
+  selector: '[qui-accordion-content]',
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-accordion-content',
+    'data-testid': 'qui-accordion-content',
   },
   template: ` <ng-content></ng-content> `,
   styles: [
