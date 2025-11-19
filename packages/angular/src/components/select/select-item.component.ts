@@ -1,13 +1,19 @@
-import { Component, Input, OnInit, HostListener, ElementRef } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  HostListener,
+  ElementRef,
+} from '@angular/core';
 import { SelectComponent } from './select.component';
 
 @Component({
-  selector: '[pui-select-item]',
+  selector: '[qui-select-item]',
   standalone: true,
   host: {
     role: 'option',
     '[attr.aria-selected]': 'isSelected',
-    'data-testid': 'pui-select-item',
+    'data-testid': 'qui-select-item',
     tabindex: '0',
   },
   template: `<ng-content></ng-content>`,
@@ -33,10 +39,7 @@ export class SelectItemComponent implements OnInit {
   @Input() label!: string;
   isSelected = false;
 
-  constructor(
-    private select: SelectComponent,
-    private el: ElementRef,
-  ) {}
+  constructor(private select: SelectComponent, private el: ElementRef) {}
 
   ngOnInit() {
     this.isSelected = this.select.getSelectedOption()?.value === this.value;

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-select-label]',
+  selector: '[qui-select-label]',
   standalone: true,
   host: {
-    'data-testid': 'pui-select-label',
+    'data-testid': 'qui-select-label',
   },
   template: `<ng-content></ng-content>`,
   styles: [

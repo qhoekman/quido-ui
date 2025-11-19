@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 import { CdkListbox, CdkListboxModule } from '@angular/cdk/listbox';
 
 @Component({
-  selector: '[pui-select-content]',
+  selector: '[qui-select-content]',
   standalone: true,
   imports: [CommonModule, CdkListboxModule],
   host: {
     role: 'listbox',
     id: 'select-content',
     '[attr.tabindex]': '-1',
-    'data-testid': 'pui-select-content',
+    'data-testid': 'qui-select-content',
   },
   hostDirectives: [CdkListbox],
   template: `<ng-content></ng-content>`,

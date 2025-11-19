@@ -50,15 +50,15 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <div pui-stack items="center" align="center">
-        <pui-select>
-          <button pui-select-trigger style="width: 200px;">
+    <qui-story>
+      <div qui-stack items="center" align="center">
+        <qui-select>
+          <button qui-select-trigger style="width: 200px;">
             Select an option
           </button>
-          <ul pui-select-content style="width: 200px; ">
+          <ul qui-select-content style="width: 200px; ">
              <li
-                pui-select-item
+                qui-select-item
                 *ngFor="let option of options"
                 [value]="option.value"
                 [label]="option.label"
@@ -66,9 +66,9 @@ export const Default: Story = {
                 {{ option.label }}
               </li>
           </ul>
-        </pui-select>
+        </qui-select>
       </div>
-    </pui-story>
+    </qui-story>
     `,
   }),
 };

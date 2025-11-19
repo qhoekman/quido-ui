@@ -4,7 +4,7 @@ import { PopoverTriggerDirective } from '../popover/popover-trigger.directive';
 import { SelectComponent } from './select.component';
 
 @Component({
-  selector: 'button[pui-select-trigger]',
+  selector: 'button[qui-select-trigger]',
   standalone: true,
   host: {
     role: 'button',

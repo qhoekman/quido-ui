@@ -12,20 +12,26 @@ export interface SelectOption {
 }
 
 @Component({
-  selector: 'pui-select',
+  selector: 'qui-select',
   standalone: true,
   host: {
-    'data-testid': 'pui-select',
+    'data-testid': 'qui-select',
   },
-  imports: [CommonModule, CdkListboxModule, PopoverComponent, PopoverTriggerDirective, PopoverContentComponent],
+  imports: [
+    CommonModule,
+    CdkListboxModule,
+    PopoverComponent,
+    PopoverTriggerDirective,
+    PopoverContentComponent,
+  ],
   template: `
-    <pui-popover #popover [popoverContent]="popoverContent">
-      <ng-content select="[pui-select-trigger]"> </ng-content>
+    <qui-popover #popover [popoverContent]="popoverContent">
+      <ng-content select="[qui-select-trigger]"> </ng-content>
 
       <ng-template #popoverContent>
-        <ng-content select="[pui-select-content]"></ng-content>
+        <ng-content select="[qui-select-content]"></ng-content>
       </ng-template>
-    </pui-popover>
+    </qui-popover>
   `,
   styles: [
     `
@@ -37,7 +43,9 @@ export interface SelectOption {
   ],
 })
 export class SelectComponent {
-  protected selectedOptionSubject = new BehaviorSubject<SelectOption | null>(null);
+  protected selectedOptionSubject = new BehaviorSubject<SelectOption | null>(
+    null
+  );
   protected selectedOption$ = this.selectedOptionSubject.asObservable();
   @Output() valueChange = new EventEmitter<SelectOption>();
   @ViewChild('popover') popover!: PopoverComponent;
