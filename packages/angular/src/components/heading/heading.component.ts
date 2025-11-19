@@ -8,7 +8,7 @@ export type HeadingVariants = {
 };
 
 @Component({
-  selector: '[pui-heading]',
+  selector: '[qui-heading]',
   standalone: true,
   host: {
     '[class]': 'getClassList()',

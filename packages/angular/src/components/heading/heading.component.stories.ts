@@ -14,19 +14,45 @@ const meta: Meta<HeadingComponent> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: Array<HeadingVariants['variant']>('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'unset'),
+      options: Array<HeadingVariants['variant']>(
+        'h1',
+        'h2',
+        'h3',
+        'h4',
+        'h5',
+        'h6',
+        'unset'
+      ),
     },
     size: {
       control: 'select',
-      options: Array<HeadingVariants['size']>('sm', 'md', 'lg', 'xl', '2xl', '3xl', 'unset'),
+      options: Array<HeadingVariants['size']>(
+        'sm',
+        'md',
+        'lg',
+        'xl',
+        '2xl',
+        '3xl',
+        'unset'
+      ),
     },
     weight: {
       control: 'select',
-      options: Array<HeadingVariants['weight']>('normal', 'medium', 'bold', 'unset'),
+      options: Array<HeadingVariants['weight']>(
+        'normal',
+        'medium',
+        'bold',
+        'unset'
+      ),
     },
     color: {
       control: 'select',
-      options: Array<HeadingVariants['color']>('neutral', 'primary', 'secondary', 'unset'),
+      options: Array<HeadingVariants['color']>(
+        'neutral',
+        'primary',
+        'secondary',
+        'unset'
+      ),
     },
   },
 };
@@ -44,9 +70,9 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <span pui-heading [variant]="variant" [size]="size" [weight]="weight" [color]="color">Sample Heading</span>
-    </pui-story>
+    <qui-story>
+      <span qui-heading [variant]="variant" [size]="size" [weight]="weight" [color]="color">Sample Heading</span>
+    </qui-story>
     `,
   }),
 };
