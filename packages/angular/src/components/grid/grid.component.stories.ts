@@ -25,9 +25,9 @@ export const DefaultGridItem: Story = {
       grid: new Array(args.columns).fill(0),
     },
     template: `
-      <div pui-grid [columns]="columns">
+      <div qui-grid [columns]="columns">
         @for (i of grid; track i) {
-          <div pui-grid-item [colSpan]="colSpan" style="background-color: lightgray; padding: 20px;">
+          <div qui-grid-item [colSpan]="colSpan" style="background-color: lightgray; padding: 20px;">
             Grid Item
           </div>
         }

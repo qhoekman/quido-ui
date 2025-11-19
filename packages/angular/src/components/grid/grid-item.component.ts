@@ -1,14 +1,21 @@
-import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 
 export type GridItemProps = {
   colSpan?: number;
 };
 
 @Component({
-  selector: 'div[pui-grid-item]',
+  selector: 'div[qui-grid-item]',
   standalone: true,
   host: {
-    'data-testid': 'pui-grid-item',
+    'data-testid': 'qui-grid-item',
   },
   template: `<ng-content></ng-content>`,
   styles: [
