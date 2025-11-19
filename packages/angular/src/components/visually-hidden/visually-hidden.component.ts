@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-visually-hidden], [pui-sr-only]',
+  selector: '[qui-visually-hidden], [qui-sr-only]',
   standalone: true,
   host: {
-    'data-testid': 'pui-visually-hidden',
+    'data-testid': 'qui-visually-hidden',
   },
   template: `<ng-content></ng-content>`,
   styles: [

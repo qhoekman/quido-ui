@@ -20,12 +20,12 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <span pui-sr-only>
+    <qui-story>
+      <span qui-sr-only>
         This text is visually hidden but accessible to screen readers.
       </span>
-      <button pui-button>Visible Button</button>
-    </pui-story>
+      <button qui-button>Visible Button</button>
+    </qui-story>
   `,
   }),
 };
