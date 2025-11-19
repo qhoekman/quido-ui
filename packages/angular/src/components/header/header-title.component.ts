@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'h2[pui-header-title]',
+  selector: 'h2[qui-header-title]',
   standalone: true,
   host: {
-    'data-testid': 'pui-header-title',
+    'data-testid': 'qui-header-title',
   },
   template: `<ng-content></ng-content>`,
   styles: [

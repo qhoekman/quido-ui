@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'img[pui-header-backdrop-image]',
+  selector: 'img[qui-header-backdrop-image]',
   standalone: true,
   host: {
-    'data-testid': 'pui-header-backdrop-image',
+    'data-testid': 'qui-header-backdrop-image',
   },
   template: '',
   styles: [

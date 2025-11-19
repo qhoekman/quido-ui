@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'h3[pui-header-tagline]',
+  selector: 'h3[qui-header-tagline]',
   standalone: true,
   host: {
-    'data-testid': 'pui-header-tagline',
+    'data-testid': 'qui-header-tagline',
   },
   template: `<ng-content></ng-content>`,
   styles: [
