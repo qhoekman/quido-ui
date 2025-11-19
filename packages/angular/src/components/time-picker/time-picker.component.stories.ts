@@ -12,7 +12,13 @@ const meta: Meta<TimePickerComponent> = {
   component: TimePickerComponent,
   decorators: [
     moduleMetadata({
-      imports: [InputComponent, PopoverComponent, PopoverTriggerDirective, TimeSelectComponent, StoryComponent],
+      imports: [
+        InputComponent,
+        PopoverComponent,
+        PopoverTriggerDirective,
+        TimeSelectComponent,
+        StoryComponent,
+      ],
     }),
   ],
   argTypes: {},
@@ -25,9 +31,9 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <pui-time-picker></pui-time-picker>
-    </pui-story>
+    <qui-story>
+      <qui-time-picker></qui-time-picker>
+    </qui-story>
     `,
   }),
 };

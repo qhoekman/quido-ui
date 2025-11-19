@@ -5,23 +5,34 @@ import { PopoverTriggerDirective } from '../popover/popover-trigger.directive';
 import { TimeSelectComponent } from '../time-select/time-select.component';
 
 @Component({
-  selector: 'pui-time-picker',
+  selector: 'qui-time-picker',
   standalone: true,
   host: {
-    'data-testid': 'pui-time-picker',
+    'data-testid': 'qui-time-picker',
   },
-  imports: [InputComponent, PopoverComponent, PopoverTriggerDirective, TimeSelectComponent],
+  imports: [
+    InputComponent,
+    PopoverComponent,
+    PopoverTriggerDirective,
+    TimeSelectComponent,
+  ],
   template: `
-    <pui-popover #popover [popoverContent]="popoverContent">
-      <input pui-input puiPopoverTrigger data-testid="pui-time-picker-input" [value]="formattedTime" readonly />
+    <qui-popover #popover [popoverContent]="popoverContent">
+      <input
+        qui-input
+        puiPopoverTrigger
+        data-testid="qui-time-picker-input"
+        [value]="formattedTime"
+        readonly
+      />
       <ng-template #popoverContent>
-        <pui-time-select
+        <qui-time-select
           [selectedHour]="selectedHour"
           [selectedMinute]="selectedMinute"
           (onChange)="handleTimeChange($event)"
-        ></pui-time-select>
+        ></qui-time-select>
       </ng-template>
-    </pui-popover>
+    </qui-popover>
   `,
   styles: [
     `
@@ -36,7 +47,10 @@ export class TimePickerComponent {
   @ViewChild('popover') popover!: PopoverComponent;
   selectedHour = '12';
   selectedMinute = '00';
-  formattedTime: string = this.formatTime(this.selectedHour, this.selectedMinute);
+  formattedTime: string = this.formatTime(
+    this.selectedHour,
+    this.selectedMinute
+  );
 
   handleTimeChange(time: string) {
     const [hour, minute] = time.split(':');
