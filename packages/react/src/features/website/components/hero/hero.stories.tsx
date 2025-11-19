@@ -30,7 +30,7 @@ export default {
 
 export const WithContentLeft: StoryFn = (args) => (
   <Hero {...args}>
-    <HeroSection className="max-w-3xl">
+    <HeroSection style={{ maxWidth: "var(--spacing-3xl)" }}>
       <VStack>
         <HeroTagline>Tagline</HeroTagline>
         <HeroTitle> Medium length hero section title goes in here</HeroTitle>
@@ -46,22 +46,45 @@ export const WithContentLeft: StoryFn = (args) => (
         </HeroActions>
       </VStack>
     </HeroSection>
-    <HeroSection className="order-last">
+    <HeroSection style={{ order: 9999 }}>
       <img
-        src="https://dummyimage.com/1000x1000/d4d4d4/171717"
+        src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1000&h=1000&q=80"
         alt="Image"
         width={1000}
         height={1000}
-        className="rounded-xl"
+        style={{ borderRadius: "var(--border-radius-xl)" }}
       />
     </HeroSection>
   </Hero>
 );
 
 export const WithContentCenter: StoryFn = (args) => (
-  <Hero {...args} className="w-full flex py-4 lg:py-12">
-    <HeroSection className="max-w-3xl mx-auto ">
-      <VStack className="items-center text-center">
+  <Hero
+    {...args}
+    style={{
+      width: "100%",
+      display: "flex",
+      paddingTop: "var(--spacing-4)",
+      paddingBottom: "var(--spacing-4)",
+      "@media (min-width: 1024px)": {
+        paddingTop: "var(--spacing-12)",
+        paddingBottom: "var(--spacing-12)",
+      },
+    }}
+  >
+    <HeroSection
+      style={{
+        maxWidth: "var(--columns-3xl)",
+        marginLeft: "auto",
+        marginRight: "auto",
+      }}
+    >
+      <VStack
+        style={{
+          alignItems: "center",
+          textAlign: "center",
+        }}
+      >
         <HeroTagline>Tagline</HeroTagline>
         <HeroTitle> Medium length hero section title goes in here</HeroTitle>
         <HeroBody>
@@ -80,9 +103,14 @@ export const WithContentCenter: StoryFn = (args) => (
 );
 
 export const WithContentVertical: StoryFn = (args) => (
-  <Hero className="block" {...args}>
-    <HeroSection className="max-w-5xl">
-      <VStack className="items-center text-center">
+  <Hero style={{ display: "block" }} {...args}>
+    <HeroSection style={{ maxWidth: "var(--columns-5xl)" }}>
+      <VStack
+        style={{
+          alignItems: "center",
+          textAlign: "center",
+        }}
+      >
         <HeroTagline>Tagline</HeroTagline>
         <HeroTitle> Medium length hero section title goes in here</HeroTitle>
         <HeroBody>
@@ -97,13 +125,26 @@ export const WithContentVertical: StoryFn = (args) => (
         </HeroActions>
       </VStack>
     </HeroSection>
-    <HeroSection className="mx-auto mt-14 lg:mt-18 max-w-7xl">
+    <HeroSection
+      style={{
+        marginLeft: "auto",
+        marginRight: "auto",
+        marginTop: "var(--spacing-14)",
+        "@media (min-width: 1024px)": {
+          marginTop: "var(--spacing-18)",
+        },
+        maxWidth: "var(--columns-7xl)",
+      }}
+    >
       <img
-        src="https://dummyimage.com/1920x1200/d4d4d4/171717"
+        src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&h=1200&q=80"
         alt="Image"
         width={1920}
         height={1200}
-        className="rounded-xl object-cover"
+        style={{
+          borderRadius: "var(--border-radius-xl)",
+          objectFit: "cover",
+        }}
       />
     </HeroSection>
   </Hero>
@@ -135,7 +176,12 @@ export const WithBackdrop: StoryFn = (args) => (
           marginRight: "auto",
         }}
       >
-        <VStack className="items-center text-center">
+        <VStack
+          style={{
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
           <HeroTagline style={{ color: "var(--color-background-fg)" }}>
             Tagline
           </HeroTagline>
@@ -150,7 +196,7 @@ export const WithBackdrop: StoryFn = (args) => (
           </HeroBody>
           <HeroActions>
             <Button>Button</Button>
-            <Button variant="outline" className="text-white">
+            <Button variant="outline" style={{ color: "var(--color-white)" }}>
               Button
             </Button>
           </HeroActions>
@@ -216,7 +262,16 @@ export const WithBackdropIllustration: StoryFn = (args) => (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 800 800"
-            className="hidden h-full w-full stroke-white/10 lg:absolute lg:block"
+            style={{
+              display: "none",
+              height: "100%",
+              width: "100%",
+              stroke: "rgba(255, 255, 255, 0.1)",
+              "@media (min-width: 1024px)": {
+                position: "absolute",
+                display: "block",
+              },
+            }}
           >
             <g fill="none" strokeLinecap="round" strokeWidth="5.5">
               <path
@@ -236,7 +291,7 @@ export const WithBackdropIllustration: StoryFn = (args) => (
             <div style={{}}>
               <img
                 loading="lazy"
-                src="https://dummyimage.com/1200x1800/d4d4d4/171717"
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&h=1800&q=80"
                 alt="Image"
                 width={1200}
                 height={1800}
@@ -258,7 +313,7 @@ export const WithBackdropIllustration: StoryFn = (args) => (
 
 export const WithCarousel: StoryFn = (args) => (
   <Hero {...args}>
-    <HeroSection className="max-w-3xl">
+    <HeroSection style={{ maxWidth: "var(--columns-3xl)" }}>
       <VStack>
         <HeroTagline>Tagline</HeroTagline>
         <HeroTitle> Medium length hero section title goes in here</HeroTitle>
@@ -274,23 +329,35 @@ export const WithCarousel: StoryFn = (args) => (
         </HeroActions>
       </VStack>
     </HeroSection>
-    <HeroSection className="order-last">
-      <Carousel className="w-full">
+    <HeroSection style={{ order: 9999 }}>
+      <Carousel style={{ width: "100%" }}>
         <CarouselContent>
           {Array.from({ length: 5 }).map((_, index) => (
             <CarouselItem key={index}>
               <img
-                src="https://dummyimage.com/1500x1000/d4d4d4/171717"
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1500&h=1000&q=80"
                 alt="Image"
                 width={1500}
                 height={1000}
-                className="rounded-xl"
+                style={{ borderRadius: "var(--border-radius-xl)" }}
               />
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="ml-16 border-none text-primary" />
-        <CarouselNext className="mr-16 border-none text-primary" />
+        <CarouselPrevious
+          style={{
+            marginLeft: "var(--spacing-16)",
+            border: "none",
+            color: "var(--color-primary)",
+          }}
+        />
+        <CarouselNext
+          style={{
+            marginRight: "var(--spacing-16)",
+            border: "none",
+            color: "var(--color-primary)",
+          }}
+        />
       </Carousel>
     </HeroSection>
   </Hero>
@@ -343,24 +410,31 @@ export const WithImages: StoryFn = (args) => (
           {Array.from({ length: 3 }).map((_, index) => (
             <img
               key={index}
-              src="https://dummyimage.com/250x300/d4d4d4/171717"
+              src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=250&h=300&q=80"
               alt="Image"
               width={250}
               height={300}
-              className="object-cover"
+              style={{ objectFit: "cover" }}
               aria-hidden="true"
             />
           ))}
         </div>
-        <div className="mt-6 flex flex-col space-y-4">
+        <div
+          style={{
+            marginTop: "var(--spacing-6)",
+            display: "flex",
+            flexDirection: "column",
+            gap: "var(--spacing-4)",
+          }}
+        >
           {Array.from({ length: 3 }).map((_, index) => (
             <img
               key={index}
-              src="https://dummyimage.com/250x300/d4d4d4/171717"
+              src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=250&h=300&q=80"
               alt="Image"
               width={250}
               height={300}
-              className="object-cover"
+              style={{ objectFit: "cover" }}
               aria-hidden="true"
             />
           ))}
@@ -372,7 +446,7 @@ export const WithImages: StoryFn = (args) => (
 
 export const WithVideo: StoryFn = (args) => (
   <Hero {...args}>
-    <HeroSection className="max-w-3xl">
+    <HeroSection style={{ maxWidth: "var(--columns-3xl)" }}>
       <VStack>
         <HeroTagline>Tagline</HeroTagline>
         <HeroTitle> Medium length hero section title goes in here</HeroTitle>
@@ -400,8 +474,15 @@ export const WithVideo: StoryFn = (args) => (
         width="100%"
         height="100%"
         url="https://www.youtube.com/watch?v=LXb3EKWsInQ"
-        light="https://dummyimage.com/"
-        className="absolute left-0 top-0 h-full w-full object-cover"
+        light="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&h=1080&q=80"
+        style={{
+          position: "absolute",
+          left: 0,
+          top: 0,
+          height: "100%",
+          width: "100%",
+          objectFit: "cover",
+        }}
       />
     </HeroSection>
   </Hero>
@@ -409,8 +490,23 @@ export const WithVideo: StoryFn = (args) => (
 
 export const WithDiagonalShape: StoryFn = (args) => (
   <HeroBackdrop>
-    <Hero {...args} className="gap-14">
-      <HeroSection className="max-w-3xl my-20 lg:my-40 ">
+    <Hero
+      {...args}
+      style={{
+        gap: "var(--spacing-14)",
+      }}
+    >
+      <HeroSection
+        style={{
+          maxWidth: "var(--columns-3xl)",
+          marginTop: "var(--spacing-20)",
+          marginBottom: "var(--spacing-20)",
+          "@media (min-width: 1024px)": {
+            marginTop: "var(--spacing-40)",
+            marginBottom: "var(--spacing-40)",
+          },
+        }}
+      >
         <VStack>
           <HeroTagline>Tagline</HeroTagline>
           <HeroTitle> Medium length hero section title goes in here</HeroTitle>
@@ -438,7 +534,7 @@ export const WithDiagonalShape: StoryFn = (args) => (
       >
         <HeroDiagonalShape />
         <img
-          src="https://dummyimage.com/1000x1000/d4d4d4/171717"
+          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1000&h=1000&q=80"
           alt="Image"
           width={1000}
           height={1000}
@@ -452,7 +548,7 @@ export const WithDiagonalShape: StoryFn = (args) => (
 export const WithCover: StoryFn = (args) => (
   <HeroBackdrop>
     <HeroCoverImage
-      src="https://dummyimage.com/1920x1200/d4d4d4/171717"
+      src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&h=1200&q=80"
       alt="hero image"
       width={1920}
       height={1200}
@@ -469,7 +565,7 @@ export const WithCover: StoryFn = (args) => (
       }}
     >
       <Hero {...args}>
-        <HeroSection style={{ maxWidth: "var(--spacing-3xl)" }}>
+        <HeroSection style={{ maxWidth: "var(--columns-3xl)" }}>
           <VStack>
             <HeroTagline>Tagline</HeroTagline>
             <HeroTitle>Medium length hero section title goes in here</HeroTitle>
