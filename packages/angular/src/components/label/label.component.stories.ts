@@ -29,9 +29,9 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
+      <qui-story>
         <label [size]="size">Label</label>
-      </pui-story>
+      </qui-story>
     `,
   }),
 };

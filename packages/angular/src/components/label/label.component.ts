@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, ElementRef, Input, OnDestroy } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  OnDestroy,
+} from '@angular/core';
 
 export type LabelVariants = {
   disabled: boolean;
@@ -6,11 +12,11 @@ export type LabelVariants = {
 };
 
 @Component({
-  selector: 'label[pui-label]',
+  selector: 'label[qui-label]',
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-label',
+    'data-testid': 'qui-label',
   },
   template: `<ng-content></ng-content>`,
   styles: [
@@ -69,7 +75,8 @@ export class LabelComponent implements AfterViewInit, OnDestroy {
       return null;
     }
 
-    return adjacentInput instanceof HTMLInputElement || adjacentInput instanceof HTMLTextAreaElement
+    return adjacentInput instanceof HTMLInputElement ||
+      adjacentInput instanceof HTMLTextAreaElement
       ? (adjacentInput as HTMLInputElement)
       : adjacentInput.querySelector('input, textarea');
   }
@@ -80,7 +87,9 @@ export class LabelComponent implements AfterViewInit, OnDestroy {
       this.disabled = adjacentInput.disabled;
 
       if (adjacentInput.hasAttribute('disabled')) {
-        this.elementRef.nativeElement.classList.add(this.disabled ? 'disabled' : '');
+        this.elementRef.nativeElement.classList.add(
+          this.disabled ? 'disabled' : ''
+        );
       } else {
         this.elementRef.nativeElement.classList.remove('disabled');
       }
