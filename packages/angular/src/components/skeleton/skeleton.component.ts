@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-skeleton]',
+  selector: '[qui-skeleton]',
   template: `<ng-content></ng-content>`,
   host: {
-    'data-testid': 'pui-skeleton',
+    'data-testid': 'qui-skeleton',
   },
   styles: [
     `
