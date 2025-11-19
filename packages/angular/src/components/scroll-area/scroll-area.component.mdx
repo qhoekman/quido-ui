@@ -1,0 +1,18 @@
+import * as ScrollAreaStories from './scroll-area.component.stories';
+import { Canvas, Meta, Source, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
+import ScrollAreaCode from '!!raw-loader!./scroll-area.component.ts';
+import ScrollBarCode from '!!raw-loader!./scroll-bar.component.ts';
+
+# Scroll Area
+
+<Meta of={ScrollAreaStories} />
+<Canvas of={ScrollAreaStories.Default} />
+<Controls of={ScrollAreaStories.Default} />
+
+> **scroll-area.component.ts**
+>
+> <Source code={ScrollAreaCode} language="typescript" />
+
+> **scroll-bar.component.ts**
+>
+> <Source code={ScrollBarCode} language="typescript" />
