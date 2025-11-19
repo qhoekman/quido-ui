@@ -1,0 +1,10 @@
+import * as SeparatorStories from "./separator.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import SeparatorCode from "!!raw-loader!./separator.component.ts";
+
+# Separator
+
+<Meta of={SeparatorStories} />
+<Canvas of={SeparatorStories.Default} />
+<Controls of={SeparatorStories.Default} />
+<Source code={SeparatorCode} language="typescript" />
