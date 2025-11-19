@@ -10,7 +10,8 @@ export default {
   argTypes: {
     defaultValue: {
       control: "text",
-      description: "The value of the tab that should be active when initially rendered",
+      description:
+        "The value of the tab that should be active when initially rendered",
     },
     value: {
       control: "text",
@@ -24,7 +25,8 @@ export default {
     activationMode: {
       control: "select",
       options: ["automatic", "manual"],
-      description: "When automatic, tabs are activated when receiving focus. When manual, tabs are activated when clicked.",
+      description:
+        "When automatic, tabs are activated when receiving focus. When manual, tabs are activated when clicked.",
     },
   },
   args: {
@@ -35,7 +37,7 @@ export default {
 } satisfies Meta<typeof TieredGallery>;
 
 export const Default: StoryFn<typeof TieredGallery> = (args) => (
-  <div className="max-w-md w-full">
+  <div style={{ maxWidth: "var(--spacing-md)", width: "100%" }}>
     <TieredGallery {...args}>
       <TieredGalleryImage
         src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=400&fit=crop"
