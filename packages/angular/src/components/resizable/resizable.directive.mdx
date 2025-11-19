@@ -1,0 +1,12 @@
+import * as ResizableStories from "./resizable.directive.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import ResizableCode from "!!raw-loader!./resizable.directive.ts";
+
+# Resizable
+
+<Meta of={ResizableStories} />
+<Canvas of={ResizableStories.Default} />
+<Controls of={ResizableStories.Default} />
+
+> **resizable.directive.ts**
+> <Source code={ResizableCode} language="typescript" />
