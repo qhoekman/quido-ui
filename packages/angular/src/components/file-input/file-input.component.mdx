@@ -1,0 +1,12 @@
+import * as FileInputStories from "./file-input.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import FileInputCode from "!!raw-loader!./file-input.component.ts";
+
+# File Input
+
+<Meta of={FileInputStories} />
+<Canvas of={FileInputStories.Default} />
+<Controls of={FileInputStories.Default} />
+
+> **file-input.component.ts**
+> <Source code={FileInputCode} language="typescript" />
