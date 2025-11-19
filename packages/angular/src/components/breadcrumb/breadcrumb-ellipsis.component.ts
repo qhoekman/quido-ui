@@ -3,12 +3,12 @@ import { VisuallyHiddenComponent } from '../visually-hidden/visually-hidden.comp
 import { IconDotsHorizontalComponent } from '../../icons';
 
 @Component({
-  selector: 'span[pui-breadcrumb-ellipsis]',
+  selector: 'span[qui-breadcrumb-ellipsis]',
   standalone: true,
   host: {
     role: 'presentation',
     '[attr.aria-hidden]': 'true',
-    'data-testid': 'pui-breadcrumb-ellipsis',
+    'data-testid': 'qui-breadcrumb-ellipsis',
   },
   imports: [VisuallyHiddenComponent, IconDotsHorizontalComponent],
   styles: [
@@ -26,8 +26,8 @@ import { IconDotsHorizontalComponent } from '../../icons';
     `,
   ],
   template: `<ng-content>
-    <i pui-icon name="dots-horizontal"></i>
-    <span pui-visually-hidden>More</span>
+    <i qui-icon name="dots-horizontal"></i>
+    <span qui-visually-hidden>More</span>
   </ng-content>`,
 })
 export class BreadcrumbEllipsisComponent {}

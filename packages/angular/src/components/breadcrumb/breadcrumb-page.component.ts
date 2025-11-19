@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'span[pui-breadcrumb-page]',
+  selector: 'span[qui-breadcrumb-page]',
   standalone: true,
   host: {
-    'data-testid': 'pui-breadcrumb-page',
+    'data-testid': 'qui-breadcrumb-page',
     '[attr.aria-current]': 'page',
   },
   styles: [

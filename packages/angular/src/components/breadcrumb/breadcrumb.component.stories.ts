@@ -37,29 +37,29 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <nav pui-breadcrumb aria-label="breadcrumb">
-        <ol pui-breadcrumb-list>
-          <li pui-breadcrumb-item>
-             <span pui-breadcrumb-ellipsis></span>
+    <qui-story>
+      <nav qui-breadcrumb aria-label="breadcrumb">
+        <ol qui-breadcrumb-list>
+          <li qui-breadcrumb-item>
+             <span qui-breadcrumb-ellipsis></span>
           </li>
-          <li pui-breadcrumb-separator></li>
-          <li pui-breadcrumb-item>
-            <a pui-breadcrumb-link href="#">Library</a>
+          <li qui-breadcrumb-separator></li>
+          <li qui-breadcrumb-item>
+            <a qui-breadcrumb-link href="#">Library</a>
           </li>
-          <li pui-breadcrumb-separator></li>
-          <li pui-breadcrumb-item>
-            <a pui-breadcrumb-link href="#">Media</a>
+          <li qui-breadcrumb-separator></li>
+          <li qui-breadcrumb-item>
+            <a qui-breadcrumb-link href="#">Media</a>
           </li>
-          <li pui-breadcrumb-separator>
-            <i pui-icon name="chevron-right"></i>
+          <li qui-breadcrumb-separator>
+            <i qui-icon name="chevron-right"></i>
           </li>
-          <li pui-breadcrumb-item>
-            <span pui-breadcrumb-page>Videos</span>
+          <li qui-breadcrumb-item>
+            <span qui-breadcrumb-page>Videos</span>
           </li>
         </ol>
       </nav>
-    </pui-story>
+    </qui-story>
     `,
   }),
 };

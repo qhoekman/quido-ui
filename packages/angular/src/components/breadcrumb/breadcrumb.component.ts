@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'nav[pui-breadcrumb]',
+  selector: 'nav[qui-breadcrumb]',
   standalone: true,
   template: `<ng-content></ng-content>`,
   host: {
     role: 'navigation',
-    'data-testid': 'pui-breadcrumb',
+    'data-testid': 'qui-breadcrumb',
     '[attr.aria-label]': '"breadcrumb"',
   },
   styles: [

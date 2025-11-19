@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'li[pui-breadcrumb-item]',
+  selector: 'li[qui-breadcrumb-item]',
   standalone: true,
   host: {
-    'data-testid': 'pui-breadcrumb-item',
+    'data-testid': 'qui-breadcrumb-item',
   },
   template: `<ng-content></ng-content>`,
   styles: [

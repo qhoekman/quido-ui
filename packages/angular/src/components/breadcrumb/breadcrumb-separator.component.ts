@@ -2,19 +2,19 @@ import { Component } from '@angular/core';
 import { IconSlashComponent } from '../../icons';
 
 @Component({
-  selector: 'li[pui-breadcrumb-separator]',
+  selector: 'li[qui-breadcrumb-separator]',
   standalone: true,
   imports: [IconSlashComponent],
   template: `
     <ng-content>
-      <i pui-icon name="slash"></i>
+      <i qui-icon name="slash"></i>
     </ng-content>
   `,
 
   host: {
     role: 'presentation',
     '[attr.aria-hidden]': 'true',
-    'data-testid': 'pui-breadcrumb-separator',
+    'data-testid': 'qui-breadcrumb-separator',
   },
   styles: [
     `
