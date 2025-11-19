@@ -76,7 +76,7 @@ export const WithCenteredContent: StoryFn<typeof CTA> = (args) => (
 export const WithBackdrop: StoryFn<typeof CTA> = (args) => (
   <CTA {...args}>
     <CTABackdrop
-      src="https://dummyimage.com/1920x1280/d4d4d4/171717"
+      src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&h=1280&q=80"
       alt="cta"
       width={1920}
       height={1280}
@@ -117,7 +117,7 @@ export const WithBackdrop: StoryFn<typeof CTA> = (args) => (
 export const WithFormVertical: StoryFn<typeof CTA> = (args) => (
   <CTA {...args}>
     <CTABackdrop
-      src="https://dummyimage.com/1920x1280/d4d4d4/171717"
+      src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&h=1280&q=80"
       alt="cta"
       width={1920}
       height={1280}
@@ -143,7 +143,13 @@ export const WithFormVertical: StoryFn<typeof CTA> = (args) => (
           maxWidth: "28rem",
         }}
       >
-        <div className="flex items-start gap-x-4">
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            gap: "var(--spacing-4)",
+          }}
+        >
           <Label htmlFor="email-address" className="sr-only">
             Email address
           </Label>
@@ -160,9 +166,15 @@ export const WithFormVertical: StoryFn<typeof CTA> = (args) => (
           <Button type="submit">Subscribe</Button>
         </div>
 
-        <p className="mt-4 text-sm text-muted-fg md:mt-3">
+        <p
+          style={{
+            marginTop: "var(--spacing-4)",
+            fontSize: "var(--font-size-sm)",
+            color: "var(--color-muted-fg)",
+          }}
+        >
           By clicking Subscribe you&apos;re confirming that you agree with our{" "}
-          <a href="#" className="underline">
+          <a href="#" style={{ textDecoration: "underline" }}>
             Terms and Conditions
           </a>
         </p>
@@ -227,7 +239,7 @@ export const WithFormHorizontal: StoryFn<typeof CTA> = (args) => (
           }}
         >
           By clicking Subscribe you&apos;re confirming that you agree with our{" "}
-          <a href="#" className="underline">
+          <a href="#" style={{ textDecoration: "underline" }}>
             Terms and Conditions
           </a>
         </p>
@@ -239,7 +251,7 @@ export const WithFormHorizontal: StoryFn<typeof CTA> = (args) => (
 export const WithFormHorizontalBackdrop: StoryFn<typeof CTA> = (args) => (
   <CTA {...args}>
     <CTABackdrop
-      src="https://dummyimage.com/1920x1280/d4d4d4/171717"
+      src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&h=1280&q=80"
       alt="cta"
       width={1920}
       height={1280}
@@ -277,7 +289,13 @@ export const WithFormHorizontalBackdrop: StoryFn<typeof CTA> = (args) => (
           maxWidth: "28rem",
         }}
       >
-        <div className="flex items-start gap-x-4">
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            gap: "var(--spacing-4)",
+          }}
+        >
           <Label htmlFor="email-address" className="sr-only">
             Email address
           </Label>
@@ -294,9 +312,15 @@ export const WithFormHorizontalBackdrop: StoryFn<typeof CTA> = (args) => (
           <Button type="submit">Subscribe</Button>
         </div>
 
-        <p className="mt-4 text-sm text-muted-fg md:mt-3">
+        <p
+          style={{
+            marginTop: "var(--spacing-4)",
+            fontSize: "var(--font-size-sm)",
+            color: "var(--color-muted-fg)",
+          }}
+        >
           By clicking Subscribe you&apos;re confirming that you agree with our{" "}
-          <a href="#" className="underline">
+          <a href="#" style={{ textDecoration: "underline" }}>
             Terms and Conditions
           </a>
         </p>
