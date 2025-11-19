@@ -5,19 +5,33 @@ import { PopoverTriggerDirective } from '../popover/popover-trigger.directive';
 import { PopoverComponent } from '../popover/popover.component';
 
 @Component({
-  selector: 'pui-date-picker',
+  selector: 'qui-date-picker',
   standalone: true,
-  imports: [InputComponent, PopoverComponent, PopoverTriggerDirective, CalendarComponent],
+  imports: [
+    InputComponent,
+    PopoverComponent,
+    PopoverTriggerDirective,
+    CalendarComponent,
+  ],
   host: {
-    'data-testid': 'pui-date-picker',
+    'data-testid': 'qui-date-picker',
   },
   template: `
-    <pui-popover #popover [popoverContent]="popoverContent">
-      <input pui-input puiPopoverTrigger [value]="formattedDate" readonly data-testid="pui-date-picker-input" />
+    <qui-popover #popover [popoverContent]="popoverContent">
+      <input
+        qui-input
+        puiPopoverTrigger
+        [value]="formattedDate"
+        readonly
+        data-testid="qui-date-picker-input"
+      />
       <ng-template #popoverContent>
-        <pui-calendar [currentDate]="selectedDate" (onChange)="handleChange($event)"></pui-calendar>
+        <qui-calendar
+          [currentDate]="selectedDate"
+          (onChange)="handleChange($event)"
+        ></qui-calendar>
       </ng-template>
-    </pui-popover>
+    </qui-popover>
   `,
   styles: [
     `

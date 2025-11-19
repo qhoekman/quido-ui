@@ -31,9 +31,9 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
-        <pui-date-picker [selectedDate]="selectedDate"></pui-date-picker>
-      </pui-story>
+      <qui-story>
+        <qui-date-picker [selectedDate]="selectedDate"></qui-date-picker>
+      </qui-story>
     `,
   }),
 };
