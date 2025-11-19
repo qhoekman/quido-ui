@@ -12,7 +12,9 @@ import { StoryComponent } from '../../system/components/story/story.component';
   selector: 'story-toast-action',
   standalone: true,
   imports: [ToastActionComponent],
-  template: `<button pui-toast-action size="sm" (click)="handleClick()">Action</button>`,
+  template: `<button qui-toast-action size="sm" (click)="handleClick()">
+    Action
+  </button>`,
 })
 export class StoryToastActionComponent {
   handleClick() {
@@ -24,7 +26,7 @@ export class StoryToastActionComponent {
   selector: 'story-toast-button',
   standalone: true,
   imports: [ButtonComponent],
-  template: `<button pui-button (click)="showToast()">Show Toast</button>`,
+  template: `<button qui-button (click)="showToast()">Show Toast</button>`,
 })
 export class StoryToastButtonComponent {
   @Input() title = 'Sample Toast';
@@ -47,7 +49,12 @@ const meta: Meta<ToasterComponent> = {
   component: ToasterComponent,
   decorators: [
     moduleMetadata({
-      imports: [CommonModule, ToasterComponent, StoryToastButtonComponent, StoryComponent],
+      imports: [
+        CommonModule,
+        ToasterComponent,
+        StoryToastButtonComponent,
+        StoryComponent,
+      ],
       providers: [ToastService],
     }),
   ],
@@ -78,10 +85,10 @@ export const Default: StoryDefault = {
     return {
       props: args,
       template: `
-        <pui-story>
+        <qui-story>
           <story-toast-button [title]="title" [description]="description" [variant]="variant"></story-toast-button>
-          <pui-toaster></pui-toaster>
-        </pui-story>
+          <qui-toaster></qui-toaster>
+        </qui-story>
       `,
     };
   },

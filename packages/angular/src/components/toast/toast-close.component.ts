@@ -1,11 +1,11 @@
 import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 
 @Component({
-  selector: '[pui-toast-close]',
+  selector: '[qui-toast-close]',
   template: `<ng-content></ng-content>`,
   standalone: true,
   host: {
-    'data-testid': 'pui-toast-close',
+    'data-testid': 'qui-toast-close',
   },
   styles: [
     `

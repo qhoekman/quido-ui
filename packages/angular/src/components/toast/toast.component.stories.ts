@@ -54,22 +54,22 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <div pui-toast-viewport>
-        <pui-toast [variant]="variant">
-          <div pui-stack direction="column" gap="none">
-            <h3 pui-toast-title>Toast Title</h3>
-            <p pui-toast-description>This is a toast description.</p>
+    <qui-story>
+      <div qui-toast-viewport>
+        <qui-toast [variant]="variant">
+          <div qui-stack direction="column" gap="none">
+            <h3 qui-toast-title>Toast Title</h3>
+            <p qui-toast-description>This is a toast description.</p>
           </div>
-          <div pui-stack direction="row" gap="none">
-            <button pui-toast-action size="sm">Action</button>
+          <div qui-stack direction="row" gap="none">
+            <button qui-toast-action size="sm">Action</button>
           </div>
-          <button pui-toast-close>
-            <i pui-icon-cross-1 size="sm"></i>
+          <button qui-toast-close>
+            <i qui-icon-cross-1 size="sm"></i>
           </button>
-        </pui-toast>
+        </qui-toast>
       </div>
-    </pui-story>
+    </qui-story>
     `,
   }),
 };

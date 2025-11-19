@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-toast-description]',
+  selector: '[qui-toast-description]',
   template: `<ng-content></ng-content>`,
   standalone: true,
   host: {
-    'data-testid': 'pui-toast-description',
+    'data-testid': 'qui-toast-description',
   },
   styles: [
     `

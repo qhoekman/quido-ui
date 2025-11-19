@@ -5,11 +5,11 @@ export type ToastVariants = {
 };
 
 @Component({
-  selector: 'pui-toast',
+  selector: 'qui-toast',
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-toast',
+    'data-testid': 'qui-toast',
   },
   template: ` <ng-content></ng-content> `,
   styles: [

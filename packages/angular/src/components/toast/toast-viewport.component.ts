@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'pui-toast-viewport',
+  selector: 'qui-toast-viewport',
   standalone: true,
   template: `<ng-content></ng-content>`,
   host: {
-    'data-testid': 'pui-toast-viewport',
+    'data-testid': 'qui-toast-viewport',
   },
   styles: [
     `

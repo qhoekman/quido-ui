@@ -1,17 +1,23 @@
 import { Component, Input } from '@angular/core';
 
 export type ToastActionVariants = {
-  variant: 'primary' | 'secondary' | 'destructive' | 'ghost' | 'outline' | 'link';
+  variant:
+    | 'primary'
+    | 'secondary'
+    | 'destructive'
+    | 'ghost'
+    | 'outline'
+    | 'link';
   fullWidth?: boolean;
   size: 'sm' | 'md' | 'lg' | 'icon';
 };
 
 @Component({
-  selector: 'button[pui-toast-action], a[pui-toast-action]',
+  selector: 'button[qui-toast-action], a[qui-toast-action]',
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-toast-action',
+    'data-testid': 'qui-toast-action',
   },
   template: `<ng-content></ng-content>`,
   styles: [
@@ -33,8 +39,7 @@ export type ToastActionVariants = {
         box-sizing: border-box;
 
         &:focus-visible {
-          box-shadow:
-            0 0 0 2px var(--color-ring),
+          box-shadow: 0 0 0 2px var(--color-ring),
             0 0 0 4px var(--color-background);
         }
 

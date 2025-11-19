@@ -11,7 +11,7 @@ import { ToastViewportComponent } from './toast-viewport.component';
 import { ToastComponent } from './toast.component';
 
 @Component({
-  selector: 'pui-toaster',
+  selector: 'qui-toaster',
   standalone: true,
   imports: [
     CommonModule,
@@ -23,28 +23,28 @@ import { ToastComponent } from './toast.component';
     IconCross1Component,
   ],
   template: `
-    <pui-toast-viewport>
-      <pui-toast
+    <qui-toast-viewport>
+      <qui-toast
         *ngFor="let toast of toasts"
         [variant]="toast.variant"
         (click)="removeToast(toast)"
       >
         <div class="vstack">
-          <h3 pui-toast-title>{{ toast.title }}</h3>
-          <p pui-toast-description *ngIf="toast.description">
+          <h3 qui-toast-title>{{ toast.title }}</h3>
+          <p qui-toast-description *ngIf="toast.description">
             {{ toast.description }}
           </p>
           <ng-container *ngComponentOutlet="toast.action"></ng-container>
         </div>
-        <button pui-toast-close (close)="removeToast(toast)">
-          <i pui-icon-cross-1 size="sm"></i>
+        <button qui-toast-close (close)="removeToast(toast)">
+          <i qui-icon-cross-1 size="sm"></i>
         </button>
-      </pui-toast>
-    </pui-toast-viewport>
+      </qui-toast>
+    </qui-toast-viewport>
   `,
   styles: [
     `
-      pui-toast {
+      qui-toast {
         margin-bottom: var(--spacing-4);
       }
 
