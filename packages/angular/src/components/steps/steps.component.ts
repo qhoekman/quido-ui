@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
-  selector: 'pui-steps',
+  selector: 'qui-steps',
   standalone: true,
   template: ` <ng-content></ng-content> `,
   host: {
-    'data-testid': 'pui-steps',
+    'data-testid': 'qui-steps',
   },
   styles: [
     `

@@ -51,39 +51,39 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
-        <pui-steps [count]="count">
-          <pui-steps-list>
-            <pui-steps-item index="0">Step 1</pui-steps-item>
-            <pui-steps-item index="1">Step 2</pui-steps-item>
-            <pui-steps-item index="2">Step 3</pui-steps-item>
-          </pui-steps-list>
+      <qui-story>
+        <qui-steps [count]="count">
+          <qui-steps-list>
+            <qui-steps-item index="0">Step 1</qui-steps-item>
+            <qui-steps-item index="1">Step 2</qui-steps-item>
+            <qui-steps-item index="2">Step 3</qui-steps-item>
+          </qui-steps-list>
 
-          <pui-steps-content index="0">
+          <qui-steps-content index="0">
             Step 1 Content
-          </pui-steps-content>
-          <pui-steps-content index="1">
+          </qui-steps-content>
+          <qui-steps-content index="1">
             Step 2 Content
-          </pui-steps-content>
-          <pui-steps-content index="2">
+          </qui-steps-content>
+          <qui-steps-content index="2">
             Step 3 Content
-          </pui-steps-content>
-          <pui-steps-completed-content>
+          </qui-steps-content>
+          <qui-steps-completed-content>
             All steps completed
-          </pui-steps-completed-content>
+          </qui-steps-completed-content>
 
-          <div pui-stack align="center" items="center">
-            <div pui-button-group >
-              <button pui-button variant="ghost" size="icon" puiStepsPrev>
+          <div qui-stack align="center" items="center">
+            <div qui-button-group >
+              <button qui-button variant="ghost" size="icon" puiStepsPrev>
                 &lt;
               </button>
-              <button pui-button variant="ghost" size="icon" puiStepsNext>
+              <button qui-button variant="ghost" size="icon" puiStepsNext>
                 &gt;
               </button>
             </div>
           </div>
-        </pui-steps>
-      </pui-story>
+        </qui-steps>
+      </qui-story>
     `,
   }),
 };

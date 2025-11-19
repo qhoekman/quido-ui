@@ -4,18 +4,18 @@ import { StepsComponent } from './steps.component';
 import { IconCheckComponent } from '../../icons';
 
 @Component({
-  selector: 'pui-steps-item',
+  selector: 'qui-steps-item',
   standalone: true,
   imports: [CommonModule, IconCheckComponent],
   host: {
-    'data-testid': 'pui-steps-item',
+    'data-testid': 'qui-steps-item',
   },
   template: `
     <div
       class="steps-item-trigger"
       (click)="handleClick(getIndex())"
       (keydown)="handleKeyDown($event)"
-      data-testid="pui-steps-item-trigger"
+      data-testid="qui-steps-item-trigger"
       tabindex="0"
     >
       <div
@@ -23,18 +23,23 @@ import { IconCheckComponent } from '../../icons';
         [class.steps-item--completed-fg]="isCompleted"
         [class.steps-item--current-fg]="isCurrent && !isCompleted"
         [class.steps-item--undefined]="!isCurrent && !isCompleted"
-        data-testid="pui-steps-item-circle"
+        data-testid="qui-steps-item-circle"
         class="steps-item-circle"
       >
         <ng-container *ngIf="isCompleted; else stepNumber">
-          <i [class.steps-item--circle-completed]="isCompleted" pui-icon name="check"> </i>
+          <i
+            [class.steps-item--circle-completed]="isCompleted"
+            qui-icon
+            name="check"
+          >
+          </i>
         </ng-container>
         <ng-template #stepNumber>
           <span>{{ getIndex() + 1 }}</span>
         </ng-template>
       </div>
       <span
-        data-testid="pui-steps-item-title"
+        data-testid="qui-steps-item-title"
         [class.steps-item--completed-fg]="isCompleted"
         [class.steps-item--current-fg]="isCurrent && !isCompleted"
         [class.steps-item--undefined]="!isCurrent && !isCompleted"
@@ -43,9 +48,13 @@ import { IconCheckComponent } from '../../icons';
         <ng-content></ng-content>
       </span>
     </div>
-    <div *ngIf="getIndex() < count - 1" data-testid="pui-steps-item-line" class="steps-item-line">
+    <div
+      *ngIf="getIndex() < count - 1"
+      data-testid="qui-steps-item-line"
+      class="steps-item-line"
+    >
       <div
-        data-testid="pui-steps-item-line-fill"
+        data-testid="qui-steps-item-line-fill"
         [style.width]="isCompleted ? '100%' : '0'"
         class="steps-item-line-fill"
       ></div>
@@ -77,9 +86,7 @@ import { IconCheckComponent } from '../../icons';
         justify-content: center;
         border: 1px solid var(--color-border);
         color: var(--color-primary-fg);
-        transition:
-          background-color 0.3s,
-          border-color 0.3s;
+        transition: background-color 0.3s, border-color 0.3s;
       }
 
       .steps-item-circle svg {
@@ -149,7 +156,8 @@ export class StepsItemComponent implements OnInit {
     });
     this.stepsComponent.completedSteps$.subscribe((completedSteps) => {
       this.isCompleted = completedSteps.has(this.getIndex());
-      this.allStepsCompleted = completedSteps.size === this.stepsComponent.count;
+      this.allStepsCompleted =
+        completedSteps.size === this.stepsComponent.count;
       this.count = this.stepsComponent.count;
     });
   }

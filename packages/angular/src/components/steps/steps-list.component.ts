@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'pui-steps-list',
+  selector: 'qui-steps-list',
   standalone: true,
   host: {
-    'data-testid': 'pui-steps-list',
+    'data-testid': 'qui-steps-list',
   },
   template: `
     <div class="steps-list">

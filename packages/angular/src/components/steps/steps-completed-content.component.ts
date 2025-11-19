@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { StepsComponent } from './steps.component';
 
 @Component({
-  selector: 'pui-steps-completed-content',
+  selector: 'qui-steps-completed-content',
   standalone: true,
   imports: [CommonModule],
   host: {
-    'data-testid': 'pui-steps-completed-content',
+    'data-testid': 'qui-steps-completed-content',
   },
   template: `
     <ng-container *ngIf="allStepsCompleted">
@@ -22,7 +22,8 @@ export class StepsCompletedContentComponent implements OnInit {
 
   ngOnInit() {
     this.stepsComponent.completedSteps$.subscribe((completedSteps) => {
-      this.allStepsCompleted = completedSteps.size === this.stepsComponent.count;
+      this.allStepsCompleted =
+        completedSteps.size === this.stepsComponent.count;
     });
   }
 }
