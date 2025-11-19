@@ -78,7 +78,7 @@ export const Default: StoryFn<typeof Tooltip> = ({
         align={align}
         alignOffset={alignOffset}
       >
-        <TooltipArrow className="fill-white" />
+        <TooltipArrow style={{ fill: "var(--color-popover)" }} />
         <p>Add to library</p>
       </TooltipContent>
     </Tooltip>
