@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-drawer-content]',
+  selector: '[qui-drawer-content]',
   standalone: true,
   host: {
     '[attr.data-testid]': 'drawer__content',
@@ -12,9 +12,7 @@ import { Component } from '@angular/core';
     `
       .drawer__content {
         width: 100%;
-        transition:
-          margin 0.3s ease,
-          width 0.3s ease;
+        transition: margin 0.3s ease, width 0.3s ease;
       }
     `,
   ],

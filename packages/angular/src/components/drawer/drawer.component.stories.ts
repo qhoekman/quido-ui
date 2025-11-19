@@ -40,20 +40,20 @@ export const Default: Story = {
     props: args,
     template: `
       <div
-        pui-drawer
+        qui-drawer
         #drawer
         [variant]="variant"
         [position]="position"
         [hasBackdrop]="hasBackdrop"
     >
       <ng-template #drawerContent>
-        <button pui-button variant="ghost" size="sm" (click)="drawer.toggle()">
+        <button qui-button variant="ghost" size="sm" (click)="drawer.toggle()">
           &#x2715;
         </button>
       </ng-template>
-      <div pui-drawer-content>
-        <button pui-button [fullWidth]="true" (click)="drawer.toggle()">
-          <i pui-icon name="hamburger-menu"></i>
+      <div qui-drawer-content>
+        <button qui-button [fullWidth]="true" (click)="drawer.toggle()">
+          <i qui-icon name="hamburger-menu"></i>
         </button>
       </div>
     </div>

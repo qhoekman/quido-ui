@@ -20,16 +20,16 @@ export type DrawerVariants = {
 };
 
 @Component({
-  selector: '[pui-drawer]',
+  selector: '[qui-drawer]',
   host: {
-    '[attr.data-testid]': 'pui-drawer',
+    '[attr.data-testid]': 'qui-drawer',
     '[class]': 'getClassList()',
   },
   imports: [AsyncPipe, NgTemplateOutlet, DrawerOverlayComponent],
   template: `
     @let isOpen = this.isOpenSubject | async;
     <div
-      pui-drawer-overlay
+      qui-drawer-overlay
       [variant]="variant"
       [position]="position"
       [hasBackdrop]="hasBackdrop"
@@ -37,7 +37,7 @@ export type DrawerVariants = {
     >
       <ng-container *ngTemplateOutlet="drawerContent"></ng-container>
     </div>
-    <ng-content select="[pui-drawer-content]"></ng-content>
+    <ng-content select="[qui-drawer-content]"></ng-content>
   `,
   styles: [
     `
@@ -55,27 +55,29 @@ export type DrawerVariants = {
         background: hsl(from var(--color-muted) h s l / 33%);
       }
 
-      :host :ng-deep [pui-drawer-content] {
+      :host :ng-deep [qui-drawer-content] {
         width: 100%;
-        transition:
-          margin 0.3s ease,
-          width 0.3s ease;
+        transition: margin 0.3s ease, width 0.3s ease;
       }
 
       :host-context(.variant--over.open) {
         width: var(--drawer-width);
       }
 
-      :host-context(.variant--push.position--left) :ng-deep [pui-drawer-content]:not(.open) {
+      :host-context(.variant--push.position--left)
+        :ng-deep
+        [qui-drawer-content]:not(.open) {
         margin-left: calc(-1 * var(--drawer-width));
       }
 
-      :host-context(.variant--push.position--right) :ng-deep [pui-drawer-content]:not(.open) {
+      :host-context(.variant--push.position--right)
+        :ng-deep
+        [qui-drawer-content]:not(.open) {
         margin-right: calc(-1 * var(--drawer-width));
       }
 
       /* stylelint-disable no-descending-specificity */
-      :host-context(.has-backdrop.open) :ng-deep [pui-drawer-content] {
+      :host-context(.has-backdrop.open) :ng-deep [qui-drawer-content] {
         pointer-events: none;
         opacity: 0.5;
       }
@@ -160,7 +162,10 @@ export class DrawerComponent implements OnInit, OnChanges {
     if (this.variant === 'side') {
       return;
     }
-    if (this.isOpenSubject.value && this.elementRef.nativeElement === event.target) {
+    if (
+      this.isOpenSubject.value &&
+      this.elementRef.nativeElement === event.target
+    ) {
       this.close();
     }
   }

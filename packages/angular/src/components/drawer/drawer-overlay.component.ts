@@ -2,19 +2,17 @@ import { Component, Input } from '@angular/core';
 import { DrawerVariants } from './drawer.component';
 
 @Component({
-  selector: '[pui-drawer-overlay]',
+  selector: '[qui-drawer-overlay]',
   standalone: true,
   host: {
-    '[attr.data-testid]': 'pui-drawer-overlay',
+    '[attr.data-testid]': 'qui-drawer-overlay',
     '[class]': 'getClassList()',
   },
   template: ` <ng-content></ng-content> `,
   styles: [
     `
       :host {
-        transition:
-          width 0.3s ease-in-out,
-          transform 0.3s ease-in-out;
+        transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
         background: var(--color-popover);
         color: var(--color-popover-fg);
         width: var(--drawer-width);
