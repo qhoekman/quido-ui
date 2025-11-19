@@ -10,7 +10,12 @@ const meta: Meta<ButtonComponent> = {
   component: ButtonComponent,
   decorators: [
     moduleMetadata({
-      imports: [ButtonComponent, ClipboardModule, IconCopyComponent, StoryComponent],
+      imports: [
+        ButtonComponent,
+        ClipboardModule,
+        IconCopyComponent,
+        StoryComponent,
+      ],
     }),
   ],
   argTypes: {},
@@ -23,11 +28,11 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
-        <button pui-button variant="outline" cdkCopyToClipboard="Hello World">
-          <i pui-icon name="copy" size="lg"></i>
+      <qui-story>
+        <button qui-button variant="outline" cdkCopyToClipboard="Hello World">
+          <i qui-icon name="copy" size="lg"></i>
         </button>
-      </pui-story>
+      </qui-story>
     `,
   }),
 };
