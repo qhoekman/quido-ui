@@ -13,7 +13,7 @@ export interface ComboboxOption {
 }
 
 @Component({
-  selector: 'pui-combobox',
+  selector: 'qui-combobox',
   standalone: true,
   imports: [
     CommonModule,
@@ -24,12 +24,12 @@ export interface ComboboxOption {
     FormsModule,
   ],
   template: `
-    <pui-popover #popover [popoverContent]="popoverContent">
-      <ng-content select="[pui-combobox-trigger]"></ng-content>
+    <qui-popover #popover [popoverContent]="popoverContent">
+      <ng-content select="[qui-combobox-trigger]"></ng-content>
       <ng-template #popoverContent>
-        <ng-content select="[pui-combobox-content]"></ng-content>
+        <ng-content select="[qui-combobox-content]"></ng-content>
       </ng-template>
-    </pui-popover>
+    </qui-popover>
   `,
   styles: [
     `
@@ -41,7 +41,9 @@ export interface ComboboxOption {
   ],
 })
 export class ComboboxComponent {
-  protected selectedOptionSubject = new BehaviorSubject<ComboboxOption | null>(null);
+  protected selectedOptionSubject = new BehaviorSubject<ComboboxOption | null>(
+    null
+  );
   protected selectedOption$ = this.selectedOptionSubject.asObservable();
   @Output() valueChange = new EventEmitter<ComboboxOption>();
   @ViewChild('popover') popover!: PopoverComponent;

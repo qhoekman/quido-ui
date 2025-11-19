@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-combobox-group]',
+  selector: '[qui-combobox-group]',
   standalone: true,
   host: {
-    'data-testid': 'pui-combobox-group',
+    'data-testid': 'qui-combobox-group',
   },
   template: `<ng-content></ng-content>`,
   styles: [

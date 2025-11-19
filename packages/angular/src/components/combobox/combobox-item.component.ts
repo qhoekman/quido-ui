@@ -1,13 +1,19 @@
-import { Component, Input, OnInit, HostListener, ElementRef } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  HostListener,
+  ElementRef,
+} from '@angular/core';
 import { ComboboxComponent } from './combobox.component';
 
 @Component({
-  selector: '[pui-combobox-item]',
+  selector: '[qui-combobox-item]',
   standalone: true,
   host: {
     role: 'option',
     '[attr.aria-selected]': 'isSelected',
-    'data-testid': 'pui-combobox-item',
+    'data-testid': 'qui-combobox-item',
     tabindex: '0',
   },
   template: `<ng-content></ng-content>`,
@@ -33,10 +39,7 @@ export class ComboboxItemComponent implements OnInit {
   @Input() label!: string;
   isSelected = false;
 
-  constructor(
-    private combobox: ComboboxComponent,
-    private el: ElementRef,
-  ) {}
+  constructor(private combobox: ComboboxComponent, private el: ElementRef) {}
 
   ngOnInit() {
     this.isSelected = this.combobox.getSelectedOption()?.value === this.value;

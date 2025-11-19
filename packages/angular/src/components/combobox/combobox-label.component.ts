@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-combobox-label]',
+  selector: '[qui-combobox-label]',
   standalone: true,
   host: {
-    'data-testid': 'pui-combobox-label',
+    'data-testid': 'qui-combobox-label',
   },
   template: `<ng-content></ng-content>`,
   styles: [

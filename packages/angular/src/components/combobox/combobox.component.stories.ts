@@ -66,7 +66,9 @@ export const Default: Story = {
         searchValue,
         onSearchChange: (searchValue: string) => {
           filteredOptions.next(
-            args.options.filter((option) => option.label.toLowerCase().includes(searchValue.toLowerCase())),
+            args.options.filter((option) =>
+              option.label.toLowerCase().includes(searchValue.toLowerCase())
+            )
           );
         },
         onKeydown: (event: KeyboardEvent) => {
@@ -74,19 +76,19 @@ export const Default: Story = {
         },
       },
       template: `
-      <pui-story>
-        <div pui-stack items="center" align="center">
-          <pui-combobox>
-            <button pui-combobox-trigger style="width: 200px;">
+      <qui-story>
+        <div qui-stack items="center" align="center">
+          <qui-combobox>
+            <button qui-combobox-trigger style="width: 200px;">
               Select an option
             </button>
-            <div pui-combobox-content style="width: 200px; ">
-              <div pui-combobox-searchbox>
-                <input pui-combobox-search [(ngModel)]="searchValue" (ngModelChange)="onSearchChange($event)"/>
+            <div qui-combobox-content style="width: 200px; ">
+              <div qui-combobox-searchbox>
+                <input qui-combobox-search [(ngModel)]="searchValue" (ngModelChange)="onSearchChange($event)"/>
               </div>
-              <ul pui-combobox-group>
+              <ul qui-combobox-group>
                 <li
-                  pui-combobox-item
+                  qui-combobox-item
                   *ngFor="let option of filteredOptions | async"
                   [value]="option.value"
                   [label]="option.label"
@@ -95,9 +97,9 @@ export const Default: Story = {
                 </li>
               </ul>
             </div>
-          </pui-combobox>
+          </qui-combobox>
         </div>
-      </pui-story>
+      </qui-story>
       `,
     };
   },

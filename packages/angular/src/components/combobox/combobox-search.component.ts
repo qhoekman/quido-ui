@@ -1,10 +1,10 @@
 import { Component, HostListener } from '@angular/core';
 
 @Component({
-  selector: '[pui-combobox-search]',
+  selector: '[qui-combobox-search]',
   standalone: true,
   host: {
-    'data-testid': 'pui-combobox-search',
+    'data-testid': 'qui-combobox-search',
   },
   template: '',
   styles: [

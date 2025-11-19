@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { IconMagnifyingGlassComponent } from '../../icons';
 
 @Component({
-  selector: 'div[pui-combobox-searchbox]',
+  selector: 'div[qui-combobox-searchbox]',
   standalone: true,
   host: {
-    'data-testid': 'pui-combobox-searchbox',
+    'data-testid': 'qui-combobox-searchbox',
   },
   imports: [IconMagnifyingGlassComponent],
   template: `
-    <i pui-icon name="magnifying-glass"></i>
+    <i qui-icon name="magnifying-glass"></i>
     <ng-content></ng-content>
   `,
   styles: [
