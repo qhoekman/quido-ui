@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'p[pui-statistic-helper-text], span[pui-statistic-helper-text]',
+  selector: 'p[qui-statistic-helper-text], span[qui-statistic-helper-text]',
   template: `<ng-content></ng-content>`,
   host: {
-    'data-testid': 'pui-statistic-helper-text',
+    'data-testid': 'qui-statistic-helper-text',
   },
   styles: [
     `

@@ -5,11 +5,11 @@ export type StatisticTrendVariants = {
 };
 
 @Component({
-  selector: '[pui-statistic-trend]',
+  selector: '[qui-statistic-trend]',
   template: `<ng-content></ng-content>`,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-statistic-trend',
+    'data-testid': 'qui-statistic-trend',
   },
   styles: [
     `

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'p[pui-statistic-label], span[pui-statistic-label]',
+  selector: 'p[qui-statistic-label], span[qui-statistic-label]',
   host: {
-    'data-testid': 'pui-statistic-label',
+    'data-testid': 'qui-statistic-label',
   },
   template: `<ng-content></ng-content>`,
   styles: [

@@ -5,10 +5,10 @@ export type StatisticVariants = {
 };
 
 @Component({
-  selector: '[pui-statistic]',
+  selector: '[qui-statistic]',
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-statistic',
+    'data-testid': 'qui-statistic',
   },
   template: ` <ng-content></ng-content> `,
   styles: [
