@@ -24,8 +24,8 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <div pui-aspect-ratio="16 / 9">
-        <div pui-skeleton style="width: 100%; height: 120vh;"></div>
+      <div qui-aspect-ratio="16 / 9">
+        <div qui-skeleton style="width: 100%; height: 120vh;"></div>
       </div>
     `,
   }),

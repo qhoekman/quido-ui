@@ -5,9 +5,9 @@ type AspectRatioVariants = {
 };
 
 @Component({
-  selector: '[pui-aspect-ratio]',
+  selector: '[qui-aspect-ratio]',
   host: {
-    'data-testid': 'pui-aspect-ratio',
+    'data-testid': 'qui-aspect-ratio',
   },
   template: `<ng-content></ng-content>`,
   styles: [
@@ -20,7 +20,8 @@ type AspectRatioVariants = {
   standalone: true,
 })
 export class AspectRatioComponent {
-  @Input('pui-aspect-ratio') aspectRatio: AspectRatioVariants['ratio'] = '1 / 1';
+  @Input('qui-aspect-ratio') aspectRatio: AspectRatioVariants['ratio'] =
+    '1 / 1';
 
   @HostBinding('style.aspect-ratio') get aspectRatioStyle() {
     return this.aspectRatio;
