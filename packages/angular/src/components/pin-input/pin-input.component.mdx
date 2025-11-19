@@ -1,0 +1,13 @@
+import * as PinInputStories from "./pin-input.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import PinInputCode from "!!raw-loader!./pin-input.component.ts";
+
+# Pin Input
+
+<Meta of={PinInputStories} />
+<Canvas of={PinInputStories.Default} />
+<Controls of={PinInputStories.Default} />
+
+> **pin-input.component.ts**
+>
+> <Source code={PinInputCode} language="typescript" />
