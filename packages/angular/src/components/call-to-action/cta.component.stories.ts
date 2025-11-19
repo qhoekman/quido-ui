@@ -33,16 +33,16 @@ type Story = StoryObj<CTAComponent>;
 export const Default: Story = {
   render: () => ({
     template: `
-      <div pui-cta>
-        <div pui-cta-content>
-          <div pui-cta-section>
-            <h2 pui-cta-title>Ready to dive in?</h2>
-            <p pui-cta-subtitle>
+      <div qui-cta>
+        <div qui-cta-content>
+          <div qui-cta-section>
+            <h2 qui-cta-title>Ready to dive in?</h2>
+            <p qui-cta-subtitle>
               Start your free trial today and experience the power of our platform.
             </p>
-            <div pui-cta-actions>
-              <button pui-button>Get started</button>
-              <button pui-button variant="outline">Learn more</button>
+            <div qui-cta-actions>
+              <button qui-button>Get started</button>
+              <button qui-button variant="outline">Learn more</button>
             </div>
           </div>
         </div>

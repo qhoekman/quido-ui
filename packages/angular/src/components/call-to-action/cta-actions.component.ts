@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'div[pui-cta-actions]',
+  selector: 'div[qui-cta-actions]',
   standalone: true,
   imports: [CommonModule],
   host: {
-    'data-testid': 'pui-cta-actions',
+    'data-testid': 'qui-cta-actions',
   },
   template: `<ng-content></ng-content>`,
   styles: [

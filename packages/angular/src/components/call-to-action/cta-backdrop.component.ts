@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'img[pui-cta-backdrop]',
+  selector: 'img[qui-cta-backdrop]',
   standalone: true,
   imports: [CommonModule],
   host: {
-    'data-testid': 'pui-cta-backdrop',
+    'data-testid': 'qui-cta-backdrop',
   },
   template: `<ng-content></ng-content>`,
   styles: [
