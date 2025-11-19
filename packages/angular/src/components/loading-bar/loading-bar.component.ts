@@ -1,15 +1,23 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { LoadingService } from './loading.service';
 
 @Component({
-  selector: 'pui-loading-bar',
+  selector: 'qui-loading-bar',
   standalone: true,
   imports: [AsyncPipe],
   host: {
-    'data-testid': 'pui-loading-bar',
+    'data-testid': 'qui-loading-bar',
   },
-  template: ` <div [class.indicator]="loadingService.loadingSubject | async"></div> `,
+  template: `
+    <div [class.indicator]="loadingService.loadingSubject | async"></div>
+  `,
   styles: [
     `
       :host {

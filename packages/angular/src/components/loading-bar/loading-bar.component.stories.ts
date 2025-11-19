@@ -30,7 +30,7 @@ export const Default: Story = {
       props: args,
       template: `
         <div style="width: 100%; padding: 10px;">
-          <pui-loading-bar [loading]="loading"></pui-loading-bar>
+          <qui-loading-bar [loading]="loading"></qui-loading-bar>
         </div>
       `,
     };
