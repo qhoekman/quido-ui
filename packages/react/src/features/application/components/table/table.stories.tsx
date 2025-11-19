@@ -65,26 +65,30 @@ export const Default: StoryFn<typeof Table> = (args) => (
     <TableCaption>A list of your recent invoices.</TableCaption>
     <TableHeader>
       <TableRow>
-        <TableHead className="w-[100px]">Invoice</TableHead>
+        <TableHead style={{ width: "var(--spacing-24)" }}>Invoice</TableHead>
         <TableHead>Status</TableHead>
         <TableHead>Method</TableHead>
-        <TableHead className="text-right">Amount</TableHead>
+        <TableHead style={{ textAlign: "right" }}>Amount</TableHead>
       </TableRow>
     </TableHeader>
     <TableBody>
       {invoices.map((invoice) => (
         <TableRow key={invoice.invoice}>
-          <TableCell className="font-medium">{invoice.invoice}</TableCell>
+          <TableCell style={{ fontWeight: "var(--font-weight-medium)" }}>
+            {invoice.invoice}
+          </TableCell>
           <TableCell>{invoice.paymentStatus}</TableCell>
           <TableCell>{invoice.paymentMethod}</TableCell>
-          <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+          <TableCell style={{ textAlign: "right" }}>
+            {invoice.totalAmount}
+          </TableCell>
         </TableRow>
       ))}
     </TableBody>
     <TableFooter>
       <TableRow>
         <TableCell colSpan={3}>Total</TableCell>
-        <TableCell className="text-right">$2,500.00</TableCell>
+        <TableCell style={{ textAlign: "right" }}>$2,500.00</TableCell>
       </TableRow>
     </TableFooter>
   </Table>
@@ -92,13 +96,15 @@ export const Default: StoryFn<typeof Table> = (args) => (
 
 export const WithSelectedRow: StoryFn<typeof Table> = (args) => (
   <Table {...args}>
-    <TableCaption>A list of your recent invoices with selected row.</TableCaption>
+    <TableCaption>
+      A list of your recent invoices with selected row.
+    </TableCaption>
     <TableHeader>
       <TableRow>
-        <TableHead className="w-[100px]">Invoice</TableHead>
+        <TableHead style={{ width: "var(--spacing-24)" }}>Invoice</TableHead>
         <TableHead>Status</TableHead>
         <TableHead>Method</TableHead>
-        <TableHead className="text-right">Amount</TableHead>
+        <TableHead style={{ textAlign: "right" }}>Amount</TableHead>
       </TableRow>
     </TableHeader>
     <TableBody>
@@ -107,17 +113,21 @@ export const WithSelectedRow: StoryFn<typeof Table> = (args) => (
           key={invoice.invoice}
           data-state={index === 2 ? "selected" : undefined}
         >
-          <TableCell className="font-medium">{invoice.invoice}</TableCell>
+          <TableCell style={{ fontWeight: "var(--font-weight-medium)" }}>
+            {invoice.invoice}
+          </TableCell>
           <TableCell>{invoice.paymentStatus}</TableCell>
           <TableCell>{invoice.paymentMethod}</TableCell>
-          <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+          <TableCell style={{ textAlign: "right" }}>
+            {invoice.totalAmount}
+          </TableCell>
         </TableRow>
       ))}
     </TableBody>
     <TableFooter>
       <TableRow>
         <TableCell colSpan={3}>Total</TableCell>
-        <TableCell className="text-right">$2,500.00</TableCell>
+        <TableCell style={{ textAlign: "right" }}>$2,500.00</TableCell>
       </TableRow>
     </TableFooter>
   </Table>
