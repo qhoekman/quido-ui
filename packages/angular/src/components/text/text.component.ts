@@ -2,17 +2,39 @@ import { Component, Input } from '@angular/core';
 
 export type TextVariants = {
   variant: 'body' | 'caption' | 'label' | 'title' | 'subtitle' | 'unset';
-  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | '8xl' | '9xl' | 'unset';
+  size:
+    | 'xs'
+    | 'sm'
+    | 'md'
+    | 'lg'
+    | 'xl'
+    | '2xl'
+    | '3xl'
+    | '4xl'
+    | '5xl'
+    | '6xl'
+    | '7xl'
+    | '8xl'
+    | '9xl'
+    | 'unset';
   weight: 'normal' | 'medium' | 'bold' | 'unset';
-  color: 'neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'muted' | 'unset';
+  color:
+    | 'neutral'
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'warning'
+    | 'error'
+    | 'muted'
+    | 'unset';
 };
 
 @Component({
-  selector: '[pui-text]',
+  selector: '[qui-text]',
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-text',
+    'data-testid': 'qui-text',
   },
   template: `<ng-content></ng-content>`,
   styles: [

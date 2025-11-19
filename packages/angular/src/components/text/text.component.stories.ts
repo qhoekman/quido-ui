@@ -14,7 +14,14 @@ const meta: Meta<TextComponent> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: Array<TextVariants['variant']>('body', 'caption', 'label', 'title', 'subtitle', 'unset'),
+      options: Array<TextVariants['variant']>(
+        'body',
+        'caption',
+        'label',
+        'title',
+        'subtitle',
+        'unset'
+      ),
     },
     size: {
       control: 'select',
@@ -32,12 +39,17 @@ const meta: Meta<TextComponent> = {
         '7xl',
         '8xl',
         '9xl',
-        'unset',
+        'unset'
       ),
     },
     weight: {
       control: 'select',
-      options: Array<TextVariants['weight']>('normal', 'medium', 'bold', 'unset'),
+      options: Array<TextVariants['weight']>(
+        'normal',
+        'medium',
+        'bold',
+        'unset'
+      ),
     },
     color: {
       control: 'select',
@@ -49,7 +61,7 @@ const meta: Meta<TextComponent> = {
         'warning',
         'error',
         'muted',
-        'unset',
+        'unset'
       ),
     },
   },
@@ -68,9 +80,9 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <span pui-text [variant]="variant" [size]="size" [weight]="weight" [color]="color">Sample Text</span>
-    </pui-story>
+    <qui-story>
+      <span qui-text [variant]="variant" [size]="size" [weight]="weight" [color]="color">Sample Text</span>
+    </qui-story>
     `,
   }),
 };
