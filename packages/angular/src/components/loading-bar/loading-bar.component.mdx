@@ -1,0 +1,18 @@
+import * as LoadingBarStories from "./loading-bar.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import LoadingBarCode from "!!raw-loader!./loading-bar.component.ts";
+import LoadingServiceCode from "!!raw-loader!./loading.service.ts";
+
+# Loading Bar
+
+<Meta of={LoadingBarStories} />
+<Canvas of={LoadingBarStories.Default} />
+<Controls of={LoadingBarStories.Default} />
+
+> **loading-bar.component.ts**
+>
+> <Source code={LoadingBarCode} language="typescript" />{" "}
+
+> **loading.service.ts**
+>
+> <Source code={LoadingServiceCode} language="typescript" />{" "}
