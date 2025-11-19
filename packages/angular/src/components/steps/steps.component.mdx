@@ -1,0 +1,47 @@
+import * as StepsStories from "./steps.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import StepsCode from "!!raw-loader!./steps.component.ts";
+import StepsListCode from "!!raw-loader!./steps-list.component.ts";
+import StepsItemCode from "!!raw-loader!./steps-item.component.ts";
+import StepsContentCode from "!!raw-loader!./steps-content.component.ts";
+import StepsPrevDirectiveCode from "!!raw-loader!./steps-prev.directive.ts";
+import StepsNextDirectiveCode from "!!raw-loader!./steps-next.directive.ts";
+import StepsCompletedContentCode from "!!raw-loader!./steps-completed-content.component.ts";
+
+# Steps
+
+<Meta of={StepsStories} />
+<Canvas of={StepsStories.Default} />
+<Controls of={StepsStories.Default} />
+
+## Installation
+
+Copy the following code into your project.
+
+> **steps.component.ts**
+>
+> <Source code={StepsCode} language="typescript" />
+
+> **steps-list.component.ts**
+>
+> <Source code={StepsListCode} language="typescript" />
+
+> **steps-item.component.ts**
+>
+> <Source code={StepsItemCode} language="typescript" />
+
+> **steps-content.component.ts**
+>
+> <Source code={StepsContentCode} language="typescript" />
+
+> **steps-prev.directive.ts**
+>
+> <Source code={StepsPrevDirectiveCode} language="typescript" />
+
+> **steps-next.directive.ts**
+>
+> <Source code={StepsNextDirectiveCode} language="typescript" />
+
+> **steps-completed-content.component.ts**
+>
+> <Source code={StepsCompletedContentCode} language="typescript" />
