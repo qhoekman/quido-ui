@@ -2,7 +2,7 @@ import { Component, ElementRef, HostListener, Input } from '@angular/core';
 import { CheckboxIndicatorComponent } from './checkbox-indicator.component';
 
 @Component({
-  selector: 'button[pui-checkbox]',
+  selector: 'button[qui-checkbox]',
   imports: [CheckboxIndicatorComponent],
   host: {
     type: 'button',
@@ -12,7 +12,7 @@ import { CheckboxIndicatorComponent } from './checkbox-indicator.component';
   },
   standalone: true,
   template: `
-    <span pui-checkbox-indicator [checked]="checked"></span>
+    <span qui-checkbox-indicator [checked]="checked"></span>
     <input
       type="hidden"
       [attr.name]="elementRef.nativeElement.getAttribute('name')"

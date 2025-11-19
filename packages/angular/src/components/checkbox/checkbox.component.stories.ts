@@ -43,12 +43,12 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <div pui-stack align="center" justify="center" gap="sm">
-        <button pui-checkbox [checked]="checked" [disabled]="disabled"></button>
+    <qui-story>
+      <div qui-stack align="center" justify="center" gap="sm">
+        <button qui-checkbox [checked]="checked" [disabled]="disabled"></button>
         <label>{{ label }}</label>
       </div>
-    </pui-story>
+    </qui-story>
     `,
   }),
 };
