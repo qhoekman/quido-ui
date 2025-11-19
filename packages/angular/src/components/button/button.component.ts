@@ -2,18 +2,24 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, HostBinding, Input } from '@angular/core';
 
 export type ButtonVariants = {
-  variant: 'primary' | 'secondary' | 'destructive' | 'ghost' | 'outline' | 'link';
+  variant:
+    | 'primary'
+    | 'secondary'
+    | 'destructive'
+    | 'ghost'
+    | 'outline'
+    | 'link';
   fullWidth?: boolean;
   size: 'sm' | 'md' | 'lg' | 'icon';
 };
 
 @Component({
-  selector: 'button[pui-button], a[pui-button]',
+  selector: 'button[qui-button], a[qui-button]',
   standalone: true,
   imports: [CommonModule],
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-button',
+    'data-testid': 'qui-button',
   },
   template: `<ng-content></ng-content>`,
   styles: [
@@ -34,9 +40,7 @@ export type ButtonVariants = {
         text-decoration: none;
 
         &:focus-visible {
-          box-shadow:
-            0 0 0 2px var(--color-ring),
-            0 0 0 4px var(--background);
+          box-shadow: 0 0 0 2px var(--color-ring), 0 0 0 4px var(--background);
         }
 
         &:not(:disabled) {
@@ -158,10 +162,14 @@ export class ButtonComponent {
     };
   }
   @HostBinding('attr.disabled') get disabled() {
-    return this.elementRef.nativeElement.disabled || this.loading ? true : undefined;
+    return this.elementRef.nativeElement.disabled || this.loading
+      ? true
+      : undefined;
   }
 
   @HostBinding('attr.aria-disabled') get ariaDisabled() {
-    return this.elementRef.nativeElement.disabled || this.loading ? true : undefined;
+    return this.elementRef.nativeElement.disabled || this.loading
+      ? true
+      : undefined;
   }
 }

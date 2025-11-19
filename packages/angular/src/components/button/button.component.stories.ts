@@ -14,7 +14,14 @@ const meta: Meta<ButtonComponent> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: Array<ButtonVariants['variant']>('primary', 'secondary', 'destructive', 'ghost', 'outline', 'link'),
+      options: Array<ButtonVariants['variant']>(
+        'primary',
+        'secondary',
+        'destructive',
+        'ghost',
+        'outline',
+        'link'
+      ),
     },
     size: {
       control: 'select',
@@ -39,6 +46,6 @@ export const Default: Story = {
   },
   render: (args) => ({
     props: args,
-    template: `<pui-story><button pui-button [variant]="variant" [size]="size" [loading]="loading" [disabled]="disabled">Button</button></pui-story>`,
+    template: `<qui-story><button qui-button [variant]="variant" [size]="size" [loading]="loading" [disabled]="disabled">Button</button></qui-story>`,
   }),
 };
