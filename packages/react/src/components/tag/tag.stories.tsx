@@ -16,9 +16,7 @@ export default {
   },
 } satisfies Meta<typeof Tag>;
 
-export const Default: StoryFn<typeof Tag> = (args) => (
-  <Tag {...args}>New</Tag>
-);
+export const Default: StoryFn<typeof Tag> = (args) => <Tag {...args}>New</Tag>;
 
 export const Variants: StoryFn<typeof Tag> = () => (
   <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
