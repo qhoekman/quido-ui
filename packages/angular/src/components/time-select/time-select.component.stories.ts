@@ -36,9 +36,9 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <pui-time-select [hours]="hours" [minutes]="minutes"></pui-time-select>
-    </pui-story>
+    <qui-story>
+      <qui-time-select [hours]="hours" [minutes]="minutes"></qui-time-select>
+    </qui-story>
     `,
   }),
 };

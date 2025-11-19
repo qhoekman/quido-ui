@@ -13,18 +13,22 @@ import {
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'pui-time-select',
+  selector: 'qui-time-select',
   standalone: true,
   imports: [CommonModule],
   host: {
-    'data-testid': 'pui-time-select',
+    'data-testid': 'qui-time-select',
   },
   template: `
-    <div class="time-select" data-testid="pui-time-select">
-      <div class="time-column" #hourList data-testid="pui-time-select-hour-list">
+    <div class="time-select" data-testid="qui-time-select">
+      <div
+        class="time-column"
+        #hourList
+        data-testid="qui-time-select-hour-list"
+      >
         <div
           *ngFor="let hour of displayHours"
-          data-testid="pui-time-select-hour"
+          data-testid="qui-time-select-hour"
           (click)="handleClickHour(hour)"
           (keydown)="handleKeyDownHour($event)"
           tabindex="0"
@@ -35,10 +39,14 @@ import { CommonModule } from '@angular/common';
         </div>
       </div>
 
-      <div class="time-column" #minuteList data-testid="pui-time-select-minute-list">
+      <div
+        class="time-column"
+        #minuteList
+        data-testid="qui-time-select-minute-list"
+      >
         <div
           *ngFor="let minute of displayMinutes"
-          data-testid="pui-time-select-minute"
+          data-testid="qui-time-select-minute"
           (click)="handleClickMinute(minute)"
           (keydown)="handleKeyDownMinute($event)"
           tabindex="0"
@@ -103,7 +111,9 @@ export class TimeSelectComponent implements AfterViewInit, OnInit, OnChanges {
   }
 
   private generateDefaultMinutes(): string[] {
-    return Array.from({ length: 12 }, (_, i) => (i * 5).toString().padStart(2, '0'));
+    return Array.from({ length: 12 }, (_, i) =>
+      (i * 5).toString().padStart(2, '0')
+    );
   }
 
   resetToDefault() {
