@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-timeline-separator]',
+  selector: '[qui-timeline-separator]',
   standalone: true,
   host: {
-    'data-testid': 'pui-timeline-separator',
+    'data-testid': 'qui-timeline-separator',
   },
   template: ` <ng-content></ng-content> `,
   styles: [

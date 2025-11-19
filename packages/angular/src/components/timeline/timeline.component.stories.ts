@@ -1,6 +1,10 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 
-import { IconBoxComponent, IconCheckComponent, IconThickArrowRightComponent } from '../../icons';
+import {
+  IconBoxComponent,
+  IconCheckComponent,
+  IconThickArrowRightComponent,
+} from '../../icons';
 import { StoryComponent } from '../../system/components/story/story.component';
 import { TextComponent } from '../text/text.component';
 import { TimelineBulletComponent } from './timeline-bullet.component';
@@ -58,7 +62,8 @@ export const Default: Story = {
         title: 'Product Shipped',
         description: '13th May 2021',
         icon: 'thick-arrow-right',
-        additionalText: 'We shipped your product via FedEx and it should arrive within 3-5 business days.',
+        additionalText:
+          'We shipped your product via FedEx and it should arrive within 3-5 business days.',
       },
       {
         title: 'Order Confirmed',
@@ -75,29 +80,29 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <ul pui-timeline>
+    <qui-story>
+      <ul qui-timeline>
         <ng-container *ngFor="let item of items; let last = last">
-          <li pui-timeline-item>
-            <div pui-timeline-connector>
-              <div pui-timeline-bullet>
-                <i pui-icon name="thick-arrow-right" *ngIf="item.icon === 'thick-arrow-right'"></i>
-                <i pui-icon name="check" *ngIf="item.icon === 'check'"></i>
-                <i pui-icon name="box" *ngIf="item.icon === 'box'"></i>
+          <li qui-timeline-item>
+            <div qui-timeline-connector>
+              <div qui-timeline-bullet>
+                <i qui-icon name="thick-arrow-right" *ngIf="item.icon === 'thick-arrow-right'"></i>
+                <i qui-icon name="check" *ngIf="item.icon === 'check'"></i>
+                <i qui-icon name="box" *ngIf="item.icon === 'box'"></i>
               </div>
-              <div pui-timeline-separator *ngIf="!last"></div>
+              <div qui-timeline-separator *ngIf="!last"></div>
             </div>
-            <div pui-timeline-content>
-              <h4 pui-timeline-title>{{ item.title }}</h4>
-              <p pui-timeline-description>{{ item.description }}</p>
+            <div qui-timeline-content>
+              <h4 qui-timeline-title>{{ item.title }}</h4>
+              <p qui-timeline-description>{{ item.description }}</p>
               <ng-container *ngIf="item.additionalText">
-                <span pui-text size="sm">{{ item.additionalText }}</span>
+                <span qui-text size="sm">{{ item.additionalText }}</span>
               </ng-container>
             </div>
           </li>
         </ng-container>
       </ul>
-    </pui-story>
+    </qui-story>
     `,
   }),
 };

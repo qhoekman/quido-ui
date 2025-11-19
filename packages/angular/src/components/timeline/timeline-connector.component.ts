@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-timeline-connector]',
+  selector: '[qui-timeline-connector]',
   standalone: true,
   host: {
-    'data-testid': 'pui-timeline-connector',
+    'data-testid': 'qui-timeline-connector',
   },
   template: ` <ng-content></ng-content> `,
   styles: [
