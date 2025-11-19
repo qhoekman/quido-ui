@@ -5,9 +5,21 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Features/Mobile/Components/Block",
   component: Block,
-} as Meta<typeof Block>;
+  argTypes: {
+    inset: {
+      control: "boolean",
+    },
+    outline: {
+      control: "boolean",
+    },
+  },
+  args: {
+    inset: false,
+    outline: false,
+  },
+} satisfies Meta<typeof Block>;
 
-export const Default: StoryFn = (args) => (
+export const Default: StoryFn<typeof Block> = (args) => (
   <ViewportLayout>
     <BlockTitle>Block Title</BlockTitle>
     <Block {...args}>
@@ -25,7 +37,7 @@ Default.parameters = {
   },
 };
 
-export const WithInset: StoryFn = (args) => (
+export const WithInset: StoryFn<typeof Block> = (args) => (
   <ViewportLayout>
     <BlockTitle>Block Title</BlockTitle>
     <Block inset {...args}>
@@ -36,6 +48,10 @@ export const WithInset: StoryFn = (args) => (
   </ViewportLayout>
 );
 
+WithInset.args = {
+  inset: true,
+};
+
 WithInset.parameters = {
   layout: "fullscreen",
   viewport: {
@@ -43,7 +59,7 @@ WithInset.parameters = {
   },
 };
 
-export const WithOutline: StoryFn = (args) => (
+export const WithOutline: StoryFn<typeof Block> = (args) => (
   <ViewportLayout>
     <BlockTitle>Block Title</BlockTitle>
     <Block inset outline {...args}>
@@ -53,6 +69,10 @@ export const WithOutline: StoryFn = (args) => (
     </Block>
   </ViewportLayout>
 );
+
+WithOutline.args = {
+  outline: true,
+};
 
 WithOutline.parameters = {
   layout: "fullscreen",

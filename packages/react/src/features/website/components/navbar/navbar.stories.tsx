@@ -44,7 +44,14 @@ import { SVGAttributes } from "react";
 export default {
   title: "Features/Website/Components/Navbar",
   component: Navbar,
-} as Meta<typeof Navbar>;
+  argTypes: {
+    "aria-label": {
+      control: "text",
+      description: "Accessible label for the navigation element",
+    },
+  },
+  args: {},
+} satisfies Meta<typeof Navbar>;
 
 const navigation = [
   { name: "Link One", href: "#" },
@@ -73,7 +80,13 @@ export const WithMenuRight: StoryFn<typeof Navbar> = (args) => (
   <Navbar {...args}>
     <NavbarBrand>
       <NavbarLogo aria-label="Your company">
-        <CompanyLogo className="h-8 w-auto fill-neutral-900" />
+        <CompanyLogo
+          style={{
+            height: "var(--spacing-8)",
+            width: "auto",
+            fill: "var(--color-background-fg)",
+          }}
+        />
       </NavbarLogo>
     </NavbarBrand>
 
@@ -122,9 +135,22 @@ export const WithMenuRight: StoryFn<typeof Navbar> = (args) => (
 
 export const WithMenuLeft: StoryFn<typeof Navbar> = (args) => (
   <Navbar {...args}>
-    <NavbarBrand className="lg:flex-grow-0 lg:mr-6">
+    <NavbarBrand
+      style={{
+        "@media (min-width: 1024px)": {
+          flexGrow: 0,
+          marginRight: "var(--spacing-6)",
+        },
+      }}
+    >
       <NavbarLogo aria-label="Your company">
-        <CompanyLogo className="h-8 w-auto fill-neutral-900" />
+        <CompanyLogo
+          style={{
+            height: "var(--spacing-8)",
+            width: "auto",
+            fill: "var(--color-background-fg)",
+          }}
+        />
       </NavbarLogo>
     </NavbarBrand>
     <NavbarItems>
@@ -158,7 +184,11 @@ export const WithMenuLeft: StoryFn<typeof Navbar> = (args) => (
     </NavbarItems>
 
     <NavbarActions>
-      <Input type="search" placeholder="Search" className="w-64" />
+      <Input
+        type="search"
+        placeholder="Search"
+        style={{ width: "var(--spacing-64)" }}
+      />
       <Button asChild>
         <a href="#">Learn more</a>
       </Button>
@@ -170,7 +200,13 @@ export const WithMenuCenter: StoryFn<typeof Navbar> = (args) => (
   <Navbar {...args}>
     <NavbarBrand>
       <NavbarLogo aria-label="Your company">
-        <CompanyLogo className="h-8 w-auto fill-neutral-900" />
+        <CompanyLogo
+          style={{
+            height: "var(--spacing-8)",
+            width: "auto",
+            fill: "var(--color-background-fg)",
+          }}
+        />
       </NavbarLogo>
     </NavbarBrand>
     <NavbarItems>
@@ -213,7 +249,7 @@ export const WithMenuCenter: StoryFn<typeof Navbar> = (args) => (
 
 export const WithLogoCenter: StoryFn<typeof Navbar> = (args) => (
   <Navbar {...args}>
-    <NavbarItems className="w-[400px]">
+    <NavbarItems style={{ width: "400px" }}>
       {navigation.map((item) => {
         if (item.dropdown) {
           return (
@@ -242,12 +278,31 @@ export const WithLogoCenter: StoryFn<typeof Navbar> = (args) => (
         );
       })}
     </NavbarItems>
-    <NavbarBrand className="lg:flex-grow-0">
+    <NavbarBrand
+      style={{
+        "@media (min-width: 1024px)": {
+          flexGrow: 0,
+        },
+      }}
+    >
       <NavbarLogo aria-label="Your company">
-        <CompanyLogo className="h-8 w-auto fill-neutral-900" />
+        <CompanyLogo
+          style={{
+            height: "var(--spacing-8)",
+            width: "auto",
+            fill: "var(--color-background-fg)",
+          }}
+        />
       </NavbarLogo>
     </NavbarBrand>
-    <NavbarActions className="lg:flex-none w-[400px]">
+    <NavbarActions
+      style={{
+        "@media (min-width: 1024px)": {
+          flex: "none",
+        },
+        width: "400px",
+      }}
+    >
       <Button asChild>
         <a href="#">Learn more</a>
       </Button>
@@ -257,13 +312,36 @@ export const WithLogoCenter: StoryFn<typeof Navbar> = (args) => (
 
 export const WithActionsCenter: StoryFn<typeof Navbar> = (args) => (
   <Navbar {...args}>
-    <NavbarBrand className="lg:flex-grow-0">
+    <NavbarBrand
+      style={{
+        "@media (min-width: 1024px)": {
+          flexGrow: 0,
+        },
+      }}
+    >
       <NavbarLogo aria-label="Your company">
-        <CompanyLogo className="h-8 w-auto fill-neutral-900" />
+        <CompanyLogo
+          style={{
+            height: "var(--spacing-8)",
+            width: "auto",
+            fill: "var(--color-background-fg)",
+          }}
+        />
       </NavbarLogo>
     </NavbarBrand>
-    <NavbarActions className="lg:justify-start ml-6">
-      <Input type="search" placeholder="Search" className="w-64" />
+    <NavbarActions
+      style={{
+        "@media (min-width: 1024px)": {
+          justifyContent: "flex-start",
+        },
+        marginLeft: "var(--spacing-6)",
+      }}
+    >
+      <Input
+        type="search"
+        placeholder="Search"
+        style={{ width: "var(--spacing-64)" }}
+      />
     </NavbarActions>
     <NavbarItems>
       {navigation.map((item) => {
@@ -301,7 +379,13 @@ export const WithMobileMenu: StoryFn<typeof Navbar> = (args) => (
   <Navbar {...args}>
     <NavbarBrand>
       <NavbarLogo aria-label="Your company">
-        <CompanyLogo className="h-8 w-auto fill-neutral-900" />
+        <CompanyLogo
+          style={{
+            height: "var(--spacing-8)",
+            width: "auto",
+            fill: "var(--color-background-fg)",
+          }}
+        />
       </NavbarLogo>
     </NavbarBrand>
 
@@ -346,12 +430,25 @@ export const WithMobileMenu: StoryFn<typeof Navbar> = (args) => (
     </NavbarItems>
     <NavbarMobile>
       <NavbarMobileTrigger>
-        <MenuIcon className="h-6 w-6 stroke-neutral-800" aria-hidden="true" />
+        <MenuIcon
+          style={{
+            height: "var(--spacing-6)",
+            width: "var(--spacing-6)",
+            stroke: "var(--color-background-fg)",
+          }}
+          aria-hidden="true"
+        />
       </NavbarMobileTrigger>
       <NavbarMobileContent>
         <NavbarMobileHeader>
           <NavbarMobileLogo aria-label="Your company">
-            <CompanyLogo className="h-8 w-auto fill-neutral-900" />
+            <CompanyLogo
+              style={{
+                height: "var(--spacing-8)",
+                width: "auto",
+                fill: "var(--color-background-fg)",
+              }}
+            />
           </NavbarMobileLogo>
           <NavbarMobileClose />
         </NavbarMobileHeader>
@@ -410,42 +507,96 @@ WithMobileMenu.parameters = {
 
 export const WithMegaMenu: StoryFn<typeof Navbar> = (args) => (
   <Navbar {...args}>
-    <NavbarBrand className="lg:flex-grow-0 lg:mr-6">
+    <NavbarBrand
+      style={{
+        "@media (min-width: 1024px)": {
+          flexGrow: 0,
+          marginRight: "var(--spacing-6)",
+        },
+      }}
+    >
       <NavbarLogo aria-label="Your company">
-        <CompanyLogo className="h-8 w-auto fill-neutral-900" />
+        <CompanyLogo
+          style={{
+            height: "var(--spacing-8)",
+            width: "auto",
+            fill: "var(--color-background-fg)",
+          }}
+        />
       </NavbarLogo>
     </NavbarBrand>
 
-    <NavbarItems className="flex-1">
+    <NavbarItems style={{ flex: 1 }}>
       <MegaMenu>
         <MegaMenuList>
           <MegaMenuItem>
             <MegaMenuTrigger>Getting started</MegaMenuTrigger>
             <MegaMenuContent>
-              <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <li className="row-span-3">
+              <ul
+                style={{
+                  display: "grid",
+                  gap: "var(--spacing-3)",
+                  padding: "var(--spacing-4)",
+                  "@media (min-width: 768px)": {
+                    width: "400px",
+                  },
+                  "@media (min-width: 1024px)": {
+                    width: "500px",
+                    gridTemplateColumns: ".75fr 1fr",
+                  },
+                }}
+              >
+                <li style={{ gridRow: "span 3 / span 3" }}>
                   <MegaMenuLink asChild>
                     <a
-                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                      style={{
+                        display: "flex",
+                        height: "100%",
+                        width: "100%",
+                        userSelect: "none",
+                        flexDirection: "column",
+                        justifyContent: "flex-end",
+                        borderRadius: "var(--border-radius-md)",
+                        background:
+                          "linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.1))",
+                        padding: "var(--spacing-6)",
+                        textDecoration: "none",
+                        outline: "none",
+                      }}
                       href="/"
                     >
                       <img
                         src="https://tailwindui.com/img/logos/mark.svg?color=indigo"
                         alt="Logo"
-                        className="w-8 h-8"
+                        style={{
+                          width: "var(--spacing-8)",
+                          height: "var(--spacing-8)",
+                        }}
                       />
-                      <div className="mb-2 mt-4 text-lg font-medium">
+                      <div
+                        style={{
+                          marginBottom: "var(--spacing-2)",
+                          marginTop: "var(--spacing-4)",
+                          fontSize: "var(--font-size-lg)",
+                          fontWeight: "var(--font-weight-medium)",
+                        }}
+                      >
                         shadcn/ui
                       </div>
-                      <p className="text-sm leading-tight text-muted-foreground">
-                        Beautifully designed components built with Radix UI and
-                        Tailwind CSS.
+                      <p
+                        style={{
+                          fontSize: "var(--font-size-sm)",
+                          lineHeight: "var(--line-height-tight)",
+                          color: "var(--color-muted-fg)",
+                        }}
+                      >
+                        Beautifully designed components built with Radix UI.
                       </p>
                     </a>
                   </MegaMenuLink>
                 </li>
                 <MegaMenuListItem href="/docs" title="Introduction">
-                  Re-usable components built using Radix UI and Tailwind CSS.
+                  Re-usable components built using Radix UI.
                 </MegaMenuListItem>
                 <MegaMenuListItem
                   href="/docs/installation"
@@ -466,7 +617,14 @@ export const WithMegaMenu: StoryFn<typeof Navbar> = (args) => (
       </MegaMenu>
     </NavbarItems>
 
-    <NavbarActions className="lg:flex-none w-[400px]">
+    <NavbarActions
+      style={{
+        "@media (min-width: 1024px)": {
+          flex: "none",
+        },
+        width: "400px",
+      }}
+    >
       <Button asChild>
         <a href="#">Learn more</a>
       </Button>

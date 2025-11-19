@@ -9,10 +9,10 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Features/Application/Components/Definition List",
   component: DefinitionList,
-} as Meta<typeof DefinitionList>;
+} satisfies Meta<typeof DefinitionList>;
 
-export const Default: StoryFn = (args) => (
-  <div className="max-w-2xl mx-auto">
+export const Default: StoryFn<typeof DefinitionList> = (args) => (
+  <div style={{ maxWidth: "var(--spacing-2xl)", margin: "0 auto" }}>
     <DefinitionList {...args}>
       <DefintionListItem>
         <DefinitionTerm>Full name</DefinitionTerm>

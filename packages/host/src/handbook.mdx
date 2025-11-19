@@ -115,17 +115,25 @@ Mainly focus on:
 
 ### Styling
 
-Tailwind CSS is a utility-first CSS framework that enables developers to rapidly build custom user interfaces. It provides a comprehensive set of pre-designed utility classes that you can use to style your HTML elements. These classes can be combined to create complex, responsive layouts that look great on any device.
+For styling in this design system, we focus on using native CSS approaches whenever possible for each framework, aligning with modern best practices and providing improved flexibility:
 
-The benefits of using TailwindCSS:
+- **React**: We recommend using [Styled Components](https://styled-components.com/) for React projects. Styled Components allows you to write actual CSS in your JavaScript, leveraging the full power of CSS with all the dynamic features of JS. This enables you to use variables, conditional logic, and direct co-location of styles with components. It's a mature, widely supported solution for React and works seamlessly with React Server Components.
 
-- **Speed up development** With Tailwind CSS, you can build custom user interfaces quickly by using pre-designed utility classes instead of writing custom CSS for every element. This saves a lot of development time and allows you to focus on building the functionality of your application.
+- **Angular**: Native CSS and the built-in Angular component styles (via `styles` and `styleUrls` in component decorators) are recommended. Angular supports style encapsulation (ViewEncapsulation), allowing CSS to be scoped to the component automatically. This leads to predictable styling and leverages all browser-supported CSS features and selectors.
 
-- **Consistent designs** Tailwind CSS provides a set of standardized utility classes that you can use across your entire application, ensuring consistency in your design. This helps to make your code more maintainable and scalable.
+- **Vue**: We recommend using Vue’s single-file component (`<style scoped>`) approach, which lets you write scoped CSS directly alongside your template and script. This approach enables the use of all native CSS features and keeps styles tightly coupled to their components.
 
-- **Responsive layouts** Tailwind CSS makes it easy to create responsive designs that look great on any device. The framework provides a range of responsive utility classes that you can use to adjust the layout of your elements based on the size of the screen.
+**Benefits compared to Tailwind CSS:**
 
-- **Customizable** Tailwind CSS is highly customizable, meaning that you can easily modify the framework to suit your specific needs. You can configure the colors, typography, and other design elements to match your brand or application.
+- **Leverage Full CSS Power**: Native CSS allows full access to advanced selectors, pseudo-elements, and browser features without requiring framework-specific plugins or workarounds.
+- **No Lock-In**: Styles are framework-agnostic and more portable. They can be freely refactored and shared between projects, including those where Tailwind isn’t available.
+- **Co-location and Readability**: Styles live alongside components and aren’t spread across a vast utility class list, making them easier to read and maintain—especially for teams already familiar with CSS.
+- **Fine-grained Control**: Native CSS and CSS-in-JS allow for tighter control over specificity and inheritance. This minimizes the risk of class name collisions or unintended overrides.
+- **Performance**: Avoids unused utility classes and reduces the need to purge or tree-shake large CSS files, improving performance and load times.
+
+**Why still use Tailwind CSS (optionally):**
+
+Tailwind CSS can still be a great tool for rapid prototyping, small projects, or teams already invested in utility-first workflows. It provides out-of-the-box responsive utilities, design tokens, and enforced consistency, and can be integrated for specific use cases.
 
 #### Scalable styling
 

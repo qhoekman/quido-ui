@@ -1,43 +1,65 @@
-import { cn } from "@/lib/utils";
-import { ChevronRightIcon } from "lucide-react";
 import React from "react";
+import styled from "styled-components";
+import { ChevronRightIcon } from "lucide-react";
 
-type BreadcrumbProps = React.HTMLAttributes<HTMLDivElement>;
+const StyledBreadcrumb = styled.nav`
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-sm);
+`;
+
+const StyledBreadcrumbItem = styled.a`
+  display: flex;
+  align-items: center;
+`;
+
+const StyledBreadcrumbSeparator = styled.div`
+  margin-left: var(--spacing-1);
+  margin-right: var(--spacing-1);
+`;
+
+export type BreadcrumbProps = React.HTMLAttributes<HTMLDivElement>;
+
 export const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(
   ({ className, ...props }, ref) => {
     return (
-      <nav
+      <StyledBreadcrumb
         ref={ref}
-        className={cn("flex items-center text-sm", className)}
+        className={className}
         aria-label="Breadcrumb"
         {...props}
       >
         {props.children}
-      </nav>
+      </StyledBreadcrumb>
     );
   }
 );
+Breadcrumb.displayName = "Breadcrumb";
 
-type BreadcrumbItemProps = React.AnchorHTMLAttributes<HTMLAnchorElement>;
+export type BreadcrumbItemProps = React.AnchorHTMLAttributes<HTMLAnchorElement>;
+
 export const BreadcrumbItem = React.forwardRef<
   HTMLAnchorElement,
   BreadcrumbItemProps
 >(({ className, ...props }, ref) => {
   return (
-    <a ref={ref} className={cn("flex items-center", className)} {...props}>
+    <StyledBreadcrumbItem ref={ref} className={className} {...props}>
       {props.children}
-    </a>
+    </StyledBreadcrumbItem>
   );
 });
+BreadcrumbItem.displayName = "BreadcrumbItem";
 
-type BreadcrumbSeparatorProps = React.HTMLAttributes<HTMLDivElement>;
+export type BreadcrumbSeparatorProps = React.HTMLAttributes<HTMLDivElement>;
+
 export const BreadcrumbSeparator = React.forwardRef<
   HTMLDivElement,
   BreadcrumbSeparatorProps
 >(({ className, ...props }, ref) => {
   return (
-    <div ref={ref} className={cn("mx-1", className)} {...props}>
+    <StyledBreadcrumbSeparator ref={ref} className={className} {...props}>
       {props.children || <ChevronRightIcon size={16} />}
-    </div>
+    </StyledBreadcrumbSeparator>
   );
 });
+BreadcrumbSeparator.displayName = "BreadcrumbSeparator";

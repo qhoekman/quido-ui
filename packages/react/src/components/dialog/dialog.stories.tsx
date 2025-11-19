@@ -15,35 +15,68 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Components/Overlay/Dialog",
   component: Dialog,
-} as Meta<typeof Dialog>;
+  argTypes: {
+    defaultOpen: {
+      control: "boolean",
+    },
+    open: {
+      control: "boolean",
+    },
+    modal: {
+      control: "boolean",
+    },
+  },
+  args: {
+    defaultOpen: false,
+    modal: true,
+  },
+} satisfies Meta<typeof Dialog>;
 
 export const Default: StoryFn<typeof Dialog> = (args) => (
   <Dialog {...args}>
     <DialogTrigger asChild>
       <Button variant="outline">Edit Profile</Button>
     </DialogTrigger>
-    <DialogContent className="sm:max-w-[425px]">
+    <DialogContent>
       <DialogHeader>
         <DialogTitle>Edit profile</DialogTitle>
         <DialogDescription>
           Make changes to your profile here. Click save when you're done.
         </DialogDescription>
       </DialogHeader>
-      <div className="grid gap-4 py-4">
-        <div className="grid grid-cols-4 items-center gap-4">
-          <Label htmlFor="name" className="text-right">
-            Name
-          </Label>
-          <Input id="name" defaultValue="Pedro Duarte" className="col-span-3" />
+      <div
+        style={{
+          display: "grid",
+          gap: "var(--spacing-4)",
+          padding: "var(--spacing-4)",
+        }}
+      >
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "4fr 1fr",
+            gap: "var(--spacing-4)",
+          }}
+        >
+          <Label htmlFor="name">Name</Label>
+          <Input
+            id="name"
+            defaultValue="Pedro Duarte"
+            style={{ gridColumn: "span 3" }}
+          />
         </div>
-        <div className="grid grid-cols-4 items-center gap-4">
-          <Label htmlFor="username" className="text-right">
-            Username
-          </Label>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "4fr 1fr",
+            gap: "var(--spacing-4)",
+          }}
+        >
+          <Label htmlFor="username">Username</Label>
           <Input
             id="username"
             defaultValue="@peduarte"
-            className="col-span-3"
+            style={{ gridColumn: "span 3" }}
           />
         </div>
       </div>
@@ -53,7 +86,3 @@ export const Default: StoryFn<typeof Dialog> = (args) => (
     </DialogContent>
   </Dialog>
 );
-
-Default.args = {
-  defaultOpen: false,
-};

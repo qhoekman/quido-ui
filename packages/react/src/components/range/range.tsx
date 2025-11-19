@@ -1,31 +1,67 @@
 import * as RangePrimitive from "@radix-ui/react-slider";
-import * as React from "react";
+import React from "react";
+import styled from "styled-components";
 
-import { cn } from "@/lib/utils";
+const StyledRoot = styled(RangePrimitive.Root)`
+  position: relative;
+  display: flex;
+  width: 100%;
+  touch-action: none;
+  user-select: none;
+  align-items: center;
+`;
+
+const StyledTrack = styled(RangePrimitive.Track)`
+  position: relative;
+  height: var(--spacing-1-5);
+  width: 100%;
+  flex-grow: 1;
+  overflow: hidden;
+  border-radius: var(--border-radius-full);
+  background-color: var(--color-muted);
+`;
+
+const StyledRange = styled(RangePrimitive.Range)`
+  position: absolute;
+  height: 100%;
+  background-color: var(--color-primary);
+`;
+
+const StyledThumb = styled(RangePrimitive.Thumb)`
+  display: block;
+  height: var(--spacing-4);
+  width: var(--spacing-4);
+  border-radius: var(--border-radius-full);
+  border: var(--border-width-default) solid var(--color-primary);
+  background-color: var(--color-background);
+  box-shadow: var(--box-shadow-default);
+  transition: colors 0.3s;
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 1px var(--color-ring);
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+`;
 
 export type RangeProps = React.ComponentPropsWithoutRef<
   typeof RangePrimitive.Root
 >;
 
-const Range = React.forwardRef<
+export const Range = React.forwardRef<
   React.ElementRef<typeof RangePrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof RangePrimitive.Root>
 >(({ className, ...props }, ref) => (
-  <RangePrimitive.Root
-    ref={ref}
-    className={cn(
-      "relative flex w-full touch-none select-none items-center",
-      className
-    )}
-    {...props}
-  >
-    <RangePrimitive.Track className="relative h-1.5 w-full grow overflow-hidden rounded-full bg-muted">
-      <RangePrimitive.Range className="absolute h-full bg-primary" />
-    </RangePrimitive.Track>
-    <RangePrimitive.Thumb className="block h-4 w-4 rounded-full border border-primary bg-background shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50" />
-    <RangePrimitive.Thumb className="block h-4 w-4 rounded-full border border-primary bg-background shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50" />
-  </RangePrimitive.Root>
+  <StyledRoot ref={ref} className={className} {...props}>
+    <StyledTrack>
+      <StyledRange />
+    </StyledTrack>
+    <StyledThumb />
+    <StyledThumb />
+  </StyledRoot>
 ));
 Range.displayName = "Range";
-
-export { Range };

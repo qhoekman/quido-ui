@@ -21,11 +21,38 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Features/Application/Components/Tabs",
   component: Tabs,
-} as Meta<typeof Tabs>;
+  argTypes: {
+    defaultValue: {
+      control: "text",
+      description:
+        "The value of the tab that should be active when initially rendered",
+    },
+    value: {
+      control: "text",
+      description: "The controlled value of the tab to activate",
+    },
+    orientation: {
+      control: "select",
+      options: ["horizontal", "vertical"],
+      description: "The orientation of the component",
+    },
+    activationMode: {
+      control: "select",
+      options: ["automatic", "manual"],
+      description:
+        "When automatic, tabs are activated when receiving focus. When manual, tabs are activated when clicked.",
+    },
+  },
+  args: {
+    defaultValue: "account",
+    orientation: "horizontal",
+    activationMode: "automatic",
+  },
+} satisfies Meta<typeof Tabs>;
 
-export const Default: StoryFn = (args) => (
-  <Tabs defaultValue="account" className="w-[400px]" {...args}>
-    <TabsList className="grid w-full grid-cols-2">
+export const Default: StoryFn<typeof Tabs> = (args) => (
+  <Tabs style={{ width: "var(--spacing-sm)" }} {...args}>
+    <TabsList>
       <TabsTrigger value="account">Account</TabsTrigger>
       <TabsTrigger value="password">Password</TabsTrigger>
     </TabsList>
@@ -37,12 +64,12 @@ export const Default: StoryFn = (args) => (
             Make changes to your account here. Click save when you're done.
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-2">
-          <div className="space-y-1">
+        <CardContent>
+          <div>
             <Label htmlFor="name">Name</Label>
             <Input id="name" defaultValue="Pedro Duarte" />
           </div>
-          <div className="space-y-1">
+          <div>
             <Label htmlFor="username">Username</Label>
             <Input id="username" defaultValue="@peduarte" />
           </div>
@@ -60,12 +87,12 @@ export const Default: StoryFn = (args) => (
             Change your password here. After saving, you'll be logged out.
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-2">
-          <div className="space-y-1">
+        <CardContent>
+          <div>
             <Label htmlFor="current">Current password</Label>
             <Input id="current" type="password" />
           </div>
-          <div className="space-y-1">
+          <div>
             <Label htmlFor="new">New password</Label>
             <Input id="new" type="password" />
           </div>

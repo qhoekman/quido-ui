@@ -19,7 +19,11 @@ export default {
 
 export const WithLeftContent: StoryFn<typeof CTA> = (args) => (
   <CTA {...args}>
-    <CTAContent className="bg-neutral-100">
+    <CTAContent
+      style={{
+        backgroundColor: "var(--color-muted)",
+      }}
+    >
       <CTATitle>Get in touch</CTATitle>
       <CTASubtitle>
         We are here to help you with any questions you may have
@@ -38,12 +42,26 @@ export const WithLeftContent: StoryFn<typeof CTA> = (args) => (
 
 export const WithCenteredContent: StoryFn<typeof CTA> = (args) => (
   <CTA {...args}>
-    <CTAContent className="text-center bg-neutral-100">
+    <CTAContent
+      style={{
+        textAlign: "center",
+        backgroundColor: "var(--color-muted)",
+      }}
+    >
       <CTATitle>Get in touch</CTATitle>
-      <CTASubtitle className="mx-auto">
+      <CTASubtitle
+        style={{
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}
+      >
         We are here to help you with any questions you may have
       </CTASubtitle>
-      <CTAActions className="justify-center sm:mx-auto">
+      <CTAActions
+        style={{
+          justifyContent: "center",
+        }}
+      >
         <Button asChild>
           <a href="#">Contact us</a>
         </Button>
@@ -58,21 +76,37 @@ export const WithCenteredContent: StoryFn<typeof CTA> = (args) => (
 export const WithBackdrop: StoryFn<typeof CTA> = (args) => (
   <CTA {...args}>
     <CTABackdrop
-      src="https://dummyimage.com/1920x1280/d4d4d4/171717"
+      src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&h=1280&q=80"
       alt="cta"
       width={1920}
       height={1280}
     />
     <CTAContent>
-      <CTATitle className="text-white">Get in touch</CTATitle>
-      <CTASubtitle className="text-neutral-100">
+      <CTATitle
+        style={{
+          color: "var(--color-white)",
+        }}
+      >
+        Get in touch
+      </CTATitle>
+      <CTASubtitle
+        style={{
+          color: "var(--color-muted-fg)",
+        }}
+      >
         We are here to help you with any questions you may have
       </CTASubtitle>
       <CTAActions>
         <Button asChild>
           <a href="#">Contact us</a>
         </Button>
-        <Button variant="outline" className="text-neutral-100" asChild>
+        <Button
+          variant="outline"
+          style={{
+            color: "var(--color-muted-fg)",
+          }}
+          asChild
+        >
           <a href="#">Learn more</a>
         </Button>
       </CTAActions>
@@ -83,19 +117,39 @@ export const WithBackdrop: StoryFn<typeof CTA> = (args) => (
 export const WithFormVertical: StoryFn<typeof CTA> = (args) => (
   <CTA {...args}>
     <CTABackdrop
-      src="https://dummyimage.com/1920x1280/d4d4d4/171717"
+      src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&h=1280&q=80"
       alt="cta"
       width={1920}
       height={1280}
     />
     <CTAContent>
-      <CTATitle className="text-white">Get in touch</CTATitle>
-      <CTASubtitle className="text-neutral-100">
+      <CTATitle
+        style={{
+          color: "var(--color-white)",
+        }}
+      >
+        Get in touch
+      </CTATitle>
+      <CTASubtitle
+        style={{
+          color: "var(--color-muted)",
+        }}
+      >
         We are here to help you with any questions you may have
       </CTASubtitle>
 
-      <CTASection className="max-w-md">
-        <div className="flex items-start gap-x-4">
+      <CTASection
+        style={{
+          maxWidth: "28rem",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            gap: "var(--spacing-4)",
+          }}
+        >
           <Label htmlFor="email-address" className="sr-only">
             Email address
           </Label>
@@ -112,9 +166,15 @@ export const WithFormVertical: StoryFn<typeof CTA> = (args) => (
           <Button type="submit">Subscribe</Button>
         </div>
 
-        <p className="mt-4 text-sm text-neutral-200 md:mt-3">
+        <p
+          style={{
+            marginTop: "var(--spacing-4)",
+            fontSize: "var(--font-size-sm)",
+            color: "var(--color-muted-fg)",
+          }}
+        >
           By clicking Subscribe you&apos;re confirming that you agree with our{" "}
-          <a href="#" className="underline">
+          <a href="#" style={{ textDecoration: "underline" }}>
             Terms and Conditions
           </a>
         </p>
@@ -125,8 +185,17 @@ export const WithFormVertical: StoryFn<typeof CTA> = (args) => (
 
 export const WithFormHorizontal: StoryFn<typeof CTA> = (args) => (
   <CTA {...args}>
-    <CTAContent className="bg-neutral-100 gap-7 xl:flex-row">
-      <CTASection className="text-center xl:text-left">
+    <CTAContent
+      style={{
+        backgroundColor: "hsl(from var(--color-muted) h s l / 10%)",
+        gap: "var(--spacing-7)",
+      }}
+    >
+      <CTASection
+        style={{
+          textAlign: "center",
+        }}
+      >
         <CTATitle>Get up-to-date</CTATitle>
         <CTASubtitle>
           Subscribe to our newsletter and be the first to know about our newest
@@ -134,8 +203,18 @@ export const WithFormHorizontal: StoryFn<typeof CTA> = (args) => (
         </CTASubtitle>
       </CTASection>
 
-      <CTASection className="max-w-md">
-        <div className="flex items-start gap-x-4">
+      <CTASection
+        style={{
+          maxWidth: "28rem",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "start",
+            gap: "var(--spacing-4)",
+          }}
+        >
           <Label htmlFor="email-address" className="sr-only">
             Email address
           </Label>
@@ -152,9 +231,15 @@ export const WithFormHorizontal: StoryFn<typeof CTA> = (args) => (
           <Button type="submit">Subscribe</Button>
         </div>
 
-        <p className="mt-4 text-sm text-neutral-500 md:mt-3">
+        <p
+          style={{
+            marginTop: "var(--spacing-4)",
+            color: "var(--color-muted-fg)",
+            fontSize: "var(--font-size-sm)",
+          }}
+        >
           By clicking Subscribe you&apos;re confirming that you agree with our{" "}
-          <a href="#" className="underline">
+          <a href="#" style={{ textDecoration: "underline" }}>
             Terms and Conditions
           </a>
         </p>
@@ -166,23 +251,51 @@ export const WithFormHorizontal: StoryFn<typeof CTA> = (args) => (
 export const WithFormHorizontalBackdrop: StoryFn<typeof CTA> = (args) => (
   <CTA {...args}>
     <CTABackdrop
-      src="https://dummyimage.com/1920x1280/d4d4d4/171717"
+      src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&h=1280&q=80"
       alt="cta"
       width={1920}
       height={1280}
     />
 
-    <CTAContent className="gap-7 xl:flex-row">
-      <CTASection className="text-center xl:text-left">
-        <CTATitle className="text-white">Get up-to-date</CTATitle>
-        <CTASubtitle className="text-neutral-200">
+    <CTAContent
+      style={{
+        gap: "var(--spacing-7)",
+      }}
+    >
+      <CTASection
+        style={{
+          textAlign: "center",
+        }}
+      >
+        <CTATitle
+          style={{
+            color: "var(--color-white)",
+          }}
+        >
+          Get up-to-date
+        </CTATitle>
+        <CTASubtitle
+          style={{
+            color: "var(--color-muted-fg)",
+          }}
+        >
           Subscribe to our newsletter and be the first to know about our newest
           projects and resources.
         </CTASubtitle>
       </CTASection>
 
-      <CTASection className="max-w-md">
-        <div className="flex items-start gap-x-4">
+      <CTASection
+        style={{
+          maxWidth: "28rem",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            gap: "var(--spacing-4)",
+          }}
+        >
           <Label htmlFor="email-address" className="sr-only">
             Email address
           </Label>
@@ -199,9 +312,15 @@ export const WithFormHorizontalBackdrop: StoryFn<typeof CTA> = (args) => (
           <Button type="submit">Subscribe</Button>
         </div>
 
-        <p className="mt-4 text-sm text-neutral-200 md:mt-3">
+        <p
+          style={{
+            marginTop: "var(--spacing-4)",
+            fontSize: "var(--font-size-sm)",
+            color: "var(--color-muted-fg)",
+          }}
+        >
           By clicking Subscribe you&apos;re confirming that you agree with our{" "}
-          <a href="#" className="underline">
+          <a href="#" style={{ textDecoration: "underline" }}>
             Terms and Conditions
           </a>
         </p>

@@ -16,11 +16,11 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Features/Website/Components/Header",
   component: Header,
-} as Meta<typeof Header>;
+} satisfies Meta<typeof Header>;
 
 export const WithCenteredContent: StoryFn = (args) => (
   <Header {...args}>
-    <HeaderContent className="text-center">
+    <HeaderContent style={{ textAlign: "center" }}>
       <HeaderTagline>Tagline</HeaderTagline>
       <HeaderTitle>Short heading goes here</HeaderTitle>
       <HeaderBody>
@@ -29,7 +29,7 @@ export const WithCenteredContent: StoryFn = (args) => (
         exercitationem autem quasi odit aut temporibus rem expedita maxime at.
         Laudantium?
       </HeaderBody>
-      <HeaderActions className="mx-auto">
+      <HeaderActions style={{ marginLeft: "auto", marginRight: "auto" }}>
         <Button>Button</Button>
         <Button variant="outline">Button</Button>
       </HeaderActions>
@@ -67,8 +67,14 @@ export const WithForm: StoryFn = (args) => (
         exercitationem autem quasi odit aut temporibus rem expedita maxime at.
         Laudantium?
       </HeaderBody>
-      <HeaderActions className="flex-col space-x-0">
-        <div className="flex items-start gap-x-4">
+      <HeaderActions style={{ flexDirection: "column", gap: "0" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            gap: "var(--spacing-4)",
+          }}
+        >
           <Label htmlFor="email-address" className="sr-only">
             Email address
           </Label>
@@ -85,9 +91,15 @@ export const WithForm: StoryFn = (args) => (
           <Button type="submit">Subscribe</Button>
         </div>
 
-        <p className="mt-4 text-sm text-neutral-800 md:mt-3">
+        <p
+          style={{
+            marginTop: "var(--spacing-4)",
+            fontSize: "var(--font-size-sm)",
+            color: "var(--color-muted-fg)",
+          }}
+        >
           By clicking Subscribe you&apos;re confirming that you agree with our{" "}
-          <a href="#" className="underline">
+          <a href="#" style={{ textDecoration: "underline" }}>
             Terms and Conditions
           </a>
         </p>
@@ -99,21 +111,32 @@ export const WithForm: StoryFn = (args) => (
 export const WithBackdrop: StoryFn = (args) => (
   <HeaderBackdrop>
     <HeaderBackdropImage />
-    <Header className="py-6" {...args}>
-      <HeaderContent className="text-center">
-        <HeaderTagline className="text-neutral-200">Tagline</HeaderTagline>
-        <HeaderTitle className="text-white">
+    <Header
+      style={{
+        paddingTop: "var(--spacing-6)",
+        paddingBottom: "var(--spacing-6)",
+      }}
+      {...args}
+    >
+      <HeaderContent style={{ textAlign: "center" }}>
+        <HeaderTagline style={{ color: "var(--color-muted-fg)" }}>
+          Tagline
+        </HeaderTagline>
+        <HeaderTitle style={{ color: "var(--color-background-fg)" }}>
           Short heading goes here
         </HeaderTitle>
-        <HeaderBody className="text-neutral-100">
+        <HeaderBody style={{ color: "var(--color-muted-fg)" }}>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
           tempora delectus et. Iusto tempora accusantium suscipit labore, iure
           exercitationem autem quasi odit aut temporibus rem expedita maxime at.
           Laudantium?
         </HeaderBody>
-        <HeaderActions className="mx-auto">
+        <HeaderActions style={{ marginLeft: "auto" }}>
           <Button>Button</Button>
-          <Button variant="outline" className="text-neutral-100">
+          <Button
+            variant="outline"
+            style={{ color: "var(--color-background-fg)" }}
+          >
             Button
           </Button>
         </HeaderActions>
@@ -126,11 +149,25 @@ export const WithHorizontalContent: StoryFn = (args) => (
   <HeaderBackdrop>
     <HeaderBackdropImage />
     <Header {...args}>
-      <HeaderContent className="max-w-6xl flex flex-col justify-between py-24 xl:flex-row xl:items-center gap-x-6">
-        <HeaderTitle className="flex-1 text-white">
+      <HeaderContent
+        style={{
+          maxWidth: "var(--columns-6xl)",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "between",
+          paddingTop: "var(--spacing-24)",
+          paddingBottom: "var(--spacing-24)",
+          "@media (min-width: 1024px)": {
+            flexDirection: "row",
+            alignItems: "center",
+            gap: "var(--spacing-6)",
+          },
+        }}
+      >
+        <HeaderTitle style={{ color: "var(--color-background-fg)" }}>
           Short heading goes here
         </HeaderTitle>
-        <HeaderBody className="flex-1 text-neutral-100">
+        <HeaderBody style={{ color: "var(--color-background-fg)" }}>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
           tempora delectus et. Iusto tempora accusantium suscipit labore, iure
           exercitationem autem quasi odit aut temporibus rem expedita maxime at.

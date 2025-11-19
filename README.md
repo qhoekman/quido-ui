@@ -18,7 +18,7 @@ The design system is built with the following principles in mind:
 
 - **Opt-out**: The design system should be easy to use and opt-out. Components are designed to be used out of the box, but also easy to customize. This means that the code for the component can be easily copied and pasted into the consuming application and modified as needed.
 
-- **Consistency**: The design system should provide a consistent look and feel across all applications. This is doen using the design tokens described in the Tailwind configuration. Tailwind already provides a powerful set of design tokens, but we have extended it to include additional tokens that are specific to branding.
+- **Consistency**: The design system should provide a consistent look and feel across all applications. This is done using the design tokens declared as CSS variables.
 
 - **Accessibility**: The design system should be accessible by default. This means that all components should be designed with accessibility in mind. This includes things like keyboard navigation, screen reader support, and color contrast.
 
@@ -34,23 +34,24 @@ Ensure you have PNPM installed on your system. If not, you can install it by run
 npm install -g pnpm
 ```
 
-> You need to have Tailwind CSS installed in your project.
-
 ## Running
 
 You can open Storybook for each framework by doing:
 
 ### React
+
 ```sh
 pnpm react dev
 ```
 
 ### Angular
+
 ```
 pnpm angular dev
 ```
 
 ### Vue
+
 ```
 pnpm vue dev
 ```

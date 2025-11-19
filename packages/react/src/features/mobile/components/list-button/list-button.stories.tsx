@@ -6,15 +6,28 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Features/Mobile/Components/List Button",
   component: ListButton,
-} as Meta<typeof ListButton>;
+  argTypes: {
+    disabled: {
+      control: "boolean",
+    },
+    type: {
+      control: "select",
+      options: ["button", "submit", "reset"],
+    },
+  },
+  args: {
+    disabled: false,
+    type: "button",
+  },
+} satisfies Meta<typeof ListButton>;
 
-export const Default: StoryFn = (args) => (
+export const Default: StoryFn<typeof ListButton> = (args) => (
   <ViewportLayout>
     <BlockTitle>List Button</BlockTitle>
-    <Block className="p-0" inset>
+    <Block style={{ padding: "0" }} inset>
       <ul>
         {Array.from({ length: 5 }).map((_, index) => (
-          <li key={index}>
+          <li key={index} style={{ listStyle: "none" }}>
             <ListButton {...args}>
               <span>Button</span>
             </ListButton>

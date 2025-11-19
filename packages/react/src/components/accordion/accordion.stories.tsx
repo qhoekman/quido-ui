@@ -12,13 +12,34 @@ export default {
   component: Accordion,
   argTypes: {
     type: {
+      control: "select",
       options: ["single", "multiple"],
-      control: {
-        type: "select",
-      },
+      description: "Determines whether one or multiple items can be opened at the same time",
+    },
+    collapsible: {
+      control: "boolean",
+      description: "When type is 'single', allows closing an open item by clicking it again",
+    },
+    disabled: {
+      control: "boolean",
+      description: "When true, prevents the user from interacting with the accordion",
+    },
+    defaultValue: {
+      control: "text",
+      description: "The value of the item that should be open when initially rendered (uncontrolled)",
+    },
+    orientation: {
+      control: "select",
+      options: ["vertical", "horizontal"],
+      description: "The orientation of the accordion",
     },
   },
-} as Meta<typeof Accordion>;
+  args: {
+    type: "single",
+    collapsible: false,
+    disabled: false,
+  },
+} satisfies Meta<typeof Accordion>;
 
 export const Default: StoryFn<typeof Accordion> = (args) => (
   <Accordion {...args}>
@@ -42,6 +63,3 @@ export const Default: StoryFn<typeof Accordion> = (args) => (
     </AccordionItem>
   </Accordion>
 );
-Default.args = {
-  type: "single",
-};

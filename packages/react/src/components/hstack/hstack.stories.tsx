@@ -1,18 +1,26 @@
-import { Card, CardContent } from "@/components/card/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/card/card";
 import { HStack } from "@/components/hstack/hstack";
 import type { Meta, StoryFn } from "@storybook/react-vite";
 
 export default {
   title: "Components/Layout/HStack",
   component: HStack,
-} as Meta<typeof HStack>;
+} satisfies Meta<typeof HStack>;
 
-export const Default: StoryFn = (args) => (
+export const Default: StoryFn<typeof HStack> = (args) => (
   <HStack {...args}>
     {Array.from({ length: 5 }).map((_, index) => (
-      <Card key={index} className="w-32 bg-primary text-primary-fg">
-        <CardContent className="flex aspect-square items-center justify-center p-6">
-          <span className="text-4xl font-semibold">{index + 1}</span>
+      <Card key={index}>
+        <CardHeader>
+          <CardTitle>Card {index + 1}</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p>...</p>
         </CardContent>
       </Card>
     ))}

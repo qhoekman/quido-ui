@@ -1,16 +1,19 @@
-import { cn } from "@/lib/utils";
 import React from "react";
+import styled from "styled-components";
 
-const HStack = React.forwardRef<
+const StyledHStack = styled.div`
+  display: flex;
+  gap: var(--spacing-4);
+`;
+
+export const HStack = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <div ref={ref} className={cn("flex gap-4", className)} {...props}>
+    <StyledHStack ref={ref} className={className} {...props}>
       {children}
-    </div>
+    </StyledHStack>
   );
 });
 HStack.displayName = "HStack";
-
-export { HStack };

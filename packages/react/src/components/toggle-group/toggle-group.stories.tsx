@@ -7,25 +7,24 @@ export default {
   component: ToggleGroup,
   argTypes: {
     variant: {
-      control: {
-        type: "select",
-        options: ["default"],
-      },
+      control: "select",
+      options: ["primary", "outline"],
     },
     size: {
-      control: {
-        type: "select",
-        options: ["default"],
-      },
+      control: "select",
+      options: ["sm", "md", "lg"],
     },
     type: {
+      control: "select",
       options: ["single", "multiple"],
-      control: {
-        type: "select",
-      },
     },
   },
-} as Meta<typeof ToggleGroup>;
+  args: {
+    variant: "primary",
+    size: "md",
+    type: "single",
+  },
+} satisfies Meta<typeof ToggleGroup>;
 
 export const Default: StoryFn<typeof ToggleGroup> = (args) => (
   <ToggleGroup {...args}>
@@ -34,6 +33,3 @@ export const Default: StoryFn<typeof ToggleGroup> = (args) => (
     <ToggleGroupItem value="c">C</ToggleGroupItem>
   </ToggleGroup>
 );
-Default.args = {
-  type: "single",
-};

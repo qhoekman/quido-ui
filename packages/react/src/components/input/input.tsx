@@ -1,25 +1,50 @@
-import * as React from "react";
+import React from "react";
+import styled from "styled-components";
 
-import { cn } from "@/lib/utils";
+const StyledInput = styled.input`
+  display: flex;
+  height: var(--spacing-10);
+  width: 100%;
+  border-radius: var(--border-radius-md);
+  border: var(--border-width-default) solid var(--color-border);
+  background-color: var(--color-input);
+  color: var(--color-input-fg);
+  padding-left: var(--spacing-3);
+  padding-right: var(--spacing-3);
+  padding-top: var(--spacing-2);
+  padding-bottom: var(--spacing-2);
+  font-size: var(--font-size-sm);
+  box-shadow: 0 0 0 0 var(--color-background);
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+  &::file-selector-button {
+    border: 0;
+    background-color: transparent;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+  }
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  &::placeholder {
+    color: var(--color-muted-fg);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-ring), 0 0 0 4px var(--color-background);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+`;
+
+export type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
+
+export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, ...props }, ref) => {
     return (
-      <input
-        type={type}
-        className={cn(
-          "flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-          className
-        )}
-        ref={ref}
-        {...props}
-      />
+      <StyledInput type={type} className={className} ref={ref} {...props} />
     );
   }
 );
 Input.displayName = "Input";
-
-export { Input };

@@ -1,61 +1,88 @@
-import { cn } from "@/lib/utils";
 import React from "react";
+import styled from "styled-components";
 
-const Toolbar = React.forwardRef<
+const StyledToolbar = styled.div`
+  width: 100%;
+  padding-bottom: env(safe-area-inset-bottom);
+  left: 0;
+  bottom: 0;
+  position: fixed;
+`;
+
+const StyledToolbarInner = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-top: var(--border-width-2) solid var(--color-border);
+  background-color: var(--color-muted);
+  color: var(--color-muted-fg);
+`;
+
+const StyledToolbarContent = styled.div`
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  padding-left: var(--spacing-6);
+  padding-right: var(--spacing-6);
+  height: var(--spacing-11);
+`;
+
+const StyledToolbarLink = styled.a`
+  color: var(--color-primary);
+  display: inline-flex;
+  gap: var(--spacing-1);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  transition-duration: 300ms;
+  height: 100%;
+  max-height: var(--spacing-12);
+
+  &:active {
+    opacity: 0.3;
+    transition-duration: 0ms;
+  }
+`;
+
+export const Toolbar = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <div ref={ref} className="w-full pb-safe left-0 bottom-0 fixed" {...props}>
-      <div
-        className={cn(
-          "absolute w-full h-full left-0 top-0 border-t-2 border-slate-200 bg-neutral-50",
-          className
-        )}
-      ></div>
+    <StyledToolbar ref={ref} {...props}>
+      <StyledToolbarInner className={className}></StyledToolbarInner>
       {children}
-    </div>
+    </StyledToolbar>
   );
 });
 Toolbar.displayName = "Toolbar";
 
-const ToolbarContent = React.forwardRef<
+export const ToolbarContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <div
-      ref={ref}
-      className={cn(
-        "flex relative justify-between items-center w-full overflow-hidden px-6 h-11",
-        className
-      )}
-      {...props}
-    >
+    <StyledToolbarContent ref={ref} className={className} {...props}>
       {children}
-    </div>
+    </StyledToolbarContent>
   );
 });
 ToolbarContent.displayName = "ToolbarContent";
 
-const ToolbarLink = React.forwardRef<
+export const ToolbarLink = React.forwardRef<
   HTMLAnchorElement,
   React.ComponentPropsWithoutRef<"a">
 >(({ className, href = "#", children, ...props }, ref) => {
   return (
-    <a
-      ref={ref}
-      href={href}
-      className={cn(
-        "text-primary inline-flex space-x-1 rtl:!space-x-reverse justify-center items-center cursor-pointer select-none active:opacity-30 duration-300 active:duration-0 h-full max-h-12",
-        className
-      )}
-      {...props}
-    >
+    <StyledToolbarLink ref={ref} href={href} className={className} {...props}>
       {children}
-    </a>
+    </StyledToolbarLink>
   );
 });
 ToolbarLink.displayName = "ToolbarLink";
-
-export { Toolbar, ToolbarContent, ToolbarLink };

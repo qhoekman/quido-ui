@@ -1,33 +1,97 @@
-import { Input } from "@/components/input/input";
-import { cn } from "@/lib/utils";
-import { cva } from "class-variance-authority";
-import { MinusIcon, PlusIcon } from "lucide-react";
 import React, { useRef } from "react";
-type NumberInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
+import styled, { css } from "styled-components";
+import { cva } from "class-variance-authority";
+import { Input } from "@/components/input/input";
+import { MinusIcon, PlusIcon } from "lucide-react";
+
+const buttonVariants = cva("q-number-input-button", {
+  variants: {
+    direction: {
+      increment: "direction--increment",
+      decrement: "direction--decrement",
+    },
+  },
+});
+
+const buttonStyles = css`
+  padding: var(--spacing-1);
+  height: var(--spacing-10);
+  border: var(--border-width-default) solid var(--color-border);
+  background-color: var(--color-muted);
+  color: var(--color-muted-fg);
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: hsl(from var(--color-background-fg) h s l / 10%);
+    color: hsl(from var(--color-background-fg) h s l / 90%);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-ring), 0 0 0 4px var(--color-background);
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  &.direction--increment {
+    border-top-right-radius: var(--border-radius-lg);
+    border-bottom-right-radius: var(--border-radius-lg);
+  }
+
+  &.direction--decrement {
+    border-top-left-radius: var(--border-radius-lg);
+    border-bottom-left-radius: var(--border-radius-lg);
+  }
+`;
+
+const StyledRoot = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: var(--spacing-32);
+`;
+
+const StyledButton = styled.button`
+  ${buttonStyles}
+`;
+
+const StyledInput = styled(Input)`
+  border-radius: 0;
+  text-align: center;
+  border-color: var(--color-border);
+
+  &::-webkit-outer-spin-button {
+    margin: 0;
+    appearance: none;
+  }
+
+  &::-webkit-inner-spin-button {
+    margin: 0;
+    appearance: none;
+  }
+`;
+
+const StyledIcon = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: var(--spacing-3);
+    height: var(--spacing-3);
+  }
+`;
+
+export type NumberInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   classes?: {
     root?: string;
     input?: string;
     button?: string;
   };
 };
-
-const inputVariants = cva(
-  "rounded-none text-center border-neutral-200 [&::-webkit-outer-spin-button]:m-0 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none",
-  {
-    variants: {},
-  }
-);
-const buttonVariants = cva(
-  "p-3 h-10 border border-neutral-200 bg-transparent hover:bg-neutral-100 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-  {
-    variants: {
-      direction: {
-        increment: "rounded-e-lg",
-        decrement: "rounded-s-lg",
-      },
-    },
-  }
-);
 
 export const NumberInput: React.FC<NumberInputProps> = ({
   className,
@@ -49,46 +113,56 @@ export const NumberInput: React.FC<NumberInputProps> = ({
     }
   };
 
+  const decrementButtonClasses = [
+    buttonVariants({ direction: "decrement" }),
+    classes?.button,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const incrementButtonClasses = [
+    buttonVariants({ direction: "increment" }),
+    classes?.button,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const inputClasses = [classes?.input, className].filter(Boolean).join(" ");
+
   return (
-    <div className={cn("relative flex items-center max-w-32", classes.root)}>
-      <button
+    <StyledRoot className={classes.root}>
+      <StyledButton
         type="button"
         id="decrement-button"
         aria-label="Decrement"
         onClick={handleDecrement}
         disabled={disabled}
-        className={cn(
-          buttonVariants({
-            direction: "decrement",
-          }),
-          classes?.button
-        )}
+        className={decrementButtonClasses}
       >
-        <MinusIcon className="w-3 h-3" />
-      </button>
-      <Input
+        <StyledIcon>
+          <MinusIcon />
+        </StyledIcon>
+      </StyledButton>
+      <StyledInput
         type="number"
         ref={inputRef}
-        className={cn(inputVariants({}), classes?.input, className)}
+        className={inputClasses}
         placeholder="0"
         required
         disabled={disabled}
         {...props}
       />
-      <button
+      <StyledButton
         type="button"
         aria-label="Increment"
         onClick={handleIncrement}
         disabled={disabled}
-        className={cn(
-          buttonVariants({
-            direction: "increment",
-          }),
-          classes?.button
-        )}
+        className={incrementButtonClasses}
       >
-        <PlusIcon className="w-3 h-3" />
-      </button>
-    </div>
+        <StyledIcon>
+          <PlusIcon />
+        </StyledIcon>
+      </StyledButton>
+    </StyledRoot>
   );
 };

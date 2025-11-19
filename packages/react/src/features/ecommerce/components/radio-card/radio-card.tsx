@@ -4,12 +4,66 @@ import {
   RadioGroupItem,
   RadioGroupItemIndicator,
 } from "@/components/radio-group/radio-group";
-import { cn } from "@/lib/utils";
 import {
   RadioGroupItemProps,
   RadioGroupProps,
 } from "@radix-ui/react-radio-group";
 import React from "react";
+import styled from "styled-components";
+
+const StyledRadioCard = styled(RadioGroup)`
+  gap: var(--spacing-3);
+`;
+
+const StyledRadioCardItem = styled(RadioGroupItem)`
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-4);
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius-lg);
+  border: var(--border-width-default) solid var(--color-border);
+  box-shadow: var(--box-shadow-sm);
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 1px var(--color-ring);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    background-color: var(--color-muted);
+    color: var(--color-muted-fg);
+  }
+`;
+
+const StyledRadioCardItemIndicator = styled(RadioGroupItemIndicator)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: var(--spacing-4);
+  border: var(--border-width-2) solid var(--color-primary);
+`;
+
+const StyledRadioCardItemLabel = styled(Label)`
+  font-size: var(--font-size-sm);
+`;
+
+const StyledRadioCardItemDescription = styled.p`
+  margin-top: var(--spacing-1);
+  font-size: var(--font-size-sm);
+  text-align: left;
+`;
 
 type RadioCardProps = RadioGroupProps;
 
@@ -18,9 +72,9 @@ export const RadioCard = React.forwardRef<
   RadioCardProps
 >(({ className, children, ...props }, ref) => {
   return (
-    <RadioGroup className={cn("grid gap-3 ", className)} {...props} ref={ref}>
+    <StyledRadioCard className={className} {...props} ref={ref}>
       {children}
-    </RadioGroup>
+    </StyledRadioCard>
   );
 });
 RadioCard.displayName = RadioGroup.displayName;
@@ -31,19 +85,12 @@ export const RadioCardItem = React.forwardRef<
   RadioCardItemProps
 >(({ children, className, ...props }, ref) => {
   return (
-    <RadioGroupItem
-      className={cn(
-        "aspect-square flex flex-col p-4 items-center justify-center relative w-full h-full rounded-lg border border-gray-200 shadow-sm focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-gray-200 disabled:text-gray-800",
-        className
-      )}
-      {...props}
-      ref={ref}
-    >
+    <StyledRadioCardItem className={className} {...props} ref={ref}>
       {children}
-      <RadioGroupItemIndicator className="absolute top-0 left-0 w-full h-full p-4 border-2 border-primary">
+      <StyledRadioCardItemIndicator>
         <div />
-      </RadioGroupItemIndicator>
-    </RadioGroupItem>
+      </StyledRadioCardItemIndicator>
+    </StyledRadioCardItem>
   );
 });
 
@@ -54,7 +101,9 @@ export const RadioCardItemLabel = React.forwardRef<
   React.ElementRef<typeof Label>,
   RadioCardItemLabelProps
 >(({ className, ...props }, ref) => {
-  return <Label ref={ref} className={cn("text-sm", className)} {...props} />;
+  return (
+    <StyledRadioCardItemLabel ref={ref} className={className} {...props} />
+  );
 });
 RadioCardItemLabel.displayName = "RadioCardItemLabel";
 
@@ -64,9 +113,9 @@ export const RadioCardItemDescription = React.forwardRef<
   RadioCardItemDescriptionProps
 >(({ className, ...props }, ref) => {
   return (
-    <p
+    <StyledRadioCardItemDescription
       ref={ref}
-      className={cn("mt-1 text-sm text-left ", className)}
+      className={className}
       {...props}
     />
   );

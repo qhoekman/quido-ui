@@ -7,16 +7,21 @@ export default {
   component: Separator,
   argTypes: {
     orientation: {
+      control: "select",
       options: ["horizontal", "vertical"],
-      control: {
-        type: "select",
-      },
+    },
+    decorative: {
+      control: "boolean",
     },
   },
-} as Meta<typeof Separator>;
+  args: {
+    orientation: "horizontal",
+    decorative: true,
+  },
+} satisfies Meta<typeof Separator>;
 
 export const Default: StoryFn<typeof Separator> = (args) => (
-  <div className="h-[100px]">
+  <div style={{ height: "100px" }}>
     <Separator {...args}></Separator>
   </div>
 );

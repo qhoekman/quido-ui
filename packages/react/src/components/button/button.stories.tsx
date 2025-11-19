@@ -4,6 +4,41 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Components/Actions/Button",
   component: Button,
+  argTypes: {
+    variant: {
+      control: "select",
+      options: [
+        "primary",
+        "secondary",
+        "destructive",
+        "outline",
+        "ghost",
+        "link",
+      ],
+    },
+    size: {
+      control: "select",
+      options: [
+        "md",
+        "sm",
+        "lg",
+        "icon",
+        "secondary",
+        "destructive",
+        "outline",
+        "ghost",
+        "link",
+      ],
+    },
+    disabled: {
+      control: "boolean",
+    },
+  },
+  args: {
+    variant: "primary",
+    size: "md",
+    disabled: false,
+  },
 } satisfies Meta<typeof Button>;
 
 export const Default: StoryFn<typeof Button> = (args) => (

@@ -1,155 +1,223 @@
-import { cn } from "@/lib/utils";
 import React from "react";
+import styled from "styled-components";
+import { cn } from "@/lib/utils";
 
-const Header = React.forwardRef<
+const StyledHeader = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: var(--spacing-24);
+  max-width: var(--columns-7xl);
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
+
+  @media (min-width: 640px) {
+    margin-top: var(--spacing-32);
+    padding-left: var(--spacing-6);
+    padding-right: var(--spacing-6);
+  }
+
+  @media (min-width: 1024px) {
+    margin-top: var(--spacing-40);
+    padding-left: var(--spacing-8);
+    padding-right: var(--spacing-8);
+  }
+
+  &.py-6 {
+    padding-top: var(--spacing-6) !important;
+    padding-bottom: var(--spacing-6) !important;
+  }
+`;
+
+const StyledHeaderTagline = styled.h3`
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--color-muted-fg);
+`;
+
+const StyledHeaderTitle = styled.h2`
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--color-background-fg);
+
+  @media (min-width: 1280px) {
+    font-size: var(--font-size-5xl);
+  }
+`;
+
+const StyledHeaderBody = styled.p`
+  font-size: var(--font-size-lg);
+  color: var(--color-muted-fg);
+`;
+
+const StyledHeaderContent = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  max-width: var(--columns-4xl);
+  flex-direction: column;
+  gap: var(--spacing-7);
+
+  &.text-center {
+    text-align: center !important;
+  }
+  &.max-w-6xl {
+    max-width: var(--columns-6xl) !important;
+  }
+  &.py-24 {
+    padding-top: var(--spacing-24) !important;
+    padding-bottom: var(--spacing-24) !important;
+  }
+  &.justify-between {
+    justify-content: space-between !important;
+  }
+  &.gap-x-6 {
+    gap: var(--spacing-6) !important;
+  }
+
+  @media (min-width: 1280px) {
+    &[class*="xl:flex-row"] {
+      flex-direction: row !important;
+    }
+    &[class*="xl:items-center"] {
+      align-items: center !important;
+    }
+  }
+`;
+
+const StyledHeaderActions = styled.div`
+  margin-right: auto;
+  display: flex;
+  gap: var(--spacing-8);
+
+  &.mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  &.flex-col {
+    flex-direction: column !important;
+  }
+  &.space-x-0 > * + * {
+    margin-left: 0 !important;
+  }
+`;
+
+const StyledHeaderBackdrop = styled.div`
+  position: relative;
+  height: 100%;
+  width: 100%;
+`;
+
+const StyledHeaderBackdropImage = styled.img`
+  position: absolute;
+  z-index: -10;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(0.25);
+`;
+
+export const Header = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <div
-      ref={ref}
-      className={cn(
-        "mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8",
-        className
-      )}
-      {...props}
-    >
+    <StyledHeader ref={ref} className={className} {...props}>
       {children}
-    </div>
+    </StyledHeader>
   );
 });
 Header.displayName = "Header";
 
-const HeaderTagline = React.forwardRef<
+export const HeaderTagline = React.forwardRef<
   HTMLHeadingElement,
   React.ComponentPropsWithoutRef<"h3">
 >(({ children, className, ...props }, ref) => {
   return (
-    <h3
-      ref={ref}
-      className={cn(
-        "text-lg font-medium uppercase tracking-wide text-neutral-800",
-        className
-      )}
-      {...props}
-    >
+    <StyledHeaderTagline ref={ref} className={className} {...props}>
       {children}
-    </h3>
+    </StyledHeaderTagline>
   );
 });
 HeaderTagline.displayName = "HeaderTagline";
 
-const HeaderTitle = React.forwardRef<
+export const HeaderTitle = React.forwardRef<
   HTMLHeadingElement,
   React.ComponentPropsWithoutRef<"h2">
 >(({ children, className, ...props }, ref) => {
   return (
-    <h2
-      ref={ref}
-      className={cn(
-        "text-4xl font-bold leading-tight tracking-wide text-neutral-900 xl:text-5xl",
-        className
-      )}
-      {...props}
-    >
+    <StyledHeaderTitle ref={ref} className={className} {...props}>
       {children}
-    </h2>
+    </StyledHeaderTitle>
   );
 });
 HeaderTitle.displayName = "HeaderTitle";
 
-const HeaderBody = React.forwardRef<
+export const HeaderBody = React.forwardRef<
   HTMLParagraphElement,
   React.ComponentPropsWithoutRef<"p">
 >(({ children, className, ...props }, ref) => {
   return (
-    <p
-      ref={ref}
-      className={cn("text-lg text-neutral-600", className)}
-      {...props}
-    >
+    <StyledHeaderBody ref={ref} className={className} {...props}>
       {children}
-    </p>
+    </StyledHeaderBody>
   );
 });
 HeaderBody.displayName = "HeaderBody";
 
-const HeaderContent = React.forwardRef<
+export const HeaderContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <div
-      ref={ref}
-      className={cn("mx-auto flex max-w-4xl flex-col space-y-7", className)}
-      {...props}
-    >
+    <StyledHeaderContent ref={ref} className={className} {...props}>
       {children}
-    </div>
+    </StyledHeaderContent>
   );
 });
 HeaderContent.displayName = "HeaderContent";
 
-const HeaderActions = React.forwardRef<
+export const HeaderActions = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <div
-      ref={ref}
-      className={cn("mr-auto flex space-x-8", className)}
-      {...props}
-    >
+    <StyledHeaderActions ref={ref} className={className} {...props}>
       {children}
-    </div>
+    </StyledHeaderActions>
   );
 });
 HeaderActions.displayName = "HeaderActions";
 
-const HeaderBackdrop = React.forwardRef<
+export const HeaderBackdrop = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <div
-      ref={ref}
-      className={cn("relative h-full w-full", className)}
-      {...props}
-    >
+    <StyledHeaderBackdrop ref={ref} className={className} {...props}>
       {children}
-    </div>
+    </StyledHeaderBackdrop>
   );
 });
 HeaderBackdrop.displayName = "HeaderBackdrop";
 
-const HeaderBackdropImage = React.forwardRef<
+export const HeaderBackdropImage = React.forwardRef<
   HTMLImageElement,
   React.ComponentPropsWithoutRef<"img">
 >(({ className, ...props }, ref) => {
   return (
-    <img
+    <StyledHeaderBackdropImage
       ref={ref}
       loading="lazy"
       src="https://dummyimage.com/1920x1200/d4d4d4/171717"
       alt="hero image"
       aria-hidden="true"
-      className={cn(
-        "absolute -z-10 h-full w-full object-cover brightness-[.25]",
-        className
-      )}
+      className={className}
       {...props}
     />
   );
 });
 HeaderBackdropImage.displayName = "HeaderBackdropImage";
-
-export {
-  Header,
-  HeaderActions,
-  HeaderBackdrop,
-  HeaderBackdropImage,
-  HeaderBody,
-  HeaderContent,
-  HeaderTagline,
-  HeaderTitle,
-};

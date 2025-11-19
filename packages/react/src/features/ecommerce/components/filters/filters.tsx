@@ -1,3 +1,5 @@
+import React from "react";
+import styled from "styled-components";
 import { Button, ButtonProps } from "@/components/button/button";
 import { Checkbox, CheckboxProps } from "@/components/checkbox/checkbox";
 import { Label } from "@/components/label/label";
@@ -10,24 +12,30 @@ import {
   FilterItemKey,
   useFilterStore,
 } from "@/features/ecommerce/components/filters/useFilterStore";
-import { cn } from "@/lib/utils";
 
-import React from "react";
+const StyledFiltersForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+`;
 
 type FiltersFormProps = React.FormHTMLAttributes<HTMLFormElement>;
 export const FiltersForm = React.forwardRef<HTMLFormElement, FiltersFormProps>(
   ({ className, children, ...props }, ref) => {
     return (
-      <form
-        ref={ref}
-        className={cn("flex flex-col space-y-4", className)}
-        {...props}
-      >
+      <StyledFiltersForm ref={ref} className={className} {...props}>
         {children}
-      </form>
+      </StyledFiltersForm>
     );
   }
 );
+FiltersForm.displayName = "FiltersForm";
+
+const StyledFilterCheckboxContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+`;
 
 type FilterCheckboxProps = CheckboxProps & {
   name: FilterItemKey;
@@ -47,7 +55,7 @@ export const FilterCheckbox: React.FC<FilterCheckboxProps> = ({
   };
 
   return (
-    <div className="flex items-center space-x-2">
+    <StyledFilterCheckboxContainer>
       <Checkbox
         id={name ?? props.id}
         name={name}
@@ -56,9 +64,25 @@ export const FilterCheckbox: React.FC<FilterCheckboxProps> = ({
         {...props}
       />
       <Label htmlFor={name ?? props.id}>{children}</Label>
-    </div>
+    </StyledFilterCheckboxContainer>
   );
 };
+
+const StyledFilterRangeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+`;
+
+const StyledFilterRangeLabelContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const StyledFilterRangeLabel = styled(Label)`
+  opacity: 0.6;
+`;
 
 type FilterRangeProps = RangeProps & {
   name: FilterItemKey;
@@ -80,26 +104,27 @@ export const FilterRange: React.FC<FilterRangeProps> = ({
     setFilter(key, `${value}`);
   };
 
+  const rangeProps = { ...props };
+  delete (rangeProps as any).labelPrefix;
+
   return (
-    <div className="flex flex-col space-y-2">
-      <div className="flex justify-between items-center">
-        {/* Minimum label */}
-        <Label htmlFor={name ?? props.id} className="opacity-60">
+    <StyledFilterRangeContainer>
+      <StyledFilterRangeLabelContainer>
+        <StyledFilterRangeLabel htmlFor={name ?? props.id}>
           {labelPrefix} {filterValues[0]}
-        </Label>
-        {/* Maximum label */}
-        <Label htmlFor={name ?? props.id} className="opacity-60">
+        </StyledFilterRangeLabel>
+        <StyledFilterRangeLabel htmlFor={name ?? props.id}>
           {labelPrefix} {filterValues[1]}
-        </Label>
-      </div>
+        </StyledFilterRangeLabel>
+      </StyledFilterRangeLabelContainer>
       <Range
         id={name ?? props.id}
         name={name}
         value={filterValues}
         onValueChange={(value) => handleChange(name)(JSON.stringify(value))}
-        {...props}
+        {...rangeProps}
       />
-    </div>
+    </StyledFilterRangeContainer>
   );
 };
 
@@ -129,6 +154,12 @@ export const FilterRadioGroup: React.FC<FilterRadioGroupProps> = ({
   );
 };
 
+const StyledFilterRadioGroupItemContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+`;
+
 type FilterRadioGroupItemProps = React.ComponentPropsWithoutRef<
   typeof RadioGroupItem
 > & {
@@ -146,7 +177,7 @@ export const FilterRadioGroupItem: React.FC<FilterRadioGroupItemProps> = ({
   const { filters } = useFilterStore();
 
   return (
-    <div className="flex items-center space-x-2">
+    <StyledFilterRadioGroupItemContainer>
       <RadioGroupItem
         checked={filters?.[htmlFor] === value}
         value={value}
@@ -154,9 +185,13 @@ export const FilterRadioGroupItem: React.FC<FilterRadioGroupItemProps> = ({
         {...props}
       />
       <Label htmlFor={id}>{children}</Label>
-    </div>
+    </StyledFilterRadioGroupItemContainer>
   );
 };
+
+const StyledFilterClearButton = styled(Button)<{ $isHidden: boolean }>`
+  display: ${(props) => (props.$isHidden ? "none" : "flex")};
+`;
 
 type FilterClearButtonProps = ButtonProps;
 export const FilterClearButton = React.forwardRef<
@@ -164,18 +199,18 @@ export const FilterClearButton = React.forwardRef<
   FilterClearButtonProps
 >(({ className, children, ...props }, ref) => {
   const { filters, clearFilters } = useFilterStore();
+  const isHidden = Object.keys(filters).length === 0;
 
   return (
-    <Button
+    <StyledFilterClearButton
       ref={ref}
-      className={cn(
-        Object.keys(filters).length === 0 ? "hidden" : "flex",
-        className
-      )}
+      $isHidden={isHidden}
+      className={className}
       onClick={clearFilters}
       {...props}
     >
       {children}
-    </Button>
+    </StyledFilterClearButton>
   );
 });
+FilterClearButton.displayName = "FilterClearButton";

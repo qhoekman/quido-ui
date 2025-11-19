@@ -9,7 +9,7 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Features/Mobile/Components/Toolbar",
   component: Toolbar,
-} as Meta<typeof Toolbar>;
+} satisfies Meta<typeof Toolbar>;
 
 export const WithText: StoryFn = (args) => (
   <ViewportLayout>
@@ -38,7 +38,10 @@ export const WithIcons: StoryFn = (args) => (
         {Array.from({ length: 5 }).map((_, index) => (
           <ToolbarLink key={index} href="#">
             <svg
-              className="w-6 h-6"
+              style={{
+                width: "var(--spacing-6)",
+                height: "var(--spacing-6)",
+              }}
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"

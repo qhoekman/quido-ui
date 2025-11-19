@@ -23,6 +23,54 @@ export default {
       appDirectory: true,
     },
   },
+  argTypes: {
+    labelPrefix: {
+      control: "text",
+      description: "Prefix for FilterRange labels (e.g., '€', '$')",
+    },
+    min: {
+      control: "number",
+      description: "Minimum value for FilterRange",
+    },
+    max: {
+      control: "number",
+      description: "Maximum value for FilterRange",
+    },
+    step: {
+      control: "number",
+      description: "Step value for FilterRange",
+    },
+    disabled: {
+      control: "boolean",
+      description: "Disable state for filter components",
+    },
+    variant: {
+      control: "select",
+      options: [
+        "primary",
+        "secondary",
+        "destructive",
+        "outline",
+        "ghost",
+        "link",
+      ],
+      description: "Variant for FilterClearButton",
+    },
+    size: {
+      control: "select",
+      options: ["sm", "md", "lg", "icon"],
+      description: "Size for FilterClearButton",
+    },
+  },
+  args: {
+    labelPrefix: "€",
+    min: 0,
+    max: 100,
+    step: 10,
+    disabled: false,
+    variant: "primary",
+    size: "md",
+  },
 } satisfies Meta<typeof FiltersForm>;
 
 const filters = {
@@ -32,15 +80,21 @@ const filters = {
 };
 
 export const Default: StoryFn<typeof FiltersForm> = (args) => (
-  <Sidebar className="max-w-64">
-    <SidebarBrand className="h-4" />
+  <Sidebar style={{ maxWidth: "var(--spacing-64)" }}>
+    <SidebarBrand style={{ height: "var(--spacing-4)" }} />
     <SidebarGroupHeader>Categories</SidebarGroupHeader>
-    <SidebarSection className="px-4">
+    <SidebarSection
+      style={{
+        paddingLeft: "var(--spacing-4)",
+        paddingRight: "var(--spacing-4)",
+      }}
+    >
       <FiltersForm {...args}>
         {filters.category.map((category) => (
           <FilterCheckbox
             key={`category.${category}`}
             name={`category.${category}`}
+            disabled={args.disabled}
           >
             {category}
           </FilterCheckbox>
@@ -48,13 +102,31 @@ export const Default: StoryFn<typeof FiltersForm> = (args) => (
       </FiltersForm>
     </SidebarSection>
     <SidebarGroupHeader>Price</SidebarGroupHeader>
-    <SidebarSection className="px-4">
-      <FilterRange key={`price`} name={`price`} max={100} step={10}>
+    <SidebarSection
+      style={{
+        paddingLeft: "var(--spacing-4)",
+        paddingRight: "var(--spacing-4)",
+      }}
+    >
+      <FilterRange
+        key={`price`}
+        name={`price`}
+        min={args.min}
+        max={args.max}
+        step={args.step}
+        labelPrefix={args.labelPrefix}
+        disabled={args.disabled}
+      >
         Price
       </FilterRange>
     </SidebarSection>
     <SidebarGroupHeader>Brand</SidebarGroupHeader>
-    <SidebarSection className="px-4">
+    <SidebarSection
+      style={{
+        paddingLeft: "var(--spacing-4)",
+        paddingRight: "var(--spacing-4)",
+      }}
+    >
       <FiltersForm {...args}>
         <FilterRadioGroup name="brand">
           {filters.brand.map((brand) => (
@@ -63,6 +135,7 @@ export const Default: StoryFn<typeof FiltersForm> = (args) => (
               id={`brand.${brand}`}
               htmlFor="brand"
               value={brand}
+              disabled={args.disabled}
             >
               {brand}
             </FilterRadioGroupItem>
@@ -70,7 +143,16 @@ export const Default: StoryFn<typeof FiltersForm> = (args) => (
         </FilterRadioGroup>
       </FiltersForm>
     </SidebarSection>
-    <FilterClearButton className="w-full mx-4">
+    <FilterClearButton
+      style={{
+        width: "100%",
+        marginLeft: "var(--spacing-4)",
+        marginRight: "var(--spacing-4)",
+      }}
+      variant={args.variant}
+      size={args.size}
+      disabled={args.disabled}
+    >
       Clear all filters
     </FilterClearButton>
   </Sidebar>
