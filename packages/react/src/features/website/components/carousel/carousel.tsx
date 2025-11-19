@@ -45,7 +45,9 @@ const StyledCarouselContentWrapper = styled.div`
   overflow: hidden;
 `;
 
-const StyledCarouselContent = styled.div<{ $orientation: "horizontal" | "vertical" }>`
+const StyledCarouselContent = styled.div<{
+  $orientation: "horizontal" | "vertical";
+}>`
   display: flex;
   ${(props) =>
     props.$orientation === "horizontal"
@@ -58,7 +60,9 @@ const StyledCarouselContent = styled.div<{ $orientation: "horizontal" | "vertica
   `}
 `;
 
-const StyledCarouselItem = styled.div<{ $orientation: "horizontal" | "vertical" }>`
+const StyledCarouselItem = styled.div<{
+  $orientation: "horizontal" | "vertical";
+}>`
   min-width: 0;
   flex-shrink: 0;
   flex-grow: 0;
@@ -277,8 +281,25 @@ const CarouselPrevious = React.forwardRef<
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft className="h-4 w-4" />
-      <span className="sr-only">Previous slide</span>
+      <ArrowLeft
+        style={{
+          height: "var(--spacing-4)",
+          width: "var(--spacing-4)",
+        }}
+      />
+      <span
+        style={{
+          position: "absolute",
+          width: "1px",
+          height: "1px",
+          padding: 0,
+          margin: "-1px",
+          overflow: "hidden",
+          clip: "rect(0, 0, 0, 0)",
+        }}
+      >
+        Previous slide
+      </span>
     </StyledCarouselButton>
   );
 });
@@ -302,8 +323,25 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight className="h-4 w-4" />
-      <span className="sr-only">Next slide</span>
+      <ArrowRight
+        style={{
+          height: "var(--spacing-4)",
+          width: "var(--spacing-4)",
+        }}
+      />
+      <span
+        style={{
+          position: "absolute",
+          width: "1px",
+          height: "1px",
+          padding: 0,
+          margin: "-1px",
+          overflow: "hidden",
+          clip: "rect(0, 0, 0, 0)",
+        }}
+      >
+        Next slide
+      </span>
     </StyledCarouselButton>
   );
 });
