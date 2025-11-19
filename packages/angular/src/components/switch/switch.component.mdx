@@ -1,0 +1,10 @@
+import * as SwitchStories from "./switch.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import SwitchCode from "!!raw-loader!./switch.component.ts";
+
+# Switch
+
+<Meta of={SwitchStories} />
+<Canvas of={SwitchStories.Default} />
+<Controls of={SwitchStories.Default} />
+<Source code={SwitchCode} language="typescript" />
