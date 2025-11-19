@@ -46,62 +46,62 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <div pui-tree>
-        <div pui-tree-item [expanded]="expanded">
-          <div pui-tree-item-icon><i pui-icon name="folder"></i></div>
-          <div pui-tree-item-label>Documents</div>
-          <div pui-tree-group>
-            <div pui-tree-item>
-              <div pui-tree-item-icon><i pui-icon name="file"></i></div>
-              <div pui-tree-item-label>Resume.pdf</div>
+    <qui-story>
+      <div qui-tree>
+        <div qui-tree-item [expanded]="expanded">
+          <div qui-tree-item-icon><i qui-icon name="folder"></i></div>
+          <div qui-tree-item-label>Documents</div>
+          <div qui-tree-group>
+            <div qui-tree-item>
+              <div qui-tree-item-icon><i qui-icon name="file"></i></div>
+              <div qui-tree-item-label>Resume.pdf</div>
             </div>
-            <div pui-tree-item>
-              <div pui-tree-item-icon><i pui-icon name="file"></i></div>
-              <div pui-tree-item-label>Cover Letter.docx</div>
+            <div qui-tree-item>
+              <div qui-tree-item-icon><i qui-icon name="file"></i></div>
+              <div qui-tree-item-label>Cover Letter.docx</div>
             </div>
           </div>
         </div>
-        <div pui-tree-item [expanded]="expanded">
-          <div pui-tree-item-icon><i pui-icon name="folder"></i></div>
-          <div pui-tree-item-label>Downloads</div>
-          <div pui-tree-group>
-            <div pui-tree-item>
-              <div pui-tree-item-icon><i pui-icon name="file"></i></div>
-              <div pui-tree-item-label>Image.png</div>
+        <div qui-tree-item [expanded]="expanded">
+          <div qui-tree-item-icon><i qui-icon name="folder"></i></div>
+          <div qui-tree-item-label>Downloads</div>
+          <div qui-tree-group>
+            <div qui-tree-item>
+              <div qui-tree-item-icon><i qui-icon name="file"></i></div>
+              <div qui-tree-item-label>Image.png</div>
             </div>
-            <div pui-tree-item>
-              <div pui-tree-item-icon><i pui-icon name="folder"></i></div>
-              <div pui-tree-item-label>Projects</div>
-              <div pui-tree-group>
-                <div pui-tree-item>
-                  <div pui-tree-item-icon><i pui-icon name="file"></i></div>
-                  <div pui-tree-item-label>Project1.zip</div>
+            <div qui-tree-item>
+              <div qui-tree-item-icon><i qui-icon name="folder"></i></div>
+              <div qui-tree-item-label>Projects</div>
+              <div qui-tree-group>
+                <div qui-tree-item>
+                  <div qui-tree-item-icon><i qui-icon name="file"></i></div>
+                  <div qui-tree-item-label>Project1.zip</div>
                 </div>
-                <div pui-tree-item>
-                  <div pui-tree-item-icon><i pui-icon name="file"></i></div>
-                  <div pui-tree-item-label>Project2.zip</div>
+                <div qui-tree-item>
+                  <div qui-tree-item-icon><i qui-icon name="file"></i></div>
+                  <div qui-tree-item-label>Project2.zip</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div pui-tree-item [expanded]="expanded">
-          <div pui-tree-item-icon><i pui-icon name="folder"></i></div>
-          <div pui-tree-item-label>Pictures</div>
-          <div pui-tree-group>
-            <div pui-tree-item>
-              <div pui-tree-item-icon><i pui-icon name="file"></i></div>
-              <div pui-tree-item-label>Vacation.jpg</div>
+        <div qui-tree-item [expanded]="expanded">
+          <div qui-tree-item-icon><i qui-icon name="folder"></i></div>
+          <div qui-tree-item-label>Pictures</div>
+          <div qui-tree-group>
+            <div qui-tree-item>
+              <div qui-tree-item-icon><i qui-icon name="file"></i></div>
+              <div qui-tree-item-label>Vacation.jpg</div>
             </div>
-            <div pui-tree-item>
-              <div pui-tree-item-icon><i pui-icon name="file"></i></div>
-              <div pui-tree-item-label>Family.jpg</div>
+            <div qui-tree-item>
+              <div qui-tree-item-icon><i qui-icon name="file"></i></div>
+              <div qui-tree-item-label>Family.jpg</div>
             </div>
           </div>
         </div>
       </div>
-    </pui-story>
+    </qui-story>
     `,
   }),
 };

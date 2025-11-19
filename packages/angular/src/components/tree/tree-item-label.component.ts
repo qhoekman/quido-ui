@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-tree-item-label]',
+  selector: '[qui-tree-item-label]',
   standalone: true,
   imports: [CommonModule],
   host: {
-    'data-testid': 'pui-tree-item-label',
+    'data-testid': 'qui-tree-item-label',
   },
   template: ` <ng-content></ng-content> `,
   styles: [

@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-tree-group]',
+  selector: '[qui-tree-group]',
   standalone: true,
   imports: [CommonModule],
   host: {
     role: 'group',
-    'data-testid': 'pui-tree-group',
+    'data-testid': 'qui-tree-group',
   },
   template: ` <ng-content></ng-content> `,
   styles: [

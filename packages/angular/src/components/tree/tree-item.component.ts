@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, ContentChild, ContentChildren, Input, QueryList } from '@angular/core';
+import {
+  Component,
+  ContentChild,
+  ContentChildren,
+  Input,
+  QueryList,
+} from '@angular/core';
 import { CollapsibleComponent } from '../collapsible/collapsible.component';
 import { TreeItemIndicatorComponent } from './tree-item-indicator.component';
 import { TreeGroupComponent } from './tree-group.component';
@@ -7,7 +13,7 @@ import { CollapsibleTriggerComponent } from '../collapsible/collapsible-trigger.
 import { CollapsibleContentComponent } from '../collapsible/collapsible-content.component';
 
 @Component({
-  selector: '[pui-tree-item]',
+  selector: '[qui-tree-item]',
   standalone: true,
   imports: [
     CommonModule,
@@ -18,29 +24,32 @@ import { CollapsibleContentComponent } from '../collapsible/collapsible-content.
   ],
   template: `
     <div
-      pui-collapsible
+      qui-collapsible
       #collapsible
       [expanded]="expanded"
       role="treeitem"
       [attr.aria-expanded]="expanded"
       [attr.aria-selected]="false"
     >
-      <div pui-collapsible-trigger (click)="collapsible.toggle()">
+      <div qui-collapsible-trigger (click)="collapsible.toggle()">
         <div
           role="button"
-          data-testid="pui-tree-item-trigger"
+          data-testid="qui-tree-item-trigger"
           class="tree-item"
           (click)="handleClick()"
           (keydown)="handleKeydown($event)"
           tabindex="0"
         >
-          <pui-tree-item-indicator [empty]="!hasGroups()" [expanded]="collapsible.expanded"></pui-tree-item-indicator>
-          <ng-content select="[pui-tree-item-icon]"></ng-content>
-          <ng-content select="[pui-tree-item-label]"></ng-content>
+          <qui-tree-item-indicator
+            [empty]="!hasGroups()"
+            [expanded]="collapsible.expanded"
+          ></qui-tree-item-indicator>
+          <ng-content select="[qui-tree-item-icon]"></ng-content>
+          <ng-content select="[qui-tree-item-label]"></ng-content>
         </div>
       </div>
-      <div pui-collapsible-content>
-        <ng-content select="[pui-tree-group]"></ng-content>
+      <div qui-collapsible-content>
+        <ng-content select="[qui-tree-group]"></ng-content>
       </div>
     </div>
   `,
