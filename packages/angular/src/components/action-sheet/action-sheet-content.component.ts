@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: '[pui-action-sheet-content]',
+  selector: '[qui-action-sheet-content]',
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-action-sheet-content',
+    'data-testid': 'qui-action-sheet-content',
   },
   template: `<ng-content></ng-content>`,
   styles: [

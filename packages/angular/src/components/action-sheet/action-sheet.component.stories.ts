@@ -8,7 +8,12 @@ const meta: Meta<ActionSheetComponent> = {
   component: ActionSheetComponent,
   decorators: [
     moduleMetadata({
-      imports: [ActionSheetComponent, ButtonComponent, IconHamburgerMenuComponent, IconCross2Component],
+      imports: [
+        ActionSheetComponent,
+        ButtonComponent,
+        IconHamburgerMenuComponent,
+        IconCross2Component,
+      ],
     }),
   ],
   argTypes: {},
@@ -26,17 +31,17 @@ export const Default: Story = {
     props: args,
     template: `
       <div
-        pui-action-sheet
+        qui-action-sheet
         #actionSheet
       >
 
-        <button pui-button (click)="actionSheet.toggle()">
-          <i pui-icon name="hamburger-menu"></i>
+        <button qui-button (click)="actionSheet.toggle()">
+          <i qui-icon name="hamburger-menu"></i>
         </button>
 
       <ng-template #actionSheetContent>
-        <button pui-button variant="ghost" size="sm" (click)="actionSheet.toggle()">
-          <i pui-icon name="cross-2"></i>
+        <button qui-button variant="ghost" size="sm" (click)="actionSheet.toggle()">
+          <i qui-icon name="cross-2"></i>
         </button>
       </ng-template>
 

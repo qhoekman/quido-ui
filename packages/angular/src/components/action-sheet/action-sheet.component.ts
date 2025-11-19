@@ -1,20 +1,30 @@
-import { Component, ContentChild, ElementRef, HostListener, TemplateRef } from '@angular/core';
+import {
+  Component,
+  ContentChild,
+  ElementRef,
+  HostListener,
+  TemplateRef,
+} from '@angular/core';
 import { ActionSheetOverlayComponent } from './action-sheet-overlay.component';
 import { ActionSheetContentComponent } from './action-sheet-content.component';
 import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
-  selector: '[pui-action-sheet]',
+  selector: '[qui-action-sheet]',
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-action-sheet',
+    'data-testid': 'qui-action-sheet',
   },
-  imports: [ActionSheetOverlayComponent, ActionSheetContentComponent, NgTemplateOutlet],
+  imports: [
+    ActionSheetOverlayComponent,
+    ActionSheetContentComponent,
+    NgTemplateOutlet,
+  ],
   template: `
-    <div pui-action-sheet-overlay [isOpen]="isOpen">
+    <div qui-action-sheet-overlay [isOpen]="isOpen">
       <ng-container *ngTemplateOutlet="actionSheetContent"></ng-container>
     </div>
-    <div pui-action-sheet-content [isOpen]="isOpen">
+    <div qui-action-sheet-content [isOpen]="isOpen">
       <ng-content></ng-content>
     </div>
   `,

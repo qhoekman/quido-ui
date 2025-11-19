@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: '[pui-action-sheet-overlay]',
+  selector: '[qui-action-sheet-overlay]',
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-action-sheet-overlay',
+    'data-testid': 'qui-action-sheet-overlay',
   },
   template: `<ng-content></ng-content>`,
   styles: [
