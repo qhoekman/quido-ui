@@ -26,12 +26,22 @@ export const Default: Story = {
   render: (args) => ({
     props: {
       ...args,
-      borderRadius: ['none', 'sm', 'default', 'md', 'lg', 'xl', '2xl', '3xl', 'full'],
+      borderRadius: [
+        'none',
+        'sm',
+        'default',
+        'md',
+        'lg',
+        'xl',
+        '2xl',
+        '3xl',
+        'full',
+      ],
     },
     template: `
-    <div pui-grid [columns]="borderRadius.length">
+    <div qui-grid [columns]="borderRadius.length">
       <div
-        pui-grid-item
+        qui-grid-item
         *ngFor="let borderRadius of borderRadius"
         style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100px; height: 100px; background: var(--color-card); border-radius: var(--border-radius-{{ borderRadius }}); border: 2px solid var(--color-border);"
       >

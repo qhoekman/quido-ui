@@ -29,9 +29,9 @@ export const Default: Story = {
       borderWidth: ['0', '2', '4', '8'],
     },
     template: `
-    <div pui-grid [columns]="borderWidth.length">
+    <div qui-grid [columns]="borderWidth.length">
       <div
-        pui-grid-item
+        qui-grid-item
         *ngFor="let borderWidth of borderWidth"
         style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100px; height: 100px; background: var(--color-card); border-radius: var(--border-radius-default); border: var(--border-width-{{ borderWidth }}) solid var(--color-border);"
       >

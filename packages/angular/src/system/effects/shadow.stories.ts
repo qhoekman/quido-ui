@@ -29,9 +29,9 @@ export const Default: Story = {
       shadows: ['sm', 'default', 'md', 'lg', 'xl', '2xl', 'inner', 'none'],
     },
     template: `
-    <div pui-grid [columns]="shadows.length">
+    <div qui-grid [columns]="shadows.length">
       <div
-        pui-grid-item
+        qui-grid-item
         *ngFor="let shadow of shadows"
         style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100px; height: 100px; background: var(--color-card); box-shadow: var(--box-shadow-{{ shadow }});"
       >

@@ -32,16 +32,16 @@ export const Default: Story = {
       blurs: ['none', 'sm', 'default', 'md', 'lg', 'xl', '2xl', '3xl'],
     },
     template: `
-    <div pui-grid [columns]="blurs.length" style="background:url(https://w.wallhaven.cc/full/n6/wallhaven-n62jd6.jpg); padding: 2rem; width:  100%; height: 100%; object-fit: cover;">
+    <div qui-grid [columns]="blurs.length" style="background:url(https://w.wallhaven.cc/full/n6/wallhaven-n62jd6.jpg); padding: 2rem; width:  100%; height: 100%; object-fit: cover;">
       <div
-        pui-grid-item
+        qui-grid-item
         *ngFor="let blur of blurs"
         [title]="'var(--blur-{{ blur }})'"
         style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100px; height: 100px; border: 4px solid var(--color-border); backdrop-filter: blur(var(--blur-{{ blur }}));"
       >
       </div>
       <div
-        pui-grid-item
+        qui-grid-item
         *ngFor="let blur of blurs"
         [title]="'var(--blur-{{ blur }})'"
         style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100px; height: 100px; background: var(--color-card); filter: blur(var(--blur-{{ blur }}));"

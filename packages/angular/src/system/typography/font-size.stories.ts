@@ -10,7 +10,13 @@ const meta: Meta<TextComponent> = {
   component: TextComponent,
   decorators: [
     moduleMetadata({
-      imports: [TextComponent, HeadingComponent, GridComponent, GridItemComponent, StackComponent],
+      imports: [
+        TextComponent,
+        HeadingComponent,
+        GridComponent,
+        GridItemComponent,
+        StackComponent,
+      ],
     }),
   ],
   argTypes: {},
@@ -25,15 +31,29 @@ export const Default: Story = {
     props: {
       ...args,
       text: 'The quick brown fox jumps over the lazy dog',
-      fontSizes: ['xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', '8xl', '9xl'],
+      fontSizes: [
+        'xs',
+        'sm',
+        'base',
+        'lg',
+        'xl',
+        '2xl',
+        '3xl',
+        '4xl',
+        '5xl',
+        '6xl',
+        '7xl',
+        '8xl',
+        '9xl',
+      ],
     },
     template: `
-      <div pui-grid [columns]="2">
+      <div qui-grid [columns]="2">
         <ng-container *ngFor="let fontSize of fontSizes">
-          <div pui-grid-item [colSpan]="1">
+          <div qui-grid-item [colSpan]="1">
             <strong>{{ fontSize }}</strong>
           </div>
-          <div pui-grid-item [colSpan]="2">
+          <div qui-grid-item [colSpan]="2">
             <h1 [style.fontSize]="'var(--font-size-' + fontSize + ')'" [style.lineHeight]="'var(--line-height-' + fontSize + ')'" [style.fontFamily]="'var(--font-family-' + fontFamily + ')'">{{ text }}</h1>
           </div>
         </ng-container>

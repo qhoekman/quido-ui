@@ -1,7 +1,10 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { GridItemComponent } from '../../components/grid/grid-item.component';
 import { GridComponent } from '../../components/grid/grid.component';
-import { IconComponent, IconVariants } from '../../components/icon/icon.component';
+import {
+  IconComponent,
+  IconVariants,
+} from '../../components/icon/icon.component';
 import * as Icons from '../../icons';
 
 const meta: Meta<IconComponent> = {
@@ -33,9 +36,9 @@ export const Default: Story = {
       icons: Object.values(Icons),
     },
     template: `
-       <div pui-grid [columns]="16">
+       <div qui-grid [columns]="16">
         @for (icon of icons; track icon.name) {
-          <div pui-grid-item [colSpan]="1">
+          <div qui-grid-item [colSpan]="1">
             <ng-container *ngComponentOutlet="icon"></ng-container>
           </div>
         }

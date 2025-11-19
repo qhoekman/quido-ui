@@ -49,7 +49,19 @@ export const Default: Story = {
       'pink',
       'rose',
     ],
-    shades: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', '950'],
+    shades: [
+      '50',
+      '100',
+      '200',
+      '300',
+      '400',
+      '500',
+      '600',
+      '700',
+      '800',
+      '900',
+      '950',
+    ],
     singularColors: [
       { color: 'white', value: 'var(--color-white)' },
       { color: 'black', value: 'var(--color-black)' },
@@ -70,16 +82,19 @@ export const Default: Story = {
               if (a.color === b.color) {
                 return parseInt(a.shade, 10) - parseInt(b.shade, 10);
               }
-              return args.colorFamilies.indexOf(a.color) - args.colorFamilies.indexOf(b.color);
-            }),
+              return (
+                args.colorFamilies.indexOf(a.color) -
+                args.colorFamilies.indexOf(b.color)
+              );
+            })
         ),
         ...args.singularColors,
       ],
     },
     template: `
-    <div pui-grid [columns]="11">
+    <div qui-grid [columns]="11">
       <div
-        pui-grid-item
+        qui-grid-item
         *ngFor="let hex of colorPallete"
         style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100px; height: 100px; background: {{ hex.value }}"
       >

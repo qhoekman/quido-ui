@@ -5,7 +5,7 @@ type StoryVariants = {
 };
 
 @Component({
-  selector: 'pui-story, [pui-story]',
+  selector: 'qui-story, [qui-story]',
   host: {
     '[class]': 'getClassList()',
   },

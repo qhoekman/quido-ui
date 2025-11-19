@@ -62,27 +62,27 @@ export const Default: Story = {
       displayedColumns: ['name', 'value'],
     },
     template: `
-      <table pui-table [dataSource]="dataSource">
-        <caption pui-table-caption>
+      <table qui-table [dataSource]="dataSource">
+        <caption qui-table-caption>
           A list of span values.
         </caption>
         <ng-container puiColumnDef="name">
-          <th pui-header-cell *puiHeaderCellDef style="width: 100px;">Name</th>
-          <td pui-cell *puiCellDef="let span">{{ span.name }}</td>
-          <td pui-footer-cell *puiFooterCellDef></td>
+          <th qui-header-cell *puiHeaderCellDef style="width: 100px;">Name</th>
+          <td qui-cell *puiCellDef="let span">{{ span.name }}</td>
+          <td qui-footer-cell *puiFooterCellDef></td>
         </ng-container>
 
         <ng-container puiColumnDef="value">
-          <th pui-header-cell *puiHeaderCellDef>Value</th>
-          <td pui-cell *puiCellDef="let span">
+          <th qui-header-cell *puiHeaderCellDef>Value</th>
+          <td qui-cell *puiCellDef="let span">
             <div style="width: {{ span.value }}; height: 12px; background: var(--color-primary);"></div>
           </td>
-          <td pui-footer-cell *puiFooterCellDef></td>
+          <td qui-footer-cell *puiFooterCellDef></td>
         </ng-container>
 
-        <tr pui-header-row *puiHeaderRowDef="displayedColumns"></tr>
-        <tr pui-row *puiRowDef="let row; columns: displayedColumns"></tr>
-        <tr pui-footer-row *puiFooterRowDef="displayedColumns"></tr>
+        <tr qui-header-row *puiHeaderRowDef="displayedColumns"></tr>
+        <tr qui-row *puiRowDef="let row; columns: displayedColumns"></tr>
+        <tr qui-footer-row *puiFooterRowDef="displayedColumns"></tr>
       </table>
     `,
   }),

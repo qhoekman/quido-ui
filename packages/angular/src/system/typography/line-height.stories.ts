@@ -11,7 +11,13 @@ const meta: Meta<TextComponent> = {
   component: TextComponent,
   decorators: [
     moduleMetadata({
-      imports: [TextComponent, HeadingComponent, GridComponent, GridItemComponent, StackComponent],
+      imports: [
+        TextComponent,
+        HeadingComponent,
+        GridComponent,
+        GridItemComponent,
+        StackComponent,
+      ],
     }),
   ],
   argTypes: {},
@@ -26,15 +32,30 @@ export const Default: Story = {
     props: {
       ...args,
       text: `The quick brown fox jumps over the lazy dog.`.repeat(6),
-      lineHeights: ['none', 'tight', 'snug', 'normal', 'relaxed', 'loose', '3', '4', '5', '6', '7', '8', '9', '10'],
+      lineHeights: [
+        'none',
+        'tight',
+        'snug',
+        'normal',
+        'relaxed',
+        'loose',
+        '3',
+        '4',
+        '5',
+        '6',
+        '7',
+        '8',
+        '9',
+        '10',
+      ],
     },
     template: `
-      <div pui-grid [columns]="2">
+      <div qui-grid [columns]="2">
         <ng-container *ngFor="let lineHeight of lineHeights">
-          <div pui-grid-item [colSpan]="1">
+          <div qui-grid-item [colSpan]="1">
             <strong>{{ lineHeight }}</strong>
           </div>
-          <div pui-grid-item [colSpan]="2">
+          <div qui-grid-item [colSpan]="2">
             <p [style.lineHeight]="'var(--line-height-' + lineHeight + ')'">{{ text }}</p>
           </div>
         </ng-container>

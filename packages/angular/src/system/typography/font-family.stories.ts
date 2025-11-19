@@ -10,7 +10,13 @@ const meta: Meta<TextComponent> = {
   component: TextComponent,
   decorators: [
     moduleMetadata({
-      imports: [TextComponent, HeadingComponent, GridComponent, GridItemComponent, StackComponent],
+      imports: [
+        TextComponent,
+        HeadingComponent,
+        GridComponent,
+        GridItemComponent,
+        StackComponent,
+      ],
     }),
   ],
   argTypes: {},
@@ -28,12 +34,12 @@ export const Default: Story = {
       fontFamilies: ['sans', 'serif', 'mono'],
     },
     template: `
-      <div pui-grid [columns]="2">
+      <div qui-grid [columns]="2">
         <ng-container *ngFor="let fontFamily of fontFamilies">
-          <div pui-grid-item [colSpan]="1">
+          <div qui-grid-item [colSpan]="1">
             <strong>{{ fontFamily }}</strong>
           </div>
-          <div pui-grid-item [colSpan]="2">
+          <div qui-grid-item [colSpan]="2">
             <p [style.fontFamily]="'var(--font-family-' + fontFamily + ')'">{{ text }}</p>
           </div>
         </ng-container>

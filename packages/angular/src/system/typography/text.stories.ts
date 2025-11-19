@@ -10,7 +10,13 @@ const meta: Meta<TextComponent> = {
   component: TextComponent,
   decorators: [
     moduleMetadata({
-      imports: [TextComponent, HeadingComponent, GridComponent, GridItemComponent, StackComponent],
+      imports: [
+        TextComponent,
+        HeadingComponent,
+        GridComponent,
+        GridItemComponent,
+        StackComponent,
+      ],
     }),
   ],
   argTypes: {},
@@ -28,13 +34,13 @@ export const Default: Story = {
       variants: ['body', 'caption', 'label', 'title', 'subtitle'],
     },
     template: `
-      <div pui-grid [columns]="2">
+      <div qui-grid [columns]="2">
         <ng-container *ngFor="let variant of variants">
-          <div pui-grid-item [colSpan]="1">
+          <div qui-grid-item [colSpan]="1">
             <strong>{{ variant }}</strong>
           </div>
-          <div pui-grid-item [colSpan]="2">
-            <p pui-text [variant]="variant">{{ text }}</p>
+          <div qui-grid-item [colSpan]="2">
+            <p qui-text [variant]="variant">{{ text }}</p>
           </div>
         </ng-container>
       </div>

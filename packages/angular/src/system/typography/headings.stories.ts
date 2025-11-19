@@ -10,7 +10,13 @@ const meta: Meta<HeadingComponent> = {
   component: TextComponent,
   decorators: [
     moduleMetadata({
-      imports: [TextComponent, HeadingComponent, GridComponent, GridItemComponent, StackComponent],
+      imports: [
+        TextComponent,
+        HeadingComponent,
+        GridComponent,
+        GridItemComponent,
+        StackComponent,
+      ],
     }),
   ],
   argTypes: {},
@@ -28,13 +34,13 @@ export const Default: Story = {
       variants: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
     },
     template: `
-      <div pui-grid [columns]="2">
+      <div qui-grid [columns]="2">
         <ng-container *ngFor="let variant of variants">
-          <div pui-grid-item [colSpan]="1">
+          <div qui-grid-item [colSpan]="1">
             <strong>{{ variant }}</strong>
           </div>
-          <div pui-grid-item [colSpan]="2">
-            <h1 pui-heading [variant]="variant">{{ text }}</h1>
+          <div qui-grid-item [colSpan]="2">
+            <h1 qui-heading [variant]="variant">{{ text }}</h1>
           </div>
         </ng-container>
       </div>

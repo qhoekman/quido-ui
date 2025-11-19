@@ -10,7 +10,13 @@ const meta: Meta<TextComponent> = {
   component: TextComponent,
   decorators: [
     moduleMetadata({
-      imports: [TextComponent, HeadingComponent, GridComponent, GridItemComponent, StackComponent],
+      imports: [
+        TextComponent,
+        HeadingComponent,
+        GridComponent,
+        GridItemComponent,
+        StackComponent,
+      ],
     }),
   ],
   argTypes: {},
@@ -25,15 +31,25 @@ export const Default: Story = {
     props: {
       ...args,
       text: 'The quick brown fox jumps over the lazy dog',
-      fontWeights: ['thin', 'extralight', 'light', 'normal', 'medium', 'semibold', 'bold', 'extrabold', 'black'],
+      fontWeights: [
+        'thin',
+        'extralight',
+        'light',
+        'normal',
+        'medium',
+        'semibold',
+        'bold',
+        'extrabold',
+        'black',
+      ],
     },
     template: `
-      <div pui-grid [columns]="2">
+      <div qui-grid [columns]="2">
      <ng-container *ngFor="let fontWeight of fontWeights">
-          <div pui-grid-item [colSpan]="1">
+          <div qui-grid-item [colSpan]="1">
             <strong>{{ fontWeight }}</strong>
           </div>
-          <div pui-grid-item [colSpan]="2">
+          <div qui-grid-item [colSpan]="2">
             <p [style.fontWeight]="'var(--font-weight-' + fontWeight + ')'">{{ text }}</p>
           </div>
         </ng-container>
