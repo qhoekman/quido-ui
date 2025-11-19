@@ -5,11 +5,11 @@ export type SeparatorVariants = {
 };
 
 @Component({
-  selector: '[pui-separator]',
+  selector: '[qui-separator]',
   template: '',
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-separator',
+    'data-testid': 'qui-separator',
   },
   styles: [
     `
@@ -36,7 +36,7 @@ export class SeparatorComponent {
 
   getClassList() {
     return {
-      'pui-separator': true,
+      'qui-separator': true,
       [`variant--${this.orientation}`]: true,
     };
   }

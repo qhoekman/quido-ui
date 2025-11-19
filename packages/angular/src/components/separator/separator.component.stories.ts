@@ -26,7 +26,7 @@ export const Default: Story = {
     props: args,
     template: `
       <div style="display: flex; align-items: center; justify-content: center; height: 100px;">
-        <hr pui-separator [orientation]="orientation" />
+        <hr qui-separator [orientation]="orientation" />
       </div>
     `,
   }),
