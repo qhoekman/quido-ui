@@ -39,7 +39,7 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <div pui-slider [min]="min" [max]="max" [(value)]="value" [step]="step"></div>
+      <div qui-slider [min]="min" [max]="max" [(value)]="value" [step]="step"></div>
     `,
   }),
 };

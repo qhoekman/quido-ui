@@ -10,18 +10,23 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'div[pui-slider]',
+  selector: 'div[qui-slider]',
   host: {
-    'data-testid': 'pui-slider',
+    'data-testid': 'qui-slider',
   },
   standalone: true,
   template: `
-    <div #track class="slider-track" data-testid="pui-slider-track">
-      <div #range class="slider-range" data-testid="pui-slider-range"></div>
-      <div #thumb class="slider-thumb" tabindex="0" data-testid="pui-slider-thumb"></div>
+    <div #track class="slider-track" data-testid="qui-slider-track">
+      <div #range class="slider-range" data-testid="qui-slider-range"></div>
+      <div
+        #thumb
+        class="slider-thumb"
+        tabindex="0"
+        data-testid="qui-slider-thumb"
+      ></div>
     </div>
     <input
-      data-testid="pui-slider-input"
+      data-testid="qui-slider-input"
       type="hidden"
       [attr.id]="elementRef.nativeElement.id"
       [attr.name]="elementRef.nativeElement.name"
@@ -84,7 +89,8 @@ export class SliderComponent implements AfterViewInit {
 
   private updateSlider() {
     const trackWidth = this.track.nativeElement.offsetWidth;
-    const thumbPosition = ((this.value - this.min) / (this.max - this.min)) * trackWidth;
+    const thumbPosition =
+      ((this.value - this.min) / (this.max - this.min)) * trackWidth;
     this.range.nativeElement.style.width = `${thumbPosition}px`;
     this.thumb.nativeElement.style.left = `${thumbPosition}px`;
   }
@@ -108,7 +114,10 @@ export class SliderComponent implements AfterViewInit {
 
   private updateValueFromEvent(event: MouseEvent) {
     const trackRect = this.track.nativeElement.getBoundingClientRect();
-    let newValue = ((event.clientX - trackRect.left) / trackRect.width) * (this.max - this.min) + this.min;
+    let newValue =
+      ((event.clientX - trackRect.left) / trackRect.width) *
+        (this.max - this.min) +
+      this.min;
 
     // Round to nearest step
     const steps = Math.round((newValue - this.min) / this.step);
