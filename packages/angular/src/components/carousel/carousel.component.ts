@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'div[pui-carousel]',
+  selector: 'div[qui-carousel]',
   standalone: true,
   host: {
-    'data-testid': 'pui-carousel',
+    'data-testid': 'qui-carousel',
   },
   template: `
-    <ng-content select="[pui-carousel-content]"></ng-content>
-    <ng-content select="[pui-carousel-button]"></ng-content>
+    <ng-content select="[qui-carousel-content]"></ng-content>
+    <ng-content select="[qui-carousel-button]"></ng-content>
   `,
   styles: [
     `

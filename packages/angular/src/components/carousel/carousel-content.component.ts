@@ -2,10 +2,10 @@ import { Component, Input, ElementRef, Renderer2 } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
-  selector: 'div[pui-carousel-content]',
+  selector: 'div[qui-carousel-content]',
   template: `<ng-content></ng-content>`,
   host: {
-    'data-testid': 'pui-carousel-content',
+    'data-testid': 'qui-carousel-content',
   },
   styles: [
     `
@@ -22,10 +22,7 @@ export class CarouselContentComponent {
   @Input() orientation: 'horizontal' | 'vertical' = 'horizontal';
   private currentIndex$ = new BehaviorSubject<number>(0);
 
-  constructor(
-    private el: ElementRef,
-    private renderer: Renderer2,
-  ) {}
+  constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   scrollPrev() {
     const currentIndex = this.currentIndex$.getValue();
@@ -46,7 +43,12 @@ export class CarouselContentComponent {
 
   private updateCarouselPosition() {
     const currentIndex = this.currentIndex$.getValue();
-    const offset = this.orientation === 'horizontal' ? 'translateX' : 'translateY';
-    this.renderer.setStyle(this.el.nativeElement, 'transform', `${offset}(-${currentIndex * 100}%)`);
+    const offset =
+      this.orientation === 'horizontal' ? 'translateX' : 'translateY';
+    this.renderer.setStyle(
+      this.el.nativeElement,
+      'transform',
+      `${offset}(-${currentIndex * 100}%)`
+    );
   }
 }

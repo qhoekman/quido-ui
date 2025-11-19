@@ -7,11 +7,11 @@ type CarouselButtonVariants = {
 };
 
 @Component({
-  selector: 'button[pui-carousel-button]',
+  selector: 'button[qui-carousel-button]',
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-carousel-button',
+    'data-testid': 'qui-carousel-button',
   },
   template: `<ng-content></ng-content>`,
   styles: [
@@ -32,9 +32,7 @@ type CarouselButtonVariants = {
         text-decoration: none;
 
         &:focus-visible {
-          box-shadow:
-            0 0 0 2px var(--color-ring),
-            0 0 0 4px var(--background);
+          box-shadow: 0 0 0 2px var(--color-ring), 0 0 0 4px var(--background);
         }
 
         &:not(:disabled) {
