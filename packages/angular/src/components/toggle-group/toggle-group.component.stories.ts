@@ -1,6 +1,10 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 
-import { IconFontBoldComponent, IconFontItalicComponent, IconFontStyleComponent } from '../../icons';
+import {
+  IconFontBoldComponent,
+  IconFontItalicComponent,
+  IconFontStyleComponent,
+} from '../../icons';
 import { StoryComponent } from '../../system/components/story/story.component';
 import { ToggleComponent } from '../toggle/toggle.component';
 import { ToggleGroupComponent } from './toggle-group.component';
@@ -46,18 +50,18 @@ export const Default: Story = {
   },
   render: (args) => ({
     props: args,
-    template: `<pui-story>
-      <div pui-toggle-group [strategy]="strategy" [variant]="variant" [size]="size">
-        <button pui-toggle value="bold">
-          <i pui-icon name="font-bold" size="lg"></i>
+    template: `<qui-story>
+      <div qui-toggle-group [strategy]="strategy" [variant]="variant" [size]="size">
+        <button qui-toggle value="bold">
+          <i qui-icon name="font-bold" size="lg"></i>
         </button>
-        <button pui-toggle value="italic">
-          <i pui-icon name="font-italic" size="lg"></i>
+        <button qui-toggle value="italic">
+          <i qui-icon name="font-italic" size="lg"></i>
         </button>
-        <button pui-toggle value="strikethrough">
-          <i pui-icon name="font-style" size="lg"></i>
+        <button qui-toggle value="strikethrough">
+          <i qui-icon name="font-style" size="lg"></i>
         </button>
       </div>
-    </pui-story>`,
+    </qui-story>`,
   }),
 };

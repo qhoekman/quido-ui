@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, ContentChildren, QueryList, AfterContentInit, Input } from '@angular/core';
+import {
+  Component,
+  ContentChildren,
+  QueryList,
+  AfterContentInit,
+  Input,
+} from '@angular/core';
 import { ToggleComponent } from '../toggle/toggle.component';
 import { BehaviorSubject } from 'rxjs';
 
@@ -9,11 +15,11 @@ export type ToggleGroupVariants = {
 };
 
 @Component({
-  selector: 'div[pui-toggle-group]',
+  selector: 'div[qui-toggle-group]',
   standalone: true,
   imports: [CommonModule, ToggleComponent],
   host: {
-    'data-testid': 'pui-toggle-group',
+    'data-testid': 'qui-toggle-group',
   },
   template: `<ng-content></ng-content>`,
   styles: [
@@ -87,7 +93,9 @@ export class ToggleGroupComponent implements AfterContentInit {
         } else if (this.strategy === 'multiple') {
           const current = this.selectedOptions$.getValue();
           if (!selected) {
-            this.selectedOptions$.next(current.filter((v) => v !== toggle.value));
+            this.selectedOptions$.next(
+              current.filter((v) => v !== toggle.value)
+            );
             return;
           }
           this.selectedOptions$.next([...current, toggle.value]);
