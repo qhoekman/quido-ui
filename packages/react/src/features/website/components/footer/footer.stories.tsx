@@ -113,7 +113,7 @@ export const WithColumns: StoryFn<typeof Footer> = (args) => (
   <Footer {...args}>
     <FooterContent>
       <FooterColumns>
-        <FooterColumn className="mt-0">
+        <FooterColumn style={{ marginTop: "0" }}>
           <Logo
             style={{
               height: "var(--spacing-7)",
@@ -216,7 +216,7 @@ export const WithColumns: StoryFn<typeof Footer> = (args) => (
       </FooterSection>
     </FooterContent>
     <FooterBanner>
-      <div className="flex space-x-6">
+      <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
         <FooterCopyright>
           &copy; 2020 Your Company, Inc. All rights reserved.
         </FooterCopyright>
@@ -237,7 +237,14 @@ export const WithColumns: StoryFn<typeof Footer> = (args) => (
         ))}
       </div>
 
-      <ul role="list" className="mt-2 flex gap-4 lg:mt-6">
+      <ul
+        role="list"
+        style={{
+          marginTop: "var(--spacing-2)",
+          display: "flex",
+          gap: "var(--spacing-4)",
+        }}
+      >
         {links.social.map((item) => (
           <li key={item.name}>
             <FooterLink
@@ -250,7 +257,13 @@ export const WithColumns: StoryFn<typeof Footer> = (args) => (
               }}
             >
               <span className="sr-only">{item.name}</span>
-              <item.icon className="h-6 w-6" aria-hidden="true" />
+              <item.icon
+                style={{
+                  height: "var(--spacing-6)",
+                  width: "var(--spacing-6)",
+                }}
+                aria-hidden="true"
+              />
             </FooterLink>
           </li>
         ))}
