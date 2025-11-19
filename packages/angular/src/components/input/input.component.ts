@@ -6,12 +6,12 @@ export type InputVariants = {
 };
 
 @Component({
-  selector: 'input[pui-input]',
+  selector: 'input[qui-input]',
   standalone: true,
   imports: [CommonModule],
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-input',
+    'data-testid': 'qui-input',
   },
   template: `<ng-content></ng-content>`,
   styles: [

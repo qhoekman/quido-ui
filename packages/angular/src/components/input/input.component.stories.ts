@@ -26,7 +26,17 @@ const meta: Meta<EnhancedInputComponent> = {
     },
     type: {
       control: 'select',
-      options: ['date', 'datetime-local', 'email', 'file', 'month', 'number', 'password', 'text', 'time'],
+      options: [
+        'date',
+        'datetime-local',
+        'email',
+        'file',
+        'month',
+        'number',
+        'password',
+        'text',
+        'time',
+      ],
     },
     placeholder: {
       control: 'text',
@@ -50,12 +60,12 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
-        <div pui-stack direction="column" gap="sm" style="max-width: var(--breakpoint-xs);">
-          <label pui-label [size]="size">Label</label>
-          <input pui-input [size]="size" [placeholder]="placeholder" [type]="type" [disabled]="disabled" />
+      <qui-story>
+        <div qui-stack direction="column" gap="sm" style="max-width: var(--breakpoint-xs);">
+          <label qui-label [size]="size">Label</label>
+          <input qui-input [size]="size" [placeholder]="placeholder" [type]="type" [disabled]="disabled" />
         </div>
-      </pui-story>
+      </qui-story>
     `,
   }),
 };
