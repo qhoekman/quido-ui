@@ -20,7 +20,7 @@ export default {
 
 export const WithCenteredContent: StoryFn = (args) => (
   <Header {...args}>
-    <HeaderContent className="text-center">
+    <HeaderContent style={{ textAlign: "center" }}>
       <HeaderTagline>Tagline</HeaderTagline>
       <HeaderTitle>Short heading goes here</HeaderTitle>
       <HeaderBody>
@@ -29,7 +29,7 @@ export const WithCenteredContent: StoryFn = (args) => (
         exercitationem autem quasi odit aut temporibus rem expedita maxime at.
         Laudantium?
       </HeaderBody>
-      <HeaderActions className="mx-auto">
+      <HeaderActions style={{ marginLeft: "auto", marginRight: "auto" }}>
         <Button>Button</Button>
         <Button variant="outline">Button</Button>
       </HeaderActions>
@@ -67,8 +67,14 @@ export const WithForm: StoryFn = (args) => (
         exercitationem autem quasi odit aut temporibus rem expedita maxime at.
         Laudantium?
       </HeaderBody>
-      <HeaderActions className="flex-col space-x-0">
-        <div className="flex items-start gap-x-4">
+      <HeaderActions style={{ flexDirection: "column", gap: "0" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            gap: "var(--spacing-4)",
+          }}
+        >
           <Label htmlFor="email-address" className="sr-only">
             Email address
           </Label>
@@ -105,7 +111,13 @@ export const WithForm: StoryFn = (args) => (
 export const WithBackdrop: StoryFn = (args) => (
   <HeaderBackdrop>
     <HeaderBackdropImage />
-    <Header className="py-6" {...args}>
+    <Header
+      style={{
+        paddingTop: "var(--spacing-6)",
+        paddingBottom: "var(--spacing-6)",
+      }}
+      {...args}
+    >
       <HeaderContent style={{ textAlign: "center" }}>
         <HeaderTagline style={{ color: "var(--color-muted-fg)" }}>
           Tagline
