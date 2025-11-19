@@ -1,7 +1,6 @@
 import * as SliderPrimitive from "@radix-ui/react-slider";
 import * as React from "react";
-
-import { cn } from "@/lib/utils";
+import styled from "styled-components";
 
 export interface SliderProps
   extends Omit<
@@ -12,6 +11,52 @@ export interface SliderProps
   onValueChange?: (value: number) => void;
   defaultValue?: number;
 }
+
+const StyledSliderRoot = styled(SliderPrimitive.Root)`
+  position: relative;
+  display: flex;
+  width: 100%;
+  touch-action: none;
+  user-select: none;
+  align-items: center;
+`;
+
+const StyledSliderTrack = styled(SliderPrimitive.Track)`
+  position: relative;
+  height: var(--spacing-1-5);
+  width: 100%;
+  flex-grow: 1;
+  overflow: hidden;
+  border-radius: var(--border-radius-full);
+  background-color: var(--color-muted);
+`;
+
+const StyledSliderRange = styled(SliderPrimitive.Range)`
+  position: absolute;
+  height: 100%;
+  background-color: var(--color-primary);
+`;
+
+const StyledSliderThumb = styled(SliderPrimitive.Thumb)`
+  display: block;
+  height: var(--spacing-4);
+  width: var(--spacing-4);
+  border-radius: var(--border-radius-full);
+  border: var(--border-width-default) solid var(--color-primary);
+  background-color: var(--color-background);
+  box-shadow: var(--box-shadow-sm);
+  transition: colors 0.3s;
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 1px var(--color-ring);
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+`;
 
 const Slider = React.forwardRef<
   React.ElementRef<typeof SliderPrimitive.Root>,
@@ -29,27 +74,19 @@ const Slider = React.forwardRef<
     defaultValue !== undefined ? [defaultValue] : undefined;
 
   return (
-    <SliderPrimitive.Root
+    <StyledSliderRoot
       ref={ref}
       className={className}
-      style={{
-        position: "relative",
-        display: "flex",
-        width: "100%",
-        touchAction: "none",
-        userSelect: "none",
-        alignItems: "center",
-      }}
       value={sliderValue}
       onValueChange={handleValueChange}
       defaultValue={sliderDefaultValue}
       {...props}
     >
-      <SliderPrimitive.Track className="relative h-1.5 w-full grow overflow-hidden rounded-full bg-muted">
-        <SliderPrimitive.Range className="absolute h-full bg-primary" />
-      </SliderPrimitive.Track>
-      <SliderPrimitive.Thumb className="block h-4 w-4 rounded-full border border-primary bg-background shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50" />
-    </SliderPrimitive.Root>
+      <StyledSliderTrack>
+        <StyledSliderRange />
+      </StyledSliderTrack>
+      <StyledSliderThumb />
+    </StyledSliderRoot>
   );
 });
 Slider.displayName = SliderPrimitive.Root.displayName;
