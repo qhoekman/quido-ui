@@ -24,7 +24,7 @@ export default {
 export const Default: StoryFn<typeof ListButton> = (args) => (
   <ViewportLayout>
     <BlockTitle>List Button</BlockTitle>
-    <Block className="p-0" inset>
+    <Block style={{ padding: "0" }} inset>
       <ul>
         {Array.from({ length: 5 }).map((_, index) => (
           <li key={index} style={{ listStyle: "none" }}>
