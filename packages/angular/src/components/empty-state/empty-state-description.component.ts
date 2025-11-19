@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-empty-state-description]',
+  selector: '[qui-empty-state-description]',
   host: {
-    'data-testid': 'pui-empty-state-description',
+    'data-testid': 'qui-empty-state-description',
   },
   template: '<ng-content></ng-content>',
   styles: [

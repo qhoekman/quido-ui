@@ -34,18 +34,18 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
-        <div pui-empty-state size="lg">
-          <div pui-empty-state-icon>
-            <i pui-icon name="exclamation-triangle" size="3xl"></i>
+      <qui-story>
+        <div qui-empty-state size="lg">
+          <div qui-empty-state-icon>
+            <i qui-icon name="exclamation-triangle" size="3xl"></i>
           </div>
-          <h2 pui-empty-state-title>Empty State Title</h2>
-          <p pui-empty-state-description>This is a description of the empty state.</p>
-          <div pui-empty-state-action-group>
-            <button pui-button>Action</button>
+          <h2 qui-empty-state-title>Empty State Title</h2>
+          <p qui-empty-state-description>This is a description of the empty state.</p>
+          <div qui-empty-state-action-group>
+            <button qui-button>Action</button>
           </div>
         </div>
-      </pui-story>
+      </qui-story>
     `,
   }),
 };

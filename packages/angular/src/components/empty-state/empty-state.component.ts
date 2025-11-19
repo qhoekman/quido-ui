@@ -5,17 +5,17 @@ type EmptyStateVariants = {
 };
 
 @Component({
-  selector: '[pui-empty-state]',
+  selector: '[qui-empty-state]',
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-empty-state',
+    'data-testid': 'qui-empty-state',
   },
-  template: `<ng-content select="[pui-empty-state-icon]"></ng-content>
-    <div class="empty-state__content" data-testid="pui-empty-state-content">
-      <ng-content select="[pui-empty-state-title]"></ng-content>
-      <ng-content select="[pui-empty-state-description]"></ng-content>
+  template: `<ng-content select="[qui-empty-state-icon]"></ng-content>
+    <div class="empty-state__content" data-testid="qui-empty-state-content">
+      <ng-content select="[qui-empty-state-title]"></ng-content>
+      <ng-content select="[qui-empty-state-description]"></ng-content>
     </div>
-    <ng-content select="[pui-empty-state-action-group]"></ng-content> `,
+    <ng-content select="[qui-empty-state-action-group]"></ng-content> `,
   styles: [
     `
       :host {

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-empty-state-icon]',
+  selector: '[qui-empty-state-icon]',
   template: '<ng-content></ng-content>',
   host: {
-    'data-testid': 'pui-empty-state-icon',
+    'data-testid': 'qui-empty-state-icon',
   },
   styles: [
     `
