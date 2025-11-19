@@ -67,47 +67,52 @@ export const Default: Story = {
           paymentMethod: 'Credit Card',
         },
       ],
-      displayedColumns: ['invoice', 'paymentStatus', 'paymentMethod', 'totalAmount'],
+      displayedColumns: [
+        'invoice',
+        'paymentStatus',
+        'paymentMethod',
+        'totalAmount',
+      ],
     },
     template: `
-    <pui-story>
-      <table pui-table [dataSource]="dataSource">
-        <caption pui-table-caption>
+    <qui-story>
+      <table qui-table [dataSource]="dataSource">
+        <caption qui-table-caption>
           A list of your recent invoices.
         </caption>
         <ng-container puiColumnDef="invoice">
-          <th pui-header-cell *puiHeaderCellDef>Invoice</th>
-          <td pui-cell *puiCellDef="let invoice">{{ invoice.invoice }}</td>
-          <td pui-footer-cell *puiFooterCellDef>Total</td>
+          <th qui-header-cell *puiHeaderCellDef>Invoice</th>
+          <td qui-cell *puiCellDef="let invoice">{{ invoice.invoice }}</td>
+          <td qui-footer-cell *puiFooterCellDef>Total</td>
         </ng-container>
 
         <ng-container puiColumnDef="paymentStatus">
-          <th pui-header-cell *puiHeaderCellDef>Status</th>
-          <td pui-cell *puiCellDef="let invoice">{{ invoice.paymentStatus }}</td>
-          <td pui-footer-cell *puiFooterCellDef></td>
+          <th qui-header-cell *puiHeaderCellDef>Status</th>
+          <td qui-cell *puiCellDef="let invoice">{{ invoice.paymentStatus }}</td>
+          <td qui-footer-cell *puiFooterCellDef></td>
         </ng-container>
 
         <ng-container puiColumnDef="paymentMethod">
-          <th pui-header-cell *puiHeaderCellDef>Method</th>
-          <td pui-cell *puiCellDef="let invoice">{{ invoice.paymentMethod }}</td>
-          <td pui-footer-cell *puiFooterCellDef></td>
+          <th qui-header-cell *puiHeaderCellDef>Method</th>
+          <td qui-cell *puiCellDef="let invoice">{{ invoice.paymentMethod }}</td>
+          <td qui-footer-cell *puiFooterCellDef></td>
         </ng-container>
 
         <ng-container puiColumnDef="totalAmount">
-          <th pui-header-cell *puiHeaderCellDef class="text-right">Amount</th>
-          <td pui-cell *puiCellDef="let invoice" class="text-right">
+          <th qui-header-cell *puiHeaderCellDef class="text-right">Amount</th>
+          <td qui-cell *puiCellDef="let invoice" class="text-right">
             {{ invoice.totalAmount | currency }}
           </td>
-          <td pui-footer-cell *puiFooterCellDef>
+          <td qui-footer-cell *puiFooterCellDef>
             {{ 2475.00 | currency }}
           </td>
         </ng-container>
 
-        <tr pui-header-row *puiHeaderRowDef="displayedColumns"></tr>
-        <tr pui-row *puiRowDef="let row; columns: displayedColumns"></tr>
-        <tr pui-footer-row *puiFooterRowDef="displayedColumns"></tr>
+        <tr qui-header-row *puiHeaderRowDef="displayedColumns"></tr>
+        <tr qui-row *puiRowDef="let row; columns: displayedColumns"></tr>
+        <tr qui-footer-row *puiFooterRowDef="displayedColumns"></tr>
       </table>
-    </pui-story>
+    </qui-story>
     `,
   }),
 };

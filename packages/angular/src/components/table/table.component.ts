@@ -1,4 +1,7 @@
-import { _DisposeViewRepeaterStrategy, _VIEW_REPEATER_STRATEGY } from '@angular/cdk/collections';
+import {
+  _DisposeViewRepeaterStrategy,
+  _VIEW_REPEATER_STRATEGY,
+} from '@angular/cdk/collections';
 import {
   CDK_TABLE,
   CdkTable,
@@ -10,10 +13,10 @@ import {
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-table]',
+  selector: '[qui-table]',
   standalone: true,
   host: {
-    'data-testid': 'pui-table',
+    'data-testid': 'qui-table',
   },
   template: `
     <ng-content select="caption" />

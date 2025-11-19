@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-table-caption]',
+  selector: '[qui-table-caption]',
   host: {
-    'data-testid': 'pui-table-caption',
+    'data-testid': 'qui-table-caption',
   },
   styles: [
     `

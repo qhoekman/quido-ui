@@ -1,12 +1,16 @@
-import { CdkCellOutlet, CdkFooterRow, CdkFooterRowDef } from '@angular/cdk/table';
+import {
+  CdkCellOutlet,
+  CdkFooterRow,
+  CdkFooterRowDef,
+} from '@angular/cdk/table';
 import { Component, Directive } from '@angular/core';
 
 @Component({
-  selector: '[pui-footer-row]',
+  selector: '[qui-footer-row]',
   template: `<ng-container cdkCellOutlet></ng-container>`,
   host: {
     role: 'row',
-    'data-testid': 'pui-table-footer-row',
+    'data-testid': 'qui-table-footer-row',
   },
   providers: [{ provide: CdkFooterRow, useExisting: TableFooterRowComponent }],
   imports: [CdkCellOutlet],
@@ -16,7 +20,9 @@ export class TableFooterRowComponent extends CdkFooterRow {}
 
 @Directive({
   selector: '[puiFooterRowDef]',
-  providers: [{ provide: CdkFooterRowDef, useExisting: TableFooterRowDefDirective }],
+  providers: [
+    { provide: CdkFooterRowDef, useExisting: TableFooterRowDefDirective },
+  ],
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: [{ name: 'columns', alias: 'puiFooterRowDef' }],
   standalone: true,

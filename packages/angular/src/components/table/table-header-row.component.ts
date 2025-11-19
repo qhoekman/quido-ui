@@ -1,16 +1,21 @@
-import { CdkCellOutlet, CdkHeaderRow, CdkHeaderRowDef } from '@angular/cdk/table';
+import {
+  CdkCellOutlet,
+  CdkHeaderRow,
+  CdkHeaderRowDef,
+} from '@angular/cdk/table';
 import { Component, Directive } from '@angular/core';
 
 @Component({
-  selector: '[pui-header-row]',
+  selector: '[qui-header-row]',
   standalone: true,
   host: {
-    'data-testid': 'pui-table-header-row',
+    'data-testid': 'qui-table-header-row',
   },
   styles: [
     `
       :host {
-        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+        transition-property: color, background-color, border-color,
+          text-decoration-color, fill, stroke;
         transition-timing-function: ease-in-out;
         transition-duration: 0.15s;
       }
@@ -28,7 +33,9 @@ export class TableHeaderRowComponent extends CdkHeaderRow {}
 
 @Directive({
   selector: '[puiHeaderRowDef]',
-  providers: [{ provide: CdkHeaderRowDef, useExisting: TableHeaderRowDefDirective }],
+  providers: [
+    { provide: CdkHeaderRowDef, useExisting: TableHeaderRowDefDirective },
+  ],
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: [{ name: 'columns', alias: 'puiHeaderRowDef' }],
   standalone: true,

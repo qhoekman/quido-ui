@@ -2,10 +2,10 @@ import { CdkFooterCell, CdkFooterCellDef } from '@angular/cdk/table';
 import { Component, Directive } from '@angular/core';
 
 @Component({
-  selector: '[pui-footer-cell]',
+  selector: '[qui-footer-cell]',
   hostDirectives: [CdkFooterCell],
   host: {
-    'data-testid': 'pui-table-footer-cell',
+    'data-testid': 'qui-table-footer-cell',
   },
   template: `<ng-content></ng-content>`,
   styles: [
@@ -23,7 +23,9 @@ export class TableFooterCellComponent {}
 
 @Directive({
   selector: '[puiFooterCellDef]',
-  providers: [{ provide: CdkFooterCellDef, useExisting: TableFooterCellDefDirective }],
+  providers: [
+    { provide: CdkFooterCellDef, useExisting: TableFooterCellDefDirective },
+  ],
 
   standalone: true,
 })

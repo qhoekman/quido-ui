@@ -2,11 +2,11 @@ import { CdkHeaderCell, CdkHeaderCellDef } from '@angular/cdk/table';
 import { Component, Directive } from '@angular/core';
 
 @Component({
-  selector: '[pui-header-cell]',
+  selector: '[qui-header-cell]',
   standalone: true,
   host: {
     role: 'columnheader',
-    'data-testid': 'pui-table-header-cell',
+    'data-testid': 'qui-table-header-cell',
   },
   hostDirectives: [CdkHeaderCell],
   styles: [
@@ -27,7 +27,9 @@ export class TableHeaderCellComponent {}
 
 @Directive({
   selector: '[puiHeaderCellDef]',
-  providers: [{ provide: CdkHeaderCellDef, useExisting: TableHeaderCellDefDirective }],
+  providers: [
+    { provide: CdkHeaderCellDef, useExisting: TableHeaderCellDefDirective },
+  ],
   standalone: true,
 })
 export class TableHeaderCellDefDirective extends CdkHeaderCellDef {}

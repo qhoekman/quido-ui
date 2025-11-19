@@ -2,11 +2,11 @@ import { CdkCell, CdkCellDef } from '@angular/cdk/table';
 import { Component, Directive } from '@angular/core';
 
 @Component({
-  selector: '[pui-cell]',
+  selector: '[qui-cell]',
   standalone: true,
   hostDirectives: [CdkCell],
   host: {
-    'data-testid': 'pui-table-cell',
+    'data-testid': 'qui-table-cell',
   },
   styles: [
     `
