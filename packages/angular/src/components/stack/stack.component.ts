@@ -8,7 +8,7 @@ export type StackVariants = {
 };
 
 @Component({
-  selector: '[pui-stack]',
+  selector: '[qui-stack]',
   standalone: true,
   host: {
     '[class]': 'getClassList()',

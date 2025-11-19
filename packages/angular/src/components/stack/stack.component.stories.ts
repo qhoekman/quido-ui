@@ -65,13 +65,13 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <div pui-stack [gap]="gap" [direction]="direction" style="max-width: var(--breakpoint-xs);">
+    <qui-story>
+      <div qui-stack [gap]="gap" [direction]="direction" style="max-width: var(--breakpoint-xs);">
         <sb-box *ngFor="let i of [].constructor(numberOfBoxes); let i = index">
           {{ i + 1 }}
         </sb-box>
       </div>
-    </pui-story>
+    </qui-story>
     `,
   }),
 };
