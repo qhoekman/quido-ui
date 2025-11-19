@@ -34,6 +34,6 @@ export const Default: Story = {
   },
   render: (args) => ({
     props: args,
-    template: `<pui-story><pui-calendar [currentMonth]="currentMonth" [currentDate]="currentDate"></pui-calendar></pui-story>`,
+    template: `<qui-story><qui-calendar [currentMonth]="currentMonth" [currentDate]="currentDate"></qui-calendar></qui-story>`,
   }),
 };

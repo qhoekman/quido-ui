@@ -16,43 +16,56 @@ import { ButtonComponent } from '../button/button.component';
 import { IconArrowLeftComponent, IconArrowRightComponent } from '../../icons';
 
 @Component({
-  selector: 'pui-calendar',
+  selector: 'qui-calendar',
   standalone: true,
-  imports: [CommonModule, ButtonComponent, IconArrowLeftComponent, IconArrowRightComponent],
+  imports: [
+    CommonModule,
+    ButtonComponent,
+    IconArrowLeftComponent,
+    IconArrowRightComponent,
+  ],
   template: `
-    <div class="calendar" data-testid="pui-calendar" role="application" aria-label="Calendar">
-      <div class="header" data-testid="pui-calendar-header">
+    <div
+      class="calendar"
+      data-testid="qui-calendar"
+      role="application"
+      aria-label="Calendar"
+    >
+      <div class="header" data-testid="qui-calendar-header">
         <button
-          pui-button
-          data-testid="pui-calendar-header-prev"
+          qui-button
+          data-testid="qui-calendar-header-prev"
           variant="ghost"
           size="icon"
           (click)="prevMonth()"
           aria-label="Previous month"
         >
-          <i pui-icon name="arrow-left" size="sm"></i>
+          <i qui-icon name="arrow-left" size="sm"></i>
         </button>
-        <span aria-live="polite" aria-atomic="true" data-testid="pui-calendar-header-month">{{
-          format(currentMonth, 'MMMM yyyy')
-        }}</span>
+        <span
+          aria-live="polite"
+          aria-atomic="true"
+          data-testid="qui-calendar-header-month"
+          >{{ format(currentMonth, 'MMMM yyyy') }}</span
+        >
         <button
-          pui-button
-          data-testid="pui-calendar-header-next"
+          qui-button
+          data-testid="qui-calendar-header-next"
           variant="ghost"
           size="icon"
           (click)="nextMonth()"
           aria-label="Next month"
         >
-          <i pui-icon name="arrow-right" size="sm"></i>
+          <i qui-icon name="arrow-right" size="sm"></i>
         </button>
       </div>
-      <div class="weekdays" role="row" data-testid="pui-calendar-weekdays">
+      <div class="weekdays" role="row" data-testid="qui-calendar-weekdays">
         <div *ngFor="let day of weekdays" role="columnheader">{{ day }}</div>
       </div>
-      <div class="days" role="grid" data-testid="pui-calendar-days">
+      <div class="days" role="grid" data-testid="qui-calendar-days">
         <div
           role="gridcell"
-          data-testid="pui-calendar-day"
+          data-testid="qui-calendar-day"
           (click)="handleDayClick(day)"
           (keydown)="handleDayKeydown(day)"
           tabindex="0"
