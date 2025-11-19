@@ -1,0 +1,20 @@
+import * as HoverCardStories from "./hover-card.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import HoverCardCode from "!!raw-loader!./hover-card.component.ts";
+import HoverCardTriggerCode from "!!raw-loader!./hover-card-trigger.directive.ts";
+import HoverCardContentCode from "!!raw-loader!./hover-card-content.component.ts";
+
+# Hover Card
+
+<Meta of={HoverCardStories} />
+<Canvas of={HoverCardStories.Default} />
+<Controls of={HoverCardStories.Default} />
+
+> **hover-card.component.ts**
+> <Source code={HoverCardCode} language="typescript" />
+
+> **hover-card-trigger.directive.ts**
+> <Source code={HoverCardTriggerCode} language="typescript" />
+
+> **hover-card-content.component.ts**
+> <Source code={HoverCardContentCode} language="typescript" />
