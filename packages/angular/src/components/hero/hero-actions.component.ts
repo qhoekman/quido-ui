@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-hero-actions]',
+  selector: '[qui-hero-actions]',
   standalone: true,
   host: {
-    'data-testid': 'pui-hero-actions',
+    'data-testid': 'qui-hero-actions',
   },
   template: `<ng-content></ng-content>`,
   styles: [

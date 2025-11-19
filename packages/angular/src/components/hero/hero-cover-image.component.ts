@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-hero-cover-image]',
+  selector: '[qui-hero-cover-image]',
   standalone: true,
   host: {
-    'data-testid': 'pui-hero-cover-image',
+    'data-testid': 'qui-hero-cover-image',
   },
   template: '',
   styles: [

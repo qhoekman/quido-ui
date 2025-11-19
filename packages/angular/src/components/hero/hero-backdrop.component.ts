@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-hero-backdrop]',
+  selector: '[qui-hero-backdrop]',
   standalone: true,
   host: {
-    'data-testid': 'pui-hero-backdrop',
+    'data-testid': 'qui-hero-backdrop',
   },
   template: `<ng-content></ng-content>`,
   styles: [

@@ -35,24 +35,24 @@ type Story = StoryObj<HeroComponent>;
 export const Default: Story = {
   render: () => ({
     template: `
-      <div pui-hero>
-        <div pui-hero-section style="max-width: 30rem;">
-          <div pui-stack direction="column" gap="md">
-            <span pui-hero-tagline>Tagline</span>
-            <h1 pui-hero-title>Medium length hero section title goes in here</h1>
-            <p pui-hero-body>
+      <div qui-hero>
+        <div qui-hero-section style="max-width: 30rem;">
+          <div qui-stack direction="column" gap="md">
+            <span qui-hero-tagline>Tagline</span>
+            <h1 qui-hero-title>Medium length hero section title goes in here</h1>
+            <p qui-hero-body>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
               tempora delectus et. Iusto tempora accusantium suscipit labore, iure
               exercitationem autem quasi odit aut temporibus rem expedita maxime at.
               Laudantium?
             </p>
-            <div pui-hero-actions>
-              <button pui-button>Button</button>
-              <button pui-button variant="outline">Button</button>
+            <div qui-hero-actions>
+              <button qui-button>Button</button>
+              <button qui-button variant="outline">Button</button>
             </div>
           </div>
         </div>
-        <div pui-hero-section style="order: 1;">
+        <div qui-hero-section style="order: 1;">
           <img
             src="https://dummyimage.com/1000x1000/d4d4d4/171717"
             alt="Image"
