@@ -1,0 +1,10 @@
+import * as StarRatingStories from "./star-rating.component.stories.ts";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import StarRatingCode from "!!raw-loader!./star-rating.component.ts";
+
+# Star Rating
+
+<Meta of={StarRatingStories} />
+<Canvas of={StarRatingStories.Default} />
+<Controls of={StarRatingStories.Default} />
+<Source code={StarRatingCode} language="typescript" />
