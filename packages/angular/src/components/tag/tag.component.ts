@@ -7,11 +7,11 @@ export type TagVariants = {
 };
 
 @Component({
-  selector: 'div[pui-tag]',
+  selector: 'div[qui-tag]',
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-tag',
+    'data-testid': 'qui-tag',
   },
   template: `<ng-content></ng-content>`,
   styles: [
@@ -29,8 +29,7 @@ export type TagVariants = {
         outline: none;
 
         &:focus-visible {
-          box-shadow:
-            0 0 0 2px var(--color-ring),
+          box-shadow: 0 0 0 2px var(--color-ring),
             0 0 0 4px var(--color-background);
         }
       }
@@ -110,7 +109,7 @@ export class TagComponent {
 
   getClassList() {
     return {
-      'pui-tag': true,
+      'qui-tag': true,
       [`variant--${this.variant}`]: true,
       [`size--${this.size}`]: true,
       [`shape--${this.shape}`]: true,

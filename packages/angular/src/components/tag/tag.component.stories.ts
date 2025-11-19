@@ -39,9 +39,9 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
-        <div pui-tag [variant]="variant" [size]="size" [shape]="shape">{{content}}</div>
-      </pui-story>
+      <qui-story>
+        <div qui-tag [variant]="variant" [size]="size" [shape]="shape">{{content}}</div>
+      </qui-story>
     `,
   }),
 };
