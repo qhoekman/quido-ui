@@ -1,0 +1,53 @@
+import * as ColorPickerStories from "./color-picker.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import ColorPickerCode from "!!raw-loader!./color-picker.component.ts";
+import TabsCode from "!!raw-loader!../tabs/tabs.component.ts";
+import TabsListCode from "!!raw-loader!../tabs/tabs-list.component.ts";
+import TabsTriggerCode from "!!raw-loader!../tabs/tabs-trigger.component.ts";
+import TabsContentCode from "!!raw-loader!../tabs/tabs-content.component.ts";
+import ColorWheelCode from "!!raw-loader!../color-wheel/color-wheel.component.ts";
+import ColorPaletteCode from "!!raw-loader!../color-palette/color-palette.component.ts";
+
+# Color Picker
+
+<Meta of={ColorPickerStories} />
+<Canvas of={ColorPickerStories.Default} />
+<Controls of={ColorPickerStories.Default} />
+
+## Installation
+
+Add the following packages to your project:
+
+```bash
+npm install @thednp/color
+```
+
+Copy the following code into your project.
+
+> **tabs.component.ts**
+>
+> <Source code={TabsCode} language="typescript" />
+
+> **tabs-list.component.ts**
+>
+> <Source code={TabsListCode} language="typescript" />
+
+> **tabs-trigger.component.ts**
+>
+> <Source code={TabsTriggerCode} language="typescript" />
+
+> **tabs-content.component.ts**
+>
+> <Source code={TabsContentCode} language="typescript" />
+
+> **color-wheel.component.ts**
+>
+> <Source code={ColorWheelCode} language="typescript" />
+
+> **color-palette.component.ts**
+>
+> <Source code={ColorPaletteCode} language="typescript" />
+
+> **color-picker.component.ts**
+>
+> <Source code={ColorPickerCode} language="typescript" />
