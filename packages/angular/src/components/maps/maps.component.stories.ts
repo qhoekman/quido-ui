@@ -33,11 +33,11 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
+      <qui-story>
         <div style="height: 300px; width: 300px;">
-          <pui-maps [center]="center" [zoom]="zoom"></pui-maps>
+          <qui-maps [center]="center" [zoom]="zoom"></qui-maps>
         </div>
-      </pui-story>
+      </qui-story>
     `,
   }),
 };
