@@ -18,9 +18,9 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 export default {
   title: "Features/Mobile/Layouts/Viewport",
   component: ViewportLayout,
-} as Meta<typeof ViewportLayout>;
+} satisfies Meta<typeof ViewportLayout>;
 
-export const Default: StoryFn = (args) => (
+export const Default: StoryFn<typeof ViewportLayout> = (args) => (
   <ViewportLayout {...args}>
     <Navbar>
       <NavbarContent>
@@ -32,9 +32,14 @@ export const Default: StoryFn = (args) => (
         <NavbarLink href="#">Link</NavbarLink>
       </NavbarContent>
     </Navbar>
-    <div className="relative">
+    <div style={{ position: "relative" }}>
       <BlockTitle>Block</BlockTitle>
-      <Block className="mx-4">
+      <Block
+        style={{
+          marginLeft: "var(--spacing-4)",
+          marginRight: "var(--spacing-4)",
+        }}
+      >
         <p>
           Donec et nulla auctor massa pharetra adipiscing ut sit amet sem.
           Suspendisse molestie velit vitae mattis tincidunt. Ut sit amet quam
@@ -47,7 +52,10 @@ export const Default: StoryFn = (args) => (
         {Array.from({ length: 5 }).map((_, index) => (
           <ToolbarLink key={index} href="#">
             <svg
-              className="w-6 h-6"
+              style={{
+                width: "var(--spacing-6)",
+                height: "var(--spacing-6)",
+              }}
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
