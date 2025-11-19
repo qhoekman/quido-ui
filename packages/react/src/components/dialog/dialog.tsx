@@ -66,6 +66,8 @@ const StyledDialogClose = styled(DialogPrimitive.Close)`
   transition: opacity 0.3s;
   outline: none;
   box-shadow: 0 0 0 0 var(--color-background);
+  color: var(--color-background-fg);
+  fill: currentColor;
 
   &:hover {
     opacity: 1;
@@ -142,7 +144,7 @@ const DialogContent = React.forwardRef<
     <StyledDialogContent ref={ref} className={className} {...props}>
       {children}
       <StyledDialogClose>
-        <X className="h-4 w-4" />
+        <X style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }} />
         <span className="sr-only">Close</span>
       </StyledDialogClose>
     </StyledDialogContent>
