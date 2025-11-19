@@ -1,0 +1,16 @@
+:host {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: hsl(from var(--color-background-fg) h s l / 10%);
+    border-color: hsl(from var(--color-background-fg) h s l / 10%);
+  }
+}
+
+:host([aria-current="page"]) {
+  border-color: currentcolor;
+}

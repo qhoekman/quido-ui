@@ -1,0 +1,45 @@
+import * as PaginationStories from "./pagination.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import PaginationCode from "!!raw-loader!./pagination.component.ts";
+import PaginationContentCode from "!!raw-loader!./pagination-content.component.ts";
+import PaginationItemCode from "!!raw-loader!./pagination-item.component.ts";
+import PaginationLinkCode from "!!raw-loader!./pagination-link.component.ts";
+import PaginationLinkCSSCode from "!!raw-loader!./pagination-link.component.css";
+import PaginationNextCode from "!!raw-loader!./pagination-next.component.ts";
+import PaginationPreviousCode from "!!raw-loader!./pagination-previous.component.ts";
+import PaginationEllipsisCode from "!!raw-loader!./pagination-ellipsis.component.ts";
+
+# Pagination
+
+<Meta of={PaginationStories} />
+<Canvas of={PaginationStories.Default} />
+<Controls of={PaginationStories.Default} />
+
+## Installation
+
+Copy the following code into your project.
+
+> **pagination.component.ts**
+> <Source code={PaginationCode} language="typescript" />
+
+> **pagination-content.component.ts**
+> <Source code={PaginationContentCode} language="typescript" />
+
+> **pagination-item.component.ts**
+> <Source code={PaginationItemCode} language="typescript" />
+
+> **pagination-link.component.ts**
+> <Source code={PaginationLinkCode} language="typescript" />
+
+> **pagination-link.component.css**
+> <Source code={PaginationLinkCSSCode} language="css" />
+
+> **pagination-next.component.ts**
+> <Source code={PaginationNextCode} language="typescript" />
+
+> **pagination-previous.component.ts**
+> <Source code={PaginationPreviousCode} language="typescript" />
+
+> **pagination-ellipsis.component.ts**
+> <Source code={PaginationEllipsisCode} language="typescript" />
+
