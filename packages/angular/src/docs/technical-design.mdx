@@ -1,0 +1,89 @@
+import { Meta, Source } from "@storybook/addon-docs/blocks";
+
+<Meta title="Documentation/Technical Design" />
+
+# Technical Design
+
+This is our technical design that the describes how the component library is build and why certrain decisions were made.
+
+## Composible components
+
+To make the components as composible as possible, we have made the following decisions to each component:
+
+- The component needs to be a directive-component, which means it has a directive selector but it is used as a component.
+  - We have chosen this because it is the most flexible approach, it allows users to set all attributes that are traditionally allowed on the host element.
+- The component must not have any embedded elements, because this allows the developer to build the component in a way that is most flexible for the user.
+- The component always return the content via `<ng-content></ng-content>`.
+- The component makes use of ng-templates if needed.
+- The component allows variants to be applied, these are always described in a separate `ComponentVariants` type.
+  - Each variant allows is applied as CSS classes on the host element, the possible options are assigned as modifier (`.variant--outline`).
+  - Variants can be combined and are easily to extend.
+  - Variants are applied via the host class binding.
+  - Variants can be referered to Figma.
+- ARIA attributes are always added to the host element.
+- Test ids are always added to the host element.
+- The component is always a pure component, which means it does not have any dependencies on other components. Only if the component is part of a bundle with multiple sub-components, the sub-components are allowed to have dependencies on each other.
+
+## Design system
+
+Our design system is based on CSS variables, which are being applied on the base layer in the broeser. We have a set of default CSS variables which are applied system-wide.
+These system-wide variables are a set of colors, fonts, spacing, etc. We also introduce application-specific variables, which are being applied to the application. These are more or less component specific, like card, popover, input etc. but also application branding such as primary color, secondary color, etc.
+We make sure that for dark and light mode, the colors are being set that makes sense for both modes.
+
+## Storybook
+
+Storybook is a fundemental part of the component library. It is used to document the components, but also to build them in isolation.
+Components in Storybook are organized in a way that is easy to understand and navigate based on its functionality. We provide documentation so see the individual components, design tokens and documentation.
+Storybook will help us to have a overview of all components being available and used in the application. When the application scales not all paths are accessible which makes it harder to have make small changes without knowing the impact.
+
+### Decisions
+
+A overview why we want to use Storybook:
+
+- Increase the developer experience to make it easier to develop components in isolation.
+- Increase the regression testing of components with various variants
+- Increase the documentation of the available components
+- Increase the overview of all available components
+- Make it easier to refactor the application
+
+The other sections of this document describes how we want to implement Storybook.
+
+### Setup
+
+Storybook can easily be added to any frontend project nowadays, follow the [Get Started guide](https://storybook.js.org/docs/get-started/frameworks/angular) to do the initial setup of Storybook:
+
+```sh
+npx storybook@latest init
+```
+
+> We will not use Compodoc for now because it introduce overhead and we wont be using it
+
+### Configuration
+
+We will make some small adjustments to the Storybook configuration:
+
+- Add module aliasing to `@/*` for the `src/**/*` folder using Vite
+- Add MDX support if components can handle these
+- Convert configuration files to TypeScript
+- Make sure that the root `tsconfig.json` doesnt include `rootDir`, so we can leverage from the root configuration inside Storybook.
+- Make sure that the `src/polyfills.ts` is included in the Storybook `tsconfig.json`
+
+### Addons
+
+We will enrich the Storybook experience using the following addons:
+
+- `@storybook/addon-essentials` - will include customization for measurements, outline view, backgrounds and viewport.
+- `@storybook/addon-links` - will make it possible to link stories together because we wont have a router.
+- `@storybook/addon-interactions` - will make it possible to add pre programmed interactions to individual stories.
+- `@storybook/addon-designs` - will make it possible to link Figma designs to individual stories
+- `@storybook/addon-a11y` - will help the developer to make the component more accessible
+
+### Best practices
+
+- We will use the ESLint rules for Storybook which will help the developer to write stories conforming the CSF standards.
+
+### Conventions
+
+- When a new Story file is created it will be in the same directory as the component, we wont use the `stories`.
+- The `src/system` folder is only used for system stories, such as design tokens and icons
+- A story has a assigned Figma link to compare the component.
