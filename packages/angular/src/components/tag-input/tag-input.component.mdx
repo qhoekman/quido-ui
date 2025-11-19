@@ -1,0 +1,24 @@
+import * as TagInputStories from './tag-input.component.stories';
+import { Canvas, Meta, Source, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
+import TagInputCode from '!!raw-loader!./tag-input.component.ts';
+import TagCode from '!!raw-loader!../tag/tag.component.ts';
+import InputCode from '!!raw-loader!../input/input.component.ts';
+
+# Tag Input
+
+<Meta of={TagInputStories} />
+<Canvas of={TagInputStories.Default} />
+<Controls of={TagInputStories.Default} />
+
+## Installation
+
+Copy the following code into your project.
+
+> **tag-input.component.ts**
+> <Source code={TagInputCode} language="typescript" />
+
+> **tag.component.ts**
+> <Source code={TagCode} language="typescript" />
+
+> **input.component.ts**
+> <Source code={InputCode} language="typescript" />
