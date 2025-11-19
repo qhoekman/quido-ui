@@ -8,7 +8,7 @@ import { HeadingComponent } from '../heading/heading.component';
 import { IconCross2Component } from '../../icons';
 
 @Component({
-  selector: 'pui-cookie-consent',
+  selector: 'qui-cookie-consent',
   standalone: true,
   imports: [
     CommonModule,
@@ -19,47 +19,54 @@ import { IconCross2Component } from '../../icons';
     IconCross2Component,
   ],
   template: `
-    <div *ngIf="showBanner" class="cookie-consent-banner" data-testid="pui-cookie-consent">
-      <div class="cookie-consent-header" data-testid="pui-cookie-consent-header">
+    <div
+      *ngIf="showBanner"
+      class="cookie-consent-banner"
+      data-testid="qui-cookie-consent"
+    >
+      <div
+        class="cookie-consent-header"
+        data-testid="qui-cookie-consent-header"
+      >
         <div class="cookie-consent-text">
-          <h3 pui-heading variant="h3">Cookie Consent</h3>
+          <h3 qui-heading variant="h3">Cookie Consent</h3>
         </div>
         <button
-          pui-button
+          qui-button
           variant="ghost"
           size="icon"
           (click)="handleReject()"
           class="cookie-consent-close"
-          data-testid="pui-cookie-consent-close"
+          data-testid="qui-cookie-consent-close"
         >
           <span aria-hidden="true">
-            <i pui-icon name="cross2" size="sm"></i>
+            <i qui-icon name="cross2" size="sm"></i>
           </span>
-          <span pui-sr-only>Close</span>
+          <span qui-sr-only>Close</span>
         </button>
       </div>
       <div class="cookie-consent-content">
-        <p pui-text variant="body">
-          We use cookies to enhance your browsing experience and analyze our traffic. By clicking "Accept", you consent
-          to our use of cookies.
+        <p qui-text variant="body">
+          We use cookies to enhance your browsing experience and analyze our
+          traffic. By clicking "Accept", you consent to our use of cookies.
         </p>
       </div>
       <div class="cookie-consent-actions">
         <button
-          pui-button
+          qui-button
           variant="outline"
           (click)="handleReject()"
           class="cookie-consent-button-reject"
-          data-testid="pui-cookie-consent-reject"
+          data-testid="qui-cookie-consent-reject"
         >
           Reject
         </button>
         <button
-          pui-button
+          qui-button
           variant="primary"
           (click)="handleAccept()"
           class="cookie-consent-button-accept"
-          data-testid="pui-cookie-consent-accept"
+          data-testid="qui-cookie-consent-accept"
         >
           Accept
         </button>
@@ -135,7 +142,7 @@ export class CookieConsentComponent implements OnInit {
 
   constructor(
     @Inject(CookieConsentService)
-    private cookieConsentService: CookieConsentService,
+    private cookieConsentService: CookieConsentService
   ) {}
 
   ngOnInit() {

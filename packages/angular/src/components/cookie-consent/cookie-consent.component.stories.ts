@@ -21,7 +21,7 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-cookie-consent></pui-cookie-consent>
+      <qui-cookie-consent></qui-cookie-consent>
     `,
   }),
 };
