@@ -2,13 +2,25 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { IconComponent } from '../components/icon/icon.component';
 
 @Component({
-  selector: '[pui-icon][name="square"], [pui-icon-square]',
+  selector: '[qui-icon][name="square"], [qui-icon-square]',
   standalone: true,
-  template: `<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">  <path    fill-rule="evenodd"    clip-rule="evenodd"    d="M1 1H1.5H13.5H14V1.5V13.5V14H13.5H1.5H1V13.5V1.5V1ZM2 2V13H13V2H2Z"    fill="currentColor"  /></svg>`,
+  template: `<svg
+    width="15"
+    height="15"
+    viewBox="0 0 15 15"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M1 1H1.5H13.5H14V1.5V13.5V14H13.5H1.5H1V13.5V1.5V1ZM2 2V13H13V2H2Z"
+      fill="currentColor"
+    />
+  </svg>`,
   styleUrls: ['../components/icon/icon.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
 export class IconSquareComponent extends IconComponent {
   override name = 'square';
 }
-

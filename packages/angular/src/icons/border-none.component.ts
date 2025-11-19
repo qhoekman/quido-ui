@@ -2,13 +2,52 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { IconComponent } from '../components/icon/icon.component';
 
 @Component({
-  selector: '[pui-icon][name="border-none"], [pui-icon-border-none]',
+  selector: '[qui-icon][name="border-none"], [qui-icon-border-none]',
   standalone: true,
-  template: `<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">  <rect x="7" y="5.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="13" y="5.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="7" y="3.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="13" y="3.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="7" y="7.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="7" y="13.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="7" y="1.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="13" y="7.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="13" y="13.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="13" y="1.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="5" y="7.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="5" y="13.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="5" y="1.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="3" y="7.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="3" y="13.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="3" y="1.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="9" y="7.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="9" y="13.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="9" y="1.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="11" y="7.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="11" y="13.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="11" y="1.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="7" y="9.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="13" y="9.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="7" y="11.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="13" y="11.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="1" y="5.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="1" y="3.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="1" y="7.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="1" y="13.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="1" y="1.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="1" y="9.025" width="1" height="1" rx=".5" fill="currentColor" />  <rect x="1" y="11.025" width="1" height="1" rx=".5" fill="currentColor" /></svg>`,
+  template: `<svg
+    width="15"
+    height="15"
+    viewBox="0 0 15 15"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect x="7" y="5.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="13" y="5.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="7" y="3.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="13" y="3.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="7" y="7.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="7" y="13.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="7" y="1.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="13" y="7.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="13" y="13.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="13" y="1.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="5" y="7.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="5" y="13.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="5" y="1.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="3" y="7.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="3" y="13.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="3" y="1.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="9" y="7.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="9" y="13.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="9" y="1.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="11" y="7.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="11" y="13.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="11" y="1.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="7" y="9.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="13" y="9.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="7" y="11.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="13" y="11.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="1" y="5.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="1" y="3.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="1" y="7.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="1" y="13.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="1" y="1.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="1" y="9.025" width="1" height="1" rx=".5" fill="currentColor" />
+    <rect x="1" y="11.025" width="1" height="1" rx=".5" fill="currentColor" />
+  </svg>`,
   styleUrls: ['../components/icon/icon.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
 export class IconBorderNoneComponent extends IconComponent {
   override name = 'border-none';
 }
-
