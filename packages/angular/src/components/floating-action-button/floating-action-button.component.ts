@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'button[pui-fab], a[pui-fab]',
+  selector: 'button[qui-fab], a[qui-fab]',
   standalone: true,
   imports: [CommonModule],
   host: {
@@ -22,9 +22,7 @@ import { Component, Input } from '@angular/core';
         background-color: var(--color-primary);
         color: var(--color-primary-fg);
         box-shadow: 0 2px 10px rgb(0 0 0 / 20%);
-        transition:
-          background-color 0.3s,
-          box-shadow 0.3s;
+        transition: background-color 0.3s, box-shadow 0.3s;
         cursor: pointer;
 
         &:hover {
@@ -34,8 +32,7 @@ import { Component, Input } from '@angular/core';
 
         &:focus-visible {
           outline: none;
-          box-shadow:
-            0 0 0 2px var(--color-ring),
+          box-shadow: 0 0 0 2px var(--color-ring),
             0 0 0 4px var(--color-background);
         }
 

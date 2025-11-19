@@ -29,10 +29,10 @@ export const Default: Story = {
   },
   render: (args) => ({
     props: args,
-    template: `<pui-story>
-      <button pui-fab [size]="size">
-        <i pui-icon name="plus" size="lg"></i>
+    template: `<qui-story>
+      <button qui-fab [size]="size">
+        <i qui-icon name="plus" size="lg"></i>
       </button>
-    </pui-story>`,
+    </qui-story>`,
   }),
 };
