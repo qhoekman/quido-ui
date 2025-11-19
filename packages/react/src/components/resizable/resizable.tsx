@@ -19,7 +19,8 @@ const StyledPanelResizeHandle = styled(ResizablePrimitive.PanelResizeHandle)`
   width: 1px;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-border);
+  background-color: var(--color-muted);
+  color: var(--color-muted-fg);
 
   &::after {
     content: "";
