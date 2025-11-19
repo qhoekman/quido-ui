@@ -38,10 +38,10 @@ export const Default: Story = {
   },
   render: (args) => ({
     props: args,
-    template: `<pui-story>
-      <button pui-toggle [variant]="variant" [size]="size" [selected]="selected">
-        <i pui-icon name="moon" size="lg"></i>
+    template: `<qui-story>
+      <button qui-toggle [variant]="variant" [size]="size" [selected]="selected">
+        <i qui-icon name="moon" size="lg"></i>
       </button>
-    </pui-story>`,
+    </qui-story>`,
   }),
 };

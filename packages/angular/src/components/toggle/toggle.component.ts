@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  Input,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 
 export type ToggleVariants = {
   variant: 'default' | 'outline';
@@ -7,12 +13,12 @@ export type ToggleVariants = {
 };
 
 @Component({
-  selector: 'button[pui-toggle]',
+  selector: 'button[qui-toggle]',
   standalone: true,
   imports: [CommonModule],
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-toggle',
+    'data-testid': 'qui-toggle',
     '[attr.aria-pressed]': 'selected',
   },
   template: `<ng-content></ng-content>`,
@@ -32,8 +38,7 @@ export type ToggleVariants = {
         outline: none;
 
         &:focus-visible {
-          box-shadow:
-            0 0 0 2px var(--color-ring),
+          box-shadow: 0 0 0 2px var(--color-ring),
             0 0 0 4px var(--color-background);
         }
 
@@ -100,6 +105,10 @@ export class ToggleComponent {
   }
 
   getClassList() {
-    return [`variant--${this.variant}`, `size--${this.size}`, this.selected ? 'selected' : ''].join(' ');
+    return [
+      `variant--${this.variant}`,
+      `size--${this.size}`,
+      this.selected ? 'selected' : '',
+    ].join(' ');
   }
 }
