@@ -14,7 +14,13 @@ const meta: Meta<EnhancedRadioGroupComponent> = {
   component: RadioGroupComponent,
   decorators: [
     moduleMetadata({
-      imports: [RadioGroupComponent, RadioGroupItemComponent, StackComponent, LabelComponent, StoryComponent],
+      imports: [
+        RadioGroupComponent,
+        RadioGroupItemComponent,
+        StackComponent,
+        LabelComponent,
+        StoryComponent,
+      ],
     }),
   ],
   argTypes: {
@@ -42,14 +48,14 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <div pui-radio-group>
-        <div pui-stack align="center" gap="sm"  *ngFor="let item of items">
-          <button [id]="item.value" pui-radio-group-item [checked]="item.checked" [value]="item.value"></button>
-          <label pui-label [for]="item.value">{{ item.label }}</label>
+    <qui-story>
+      <div qui-radio-group>
+        <div qui-stack align="center" gap="sm"  *ngFor="let item of items">
+          <button [id]="item.value" qui-radio-group-item [checked]="item.checked" [value]="item.value"></button>
+          <label qui-label [for]="item.value">{{ item.label }}</label>
         </div>
       </div>
-    </pui-story>
+    </qui-story>
     `,
   }),
 };

@@ -1,13 +1,20 @@
-import { Component, ContentChildren, QueryList, AfterContentInit, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  ContentChildren,
+  QueryList,
+  AfterContentInit,
+  EventEmitter,
+  Output,
+} from '@angular/core';
 import { RadioGroupItemComponent } from './radio-group-item.component';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
-  selector: 'div[pui-radio-group]',
+  selector: 'div[qui-radio-group]',
   standalone: true,
   template: ` <ng-content></ng-content> `,
   host: {
-    'data-testid': 'pui-radio-group',
+    'data-testid': 'qui-radio-group',
   },
   styles: [
     `

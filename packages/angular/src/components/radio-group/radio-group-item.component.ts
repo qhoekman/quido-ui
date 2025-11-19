@@ -1,8 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, HostListener, Input, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Input,
+  EventEmitter,
+  Output,
+} from '@angular/core';
 
 @Component({
-  selector: 'button[pui-radio-group-item]',
+  selector: 'button[qui-radio-group-item]',
   standalone: true,
   imports: [CommonModule],
   template: `
@@ -64,7 +71,7 @@ import { Component, ElementRef, HostListener, Input, EventEmitter, Output } from
   host: {
     type: 'button',
     role: 'radio',
-    'data-testid': 'pui-radio-group-item',
+    'data-testid': 'qui-radio-group-item',
     '[attr.aria-checked]': 'checked',
     '[attr.data-state]': 'checked ? "checked" : "unchecked"',
   },
