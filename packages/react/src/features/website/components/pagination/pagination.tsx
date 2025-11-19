@@ -1,7 +1,6 @@
 import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
 import React from "react";
 import styled, { css } from "styled-components";
-import { clsx } from "clsx";
 
 import { ButtonProps, buttonVariants } from "@/components/button/button";
 
@@ -135,18 +134,16 @@ const StyledPaginationItem = styled.li``;
 
 const StyledPaginationLink = styled.a`
   ${buttonStyles}
+`;
 
-  &.gap-1 {
-    gap: var(--spacing-1);
-  }
+const StyledPaginationPrevious = styled(StyledPaginationLink)`
+  gap: var(--spacing-1);
+  padding-left: var(--spacing-2-5);
+`;
 
-  &.pl-2-5 {
-    padding-left: var(--spacing-2-5);
-  }
-
-  &.pr-2-5 {
-    padding-right: var(--spacing-2-5);
-  }
+const StyledPaginationNext = styled(StyledPaginationLink)`
+  gap: var(--spacing-1);
+  padding-right: var(--spacing-2-5);
 `;
 
 const StyledPaginationEllipsis = styled.span`
@@ -195,7 +192,7 @@ const PaginationLink = ({
 }: PaginationLinkProps) => {
   const classes = buttonVariants({
     variant: isActive ? "outline" : "ghost",
-    size: size === "default" ? "md" : size,
+    size: size || "icon",
     className,
   });
 
@@ -213,16 +210,21 @@ const PaginationPrevious = ({
   className,
   ...props
 }: React.ComponentProps<typeof PaginationLink>) => {
+  const classes = buttonVariants({
+    variant: props.isActive ? "outline" : "ghost",
+    size: "md",
+    className,
+  });
+
   return (
-    <PaginationLink
+    <StyledPaginationPrevious
       aria-label="Go to previous page"
-      size="md"
-      className={clsx("gap-1 pl-2-5", className)}
+      className={classes}
       {...props}
     >
-      <ChevronLeft className="h-4 w-4" />
+      <ChevronLeft size={16} />
       <span>Previous</span>
-    </PaginationLink>
+    </StyledPaginationPrevious>
   );
 };
 PaginationPrevious.displayName = "PaginationPrevious";
@@ -231,16 +233,21 @@ const PaginationNext = ({
   className,
   ...props
 }: React.ComponentProps<typeof PaginationLink>) => {
+  const classes = buttonVariants({
+    variant: props.isActive ? "outline" : "ghost",
+    size: "md",
+    className,
+  });
+
   return (
-    <PaginationLink
+    <StyledPaginationNext
       aria-label="Go to next page"
-      size="md"
-      className={clsx("gap-1 pr-2-5", className)}
+      className={classes}
       {...props}
     >
       <span>Next</span>
-      <ChevronRight className="h-4 w-4" />
-    </PaginationLink>
+      <ChevronRight size={16} />
+    </StyledPaginationNext>
   );
 };
 PaginationNext.displayName = "PaginationNext";
@@ -250,7 +257,7 @@ const PaginationEllipsis = ({
   ...props
 }: React.ComponentProps<"span">) => (
   <StyledPaginationEllipsis aria-hidden className={className} {...props}>
-    <MoreHorizontal className="h-4 w-4" />
+    <MoreHorizontal size={16} />
     <span className="sr-only">More pages</span>
   </StyledPaginationEllipsis>
 );
