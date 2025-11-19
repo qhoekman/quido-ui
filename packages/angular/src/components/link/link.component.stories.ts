@@ -21,9 +21,9 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <a pui-link [href]="'https://pulse.quido.online'">Default Link</a>
-    </pui-story>
+    <qui-story>
+      <a qui-link [href]="'https://pulse.quido.online'">Default Link</a>
+    </qui-story>
     `,
   }),
 };

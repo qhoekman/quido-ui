@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: '[pui-link]',
+  selector: '[qui-link]',
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-link',
+    'data-testid': 'qui-link',
   },
   styles: [
     `
