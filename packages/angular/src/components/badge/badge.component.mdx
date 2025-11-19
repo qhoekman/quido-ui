@@ -1,0 +1,11 @@
+import * as BadgeStories from "./badge.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import BadgeCode from "!!raw-loader!./badge.component.ts";
+
+# Badge
+
+<Meta of={BadgeStories} />
+<Canvas of={BadgeStories.Default} />
+<Controls of={BadgeStories.Default} />
+<Source code={BadgeCode} language="typescript" />
+
