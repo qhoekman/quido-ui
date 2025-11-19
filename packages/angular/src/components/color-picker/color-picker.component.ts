@@ -1,5 +1,13 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import Color from '@thednp/color';
 import { BehaviorSubject } from 'rxjs';
 import { ColorPaletteComponent } from '../color-palette/color-palette.component';
@@ -10,7 +18,7 @@ import { TabsTriggerComponent } from '../tabs/tabs-trigger.component';
 import { TabsComponent } from '../tabs/tabs.component';
 
 @Component({
-  selector: 'pui-color-picker',
+  selector: 'qui-color-picker',
   imports: [
     TabsComponent,
     TabsListComponent,
@@ -22,44 +30,63 @@ import { TabsComponent } from '../tabs/tabs.component';
   ],
   standalone: true,
   template: `
-    @let selectedColor = selectedColorSubject | async;
-    @let selectedVariable = selectedVariableSubject | async;
-    @let displayValues = displayValuesSubject | async;
-    <div data-testid="pui-color-picker" pui-tabs class="tabs">
-      <div data-testid="pui-color-picker-tabs-list" pui-tabs-list>
-        <button data-testid="pui-color-picker-tabs-trigger" pui-tabs-trigger [tabContentFor]="colorWheelContent">
+    @let selectedColor = selectedColorSubject | async; @let selectedVariable =
+    selectedVariableSubject | async; @let displayValues = displayValuesSubject |
+    async;
+    <div data-testid="qui-color-picker" qui-tabs class="tabs">
+      <div data-testid="qui-color-picker-tabs-list" qui-tabs-list>
+        <button
+          data-testid="qui-color-picker-tabs-trigger"
+          qui-tabs-trigger
+          [tabContentFor]="colorWheelContent"
+        >
           Hue
         </button>
-        <button data-testid="pui-color-picker-tabs-trigger" pui-tabs-trigger [tabContentFor]="colorPaletteContent">
+        <button
+          data-testid="qui-color-picker-tabs-trigger"
+          qui-tabs-trigger
+          [tabContentFor]="colorPaletteContent"
+        >
           Palette
         </button>
       </div>
       <ng-template #colorWheelContent>
-        <div data-testid="pui-color-picker-tabs-content" pui-tabs-content class="tabs-content">
-          <pui-color-wheel
+        <div
+          data-testid="qui-color-picker-tabs-content"
+          qui-tabs-content
+          class="tabs-content"
+        >
+          <qui-color-wheel
             [hue]="selectedColor.toHsl().h * 100"
             [saturation]="selectedColor.toHsl().s * 100"
             [lightness]="selectedColor.toHsl().l * 100"
             (valueChange)="handleColorChange($event)"
-          ></pui-color-wheel>
+          ></qui-color-wheel>
         </div>
       </ng-template>
       <ng-template #colorPaletteContent>
-        <div data-testid="pui-color-picker-tabs-content" pui-tabs-content class="tabs-content">
-          <pui-color-palette [color]="selectedVariable" (valueChange)="handleColorChange($event)"></pui-color-palette>
+        <div
+          data-testid="qui-color-picker-tabs-content"
+          qui-tabs-content
+          class="tabs-content"
+        >
+          <qui-color-palette
+            [color]="selectedVariable"
+            (valueChange)="handleColorChange($event)"
+          ></qui-color-palette>
         </div>
       </ng-template>
     </div>
-    <div data-testid="pui-color-picker-info" class="info">
-      <div data-testid="pui-color-picker-info-color-item" class="color-item">
+    <div data-testid="qui-color-picker-info" class="info">
+      <div data-testid="qui-color-picker-info-color-item" class="color-item">
         <span class="label">HEX:</span>
         <pre><code>{{ displayValues?.hex }}</code></pre>
       </div>
-      <div data-testid="pui-color-picker-info-color-item" class="color-item">
+      <div data-testid="qui-color-picker-info-color-item" class="color-item">
         <span class="label">HSL:</span>
         <pre><code>{{ displayValues?.hsl }}</code></pre>
       </div>
-      <div data-testid="pui-color-picker-info-color-item" class="color-item">
+      <div data-testid="qui-color-picker-info-color-item" class="color-item">
         <span class="label">RGB:</span>
         <pre><code>{{ displayValues?.rgb }}</code></pre>
       </div>
@@ -115,9 +142,15 @@ import { TabsComponent } from '../tabs/tabs.component';
 export class ColorPickerComponent implements OnInit, OnChanges {
   @Input() color = '#000000';
   @Output() valueChange = new EventEmitter<string>();
-  protected selectedColorSubject = new BehaviorSubject<Color>(new Color('#000000', 'hex'));
+  protected selectedColorSubject = new BehaviorSubject<Color>(
+    new Color('#000000', 'hex')
+  );
   protected selectedVariableSubject = new BehaviorSubject<string | null>(null);
-  protected displayValuesSubject = new BehaviorSubject<{ hex: string; rgb: string; hsl: string }>({
+  protected displayValuesSubject = new BehaviorSubject<{
+    hex: string;
+    rgb: string;
+    hsl: string;
+  }>({
     hex: '#000000',
     rgb: 'rgb(0, 0, 0)',
     hsl: 'hsl(0, 0%, 0%)',

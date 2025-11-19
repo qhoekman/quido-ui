@@ -47,11 +47,11 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <pui-story>
-        <pui-color-picker
+      <qui-story>
+        <qui-color-picker
           [color]="color"
-        ></pui-color-picker>
-      </pui-story>
+        ></qui-color-picker>
+      </qui-story>
     `,
   }),
 };
