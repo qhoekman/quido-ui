@@ -44,12 +44,12 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <pui-story>
-      <div pui-stack direction="column" gap="sm" style="max-width: var(--breakpoint-xs);">
-        <label pui-label [size]="size">Textarea</label>
-        <textarea pui-textarea [size]="size" [placeholder]="placeholder" [disabled]="disabled"></textarea>
+    <qui-story>
+      <div qui-stack direction="column" gap="sm" style="max-width: var(--breakpoint-xs);">
+        <label qui-label [size]="size">Textarea</label>
+        <textarea qui-textarea [size]="size" [placeholder]="placeholder" [disabled]="disabled"></textarea>
       </div>
-    </pui-story>
+    </qui-story>
     `,
   }),
 };

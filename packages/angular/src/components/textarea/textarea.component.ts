@@ -6,13 +6,13 @@ export type TextareaVariants = {
 };
 
 @Component({
-  selector: 'textarea[pui-textarea]',
+  selector: 'textarea[qui-textarea]',
   standalone: true,
   imports: [CommonModule],
   template: `<ng-content></ng-content>`,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'pui-textarea',
+    'data-testid': 'qui-textarea',
   },
   styles: [
     `
