@@ -1,16 +1,28 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
 import { IconCross2Component, IconFileComponent } from '../../icons';
 
 @Component({
-  selector: 'pui-file-dropzone',
+  selector: 'qui-file-dropzone',
   standalone: true,
-  imports: [CommonModule, ButtonComponent, IconFileComponent, IconCross2Component],
+  imports: [
+    CommonModule,
+    ButtonComponent,
+    IconFileComponent,
+    IconCross2Component,
+  ],
   template: `
     <div
       class="file-dropzone"
-      data-testid="pui-file-dropzone"
+      data-testid="qui-file-dropzone"
       [class.drag-active]="dragActive"
       (click)="handleClick()"
       (keydown)="handleKeyDown($event)"
@@ -22,24 +34,37 @@ import { IconCross2Component, IconFileComponent } from '../../icons';
     >
       <input
         #input
-        data-testid="pui-file-dropzone-input"
+        data-testid="qui-file-dropzone-input"
         type="file"
         class="hidden"
         (change)="handleChange($event)"
         multiple
       />
-      <div class="content" data-testid="pui-file-dropzone-content">
+      <div class="content" data-testid="qui-file-dropzone-content">
         <ng-content></ng-content>
       </div>
     </div>
-    <ul *ngIf="files.length > 0" class="file-list" data-testid="pui-file-dropzone-file-list">
-      <li *ngFor="let file of files" class="file-item" data-testid="pui-file-dropzone-file-item">
+    <ul
+      *ngIf="files.length > 0"
+      class="file-list"
+      data-testid="qui-file-dropzone-file-list"
+    >
+      <li
+        *ngFor="let file of files"
+        class="file-item"
+        data-testid="qui-file-dropzone-file-item"
+      >
         <p class="file-item-content">
-          <i pui-icon name="file" size="sm"></i>
+          <i qui-icon name="file" size="sm"></i>
           <span> {{ file.name }}</span>
         </p>
-        <button pui-button variant="ghost" size="icon" (click)="removeFile(file)">
-          <i pui-icon name="cross-2" size="sm"></i>
+        <button
+          qui-button
+          variant="ghost"
+          size="icon"
+          (click)="removeFile(file)"
+        >
+          <i qui-icon name="cross-2" size="sm"></i>
         </button>
       </li>
     </ul>
