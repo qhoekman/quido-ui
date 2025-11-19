@@ -1,0 +1,10 @@
+import * as VisuallyHiddenStories from "./visually-hidden.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import VisuallyHiddenCode from "!!raw-loader!./visually-hidden.component.ts";
+
+# Visually Hidden
+
+<Meta of={VisuallyHiddenStories} />
+<Canvas of={VisuallyHiddenStories.Default} />
+<Controls of={VisuallyHiddenStories.Default} />
+<Source code={VisuallyHiddenCode} language="typescript" />
