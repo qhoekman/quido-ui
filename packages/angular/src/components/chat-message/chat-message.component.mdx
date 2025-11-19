@@ -1,0 +1,57 @@
+import * as ChatMessageStories from "./chat-message.component.stories";
+import { Canvas, Meta, Source, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import ChatMessageCode from "!!raw-loader!./chat-message.component.ts";
+import ChatMessageBubbleCode from "!!raw-loader!./chat-message-bubble.component.ts";
+import ChatMessageMetaCode from "!!raw-loader!./chat-message-meta.component.ts";
+import ChatMessageUserCode from "!!raw-loader!./chat-message-user.component.ts";
+import ChatMessageMetaTextCode from "!!raw-loader!./chat-message-meta-text.component.ts";
+import ChatMessageBubbleTextCode from "!!raw-loader!./chat-message-bubble-text.component.ts";
+import AvatarCode from "!!raw-loader!../avatar/avatar.component.ts";
+import AvatarImageCode from "!!raw-loader!../avatar/avatar-image.component.ts";
+import AvatarFallbackCode from "!!raw-loader!../avatar/avatar-fallback.component.ts";
+
+# Chat Message
+
+<Meta of={ChatMessageStories} />
+<Canvas of={ChatMessageStories.Default} />
+<Controls of={ChatMessageStories.Default} />
+
+## Installation
+
+Copy the following code into your project.
+
+> **avatar.component.ts**
+>
+> <Source code={AvatarCode} language="typescript" />
+
+> **avatar-image.component.ts**
+>
+> <Source code={AvatarImageCode} language="typescript" />
+
+> **avatar-fallback.component.ts**
+>
+> <Source code={AvatarFallbackCode} language="typescript" />
+
+> **chat-message.component.ts**
+>
+> <Source code={ChatMessageCode} language="typescript" />
+
+> **chat-message-bubble.component.ts**
+>
+> <Source code={ChatMessageBubbleCode} language="typescript" />
+
+> **chat-message-meta.component.ts**
+>
+> <Source code={ChatMessageMetaCode} language="typescript" />
+
+> **chat-message-user.component.ts**
+>
+> <Source code={ChatMessageUserCode} language="typescript" />
+
+> **chat-message-meta-text.component.ts**
+>
+> <Source code={ChatMessageMetaTextCode} language="typescript" />
+
+> **chat-message-bubble-text.component.ts**
+>
+> <Source code={ChatMessageBubbleTextCode} language="typescript" />
