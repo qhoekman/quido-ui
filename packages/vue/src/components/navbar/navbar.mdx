@@ -1,0 +1,85 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as NavbarStories from './navbar.stories'
+import NavbarCode from './navbar.vue?raw'
+import NavbarBrandCode from './navbar-brand.vue?raw'
+import NavbarLogoCode from './navbar-logo.vue?raw'
+import NavbarItemsCode from './navbar-items.vue?raw'
+import NavbarLinkCode from './navbar-link.vue?raw'
+import NavbarDropdownCode from './navbar-dropdown.vue?raw'
+import NavbarDropdownTriggerCode from './navbar-dropdown-trigger.vue?raw'
+import NavbarDropdownContentCode from './navbar-dropdown-content.vue?raw'
+import NavbarDropdownLinkCode from './navbar-dropdown-link.vue?raw'
+import NavbarActionsCode from './navbar-actions.vue?raw'
+
+<Meta of={NavbarStories} />
+
+# Navbar
+
+A navigation bar component for building website headers with navigation links, dropdowns, and action buttons.
+
+<Canvas of={NavbarStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Navbar component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Navbar component consists of multiple parts:
+
+- **Navbar** - The root component that wraps the navigation
+- **NavbarBrand** - Container for the brand/logo section
+- **NavbarLogo** - Logo link component
+- **NavbarItems** - Container for navigation items
+- **NavbarLink** - Navigation link component
+- **NavbarDropdown** - Dropdown menu wrapper
+- **NavbarDropdownTrigger** - Trigger button for dropdown
+- **NavbarDropdownContent** - Dropdown content container
+- **NavbarDropdownLink** - Link inside dropdown menu
+- **NavbarActions** - Container for action buttons
+
+## 1. Copy the NavbarBrand
+
+<Source code={NavbarBrandCode} language="html" />
+
+## 2. Copy the NavbarLogo
+
+<Source code={NavbarLogoCode} language="html" />
+
+## 3. Copy the NavbarItems
+
+<Source code={NavbarItemsCode} language="html" />
+
+## 4. Copy the NavbarLink
+
+<Source code={NavbarLinkCode} language="html" />
+
+## 5. Copy the NavbarDropdown
+
+<Source code={NavbarDropdownCode} language="html" />
+
+## 6. Copy the NavbarDropdownTrigger
+
+<Source code={NavbarDropdownTriggerCode} language="html" />
+
+## 7. Copy the NavbarDropdownContent
+
+<Source code={NavbarDropdownContentCode} language="html" />
+
+## 8. Copy the NavbarDropdownLink
+
+<Source code={NavbarDropdownLinkCode} language="html" />
+
+## 9. Copy the NavbarActions
+
+<Source code={NavbarActionsCode} language="html" />
+
+## 10. Copy the Navbar
+
+<Source code={NavbarCode} language="html" />
