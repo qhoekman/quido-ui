@@ -1,0 +1,23 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as RadarChartStories from './radar-chart.stories'
+import RadarChartCode from './radar-chart.vue?raw'
+
+<Meta of={RadarChartStories} />
+
+# Radar Chart
+
+<Canvas of={RadarChartStories.Default} />
+
+<Controls />
+
+## Installation
+
+Install the ApexCharts library in your project.
+
+```bash
+npm install apexcharts vue3-apexcharts --save
+```
+
+## 1. Copy and paste the following code into your project.
+
+<Source language="html" code={RadarChartCode} />
