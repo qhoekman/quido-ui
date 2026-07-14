@@ -1,0 +1,50 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs";
+import * as TagInputStories from "./tag-input.stories";
+import TagInputCode from "./tag-input.vue?raw";
+import TagCode from "../tag/tag.vue?raw";
+import InputCode from "../input/input.vue?raw";
+import ButtonCode from "../button/button.vue?raw";
+
+<Meta of={TagInputStories} />
+
+# Tag Input
+
+A component that allows users to enter and manage multiple tags. Tags can be added by typing comma-separated values or pressing Enter, and removed by clicking the remove button or pressing Backspace when the input is empty.
+
+## Usage
+
+<Canvas of={TagInputStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Tag Input component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Tag Input component depends on the following components:
+
+- **Tag** - Used to display individual tags
+- **Input** - Used for entering new tags
+- **Button** - Used for the remove button
+
+## 1. Copy the Tag component
+
+<Source code={TagCode} language="html" />
+
+## 2. Copy the Input component
+
+<Source code={InputCode} language="html" />
+
+## 3. Copy the Button component
+
+<Source code={ButtonCode} language="html" />
+
+## 4. Copy the Tag Input component
+
+<Source code={TagInputCode} language="html" />
