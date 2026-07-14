@@ -1,0 +1,96 @@
+import ActionSheet from './action-sheet.vue'
+import ActionSheetTrigger from './action-sheet-trigger.vue'
+import ActionSheetContent from './action-sheet-content.vue'
+import ActionSheetHeader from './action-sheet-header.vue'
+import ActionSheetFooter from './action-sheet-footer.vue'
+import ActionSheetTitle from './action-sheet-title.vue'
+import ActionSheetDescription from './action-sheet-description.vue'
+import ActionSheetClose from './action-sheet-close.vue'
+import ButtonComponent from '@/components/button/button.vue'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
+
+const meta = {
+  title: 'Components/Overlay/Action Sheet',
+  component: ActionSheet,
+  argTypes: {
+    shouldScaleBackground: {
+      control: 'boolean',
+      description: 'Whether the background should scale when the drawer opens'
+    },
+    defaultOpen: {
+      control: 'boolean',
+      description: 'The open state of the action sheet when it is initially rendered'
+    },
+    open: {
+      control: 'boolean',
+      description: 'The controlled open state of the action sheet'
+    },
+    modal: {
+      control: 'boolean',
+      description: 'Whether the action sheet is modal'
+    },
+    dismissible: {
+      control: 'boolean',
+      description: 'Whether the action sheet can be dismissed by clicking outside or pressing escape'
+    }
+  },
+  args: {
+    shouldScaleBackground: true,
+    modal: true,
+    dismissible: true
+  },
+  render: (args) => ({
+    components: {
+      ActionSheet,
+      ActionSheetTrigger,
+      ActionSheetContent,
+      ActionSheetHeader,
+      ActionSheetFooter,
+      ActionSheetTitle,
+      ActionSheetDescription,
+      ActionSheetClose,
+      ButtonComponent
+    },
+    setup() {
+      return { args }
+    },
+    template: `
+      <ActionSheet v-bind="args">
+        <ActionSheetTrigger as-child>
+          <ButtonComponent variant="outline">Open ActionSheet</ButtonComponent>
+        </ActionSheetTrigger>
+        <ActionSheetContent>
+          <div style="margin: 0 auto; width: 100%; max-width: var(--spacing-sm);">
+            <ActionSheetHeader>
+              <ActionSheetTitle>Choose action</ActionSheetTitle>
+              <ActionSheetDescription>
+                Pick one of the following actions.
+              </ActionSheetDescription>
+            </ActionSheetHeader>
+            <ul>
+              <li v-for="i in 5" :key="i">
+                <ButtonComponent variant="ghost" style="width: 100%; justify-content: flex-start;">
+                  Item {{ i }}
+                </ButtonComponent>
+              </li>
+            </ul>
+            <ActionSheetFooter>
+              <ButtonComponent variant="outline">Cancel</ButtonComponent>
+            </ActionSheetFooter>
+          </div>
+        </ActionSheetContent>
+      </ActionSheet>
+    `
+  }),
+  parameters: {
+    layout: 'fullscreen',
+    viewport: {
+      defaultViewport: 'mobile2'
+    }
+  }
+} satisfies Meta<typeof ActionSheet>
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {}

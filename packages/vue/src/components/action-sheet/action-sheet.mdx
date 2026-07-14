@@ -1,0 +1,75 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as ActionSheetStories from "./action-sheet.stories";
+import ActionSheetCode from "./action-sheet.vue?raw";
+import ActionSheetTriggerCode from "./action-sheet-trigger.vue?raw";
+import ActionSheetContentCode from "./action-sheet-content.vue?raw";
+import ActionSheetHeaderCode from "./action-sheet-header.vue?raw";
+import ActionSheetFooterCode from "./action-sheet-footer.vue?raw";
+import ActionSheetTitleCode from "./action-sheet-title.vue?raw";
+import ActionSheetDescriptionCode from "./action-sheet-description.vue?raw";
+import ActionSheetCloseCode from "./action-sheet-close.vue?raw";
+
+<Meta of={ActionSheetStories} />
+
+# Action Sheet
+
+A mobile-friendly action sheet component that slides up from the bottom of the screen, typically used for presenting multiple options or actions to users.
+
+## Usage
+
+<Canvas of={ActionSheetStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Action Sheet component uses Vue's composition API and Teleport for portal functionality. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Action Sheet component consists of multiple parts:
+
+- **ActionSheet** - The root component that manages the open/closed state
+- **ActionSheetTrigger** - The button that opens the action sheet
+- **ActionSheetContent** - The content container that slides up from the bottom (includes overlay)
+- **ActionSheetHeader** - Optional header section for title and description
+- **ActionSheetFooter** - Optional footer section for actions
+- **ActionSheetTitle** - Title text component
+- **ActionSheetDescription** - Description text component
+- **ActionSheetClose** - Button to close the action sheet
+
+## 1. Copy the ActionSheetTrigger
+
+<Source code={ActionSheetTriggerCode} language="html" />
+
+## 2. Copy the ActionSheetContent
+
+<Source code={ActionSheetContentCode} language="html" />
+
+## 3. Copy the ActionSheetHeader
+
+<Source code={ActionSheetHeaderCode} language="html" />
+
+## 4. Copy the ActionSheetFooter
+
+<Source code={ActionSheetFooterCode} language="html" />
+
+## 5. Copy the ActionSheetTitle
+
+<Source code={ActionSheetTitleCode} language="html" />
+
+## 6. Copy the ActionSheetDescription
+
+<Source code={ActionSheetDescriptionCode} language="html" />
+
+## 7. Copy the ActionSheetClose
+
+<Source code={ActionSheetCloseCode} language="html" />
+
+## 8. Copy the ActionSheet
+
+<Source code={ActionSheetCode} language="html" />
