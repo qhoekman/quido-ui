@@ -1,0 +1,56 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs";
+import * as ReelStories from "./reel.stories";
+import ReelCode from "./reel.vue?raw";
+import ReelContentCode from "./reel-content.vue?raw";
+import ReelItemCode from "./reel-item.vue?raw";
+import ReelButtonCode from "./reel-button.vue?raw";
+import UseReelCode from "./useReel.ts?raw";
+
+<Meta of={ReelStories} />
+
+# Reel
+
+A horizontal scrolling container component for displaying a series of items in a reel format.
+
+## Usage
+
+<Canvas of={ReelStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Reel component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Reel component consists of four parts:
+
+- **Reel** - The root component that wraps everything
+- **ReelContent** - The scrollable container that holds the items
+- **ReelItem** - Individual items within the reel
+- **ReelButton** - Navigation buttons for scrolling (prev/next)
+
+## 1. Copy the useReel composable
+
+<Source code={UseReelCode} language="typescript" />
+
+## 2. Copy the ReelContent component
+
+<Source code={ReelContentCode} language="html" />
+
+## 3. Copy the ReelItem component
+
+<Source code={ReelItemCode} language="html" />
+
+## 4. Copy the ReelButton component
+
+<Source code={ReelButtonCode} language="html" />
+
+## 5. Copy the Reel component
+
+<Source code={ReelCode} language="html" />
