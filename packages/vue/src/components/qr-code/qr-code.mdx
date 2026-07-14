@@ -1,0 +1,50 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as QrCodeStories from './qr-code.stories'
+import QrCodeCode from './qr-code.vue?raw'
+
+<Meta of={QrCodeStories} />
+
+# QR Code
+
+A component that generates and displays a QR code from a given value.
+
+## Usage
+
+<Canvas of={QrCodeStories.Default} />
+
+<Controls />
+
+## Installation
+
+Install the `@akamfoad/qrcode` for the QR code generation.
+
+\`\`\`bash
+npm install @akamfoad/qrcode --save
+\`\`\`
+
+## 1. Copy and paste the following code into your project.
+
+<Source language="html" code={QrCodeCode} />
+
+## Props
+
+- `value` (string, required) - The value to encode in the QR code
+- `asChild` (boolean, default: false) - Render as child element
+
+## Examples
+
+### Basic Usage
+
+\`\`\`vue
+<template>
+  <QrCode value="https://example.com" width="100" height="100" />
+</template>
+\`\`\`
+
+### Custom Value
+
+\`\`\`vue
+<template>
+  <QrCode value="https://quido.online" width="200" height="200" />
+</template>
+\`\`\`
