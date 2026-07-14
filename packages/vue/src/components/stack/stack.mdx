@@ -1,0 +1,27 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as StackStories from './stack.stories'
+import StackCode from './stack.vue?raw'
+
+<Meta of={StackStories} />
+
+# Stack
+
+A flexible stack layout component for arranging items with customizable spacing, direction, alignment, and justification.
+
+## Usage
+
+<Canvas of={StackStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Stack component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## 1. Copy and paste the following code into your project.
+
+<Source language="html" code={StackCode} />
