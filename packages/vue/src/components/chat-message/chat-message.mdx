@@ -1,0 +1,70 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as ChatMessageStories from './chat-message.stories'
+import ChatMessageCode from './chat-message.vue?raw'
+import ChatMessageBubbleCode from './chat-message-bubble.vue?raw'
+import ChatMessageMetaCode from './chat-message-meta.vue?raw'
+import ChatMessageUserCode from './chat-message-user.vue?raw'
+import ChatMessageMetaTextCode from './chat-message-meta-text.vue?raw'
+import ChatMessageBubbleTextCode from './chat-message-bubble-text.vue?raw'
+import AvatarCode from '../avatar/avatar.vue?raw'
+import AvatarImageCode from '../avatar/avatar-image.vue?raw'
+import AvatarFallbackCode from '../avatar/avatar-fallback.vue?raw'
+
+# Chat Message
+
+A component for displaying chat messages with avatar, user name, message content, and metadata.
+
+<Meta of={ChatMessageStories} />
+<Canvas of={ChatMessageStories.Default} />
+<Controls />
+
+## Installation
+
+The Chat Message component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Chat Message component consists of multiple parts:
+
+- **ChatMessage** - The root component that manages the layout and variant (sender/receiver)
+- **ChatMessageUser** - Displays the user name
+- **ChatMessageBubble** - The message bubble container
+- **ChatMessageMeta** - Container for metadata (like timestamp)
+- **ChatMessageBubbleText** - Text component for message content
+- **ChatMessageMetaText** - Text component for metadata
+
+## 1. Copy the Avatar components
+
+<Source code={AvatarCode} language="html" />
+
+<Source code={AvatarImageCode} language="html" />
+
+<Source code={AvatarFallbackCode} language="html" />
+
+## 2. Copy the ChatMessageUser
+
+<Source code={ChatMessageUserCode} language="html" />
+
+## 3. Copy the ChatMessageBubble
+
+<Source code={ChatMessageBubbleCode} language="html" />
+
+## 4. Copy the ChatMessageMeta
+
+<Source code={ChatMessageMetaCode} language="html" />
+
+## 5. Copy the ChatMessageBubbleText
+
+<Source code={ChatMessageBubbleTextCode} language="html" />
+
+## 6. Copy the ChatMessageMetaText
+
+<Source code={ChatMessageMetaTextCode} language="html" />
+
+## 7. Copy the ChatMessage
+
+<Source code={ChatMessageCode} language="html" />
