@@ -1,0 +1,73 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as ColorPickerStories from './color-picker.stories'
+import ColorPickerCode from './color-picker.vue?raw'
+import ColorWheelCode from '../color-wheel/color-wheel.vue?raw'
+import ColorPaletteCode from '../color-palette/color-palette.vue?raw'
+
+# Color Picker
+
+A component that allows users to select colors using either a color wheel (hue/saturation) or a color palette.
+
+<Meta of={ColorPickerStories} />
+<Canvas of={ColorPickerStories.Default} />
+<Controls />
+
+## Installation
+
+Add the following package to your project:
+
+```bash
+npm install @thednp/color
+```
+
+The Color Picker component uses the Color Wheel and Color Palette components. Make sure you have those components available.
+
+## Components
+
+The Color Picker component consists of three parts:
+
+- **ColorPicker** - The root component that manages color selection and displays color values
+- **ColorWheel** - A component for selecting colors by hue and saturation
+- **ColorPalette** - A component for selecting colors from the design system palette
+
+## 1. Copy the ColorWheel
+
+<Source code={ColorWheelCode} language="html" />
+
+## 2. Copy the ColorPalette
+
+<Source code={ColorPaletteCode} language="html" />
+
+## 3. Copy the ColorPicker
+
+<Source code={ColorPickerCode} language="html" />
+
+## Props
+
+- `color` (string): The selected color value. Can be a hex color (e.g., `#000000`), RGB (e.g., `rgb(0, 0, 0)`), HSL (e.g., `hsl(0, 0%, 0%)`), or CSS variable (e.g., `var(--color-blue-500)`). Defaults to `#000000`.
+
+## Events
+
+- `valueChange`: Emitted when a color is selected. The event payload is the color value string in the format determined by the color library.
+
+## Example
+
+```vue
+<template>
+  <ColorPicker
+    :color="selectedColor"
+    @value-change="handleColorChange"
+  />
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+import ColorPicker from '@/components/color-picker/color-picker.vue'
+
+const selectedColor = ref('#3b82f6')
+
+const handleColorChange = (value: string) => {
+  selectedColor.value = value
+}
+</script>
+```
