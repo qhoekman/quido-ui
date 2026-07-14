@@ -1,0 +1,69 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as PaginationStories from "./pagination.stories";
+import PaginationCode from "./pagination.vue?raw";
+import PaginationContentCode from "./pagination-content.vue?raw";
+import PaginationItemCode from "./pagination-item.vue?raw";
+import PaginationLinkCode from "./pagination-link.vue?raw";
+import PaginationPreviousCode from "./pagination-previous.vue?raw";
+import PaginationNextCode from "./pagination-next.vue?raw";
+import PaginationEllipsisCode from "./pagination-ellipsis.vue?raw";
+
+<Meta of={PaginationStories} />
+
+# Pagination
+
+A component for navigating through pages of content.
+
+## Usage
+
+<Canvas of={PaginationStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Pagination component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Pagination component consists of seven parts:
+
+- **Pagination** - The root navigation element that wraps all pagination content
+- **PaginationContent** - The unordered list container for pagination items
+- **PaginationItem** - A list item wrapper for pagination elements
+- **PaginationLink** - A link element for page numbers with active state support
+- **PaginationPrevious** - A link element for navigating to the previous page
+- **PaginationNext** - A link element for navigating to the next page
+- **PaginationEllipsis** - A visual indicator for skipped pages
+
+## 1. Copy the Pagination
+
+<Source code={PaginationCode} language="html" />
+
+## 2. Copy the PaginationContent
+
+<Source code={PaginationContentCode} language="html" />
+
+## 3. Copy the PaginationItem
+
+<Source code={PaginationItemCode} language="html" />
+
+## 4. Copy the PaginationLink
+
+<Source code={PaginationLinkCode} language="html" />
+
+## 5. Copy the PaginationPrevious
+
+<Source code={PaginationPreviousCode} language="html" />
+
+## 6. Copy the PaginationNext
+
+<Source code={PaginationNextCode} language="html" />
+
+## 7. Copy the PaginationEllipsis
+
+<Source code={PaginationEllipsisCode} language="html" />
