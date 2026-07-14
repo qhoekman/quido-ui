@@ -1,0 +1,63 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as AutocompleteStories from "./autocomplete.stories";
+import AutocompleteCode from "./autocomplete.vue?raw";
+import AutocompleteTriggerCode from "./autocomplete-trigger.vue?raw";
+import AutocompleteContentCode from "./autocomplete-content.vue?raw";
+import AutocompleteItemCode from "./autocomplete-item.vue?raw";
+import AutocompleteGroupCode from "./autocomplete-group.vue?raw";
+import AutocompleteLabelCode from "./autocomplete-label.vue?raw";
+
+<Meta of={AutocompleteStories} />
+
+# Autocomplete
+
+A component that provides an input field with a dropdown list of suggestions that can be filtered as the user types.
+
+## Usage
+
+<Canvas of={AutocompleteStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Autocomplete component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Autocomplete component consists of six parts:
+
+- **Autocomplete** - The root component that manages the open/closed state and selected option
+- **AutocompleteTrigger** - The input field with chevron icon that triggers the dropdown
+- **AutocompleteContent** - The container for the dropdown list
+- **AutocompleteItem** - Individual option items in the dropdown
+- **AutocompleteGroup** - A wrapper for grouping items (optional)
+- **AutocompleteLabel** - A label component for grouping items (optional)
+
+## 1. Copy the AutocompleteTrigger
+
+<Source code={AutocompleteTriggerCode} language="html" />
+
+## 2. Copy the AutocompleteContent
+
+<Source code={AutocompleteContentCode} language="html" />
+
+## 3. Copy the AutocompleteItem
+
+<Source code={AutocompleteItemCode} language="html" />
+
+## 4. Copy the AutocompleteGroup
+
+<Source code={AutocompleteGroupCode} language="html" />
+
+## 5. Copy the AutocompleteLabel
+
+<Source code={AutocompleteLabelCode} language="html" />
+
+## 6. Copy the Autocomplete
+
+<Source code={AutocompleteCode} language="html" />
