@@ -1,0 +1,17 @@
+import { Canvas, Source, Controls, Meta } from "@storybook/addon-docs/blocks";
+import * as PspWaveBackgroundStories from "./psp-wave-background.stories";
+import PspWaveBackgroundCode from "./psp-wave-background.tsx?raw";
+
+<Meta of={PspWaveBackgroundStories} />
+
+# Usage
+
+<Canvas of={PspWaveBackgroundStories.Default} />
+
+<Controls />
+
+# Installation
+
+## 1. Copy and paste the following code into your project.
+
+<Source language="tsx" code={PspWaveBackgroundCode} />
