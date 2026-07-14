@@ -1,0 +1,73 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as TimelineStories from "./timeline.stories";
+import TimelineCode from "./timeline.vue?raw";
+import TimelineItemCode from "./timeline-item.vue?raw";
+import TimelineConnectorCode from "./timeline-connector.vue?raw";
+import TimelineBulletCode from "./timeline-bullet.vue?raw";
+import TimelineSeparatorCode from "./timeline-separator.vue?raw";
+import TimelineContentCode from "./timeline-content.vue?raw";
+import TimelineTitleCode from "./timeline-title.vue?raw";
+import TimelineDescriptionCode from "./timeline-description.vue?raw";
+
+<Meta of={TimelineStories} />
+
+# Timeline
+
+A component for displaying a chronological sequence of events or steps.
+
+<Canvas of={TimelineStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Timeline component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Timeline component consists of multiple parts:
+
+- **Timeline** - The root component (ul element)
+- **TimelineItem** - Individual timeline item (li element)
+- **TimelineConnector** - Container for bullet and separator
+- **TimelineBullet** - The circular bullet/icon container
+- **TimelineSeparator** - The vertical line between items
+- **TimelineContent** - The content area for each item
+- **TimelineTitle** - The title heading (h1-h6)
+- **TimelineDescription** - The description text (p or span)
+
+## 1. Copy the Timeline
+
+<Source code={TimelineCode} language="html" />
+
+## 2. Copy the TimelineItem
+
+<Source code={TimelineItemCode} language="html" />
+
+## 3. Copy the TimelineConnector
+
+<Source code={TimelineConnectorCode} language="html" />
+
+## 4. Copy the TimelineBullet
+
+<Source code={TimelineBulletCode} language="html" />
+
+## 5. Copy the TimelineSeparator
+
+<Source code={TimelineSeparatorCode} language="html" />
+
+## 6. Copy the TimelineContent
+
+<Source code={TimelineContentCode} language="html" />
+
+## 7. Copy the TimelineTitle
+
+<Source code={TimelineTitleCode} language="html" />
+
+## 8. Copy the TimelineDescription
+
+<Source code={TimelineDescriptionCode} language="html" />
