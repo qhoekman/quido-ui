@@ -1,0 +1,75 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs'
+import * as SelectStories from './select.stories'
+import SelectCode from './select.vue?raw'
+import SelectTriggerCode from './select-trigger.vue?raw'
+import SelectContentCode from './select-content.vue?raw'
+import SelectItemCode from './select-item.vue?raw'
+import SelectValueCode from './select-value.vue?raw'
+import SelectLabelCode from './select-label.vue?raw'
+import SelectGroupCode from './select-group.vue?raw'
+import SelectSeparatorCode from './select-separator.vue?raw'
+
+<Meta of={SelectStories} />
+
+# Select
+
+A select component that allows users to choose a single option from a list of options.
+
+## Usage
+
+<Canvas of={SelectStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Select component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Select component consists of multiple parts:
+
+- **Select** - The root component that manages the value and open state
+- **SelectTrigger** - The button that opens the select dropdown
+- **SelectContent** - The dropdown content container
+- **SelectValue** - Displays the selected value or placeholder
+- **SelectItem** - Individual selectable options
+- **SelectLabel** - Label for grouping options (optional)
+- **SelectGroup** - Container for grouping options (optional)
+- **SelectSeparator** - Visual separator between groups (optional)
+
+## 1. Copy the SelectTrigger
+
+<Source code={SelectTriggerCode} language="html" />
+
+## 2. Copy the SelectContent
+
+<Source code={SelectContentCode} language="html" />
+
+## 3. Copy the SelectItem
+
+<Source code={SelectItemCode} language="html" />
+
+## 4. Copy the SelectValue
+
+<Source code={SelectValueCode} language="html" />
+
+## 5. Copy the SelectLabel
+
+<Source code={SelectLabelCode} language="html" />
+
+## 6. Copy the SelectGroup
+
+<Source code={SelectGroupCode} language="html" />
+
+## 7. Copy the SelectSeparator
+
+<Source code={SelectSeparatorCode} language="html" />
+
+## 8. Copy the Select
+
+<Source code={SelectCode} language="html" />
