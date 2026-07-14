@@ -1,0 +1,81 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs";
+import * as MegaMenuStories from "./mega-menu.stories";
+import MegaMenuCode from "./mega-menu.vue?raw";
+import MegaMenuListCode from "./mega-menu-list.vue?raw";
+import MegaMenuItemCode from "./mega-menu-item.vue?raw";
+import MegaMenuTriggerCode from "./mega-menu-trigger.vue?raw";
+import MegaMenuContentCode from "./mega-menu-content.vue?raw";
+import MegaMenuViewportCode from "./mega-menu-viewport.vue?raw";
+import MegaMenuLinkCode from "./mega-menu-link.vue?raw";
+import MegaMenuIndicatorCode from "./mega-menu-indicator.vue?raw";
+import MegaMenuListItemCode from "./mega-menu-list-item.vue?raw";
+
+<Meta of={MegaMenuStories} />
+
+# Mega Menu
+
+A navigation menu component that displays large dropdown menus with rich content, perfect for complex navigation structures.
+
+## Usage
+
+<Canvas of={MegaMenuStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Mega Menu component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Mega Menu component consists of multiple parts:
+
+- **MegaMenu** - The root component that manages the navigation menu state
+- **MegaMenuList** - Container for menu items
+- **MegaMenuItem** - Individual menu item container
+- **MegaMenuTrigger** - Button that opens/closes the menu content
+- **MegaMenuContent** - The dropdown content panel
+- **MegaMenuViewport** - Viewport container for the content (automatically included in MegaMenu)
+- **MegaMenuLink** - Simple link component for non-dropdown items
+- **MegaMenuIndicator** - Visual indicator showing the active menu position
+- **MegaMenuListItem** - Pre-styled list item with title and description
+
+## 1. Copy the MegaMenuList
+
+<Source code={MegaMenuListCode} language="html" />
+
+## 2. Copy the MegaMenuItem
+
+<Source code={MegaMenuItemCode} language="html" />
+
+## 3. Copy the MegaMenuTrigger
+
+<Source code={MegaMenuTriggerCode} language="html" />
+
+## 4. Copy the MegaMenuContent
+
+<Source code={MegaMenuContentCode} language="html" />
+
+## 5. Copy the MegaMenuViewport
+
+<Source code={MegaMenuViewportCode} language="html" />
+
+## 6. Copy the MegaMenuLink
+
+<Source code={MegaMenuLinkCode} language="html" />
+
+## 7. Copy the MegaMenuIndicator
+
+<Source code={MegaMenuIndicatorCode} language="html" />
+
+## 8. Copy the MegaMenuListItem
+
+<Source code={MegaMenuListItemCode} language="html" />
+
+## 9. Copy the MegaMenu
+
+<Source code={MegaMenuCode} language="html" />
