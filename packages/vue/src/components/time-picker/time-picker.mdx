@@ -1,0 +1,45 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs";
+import * as TimePickerStories from "./time-picker.stories";
+import TimePickerCode from "./time-picker.vue?raw";
+import TimeSelectCode from "../time-select/time-select.vue?raw";
+import InputCode from "../input/input.vue?raw";
+
+<Meta of={TimePickerStories} />
+
+# Time Picker
+
+A time picker component that allows users to select hours and minutes from a dropdown interface.
+
+## Usage
+
+<Canvas of={TimePickerStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Time Picker component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Time Picker component consists of three parts:
+
+- **TimePicker** - The root component that manages the open/closed state and displays the selected time
+- **TimeSelect** - The time selection component with hour and minute columns
+- **Input** - The input component used to display the selected time (already included in the project)
+
+## 1. Copy the Input component
+
+<Source code={InputCode} language="html" />
+
+## 2. Copy the TimeSelect component
+
+<Source code={TimeSelectCode} language="html" />
+
+## 3. Copy the TimePicker component
+
+<Source code={TimePickerCode} language="html" />
