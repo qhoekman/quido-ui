@@ -1,0 +1,81 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as DialogStories from "./dialog.stories";
+import DialogCode from "./dialog.vue?raw";
+import DialogTriggerCode from "./dialog-trigger.vue?raw";
+import DialogContentCode from "./dialog-content.vue?raw";
+import DialogOverlayCode from "./dialog-overlay.vue?raw";
+import DialogCloseCode from "./dialog-close.vue?raw";
+import DialogHeaderCode from "./dialog-header.vue?raw";
+import DialogFooterCode from "./dialog-footer.vue?raw";
+import DialogTitleCode from "./dialog-title.vue?raw";
+import DialogDescriptionCode from "./dialog-description.vue?raw";
+
+<Meta of={DialogStories} />
+
+# Dialog
+
+A dialog component that displays content in a modal overlay, typically used for forms, confirmations, or other important interactions.
+
+## Usage
+
+<Canvas of={DialogStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Dialog component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Dialog component consists of multiple parts:
+
+- **Dialog** - The root component that manages the open/closed state
+- **DialogTrigger** - The button that opens the dialog
+- **DialogContent** - The content container (includes overlay and portal)
+- **DialogOverlay** - The backdrop overlay (included in DialogContent)
+- **DialogClose** - Button to close the dialog (included in DialogContent)
+- **DialogHeader** - Optional header section for title and description
+- **DialogFooter** - Optional footer section for actions
+- **DialogTitle** - Title text component (required for accessibility)
+- **DialogDescription** - Description text component (optional)
+
+## 1. Copy the DialogTrigger
+
+<Source code={DialogTriggerCode} language="html" />
+
+## 2. Copy the DialogContent
+
+<Source code={DialogContentCode} language="html" />
+
+## 3. Copy the DialogHeader
+
+<Source code={DialogHeaderCode} language="html" />
+
+## 4. Copy the DialogFooter
+
+<Source code={DialogFooterCode} language="html" />
+
+## 5. Copy the DialogTitle
+
+<Source code={DialogTitleCode} language="html" />
+
+## 6. Copy the DialogDescription
+
+<Source code={DialogDescriptionCode} language="html" />
+
+## 7. Copy the DialogOverlay
+
+<Source code={DialogOverlayCode} language="html" />
+
+## 8. Copy the DialogClose
+
+<Source code={DialogCloseCode} language="html" />
+
+## 9. Copy the Dialog
+
+<Source code={DialogCode} language="html" />
