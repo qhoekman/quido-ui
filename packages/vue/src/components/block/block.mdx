@@ -1,0 +1,39 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs";
+import * as BlockStories from "./block.stories";
+import BlockCode from "./block.vue?raw";
+import BlockTitleCode from "./block-title.vue?raw";
+
+<Meta of={BlockStories} />
+
+# Block
+
+A block component for displaying content sections with optional inset and outline variants.
+
+## Usage
+
+<Canvas of={BlockStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Block component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Block component consists of two parts:
+
+- **Block** - The main container component that displays content sections
+- **BlockTitle** - The title component that can be used above the block
+
+## 1. Copy the BlockTitle
+
+<Source code={BlockTitleCode} language="html" />
+
+## 2. Copy the Block
+
+<Source code={BlockCode} language="html" />
