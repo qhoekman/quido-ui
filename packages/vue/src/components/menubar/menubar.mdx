@@ -1,0 +1,63 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs";
+import * as MenubarStories from "./menubar.stories";
+import MenubarCode from "./menubar.vue?raw";
+import MenubarGroupCode from "./menubar-group.vue?raw";
+import MenubarItemCode from "./menubar-item.vue?raw";
+import MenubarMenuCode from "./menubar-menu.vue?raw";
+import MenubarTriggerCode from "./menubar-trigger.vue?raw";
+import MenubarSeparatorCode from "./menubar-separator.vue?raw";
+
+<Meta of={MenubarStories} />
+
+# Menubar
+
+A horizontal menu bar component that displays a set of menu triggers, each opening a dropdown menu when clicked.
+
+## Usage
+
+<Canvas of={MenubarStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Menubar component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Menubar component consists of multiple parts:
+
+- **Menubar** - The root container component
+- **MenubarTrigger** - The button that opens/closes a menu
+- **MenubarMenu** - The dropdown menu content panel
+- **MenubarGroup** - Container for grouping menu items
+- **MenubarItem** - Individual menu item
+- **MenubarSeparator** - Visual separator between menu groups
+
+## 1. Copy the Menubar
+
+<Source code={MenubarCode} language="html" />
+
+## 2. Copy the MenubarTrigger
+
+<Source code={MenubarTriggerCode} language="html" />
+
+## 3. Copy the MenubarMenu
+
+<Source code={MenubarMenuCode} language="html" />
+
+## 4. Copy the MenubarGroup
+
+<Source code={MenubarGroupCode} language="html" />
+
+## 5. Copy the MenubarItem
+
+<Source code={MenubarItemCode} language="html" />
+
+## 6. Copy the MenubarSeparator
+
+<Source code={MenubarSeparatorCode} language="html" />
