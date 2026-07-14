@@ -1,0 +1,21 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs";
+import * as SignaturePadStories from "./signature-pad.stories";
+import SignaturePadCode from "./signature-pad.vue?raw";
+
+<Meta of={SignaturePadStories} />
+
+# Signature Pad
+
+A component that allows users to draw signatures using a canvas element.
+
+## Usage
+
+<Canvas of={SignaturePadStories.Default} />
+
+<Controls />
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={SignaturePadCode} />
