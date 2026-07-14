@@ -1,0 +1,41 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as AvatarStories from './avatar.stories'
+import AvatarCode from './avatar.vue?raw'
+import AvatarImageCode from './avatar-image.vue?raw'
+import AvatarFallbackCode from './avatar-fallback.vue?raw'
+
+# Avatar
+
+A component that displays a user's avatar image with a fallback.
+
+<Meta of={AvatarStories} />
+<Canvas of={AvatarStories.Default} />
+<Controls />
+
+## Installation
+
+The Avatar component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Avatar component consists of three parts:
+
+- **Avatar** - The root component that manages the avatar state
+- **AvatarImage** - The image component that displays the avatar image
+- **AvatarFallback** - The fallback component that displays when the image fails to load
+
+## 1. Copy the AvatarImage
+
+<Source code={AvatarImageCode} language="html" />
+
+## 2. Copy the AvatarFallback
+
+<Source code={AvatarFallbackCode} language="html" />
+
+## 3. Copy the Avatar
+
+<Source code={AvatarCode} language="html" />
