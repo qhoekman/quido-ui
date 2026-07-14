@@ -1,0 +1,65 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as BreadcrumbStories from './breadcrumb.stories'
+import BreadcrumbCode from './breadcrumb.vue?raw'
+import BreadcrumbListCode from './breadcrumb-list.vue?raw'
+import BreadcrumbItemCode from './breadcrumb-item.vue?raw'
+import BreadcrumbSeparatorCode from './breadcrumb-separator.vue?raw'
+import BreadcrumbLinkCode from './breadcrumb-link.vue?raw'
+import BreadcrumbPageCode from './breadcrumb-page.vue?raw'
+import BreadcrumbEllipsisCode from './breadcrumb-ellipsis.vue?raw'
+
+# Breadcrumb
+
+A navigation component that displays the current page's location within a site's hierarchy.
+
+<Meta of={BreadcrumbStories} />
+<Canvas of={BreadcrumbStories.Default} />
+<Controls />
+
+## Installation
+
+The Breadcrumb component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Breadcrumb component consists of multiple parts:
+
+- **Breadcrumb** - The root navigation component
+- **BreadcrumbList** - The ordered list wrapper
+- **BreadcrumbItem** - Individual breadcrumb item wrapper
+- **BreadcrumbSeparator** - Separator between items (defaults to slash icon)
+- **BreadcrumbLink** - Link component for navigable items
+- **BreadcrumbPage** - Current page indicator
+- **BreadcrumbEllipsis** - Overflow indicator for collapsed items
+
+## 1. Copy the BreadcrumbList
+
+<Source code={BreadcrumbListCode} language="html" />
+
+## 2. Copy the BreadcrumbItem
+
+<Source code={BreadcrumbItemCode} language="html" />
+
+## 3. Copy the BreadcrumbSeparator
+
+<Source code={BreadcrumbSeparatorCode} language="html" />
+
+## 4. Copy the BreadcrumbLink
+
+<Source code={BreadcrumbLinkCode} language="html" />
+
+## 5. Copy the BreadcrumbPage
+
+<Source code={BreadcrumbPageCode} language="html" />
+
+## 6. Copy the BreadcrumbEllipsis
+
+<Source code={BreadcrumbEllipsisCode} language="html" />
+
+## 7. Copy the Breadcrumb
+
+<Source code={BreadcrumbCode} language="html" />
