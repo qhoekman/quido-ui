@@ -1,0 +1,63 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs";
+import * as TreeStories from "./tree.stories";
+import TreeCode from "./tree.vue?raw";
+import TreeItemCode from "./tree-item.vue?raw";
+import TreeGroupCode from "./tree-group.vue?raw";
+import TreeItemIconCode from "./tree-item-icon.vue?raw";
+import TreeItemLabelCode from "./tree-item-label.vue?raw";
+import TreeItemIndicatorCode from "./tree-item-indicator.vue?raw";
+
+<Meta of={TreeStories} />
+
+# Tree Component
+
+A hierarchical tree component for displaying nested data structures.
+
+## Usage
+
+<Canvas of={TreeStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Tree component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Tree component consists of multiple parts:
+
+- **Tree** - The root component that contains all tree items
+- **TreeItem** - An individual tree item that can be expanded/collapsed
+- **TreeGroup** - A container for nested tree items
+- **TreeItemIcon** - A wrapper for icons within tree items
+- **TreeItemLabel** - A wrapper for labels within tree items
+- **TreeItemIndicator** - An internal component that shows expand/collapse indicators
+
+## 1. Copy the TreeItemIndicator
+
+<Source code={TreeItemIndicatorCode} language="html" />
+
+## 2. Copy the TreeItemIcon
+
+<Source code={TreeItemIconCode} language="html" />
+
+## 3. Copy the TreeItemLabel
+
+<Source code={TreeItemLabelCode} language="html" />
+
+## 4. Copy the TreeGroup
+
+<Source code={TreeGroupCode} language="html" />
+
+## 5. Copy the TreeItem
+
+<Source code={TreeItemCode} language="html" />
+
+## 6. Copy the Tree
+
+<Source code={TreeCode} language="html" />
