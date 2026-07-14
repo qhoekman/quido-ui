@@ -1,0 +1,23 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as LineChartStories from './line-chart.stories'
+import LineChartCode from './line-chart.vue?raw'
+
+<Meta of={LineChartStories} />
+
+# Line Chart
+
+<Canvas of={LineChartStories.Default} />
+
+<Controls />
+
+## Installation
+
+Install the ApexCharts library in your project.
+
+```bash
+npm install apexcharts vue3-apexcharts --save
+```
+
+## 1. Copy and paste the following code into your project.
+
+<Source language="html" code={LineChartCode} />
