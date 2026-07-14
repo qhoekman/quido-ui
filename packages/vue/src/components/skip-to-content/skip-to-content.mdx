@@ -1,0 +1,37 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs";
+import * as SkipToContentStories from "./skip-to-content.stories";
+import SkipToContentCode from "./skip-to-content.vue?raw";
+
+<Meta of={SkipToContentStories} />
+
+# Skip To Content
+
+A skip-to-content link component that appears when users press Tab, allowing keyboard users to quickly navigate to the main content area.
+
+## Usage
+
+<Canvas of={SkipToContentStories.Default} />
+
+<Controls />
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={SkipToContentCode} />
+
+## Behavior
+
+- The component is initially hidden (positioned off-screen)
+- Press **Tab** to reveal the skip link
+- Press **Escape** to hide the skip link
+- Click the link or press **Enter/Space** when focused to navigate to the target element
+- The target element will be scrolled into view and receive focus
+
+## Props
+
+- `targetId` - The ID of the element to skip to (required for functionality)
+- `size` - Size variant: `sm`, `md`, `lg`, or `icon` (default: `md`)
+- `disabled` - Whether the component is disabled
+- `as` - Render as `button` or `a` (default: `button`)
+- `asChild` - Use composition pattern with Reka UI
