@@ -1,0 +1,45 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as MapsStories from './maps.stories'
+import MapsCode from './maps.vue?raw'
+
+<Meta of={MapsStories} />
+
+# Maps
+
+A map component built on top of Leaflet for displaying interactive maps with customizable layers and markers.
+
+## Usage
+
+<Canvas of={MapsStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Maps component uses Leaflet under the hood. Make sure you have `leaflet` and its types installed:
+
+\`\`\`bash
+npm install leaflet
+npm install @types/leaflet --save-dev
+\`\`\`
+
+## Code
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={MapsCode} />
+
+## Props
+
+- **center** (`L.LatLngExpression`): The center of the map as a latitude and longitude array. Defaults to `[52.370216, 4.895168]` (Amsterdam).
+- **zoom** (`number`): The zoom level of the map. Defaults to `13`.
+- **options** (`L.MapOptions`): Additional Leaflet map options. Defaults to `{}`.
+- **layers** (`L.Layer[]`): Array of Leaflet layers to add to the map. Defaults to `[]`.
+- **markers** (`L.Marker[]`): Array of Leaflet markers to add to the map. Defaults to `[]`.
+
+## Features
+
+- Uses PDOK tile layer by default (Dutch mapping service)
+- Supports custom layers and markers
+- Reactive updates when props change
+- Full Leaflet API support through options prop
