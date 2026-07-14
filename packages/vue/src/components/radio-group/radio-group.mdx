@@ -1,0 +1,45 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs";
+import * as RadioGroupStories from "./radio-group.stories";
+import RadioGroupCode from "./radio-group.vue?raw";
+import RadioGroupItemCode from "./radio-group-item.vue?raw";
+import RadioGroupItemIndicatorCode from "./radio-group-item-indicator.vue?raw";
+
+<Meta of={RadioGroupStories} />
+
+# Radio Group
+
+A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.
+
+## Usage
+
+<Canvas of={RadioGroupStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Radio Group component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Radio Group component consists of three parts:
+
+- **RadioGroup** - The root component that manages the selected value
+- **RadioGroupItem** - An individual radio button item
+- **RadioGroupItemIndicator** - The visual indicator shown when an item is selected (optional, included by default in RadioGroupItem)
+
+## 1. Copy the RadioGroupItemIndicator
+
+<Source code={RadioGroupItemIndicatorCode} language="html" />
+
+## 2. Copy the RadioGroupItem
+
+<Source code={RadioGroupItemCode} language="html" />
+
+## 3. Copy the RadioGroup
+
+<Source code={RadioGroupCode} language="html" />
