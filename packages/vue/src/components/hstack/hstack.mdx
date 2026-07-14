@@ -1,0 +1,27 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as HStackStories from './hstack.stories'
+import HStackCode from './hstack.vue?raw'
+
+<Meta of={HStackStories} />
+
+# HStack
+
+A horizontal stack layout component for arranging items in a row with consistent spacing.
+
+## Usage
+
+<Canvas of={HStackStories.Default} />
+
+<Controls />
+
+## Installation
+
+The HStack component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## 1. Copy and paste the following code into your project.
+
+<Source language="html" code={HStackCode} />
