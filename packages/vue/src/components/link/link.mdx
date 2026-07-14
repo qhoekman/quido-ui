@@ -1,0 +1,27 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs";
+import * as LinkStories from "./link.stories";
+import LinkCode from "./link.vue?raw";
+
+<Meta of={LinkStories} />
+
+# Link
+
+A simple link component for navigation that provides consistent styling and hover effects.
+
+## Usage
+
+<Canvas of={LinkStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Link component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## 1. Copy and paste the following code into your project.
+
+<Source language="html" code={LinkCode} />
