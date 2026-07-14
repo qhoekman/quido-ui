@@ -1,0 +1,63 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as ToastStories from './toast.stories'
+import ToastCode from './toast.vue?raw'
+import ToastTitleCode from './toast-title.vue?raw'
+import ToastDescriptionCode from './toast-description.vue?raw'
+import ToastCloseCode from './toast-close.vue?raw'
+import ToastViewportCode from './toast-viewport.vue?raw'
+import ToastActionCode from './toast-action.vue?raw'
+
+<Meta of={ToastStories} />
+
+# Toast
+
+A toast component that displays temporary notifications to users.
+
+## Usage
+
+<Canvas of={ToastStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Toast component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Toast component consists of six parts:
+
+- **Toast** - The root component that wraps the toast content
+- **ToastViewport** - The container that holds all toasts and positions them
+- **ToastTitle** - The title text of the toast
+- **ToastDescription** - The description text of the toast (optional)
+- **ToastAction** - An action button within the toast (optional)
+- **ToastClose** - The close button for dismissing the toast
+
+## 1. Copy the ToastViewport
+
+<Source code={ToastViewportCode} language="html" />
+
+## 2. Copy the ToastTitle
+
+<Source code={ToastTitleCode} language="html" />
+
+## 3. Copy the ToastDescription
+
+<Source code={ToastDescriptionCode} language="html" />
+
+## 4. Copy the ToastAction
+
+<Source code={ToastActionCode} language="html" />
+
+## 5. Copy the ToastClose
+
+<Source code={ToastCloseCode} language="html" />
+
+## 6. Copy the Toast
+
+<Source code={ToastCode} language="html" />
