@@ -1,0 +1,86 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as SidebarStories from './sidebar.stories'
+import SidebarCode from './sidebar.vue?raw'
+
+<Meta of={SidebarStories} />
+
+# Sidebar
+
+A sidebar component that provides a collapsible navigation panel. It automatically switches to a drawer on mobile devices and supports multiple variants and collapse behaviors.
+
+## Usage
+
+<Canvas of={SidebarStories.Default} />
+
+<Controls />
+
+## Features
+
+- **Responsive**: Automatically switches to a drawer component on mobile devices (< 768px)
+- **Collapsible**: Supports three collapse modes: `offcanvas`, `icon`, and `none`
+- **Variants**: Three visual variants: `sidebar`, `floating`, and `inset`
+- **Side positioning**: Can be positioned on the `left` or `right` side
+- **State management**: Supports `collapsed` and `expanded` states
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `side` | `'left' \| 'right'` | `'left'` | Position of the sidebar |
+| `variant` | `'sidebar' \| 'floating' \| 'inset'` | `'sidebar'` | Visual variant of the sidebar |
+| `collapsible` | `'offcanvas' \| 'icon' \| 'none'` | `'offcanvas'` | Collapse behavior |
+| `state` | `'collapsed' \| 'expanded'` | `'expanded'` | Current state of the sidebar |
+
+## Variants
+
+### Side
+
+- **left** (default): Sidebar appears on the left side
+- **right**: Sidebar appears on the right side
+
+### Variant
+
+- **sidebar** (default): Standard sidebar with border
+- **floating**: Floating sidebar with rounded corners and shadow
+- **inset**: Inset sidebar with padding
+
+### Collapsible
+
+- **offcanvas** (default): Sidebar slides off-screen when collapsed
+- **icon**: Sidebar collapses to icon-only width
+- **none**: Sidebar cannot be collapsed
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={SidebarCode} />
+
+## Examples
+
+### Right Side
+
+<Canvas of={SidebarStories.RightSide} />
+
+### Floating Variant
+
+<Canvas of={SidebarStories.Floating} />
+
+### Inset Variant
+
+<Canvas of={SidebarStories.Inset} />
+
+### Icon Collapsible
+
+<Canvas of={SidebarStories.IconCollapsible} />
+
+### Collapsed State
+
+<Canvas of={SidebarStories.Collapsed} />
+
+## Notes
+
+- The sidebar component uses the Drawer component for mobile views
+- Make sure you have the Drawer component and its dependencies installed
+- The component uses CSS variables from `base.css` for theming
+- Mobile breakpoint is set at 768px (matches `--breakpoint-md`)
