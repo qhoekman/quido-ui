@@ -1,0 +1,23 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as ScatterChartStories from './scatter-chart.stories'
+import ScatterChartCode from './scatter-chart.vue?raw'
+
+<Meta of={ScatterChartStories} />
+
+# Scatter Chart
+
+<Canvas of={ScatterChartStories.Default} />
+
+<Controls />
+
+## Installation
+
+Install the ApexCharts library in your project.
+
+```bash
+npm install apexcharts vue3-apexcharts --save
+```
+
+## 1. Copy and paste the following code into your project.
+
+<Source language="html" code={ScatterChartCode} />
