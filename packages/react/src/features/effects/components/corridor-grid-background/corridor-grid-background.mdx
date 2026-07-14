@@ -1,0 +1,21 @@
+import { Canvas, Source, Controls, Meta } from "@storybook/addon-docs/blocks";
+import * as CorridorGridBackgroundStories from "./corridor-grid-background.stories";
+import CorridorGridBackgroundCode from "./corridor-grid-background.tsx?raw";
+
+<Meta of={CorridorGridBackgroundStories} />
+
+# Usage
+
+<Canvas of={CorridorGridBackgroundStories.Default} />
+
+<Controls />
+
+# Installation
+
+## 1. Install the following dependencies
+
+<Source language="bash" code={`npm install three`} />
+
+## 2. Copy and paste the following code into your project.
+
+<Source language="tsx" code={CorridorGridBackgroundCode} />
