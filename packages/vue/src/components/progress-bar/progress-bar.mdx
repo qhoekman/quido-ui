@@ -1,0 +1,21 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs";
+import * as ProgressBarStories from "./progress-bar.stories";
+import ProgressBarCode from "./progress-bar.vue?raw";
+
+<Meta of={ProgressBarStories} />
+
+# Progress Bar
+
+A progress bar component that displays progress either determinately (with a value) or indeterminately (animated).
+
+## Usage
+
+<Canvas of={ProgressBarStories.Default} />
+
+<Controls />
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={ProgressBarCode} />
