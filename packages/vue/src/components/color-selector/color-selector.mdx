@@ -1,0 +1,45 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs";
+import * as Stories from "./color-selector.stories";
+import ColorSelectorCode from "./color-selector.vue?raw";
+import ColorSelectorItemCode from "./color-selector-item.vue?raw";
+import ColorSelectorItemsCode from "./color-selector-items.vue?raw";
+
+<Meta of={Stories} />
+
+# Color Selector
+
+A component that allows users to select a color from a predefined set of options.
+
+## Usage
+
+<Canvas of={Stories.Default} />
+
+<Controls />
+
+## Installation
+
+The Color Selector component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Color Selector component consists of three parts:
+
+- **ColorSelector** - The root component that manages the selected value
+- **ColorSelectorItems** - A container for the color items
+- **ColorSelectorItem** - Individual color selection items
+
+## 1. Copy the ColorSelectorItems
+
+<Source code={ColorSelectorItemsCode} language="html" />
+
+## 2. Copy the ColorSelectorItem
+
+<Source code={ColorSelectorItemCode} language="html" />
+
+## 3. Copy the ColorSelector
+
+<Source code={ColorSelectorCode} language="html" />
