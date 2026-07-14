@@ -1,0 +1,47 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as RadioCardStories from "./radio-card.stories";
+import RadioCardCode from "./radio-card.vue?raw";
+import RadioCardItemCode from "./radio-card-item.vue?raw";
+import RadioCardItemLabelCode from "./radio-card-item-label.vue?raw";
+import RadioCardItemDescriptionCode from "./radio-card-item-description.vue?raw";
+
+# Radio Card
+
+A radio card component that displays radio options as card-like items.
+
+<Meta of={RadioCardStories} />
+<Canvas of={RadioCardStories.Default} />
+<Controls />
+
+## Installation
+
+The Radio Card component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Radio Card component consists of four parts:
+
+- **RadioCard** - The root component that manages the radio group state
+- **RadioCardItem** - An individual radio card option
+- **RadioCardItemLabel** - The label for a radio card item
+- **RadioCardItemDescription** - Optional description text for a radio card item
+
+## 1. Copy the RadioCardItemLabel
+
+<Source code={RadioCardItemLabelCode} language="html" />
+
+## 2. Copy the RadioCardItemDescription
+
+<Source code={RadioCardItemDescriptionCode} language="html" />
+
+## 3. Copy the RadioCardItem
+
+<Source code={RadioCardItemCode} language="html" />
+
+## 4. Copy the RadioCard
+
+<Source code={RadioCardCode} language="html" />
