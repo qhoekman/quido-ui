@@ -1,0 +1,60 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as ClipboardStories from './clipboard.stories'
+import ClipboardCode from './clipboard.vue?raw'
+
+<Meta of={ClipboardStories} />
+
+# Clipboard
+
+A component that copies text to the clipboard when clicked. Shows visual feedback when the copy operation is successful.
+
+## Usage
+
+<Canvas of={ClipboardStories.Default} />
+
+<Controls />
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={ClipboardCode} />
+
+## Props
+
+- `text` (required): The text to copy to the clipboard
+- `variant`: Button variant style (`primary`, `secondary`, `destructive`, `outline`, `ghost`, `link`) - default: `outline`
+- `size`: Button size (`sm`, `md`, `lg`, `icon`) - default: `md`
+- `disabled`: Whether the button is disabled - default: `false`
+- `copiedDuration`: Duration in milliseconds to show the "copied" state - default: `2000`
+- `as`: Render as different element (`button`, `a`) - default: `button`
+- `asChild`: Use composition pattern - default: `false`
+
+## Events
+
+- `copy`: Emitted when text is successfully copied to clipboard
+- `error`: Emitted when copy operation fails
+
+## Examples
+
+### Basic Usage
+
+```vue
+<Clipboard text="Hello World" />
+```
+
+### With Custom Duration
+
+```vue
+<Clipboard text="Copy me" :copied-duration="3000" />
+```
+
+### With Event Handlers
+
+```vue
+<Clipboard 
+  text="Copy this" 
+  @copy="handleCopy" 
+  @error="handleError" 
+/>
+```
