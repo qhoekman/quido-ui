@@ -11,6 +11,7 @@ Welcome to our UI Components Library - a comprehensive collection of UI componen
 - **Storybook Integration**: Visualize and interact with components through Storybook, making it easier to choose the right components for your application.
 - **Monorepo Setup**: Utilizes a monorepo structure for easy management and isolation of framework-specific components.
 - **PNPM for Package Management**: Leverages PNPM for efficient and reliable package management across the monorepo.
+- **Turborepo for Task Orchestration**: Uses Turborepo to run builds in parallel with caching and correct build ordering.
 
 ## Philosophy
 
@@ -32,6 +33,12 @@ Ensure you have PNPM installed on your system. If not, you can install it by run
 
 ```bash
 npm install -g pnpm
+```
+
+Install dependencies from the repository root:
+
+```bash
+pnpm install
 ```
 
 ## Running
@@ -57,6 +64,16 @@ pnpm vue dev
 ```
 
 > The host package is only used for deployment which consists of documentation and connect the individual Storybooks together.
+
+## Building
+
+Build all Storybook sites for deployment (framework packages build in parallel, then the host shell):
+
+```sh
+pnpm build
+```
+
+Turborepo caches build outputs, so subsequent runs are faster when nothing has changed.
 
 ## Getting Started
 
