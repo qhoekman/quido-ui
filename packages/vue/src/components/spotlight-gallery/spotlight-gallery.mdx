@@ -1,0 +1,48 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs";
+import * as SpotlightGalleryStories from "./spotlight-gallery.stories";
+import SpotlightGalleryCode from "./spotlight-gallery.vue?raw";
+import SpotlightGalleryContentCode from "./spotlight-gallery-content.vue?raw";
+import SpotlightGalleryImageCode from "./spotlight-gallery-image.vue?raw";
+import SpotlightGalleryItemCode from "./spotlight-gallery-item.vue?raw";
+import SpotlightGalleryListCode from "./spotlight-gallery-list.vue?raw";
+import SpotlightGalleryTriggerCode from "./spotlight-gallery-trigger.vue?raw";
+
+<Meta of={SpotlightGalleryStories} />
+
+# Spotlight Gallery
+
+A component that displays a gallery with a spotlight view of the selected item.
+
+## Usage
+
+<Canvas of={SpotlightGalleryStories.Default} />
+
+<Controls />
+
+## Installation
+
+Copy the following code into your project.
+
+> **spotlight-gallery.vue**
+>
+> <Source code={SpotlightGalleryCode} language="html" />
+
+> **spotlight-gallery-content.vue**
+>
+> <Source code={SpotlightGalleryContentCode} language="html" />
+
+> **spotlight-gallery-image.vue**
+>
+> <Source code={SpotlightGalleryImageCode} language="html" />
+
+> **spotlight-gallery-item.vue**
+>
+> <Source code={SpotlightGalleryItemCode} language="html" />
+
+> **spotlight-gallery-list.vue**
+>
+> <Source code={SpotlightGalleryListCode} language="html" />
+
+> **spotlight-gallery-trigger.vue**
+>
+> <Source code={SpotlightGalleryTriggerCode} language="html" />
