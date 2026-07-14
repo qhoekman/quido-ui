@@ -1,0 +1,31 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs";
+import * as CountdownStories from "./countdown.stories";
+import CountdownCode from "./countdown.vue?raw";
+import CountdownItemCode from "./countdown-item.vue?raw";
+
+<Meta of={CountdownStories} />
+
+# Countdown
+
+A countdown component that displays the time remaining until a target date, updating every second.
+
+## Usage
+
+<Canvas of={CountdownStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Countdown component consists of two parts:
+
+- **Countdown** - The root component that manages the countdown timer
+- **CountdownItem** - A styled wrapper for individual time units
+
+## 1. Copy the CountdownItem
+
+<Source language="html" code={CountdownItemCode} />
+
+## 2. Copy the Countdown
+
+<Source language="html" code={CountdownCode} />
