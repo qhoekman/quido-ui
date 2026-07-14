@@ -1,0 +1,27 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs";
+import * as ScrollAreaStories from "./scroll-area.stories";
+import ScrollAreaCode from "./scroll-area.vue?raw";
+
+<Meta of={ScrollAreaStories} />
+
+# Scroll Area
+
+A component that provides a customizable scrollable area with custom scrollbars.
+
+## Usage
+
+<Canvas of={ScrollAreaStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Scroll Area component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## 1. Copy and paste the following code into your project.
+
+<Source language="html" code={ScrollAreaCode} />
