@@ -1,0 +1,45 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs";
+import * as ToolbarStories from "./toolbar.stories";
+import ToolbarCode from "./toolbar.vue?raw";
+import ToolbarContentCode from "./toolbar-content.vue?raw";
+import ToolbarLinkCode from "./toolbar-link.vue?raw";
+
+<Meta of={ToolbarStories} />
+
+# Toolbar
+
+A fixed bottom toolbar component for mobile interfaces with safe area support.
+
+## Usage
+
+<Canvas of={ToolbarStories.WithText} />
+
+<Controls />
+
+## Installation
+
+The Toolbar component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Toolbar component consists of three parts:
+
+- **Toolbar** - The root component that provides fixed positioning and safe area support
+- **ToolbarContent** - The content container with flex layout
+- **ToolbarLink** - A link component for toolbar items
+
+## 1. Copy the ToolbarLink
+
+<Source code={ToolbarLinkCode} language="html" />
+
+## 2. Copy the ToolbarContent
+
+<Source code={ToolbarContentCode} language="html" />
+
+## 3. Copy the Toolbar
+
+<Source code={ToolbarCode} language="html" />
