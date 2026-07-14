@@ -1,0 +1,39 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs";
+import * as TieredGalleryStories from "./tiered-gallery.stories";
+import TieredGalleryCode from "./tiered-gallery.vue?raw";
+import TieredGalleryImageCode from "./tiered-gallery-image.vue?raw";
+
+<Meta of={TieredGalleryStories} />
+
+# Tiered Gallery
+
+A gallery component that displays images in a tiered layout with thumbnail navigation.
+
+## Usage
+
+<Canvas of={TieredGalleryStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Tiered Gallery component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Tiered Gallery component consists of two parts:
+
+- **TieredGallery** - The root component that manages the tab state
+- **TieredGalleryImage** - The image component for displaying gallery images
+
+## 1. Copy the TieredGalleryImage
+
+<Source code={TieredGalleryImageCode} language="html" />
+
+## 2. Copy the TieredGallery
+
+<Source code={TieredGalleryCode} language="html" />
