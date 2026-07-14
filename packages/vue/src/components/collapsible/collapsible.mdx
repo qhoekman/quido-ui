@@ -1,0 +1,25 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as CollapsibleStories from './collapsible.stories'
+import CollapsibleCode from './collapsible.vue?raw'
+import CollapsibleTriggerCode from './collapsible-trigger.vue?raw'
+import CollapsibleContentCode from './collapsible-content.vue?raw'
+
+# Collapsible
+
+A component that allows content to be shown or hidden with a toggle.
+
+<Meta of={CollapsibleStories} />
+<Canvas of={CollapsibleStories.Default} />
+<Controls />
+
+## 1. Copy the CollapsibleTrigger
+
+<Source code={CollapsibleTriggerCode} language="html" />
+
+## 2. Copy the CollapsibleContent
+
+<Source code={CollapsibleContentCode} language="html" />
+
+## 3. Copy the Collapsible
+
+<Source code={CollapsibleCode} language="html" />
