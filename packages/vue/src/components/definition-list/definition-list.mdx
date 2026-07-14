@@ -1,0 +1,43 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs";
+import * as DefinitionListStories from "./definition-list.stories";
+import DefinitionListCode from "./definition-list.vue?raw";
+import DefinitionListItemCode from "./definition-list-item.vue?raw";
+import DefinitionTermCode from "./definition-term.vue?raw";
+import DefinitionDescriptionCode from "./definition-description.vue?raw";
+
+<Meta of={DefinitionListStories} />
+
+# Definition List
+
+A component for displaying term-description pairs in a structured list format.
+
+## Usage
+
+<Canvas of={DefinitionListStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Definition List component consists of four parts:
+
+- **DefinitionList** - The root container (`dl` element)
+- **DefinitionListItem** - Wrapper for each term/description pair (`div` element)
+- **DefinitionTerm** - The term/label (`dt` element)
+- **DefinitionDescription** - The description/value (`dd` element)
+
+## 1. Copy the DefinitionList
+
+<Source language="html" code={DefinitionListCode} />
+
+## 2. Copy the DefinitionListItem
+
+<Source language="html" code={DefinitionListItemCode} />
+
+## 3. Copy the DefinitionTerm
+
+<Source language="html" code={DefinitionTermCode} />
+
+## 4. Copy the DefinitionDescription
+
+<Source language="html" code={DefinitionDescriptionCode} />
