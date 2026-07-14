@@ -1,0 +1,33 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs";
+import * as CookieConsentStories from "./cookie-consent.stories";
+import CookieConsentCode from "./cookie-consent.vue?raw";
+
+<Meta of={CookieConsentStories} />
+
+# Cookie Consent
+
+A banner component that displays cookie consent information and allows users to accept or reject cookies.
+
+## Usage
+
+<Canvas of={CookieConsentStories.Default} />
+
+<Controls />
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={CookieConsentCode} />
+
+## Features
+
+- Automatically shows banner if no consent has been given
+- Stores consent preference in localStorage
+- Provides Accept and Reject actions
+- Includes close button to dismiss banner
+- Responsive design with fixed positioning
+
+## Behavior
+
+The component checks localStorage for a `cookieConsent` key on mount. If no consent value is found, the banner is displayed. When the user clicks "Accept" or "Reject", the preference is saved to localStorage and the banner is hidden.
