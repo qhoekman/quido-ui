@@ -1,0 +1,45 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs";
+import * as DatePickerStories from "./date-picker.stories";
+import DatePickerCode from "./date-picker.vue?raw";
+import CalendarCode from "../calendar/calendar.vue?raw";
+import InputCode from "../input/input.vue?raw";
+
+<Meta of={DatePickerStories} />
+
+# Date Picker
+
+A date picker component that allows users to select a date from a calendar popover.
+
+## Usage
+
+<Canvas of={DatePickerStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Date Picker component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Date Picker component depends on the following components:
+
+- **Input** - The input field that displays the selected date
+- **Calendar** - The calendar component used for date selection
+- **Popover** - The popover container (provided by Reka UI)
+
+## 1. Copy the Input component
+
+<Source code={InputCode} language="html" />
+
+## 2. Copy the Calendar component
+
+<Source code={CalendarCode} language="html" />
+
+## 3. Copy the Date Picker component
+
+<Source code={DatePickerCode} language="html" />
