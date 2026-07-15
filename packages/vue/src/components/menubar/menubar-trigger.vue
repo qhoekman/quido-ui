@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { MenuTrigger as RekaMenuTrigger } from "reka-ui";
+import { MenubarTrigger as RekaMenubarTrigger } from "reka-ui";
 import { ChevronUp, ChevronDown } from "lucide-vue-next";
 import { cva, type VariantProps } from "class-variance-authority";
 
@@ -40,7 +40,7 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <RekaMenuTrigger
+  <RekaMenubarTrigger
     :as-child="asChild"
     :as="as"
     :class="classes"
@@ -50,7 +50,7 @@ const classes = computed(() => {
     <slot />
     <ChevronUp class="chevron-up" :size="16" aria-hidden="true" />
     <ChevronDown class="chevron-down" :size="16" aria-hidden="true" />
-  </RekaMenuTrigger>
+  </RekaMenubarTrigger>
 </template>
 
 <style scoped>

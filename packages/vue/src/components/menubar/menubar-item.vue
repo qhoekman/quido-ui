@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { MenuItem as RekaMenuItem } from "reka-ui";
+import { MenubarItem as RekaMenubarItem } from "reka-ui";
 
 export interface MenubarItemProps {
   disabled?: boolean;
@@ -18,7 +18,7 @@ const classes = computed(() => ["q-menubar-item"]);
 </script>
 
 <template>
-  <RekaMenuItem
+  <RekaMenubarItem
     :disabled="disabled"
     :as-child="asChild"
     :as="as"
@@ -27,7 +27,7 @@ const classes = computed(() => ["q-menubar-item"]);
     v-bind="$attrs"
   >
     <slot />
-  </RekaMenuItem>
+  </RekaMenubarItem>
 </template>
 
 <style scoped>

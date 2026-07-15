@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { MenuContent as RekaMenuContent, MenuPortal } from "reka-ui";
+import { MenubarContent as RekaMenubarContent, MenubarPortal } from "reka-ui";
 
 export interface MenubarMenuProps {
   sideOffset?: number;
@@ -20,8 +20,8 @@ const classes = computed(() => ["q-menubar-menu"]);
 </script>
 
 <template>
-  <MenuPortal>
-    <RekaMenuContent
+  <MenubarPortal>
+    <RekaMenubarContent
       :side-offset="sideOffset"
       :force-mount="forceMount"
       :as-child="asChild"
@@ -34,8 +34,8 @@ const classes = computed(() => ["q-menubar-menu"]);
       v-bind="$attrs"
     >
       <slot />
-    </RekaMenuContent>
-  </MenuPortal>
+    </RekaMenubarContent>
+  </MenubarPortal>
 </template>
 
 <style scoped>

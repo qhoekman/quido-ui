@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MenuSeparator as RekaMenuSeparator } from "reka-ui";
+import { MenubarSeparator as RekaMenubarSeparator } from "reka-ui";
 
 export interface MenubarSeparatorProps {
   asChild?: boolean;
@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<MenubarSeparatorProps>(), {
 </script>
 
 <template>
-  <RekaMenuSeparator
+  <RekaMenubarSeparator
     :as-child="asChild"
     :as="as"
     class="q-menubar-separator"

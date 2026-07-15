@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { MenuGroup as RekaMenuGroup } from "reka-ui";
+import { MenubarGroup as RekaMenubarGroup } from "reka-ui";
 
 export interface MenubarGroupProps {
   asChild?: boolean;
@@ -16,7 +16,7 @@ const classes = computed(() => ["q-menubar-group"]);
 </script>
 
 <template>
-  <RekaMenuGroup
+  <RekaMenubarGroup
     :as-child="asChild"
     :as="as"
     :class="classes"
@@ -24,7 +24,7 @@ const classes = computed(() => ["q-menubar-group"]);
     v-bind="$attrs"
   >
     <slot />
-  </RekaMenuGroup>
+  </RekaMenubarGroup>
 </template>
 
 <style scoped>

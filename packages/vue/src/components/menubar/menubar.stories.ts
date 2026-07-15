@@ -4,7 +4,7 @@ import MenubarMenuComponent from "./menubar-menu.vue";
 import MenubarGroupComponent from "./menubar-group.vue";
 import MenubarItemComponent from "./menubar-item.vue";
 import MenubarSeparatorComponent from "./menubar-separator.vue";
-import { MenuRoot } from "reka-ui";
+import { MenubarMenu } from "reka-ui";
 import type { Meta, StoryObj } from "@storybook/vue3-vite";
 
 const meta = {
@@ -20,7 +20,7 @@ const meta = {
       MenubarGroupComponent,
       MenubarItemComponent,
       MenubarSeparatorComponent,
-      MenuRoot,
+      MenubarMenu,
     },
     setup() {
       return { args };
@@ -28,7 +28,7 @@ const meta = {
     template: `
       <div style="padding: 2rem;">
         <MenubarComponent>
-          <MenuRoot>
+          <MenubarMenu>
             <MenubarTriggerComponent>File</MenubarTriggerComponent>
             <MenubarMenuComponent>
               <MenubarGroupComponent>
@@ -44,9 +44,9 @@ const meta = {
                 <MenubarItemComponent>Quit</MenubarItemComponent>
               </MenubarGroupComponent>
             </MenubarMenuComponent>
-          </MenuRoot>
+          </MenubarMenu>
 
-          <MenuRoot>
+          <MenubarMenu>
             <MenubarTriggerComponent>Edit</MenubarTriggerComponent>
             <MenubarMenuComponent>
               <MenubarGroupComponent>
@@ -60,7 +60,7 @@ const meta = {
                 <MenubarItemComponent>Paste</MenubarItemComponent>
               </MenubarGroupComponent>
             </MenubarMenuComponent>
-          </MenuRoot>
+          </MenubarMenu>
         </MenubarComponent>
       </div>
     `,
