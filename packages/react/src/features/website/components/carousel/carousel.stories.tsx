@@ -11,7 +11,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/features/website/components/carousel/carousel";
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 export default {
   title: "Features/Website/Components/Carousel",
@@ -35,25 +35,27 @@ const images = [
   "https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?auto=format&fit=crop&w=800&q=80", // water
 ];
 
-export const Default: StoryFn<typeof Carousel> = (args) => (
-  <Carousel {...args}>
-    <CarouselContent>
-      {Array.from({ length: 5 }).map((_, index) => (
-        <CarouselItem key={index} style={{ flexBasis: "33.333333%" }}>
-          <img
-            src={images[index]}
-            alt={`Image ${index + 1}`}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              aspectRatio: "16/9",
-            }}
-          />
-        </CarouselItem>
-      ))}
-    </CarouselContent>
-    <CarouselPrevious />
-    <CarouselNext />
-  </Carousel>
-);
+export const Default: StoryObj<typeof Carousel> = {
+  render: (args) => (
+    <Carousel {...args}>
+      <CarouselContent>
+        {Array.from({ length: 5 }).map((_, index) => (
+          <CarouselItem key={index} style={{ flexBasis: "33.333333%" }}>
+            <img
+              src={images[index]}
+              alt={`Image ${index + 1}`}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                aspectRatio: "16/9",
+              }}
+            />
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+  ),
+};

@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 import { CyberWireframeBackground } from "./cyber-wireframe-background";
 
@@ -14,8 +14,10 @@ export default {
   },
 } satisfies Meta<typeof CyberWireframeBackground>;
 
-export const Default: StoryFn<typeof CyberWireframeBackground> = (args) => (
-  <div style={{ width: "100vw", height: "100vh" }}>
-    <CyberWireframeBackground {...args} />
-  </div>
-);
+export const Default: StoryObj<typeof CyberWireframeBackground> = {
+  render: (args) => (
+    <div style={{ width: "100vw", height: "100vh" }}>
+      <CyberWireframeBackground {...args} />
+    </div>
+  ),
+};

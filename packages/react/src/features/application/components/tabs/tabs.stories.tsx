@@ -16,7 +16,7 @@ import {
   TabsTrigger,
 } from "@/features/application/components/tabs/tabs";
 
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 export default {
   title: "Features/Application/Components/Tabs",
@@ -50,57 +50,59 @@ export default {
   },
 } satisfies Meta<typeof Tabs>;
 
-export const Default: StoryFn<typeof Tabs> = (args) => (
-  <Tabs style={{ width: "var(--spacing-sm)" }} {...args}>
-    <TabsList>
-      <TabsTrigger value="account">Account</TabsTrigger>
-      <TabsTrigger value="password">Password</TabsTrigger>
-    </TabsList>
-    <TabsContent value="account">
-      <Card>
-        <CardHeader>
-          <CardTitle>Account</CardTitle>
-          <CardDescription>
-            Make changes to your account here. Click save when you're done.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div>
-            <Label htmlFor="name">Name</Label>
-            <Input id="name" defaultValue="Pedro Duarte" />
-          </div>
-          <div>
-            <Label htmlFor="username">Username</Label>
-            <Input id="username" defaultValue="@peduarte" />
-          </div>
-        </CardContent>
-        <CardFooter>
-          <Button>Save changes</Button>
-        </CardFooter>
-      </Card>
-    </TabsContent>
-    <TabsContent value="password">
-      <Card>
-        <CardHeader>
-          <CardTitle>Password</CardTitle>
-          <CardDescription>
-            Change your password here. After saving, you'll be logged out.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div>
-            <Label htmlFor="current">Current password</Label>
-            <Input id="current" type="password" />
-          </div>
-          <div>
-            <Label htmlFor="new">New password</Label>
-            <Input id="new" type="password" />
-          </div>
-        </CardContent>
-        <CardFooter>
-          <Button>Save password</Button>
-        </CardFooter>
-      </Card>
-    </TabsContent>
-  </Tabs>
-);
+export const Default: StoryObj<typeof Tabs> = {
+  render: (args) => (
+    <Tabs style={{ width: "var(--spacing-sm)" }} {...args}>
+      <TabsList>
+        <TabsTrigger value="account">Account</TabsTrigger>
+        <TabsTrigger value="password">Password</TabsTrigger>
+      </TabsList>
+      <TabsContent value="account">
+        <Card>
+          <CardHeader>
+            <CardTitle>Account</CardTitle>
+            <CardDescription>
+              Make changes to your account here. Click save when you're done.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div>
+              <Label htmlFor="name">Name</Label>
+              <Input id="name" defaultValue="Pedro Duarte" />
+            </div>
+            <div>
+              <Label htmlFor="username">Username</Label>
+              <Input id="username" defaultValue="@peduarte" />
+            </div>
+          </CardContent>
+          <CardFooter>
+            <Button>Save changes</Button>
+          </CardFooter>
+        </Card>
+      </TabsContent>
+      <TabsContent value="password">
+        <Card>
+          <CardHeader>
+            <CardTitle>Password</CardTitle>
+            <CardDescription>
+              Change your password here. After saving, you'll be logged out.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div>
+              <Label htmlFor="current">Current password</Label>
+              <Input id="current" type="password" />
+            </div>
+            <div>
+              <Label htmlFor="new">New password</Label>
+              <Input id="new" type="password" />
+            </div>
+          </CardContent>
+          <CardFooter>
+            <Button>Save password</Button>
+          </CardFooter>
+        </Card>
+      </TabsContent>
+    </Tabs>
+  ),
+};

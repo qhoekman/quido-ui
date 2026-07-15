@@ -4,6 +4,9 @@
   "description": "",
   "private": true,
   "packageManager": "pnpm@11.13.0",
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "scripts": {
     "host": "pnpm --filter @quido-ui/host",
     "angular": "pnpm --filter @quido-ui/angular",

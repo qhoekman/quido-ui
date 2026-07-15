@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 import { AmbientOrbsBackground } from "./ambient-orbs-background";
 
@@ -14,8 +14,10 @@ export default {
   },
 } satisfies Meta<typeof AmbientOrbsBackground>;
 
-export const Default: StoryFn<typeof AmbientOrbsBackground> = (args) => (
-  <div style={{ width: "100vw", height: "100vh" }}>
-    <AmbientOrbsBackground {...args} />
-  </div>
-);
+export const Default: StoryObj<typeof AmbientOrbsBackground> = {
+  render: (args) => (
+    <div style={{ width: "100vw", height: "100vh" }}>
+      <AmbientOrbsBackground {...args} />
+    </div>
+  ),
+};

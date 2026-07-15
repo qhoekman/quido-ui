@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 import { Tag } from "./tag";
 
@@ -16,13 +16,17 @@ export default {
   },
 } satisfies Meta<typeof Tag>;
 
-export const Default: StoryFn<typeof Tag> = (args) => <Tag {...args}>New</Tag>;
+export const Default: StoryObj<typeof Tag> = {
+  render: (args) => <Tag {...args}>New</Tag>,
+};
 
-export const Variants: StoryFn<typeof Tag> = () => (
-  <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-    <Tag variant="primary">Primary</Tag>
-    <Tag variant="secondary">Secondary</Tag>
-    <Tag variant="destructive">Destructive</Tag>
-    <Tag variant="outline">Outline</Tag>
-  </div>
-);
+export const Variants: StoryObj<typeof Tag> = {
+  render: () => (
+    <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+      <Tag variant="primary">Primary</Tag>
+      <Tag variant="secondary">Secondary</Tag>
+      <Tag variant="destructive">Destructive</Tag>
+      <Tag variant="outline">Outline</Tag>
+    </div>
+  ),
+};

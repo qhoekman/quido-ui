@@ -13,7 +13,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/dropdown/dropdown";
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 import {
   Cloud,
   CreditCard,
@@ -59,127 +59,132 @@ export default {
   },
 } satisfies Meta<typeof DropdownMenu>;
 
-export const Default: StoryFn<typeof DropdownMenu> = (args) => (
-  <DropdownMenu {...args}>
-    <DropdownMenuTrigger asChild>
-      <Button variant="outline">Open</Button>
-    </DropdownMenuTrigger>
-    <DropdownMenuContent style={{ width: "var(--spacing-56)" }}>
-      <DropdownMenuLabel>My Account</DropdownMenuLabel>
-      <DropdownMenuSeparator />
-      <DropdownMenuGroup>
-        <DropdownMenuItem>
-          <User
-            style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
-          />
-          <span>Profile</span>
-          <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <CreditCard
-            style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
-          />
-          <span>Billing</span>
-          <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Settings
-            style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
-          />
-          <span>Settings</span>
-          <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Keyboard
-            style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
-          />
-          <span>Keyboard shortcuts</span>
-          <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
-        </DropdownMenuItem>
-      </DropdownMenuGroup>
-      <DropdownMenuSeparator />
-      <DropdownMenuGroup>
-        <DropdownMenuItem>
-          <Users
-            style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
-          />
-          <span>Team</span>
-        </DropdownMenuItem>
-        <DropdownMenuSub>
-          <DropdownMenuSubTrigger>
-            <UserPlus
+export const Default: StoryObj<typeof DropdownMenu> = {
+  render: (args) => (
+    <DropdownMenu {...args}>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline">Open</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent style={{ width: "var(--spacing-56)" }}>
+        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          <DropdownMenuItem>
+            <User
               style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
             />
-            <span>Invite users</span>
-          </DropdownMenuSubTrigger>
-          <DropdownMenuPortal>
-            <DropdownMenuSubContent>
-              <DropdownMenuItem>
-                <Mail
-                  style={{
-                    width: "var(--spacing-4)",
-                    height: "var(--spacing-4)",
-                  }}
-                />
-                <span>Email</span>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <MessageSquare
-                  style={{
-                    width: "var(--spacing-4)",
-                    height: "var(--spacing-4)",
-                  }}
-                />
-                <span>Message</span>
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                <PlusCircle
-                  style={{
-                    width: "var(--spacing-4)",
-                    height: "var(--spacing-4)",
-                  }}
-                />
-                <span>More...</span>
-              </DropdownMenuItem>
-            </DropdownMenuSubContent>
-          </DropdownMenuPortal>
-        </DropdownMenuSub>
+            <span>Profile</span>
+            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <CreditCard
+              style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
+            />
+            <span>Billing</span>
+            <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <Settings
+              style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
+            />
+            <span>Settings</span>
+            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <Keyboard
+              style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
+            />
+            <span>Keyboard shortcuts</span>
+            <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          <DropdownMenuItem>
+            <Users
+              style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
+            />
+            <span>Team</span>
+          </DropdownMenuItem>
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>
+              <UserPlus
+                style={{
+                  width: "var(--spacing-4)",
+                  height: "var(--spacing-4)",
+                }}
+              />
+              <span>Invite users</span>
+            </DropdownMenuSubTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent>
+                <DropdownMenuItem>
+                  <Mail
+                    style={{
+                      width: "var(--spacing-4)",
+                      height: "var(--spacing-4)",
+                    }}
+                  />
+                  <span>Email</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <MessageSquare
+                    style={{
+                      width: "var(--spacing-4)",
+                      height: "var(--spacing-4)",
+                    }}
+                  />
+                  <span>Message</span>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <PlusCircle
+                    style={{
+                      width: "var(--spacing-4)",
+                      height: "var(--spacing-4)",
+                    }}
+                  />
+                  <span>More...</span>
+                </DropdownMenuItem>
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
+          <DropdownMenuItem>
+            <Plus
+              style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
+            />
+            <span>New Team</span>
+            <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <Plus
+          <Github
             style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
           />
-          <span>New Team</span>
-          <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
+          <span>GitHub</span>
         </DropdownMenuItem>
-      </DropdownMenuGroup>
-      <DropdownMenuSeparator />
-      <DropdownMenuItem>
-        <Github
-          style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
-        />
-        <span>GitHub</span>
-      </DropdownMenuItem>
-      <DropdownMenuItem>
-        <LifeBuoy
-          style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
-        />
-        <span>Support</span>
-      </DropdownMenuItem>
-      <DropdownMenuItem disabled>
-        <Cloud
-          style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
-        />
-        <span>API</span>
-      </DropdownMenuItem>
-      <DropdownMenuSeparator />
-      <DropdownMenuItem>
-        <LogOut
-          style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
-        />
-        <span>Log out</span>
-        <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-      </DropdownMenuItem>
-    </DropdownMenuContent>
-  </DropdownMenu>
-);
+        <DropdownMenuItem>
+          <LifeBuoy
+            style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
+          />
+          <span>Support</span>
+        </DropdownMenuItem>
+        <DropdownMenuItem disabled>
+          <Cloud
+            style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
+          />
+          <span>API</span>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem>
+          <LogOut
+            style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
+          />
+          <span>Log out</span>
+          <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  ),
+};

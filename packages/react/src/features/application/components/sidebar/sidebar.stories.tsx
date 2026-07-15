@@ -18,7 +18,7 @@ import {
   SidebarItemBadge,
   SidebarSection,
 } from "@/features/application/components/sidebar/sidebar";
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 import { BoxesIcon, Contact2Icon, PlaySquareIcon, Radio } from "lucide-react";
 
 export default {
@@ -28,101 +28,103 @@ export default {
   args: {},
 } satisfies Meta<typeof Sidebar>;
 
-export const Default: StoryFn<typeof Sidebar> = (args) => (
-  <Sidebar style={{ maxWidth: "var(--spacing-64)" }} {...args}>
-    <SidebarBrand>
-      <Logo
-        aria-label="Logo"
-        style={{
-          width: "var(--spacing-24)",
-          color: "var(--color-primary)",
-        }}
-      />
-      <span className="sr-only">Musica</span>
-    </SidebarBrand>
-    <SidebarGroupHeader>Discover</SidebarGroupHeader>
-    <SidebarSection>
-      <SidebarGroup>
-        <SidebarItem>
-          <PlaySquareIcon size={24} />
-          <span>Listen now</span>
-        </SidebarItem>
-        <SidebarItem>
-          <BoxesIcon size={24} />
-          <span>Browse</span>
-          <SidebarItemBadge>99+</SidebarItemBadge>
-        </SidebarItem>
-        <SidebarItem>
-          <Radio size={24} />
-          <span>Radio</span>
-        </SidebarItem>
-      </SidebarGroup>
-      <SidebarGroup>
-        <SidebarGroupTrigger>
-          <Contact2Icon size={24} />
-          <span>My Library</span>
-          <SidebarGroupExpand />
-        </SidebarGroupTrigger>
-        <SidebarGroupItems>
+export const Default: StoryObj<typeof Sidebar> = {
+  render: (args) => (
+    <Sidebar style={{ maxWidth: "var(--spacing-64)" }} {...args}>
+      <SidebarBrand>
+        <Logo
+          aria-label="Logo"
+          style={{
+            width: "var(--spacing-24)",
+            color: "var(--color-primary)",
+          }}
+        />
+        <span className="sr-only">Musica</span>
+      </SidebarBrand>
+      <SidebarGroupHeader>Discover</SidebarGroupHeader>
+      <SidebarSection>
+        <SidebarGroup>
           <SidebarItem>
             <PlaySquareIcon size={24} />
-            <span>Recently played</span>
+            <span>Listen now</span>
           </SidebarItem>
           <SidebarItem>
             <BoxesIcon size={24} />
-            <span>Albums</span>
+            <span>Browse</span>
+            <SidebarItemBadge>99+</SidebarItemBadge>
           </SidebarItem>
           <SidebarItem>
             <Radio size={24} />
-            <span>Artists</span>
+            <span>Radio</span>
           </SidebarItem>
-        </SidebarGroupItems>
-      </SidebarGroup>
-    </SidebarSection>
-    <SidebarGroupHeader>Genres</SidebarGroupHeader>
-    <ScrollArea style={{ height: "var(--spacing-48)" }}>
-      <SidebarGroup>
-        <SidebarItem>
-          <PlaySquareIcon size={24} />
-          <span>Pop</span>
-        </SidebarItem>
-        <SidebarItem>
-          <PlaySquareIcon size={24} />
-          <span>Rock</span>
-        </SidebarItem>
-        <SidebarItem>
-          <PlaySquareIcon size={24} />
-          <span>Electronic</span>
-        </SidebarItem>
-        <SidebarItem>
-          <PlaySquareIcon size={24} />
-          <span>Classical</span>
-        </SidebarItem>
-        <SidebarItem>
-          <PlaySquareIcon size={24} />
-          <span>Jazz</span>
-        </SidebarItem>
-        <SidebarItem>
-          <PlaySquareIcon size={24} />
-          <span>Blues</span>
-        </SidebarItem>
-        <SidebarItem>
-          <PlaySquareIcon size={24} />
-          <span>Country</span>
-        </SidebarItem>
-      </SidebarGroup>
-    </ScrollArea>
-    <SidebarFooter>
-      <HStack style={{ alignItems: "center" }}>
-        <Avatar>
-          <AvatarImage src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=facearea&w=64&h=64&facepad=2" />
-          <AvatarFallback>JD</AvatarFallback>
-        </Avatar>
-        <span>John Doe</span>
-      </HStack>
-    </SidebarFooter>
-  </Sidebar>
-);
+        </SidebarGroup>
+        <SidebarGroup>
+          <SidebarGroupTrigger>
+            <Contact2Icon size={24} />
+            <span>My Library</span>
+            <SidebarGroupExpand />
+          </SidebarGroupTrigger>
+          <SidebarGroupItems>
+            <SidebarItem>
+              <PlaySquareIcon size={24} />
+              <span>Recently played</span>
+            </SidebarItem>
+            <SidebarItem>
+              <BoxesIcon size={24} />
+              <span>Albums</span>
+            </SidebarItem>
+            <SidebarItem>
+              <Radio size={24} />
+              <span>Artists</span>
+            </SidebarItem>
+          </SidebarGroupItems>
+        </SidebarGroup>
+      </SidebarSection>
+      <SidebarGroupHeader>Genres</SidebarGroupHeader>
+      <ScrollArea style={{ height: "var(--spacing-48)" }}>
+        <SidebarGroup>
+          <SidebarItem>
+            <PlaySquareIcon size={24} />
+            <span>Pop</span>
+          </SidebarItem>
+          <SidebarItem>
+            <PlaySquareIcon size={24} />
+            <span>Rock</span>
+          </SidebarItem>
+          <SidebarItem>
+            <PlaySquareIcon size={24} />
+            <span>Electronic</span>
+          </SidebarItem>
+          <SidebarItem>
+            <PlaySquareIcon size={24} />
+            <span>Classical</span>
+          </SidebarItem>
+          <SidebarItem>
+            <PlaySquareIcon size={24} />
+            <span>Jazz</span>
+          </SidebarItem>
+          <SidebarItem>
+            <PlaySquareIcon size={24} />
+            <span>Blues</span>
+          </SidebarItem>
+          <SidebarItem>
+            <PlaySquareIcon size={24} />
+            <span>Country</span>
+          </SidebarItem>
+        </SidebarGroup>
+      </ScrollArea>
+      <SidebarFooter>
+        <HStack style={{ alignItems: "center" }}>
+          <Avatar>
+            <AvatarImage src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=facearea&w=64&h=64&facepad=2" />
+            <AvatarFallback>JD</AvatarFallback>
+          </Avatar>
+          <span>John Doe</span>
+        </HStack>
+      </SidebarFooter>
+    </Sidebar>
+  ),
+};
 
 const Logo: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
   return (

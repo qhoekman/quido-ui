@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/features/application/components/table/table";
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 const invoices = [
   {
@@ -60,75 +60,79 @@ export default {
   component: Table,
 } satisfies Meta<typeof Table>;
 
-export const Default: StoryFn<typeof Table> = (args) => (
-  <Table {...args}>
-    <TableCaption>A list of your recent invoices.</TableCaption>
-    <TableHeader>
-      <TableRow>
-        <TableHead style={{ width: "var(--spacing-24)" }}>Invoice</TableHead>
-        <TableHead>Status</TableHead>
-        <TableHead>Method</TableHead>
-        <TableHead style={{ textAlign: "right" }}>Amount</TableHead>
-      </TableRow>
-    </TableHeader>
-    <TableBody>
-      {invoices.map((invoice) => (
-        <TableRow key={invoice.invoice}>
-          <TableCell style={{ fontWeight: "var(--font-weight-medium)" }}>
-            {invoice.invoice}
-          </TableCell>
-          <TableCell>{invoice.paymentStatus}</TableCell>
-          <TableCell>{invoice.paymentMethod}</TableCell>
-          <TableCell style={{ textAlign: "right" }}>
-            {invoice.totalAmount}
-          </TableCell>
+export const Default: StoryObj<typeof Table> = {
+  render: (args) => (
+    <Table {...args}>
+      <TableCaption>A list of your recent invoices.</TableCaption>
+      <TableHeader>
+        <TableRow>
+          <TableHead style={{ width: "var(--spacing-24)" }}>Invoice</TableHead>
+          <TableHead>Status</TableHead>
+          <TableHead>Method</TableHead>
+          <TableHead style={{ textAlign: "right" }}>Amount</TableHead>
         </TableRow>
-      ))}
-    </TableBody>
-    <TableFooter>
-      <TableRow>
-        <TableCell colSpan={3}>Total</TableCell>
-        <TableCell style={{ textAlign: "right" }}>$2,500.00</TableCell>
-      </TableRow>
-    </TableFooter>
-  </Table>
-);
+      </TableHeader>
+      <TableBody>
+        {invoices.map((invoice) => (
+          <TableRow key={invoice.invoice}>
+            <TableCell style={{ fontWeight: "var(--font-weight-medium)" }}>
+              {invoice.invoice}
+            </TableCell>
+            <TableCell>{invoice.paymentStatus}</TableCell>
+            <TableCell>{invoice.paymentMethod}</TableCell>
+            <TableCell style={{ textAlign: "right" }}>
+              {invoice.totalAmount}
+            </TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+      <TableFooter>
+        <TableRow>
+          <TableCell colSpan={3}>Total</TableCell>
+          <TableCell style={{ textAlign: "right" }}>$2,500.00</TableCell>
+        </TableRow>
+      </TableFooter>
+    </Table>
+  ),
+};
 
-export const WithSelectedRow: StoryFn<typeof Table> = (args) => (
-  <Table {...args}>
-    <TableCaption>
-      A list of your recent invoices with selected row.
-    </TableCaption>
-    <TableHeader>
-      <TableRow>
-        <TableHead style={{ width: "var(--spacing-24)" }}>Invoice</TableHead>
-        <TableHead>Status</TableHead>
-        <TableHead>Method</TableHead>
-        <TableHead style={{ textAlign: "right" }}>Amount</TableHead>
-      </TableRow>
-    </TableHeader>
-    <TableBody>
-      {invoices.map((invoice, index) => (
-        <TableRow
-          key={invoice.invoice}
-          data-state={index === 2 ? "selected" : undefined}
-        >
-          <TableCell style={{ fontWeight: "var(--font-weight-medium)" }}>
-            {invoice.invoice}
-          </TableCell>
-          <TableCell>{invoice.paymentStatus}</TableCell>
-          <TableCell>{invoice.paymentMethod}</TableCell>
-          <TableCell style={{ textAlign: "right" }}>
-            {invoice.totalAmount}
-          </TableCell>
+export const WithSelectedRow: StoryObj<typeof Table> = {
+  render: (args) => (
+    <Table {...args}>
+      <TableCaption>
+        A list of your recent invoices with selected row.
+      </TableCaption>
+      <TableHeader>
+        <TableRow>
+          <TableHead style={{ width: "var(--spacing-24)" }}>Invoice</TableHead>
+          <TableHead>Status</TableHead>
+          <TableHead>Method</TableHead>
+          <TableHead style={{ textAlign: "right" }}>Amount</TableHead>
         </TableRow>
-      ))}
-    </TableBody>
-    <TableFooter>
-      <TableRow>
-        <TableCell colSpan={3}>Total</TableCell>
-        <TableCell style={{ textAlign: "right" }}>$2,500.00</TableCell>
-      </TableRow>
-    </TableFooter>
-  </Table>
-);
+      </TableHeader>
+      <TableBody>
+        {invoices.map((invoice, index) => (
+          <TableRow
+            key={invoice.invoice}
+            data-state={index === 2 ? "selected" : undefined}
+          >
+            <TableCell style={{ fontWeight: "var(--font-weight-medium)" }}>
+              {invoice.invoice}
+            </TableCell>
+            <TableCell>{invoice.paymentStatus}</TableCell>
+            <TableCell>{invoice.paymentMethod}</TableCell>
+            <TableCell style={{ textAlign: "right" }}>
+              {invoice.totalAmount}
+            </TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+      <TableFooter>
+        <TableRow>
+          <TableCell colSpan={3}>Total</TableCell>
+          <TableCell style={{ textAlign: "right" }}>$2,500.00</TableCell>
+        </TableRow>
+      </TableFooter>
+    </Table>
+  ),
+};

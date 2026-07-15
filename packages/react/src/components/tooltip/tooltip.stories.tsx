@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from "@storybook/react-vite";
+import { StoryObj, Meta } from "@storybook/react-vite";
 
 import {
   Tooltip,
@@ -58,29 +58,25 @@ export default {
   },
 } satisfies Meta<typeof Tooltip>;
 
-export const Default: StoryFn<typeof Tooltip> = ({
-  side,
-  sideOffset,
-  align,
-  alignOffset,
-  ...tooltipArgs
-}) => (
-  <TooltipProvider>
-    <Tooltip {...tooltipArgs}>
-      <TooltipTrigger>
-        <Button variant="ghost" size="sm">
-          Hover
-        </Button>
-      </TooltipTrigger>
-      <TooltipContent
-        side={side}
-        sideOffset={sideOffset}
-        align={align}
-        alignOffset={alignOffset}
-      >
-        <TooltipArrow style={{ fill: "var(--color-popover)" }} />
-        <p>Add to library</p>
-      </TooltipContent>
-    </Tooltip>
-  </TooltipProvider>
-);
+export const Default: StoryObj<typeof Tooltip> = {
+  render: ({ side, sideOffset, align, alignOffset, ...tooltipArgs }) => (
+    <TooltipProvider>
+      <Tooltip {...tooltipArgs}>
+        <TooltipTrigger>
+          <Button variant="ghost" size="sm">
+            Hover
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent
+          side={side}
+          sideOffset={sideOffset}
+          align={align}
+          alignOffset={alignOffset}
+        >
+          <TooltipArrow style={{ fill: "var(--color-popover)" }} />
+          <p>Add to library</p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  ),
+};

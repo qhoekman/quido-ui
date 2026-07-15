@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 import { WireframeSphereBackground } from "./wireframe-sphere-background";
 
@@ -14,8 +14,10 @@ export default {
   },
 } satisfies Meta<typeof WireframeSphereBackground>;
 
-export const Default: StoryFn<typeof WireframeSphereBackground> = (args) => (
-  <div style={{ width: "100vw", height: "100vh" }}>
-    <WireframeSphereBackground {...args} />
-  </div>
-);
+export const Default: StoryObj<typeof WireframeSphereBackground> = {
+  render: (args) => (
+    <div style={{ width: "100vw", height: "100vh" }}>
+      <WireframeSphereBackground {...args} />
+    </div>
+  ),
+};

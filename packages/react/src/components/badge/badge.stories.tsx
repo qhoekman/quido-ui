@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 import { Badge } from "./badge";
 import { HStack } from "../hstack/hstack";
@@ -22,24 +22,30 @@ export default {
   },
 } satisfies Meta<typeof Badge>;
 
-export const Default: StoryFn<typeof Badge> = (args) => (
-  <div>
-    Notifications
-    <Badge {...args}>3</Badge>
-  </div>
-);
+export const Default: StoryObj<typeof Badge> = {
+  render: (args) => (
+    <div>
+      Notifications
+      <Badge {...args}>3</Badge>
+    </div>
+  ),
+};
 
-export const WithText: StoryFn<typeof Badge> = (args) => (
-  <div>
-    Messages
-    <Badge {...args}>99+</Badge>
-  </div>
-);
+export const WithText: StoryObj<typeof Badge> = {
+  render: (args) => (
+    <div>
+      Messages
+      <Badge {...args}>99+</Badge>
+    </div>
+  ),
+};
 
-export const Sizes: StoryFn<typeof Badge> = () => (
-  <HStack>
-    <Badge size="sm">5</Badge>
-    <Badge size="md">12</Badge>
-    <Badge size="lg">42</Badge>
-  </HStack>
-);
+export const Sizes: StoryObj<typeof Badge> = {
+  render: () => (
+    <HStack>
+      <Badge size="sm">5</Badge>
+      <Badge size="md">12</Badge>
+      <Badge size="lg">42</Badge>
+    </HStack>
+  ),
+};

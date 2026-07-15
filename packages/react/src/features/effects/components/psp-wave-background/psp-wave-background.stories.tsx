@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 import { PspWaveBackground } from "./psp-wave-background";
 
@@ -14,8 +14,10 @@ export default {
   },
 } satisfies Meta<typeof PspWaveBackground>;
 
-export const Default: StoryFn<typeof PspWaveBackground> = (args) => (
-  <div style={{ width: "100vw", height: "100vh" }}>
-    <PspWaveBackground {...args} />
-  </div>
-);
+export const Default: StoryObj<typeof PspWaveBackground> = {
+  render: (args) => (
+    <div style={{ width: "100vw", height: "100vh" }}>
+      <PspWaveBackground {...args} />
+    </div>
+  ),
+};

@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 import { OceanLightsBackground } from "./ocean-lights-background";
 
@@ -14,8 +14,10 @@ export default {
   },
 } satisfies Meta<typeof OceanLightsBackground>;
 
-export const Default: StoryFn<typeof OceanLightsBackground> = (args) => (
-  <div style={{ width: "100vw", height: "100vh" }}>
-    <OceanLightsBackground {...args} />
-  </div>
-);
+export const Default: StoryObj<typeof OceanLightsBackground> = {
+  render: (args) => (
+    <div style={{ width: "100vw", height: "100vh" }}>
+      <OceanLightsBackground {...args} />
+    </div>
+  ),
+};
