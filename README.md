@@ -29,7 +29,8 @@ Follow these steps to get started with our UI Components Library:
 
 ### Prerequisites
 
-Ensure you have PNPM installed on your system. If not, you can install it by running:
+- **Node.js 20.19+** (required by Storybook 10). If you use nvm, run `nvm use` from the repo root (see `.nvmrc`).
+- **PNPM** for package management. If not installed:
 
 ```bash
 npm install -g pnpm
