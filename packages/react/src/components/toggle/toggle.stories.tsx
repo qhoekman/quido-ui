@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from "@storybook/react-vite";
+import { StoryObj, Meta } from "@storybook/react-vite";
 
 import { Toggle } from "./toggle";
 
@@ -25,11 +25,14 @@ export default {
   },
 } satisfies Meta<typeof Toggle>;
 
-export const Default: StoryFn<typeof Toggle> = (args) => (
-  <form>
-    <Toggle {...args}>Toggle</Toggle>
-  </form>
-);
-Default.args = {
-  onPressedChange: (pressed: boolean) => console.log(pressed),
+export const Default: StoryObj<typeof Toggle> = {
+  render: (args) => (
+    <form>
+      <Toggle {...args}>Toggle</Toggle>
+    </form>
+  ),
+
+  args: {
+    onPressedChange: (pressed: boolean) => console.log(pressed),
+  },
 };

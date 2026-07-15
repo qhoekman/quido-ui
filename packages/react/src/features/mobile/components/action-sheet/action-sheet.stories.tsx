@@ -9,7 +9,7 @@ import {
   ActionSheetTrigger,
 } from "@/features/mobile/components/action-sheet/action-sheet";
 import { ListButton } from "@/features/mobile/components/list-button/list-button";
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 export default {
   title: "Features/Mobile/Components/Action Sheet",
@@ -45,45 +45,47 @@ export default {
   },
 } satisfies Meta<typeof ActionSheet>;
 
-export const Default: StoryFn<typeof ActionSheet> = (args) => (
-  <ActionSheet {...args}>
-    <ActionSheetTrigger asChild>
-      <Button variant="outline">Open ActionSheet</Button>
-    </ActionSheetTrigger>
-    <ActionSheetContent>
-      <div
-        style={{
-          margin: "0 auto",
-          width: "100%",
-          maxWidth: "var(--spacing-sm)",
-        }}
-      >
-        <ActionSheetHeader>
-          <ActionSheetTitle>Choose action</ActionSheetTitle>
-          <ActionSheetDescription>
-            Pick one of the following actions.
-          </ActionSheetDescription>
-        </ActionSheetHeader>
-        <ul>
-          {Array.from({ length: 5 }).map((_, index) => (
-            <li key={index}>
-              <ListButton>
-                <span>Item {index + 1}</span>
-              </ListButton>
-            </li>
-          ))}
-        </ul>
-        <ActionSheetFooter>
-          <Button variant="outline">Cancel</Button>
-        </ActionSheetFooter>
-      </div>
-    </ActionSheetContent>
-  </ActionSheet>
-);
+export const Default: StoryObj<typeof ActionSheet> = {
+  render: (args) => (
+    <ActionSheet {...args}>
+      <ActionSheetTrigger asChild>
+        <Button variant="outline">Open ActionSheet</Button>
+      </ActionSheetTrigger>
+      <ActionSheetContent>
+        <div
+          style={{
+            margin: "0 auto",
+            width: "100%",
+            maxWidth: "var(--spacing-sm)",
+          }}
+        >
+          <ActionSheetHeader>
+            <ActionSheetTitle>Choose action</ActionSheetTitle>
+            <ActionSheetDescription>
+              Pick one of the following actions.
+            </ActionSheetDescription>
+          </ActionSheetHeader>
+          <ul>
+            {Array.from({ length: 5 }).map((_, index) => (
+              <li key={index}>
+                <ListButton>
+                  <span>Item {index + 1}</span>
+                </ListButton>
+              </li>
+            ))}
+          </ul>
+          <ActionSheetFooter>
+            <Button variant="outline">Cancel</Button>
+          </ActionSheetFooter>
+        </div>
+      </ActionSheetContent>
+    </ActionSheet>
+  ),
 
-Default.parameters = {
-  layout: "fullscreen",
-  viewport: {
-    defaultViewport: "mobile2",
+  parameters: {
+    layout: "fullscreen",
+    viewport: {
+      defaultViewport: "mobile2",
+    },
   },
 };

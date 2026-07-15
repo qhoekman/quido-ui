@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 import { AbstractRectanglesBackground } from "./abstract-rectangles-background";
 
@@ -14,8 +14,10 @@ export default {
   },
 } satisfies Meta<typeof AbstractRectanglesBackground>;
 
-export const Default: StoryFn<typeof AbstractRectanglesBackground> = (args) => (
-  <div style={{ width: "100vw", height: "100vh" }}>
-    <AbstractRectanglesBackground {...args} />
-  </div>
-);
+export const Default: StoryObj<typeof AbstractRectanglesBackground> = {
+  render: (args) => (
+    <div style={{ width: "100vw", height: "100vh" }}>
+      <AbstractRectanglesBackground {...args} />
+    </div>
+  ),
+};

@@ -5,7 +5,7 @@ import {
   ReelItem,
   ReelItems,
 } from "@/features/ecommerce/components/reel/reel";
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 export default {
   title: "Features/Ecommerce/Components/Reel",
@@ -27,21 +27,23 @@ const unsplashImages = [
   "https://images.unsplash.com/photo-1515955656352-a1da3d7d4b90?w=160&h=160&fit=crop",
 ];
 
-export const Default: StoryFn<typeof Reel> = (args) => (
-  <div style={{ maxWidth: "var(--spacing-5xl)", width: "100%" }}>
-    <Reel {...args}>
-      <ReelButtonPrevious />
-      <ReelItems>
-        {Array.from({ length: 30 }).map((_, index) => (
-          <ReelItem key={index}>
-            <img
-              src={unsplashImages[index % unsplashImages.length]}
-              alt={`Product ${index + 1}`}
-            />
-          </ReelItem>
-        ))}
-      </ReelItems>
-      <ReelButtonNext />
-    </Reel>
-  </div>
-);
+export const Default: StoryObj<typeof Reel> = {
+  render: (args) => (
+    <div style={{ maxWidth: "var(--spacing-5xl)", width: "100%" }}>
+      <Reel {...args}>
+        <ReelButtonPrevious />
+        <ReelItems>
+          {Array.from({ length: 30 }).map((_, index) => (
+            <ReelItem key={index}>
+              <img
+                src={unsplashImages[index % unsplashImages.length]}
+                alt={`Product ${index + 1}`}
+              />
+            </ReelItem>
+          ))}
+        </ReelItems>
+        <ReelButtonNext />
+      </Reel>
+    </div>
+  ),
+};

@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from "@storybook/react-vite";
+import { StoryObj, Meta } from "@storybook/react-vite";
 
 import { ToggleGroup, ToggleGroupItem } from "./toggle-group";
 
@@ -26,10 +26,12 @@ export default {
   },
 } satisfies Meta<typeof ToggleGroup>;
 
-export const Default: StoryFn<typeof ToggleGroup> = (args) => (
-  <ToggleGroup {...args}>
-    <ToggleGroupItem value="a">A</ToggleGroupItem>
-    <ToggleGroupItem value="b">B</ToggleGroupItem>
-    <ToggleGroupItem value="c">C</ToggleGroupItem>
-  </ToggleGroup>
-);
+export const Default: StoryObj<typeof ToggleGroup> = {
+  render: (args) => (
+    <ToggleGroup {...args}>
+      <ToggleGroupItem value="a">A</ToggleGroupItem>
+      <ToggleGroupItem value="b">B</ToggleGroupItem>
+      <ToggleGroupItem value="c">C</ToggleGroupItem>
+    </ToggleGroup>
+  ),
+};

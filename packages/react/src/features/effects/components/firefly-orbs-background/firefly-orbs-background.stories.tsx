@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 import { FireflyOrbsBackground } from "./firefly-orbs-background";
 
@@ -14,8 +14,10 @@ export default {
   },
 } satisfies Meta<typeof FireflyOrbsBackground>;
 
-export const Default: StoryFn<typeof FireflyOrbsBackground> = (args) => (
-  <div style={{ width: "100vw", height: "100vh" }}>
-    <FireflyOrbsBackground {...args} />
-  </div>
-);
+export const Default: StoryObj<typeof FireflyOrbsBackground> = {
+  render: (args) => (
+    <div style={{ width: "100vw", height: "100vh" }}>
+      <FireflyOrbsBackground {...args} />
+    </div>
+  ),
+};

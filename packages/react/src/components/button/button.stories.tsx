@@ -1,5 +1,5 @@
 import { Button } from "@/components/button/button";
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 export default {
   title: "Components/Actions/Button",
@@ -41,12 +41,13 @@ export default {
   },
 } satisfies Meta<typeof Button>;
 
-export const Default: StoryFn<typeof Button> = (args) => (
-  <Button {...args}>Click me</Button>
-);
-Default.parameters = {
-  design: {
-    type: "figma",
-    url: "https://www.figma.com/file/CGNRrXlC5k58xCRDrtUY8X/Company-Fit?type=design&node-id=13%3A1070&mode=design&t=Arpslje2USvZF9R2-1",
+export const Default: StoryObj<typeof Button> = {
+  render: (args) => <Button {...args}>Click me</Button>,
+
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/CGNRrXlC5k58xCRDrtUY8X/Company-Fit?type=design&node-id=13%3A1070&mode=design&t=Arpslje2USvZF9R2-1",
+    },
   },
 };

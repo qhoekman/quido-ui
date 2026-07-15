@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 import { AbstractCirclesBackground } from "./abstract-circles-background";
 
@@ -14,8 +14,10 @@ export default {
   },
 } satisfies Meta<typeof AbstractCirclesBackground>;
 
-export const Default: StoryFn<typeof AbstractCirclesBackground> = (args) => (
-  <div style={{ width: "100vw", height: "100vh" }}>
-    <AbstractCirclesBackground {...args} />
-  </div>
-);
+export const Default: StoryObj<typeof AbstractCirclesBackground> = {
+  render: (args) => (
+    <div style={{ width: "100vw", height: "100vh" }}>
+      <AbstractCirclesBackground {...args} />
+    </div>
+  ),
+};

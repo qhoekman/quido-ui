@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 import { CorridorGridBackground } from "./corridor-grid-background";
 
@@ -14,8 +14,10 @@ export default {
   },
 } satisfies Meta<typeof CorridorGridBackground>;
 
-export const Default: StoryFn<typeof CorridorGridBackground> = (args) => (
-  <div style={{ width: "100vw", height: "100vh" }}>
-    <CorridorGridBackground {...args} />
-  </div>
-);
+export const Default: StoryObj<typeof CorridorGridBackground> = {
+  render: (args) => (
+    <div style={{ width: "100vw", height: "100vh" }}>
+      <CorridorGridBackground {...args} />
+    </div>
+  ),
+};

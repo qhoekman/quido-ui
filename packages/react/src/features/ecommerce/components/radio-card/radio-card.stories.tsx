@@ -4,7 +4,7 @@ import {
   RadioCardItemDescription,
   RadioCardItemLabel,
 } from "@/features/ecommerce/components/radio-card/radio-card";
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 export default {
   title: "Features/Ecommerce/Components/Radio Card",
@@ -50,48 +50,52 @@ export default {
 const sizes = ["xs", "sm", "md", "lg", "xl"];
 const deliveryMethods = ["Standard", "Next Day"];
 
-export const Default: StoryFn<typeof RadioCard> = (args) => (
-  <div style={{ maxWidth: "var(--spacing-md)", width: "100%" }}>
-    <RadioCard style={{ gridTemplateColumns: "repeat(6, 1fr)" }} {...args}>
-      {sizes.map((size) => (
-        <RadioCardItem
-          value={size}
-          id={`opt-${size}`}
-          key={size}
-          disabled={size === "xs"}
-        >
-          <RadioCardItemLabel htmlFor={`opt-${size}`}>
-            {size.toUpperCase()}
-          </RadioCardItemLabel>
-        </RadioCardItem>
-      ))}
-    </RadioCard>
-  </div>
-);
+export const Default: StoryObj<typeof RadioCard> = {
+  render: (args) => (
+    <div style={{ maxWidth: "var(--spacing-md)", width: "100%" }}>
+      <RadioCard style={{ gridTemplateColumns: "repeat(6, 1fr)" }} {...args}>
+        {sizes.map((size) => (
+          <RadioCardItem
+            value={size}
+            id={`opt-${size}`}
+            key={size}
+            disabled={size === "xs"}
+          >
+            <RadioCardItemLabel htmlFor={`opt-${size}`}>
+              {size.toUpperCase()}
+            </RadioCardItemLabel>
+          </RadioCardItem>
+        ))}
+      </RadioCard>
+    </div>
+  ),
+};
 
-export const Large: StoryFn<typeof RadioCard> = (args) => (
-  <div
-    style={{
-      maxWidth: "var(--spacing-48)",
-    }}
-  >
-    <RadioCard style={{ gridTemplateColumns: "repeat(2, 1fr)" }} {...args}>
-      {deliveryMethods.map((size) => (
-        <RadioCardItem
-          value={size}
-          id={`opt-${size}`}
-          key={size}
-          style={{ alignItems: "flex-start" }}
-          disabled={size === "Standard"}
-        >
-          <RadioCardItemLabel htmlFor={`opt-${size}`}>
-            {size.toUpperCase()}
-          </RadioCardItemLabel>
-          <RadioCardItemDescription>
-            Get it in 3-5 business days
-          </RadioCardItemDescription>
-        </RadioCardItem>
-      ))}
-    </RadioCard>
-  </div>
-);
+export const Large: StoryObj<typeof RadioCard> = {
+  render: (args) => (
+    <div
+      style={{
+        maxWidth: "var(--spacing-48)",
+      }}
+    >
+      <RadioCard style={{ gridTemplateColumns: "repeat(2, 1fr)" }} {...args}>
+        {deliveryMethods.map((size) => (
+          <RadioCardItem
+            value={size}
+            id={`opt-${size}`}
+            key={size}
+            style={{ alignItems: "flex-start" }}
+            disabled={size === "Standard"}
+          >
+            <RadioCardItemLabel htmlFor={`opt-${size}`}>
+              {size.toUpperCase()}
+            </RadioCardItemLabel>
+            <RadioCardItemDescription>
+              Get it in 3-5 business days
+            </RadioCardItemDescription>
+          </RadioCardItem>
+        ))}
+      </RadioCard>
+    </div>
+  ),
+};

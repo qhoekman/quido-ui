@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 import { IsometricCubeBackground } from "./isometric-cube-background";
 
@@ -14,8 +14,10 @@ export default {
   },
 } satisfies Meta<typeof IsometricCubeBackground>;
 
-export const Default: StoryFn<typeof IsometricCubeBackground> = (args) => (
-  <div style={{ width: "100vw", height: "100vh" }}>
-    <IsometricCubeBackground {...args} />
-  </div>
-);
+export const Default: StoryObj<typeof IsometricCubeBackground> = {
+  render: (args) => (
+    <div style={{ width: "100vw", height: "100vh" }}>
+      <IsometricCubeBackground {...args} />
+    </div>
+  ),
+};

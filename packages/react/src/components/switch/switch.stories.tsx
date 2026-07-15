@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from "@storybook/react-vite";
+import { StoryObj, Meta } from "@storybook/react-vite";
 
 import { Switch } from "./switch";
 import { useState } from "react";
@@ -33,11 +33,13 @@ export default {
   },
 } satisfies Meta<typeof Switch>;
 
-export const Default: StoryFn<typeof Switch> = (args) => {
-  const [checked, setChecked] = useState(args.checked ?? false);
-  return (
-    <form>
-      <Switch {...args} checked={checked} onCheckedChange={setChecked} />
-    </form>
-  );
+export const Default: StoryObj<typeof Switch> = {
+  render: (args) => {
+    const [checked, setChecked] = useState(args.checked ?? false);
+    return (
+      <form>
+        <Switch {...args} checked={checked} onCheckedChange={setChecked} />
+      </form>
+    );
+  },
 };

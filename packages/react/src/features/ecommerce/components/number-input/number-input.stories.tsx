@@ -1,5 +1,5 @@
 import { NumberInput } from "@/features/ecommerce/components/number-input/number-input";
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 export default {
   title: "Features/Ecommerce/Components/Number Input",
@@ -30,11 +30,14 @@ export default {
   },
 } satisfies Meta<typeof NumberInput>;
 
-export const Default: StoryFn<typeof NumberInput> = (args) => (
-  <form>
-    <NumberInput {...args} />
-  </form>
-);
-Default.args = {
-  value: 1,
+export const Default: StoryObj<typeof NumberInput> = {
+  render: (args) => (
+    <form>
+      <NumberInput {...args} />
+    </form>
+  ),
+
+  args: {
+    value: 1,
+  },
 };

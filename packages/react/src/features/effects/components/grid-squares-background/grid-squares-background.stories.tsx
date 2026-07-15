@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 import { GridSquaresBackground } from "./grid-squares-background";
 
@@ -14,8 +14,10 @@ export default {
   },
 } satisfies Meta<typeof GridSquaresBackground>;
 
-export const Default: StoryFn<typeof GridSquaresBackground> = (args) => (
-  <div style={{ width: "100vw", height: "100vh" }}>
-    <GridSquaresBackground {...args} />
-  </div>
-);
+export const Default: StoryObj<typeof GridSquaresBackground> = {
+  render: (args) => (
+    <div style={{ width: "100vw", height: "100vh" }}>
+      <GridSquaresBackground {...args} />
+    </div>
+  ),
+};
