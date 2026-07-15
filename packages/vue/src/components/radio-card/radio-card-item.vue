@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { RadioGroupItem, RadioGroupItemIndicator } from "reka-ui";
+import { RadioGroupItem, RadioGroupIndicator } from "reka-ui";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const radioCardItemVariants = cva("q-radio-card-item", {
@@ -35,9 +35,9 @@ const classes = computed(() => {
     v-bind="$attrs"
   >
     <slot />
-    <RadioGroupItemIndicator :class="['q-radio-card-item-indicator']">
+    <RadioGroupIndicator :class="['q-radio-card-item-indicator']">
       <div />
-    </RadioGroupItemIndicator>
+    </RadioGroupIndicator>
   </RadioGroupItem>
 </template>
 
