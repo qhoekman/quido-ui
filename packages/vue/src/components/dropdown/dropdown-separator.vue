@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MenuSeparator as RekaMenuSeparator } from 'reka-ui'
+import { DropdownMenuSeparator as RekaDropdownMenuSeparator } from 'reka-ui'
 
 export interface DropdownSeparatorProps {
   asChild?: boolean
@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<DropdownSeparatorProps>(), {
 </script>
 
 <template>
-  <RekaMenuSeparator
+  <RekaDropdownMenuSeparator
     :as-child="asChild"
     :as="as"
     :class="['q-dropdown-separator']"

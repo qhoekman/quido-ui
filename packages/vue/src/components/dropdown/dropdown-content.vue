@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { MenuContent as RekaMenuContent, MenuPortal } from 'reka-ui'
+import { DropdownMenuContent as RekaDropdownMenuContent, DropdownMenuPortal } from 'reka-ui'
 
 export interface DropdownContentProps {
   sideOffset?: number
@@ -18,8 +18,8 @@ const props = withDefaults(defineProps<DropdownContentProps>(), {
 </script>
 
 <template>
-  <MenuPortal>
-    <RekaMenuContent
+  <DropdownMenuPortal>
+    <RekaDropdownMenuContent
       :side-offset="sideOffset"
       :force-mount="forceMount"
       :as-child="asChild"
@@ -28,8 +28,8 @@ const props = withDefaults(defineProps<DropdownContentProps>(), {
       v-bind="$attrs"
     >
       <slot />
-    </RekaMenuContent>
-  </MenuPortal>
+    </RekaDropdownMenuContent>
+  </DropdownMenuPortal>
 </template>
 
 <style scoped>

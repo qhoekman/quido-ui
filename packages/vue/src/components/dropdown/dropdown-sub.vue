@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MenuSub as RekaMenuSub } from 'reka-ui'
+import { DropdownMenuSub as RekaDropdownMenuSub } from 'reka-ui'
 
 export interface DropdownSubProps {
   defaultOpen?: boolean
@@ -20,7 +20,7 @@ const handleOpenChange = (open: boolean) => {
 </script>
 
 <template>
-  <RekaMenuSub
+  <RekaDropdownMenuSub
     :default-open="defaultOpen"
     :open="open"
     :class="['q-dropdown-sub']"
@@ -28,7 +28,7 @@ const handleOpenChange = (open: boolean) => {
     v-bind="$attrs"
   >
     <slot />
-  </RekaMenuSub>
+  </RekaDropdownMenuSub>
 </template>
 
 <style scoped>
