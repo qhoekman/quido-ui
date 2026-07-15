@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MenuTrigger as RekaMenuTrigger } from 'reka-ui'
+import { DropdownMenuTrigger as RekaDropdownMenuTrigger } from 'reka-ui'
 
 export interface DropdownMenuTriggerProps {
   asChild?: boolean
@@ -13,14 +13,14 @@ const props = withDefaults(defineProps<DropdownMenuTriggerProps>(), {
 </script>
 
 <template>
-  <RekaMenuTrigger
+  <RekaDropdownMenuTrigger
     :as-child="asChild"
     :as="as"
     :class="['q-dropdown-menu-trigger']"
     v-bind="$attrs"
   >
     <slot />
-  </RekaMenuTrigger>
+  </RekaDropdownMenuTrigger>
 </template>
 
 <style scoped>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MenuRadioGroup as RekaMenuRadioGroup } from 'reka-ui'
+import { DropdownMenuRadioGroup as RekaDropdownMenuRadioGroup } from 'reka-ui'
 
 export interface DropdownMenuRadioGroupProps {
   value?: string
@@ -23,7 +23,7 @@ const handleValueChange = (value: string) => {
 </script>
 
 <template>
-  <RekaMenuRadioGroup
+  <RekaDropdownMenuRadioGroup
     :value="value"
     :default-value="defaultValue"
     :as-child="asChild"
@@ -33,7 +33,7 @@ const handleValueChange = (value: string) => {
     v-bind="$attrs"
   >
     <slot />
-  </RekaMenuRadioGroup>
+  </RekaDropdownMenuRadioGroup>
 </template>
 
 <style scoped>

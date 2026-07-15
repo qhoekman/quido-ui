@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MenuRadioItem as RekaMenuRadioItem, MenuItemIndicator } from 'reka-ui'
+import { DropdownMenuRadioItem as RekaDropdownMenuRadioItem, DropdownMenuItemIndicator } from 'reka-ui'
 import { Circle } from 'lucide-vue-next'
 
 export interface DropdownMenuRadioItemProps {
@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<DropdownMenuRadioItemProps>(), {
 </script>
 
 <template>
-  <RekaMenuRadioItem
+  <RekaDropdownMenuRadioItem
     :value="value"
     :disabled="disabled"
     :as-child="asChild"
@@ -26,12 +26,12 @@ const props = withDefaults(defineProps<DropdownMenuRadioItemProps>(), {
     v-bind="$attrs"
   >
     <span class="q-dropdown-menu-radio-indicator">
-      <MenuItemIndicator>
+      <DropdownMenuItemIndicator>
         <Circle :size="8" class="q-dropdown-menu-radio-icon" />
-      </MenuItemIndicator>
+      </DropdownMenuItemIndicator>
     </span>
     <slot />
-  </RekaMenuRadioItem>
+  </RekaDropdownMenuRadioItem>
 </template>
 
 <style scoped>

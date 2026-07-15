@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { MenuLabel as RekaMenuLabel } from 'reka-ui'
+import { DropdownMenuLabel as RekaDropdownMenuLabel } from 'reka-ui'
 
 export interface DropdownMenuLabelProps {
   inset?: boolean
@@ -25,14 +25,14 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <RekaMenuLabel
+  <RekaDropdownMenuLabel
     :as-child="asChild"
     :as="as"
     :class="classes"
     v-bind="$attrs"
   >
     <slot />
-  </RekaMenuLabel>
+  </RekaDropdownMenuLabel>
 </template>
 
 <style scoped>

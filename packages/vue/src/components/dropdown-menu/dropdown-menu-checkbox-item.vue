@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MenuCheckboxItem as RekaMenuCheckboxItem, MenuItemIndicator } from 'reka-ui'
+import { DropdownMenuCheckboxItem as RekaDropdownMenuCheckboxItem, DropdownMenuItemIndicator } from 'reka-ui'
 import { Check } from 'lucide-vue-next'
 
 export interface DropdownMenuCheckboxItemProps {
@@ -18,7 +18,7 @@ const props = withDefaults(defineProps<DropdownMenuCheckboxItemProps>(), {
 </script>
 
 <template>
-  <RekaMenuCheckboxItem
+  <RekaDropdownMenuCheckboxItem
     :checked="checked"
     :disabled="disabled"
     :as-child="asChild"
@@ -27,12 +27,12 @@ const props = withDefaults(defineProps<DropdownMenuCheckboxItemProps>(), {
     v-bind="$attrs"
   >
     <span class="q-dropdown-menu-checkbox-indicator">
-      <MenuItemIndicator>
+      <DropdownMenuItemIndicator>
         <Check :size="16" class="q-dropdown-menu-checkbox-icon" />
-      </MenuItemIndicator>
+      </DropdownMenuItemIndicator>
     </span>
     <slot />
-  </RekaMenuCheckboxItem>
+  </RekaDropdownMenuCheckboxItem>
 </template>
 
 <style scoped>

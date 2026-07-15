@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MenuRoot } from 'reka-ui'
+import { DropdownMenuRoot } from 'reka-ui'
 
 export interface DropdownMenuProps {
   defaultOpen?: boolean
@@ -23,7 +23,7 @@ const handleOpenChange = (open: boolean) => {
 </script>
 
 <template>
-  <MenuRoot
+  <DropdownMenuRoot
     :default-open="defaultOpen"
     :open="open"
     :modal="modal"
@@ -33,7 +33,7 @@ const handleOpenChange = (open: boolean) => {
     v-bind="$attrs"
   >
     <slot />
-  </MenuRoot>
+  </DropdownMenuRoot>
 </template>
 
 <style scoped>

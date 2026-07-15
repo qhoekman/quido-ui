@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MenuSubContent as RekaMenuSubContent } from 'reka-ui'
+import { DropdownMenuSubContent as RekaDropdownMenuSubContent } from 'reka-ui'
 
 export interface DropdownMenuSubContentProps {
   forceMount?: boolean
@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<DropdownMenuSubContentProps>(), {
 </script>
 
 <template>
-  <RekaMenuSubContent
+  <RekaDropdownMenuSubContent
     :force-mount="forceMount"
     :as-child="asChild"
     :as="as"
@@ -23,7 +23,7 @@ const props = withDefaults(defineProps<DropdownMenuSubContentProps>(), {
     v-bind="$attrs"
   >
     <slot />
-  </RekaMenuSubContent>
+  </RekaDropdownMenuSubContent>
 </template>
 
 <style scoped>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { MenuSubTrigger as RekaMenuSubTrigger } from 'reka-ui'
+import { DropdownMenuSubTrigger as RekaDropdownMenuSubTrigger } from 'reka-ui'
 import { ChevronRight } from 'lucide-vue-next'
 
 export interface DropdownMenuSubTriggerProps {
@@ -26,7 +26,7 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <RekaMenuSubTrigger
+  <RekaDropdownMenuSubTrigger
     :as-child="asChild"
     :as="as"
     :class="classes"
@@ -34,7 +34,7 @@ const classes = computed(() => {
   >
     <slot />
     <ChevronRight :size="16" class="q-dropdown-menu-sub-trigger-icon" aria-hidden="true" />
-  </RekaMenuSubTrigger>
+  </RekaDropdownMenuSubTrigger>
 </template>
 
 <style scoped>

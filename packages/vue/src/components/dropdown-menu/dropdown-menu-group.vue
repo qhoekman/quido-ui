@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MenuGroup as RekaMenuGroup } from 'reka-ui'
+import { DropdownMenuGroup as RekaDropdownMenuGroup } from 'reka-ui'
 
 export interface DropdownMenuGroupProps {
   asChild?: boolean
@@ -13,14 +13,14 @@ const props = withDefaults(defineProps<DropdownMenuGroupProps>(), {
 </script>
 
 <template>
-  <RekaMenuGroup
+  <RekaDropdownMenuGroup
     :as-child="asChild"
     :as="as"
     :class="['q-dropdown-menu-group']"
     v-bind="$attrs"
   >
     <slot />
-  </RekaMenuGroup>
+  </RekaDropdownMenuGroup>
 </template>
 
 <style scoped>
