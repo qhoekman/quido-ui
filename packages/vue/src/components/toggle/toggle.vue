@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { ToggleRoot } from 'reka-ui'
+import { Toggle } from 'reka-ui'
 import { cva, type VariantProps } from 'class-variance-authority'
 
 const toggleVariants = cva('q-toggle', {
@@ -59,7 +59,7 @@ const handlePressedChange = (pressed: boolean) => {
 </script>
 
 <template>
-  <ToggleRoot
+  <Toggle
     :pressed="pressed"
     :default-pressed="defaultPressed"
     :disabled="disabled"
@@ -69,7 +69,7 @@ const handlePressedChange = (pressed: boolean) => {
     v-bind="$attrs"
   >
     <slot />
-  </ToggleRoot>
+  </Toggle>
 </template>
 
 <style scoped>
