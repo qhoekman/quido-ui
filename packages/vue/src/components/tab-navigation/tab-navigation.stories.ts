@@ -7,7 +7,7 @@ import TabNavigationMenuComponent from "./tab-navigation-menu.vue";
 import TabNavigationMenugroupComponent from "./tab-navigation-menugroup.vue";
 import TabNavigationMenuitemComponent from "./tab-navigation-menuitem.vue";
 import TabNavigationSeparatorComponent from "./tab-navigation-separator.vue";
-import { MenuRoot, MenuTrigger } from "reka-ui";
+import { DropdownMenuRoot, DropdownMenuTrigger } from "reka-ui";
 import { Home } from "lucide-vue-next";
 import type { Meta, StoryObj } from "@storybook/vue3-vite";
 
@@ -27,8 +27,8 @@ const meta = {
       TabNavigationMenugroupComponent,
       TabNavigationMenuitemComponent,
       TabNavigationSeparatorComponent,
-      MenuRoot,
-      MenuTrigger,
+      DropdownMenuRoot,
+      DropdownMenuTrigger,
       Home,
     },
     setup() {
@@ -44,13 +44,13 @@ const meta = {
             </TabNavigationLinkComponent>
           </TabNavigationItemComponent>
           <TabNavigationItemComponent>
-            <MenuRoot>
-              <MenuTrigger as-child>
+            <DropdownMenuRoot>
+              <DropdownMenuTrigger as-child>
                 <TabNavigationLinkComponent>
                   Balances
                   <TabNavigationIndicatorComponent />
                 </TabNavigationLinkComponent>
-              </MenuTrigger>
+              </DropdownMenuTrigger>
               <TabNavigationMenuComponent>
                 <TabNavigationMenugroupComponent>
                   <TabNavigationMenuitemComponent>View Balance</TabNavigationMenuitemComponent>
@@ -65,22 +65,22 @@ const meta = {
                   <TabNavigationMenuitemComponent>Support</TabNavigationMenuitemComponent>
                 </TabNavigationMenugroupComponent>
               </TabNavigationMenuComponent>
-            </MenuRoot>
+            </DropdownMenuRoot>
           </TabNavigationItemComponent>
           <TabNavigationItemComponent>
-            <MenuRoot>
-              <MenuTrigger as-child>
+            <DropdownMenuRoot>
+              <DropdownMenuTrigger as-child>
                 <TabNavigationLinkComponent>
                   Transactions
                 </TabNavigationLinkComponent>
-              </MenuTrigger>
+              </DropdownMenuTrigger>
               <TabNavigationMenuComponent>
                 <TabNavigationMenugroupComponent>
                   <TabNavigationMenuitemComponent>Recent</TabNavigationMenuitemComponent>
                   <TabNavigationMenuitemComponent>All</TabNavigationMenuitemComponent>
                 </TabNavigationMenugroupComponent>
               </TabNavigationMenuComponent>
-            </MenuRoot>
+            </DropdownMenuRoot>
           </TabNavigationItemComponent>
           <TabNavigationItemComponent>
             <TabNavigationLinkComponent>
@@ -116,8 +116,8 @@ export const Link: Story = {
       TabNavigationMenugroupComponent,
       TabNavigationMenuitemComponent,
       TabNavigationSeparatorComponent,
-      MenuRoot,
-      MenuTrigger,
+      DropdownMenuRoot,
+      DropdownMenuTrigger,
       Home,
     },
     setup() {
@@ -133,13 +133,13 @@ export const Link: Story = {
             </TabNavigationLinkComponent>
           </TabNavigationItemComponent>
           <TabNavigationItemComponent>
-            <MenuRoot>
-              <MenuTrigger as-child>
+            <DropdownMenuRoot>
+              <DropdownMenuTrigger as-child>
                 <TabNavigationLinkComponent>
                   Balances
                   <TabNavigationIndicatorComponent />
                 </TabNavigationLinkComponent>
-              </MenuTrigger>
+              </DropdownMenuTrigger>
               <TabNavigationMenuComponent>
                 <TabNavigationMenugroupComponent>
                   <TabNavigationMenuitemComponent>View Balance</TabNavigationMenuitemComponent>
@@ -154,22 +154,22 @@ export const Link: Story = {
                   <TabNavigationMenuitemComponent>Support</TabNavigationMenuitemComponent>
                 </TabNavigationMenugroupComponent>
               </TabNavigationMenuComponent>
-            </MenuRoot>
+            </DropdownMenuRoot>
           </TabNavigationItemComponent>
           <TabNavigationItemComponent>
-            <MenuRoot>
-              <MenuTrigger as-child>
+            <DropdownMenuRoot>
+              <DropdownMenuTrigger as-child>
                 <TabNavigationLinkComponent>
                   Transactions
                 </TabNavigationLinkComponent>
-              </MenuTrigger>
+              </DropdownMenuTrigger>
               <TabNavigationMenuComponent>
                 <TabNavigationMenugroupComponent>
                   <TabNavigationMenuitemComponent>Recent</TabNavigationMenuitemComponent>
                   <TabNavigationMenuitemComponent>All</TabNavigationMenuitemComponent>
                 </TabNavigationMenugroupComponent>
               </TabNavigationMenuComponent>
-            </MenuRoot>
+            </DropdownMenuRoot>
           </TabNavigationItemComponent>
           <TabNavigationItemComponent>
             <TabNavigationLinkComponent>
@@ -200,8 +200,8 @@ export const Border: Story = {
       TabNavigationMenugroupComponent,
       TabNavigationMenuitemComponent,
       TabNavigationSeparatorComponent,
-      MenuRoot,
-      MenuTrigger,
+      DropdownMenuRoot,
+      DropdownMenuTrigger,
       Home,
     },
     setup() {
@@ -217,13 +217,13 @@ export const Border: Story = {
             </TabNavigationLinkComponent>
           </TabNavigationItemComponent>
           <TabNavigationItemComponent>
-            <MenuRoot>
-              <MenuTrigger as-child>
+            <DropdownMenuRoot>
+              <DropdownMenuTrigger as-child>
                 <TabNavigationLinkComponent variant="border">
                   Balances
                   <TabNavigationIndicatorComponent />
                 </TabNavigationLinkComponent>
-              </MenuTrigger>
+              </DropdownMenuTrigger>
               <TabNavigationMenuComponent>
                 <TabNavigationMenugroupComponent>
                   <TabNavigationMenuitemComponent>View Balance</TabNavigationMenuitemComponent>
@@ -238,22 +238,22 @@ export const Border: Story = {
                   <TabNavigationMenuitemComponent>Support</TabNavigationMenuitemComponent>
                 </TabNavigationMenugroupComponent>
               </TabNavigationMenuComponent>
-            </MenuRoot>
+            </DropdownMenuRoot>
           </TabNavigationItemComponent>
           <TabNavigationItemComponent>
-            <MenuRoot>
-              <MenuTrigger as-child>
+            <DropdownMenuRoot>
+              <DropdownMenuTrigger as-child>
                 <TabNavigationLinkComponent variant="border">
                   Transactions
                 </TabNavigationLinkComponent>
-              </MenuTrigger>
+              </DropdownMenuTrigger>
               <TabNavigationMenuComponent>
                 <TabNavigationMenugroupComponent>
                   <TabNavigationMenuitemComponent>Recent</TabNavigationMenuitemComponent>
                   <TabNavigationMenuitemComponent>All</TabNavigationMenuitemComponent>
                 </TabNavigationMenugroupComponent>
               </TabNavigationMenuComponent>
-            </MenuRoot>
+            </DropdownMenuRoot>
           </TabNavigationItemComponent>
           <TabNavigationItemComponent>
             <TabNavigationLinkComponent variant="border">
@@ -283,8 +283,8 @@ export const Pill: Story = {
       TabNavigationMenugroupComponent,
       TabNavigationMenuitemComponent,
       TabNavigationSeparatorComponent,
-      MenuRoot,
-      MenuTrigger,
+      DropdownMenuRoot,
+      DropdownMenuTrigger,
       Home,
     },
     setup() {
@@ -300,13 +300,13 @@ export const Pill: Story = {
             </TabNavigationLinkComponent>
           </TabNavigationItemComponent>
           <TabNavigationItemComponent>
-            <MenuRoot>
-              <MenuTrigger as-child>
+            <DropdownMenuRoot>
+              <DropdownMenuTrigger as-child>
                 <TabNavigationLinkComponent variant="pill">
                   Balances
                   <TabNavigationIndicatorComponent />
                 </TabNavigationLinkComponent>
-              </MenuTrigger>
+              </DropdownMenuTrigger>
               <TabNavigationMenuComponent>
                 <TabNavigationMenugroupComponent>
                   <TabNavigationMenuitemComponent>View Balance</TabNavigationMenuitemComponent>
@@ -321,22 +321,22 @@ export const Pill: Story = {
                   <TabNavigationMenuitemComponent>Support</TabNavigationMenuitemComponent>
                 </TabNavigationMenugroupComponent>
               </TabNavigationMenuComponent>
-            </MenuRoot>
+            </DropdownMenuRoot>
           </TabNavigationItemComponent>
           <TabNavigationItemComponent>
-            <MenuRoot>
-              <MenuTrigger as-child>
+            <DropdownMenuRoot>
+              <DropdownMenuTrigger as-child>
                 <TabNavigationLinkComponent variant="pill">
                   Transactions
                 </TabNavigationLinkComponent>
-              </MenuTrigger>
+              </DropdownMenuTrigger>
               <TabNavigationMenuComponent>
                 <TabNavigationMenugroupComponent>
                   <TabNavigationMenuitemComponent>Recent</TabNavigationMenuitemComponent>
                   <TabNavigationMenuitemComponent>All</TabNavigationMenuitemComponent>
                 </TabNavigationMenugroupComponent>
               </TabNavigationMenuComponent>
-            </MenuRoot>
+            </DropdownMenuRoot>
           </TabNavigationItemComponent>
           <TabNavigationItemComponent>
             <TabNavigationLinkComponent variant="pill">

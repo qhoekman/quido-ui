@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { MenuItem as RekaMenuItem } from "reka-ui";
+import { DropdownMenuItem as RekaDropdownMenuItem } from "reka-ui";
 
 export interface TabNavigationMenuitemProps {
   disabled?: boolean;
@@ -18,7 +18,7 @@ const classes = computed(() => ["q-tab-navigation-menuitem"]);
 </script>
 
 <template>
-  <RekaMenuItem
+  <RekaDropdownMenuItem
     :disabled="disabled"
     :as-child="asChild"
     :as="as"
@@ -29,7 +29,7 @@ const classes = computed(() => ["q-tab-navigation-menuitem"]);
     v-bind="$attrs"
   >
     <slot />
-  </RekaMenuItem>
+  </RekaDropdownMenuItem>
 </template>
 
 <style scoped>
