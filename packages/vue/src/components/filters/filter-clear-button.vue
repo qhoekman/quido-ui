@@ -2,11 +2,26 @@
 import { computed } from 'vue'
 import { useFilterStore } from './useFilterStore'
 import Button from '../button/button.vue'
-import type { ButtonProps } from '../button/button.vue'
+import type { ButtonVariants } from '../button/button.vue'
 
-export interface FilterClearButtonProps extends ButtonProps {}
+export interface FilterClearButtonProps {
+  variant?: ButtonVariants['variant']
+  size?: ButtonVariants['size']
+  as?: 'button' | 'a'
+  asChild?: boolean
+  disabled?: boolean
+  loading?: boolean
+  fullWidth?: boolean
+}
 
-const props = defineProps<FilterClearButtonProps>()
+const props = withDefaults(defineProps<FilterClearButtonProps>(), {
+  variant: 'primary',
+  size: 'md',
+  asChild: false,
+  disabled: false,
+  loading: false,
+  fullWidth: false
+})
 
 const { filters, clearFilters } = useFilterStore()
 
