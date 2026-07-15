@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { RadioGroupItemIndicator } from "reka-ui";
+import { RadioGroupIndicator } from "reka-ui";
 import { cva, type VariantProps } from "class-variance-authority";
 import { Check } from "lucide-vue-next";
 
@@ -27,11 +27,11 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <RadioGroupItemIndicator :as-child="asChild" :class="classes" v-bind="$attrs">
+  <RadioGroupIndicator :as-child="asChild" :class="classes" v-bind="$attrs">
     <slot>
       <Check :size="14" />
     </slot>
-  </RadioGroupItemIndicator>
+  </RadioGroupIndicator>
 </template>
 
 <style scoped>
