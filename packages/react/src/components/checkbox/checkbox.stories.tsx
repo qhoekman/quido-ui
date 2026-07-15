@@ -1,6 +1,6 @@
 import { Checkbox, CheckboxLabel } from "@/components/checkbox/checkbox";
 import { Label } from "@/components/label/label";
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 import { useState } from "react";
 
 export default {
@@ -33,19 +33,27 @@ export default {
   },
 } satisfies Meta<typeof Checkbox>;
 
-export const Default: StoryFn<typeof Checkbox> = (args) => {
-  const [checked, setChecked] = useState(args.checked ?? false);
-  return (
-    <div
-      style={{ display: "flex", alignItems: "center", gap: "var(--spacing-2)" }}
-    >
-      <Checkbox
-        id="terms"
-        {...args}
-        checked={checked}
-        onCheckedChange={setChecked}
-      />
-      <CheckboxLabel htmlFor="terms">Accept terms and conditions</CheckboxLabel>
-    </div>
-  );
+export const Default: StoryObj<typeof Checkbox> = {
+  render: (args) => {
+    const [checked, setChecked] = useState(args.checked ?? false);
+    return (
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "var(--spacing-2)",
+        }}
+      >
+        <Checkbox
+          id="terms"
+          {...args}
+          checked={checked}
+          onCheckedChange={setChecked}
+        />
+        <CheckboxLabel htmlFor="terms">
+          Accept terms and conditions
+        </CheckboxLabel>
+      </div>
+    );
+  },
 };

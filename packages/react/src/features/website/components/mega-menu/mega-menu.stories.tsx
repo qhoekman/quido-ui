@@ -8,7 +8,7 @@ import {
   MegaMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/features/website/components/mega-menu/mega-menu";
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 export default {
   title: "Features/Website/Components/Mega Menu",
@@ -74,125 +74,127 @@ const components: { title: string; href: string; description: string }[] = [
   },
 ];
 
-export const Default: StoryFn<typeof MegaMenu> = (args) => (
-  <MegaMenu {...args}>
-    <MegaMenuList>
-      <MegaMenuItem>
-        <MegaMenuTrigger>Getting started</MegaMenuTrigger>
-        <MegaMenuContent>
-          <ul
-            style={{
-              display: "grid",
-              gap: "var(--spacing-3)",
-              padding: "var(--spacing-4)",
-              "@media (min-width: 768px)": {
-                width: "400px",
-              },
-              "@media (min-width: 1024px)": {
-                width: "500px",
-                gridTemplateColumns: ".75fr 1fr",
-              },
-            }}
-          >
-            <li style={{ gridRow: "span 3 / span 3" }}>
-              <MegaMenuLink asChild>
-                <a
-                  style={{
-                    display: "flex",
-                    height: "100%",
-                    width: "100%",
-                    userSelect: "none",
-                    flexDirection: "column",
-                    justifyContent: "flex-end",
-                    borderRadius: "var(--border-radius-md)",
-                    background:
-                      "linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.1))",
-                    padding: "var(--spacing-6)",
-                    textDecoration: "none",
-                    outline: "none",
-                  }}
-                  href="/"
-                >
-                  <img
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo"
-                    alt="Logo"
-                    style={{
-                      width: "var(--spacing-8)",
-                      height: "var(--spacing-8)",
-                    }}
-                  />
-                  <div
-                    style={{
-                      marginBottom: "var(--spacing-2)",
-                      marginTop: "var(--spacing-4)",
-                      fontSize: "var(--font-size-lg)",
-                      fontWeight: "var(--font-weight-medium)",
-                    }}
-                  >
-                    shadcn/ui
-                  </div>
-                  <p
-                    style={{
-                      fontSize: "var(--font-size-sm)",
-                      lineHeight: "var(--line-height-tight)",
-                      color: "var(--color-muted-fg)",
-                    }}
-                  >
-                    Beautifully designed components built with Radix UI.
-                  </p>
-                </a>
-              </MegaMenuLink>
-            </li>
-            <MegaMenuListItem href="/docs" title="Introduction">
-              Re-usable components built using Radix UI.
-            </MegaMenuListItem>
-            <MegaMenuListItem href="/docs/installation" title="Installation">
-              How to install dependencies and structure your app.
-            </MegaMenuListItem>
-            <MegaMenuListItem
-              href="/docs/primitives/typography"
-              title="Typography"
+export const Default: StoryObj<typeof MegaMenu> = {
+  render: (args) => (
+    <MegaMenu {...args}>
+      <MegaMenuList>
+        <MegaMenuItem>
+          <MegaMenuTrigger>Getting started</MegaMenuTrigger>
+          <MegaMenuContent>
+            <ul
+              style={{
+                display: "grid",
+                gap: "var(--spacing-3)",
+                padding: "var(--spacing-4)",
+                "@media (min-width: 768px)": {
+                  width: "400px",
+                },
+                "@media (min-width: 1024px)": {
+                  width: "500px",
+                  gridTemplateColumns: ".75fr 1fr",
+                },
+              }}
             >
-              Styles for headings, paragraphs, lists...etc
-            </MegaMenuListItem>
-          </ul>
-        </MegaMenuContent>
-      </MegaMenuItem>
-      <MegaMenuItem>
-        <MegaMenuTrigger>Components</MegaMenuTrigger>
-        <MegaMenuContent>
-          <ul
-            style={{
-              display: "grid",
-              width: "400px",
-              gap: "var(--spacing-3)",
-              padding: "var(--spacing-4)",
-              "@media (min-width: 768px)": {
-                width: "500px",
-                gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-              },
-              "@media (min-width: 1024px)": {
-                width: "600px",
-              },
-            }}
-          >
-            {components.map((component) => (
-              <MegaMenuListItem
-                key={component.title}
-                title={component.title}
-                href={component.href}
-              >
-                {component.description}
+              <li style={{ gridRow: "span 3 / span 3" }}>
+                <MegaMenuLink asChild>
+                  <a
+                    style={{
+                      display: "flex",
+                      height: "100%",
+                      width: "100%",
+                      userSelect: "none",
+                      flexDirection: "column",
+                      justifyContent: "flex-end",
+                      borderRadius: "var(--border-radius-md)",
+                      background:
+                        "linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.1))",
+                      padding: "var(--spacing-6)",
+                      textDecoration: "none",
+                      outline: "none",
+                    }}
+                    href="/"
+                  >
+                    <img
+                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo"
+                      alt="Logo"
+                      style={{
+                        width: "var(--spacing-8)",
+                        height: "var(--spacing-8)",
+                      }}
+                    />
+                    <div
+                      style={{
+                        marginBottom: "var(--spacing-2)",
+                        marginTop: "var(--spacing-4)",
+                        fontSize: "var(--font-size-lg)",
+                        fontWeight: "var(--font-weight-medium)",
+                      }}
+                    >
+                      shadcn/ui
+                    </div>
+                    <p
+                      style={{
+                        fontSize: "var(--font-size-sm)",
+                        lineHeight: "var(--line-height-tight)",
+                        color: "var(--color-muted-fg)",
+                      }}
+                    >
+                      Beautifully designed components built with Radix UI.
+                    </p>
+                  </a>
+                </MegaMenuLink>
+              </li>
+              <MegaMenuListItem href="/docs" title="Introduction">
+                Re-usable components built using Radix UI.
               </MegaMenuListItem>
-            ))}
-          </ul>
-        </MegaMenuContent>
-      </MegaMenuItem>
-      <MegaMenuItem>
-        <MegaMenuLink className={navigationMenuTriggerStyle()}>
-          Documentation
-        </MegaMenuLink>
-      </MegaMenuItem>
-    </MegaMenuList>
-  </MegaMenu>
-);
+              <MegaMenuListItem href="/docs/installation" title="Installation">
+                How to install dependencies and structure your app.
+              </MegaMenuListItem>
+              <MegaMenuListItem
+                href="/docs/primitives/typography"
+                title="Typography"
+              >
+                Styles for headings, paragraphs, lists...etc
+              </MegaMenuListItem>
+            </ul>
+          </MegaMenuContent>
+        </MegaMenuItem>
+        <MegaMenuItem>
+          <MegaMenuTrigger>Components</MegaMenuTrigger>
+          <MegaMenuContent>
+            <ul
+              style={{
+                display: "grid",
+                width: "400px",
+                gap: "var(--spacing-3)",
+                padding: "var(--spacing-4)",
+                "@media (min-width: 768px)": {
+                  width: "500px",
+                  gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+                },
+                "@media (min-width: 1024px)": {
+                  width: "600px",
+                },
+              }}
+            >
+              {components.map((component) => (
+                <MegaMenuListItem
+                  key={component.title}
+                  title={component.title}
+                  href={component.href}
+                >
+                  {component.description}
+                </MegaMenuListItem>
+              ))}
+            </ul>
+          </MegaMenuContent>
+        </MegaMenuItem>
+        <MegaMenuItem>
+          <MegaMenuLink className={navigationMenuTriggerStyle()}>
+            Documentation
+          </MegaMenuLink>
+        </MegaMenuItem>
+      </MegaMenuList>
+    </MegaMenu>
+  ),
+};

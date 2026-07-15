@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from "@storybook/react-vite";
+import { StoryObj, Meta } from "@storybook/react-vite";
 
 import { Popover, PopoverContent, PopoverTrigger } from "./popover";
 import { Button } from "../button/button";
@@ -32,18 +32,20 @@ export default {
   },
 } satisfies Meta<typeof Popover>;
 
-export const Default: StoryFn<typeof Popover> = (args) => {
-  const { align, side, sideOffset, ...popoverProps } = args;
-  return (
-    <Popover {...popoverProps}>
-      <PopoverTrigger asChild>
-        <Button variant="ghost" size="sm">
-          Open
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent align={align} side={side} sideOffset={sideOffset}>
-        Place content for the popover here.
-      </PopoverContent>
-    </Popover>
-  );
+export const Default: StoryObj<typeof Popover> = {
+  render: (args) => {
+    const { align, side, sideOffset, ...popoverProps } = args;
+    return (
+      <Popover {...popoverProps}>
+        <PopoverTrigger asChild>
+          <Button variant="ghost" size="sm">
+            Open
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent align={align} side={side} sideOffset={sideOffset}>
+          Place content for the popover here.
+        </PopoverContent>
+      </Popover>
+    );
+  },
 };

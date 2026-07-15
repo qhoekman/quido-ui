@@ -3,18 +3,24 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
+  "packageManager": "pnpm@11.13.0",
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "scripts": {
-    "host": "lerna run --scope @quido-ui/host --stream",
-    "angular": "lerna run --scope @quido-ui/angular --stream",
-    "react": "lerna run --scope @quido-ui/react --stream",
-    "vue": "lerna run --scope @quido-ui/vue --stream",
-    "build": "npm run host build && npm run angular build && npm run react build && npm run vue build",
+    "host": "pnpm --filter @quido-ui/host",
+    "angular": "pnpm --filter @quido-ui/angular",
+    "react": "pnpm --filter @quido-ui/react",
+    "vue": "pnpm --filter @quido-ui/vue",
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
     "clean": "rm -rf packages/*/storybook-static"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "lerna": "^8.2.4"
+    "turbo": "^2.5.4"
   }
 }

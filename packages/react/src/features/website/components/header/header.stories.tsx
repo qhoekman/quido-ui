@@ -11,169 +11,179 @@ import {
   HeaderTagline,
   HeaderTitle,
 } from "@/features/website/components/header/header";
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 export default {
   title: "Features/Website/Components/Header",
   component: Header,
 } satisfies Meta<typeof Header>;
 
-export const WithCenteredContent: StoryFn = (args) => (
-  <Header {...args}>
-    <HeaderContent style={{ textAlign: "center" }}>
-      <HeaderTagline>Tagline</HeaderTagline>
-      <HeaderTitle>Short heading goes here</HeaderTitle>
-      <HeaderBody>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
-        tempora delectus et. Iusto tempora accusantium suscipit labore, iure
-        exercitationem autem quasi odit aut temporibus rem expedita maxime at.
-        Laudantium?
-      </HeaderBody>
-      <HeaderActions style={{ marginLeft: "auto", marginRight: "auto" }}>
-        <Button>Button</Button>
-        <Button variant="outline">Button</Button>
-      </HeaderActions>
-    </HeaderContent>
-  </Header>
-);
-
-export const WithLeftContent: StoryFn = (args) => (
-  <Header {...args}>
-    <HeaderContent>
-      <HeaderTagline>Tagline</HeaderTagline>
-      <HeaderTitle>Short heading goes here</HeaderTitle>
-      <HeaderBody>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
-        tempora delectus et. Iusto tempora accusantium suscipit labore, iure
-        exercitationem autem quasi odit aut temporibus rem expedita maxime at.
-        Laudantium?
-      </HeaderBody>
-      <HeaderActions>
-        <Button>Button</Button>
-        <Button variant="outline">Button</Button>
-      </HeaderActions>
-    </HeaderContent>
-  </Header>
-);
-
-export const WithForm: StoryFn = (args) => (
-  <Header {...args}>
-    <HeaderContent>
-      <HeaderTagline>Tagline</HeaderTagline>
-      <HeaderTitle>Short heading goes here</HeaderTitle>
-      <HeaderBody>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
-        tempora delectus et. Iusto tempora accusantium suscipit labore, iure
-        exercitationem autem quasi odit aut temporibus rem expedita maxime at.
-        Laudantium?
-      </HeaderBody>
-      <HeaderActions style={{ flexDirection: "column", gap: "0" }}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "flex-start",
-            gap: "var(--spacing-4)",
-          }}
-        >
-          <Label htmlFor="email-address" className="sr-only">
-            Email address
-          </Label>
-
-          <Input
-            id="email-address"
-            name="email"
-            type="email"
-            autoComplete="email"
-            required
-            placeholder="Enter your email"
-          />
-
-          <Button type="submit">Subscribe</Button>
-        </div>
-
-        <p
-          style={{
-            marginTop: "var(--spacing-4)",
-            fontSize: "var(--font-size-sm)",
-            color: "var(--color-muted-fg)",
-          }}
-        >
-          By clicking Subscribe you&apos;re confirming that you agree with our{" "}
-          <a href="#" style={{ textDecoration: "underline" }}>
-            Terms and Conditions
-          </a>
-        </p>
-      </HeaderActions>
-    </HeaderContent>
-  </Header>
-);
-
-export const WithBackdrop: StoryFn = (args) => (
-  <HeaderBackdrop>
-    <HeaderBackdropImage />
-    <Header
-      style={{
-        paddingTop: "var(--spacing-6)",
-        paddingBottom: "var(--spacing-6)",
-      }}
-      {...args}
-    >
+export const WithCenteredContent: StoryObj = {
+  render: (args) => (
+    <Header {...args}>
       <HeaderContent style={{ textAlign: "center" }}>
-        <HeaderTagline style={{ color: "var(--color-muted-fg)" }}>
-          Tagline
-        </HeaderTagline>
-        <HeaderTitle style={{ color: "var(--color-background-fg)" }}>
-          Short heading goes here
-        </HeaderTitle>
-        <HeaderBody style={{ color: "var(--color-muted-fg)" }}>
+        <HeaderTagline>Tagline</HeaderTagline>
+        <HeaderTitle>Short heading goes here</HeaderTitle>
+        <HeaderBody>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
           tempora delectus et. Iusto tempora accusantium suscipit labore, iure
           exercitationem autem quasi odit aut temporibus rem expedita maxime at.
           Laudantium?
         </HeaderBody>
-        <HeaderActions style={{ marginLeft: "auto" }}>
+        <HeaderActions style={{ marginLeft: "auto", marginRight: "auto" }}>
           <Button>Button</Button>
-          <Button
-            variant="outline"
-            style={{ color: "var(--color-background-fg)" }}
-          >
-            Button
-          </Button>
+          <Button variant="outline">Button</Button>
         </HeaderActions>
       </HeaderContent>
     </Header>
-  </HeaderBackdrop>
-);
+  ),
+};
 
-export const WithHorizontalContent: StoryFn = (args) => (
-  <HeaderBackdrop>
-    <HeaderBackdropImage />
+export const WithLeftContent: StoryObj = {
+  render: (args) => (
     <Header {...args}>
-      <HeaderContent
-        style={{
-          maxWidth: "var(--columns-6xl)",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "between",
-          paddingTop: "var(--spacing-24)",
-          paddingBottom: "var(--spacing-24)",
-          "@media (min-width: 1024px)": {
-            flexDirection: "row",
-            alignItems: "center",
-            gap: "var(--spacing-6)",
-          },
-        }}
-      >
-        <HeaderTitle style={{ color: "var(--color-background-fg)" }}>
-          Short heading goes here
-        </HeaderTitle>
-        <HeaderBody style={{ color: "var(--color-background-fg)" }}>
+      <HeaderContent>
+        <HeaderTagline>Tagline</HeaderTagline>
+        <HeaderTitle>Short heading goes here</HeaderTitle>
+        <HeaderBody>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
           tempora delectus et. Iusto tempora accusantium suscipit labore, iure
           exercitationem autem quasi odit aut temporibus rem expedita maxime at.
           Laudantium?
         </HeaderBody>
+        <HeaderActions>
+          <Button>Button</Button>
+          <Button variant="outline">Button</Button>
+        </HeaderActions>
       </HeaderContent>
     </Header>
-  </HeaderBackdrop>
-);
+  ),
+};
+
+export const WithForm: StoryObj = {
+  render: (args) => (
+    <Header {...args}>
+      <HeaderContent>
+        <HeaderTagline>Tagline</HeaderTagline>
+        <HeaderTitle>Short heading goes here</HeaderTitle>
+        <HeaderBody>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
+          tempora delectus et. Iusto tempora accusantium suscipit labore, iure
+          exercitationem autem quasi odit aut temporibus rem expedita maxime at.
+          Laudantium?
+        </HeaderBody>
+        <HeaderActions style={{ flexDirection: "column", gap: "0" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "flex-start",
+              gap: "var(--spacing-4)",
+            }}
+          >
+            <Label htmlFor="email-address" className="sr-only">
+              Email address
+            </Label>
+
+            <Input
+              id="email-address"
+              name="email"
+              type="email"
+              autoComplete="email"
+              required
+              placeholder="Enter your email"
+            />
+
+            <Button type="submit">Subscribe</Button>
+          </div>
+
+          <p
+            style={{
+              marginTop: "var(--spacing-4)",
+              fontSize: "var(--font-size-sm)",
+              color: "var(--color-muted-fg)",
+            }}
+          >
+            By clicking Subscribe you&apos;re confirming that you agree with our{" "}
+            <a href="#" style={{ textDecoration: "underline" }}>
+              Terms and Conditions
+            </a>
+          </p>
+        </HeaderActions>
+      </HeaderContent>
+    </Header>
+  ),
+};
+
+export const WithBackdrop: StoryObj = {
+  render: (args) => (
+    <HeaderBackdrop>
+      <HeaderBackdropImage />
+      <Header
+        style={{
+          paddingTop: "var(--spacing-6)",
+          paddingBottom: "var(--spacing-6)",
+        }}
+        {...args}
+      >
+        <HeaderContent style={{ textAlign: "center" }}>
+          <HeaderTagline style={{ color: "var(--color-muted-fg)" }}>
+            Tagline
+          </HeaderTagline>
+          <HeaderTitle style={{ color: "var(--color-background-fg)" }}>
+            Short heading goes here
+          </HeaderTitle>
+          <HeaderBody style={{ color: "var(--color-muted-fg)" }}>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
+            tempora delectus et. Iusto tempora accusantium suscipit labore, iure
+            exercitationem autem quasi odit aut temporibus rem expedita maxime
+            at. Laudantium?
+          </HeaderBody>
+          <HeaderActions style={{ marginLeft: "auto" }}>
+            <Button>Button</Button>
+            <Button
+              variant="outline"
+              style={{ color: "var(--color-background-fg)" }}
+            >
+              Button
+            </Button>
+          </HeaderActions>
+        </HeaderContent>
+      </Header>
+    </HeaderBackdrop>
+  ),
+};
+
+export const WithHorizontalContent: StoryObj = {
+  render: (args) => (
+    <HeaderBackdrop>
+      <HeaderBackdropImage />
+      <Header {...args}>
+        <HeaderContent
+          style={{
+            maxWidth: "var(--columns-6xl)",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "between",
+            paddingTop: "var(--spacing-24)",
+            paddingBottom: "var(--spacing-24)",
+            "@media (min-width: 1024px)": {
+              flexDirection: "row",
+              alignItems: "center",
+              gap: "var(--spacing-6)",
+            },
+          }}
+        >
+          <HeaderTitle style={{ color: "var(--color-background-fg)" }}>
+            Short heading goes here
+          </HeaderTitle>
+          <HeaderBody style={{ color: "var(--color-background-fg)" }}>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
+            tempora delectus et. Iusto tempora accusantium suscipit labore, iure
+            exercitationem autem quasi odit aut temporibus rem expedita maxime
+            at. Laudantium?
+          </HeaderBody>
+        </HeaderContent>
+      </Header>
+    </HeaderBackdrop>
+  ),
+};

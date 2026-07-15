@@ -12,7 +12,7 @@ import {
   FilterRange,
   FiltersForm,
 } from "@/features/ecommerce/components/filters/filters";
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 export default {
   title: "Features/Ecommerce/Components/Filters",
@@ -79,81 +79,83 @@ const filters = {
   size: ["s", "m", "l", "xl"],
 };
 
-export const Default: StoryFn<typeof FiltersForm> = (args) => (
-  <Sidebar style={{ maxWidth: "var(--spacing-64)" }}>
-    <SidebarBrand style={{ height: "var(--spacing-4)" }} />
-    <SidebarGroupHeader>Categories</SidebarGroupHeader>
-    <SidebarSection
-      style={{
-        paddingLeft: "var(--spacing-4)",
-        paddingRight: "var(--spacing-4)",
-      }}
-    >
-      <FiltersForm {...args}>
-        {filters.category.map((category) => (
-          <FilterCheckbox
-            key={`category.${category}`}
-            name={`category.${category}`}
-            disabled={args.disabled}
-          >
-            {category}
-          </FilterCheckbox>
-        ))}
-      </FiltersForm>
-    </SidebarSection>
-    <SidebarGroupHeader>Price</SidebarGroupHeader>
-    <SidebarSection
-      style={{
-        paddingLeft: "var(--spacing-4)",
-        paddingRight: "var(--spacing-4)",
-      }}
-    >
-      <FilterRange
-        key={`price`}
-        name={`price`}
-        min={args.min}
-        max={args.max}
-        step={args.step}
-        labelPrefix={args.labelPrefix}
-        disabled={args.disabled}
+export const Default: StoryObj<typeof FiltersForm> = {
+  render: (args) => (
+    <Sidebar style={{ maxWidth: "var(--spacing-64)" }}>
+      <SidebarBrand style={{ height: "var(--spacing-4)" }} />
+      <SidebarGroupHeader>Categories</SidebarGroupHeader>
+      <SidebarSection
+        style={{
+          paddingLeft: "var(--spacing-4)",
+          paddingRight: "var(--spacing-4)",
+        }}
       >
-        Price
-      </FilterRange>
-    </SidebarSection>
-    <SidebarGroupHeader>Brand</SidebarGroupHeader>
-    <SidebarSection
-      style={{
-        paddingLeft: "var(--spacing-4)",
-        paddingRight: "var(--spacing-4)",
-      }}
-    >
-      <FiltersForm {...args}>
-        <FilterRadioGroup name="brand">
-          {filters.brand.map((brand) => (
-            <FilterRadioGroupItem
-              key={`brand.${brand}`}
-              id={`brand.${brand}`}
-              htmlFor="brand"
-              value={brand}
+        <FiltersForm {...args}>
+          {filters.category.map((category) => (
+            <FilterCheckbox
+              key={`category.${category}`}
+              name={`category.${category}`}
               disabled={args.disabled}
             >
-              {brand}
-            </FilterRadioGroupItem>
+              {category}
+            </FilterCheckbox>
           ))}
-        </FilterRadioGroup>
-      </FiltersForm>
-    </SidebarSection>
-    <FilterClearButton
-      style={{
-        width: "100%",
-        marginLeft: "var(--spacing-4)",
-        marginRight: "var(--spacing-4)",
-      }}
-      variant={args.variant}
-      size={args.size}
-      disabled={args.disabled}
-    >
-      Clear all filters
-    </FilterClearButton>
-  </Sidebar>
-);
+        </FiltersForm>
+      </SidebarSection>
+      <SidebarGroupHeader>Price</SidebarGroupHeader>
+      <SidebarSection
+        style={{
+          paddingLeft: "var(--spacing-4)",
+          paddingRight: "var(--spacing-4)",
+        }}
+      >
+        <FilterRange
+          key={`price`}
+          name={`price`}
+          min={args.min}
+          max={args.max}
+          step={args.step}
+          labelPrefix={args.labelPrefix}
+          disabled={args.disabled}
+        >
+          Price
+        </FilterRange>
+      </SidebarSection>
+      <SidebarGroupHeader>Brand</SidebarGroupHeader>
+      <SidebarSection
+        style={{
+          paddingLeft: "var(--spacing-4)",
+          paddingRight: "var(--spacing-4)",
+        }}
+      >
+        <FiltersForm {...args}>
+          <FilterRadioGroup name="brand">
+            {filters.brand.map((brand) => (
+              <FilterRadioGroupItem
+                key={`brand.${brand}`}
+                id={`brand.${brand}`}
+                htmlFor="brand"
+                value={brand}
+                disabled={args.disabled}
+              >
+                {brand}
+              </FilterRadioGroupItem>
+            ))}
+          </FilterRadioGroup>
+        </FiltersForm>
+      </SidebarSection>
+      <FilterClearButton
+        style={{
+          width: "100%",
+          marginLeft: "var(--spacing-4)",
+          marginRight: "var(--spacing-4)",
+        }}
+        variant={args.variant}
+        size={args.size}
+        disabled={args.disabled}
+      >
+        Clear all filters
+      </FilterClearButton>
+    </Sidebar>
+  ),
+};

@@ -1,0 +1,21 @@
+import { Canvas, Source, Controls, Meta } from "@storybook/addon-docs/blocks";
+import * as CyberWireframeBackgroundStories from "./cyber-wireframe-background.stories";
+import CyberWireframeBackgroundCode from "./cyber-wireframe-background.tsx?raw";
+
+<Meta of={CyberWireframeBackgroundStories} />
+
+# Usage
+
+<Canvas of={CyberWireframeBackgroundStories.Default} />
+
+<Controls />
+
+# Installation
+
+## 1. Install the following dependencies
+
+<Source language="bash" code={`npm install three`} />
+
+## 2. Copy and paste the following code into your project.
+
+<Source language="tsx" code={CyberWireframeBackgroundCode} />

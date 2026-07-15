@@ -1,0 +1,21 @@
+import { Canvas, Source, Controls, Meta } from "@storybook/addon-docs/blocks";
+import * as WireframeSphereBackgroundStories from "./wireframe-sphere-background.stories";
+import WireframeSphereBackgroundCode from "./wireframe-sphere-background.tsx?raw";
+
+<Meta of={WireframeSphereBackgroundStories} />
+
+# Usage
+
+<Canvas of={WireframeSphereBackgroundStories.Default} />
+
+<Controls />
+
+# Installation
+
+## 1. Install the following dependencies
+
+<Source language="bash" code={`npm install three`} />
+
+## 2. Copy and paste the following code into your project.
+
+<Source language="tsx" code={WireframeSphereBackgroundCode} />

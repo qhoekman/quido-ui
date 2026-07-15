@@ -1,0 +1,21 @@
+import { Canvas, Source, Controls, Meta } from "@storybook/addon-docs/blocks";
+import * as IsometricCubeBackgroundStories from "./isometric-cube-background.stories";
+import IsometricCubeBackgroundCode from "./isometric-cube-background.tsx?raw";
+
+<Meta of={IsometricCubeBackgroundStories} />
+
+# Usage
+
+<Canvas of={IsometricCubeBackgroundStories.Default} />
+
+<Controls />
+
+# Installation
+
+## 1. Install the following dependencies
+
+<Source language="bash" code={`npm install three`} />
+
+## 2. Copy and paste the following code into your project.
+
+<Source language="tsx" code={IsometricCubeBackgroundCode} />

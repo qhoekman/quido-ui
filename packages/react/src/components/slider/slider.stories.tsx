@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
 import { Slider } from "./slider";
@@ -35,23 +35,21 @@ export default {
   },
 } satisfies Meta<typeof Slider>;
 
-const Template: StoryFn<typeof Slider> = (args) => {
-  const [value, setValue] = useState(args.value ?? 50);
+export const Default: StoryObj<typeof Slider> = {
+  render: (args) => {
+    const [value, setValue] = useState(args.value ?? 50);
 
-  return (
-    <Slider
-      {...args}
-      value={value}
-      onValueChange={(newValue) => {
-        setValue(newValue);
-        args.onValueChange?.(newValue);
-      }}
-    />
-  );
-};
-
-export const Default = {
-  render: Template,
+    return (
+      <Slider
+        {...args}
+        value={value}
+        onValueChange={(newValue) => {
+          setValue(newValue);
+          args.onValueChange?.(newValue);
+        }}
+      />
+    );
+  },
   args: {
     onValueChange: (value: number) => console.log(value),
   },

@@ -1,5 +1,5 @@
 import { Input } from "@/components/input/input";
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 import { useState } from "react";
 
 export default {
@@ -54,14 +54,16 @@ export default {
   },
 } satisfies Meta<typeof Input>;
 
-export const Default: StoryFn<typeof Input> = (args) => {
-  const [value, setValue] = useState("");
-  return (
-    <Input
-      {...args}
-      value={value}
-      onChange={(e) => setValue(e.target.value)}
-      style={{ maxWidth: "var(--spacing-48)" }}
-    />
-  );
+export const Default: StoryObj<typeof Input> = {
+  render: (args) => {
+    const [value, setValue] = useState("");
+    return (
+      <Input
+        {...args}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        style={{ maxWidth: "var(--spacing-48)" }}
+      />
+    );
+  },
 };

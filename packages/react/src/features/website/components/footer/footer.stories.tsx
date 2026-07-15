@@ -14,7 +14,7 @@ import {
   FooterLink,
   FooterSection,
 } from "@/features/website/components/footer/footer";
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 export default {
   title: "Features/Website/Components/Footer",
@@ -109,168 +109,170 @@ const links = {
   ],
 };
 
-export const WithColumns: StoryFn<typeof Footer> = (args) => (
-  <Footer {...args}>
-    <FooterContent>
-      <FooterColumns>
-        <FooterColumn style={{ marginTop: "0" }}>
-          <Logo
+export const WithColumns: StoryObj<typeof Footer> = {
+  render: (args) => (
+    <Footer {...args}>
+      <FooterContent>
+        <FooterColumns>
+          <FooterColumn style={{ marginTop: "0" }}>
+            <Logo
+              style={{
+                height: "var(--spacing-7)",
+                width: "auto",
+                fill: "var(--color-primary)",
+              }}
+              aria-label="Company name"
+            />
+          </FooterColumn>
+          <FooterColumn>
+            <FooterHeading>Company</FooterHeading>
+            <FooterColumnList>
+              {links.company.map((link) => (
+                <FooterColumnListItem key={link.name}>
+                  <a href={link.href} target="_blank" rel="noopener noreferrer">
+                    {link.name}
+                  </a>
+                </FooterColumnListItem>
+              ))}
+            </FooterColumnList>
+          </FooterColumn>
+          <FooterColumn>
+            <FooterHeading>Support</FooterHeading>
+            <FooterColumnList>
+              {links.support.map((link) => (
+                <FooterColumnListItem key={link.name}>
+                  <a href={link.href} target="_blank" rel="noopener noreferrer">
+                    {link.name}
+                  </a>
+                </FooterColumnListItem>
+              ))}
+            </FooterColumnList>
+          </FooterColumn>
+          <FooterColumn>
+            <FooterHeading>Product</FooterHeading>
+            <FooterColumnList>
+              {links.product.map((link) => (
+                <FooterColumnListItem key={link.name}>
+                  <a href={link.href} target="_blank" rel="noopener noreferrer">
+                    {link.name}
+                  </a>
+                </FooterColumnListItem>
+              ))}
+            </FooterColumnList>
+          </FooterColumn>
+        </FooterColumns>
+        <FooterSection>
+          <FooterHeading>Newsletter</FooterHeading>
+          <p
             style={{
-              height: "var(--spacing-7)",
-              width: "auto",
-              fill: "var(--color-primary)",
-            }}
-            aria-label="Company name"
-          />
-        </FooterColumn>
-        <FooterColumn>
-          <FooterHeading>Company</FooterHeading>
-          <FooterColumnList>
-            {links.company.map((link) => (
-              <FooterColumnListItem key={link.name}>
-                <a href={link.href} target="_blank" rel="noopener noreferrer">
-                  {link.name}
-                </a>
-              </FooterColumnListItem>
-            ))}
-          </FooterColumnList>
-        </FooterColumn>
-        <FooterColumn>
-          <FooterHeading>Support</FooterHeading>
-          <FooterColumnList>
-            {links.support.map((link) => (
-              <FooterColumnListItem key={link.name}>
-                <a href={link.href} target="_blank" rel="noopener noreferrer">
-                  {link.name}
-                </a>
-              </FooterColumnListItem>
-            ))}
-          </FooterColumnList>
-        </FooterColumn>
-        <FooterColumn>
-          <FooterHeading>Product</FooterHeading>
-          <FooterColumnList>
-            {links.product.map((link) => (
-              <FooterColumnListItem key={link.name}>
-                <a href={link.href} target="_blank" rel="noopener noreferrer">
-                  {link.name}
-                </a>
-              </FooterColumnListItem>
-            ))}
-          </FooterColumnList>
-        </FooterColumn>
-      </FooterColumns>
-      <FooterSection>
-        <FooterHeading>Newsletter</FooterHeading>
-        <p
-          style={{
-            fontSize: "var(--font-size-sm)",
-            color: "var(--color-muted-fg)",
-          }}
-        >
-          Join our newsletter to stay up to date on features and releases.
-        </p>
-
-        <div
-          style={{
-            display: "flex",
-            alignItems: "start",
-            gap: "var(--spacing-4)",
-          }}
-        >
-          <Label htmlFor="email-address" className="sr-only">
-            Email address
-          </Label>
-
-          <Input
-            id="email-address"
-            name="email"
-            type="email"
-            autoComplete="email"
-            required
-            placeholder="Enter your email"
-          />
-
-          <Button type="submit">Subscribe</Button>
-        </div>
-
-        <div
-          style={{
-            maxWidth: "var(--columns-md)",
-            fontSize: "var(--font-size-xs)",
-            color: "var(--color-muted-fg)",
-          }}
-        >
-          By subscribing you agree to with our{" "}
-          <a
-            href="#"
-            style={{
-              fontSize: "var(--font-size-xs)",
-              textDecoration: "underline",
-            }}
-          >
-            Privacy Policy
-          </a>{" "}
-          and provide consent to receive updates from our company.
-        </div>
-      </FooterSection>
-    </FooterContent>
-    <FooterBanner>
-      <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
-        <FooterCopyright>
-          &copy; 2020 Your Company, Inc. All rights reserved.
-        </FooterCopyright>
-
-        {links.legal.map((item) => (
-          <FooterLink
-            key={item.name}
-            href={item.href}
-            style={{
-              fontSize: "var(--font-size-xs)",
-              lineHeight: "var(--line-height-5)",
+              fontSize: "var(--font-size-sm)",
               color: "var(--color-muted-fg)",
-              textDecoration: "underline",
             }}
           >
-            {item.name}
-          </FooterLink>
-        ))}
-      </div>
+            Join our newsletter to stay up to date on features and releases.
+          </p>
 
-      <ul
-        role="list"
-        style={{
-          marginTop: "var(--spacing-2)",
-          display: "flex",
-          gap: "var(--spacing-4)",
-        }}
-      >
-        {links.social.map((item) => (
-          <li key={item.name}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "start",
+              gap: "var(--spacing-4)",
+            }}
+          >
+            <Label htmlFor="email-address" className="sr-only">
+              Email address
+            </Label>
+
+            <Input
+              id="email-address"
+              name="email"
+              type="email"
+              autoComplete="email"
+              required
+              placeholder="Enter your email"
+            />
+
+            <Button type="submit">Subscribe</Button>
+          </div>
+
+          <div
+            style={{
+              maxWidth: "var(--columns-md)",
+              fontSize: "var(--font-size-xs)",
+              color: "var(--color-muted-fg)",
+            }}
+          >
+            By subscribing you agree to with our{" "}
+            <a
+              href="#"
+              style={{
+                fontSize: "var(--font-size-xs)",
+                textDecoration: "underline",
+              }}
+            >
+              Privacy Policy
+            </a>{" "}
+            and provide consent to receive updates from our company.
+          </div>
+        </FooterSection>
+      </FooterContent>
+      <FooterBanner>
+        <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
+          <FooterCopyright>
+            &copy; 2020 Your Company, Inc. All rights reserved.
+          </FooterCopyright>
+
+          {links.legal.map((item) => (
             <FooterLink
               key={item.name}
               href={item.href}
               style={{
-                display: "flex",
-                alignItems: "center",
+                fontSize: "var(--font-size-xs)",
+                lineHeight: "var(--line-height-5)",
                 color: "var(--color-muted-fg)",
+                textDecoration: "underline",
               }}
             >
-              <span className="sr-only">{item.name}</span>
-              <item.icon
-                style={{
-                  height: "var(--spacing-6)",
-                  width: "var(--spacing-6)",
-                }}
-                aria-hidden="true"
-              />
+              {item.name}
             </FooterLink>
-          </li>
-        ))}
-      </ul>
-    </FooterBanner>
-  </Footer>
-);
+          ))}
+        </div>
+
+        <ul
+          role="list"
+          style={{
+            marginTop: "var(--spacing-2)",
+            display: "flex",
+            gap: "var(--spacing-4)",
+          }}
+        >
+          {links.social.map((item) => (
+            <li key={item.name}>
+              <FooterLink
+                key={item.name}
+                href={item.href}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  color: "var(--color-muted-fg)",
+                }}
+              >
+                <span className="sr-only">{item.name}</span>
+                <item.icon
+                  style={{
+                    height: "var(--spacing-6)",
+                    width: "var(--spacing-6)",
+                  }}
+                  aria-hidden="true"
+                />
+              </FooterLink>
+            </li>
+          ))}
+        </ul>
+      </FooterBanner>
+    </Footer>
+  ),
+};
 
 const Logo: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
   return (

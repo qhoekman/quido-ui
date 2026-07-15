@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from "@storybook/react-vite";
+import { StoryObj, Meta } from "@storybook/react-vite";
 
 import { Label } from "@/components/label/label";
 
@@ -46,36 +46,38 @@ export default {
   },
 } satisfies Meta<typeof RadioGroup>;
 
-export const Default: StoryFn<typeof RadioGroup> = (args) => {
-  const [value, setValue] = useState(args.defaultValue ?? "");
-  return (
-    <form>
-      <RadioGroup
-        {...args}
-        value={value}
-        onValueChange={(newValue) => setValue(newValue)}
-      >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "var(--spacing-2)",
-          }}
+export const Default: StoryObj<typeof RadioGroup> = {
+  render: (args) => {
+    const [value, setValue] = useState(args.defaultValue ?? "");
+    return (
+      <form>
+        <RadioGroup
+          {...args}
+          value={value}
+          onValueChange={(newValue) => setValue(newValue)}
         >
-          <RadioGroupItem value="option-one" id="option-one" />
-          <Label htmlFor="option-one">Option One</Label>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "var(--spacing-2)",
-          }}
-        >
-          <RadioGroupItem value="option-two" id="option-two" />
-          <Label htmlFor="option-two">Option Two</Label>
-        </div>
-      </RadioGroup>
-    </form>
-  );
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "var(--spacing-2)",
+            }}
+          >
+            <RadioGroupItem value="option-one" id="option-one" />
+            <Label htmlFor="option-one">Option One</Label>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "var(--spacing-2)",
+            }}
+          >
+            <RadioGroupItem value="option-two" id="option-two" />
+            <Label htmlFor="option-two">Option Two</Label>
+          </div>
+        </RadioGroup>
+      </form>
+    );
+  },
 };

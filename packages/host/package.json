@@ -7,7 +7,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "dev": "storybook dev -p 6006 ",
-    "build": "storybook build -o ../../dist/"
+    "build": "storybook build -o ../../dist/.host-staging && cp -R ../../dist/.host-staging/. ../../dist/ && rm -rf ../../dist/.host-staging"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
@@ -23,7 +23,6 @@
     "@storybook/addon-onboarding": "^10.0.7",
     "@storybook/addon-docs": "^10.0.7",
     "@storybook/react-vite": "^10.0.7",
-    "@storybook/testing-library": "^0.2.2",
     "@types/react": "^19.2.1",
     "@types/react-dom": "^19.2.2",
     "@typescript-eslint/eslint-plugin": "^6.21.0",

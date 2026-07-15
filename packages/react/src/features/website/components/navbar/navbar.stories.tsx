@@ -37,7 +37,7 @@ import {
   NavbarMobileLogo,
   NavbarMobileTrigger,
 } from "@/features/website/components/navbar/navbar-mobile";
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 import { MenuIcon } from "lucide-react";
 import { SVGAttributes } from "react";
 
@@ -76,561 +76,575 @@ const navigation = [
   },
 ];
 
-export const WithMenuRight: StoryFn<typeof Navbar> = (args) => (
-  <Navbar {...args}>
-    <NavbarBrand>
-      <NavbarLogo aria-label="Your company">
-        <CompanyLogo
-          style={{
-            height: "var(--spacing-8)",
-            width: "auto",
-            fill: "var(--color-background-fg)",
-          }}
-        />
-      </NavbarLogo>
-    </NavbarBrand>
+export const WithMenuRight: StoryObj<typeof Navbar> = {
+  render: (args) => (
+    <Navbar {...args}>
+      <NavbarBrand>
+        <NavbarLogo aria-label="Your company">
+          <CompanyLogo
+            style={{
+              height: "var(--spacing-8)",
+              width: "auto",
+              fill: "var(--color-background-fg)",
+            }}
+          />
+        </NavbarLogo>
+      </NavbarBrand>
 
-    <NavbarItems>
-      {navigation.map((item) => {
-        if (item.dropdown) {
+      <NavbarItems>
+        {navigation.map((item) => {
+          if (item.dropdown) {
+            return (
+              <NavbarDropdown key={item.name}>
+                <NavbarDropdownTrigger>{item.name}</NavbarDropdownTrigger>
+                <NavbarDropdownContent>
+                  <DropdownMenuGroup>
+                    {item.dropdownItems.map((dropdownItem) => (
+                      <NavbarDropdownLink
+                        key={dropdownItem.name}
+                        href={dropdownItem.href}
+                      >
+                        {dropdownItem.name}
+                      </NavbarDropdownLink>
+                    ))}
+                  </DropdownMenuGroup>
+                </NavbarDropdownContent>
+              </NavbarDropdown>
+            );
+          }
+
           return (
-            <NavbarDropdown key={item.name}>
-              <NavbarDropdownTrigger>{item.name}</NavbarDropdownTrigger>
-              <NavbarDropdownContent>
-                <DropdownMenuGroup>
-                  {item.dropdownItems.map((dropdownItem) => (
-                    <NavbarDropdownLink
-                      key={dropdownItem.name}
-                      href={dropdownItem.href}
-                    >
-                      {dropdownItem.name}
-                    </NavbarDropdownLink>
-                  ))}
-                </DropdownMenuGroup>
-              </NavbarDropdownContent>
-            </NavbarDropdown>
+            <NavbarLink key={item.name} href={item.href}>
+              {item.name}
+            </NavbarLink>
           );
-        }
+        })}
+        <NavbarActions>
+          <Button asChild>
+            <a href="#">
+              Learn more <span aria-hidden="true">&rarr;</span>
+            </a>
+          </Button>
 
-        return (
-          <NavbarLink key={item.name} href={item.href}>
-            {item.name}
-          </NavbarLink>
-        );
-      })}
+          <Button variant="outline" asChild>
+            <a href="#">Contact</a>
+          </Button>
+        </NavbarActions>
+      </NavbarItems>
+    </Navbar>
+  ),
+};
+
+export const WithMenuLeft: StoryObj<typeof Navbar> = {
+  render: (args) => (
+    <Navbar {...args}>
+      <NavbarBrand
+        style={{
+          "@media (min-width: 1024px)": {
+            flexGrow: 0,
+            marginRight: "var(--spacing-6)",
+          },
+        }}
+      >
+        <NavbarLogo aria-label="Your company">
+          <CompanyLogo
+            style={{
+              height: "var(--spacing-8)",
+              width: "auto",
+              fill: "var(--color-background-fg)",
+            }}
+          />
+        </NavbarLogo>
+      </NavbarBrand>
+      <NavbarItems>
+        {navigation.map((item) => {
+          if (item.dropdown) {
+            return (
+              <NavbarDropdown key={item.name}>
+                <NavbarDropdownTrigger>{item.name}</NavbarDropdownTrigger>
+                <NavbarDropdownContent>
+                  <DropdownMenuGroup>
+                    {item.dropdownItems.map((dropdownItem) => (
+                      <NavbarDropdownLink
+                        key={dropdownItem.name}
+                        href={dropdownItem.href}
+                      >
+                        {dropdownItem.name}
+                      </NavbarDropdownLink>
+                    ))}
+                  </DropdownMenuGroup>
+                </NavbarDropdownContent>
+              </NavbarDropdown>
+            );
+          }
+
+          return (
+            <NavbarLink key={item.name} href={item.href}>
+              {item.name}
+            </NavbarLink>
+          );
+        })}
+      </NavbarItems>
+
       <NavbarActions>
+        <Input
+          type="search"
+          placeholder="Search"
+          style={{ width: "var(--spacing-64)" }}
+        />
         <Button asChild>
-          <a href="#">
-            Learn more <span aria-hidden="true">&rarr;</span>
-          </a>
-        </Button>
-
-        <Button variant="outline" asChild>
-          <a href="#">Contact</a>
+          <a href="#">Learn more</a>
         </Button>
       </NavbarActions>
-    </NavbarItems>
-  </Navbar>
-);
+    </Navbar>
+  ),
+};
 
-export const WithMenuLeft: StoryFn<typeof Navbar> = (args) => (
-  <Navbar {...args}>
-    <NavbarBrand
-      style={{
-        "@media (min-width: 1024px)": {
-          flexGrow: 0,
-          marginRight: "var(--spacing-6)",
-        },
-      }}
-    >
-      <NavbarLogo aria-label="Your company">
-        <CompanyLogo
-          style={{
-            height: "var(--spacing-8)",
-            width: "auto",
-            fill: "var(--color-background-fg)",
-          }}
-        />
-      </NavbarLogo>
-    </NavbarBrand>
-    <NavbarItems>
-      {navigation.map((item) => {
-        if (item.dropdown) {
+export const WithMenuCenter: StoryObj<typeof Navbar> = {
+  render: (args) => (
+    <Navbar {...args}>
+      <NavbarBrand>
+        <NavbarLogo aria-label="Your company">
+          <CompanyLogo
+            style={{
+              height: "var(--spacing-8)",
+              width: "auto",
+              fill: "var(--color-background-fg)",
+            }}
+          />
+        </NavbarLogo>
+      </NavbarBrand>
+      <NavbarItems>
+        {navigation.map((item) => {
+          if (item.dropdown) {
+            return (
+              <NavbarDropdown key={item.name}>
+                <NavbarDropdownTrigger>{item.name}</NavbarDropdownTrigger>
+                <NavbarDropdownContent>
+                  <DropdownMenuGroup>
+                    {item.dropdownItems.map((dropdownItem) => (
+                      <NavbarDropdownLink
+                        key={dropdownItem.name}
+                        href={dropdownItem.href}
+                      >
+                        {dropdownItem.name}
+                      </NavbarDropdownLink>
+                    ))}
+                  </DropdownMenuGroup>
+                </NavbarDropdownContent>
+              </NavbarDropdown>
+            );
+          }
+
           return (
-            <NavbarDropdown key={item.name}>
-              <NavbarDropdownTrigger>{item.name}</NavbarDropdownTrigger>
-              <NavbarDropdownContent>
-                <DropdownMenuGroup>
-                  {item.dropdownItems.map((dropdownItem) => (
-                    <NavbarDropdownLink
-                      key={dropdownItem.name}
-                      href={dropdownItem.href}
-                    >
-                      {dropdownItem.name}
-                    </NavbarDropdownLink>
-                  ))}
-                </DropdownMenuGroup>
-              </NavbarDropdownContent>
-            </NavbarDropdown>
+            <NavbarLink key={item.name} href={item.href}>
+              {item.name}
+            </NavbarLink>
           );
-        }
+        })}
+      </NavbarItems>
 
-        return (
-          <NavbarLink key={item.name} href={item.href}>
-            {item.name}
-          </NavbarLink>
-        );
-      })}
-    </NavbarItems>
-
-    <NavbarActions>
-      <Input
-        type="search"
-        placeholder="Search"
-        style={{ width: "var(--spacing-64)" }}
-      />
-      <Button asChild>
-        <a href="#">Learn more</a>
-      </Button>
-    </NavbarActions>
-  </Navbar>
-);
-
-export const WithMenuCenter: StoryFn<typeof Navbar> = (args) => (
-  <Navbar {...args}>
-    <NavbarBrand>
-      <NavbarLogo aria-label="Your company">
-        <CompanyLogo
-          style={{
-            height: "var(--spacing-8)",
-            width: "auto",
-            fill: "var(--color-background-fg)",
-          }}
-        />
-      </NavbarLogo>
-    </NavbarBrand>
-    <NavbarItems>
-      {navigation.map((item) => {
-        if (item.dropdown) {
-          return (
-            <NavbarDropdown key={item.name}>
-              <NavbarDropdownTrigger>{item.name}</NavbarDropdownTrigger>
-              <NavbarDropdownContent>
-                <DropdownMenuGroup>
-                  {item.dropdownItems.map((dropdownItem) => (
-                    <NavbarDropdownLink
-                      key={dropdownItem.name}
-                      href={dropdownItem.href}
-                    >
-                      {dropdownItem.name}
-                    </NavbarDropdownLink>
-                  ))}
-                </DropdownMenuGroup>
-              </NavbarDropdownContent>
-            </NavbarDropdown>
-          );
-        }
-
-        return (
-          <NavbarLink key={item.name} href={item.href}>
-            {item.name}
-          </NavbarLink>
-        );
-      })}
-    </NavbarItems>
-
-    <NavbarActions>
-      <Button asChild>
-        <a href="#">Learn more</a>
-      </Button>
-    </NavbarActions>
-  </Navbar>
-);
-
-export const WithLogoCenter: StoryFn<typeof Navbar> = (args) => (
-  <Navbar {...args}>
-    <NavbarItems style={{ width: "400px" }}>
-      {navigation.map((item) => {
-        if (item.dropdown) {
-          return (
-            <NavbarDropdown key={item.name}>
-              <NavbarDropdownTrigger>{item.name}</NavbarDropdownTrigger>
-              <NavbarDropdownContent>
-                <DropdownMenuGroup>
-                  {item.dropdownItems.map((dropdownItem) => (
-                    <NavbarDropdownLink
-                      key={dropdownItem.name}
-                      href={dropdownItem.href}
-                    >
-                      {dropdownItem.name}
-                    </NavbarDropdownLink>
-                  ))}
-                </DropdownMenuGroup>
-              </NavbarDropdownContent>
-            </NavbarDropdown>
-          );
-        }
-
-        return (
-          <NavbarLink key={item.name} href={item.href}>
-            {item.name}
-          </NavbarLink>
-        );
-      })}
-    </NavbarItems>
-    <NavbarBrand
-      style={{
-        "@media (min-width: 1024px)": {
-          flexGrow: 0,
-        },
-      }}
-    >
-      <NavbarLogo aria-label="Your company">
-        <CompanyLogo
-          style={{
-            height: "var(--spacing-8)",
-            width: "auto",
-            fill: "var(--color-background-fg)",
-          }}
-        />
-      </NavbarLogo>
-    </NavbarBrand>
-    <NavbarActions
-      style={{
-        "@media (min-width: 1024px)": {
-          flex: "none",
-        },
-        width: "400px",
-      }}
-    >
-      <Button asChild>
-        <a href="#">Learn more</a>
-      </Button>
-    </NavbarActions>
-  </Navbar>
-);
-
-export const WithActionsCenter: StoryFn<typeof Navbar> = (args) => (
-  <Navbar {...args}>
-    <NavbarBrand
-      style={{
-        "@media (min-width: 1024px)": {
-          flexGrow: 0,
-        },
-      }}
-    >
-      <NavbarLogo aria-label="Your company">
-        <CompanyLogo
-          style={{
-            height: "var(--spacing-8)",
-            width: "auto",
-            fill: "var(--color-background-fg)",
-          }}
-        />
-      </NavbarLogo>
-    </NavbarBrand>
-    <NavbarActions
-      style={{
-        "@media (min-width: 1024px)": {
-          justifyContent: "flex-start",
-        },
-        marginLeft: "var(--spacing-6)",
-      }}
-    >
-      <Input
-        type="search"
-        placeholder="Search"
-        style={{ width: "var(--spacing-64)" }}
-      />
-    </NavbarActions>
-    <NavbarItems>
-      {navigation.map((item) => {
-        if (item.dropdown) {
-          return (
-            <NavbarDropdown key={item.name}>
-              <NavbarDropdownTrigger>{item.name}</NavbarDropdownTrigger>
-              <NavbarDropdownContent>
-                <DropdownMenuGroup>
-                  {item.dropdownItems.map((dropdownItem) => (
-                    <NavbarDropdownLink
-                      key={dropdownItem.name}
-                      href={dropdownItem.href}
-                    >
-                      {dropdownItem.name}
-                    </NavbarDropdownLink>
-                  ))}
-                </DropdownMenuGroup>
-              </NavbarDropdownContent>
-            </NavbarDropdown>
-          );
-        }
-
-        return (
-          <NavbarLink key={item.name} href={item.href}>
-            {item.name}
-          </NavbarLink>
-        );
-      })}
-    </NavbarItems>
-  </Navbar>
-);
-
-export const WithMobileMenu: StoryFn<typeof Navbar> = (args) => (
-  <Navbar {...args}>
-    <NavbarBrand>
-      <NavbarLogo aria-label="Your company">
-        <CompanyLogo
-          style={{
-            height: "var(--spacing-8)",
-            width: "auto",
-            fill: "var(--color-background-fg)",
-          }}
-        />
-      </NavbarLogo>
-    </NavbarBrand>
-
-    <NavbarItems>
-      {navigation.map((item) => {
-        if (item.dropdown) {
-          return (
-            <NavbarDropdown key={item.name}>
-              <NavbarDropdownTrigger>{item.name}</NavbarDropdownTrigger>
-              <NavbarDropdownContent>
-                <DropdownMenuGroup>
-                  {item.dropdownItems.map((dropdownItem) => (
-                    <NavbarDropdownLink
-                      key={dropdownItem.name}
-                      href={dropdownItem.href}
-                    >
-                      {dropdownItem.name}
-                    </NavbarDropdownLink>
-                  ))}
-                </DropdownMenuGroup>
-              </NavbarDropdownContent>
-            </NavbarDropdown>
-          );
-        }
-        return (
-          <NavbarLink key={item.name} href={item.href}>
-            {item.name}
-          </NavbarLink>
-        );
-      })}
       <NavbarActions>
         <Button asChild>
-          <a href="#">
-            Learn more <span aria-hidden="true">&rarr;</span>
-          </a>
-        </Button>
-
-        <Button variant="outline" asChild>
-          <a href="#">Contact</a>
+          <a href="#">Learn more</a>
         </Button>
       </NavbarActions>
-    </NavbarItems>
-    <NavbarMobile>
-      <NavbarMobileTrigger>
-        <MenuIcon
-          style={{
-            height: "var(--spacing-6)",
-            width: "var(--spacing-6)",
-            stroke: "var(--color-background-fg)",
-          }}
-          aria-hidden="true"
+    </Navbar>
+  ),
+};
+
+export const WithLogoCenter: StoryObj<typeof Navbar> = {
+  render: (args) => (
+    <Navbar {...args}>
+      <NavbarItems style={{ width: "400px" }}>
+        {navigation.map((item) => {
+          if (item.dropdown) {
+            return (
+              <NavbarDropdown key={item.name}>
+                <NavbarDropdownTrigger>{item.name}</NavbarDropdownTrigger>
+                <NavbarDropdownContent>
+                  <DropdownMenuGroup>
+                    {item.dropdownItems.map((dropdownItem) => (
+                      <NavbarDropdownLink
+                        key={dropdownItem.name}
+                        href={dropdownItem.href}
+                      >
+                        {dropdownItem.name}
+                      </NavbarDropdownLink>
+                    ))}
+                  </DropdownMenuGroup>
+                </NavbarDropdownContent>
+              </NavbarDropdown>
+            );
+          }
+
+          return (
+            <NavbarLink key={item.name} href={item.href}>
+              {item.name}
+            </NavbarLink>
+          );
+        })}
+      </NavbarItems>
+      <NavbarBrand
+        style={{
+          "@media (min-width: 1024px)": {
+            flexGrow: 0,
+          },
+        }}
+      >
+        <NavbarLogo aria-label="Your company">
+          <CompanyLogo
+            style={{
+              height: "var(--spacing-8)",
+              width: "auto",
+              fill: "var(--color-background-fg)",
+            }}
+          />
+        </NavbarLogo>
+      </NavbarBrand>
+      <NavbarActions
+        style={{
+          "@media (min-width: 1024px)": {
+            flex: "none",
+          },
+          width: "400px",
+        }}
+      >
+        <Button asChild>
+          <a href="#">Learn more</a>
+        </Button>
+      </NavbarActions>
+    </Navbar>
+  ),
+};
+
+export const WithActionsCenter: StoryObj<typeof Navbar> = {
+  render: (args) => (
+    <Navbar {...args}>
+      <NavbarBrand
+        style={{
+          "@media (min-width: 1024px)": {
+            flexGrow: 0,
+          },
+        }}
+      >
+        <NavbarLogo aria-label="Your company">
+          <CompanyLogo
+            style={{
+              height: "var(--spacing-8)",
+              width: "auto",
+              fill: "var(--color-background-fg)",
+            }}
+          />
+        </NavbarLogo>
+      </NavbarBrand>
+      <NavbarActions
+        style={{
+          "@media (min-width: 1024px)": {
+            justifyContent: "flex-start",
+          },
+          marginLeft: "var(--spacing-6)",
+        }}
+      >
+        <Input
+          type="search"
+          placeholder="Search"
+          style={{ width: "var(--spacing-64)" }}
         />
-      </NavbarMobileTrigger>
-      <NavbarMobileContent>
-        <NavbarMobileHeader>
-          <NavbarMobileLogo aria-label="Your company">
-            <CompanyLogo
-              style={{
-                height: "var(--spacing-8)",
-                width: "auto",
-                fill: "var(--color-background-fg)",
-              }}
-            />
-          </NavbarMobileLogo>
-          <NavbarMobileClose />
-        </NavbarMobileHeader>
-        <NavbarMobileGroup>
-          <NavbarMobileItems>
-            {navigation.map((item) => {
-              if (item.dropdown) {
+      </NavbarActions>
+      <NavbarItems>
+        {navigation.map((item) => {
+          if (item.dropdown) {
+            return (
+              <NavbarDropdown key={item.name}>
+                <NavbarDropdownTrigger>{item.name}</NavbarDropdownTrigger>
+                <NavbarDropdownContent>
+                  <DropdownMenuGroup>
+                    {item.dropdownItems.map((dropdownItem) => (
+                      <NavbarDropdownLink
+                        key={dropdownItem.name}
+                        href={dropdownItem.href}
+                      >
+                        {dropdownItem.name}
+                      </NavbarDropdownLink>
+                    ))}
+                  </DropdownMenuGroup>
+                </NavbarDropdownContent>
+              </NavbarDropdown>
+            );
+          }
+
+          return (
+            <NavbarLink key={item.name} href={item.href}>
+              {item.name}
+            </NavbarLink>
+          );
+        })}
+      </NavbarItems>
+    </Navbar>
+  ),
+};
+
+export const WithMobileMenu: StoryObj<typeof Navbar> = {
+  render: (args) => (
+    <Navbar {...args}>
+      <NavbarBrand>
+        <NavbarLogo aria-label="Your company">
+          <CompanyLogo
+            style={{
+              height: "var(--spacing-8)",
+              width: "auto",
+              fill: "var(--color-background-fg)",
+            }}
+          />
+        </NavbarLogo>
+      </NavbarBrand>
+
+      <NavbarItems>
+        {navigation.map((item) => {
+          if (item.dropdown) {
+            return (
+              <NavbarDropdown key={item.name}>
+                <NavbarDropdownTrigger>{item.name}</NavbarDropdownTrigger>
+                <NavbarDropdownContent>
+                  <DropdownMenuGroup>
+                    {item.dropdownItems.map((dropdownItem) => (
+                      <NavbarDropdownLink
+                        key={dropdownItem.name}
+                        href={dropdownItem.href}
+                      >
+                        {dropdownItem.name}
+                      </NavbarDropdownLink>
+                    ))}
+                  </DropdownMenuGroup>
+                </NavbarDropdownContent>
+              </NavbarDropdown>
+            );
+          }
+          return (
+            <NavbarLink key={item.name} href={item.href}>
+              {item.name}
+            </NavbarLink>
+          );
+        })}
+        <NavbarActions>
+          <Button asChild>
+            <a href="#">
+              Learn more <span aria-hidden="true">&rarr;</span>
+            </a>
+          </Button>
+
+          <Button variant="outline" asChild>
+            <a href="#">Contact</a>
+          </Button>
+        </NavbarActions>
+      </NavbarItems>
+      <NavbarMobile>
+        <NavbarMobileTrigger>
+          <MenuIcon
+            style={{
+              height: "var(--spacing-6)",
+              width: "var(--spacing-6)",
+              stroke: "var(--color-background-fg)",
+            }}
+            aria-hidden="true"
+          />
+        </NavbarMobileTrigger>
+        <NavbarMobileContent>
+          <NavbarMobileHeader>
+            <NavbarMobileLogo aria-label="Your company">
+              <CompanyLogo
+                style={{
+                  height: "var(--spacing-8)",
+                  width: "auto",
+                  fill: "var(--color-background-fg)",
+                }}
+              />
+            </NavbarMobileLogo>
+            <NavbarMobileClose />
+          </NavbarMobileHeader>
+          <NavbarMobileGroup>
+            <NavbarMobileItems>
+              {navigation.map((item) => {
+                if (item.dropdown) {
+                  return (
+                    <>
+                      <NavbarMobileDropdownLabel>
+                        {item.name}
+                      </NavbarMobileDropdownLabel>
+                      <NavbarMobileDropdownGroup>
+                        {item.dropdownItems.map((dropdownItem) => (
+                          <NavbarMobileDropdownLink
+                            key={dropdownItem.name}
+                            href={dropdownItem.href}
+                          >
+                            {dropdownItem.name}
+                          </NavbarMobileDropdownLink>
+                        ))}
+                      </NavbarMobileDropdownGroup>
+                    </>
+                  );
+                }
+
                 return (
-                  <>
-                    <NavbarMobileDropdownLabel>
-                      {item.name}
-                    </NavbarMobileDropdownLabel>
-                    <NavbarMobileDropdownGroup>
-                      {item.dropdownItems.map((dropdownItem) => (
-                        <NavbarMobileDropdownLink
-                          key={dropdownItem.name}
-                          href={dropdownItem.href}
-                        >
-                          {dropdownItem.name}
-                        </NavbarMobileDropdownLink>
-                      ))}
-                    </NavbarMobileDropdownGroup>
-                  </>
+                  <NavbarMobileLink key={item.name} href={item.href}>
+                    {item.name}
+                  </NavbarMobileLink>
                 );
-              }
+              })}
+            </NavbarMobileItems>
+            <NavbarMobileActions>
+              <Button asChild>
+                <a href="#">
+                  Learn more <span aria-hidden="true">&rarr;</span>
+                </a>
+              </Button>
 
-              return (
-                <NavbarMobileLink key={item.name} href={item.href}>
-                  {item.name}
-                </NavbarMobileLink>
-              );
-            })}
-          </NavbarMobileItems>
-          <NavbarMobileActions>
-            <Button asChild>
-              <a href="#">
-                Learn more <span aria-hidden="true">&rarr;</span>
-              </a>
-            </Button>
+              <Button variant="outline" asChild>
+                <a href="#">Contact</a>
+              </Button>
+            </NavbarMobileActions>
+          </NavbarMobileGroup>
+        </NavbarMobileContent>
+      </NavbarMobile>
+    </Navbar>
+  ),
 
-            <Button variant="outline" asChild>
-              <a href="#">Contact</a>
-            </Button>
-          </NavbarMobileActions>
-        </NavbarMobileGroup>
-      </NavbarMobileContent>
-    </NavbarMobile>
-  </Navbar>
-);
-
-WithMobileMenu.parameters = {
-  viewport: {
-    defaultViewport: "mobile2",
+  parameters: {
+    viewport: {
+      defaultViewport: "mobile2",
+    },
   },
 };
 
-export const WithMegaMenu: StoryFn<typeof Navbar> = (args) => (
-  <Navbar {...args}>
-    <NavbarBrand
-      style={{
-        "@media (min-width: 1024px)": {
-          flexGrow: 0,
-          marginRight: "var(--spacing-6)",
-        },
-      }}
-    >
-      <NavbarLogo aria-label="Your company">
-        <CompanyLogo
-          style={{
-            height: "var(--spacing-8)",
-            width: "auto",
-            fill: "var(--color-background-fg)",
-          }}
-        />
-      </NavbarLogo>
-    </NavbarBrand>
+export const WithMegaMenu: StoryObj<typeof Navbar> = {
+  render: (args) => (
+    <Navbar {...args}>
+      <NavbarBrand
+        style={{
+          "@media (min-width: 1024px)": {
+            flexGrow: 0,
+            marginRight: "var(--spacing-6)",
+          },
+        }}
+      >
+        <NavbarLogo aria-label="Your company">
+          <CompanyLogo
+            style={{
+              height: "var(--spacing-8)",
+              width: "auto",
+              fill: "var(--color-background-fg)",
+            }}
+          />
+        </NavbarLogo>
+      </NavbarBrand>
 
-    <NavbarItems style={{ flex: 1 }}>
-      <MegaMenu>
-        <MegaMenuList>
-          <MegaMenuItem>
-            <MegaMenuTrigger>Getting started</MegaMenuTrigger>
-            <MegaMenuContent>
-              <ul
-                style={{
-                  display: "grid",
-                  gap: "var(--spacing-3)",
-                  padding: "var(--spacing-4)",
-                  "@media (min-width: 768px)": {
-                    width: "400px",
-                  },
-                  "@media (min-width: 1024px)": {
-                    width: "500px",
-                    gridTemplateColumns: ".75fr 1fr",
-                  },
-                }}
-              >
-                <li style={{ gridRow: "span 3 / span 3" }}>
-                  <MegaMenuLink asChild>
-                    <a
-                      style={{
-                        display: "flex",
-                        height: "100%",
-                        width: "100%",
-                        userSelect: "none",
-                        flexDirection: "column",
-                        justifyContent: "flex-end",
-                        borderRadius: "var(--border-radius-md)",
-                        background:
-                          "linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.1))",
-                        padding: "var(--spacing-6)",
-                        textDecoration: "none",
-                        outline: "none",
-                      }}
-                      href="/"
-                    >
-                      <img
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo"
-                        alt="Logo"
-                        style={{
-                          width: "var(--spacing-8)",
-                          height: "var(--spacing-8)",
-                        }}
-                      />
-                      <div
-                        style={{
-                          marginBottom: "var(--spacing-2)",
-                          marginTop: "var(--spacing-4)",
-                          fontSize: "var(--font-size-lg)",
-                          fontWeight: "var(--font-weight-medium)",
-                        }}
-                      >
-                        shadcn/ui
-                      </div>
-                      <p
-                        style={{
-                          fontSize: "var(--font-size-sm)",
-                          lineHeight: "var(--line-height-tight)",
-                          color: "var(--color-muted-fg)",
-                        }}
-                      >
-                        Beautifully designed components built with Radix UI.
-                      </p>
-                    </a>
-                  </MegaMenuLink>
-                </li>
-                <MegaMenuListItem href="/docs" title="Introduction">
-                  Re-usable components built using Radix UI.
-                </MegaMenuListItem>
-                <MegaMenuListItem
-                  href="/docs/installation"
-                  title="Installation"
+      <NavbarItems style={{ flex: 1 }}>
+        <MegaMenu>
+          <MegaMenuList>
+            <MegaMenuItem>
+              <MegaMenuTrigger>Getting started</MegaMenuTrigger>
+              <MegaMenuContent>
+                <ul
+                  style={{
+                    display: "grid",
+                    gap: "var(--spacing-3)",
+                    padding: "var(--spacing-4)",
+                    "@media (min-width: 768px)": {
+                      width: "400px",
+                    },
+                    "@media (min-width: 1024px)": {
+                      width: "500px",
+                      gridTemplateColumns: ".75fr 1fr",
+                    },
+                  }}
                 >
-                  How to install dependencies and structure your app.
-                </MegaMenuListItem>
-                <MegaMenuListItem
-                  href="/docs/primitives/typography"
-                  title="Typography"
-                >
-                  Styles for headings, paragraphs, lists...etc
-                </MegaMenuListItem>
-              </ul>
-            </MegaMenuContent>
-          </MegaMenuItem>
-        </MegaMenuList>
-      </MegaMenu>
-    </NavbarItems>
+                  <li style={{ gridRow: "span 3 / span 3" }}>
+                    <MegaMenuLink asChild>
+                      <a
+                        style={{
+                          display: "flex",
+                          height: "100%",
+                          width: "100%",
+                          userSelect: "none",
+                          flexDirection: "column",
+                          justifyContent: "flex-end",
+                          borderRadius: "var(--border-radius-md)",
+                          background:
+                            "linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.1))",
+                          padding: "var(--spacing-6)",
+                          textDecoration: "none",
+                          outline: "none",
+                        }}
+                        href="/"
+                      >
+                        <img
+                          src="https://tailwindui.com/img/logos/mark.svg?color=indigo"
+                          alt="Logo"
+                          style={{
+                            width: "var(--spacing-8)",
+                            height: "var(--spacing-8)",
+                          }}
+                        />
+                        <div
+                          style={{
+                            marginBottom: "var(--spacing-2)",
+                            marginTop: "var(--spacing-4)",
+                            fontSize: "var(--font-size-lg)",
+                            fontWeight: "var(--font-weight-medium)",
+                          }}
+                        >
+                          shadcn/ui
+                        </div>
+                        <p
+                          style={{
+                            fontSize: "var(--font-size-sm)",
+                            lineHeight: "var(--line-height-tight)",
+                            color: "var(--color-muted-fg)",
+                          }}
+                        >
+                          Beautifully designed components built with Radix UI.
+                        </p>
+                      </a>
+                    </MegaMenuLink>
+                  </li>
+                  <MegaMenuListItem href="/docs" title="Introduction">
+                    Re-usable components built using Radix UI.
+                  </MegaMenuListItem>
+                  <MegaMenuListItem
+                    href="/docs/installation"
+                    title="Installation"
+                  >
+                    How to install dependencies and structure your app.
+                  </MegaMenuListItem>
+                  <MegaMenuListItem
+                    href="/docs/primitives/typography"
+                    title="Typography"
+                  >
+                    Styles for headings, paragraphs, lists...etc
+                  </MegaMenuListItem>
+                </ul>
+              </MegaMenuContent>
+            </MegaMenuItem>
+          </MegaMenuList>
+        </MegaMenu>
+      </NavbarItems>
 
-    <NavbarActions
-      style={{
-        "@media (min-width: 1024px)": {
-          flex: "none",
-        },
-        width: "400px",
-      }}
-    >
-      <Button asChild>
-        <a href="#">Learn more</a>
-      </Button>
-    </NavbarActions>
-  </Navbar>
-);
+      <NavbarActions
+        style={{
+          "@media (min-width: 1024px)": {
+            flex: "none",
+          },
+          width: "400px",
+        }}
+      >
+        <Button asChild>
+          <a href="#">Learn more</a>
+        </Button>
+      </NavbarActions>
+    </Navbar>
+  ),
+};
 
 const CompanyLogo: React.FC<SVGAttributes<SVGElement>> = (props) => {
   return (

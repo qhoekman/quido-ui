@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from "@storybook/react-vite";
+import { StoryObj, Meta } from "@storybook/react-vite";
 
 import {
   Select,
@@ -13,17 +13,19 @@ export default {
   component: Select,
 } as Meta<typeof Select>;
 
-export const Default: StoryFn<typeof Select> = (args) => (
-  <form>
-    <Select {...args}>
-      <SelectTrigger style={{ width: "var(--spacing-18)" }}>
-        <SelectValue placeholder="Theme" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectItem value="light">Light</SelectItem>
-        <SelectItem value="dark">Dark</SelectItem>
-        <SelectItem value="system">System</SelectItem>
-      </SelectContent>
-    </Select>
-  </form>
-);
+export const Default: StoryObj<typeof Select> = {
+  render: (args) => (
+    <form>
+      <Select {...args}>
+        <SelectTrigger style={{ width: "var(--spacing-18)" }}>
+          <SelectValue placeholder="Theme" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="light">Light</SelectItem>
+          <SelectItem value="dark">Dark</SelectItem>
+          <SelectItem value="system">System</SelectItem>
+        </SelectContent>
+      </Select>
+    </form>
+  ),
+};

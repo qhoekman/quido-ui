@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from "@storybook/react-vite";
+import { StoryObj, Meta } from "@storybook/react-vite";
 
 import { Separator } from "./separator";
 
@@ -20,8 +20,10 @@ export default {
   },
 } satisfies Meta<typeof Separator>;
 
-export const Default: StoryFn<typeof Separator> = (args) => (
-  <div style={{ height: "100px" }}>
-    <Separator {...args}></Separator>
-  </div>
-);
+export const Default: StoryObj<typeof Separator> = {
+  render: (args) => (
+    <div style={{ height: "100px" }}>
+      <Separator {...args}></Separator>
+    </div>
+  ),
+};

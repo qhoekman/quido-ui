@@ -1,7 +1,7 @@
 import { Block, BlockTitle } from "@/features/mobile/components/block/block";
 import { ListButton } from "@/features/mobile/components/list-button/list-button";
 import { ViewportLayout } from "@/features/mobile/layouts/viewport/viewport";
-import type { Meta, StoryFn } from "@storybook/react-vite";
+import type { StoryObj, Meta } from "@storybook/react-vite";
 
 export default {
   title: "Features/Mobile/Components/List Button",
@@ -21,26 +21,28 @@ export default {
   },
 } satisfies Meta<typeof ListButton>;
 
-export const Default: StoryFn<typeof ListButton> = (args) => (
-  <ViewportLayout>
-    <BlockTitle>List Button</BlockTitle>
-    <Block style={{ padding: "0" }} inset>
-      <ul>
-        {Array.from({ length: 5 }).map((_, index) => (
-          <li key={index} style={{ listStyle: "none" }}>
-            <ListButton {...args}>
-              <span>Button</span>
-            </ListButton>
-          </li>
-        ))}
-      </ul>
-    </Block>
-  </ViewportLayout>
-);
+export const Default: StoryObj<typeof ListButton> = {
+  render: (args) => (
+    <ViewportLayout>
+      <BlockTitle>List Button</BlockTitle>
+      <Block style={{ padding: "0" }} inset>
+        <ul>
+          {Array.from({ length: 5 }).map((_, index) => (
+            <li key={index} style={{ listStyle: "none" }}>
+              <ListButton {...args}>
+                <span>Button</span>
+              </ListButton>
+            </li>
+          ))}
+        </ul>
+      </Block>
+    </ViewportLayout>
+  ),
 
-Default.parameters = {
-  layout: "fullscreen",
-  viewport: {
-    defaultViewport: "mobile2",
+  parameters: {
+    layout: "fullscreen",
+    viewport: {
+      defaultViewport: "mobile2",
+    },
   },
 };
