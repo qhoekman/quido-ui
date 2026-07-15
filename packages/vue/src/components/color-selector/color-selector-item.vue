@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { RadioGroupItem, RadioGroupItemIndicator } from 'reka-ui'
+import { RadioGroupItem, RadioGroupIndicator } from 'reka-ui'
 import { cva, type VariantProps } from 'class-variance-authority'
 
 const colorSelectorItemVariants = cva('q-color-selector-item', {
@@ -48,11 +48,11 @@ const classes = computed(() => {
     data-testid="qui-color-selector-item"
     v-bind="$attrs"
   >
-    <RadioGroupItemIndicator :class="['q-color-selector-item-indicator']">
+    <RadioGroupIndicator :class="['q-color-selector-item-indicator']">
       <slot>
         <div class="indicator" />
       </slot>
-    </RadioGroupItemIndicator>
+    </RadioGroupIndicator>
   </RadioGroupItem>
 </template>
 
