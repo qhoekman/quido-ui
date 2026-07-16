@@ -54,7 +54,8 @@ const ariaOrientation = computed(() => (props.decorative ? undefined : props.ori
 </template>
 
 <style scoped>
-div {
+.q-separator {
+  display: block;
   flex-shrink: 0;
   background-color: var(--color-border);
 }
