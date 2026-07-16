@@ -17,7 +17,7 @@ export const Default: Story = {
     template: `
       <div style="display: flex; gap: var(--spacing-2); align-items: center;">
         <SkeletonComponent style="width: var(--spacing-12); height: var(--spacing-12); border-radius: var(--border-radius-full);" />
-        <div style="display: flex; flex-direction: column; gap: var(--spacing-2); align-items: center;">
+        <div style="display: flex; flex-direction: column; gap: var(--spacing-2); align-items: flex-start;">
           <SkeletonComponent style="width: 250px; height: var(--spacing-4);" />
           <SkeletonComponent style="width: 200px; height: var(--spacing-4);" />
         </div>
