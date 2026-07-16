@@ -65,13 +65,13 @@ const handleInput = (event: Event) => {
 const iconSize = computed(() => {
   switch (props.size) {
     case "sm":
-      return 12;
-    case "md":
-      return 16;
-    case "lg":
       return 20;
+    case "md":
+      return 24;
+    case "lg":
+      return 28;
     default:
-      return 16;
+      return 24;
   }
 });
 
@@ -85,6 +85,7 @@ const inputClasses = computed(() => {
     <input
       ref="inputRef"
       :type="inputType"
+      v-bind="$attrs"
       :class="inputClasses"
       :value="props.modelValue"
       :placeholder="placeholder"
@@ -94,7 +95,6 @@ const inputClasses = computed(() => {
       :maxlength="maxLength"
       :minlength="minLength"
       @input="handleInput"
-      v-bind="$attrs"
     />
     <button
       type="button"
@@ -113,6 +113,9 @@ const inputClasses = computed(() => {
 .q-password-input {
   display: inline-flex;
   align-items: center;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow: hidden;
   border-radius: var(--border-radius-md);
   border: var(--border-width-default) solid var(--color-border);
   background-color: var(--color-input);
@@ -120,7 +123,8 @@ const inputClasses = computed(() => {
 }
 
 .q-password-input-field {
-  flex: 1;
+  flex: 1 1 auto;
+  min-width: 0;
   border: none;
   outline: none;
   padding: var(--spacing-2);
@@ -145,7 +149,8 @@ const inputClasses = computed(() => {
 }
 
 .q-password-input-button {
-  height: 100%;
+  flex-shrink: 0;
+  align-self: stretch;
   background: none;
   border: none;
   color: var(--color-input-fg);
@@ -170,6 +175,12 @@ const inputClasses = computed(() => {
   opacity: 0.5;
 }
 
+.q-password-input-button .icon {
+  flex-shrink: 0;
+  max-width: none;
+  display: block;
+}
+
 .q-password-input:focus-within {
   border-color: var(--color-ring);
   box-shadow:
@@ -177,34 +188,34 @@ const inputClasses = computed(() => {
     0 0 0 4px var(--color-background);
 }
 
-/* Size modifiers */
+/* Size modifiers — field heights match Input; icons sized for clear visibility */
 .size--sm .q-password-input-field {
-  height: var(--spacing-3);
+  height: var(--spacing-6);
   padding: var(--spacing-2) var(--spacing-2);
 }
 
 .size--sm .icon {
-  width: var(--spacing-3);
-  height: var(--spacing-3);
+  width: var(--spacing-5);
+  height: var(--spacing-5);
 }
 
 .size--md .q-password-input-field {
-  height: var(--spacing-5);
-  padding: var(--spacing-3) var(--spacing-2);
+  height: var(--spacing-8);
+  padding: var(--spacing-2) var(--spacing-3);
 }
 
 .size--md .icon {
-  width: var(--spacing-4);
-  height: var(--spacing-4);
+  width: var(--spacing-6);
+  height: var(--spacing-6);
 }
 
 .size--lg .q-password-input-field {
-  height: var(--spacing-7);
+  height: var(--spacing-10);
   padding: var(--spacing-3) var(--spacing-3);
 }
 
 .size--lg .icon {
-  width: var(--spacing-5);
-  height: var(--spacing-5);
+  width: var(--spacing-7);
+  height: var(--spacing-7);
 }
 </style>
