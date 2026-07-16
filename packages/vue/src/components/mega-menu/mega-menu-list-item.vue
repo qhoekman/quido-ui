@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { Primitive } from "reka-ui";
 import MegaMenuLink from "./mega-menu-link.vue";
 
 export interface MegaMenuListItemProps {
@@ -19,8 +18,15 @@ const classes = computed(() => ["q-mega-menu-list-item"]);
 </script>
 
 <template>
-  <li>
-    <MegaMenuLink :href="href" :as-child="asChild" :as="as" :class="classes" v-bind="$attrs">
+  <li class="q-mega-menu-list-item-wrap">
+    <MegaMenuLink
+      variant="plain"
+      :href="href"
+      :as-child="asChild"
+      :as="as"
+      :class="classes"
+      v-bind="$attrs"
+    >
       <div class="list-item-title">{{ title }}</div>
       <p class="list-item-description">
         <slot />
@@ -29,16 +35,19 @@ const classes = computed(() => ["q-mega-menu-list-item"]);
   </li>
 </template>
 
-<style scoped>
-li {
+<style>
+.q-mega-menu-list-item-wrap {
   list-style: none;
 }
 
-a,
-[role="link"] {
+.q-mega-menu-list-item {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
   gap: var(--spacing-1);
+  width: 100%;
+  text-align: left;
   user-select: none;
   border-radius: var(--border-radius-md);
   padding: var(--spacing-3);
@@ -46,35 +55,29 @@ a,
   text-decoration: none;
   outline: none;
   transition: colors 0.3s;
+  color: inherit;
 }
 
-a:hover:not(:disabled),
-[role="link"]:hover:not([aria-disabled="true"]) {
+.q-mega-menu-list-item:hover {
   background-color: var(--color-muted);
   color: var(--color-muted-fg);
 }
 
-a:focus:not(:disabled),
-[role="link"]:focus:not([aria-disabled="true"]) {
-  background-color: var(--color-muted);
-  color: var(--color-muted-fg);
-}
-
-a:focus-visible:not(:disabled),
-[role="link"]:focus-visible:not([aria-disabled="true"]) {
+.q-mega-menu-list-item:focus-visible {
   outline: none;
   box-shadow:
     0 0 0 2px var(--color-ring),
     0 0 0 4px var(--color-background);
 }
 
-.list-item-title {
+.q-mega-menu-list-item .list-item-title {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-none);
+  text-align: left;
 }
 
-.list-item-description {
+.q-mega-menu-list-item .list-item-description {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -83,5 +86,6 @@ a:focus-visible:not(:disabled),
   line-height: var(--line-height-snug);
   color: var(--color-muted-fg);
   margin: 0;
+  text-align: left;
 }
 </style>

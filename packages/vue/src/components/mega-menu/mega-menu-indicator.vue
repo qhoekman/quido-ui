@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { Primitive } from "reka-ui";
+import { NavigationMenuIndicator } from "reka-ui";
 
 export interface MegaMenuIndicatorProps {
   asChild?: boolean;
@@ -16,18 +16,39 @@ const classes = computed(() => ["q-mega-menu-indicator"]);
 </script>
 
 <template>
-  <Primitive
+  <NavigationMenuIndicator
     :as="as"
     :as-child="asChild"
     :class="classes"
     v-bind="$attrs"
   >
     <div class="indicator-inner" />
-  </Primitive>
+  </NavigationMenuIndicator>
 </template>
 
 <style scoped>
-div {
+.indicator-inner {
+  position: relative;
+  top: 60%;
+  height: var(--spacing-2);
+  width: var(--spacing-2);
+  transform: rotate(45deg);
+  border-top-left-radius: var(--border-radius-sm);
+  background-color: var(--color-border);
+  box-shadow: var(--box-shadow-md);
+}
+</style>
+
+<style>
+/*
+ * reka-ui's NavigationMenuIndicator is rendered via Teleport (into the
+ * list's registered indicator track), same as NavigationMenuContent --
+ * this severs any connection to this component's own scoped-CSS
+ * data-v-* attribute, so scoped selectors (with or without :deep()) can
+ * never match. These rules must be global, scoped only by the
+ * q-mega-menu-indicator class.
+ */
+.q-mega-menu-indicator {
   top: 100%;
   z-index: 1;
   display: flex;
@@ -37,11 +58,11 @@ div {
   overflow: hidden;
 }
 
-div[data-state="visible"] {
+.q-mega-menu-indicator[data-state="visible"] {
   animation: fadeIn 0.2s ease-out;
 }
 
-div[data-state="hidden"] {
+.q-mega-menu-indicator[data-state="hidden"] {
   animation: fadeOut 0.2s ease-out;
 }
 
@@ -61,16 +82,5 @@ div[data-state="hidden"] {
   to {
     opacity: 0;
   }
-}
-
-.indicator-inner {
-  position: relative;
-  top: 60%;
-  height: var(--spacing-2);
-  width: var(--spacing-2);
-  transform: rotate(45deg);
-  border-top-left-radius: var(--border-radius-sm);
-  background-color: var(--color-border);
-  box-shadow: var(--box-shadow-md);
 }
 </style>

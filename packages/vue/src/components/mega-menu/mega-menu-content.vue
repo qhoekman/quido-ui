@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { Primitive } from "reka-ui";
+import { NavigationMenuContent } from "reka-ui";
 
 export interface MegaMenuContentProps {
   asChild?: boolean;
@@ -15,65 +15,64 @@ const props = withDefaults(defineProps<MegaMenuContentProps>(), {
 });
 
 const classes = computed(() => ["q-mega-menu-content"]);
-
-const handlePointerLeave = (event: PointerEvent) => {
-  event.preventDefault();
-};
-
-const handlePointerEnter = (event: PointerEvent) => {
-  event.preventDefault();
-};
 </script>
 
 <template>
-  <Primitive
+  <NavigationMenuContent
     :as="as"
     :as-child="asChild"
     :class="classes"
-    :data-force-mount="forceMount"
-    @pointerleave="handlePointerLeave"
-    @pointerenter="handlePointerEnter"
+    :force-mount="forceMount"
     v-bind="$attrs"
   >
     <slot />
-  </Primitive>
+  </NavigationMenuContent>
 </template>
 
-<style scoped>
-div {
+<style>
+/*
+ * reka-ui's NavigationMenuContent is rendered via Teleport (into the
+ * viewport element, or document.body as a fallback), which severs any
+ * connection to this component's own scoped-CSS data-v-* attribute --
+ * neither the content element nor any of its (post-teleport) ancestors
+ * carry it, so scoped selectors (with or without :deep()) can never
+ * match. These rules must be global, scoped only by the
+ * q-mega-menu-content class.
+ */
+.q-mega-menu-content {
   left: 0;
   top: 0;
   width: 100%;
 }
 
 @media (min-width: 768px) {
-  div {
+  .q-mega-menu-content {
     position: absolute;
     width: auto;
   }
 }
 
-div[data-motion="from-end"] {
+.q-mega-menu-content[data-motion="from-end"] {
   animation: slideInFromRight 0.2s ease-out;
 }
 
-div[data-motion="from-start"] {
+.q-mega-menu-content[data-motion="from-start"] {
   animation: slideInFromLeft 0.2s ease-out;
 }
 
-div[data-motion="to-end"] {
+.q-mega-menu-content[data-motion="to-end"] {
   animation: slideOutToRight 0.2s ease-out;
 }
 
-div[data-motion="to-start"] {
+.q-mega-menu-content[data-motion="to-start"] {
   animation: slideOutToLeft 0.2s ease-out;
 }
 
-div[data-motion^="from-"]:not([data-motion="from-end"]):not([data-motion="from-start"]) {
+.q-mega-menu-content[data-motion^="from-"]:not([data-motion="from-end"]):not([data-motion="from-start"]) {
   animation: fadeIn 0.2s ease-out;
 }
 
-div[data-motion^="to-"]:not([data-motion="to-end"]):not([data-motion="to-start"]) {
+.q-mega-menu-content[data-motion^="to-"]:not([data-motion="to-end"]):not([data-motion="to-start"]) {
   animation: fadeOut 0.2s ease-out;
 }
 

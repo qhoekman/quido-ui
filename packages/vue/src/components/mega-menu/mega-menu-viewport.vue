@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { Primitive } from "reka-ui";
+import { NavigationMenuViewport } from "reka-ui";
 
 export interface MegaMenuViewportProps {
   asChild?: boolean;
@@ -13,28 +13,18 @@ const props = withDefaults(defineProps<MegaMenuViewportProps>(), {
 });
 
 const classes = computed(() => ["q-mega-menu-viewport"]);
-
-const handlePointerEnter = (event: PointerEvent) => {
-  event.preventDefault();
-};
-
-const handlePointerLeave = (event: PointerEvent) => {
-  event.preventDefault();
-};
 </script>
 
 <template>
   <div class="viewport-wrapper">
-    <Primitive
+    <NavigationMenuViewport
       :as="as"
       :as-child="asChild"
       :class="classes"
-      @pointerenter="handlePointerEnter"
-      @pointerleave="handlePointerLeave"
       v-bind="$attrs"
     >
       <slot />
-    </Primitive>
+    </NavigationMenuViewport>
   </div>
 </template>
 
@@ -47,11 +37,11 @@ const handlePointerLeave = (event: PointerEvent) => {
   justify-content: center;
 }
 
-div {
+:deep(.q-mega-menu-viewport) {
   transform-origin: top center;
   position: relative;
   margin-top: var(--spacing-1-5);
-  height: var(--radix-navigation-menu-viewport-height);
+  height: var(--reka-navigation-menu-viewport-height);
   width: 100%;
   overflow: hidden;
   border-radius: var(--border-radius-md);
@@ -62,16 +52,16 @@ div {
 }
 
 @media (min-width: 768px) {
-  div {
-    width: var(--radix-navigation-menu-viewport-width);
+  :deep(.q-mega-menu-viewport) {
+    width: var(--reka-navigation-menu-viewport-width);
   }
 }
 
-div[data-state="open"] {
+:deep(.q-mega-menu-viewport[data-state="open"]) {
   animation: zoomIn 0.2s ease-out;
 }
 
-div[data-state="closed"] {
+:deep(.q-mega-menu-viewport[data-state="closed"]) {
   animation: zoomOut 0.2s ease-out;
 }
 

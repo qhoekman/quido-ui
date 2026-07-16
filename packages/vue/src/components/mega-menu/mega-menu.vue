@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { Primitive } from "reka-ui";
+import { NavigationMenuRoot } from "reka-ui";
 import MegaMenuViewport from "./mega-menu-viewport.vue";
 
 export interface MegaMenuProps {
+  modelValue?: string;
+  defaultValue?: string;
   dir?: "ltr" | "rtl";
   delayDuration?: number;
   skipDelayDuration?: number;
@@ -19,22 +21,29 @@ const props = withDefaults(defineProps<MegaMenuProps>(), {
   as: "nav",
 });
 
+const emit = defineEmits<{
+  "update:modelValue": [value: string];
+}>();
+
 const classes = computed(() => ["q-mega-menu"]);
 </script>
 
 <template>
-  <Primitive
+  <NavigationMenuRoot
+    :model-value="modelValue"
+    :default-value="defaultValue"
     :as="as"
     :as-child="asChild"
     :class="classes"
     :dir="dir"
-    :data-delay-duration="delayDuration"
-    :data-skip-delay-duration="skipDelayDuration"
+    :delay-duration="delayDuration"
+    :skip-delay-duration="skipDelayDuration"
     v-bind="$attrs"
+    @update:model-value="emit('update:modelValue', $event)"
   >
     <slot />
     <MegaMenuViewport />
-  </Primitive>
+  </NavigationMenuRoot>
 </template>
 
 <style scoped>

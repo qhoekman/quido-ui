@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { Primitive } from "reka-ui";
+import { NavigationMenuTrigger } from "reka-ui";
 import { ChevronDown } from "lucide-vue-next";
 import { cva, type VariantProps } from "class-variance-authority";
 
@@ -26,35 +26,44 @@ const props = withDefaults(defineProps<MegaMenuTriggerProps>(), {
 });
 
 const classes = computed(() => megaMenuTriggerVariants());
-
-const handlePointerMove = (event: PointerEvent) => {
-  event.preventDefault();
-};
-
-const handlePointerLeave = (event: PointerEvent) => {
-  event.preventDefault();
-};
 </script>
 
 <template>
-  <Primitive
+  <NavigationMenuTrigger
     :as="as"
     :as-child="asChild"
     :class="classes"
     :disabled="disabled"
-    :aria-disabled="disabled"
-    @pointermove="handlePointerMove"
-    @pointerleave="handlePointerLeave"
     v-bind="$attrs"
   >
     <slot />
     <ChevronDown :size="12" aria-hidden="true" class="chevron-icon" />
-  </Primitive>
+  </NavigationMenuTrigger>
 </template>
 
 <style scoped>
-button,
-[role="button"] {
+.chevron-icon {
+  position: relative;
+  top: 1px;
+  margin-left: var(--spacing-1);
+  height: var(--spacing-3);
+  width: var(--spacing-3);
+  transition: transform 300ms;
+}
+</style>
+
+<style>
+/*
+ * reka-ui's NavigationMenuTrigger renders a multi-root Fragment (the
+ * trigger button plus a conditional VisuallyHidden focus proxy) with
+ * inheritAttrs: false, so Vue's scoped-CSS data-v-* attribute never lands
+ * on the actual button element (nor any of its ancestors within this
+ * component's own render). :deep() cannot help here since it still
+ * requires the attribute to exist on *some* ancestor. These rules must be
+ * global, scoped only by the q-mega-menu-trigger class instead of a bare
+ * tag selector.
+ */
+.q-mega-menu-trigger {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -72,54 +81,38 @@ button,
   cursor: pointer;
 }
 
-button:hover:not(:disabled),
-[role="button"]:hover:not([aria-disabled="true"]) {
+.q-mega-menu-trigger:hover:not(:disabled) {
   background-color: var(--color-muted);
   color: var(--color-muted-fg);
 }
 
-button:focus:not(:disabled),
-[role="button"]:focus:not([aria-disabled="true"]) {
+.q-mega-menu-trigger:focus:not(:disabled) {
   background-color: var(--color-muted);
   color: var(--color-muted-fg);
   outline: none;
 }
 
-button:focus-visible:not(:disabled),
-[role="button"]:focus-visible:not([aria-disabled="true"]) {
+.q-mega-menu-trigger:focus-visible:not(:disabled) {
   outline: none;
   box-shadow:
     0 0 0 2px var(--color-ring),
     0 0 0 4px var(--color-background);
 }
 
-button:disabled,
-[role="button"][aria-disabled="true"] {
+.q-mega-menu-trigger:disabled {
   pointer-events: none;
   opacity: 0.5;
 }
 
-button[data-active],
-[role="button"][data-active] {
+.q-mega-menu-trigger[data-active] {
   background-color: hsl(from var(--color-muted) h s l / 50%);
 }
 
-button[data-state="open"],
-[role="button"][data-state="open"] {
+.q-mega-menu-trigger[data-state="open"] {
   background-color: hsl(from var(--color-muted) h s l / 50%);
 }
 
-button[data-state="open"] .chevron-icon,
-[role="button"][data-state="open"] .chevron-icon {
+.q-mega-menu-trigger[data-state="open"] .chevron-icon {
   transform: rotate(180deg);
-}
-
-.chevron-icon {
-  position: relative;
-  top: 1px;
-  margin-left: var(--spacing-1);
-  height: var(--spacing-3);
-  width: var(--spacing-3);
-  transition: transform 300ms;
 }
 </style>

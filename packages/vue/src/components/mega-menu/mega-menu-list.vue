@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { Primitive } from "reka-ui";
+import { NavigationMenuList } from "reka-ui";
 
 export interface MegaMenuListProps {
   asChild?: boolean;
@@ -16,19 +16,18 @@ const classes = computed(() => ["q-mega-menu-list"]);
 </script>
 
 <template>
-  <Primitive
+  <NavigationMenuList
     :as="as"
     :as-child="asChild"
     :class="classes"
     v-bind="$attrs"
   >
     <slot />
-  </Primitive>
+  </NavigationMenuList>
 </template>
 
-<style scoped>
-ul,
-[role="list"] {
+<style>
+.q-mega-menu-list {
   display: flex;
   flex: 1;
   list-style: none;

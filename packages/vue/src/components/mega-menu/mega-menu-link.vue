@@ -1,46 +1,63 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { Primitive } from "reka-ui";
+import { NavigationMenuLink } from "reka-ui";
 import { cva, type VariantProps } from "class-variance-authority";
 
-const megaMenuTriggerVariants = cva("q-mega-menu-trigger", {
-  variants: {},
-  defaultVariants: {},
+const megaMenuLinkVariants = cva("q-mega-menu-link", {
+  variants: {
+    variant: {
+      nav: "variant--nav",
+      plain: "variant--plain",
+    },
+  },
+  defaultVariants: {
+    variant: "nav",
+  },
 });
 
-export type MegaMenuLinkVariants = VariantProps<
-  typeof megaMenuTriggerVariants
->;
+export type MegaMenuLinkVariants = VariantProps<typeof megaMenuLinkVariants>;
 
 export interface MegaMenuLinkProps {
   asChild?: boolean;
   as?: string;
   href?: string;
+  active?: boolean;
+  variant?: MegaMenuLinkVariants["variant"];
 }
 
 const props = withDefaults(defineProps<MegaMenuLinkProps>(), {
   asChild: false,
-  as: "a",
+  active: false,
+  variant: "nav",
 });
 
-const classes = computed(() => megaMenuTriggerVariants());
+const classes = computed(() =>
+  megaMenuLinkVariants({
+    variant: props.variant,
+  })
+);
 </script>
 
 <template>
-  <Primitive
+  <NavigationMenuLink
     :as="as"
     :as-child="asChild"
     :class="classes"
     :href="href"
+    :active="active"
     v-bind="$attrs"
   >
     <slot />
-  </Primitive>
+  </NavigationMenuLink>
 </template>
 
-<style scoped>
-a,
-[role="link"] {
+<style>
+/*
+ * Global class selectors: NavigationMenuLink may portal / fragment in ways
+ * that drop scoped data attributes, and list-item needs a plain variant
+ * without nav trigger chrome.
+ */
+.q-mega-menu-link.variant--nav {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -54,42 +71,30 @@ a,
   transition: colors 0.3s;
   outline: none;
   text-decoration: none;
+  color: inherit;
 }
 
-a:hover:not(:disabled),
-[role="link"]:hover:not([aria-disabled="true"]) {
+.q-mega-menu-link.variant--nav:hover {
   background-color: var(--color-muted);
   color: var(--color-muted-fg);
 }
 
-a:focus:not(:disabled),
-[role="link"]:focus:not([aria-disabled="true"]) {
-  background-color: var(--color-muted);
-  color: var(--color-muted-fg);
-  outline: none;
-}
-
-a:focus-visible:not(:disabled),
-[role="link"]:focus-visible:not([aria-disabled="true"]) {
+.q-mega-menu-link.variant--nav:focus-visible {
   outline: none;
   box-shadow:
     0 0 0 2px var(--color-ring),
     0 0 0 4px var(--color-background);
 }
 
-a:disabled,
-[role="link"][aria-disabled="true"] {
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-a[data-active],
-[role="link"][data-active] {
+.q-mega-menu-link.variant--nav[data-active],
+.q-mega-menu-link.variant--nav[data-state="open"] {
   background-color: hsl(from var(--color-muted) h s l / 50%);
 }
 
-a[data-state="open"],
-[role="link"][data-state="open"] {
-  background-color: hsl(from var(--color-muted) h s l / 50%);
+.q-mega-menu-link.variant--plain {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
 }
 </style>

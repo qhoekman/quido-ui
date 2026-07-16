@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { Primitive } from "reka-ui";
+import { NavigationMenuItem } from "reka-ui";
 
 export interface MegaMenuItemProps {
   value?: string;
@@ -17,15 +17,15 @@ const classes = computed(() => ["q-mega-menu-item"]);
 </script>
 
 <template>
-  <Primitive
+  <NavigationMenuItem
+    :value="value"
     :as="as"
     :as-child="asChild"
     :class="classes"
-    :data-value="value"
     v-bind="$attrs"
   >
     <slot />
-  </Primitive>
+  </NavigationMenuItem>
 </template>
 
 <style scoped>
