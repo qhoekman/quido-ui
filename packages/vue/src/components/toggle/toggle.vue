@@ -60,12 +60,12 @@ const handlePressedChange = (pressed: boolean) => {
 
 <template>
   <Toggle
-    :pressed="pressed"
-    :default-pressed="defaultPressed"
+    :model-value="pressed"
+    :default-value="defaultPressed"
     :disabled="disabled"
     :as-child="asChild"
     :class="classes"
-    @update:pressed="handlePressedChange"
+    @update:model-value="handlePressedChange"
     v-bind="$attrs"
   >
     <slot />
