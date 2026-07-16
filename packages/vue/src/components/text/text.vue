@@ -105,9 +105,7 @@ const classes = computed(() => {
 </template>
 
 <style scoped>
-span,
-div,
-p {
+.q-text {
   font-family: var(--font-family-sans);
   margin: 0;
   padding: 0;
