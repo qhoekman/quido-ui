@@ -41,6 +41,7 @@ export interface ButtonProps {
 const props = withDefaults(defineProps<ButtonProps>(), {
   variant: 'primary',
   size: 'md',
+  as: 'button',
   asChild: false,
   disabled: false,
   loading: false,
