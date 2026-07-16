@@ -29,7 +29,7 @@ const meta = {
       control: 'text',
     },
     open: {
-      control: 'boolean',
+      control: false,
     },
     defaultOpen: {
       control: 'boolean',
@@ -39,6 +39,7 @@ const meta = {
     disabled: false,
     required: false,
     defaultOpen: false,
+    open: undefined,
   },
   render: (args: any) => ({
     components: {
