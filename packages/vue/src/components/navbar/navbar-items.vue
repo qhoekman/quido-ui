@@ -25,15 +25,15 @@ const props = withDefaults(defineProps<NavbarItemsProps>(), {
 </template>
 
 <style scoped>
-div {
+.q-navbar-items {
   display: none;
 }
 
 @media (min-width: 768px) {
-  div {
+  .q-navbar-items {
     display: flex;
     align-items: center;
-    gap: var(--spacing-6);
+    gap: var(--spacing-8);
   }
 }
 </style>

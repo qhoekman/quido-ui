@@ -8,7 +8,18 @@ export interface NavbarDropdownProps {
   dir?: "ltr" | "rtl";
 }
 
-const props = defineProps<NavbarDropdownProps>();
+// `open`/`modal` must default to `undefined`, not Vue's automatic
+// "absent Boolean prop resolves to false" coercion -- otherwise every
+// consumer that doesn't explicitly pass them gets `open: false` (pins
+// the underlying DropdownMenuRoot into controlled mode, breaking all
+// click/toggle interaction) and `modal: false` (silently forces every
+// navbar dropdown non-modal, overriding dropdown-menu.vue's own
+// `modal: true` default).
+const props = withDefaults(defineProps<NavbarDropdownProps>(), {
+  defaultOpen: false,
+  open: undefined,
+  modal: undefined,
+});
 </script>
 
 <template>

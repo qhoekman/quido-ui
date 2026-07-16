@@ -25,15 +25,15 @@ const props = withDefaults(defineProps<NavbarActionsProps>(), {
 </template>
 
 <style scoped>
-div {
+.q-navbar-actions {
   display: none;
 }
 
 @media (min-width: 768px) {
-  div {
+  .q-navbar-actions {
     display: flex;
-    flex: 1;
-    justify-content: flex-end;
+    margin-left: auto;
+    align-items: center;
     gap: var(--spacing-4);
   }
 }

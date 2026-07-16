@@ -37,19 +37,18 @@ const props = withDefaults(defineProps<NavbarProps>(), {
   padding: var(--spacing-6);
 }
 
-nav,
-header {
+.q-navbar {
   margin-left: auto;
   margin-right: auto;
   display: flex;
   max-width: 80rem;
   align-items: center;
   justify-content: space-between;
+  gap: var(--spacing-8);
 }
 
 @media (min-width: 1024px) {
-  nav,
-  header {
+  .q-navbar {
     padding-left: var(--spacing-8);
     padding-right: var(--spacing-8);
   }

@@ -25,12 +25,13 @@ const props = withDefaults(defineProps<NavbarBrandProps>(), {
 </template>
 
 <style scoped>
-div {
+.q-navbar-brand {
   display: flex;
+  margin-right: var(--spacing-8);
 }
 
 @media (min-width: 1024px) {
-  div {
+  .q-navbar-brand {
     flex: 1;
   }
 }

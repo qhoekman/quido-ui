@@ -13,7 +13,7 @@ import DropdownMenuGroupComponent from "../dropdown-menu/dropdown-menu-group.vue
 import type { Meta, StoryObj } from "@storybook/vue3-vite";
 
 const meta = {
-  title: "Components/Navigation/Navbar",
+  title: "Features/Website/Components/Navbar",
   component: NavbarComponent,
   argTypes: {
     as: {
@@ -113,18 +113,18 @@ const meta = {
               {{ item.name }}
             </NavbarLinkComponent>
           </template>
-          <NavbarActionsComponent>
-            <ButtonComponent as-child>
-              <a href="#">
-                Learn more <span aria-hidden="true">&rarr;</span>
-              </a>
-            </ButtonComponent>
-
-            <ButtonComponent variant="outline" as-child>
-              <a href="#">Contact</a>
-            </ButtonComponent>
-          </NavbarActionsComponent>
         </NavbarItemsComponent>
+        <NavbarActionsComponent>
+          <ButtonComponent as-child>
+            <a href="#">
+              Learn more <span aria-hidden="true">&rarr;</span>
+            </a>
+          </ButtonComponent>
+
+          <ButtonComponent variant="outline" as-child>
+            <a href="#">Contact</a>
+          </ButtonComponent>
+        </NavbarActionsComponent>
       </NavbarComponent>
     `,
   }),
