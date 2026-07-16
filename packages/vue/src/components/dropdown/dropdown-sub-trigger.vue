@@ -43,6 +43,7 @@ const classes = computed(() => {
   cursor: default;
   user-select: none;
   align-items: center;
+  gap: var(--spacing-2);
   border-radius: var(--border-radius-sm);
   padding-left: var(--spacing-2);
   padding-right: var(--spacing-2);
