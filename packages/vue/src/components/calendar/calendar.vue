@@ -42,28 +42,6 @@ const localCurrentMonth = ref<Date>(props.currentMonth)
 const weekdays = ref<string[]>([])
 const days = ref<Date[]>([])
 
-// Watch for prop changes
-watch(
-  () => props.currentDate,
-  (newDate) => {
-    if (newDate) {
-      localCurrentDate.value = newDate
-    }
-  },
-  { immediate: true }
-)
-
-watch(
-  () => props.currentMonth,
-  (newMonth) => {
-    if (newMonth) {
-      localCurrentMonth.value = newMonth
-      updateCalendar()
-    }
-  },
-  { immediate: true }
-)
-
 const classes = computed(() => {
   return calendarVariants({})
 })
@@ -84,6 +62,31 @@ const updateCalendar = () => {
   const end = endOfWeek(endOfMonth(localCurrentMonth.value))
   days.value = eachDayOfInterval({ start, end })
 }
+
+// Watch for prop changes (declared after updateCalendar so the immediate
+// callback can safely reference it, since watchers created during a lazily
+// mounted component's setup — e.g. inside a Popover — can flush before the
+// rest of the script body finishes, unlike a top-level initial mount)
+watch(
+  () => props.currentDate,
+  (newDate) => {
+    if (newDate) {
+      localCurrentDate.value = newDate
+    }
+  },
+  { immediate: true }
+)
+
+watch(
+  () => props.currentMonth,
+  (newMonth) => {
+    if (newMonth) {
+      localCurrentMonth.value = newMonth
+      updateCalendar()
+    }
+  },
+  { immediate: true }
+)
 
 const prevMonth = () => {
   localCurrentMonth.value = subMonths(localCurrentMonth.value, 1)
