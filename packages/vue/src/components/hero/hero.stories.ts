@@ -8,7 +8,7 @@ import ButtonComponent from '@/components/button/button.vue'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta = {
-  title: 'Components/Layout/Hero',
+  title: 'Features/Website/Components/Hero',
   component: HeroComponent,
   render: () => ({
     components: {
