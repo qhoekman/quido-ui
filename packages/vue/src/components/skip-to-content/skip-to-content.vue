@@ -54,6 +54,14 @@ const componentClasses = computed(() => {
 
 const role = computed(() => (props.as === 'a' ? 'button' : undefined))
 
+const handleFocus = () => {
+  isVisible.value = true
+}
+
+const handleBlur = () => {
+  isVisible.value = false
+}
+
 const handleKeydown = (event: KeyboardEvent) => {
   if (event.key === 'Tab') {
     isVisible.value = true
@@ -89,24 +97,26 @@ const handleKeydown = (event: KeyboardEvent) => {
   }
 }
 
-const handleClick = () => {
-  if (isVisible.value && props.targetId) {
-    const targetElement = document.getElementById(props.targetId)
-    if (targetElement) {
-      // Make element focusable if it isn't naturally focusable
-      if (
-        !targetElement.hasAttribute('tabindex') &&
-        !['A', 'BUTTON', 'INPUT', 'TEXTAREA', 'SELECT'].includes(
-          targetElement.tagName
-        )
-      ) {
-        targetElement.setAttribute('tabindex', '-1')
-      }
-      targetElement.focus()
-      targetElement.scrollIntoView({ behavior: 'smooth' })
+const navigateToTarget = () => {
+  if (!props.targetId) return
+  const targetElement = document.getElementById(props.targetId)
+  if (targetElement) {
+    if (
+      !targetElement.hasAttribute('tabindex') &&
+      !['A', 'BUTTON', 'INPUT', 'TEXTAREA', 'SELECT'].includes(
+        targetElement.tagName
+      )
+    ) {
+      targetElement.setAttribute('tabindex', '-1')
     }
-    isVisible.value = false
+    targetElement.focus()
+    targetElement.scrollIntoView({ behavior: 'smooth' })
   }
+  isVisible.value = false
+}
+
+const handleClick = () => {
+  navigateToTarget()
 }
 
 onMounted(() => {
@@ -128,6 +138,8 @@ onUnmounted(() => {
     :role="role"
     data-testid="qui-skip-to-content"
     @click="handleClick"
+    @focus="handleFocus"
+    @blur="handleBlur"
     v-bind="$attrs"
   >
     <slot />
@@ -196,7 +208,9 @@ button:disabled,
   width: var(--spacing-10);
 }
 
-.variant--visible {
+.variant--visible,
+button:focus-visible,
+[role='button']:focus-visible {
   transform: translateY(0);
 }
 </style>
