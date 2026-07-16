@@ -6,7 +6,7 @@ import type { Meta, StoryObj } from "@storybook/vue3-vite";
 import { ref, watch } from "vue";
 
 const meta = {
-  title: "Components/Form/Radio Card",
+  title: "Features/Ecommerce/Components/Radio Card",
   component: RadioCardComponent,
   argTypes: {
     defaultValue: {

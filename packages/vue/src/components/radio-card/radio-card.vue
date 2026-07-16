@@ -66,7 +66,7 @@ const classes = computed(() => {
 
 <template>
   <RadioGroupRoot
-    :value="selectedValue || undefined"
+    :model-value="selectedValue || undefined"
     :default-value="defaultValue"
     :disabled="disabled"
     :required="required"
@@ -75,7 +75,7 @@ const classes = computed(() => {
     :as-child="asChild"
     :as="as"
     :class="classes"
-    @update:value="handleValueChange"
+    @update:model-value="handleValueChange"
     v-bind="$attrs"
   >
     <slot />
