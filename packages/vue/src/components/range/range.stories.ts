@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/vue3-vite";
 import { ref } from "vue";
 
 const meta = {
-  title: "Components/Data Manipulation/Range",
+  title: "Components/Data Entry/Range",
   component: RangeComponent,
   argTypes: {
     min: {
