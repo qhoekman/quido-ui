@@ -28,7 +28,7 @@ const classes = computed(() => ["q-navigation-menu-items"]);
 </template>
 
 <style scoped>
-div {
+.q-navigation-menu-items {
   display: flex;
   align-items: center;
   gap: var(--spacing-2);

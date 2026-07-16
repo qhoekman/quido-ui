@@ -28,7 +28,7 @@ const classes = computed(() => ["q-navigation-menu-logo"]);
 </template>
 
 <style scoped>
-a {
+.q-navigation-menu-logo {
   display: flex;
   color: var(--color-background-fg);
   fill: currentColor;

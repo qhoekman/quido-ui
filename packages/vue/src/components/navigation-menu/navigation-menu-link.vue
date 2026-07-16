@@ -28,22 +28,22 @@ const classes = computed(() => ["q-navigation-menu-link"]);
 </template>
 
 <style scoped>
-a {
+.q-navigation-menu-link {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-6);
   color: var(--color-background-fg);
 }
 
-a:visited {
+.q-navigation-menu-link:visited {
   color: var(--color-background-fg);
 }
 
-a:link {
+.q-navigation-menu-link:link {
   color: var(--color-background-fg);
 }
 
-a:hover {
+.q-navigation-menu-link:hover {
   background-color: var(--color-muted);
 }
 </style>

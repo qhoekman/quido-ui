@@ -28,8 +28,7 @@ const classes = computed(() => ["q-navigation-menu"]);
 </template>
 
 <style scoped>
-nav,
-[role="navigation"] {
+.q-navigation-menu {
   margin-left: auto;
   margin-right: auto;
   display: flex;

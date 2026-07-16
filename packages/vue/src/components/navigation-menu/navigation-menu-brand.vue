@@ -28,7 +28,7 @@ const classes = computed(() => ["q-navigation-menu-brand"]);
 </template>
 
 <style scoped>
-div {
+.q-navigation-menu-brand {
   display: flex;
 }
 </style>

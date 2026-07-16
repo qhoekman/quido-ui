@@ -28,7 +28,7 @@ const classes = computed(() => ["q-navigation-menu-actions"]);
 </template>
 
 <style scoped>
-div {
+.q-navigation-menu-actions {
   display: flex;
   flex: 1;
   justify-content: flex-end;
