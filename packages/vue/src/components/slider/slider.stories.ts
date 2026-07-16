@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/vue3-vite";
 import { ref } from "vue";
 
 const meta = {
-  title: "Components/Data Manipulation/Slider",
+  title: "Components/Data Entry/Slider",
   component: SliderComponent,
   argTypes: {
     min: {

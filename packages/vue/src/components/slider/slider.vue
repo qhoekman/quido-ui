@@ -44,12 +44,12 @@ const sliderDefaultValue = computed(() =>
     :min="min"
     :max="max"
     :step="step"
-    :value="sliderValue"
+    :model-value="sliderValue"
     :default-value="sliderDefaultValue"
     :disabled="disabled"
     :orientation="orientation"
     :class="['q-slider']"
-    @update:value="handleValueChange"
+    @update:model-value="handleValueChange"
     v-bind="$attrs"
   >
     <SliderTrack :class="['q-slider-track']">
