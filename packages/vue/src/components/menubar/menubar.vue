@@ -1,31 +1,38 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { Primitive } from "reka-ui";
+import { MenubarRoot } from "reka-ui";
 
 export interface MenubarProps {
-  asChild?: boolean;
-  as?: string;
+  modelValue?: string;
+  defaultValue?: string;
+  dir?: "ltr" | "rtl";
+  loop?: boolean;
 }
 
 const props = withDefaults(defineProps<MenubarProps>(), {
-  asChild: false,
-  as: "div",
+  loop: false,
 });
+
+const emit = defineEmits<{
+  "update:modelValue": [value: string];
+}>();
 
 const classes = computed(() => ["q-menubar"]);
 </script>
 
 <template>
-  <Primitive
-    :as="as"
-    :as-child="asChild"
+  <MenubarRoot
+    :model-value="modelValue"
+    :default-value="defaultValue"
+    :dir="dir"
+    :loop="loop"
     :class="classes"
-    role="menubar"
     data-testid="qui-menubar"
     v-bind="$attrs"
+    @update:model-value="emit('update:modelValue', $event)"
   >
     <slot />
-  </Primitive>
+  </MenubarRoot>
 </template>
 
 <style scoped>
