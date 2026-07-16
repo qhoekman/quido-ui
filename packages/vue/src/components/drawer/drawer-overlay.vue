@@ -75,6 +75,7 @@ div {
   background: var(--color-popover);
   color: var(--color-popover-fg);
   width: var(--drawer-width);
+  flex-shrink: 0;
   overflow: hidden;
   height: 100%;
   z-index: 100;

@@ -163,32 +163,38 @@ defineExpose({
 </template>
 
 <style scoped>
-div {
+.q-drawer {
   --drawer-width: 172px;
 
   position: relative;
   display: flex;
+  width: 100%;
   height: 100svh;
   transition: width 0.3s ease;
 }
 
-.open.has-backdrop {
+.q-drawer.open.has-backdrop {
   background: hsl(from var(--color-muted) h s l / 33%);
 }
 
-.variant--over.open {
-  width: var(--drawer-width);
-}
+/*
+ * Note: intentionally NOT collapsing this wrapper's width to
+ * var(--drawer-width) when variant--over is open (unlike the Angular
+ * reference). Doing so shrinks the wrapper to exactly cover the sliding
+ * panel, leaving no exposed area for the .open.has-backdrop tint above,
+ * and no clickable "outside" area left for handleClick's
+ * click-outside-to-close logic to ever land on.
+ */
 
-.variant--push.position--left:not(.open) :deep(.q-drawer-content) {
+.q-drawer.variant--push.position--left:not(.open) :deep(.q-drawer-content) {
   margin-left: calc(-1 * var(--drawer-width));
 }
 
-.variant--push.position--right:not(.open) :deep(.q-drawer-content) {
+.q-drawer.variant--push.position--right:not(.open) :deep(.q-drawer-content) {
   margin-right: calc(-1 * var(--drawer-width));
 }
 
-.has-backdrop.open :deep(.q-drawer-content) {
+.q-drawer.has-backdrop.open :deep(.q-drawer-content) {
   pointer-events: none;
   opacity: 0.5;
 }
