@@ -54,7 +54,7 @@ const invoices = [
 ];
 
 export default {
-  title: "Components/Table",
+  title: "Components/Data Display/Table",
   component: Table,
   parameters: {
     docs: {
