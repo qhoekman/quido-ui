@@ -29,14 +29,14 @@ const handleCheckedChange = (checked: boolean) => {
 
 <template>
   <CheckboxRoot
-    :checked="checked"
-    :default-checked="defaultChecked"
+    :model-value="checked"
+    :default-value="defaultChecked"
     :disabled="disabled"
     :required="required"
     :name="name"
     :value="value"
     :class="['q-checkbox']"
-    @update:checked="handleCheckedChange"
+    @update:model-value="handleCheckedChange"
     v-bind="$attrs"
   >
     <CheckboxIndicator :class="['q-checkbox-indicator']">
