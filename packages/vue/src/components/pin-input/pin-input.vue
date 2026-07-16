@@ -68,7 +68,7 @@ const setInputRef = (el: any, index: number) => {
 const handleInput = (event: Event, index: number) => {
   const input = event.target as HTMLInputElement;
   const value = input.value.slice(-1); // Only take the last character
-  
+
   pins.value[index] = value;
   input.value = value; // Ensure only one character
   
@@ -93,6 +93,10 @@ const handleInput = (event: Event, index: number) => {
 
 const handleKeyDown = (event: KeyboardEvent, index: number) => {
   if (event.key === "Backspace" && !pins.value[index] && index > 0) {
+    // Prevent the browser's default backspace action from running against
+    // whatever field ends up focused after we move focus below — without
+    // this, the deletion can race ahead and erase the previous digit.
+    event.preventDefault();
     nextTick(() => {
       focusPreviousInput(index);
     });
@@ -126,6 +130,7 @@ const inputSize = computed(() => props.size as InputVariants["size"]);
       v-for="(pin, i) in Array.from({ length: props.length })"
       :key="i"
       :ref="(el) => setInputRef(el, i)"
+      :model-value="pins[i]"
       :size="inputSize"
       :name="props.name ? `${props.name}-${i + 1}` : undefined"
       :maxlength="1"
