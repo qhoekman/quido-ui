@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ref, watch } from 'vue'
 
 const meta = {
-  title: 'Components/Data Manipulation/Switch',
+  title: 'Components/Data Entry/Switch',
   component: SwitchComponent,
   argTypes: {
     checked: {

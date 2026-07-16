@@ -28,14 +28,14 @@ const handleCheckedChange = (checked: boolean) => {
 
 <template>
   <SwitchRoot
-    :checked="checked"
-    :default-checked="defaultChecked"
+    :model-value="checked"
+    :default-value="defaultChecked"
     :disabled="disabled"
     :required="required"
     :name="name"
     :value="value"
     :class="['q-switch']"
-    @update:checked="handleCheckedChange"
+    @update:model-value="handleCheckedChange"
     v-bind="$attrs"
   >
     <SwitchThumb :class="['q-switch-thumb']" />
