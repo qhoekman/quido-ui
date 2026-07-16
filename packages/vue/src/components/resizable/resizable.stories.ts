@@ -36,7 +36,7 @@ const meta = {
             <span style="font-weight: var(--font-weight-semibold);">One</span>
           </div>
         </ResizablePanelComponent>
-        <ResizableHandleComponent />
+        <ResizableHandleComponent with-handle />
         <ResizablePanelComponent :default-size="50">
           <ResizablePanelGroupComponent direction="vertical">
             <ResizablePanelComponent :default-size="25">
@@ -46,7 +46,7 @@ const meta = {
                 <span style="font-weight: var(--font-weight-semibold);">Two</span>
               </div>
             </ResizablePanelComponent>
-            <ResizableHandleComponent />
+            <ResizableHandleComponent with-handle />
             <ResizablePanelComponent :default-size="75">
               <div
                 style="display: flex; height: 100%; align-items: center; justify-content: center; padding: var(--spacing-6);"

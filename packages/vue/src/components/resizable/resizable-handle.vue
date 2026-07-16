@@ -20,7 +20,9 @@ const getPanels = inject<() => Array<{ updateSize: (size: number) => void; minSi
 const isResizing = ref(false)
 const startPos = ref(0)
 const startSizes = ref<number[]>([])
-const handleElement = ref<HTMLElement | null>(null)
+const handleElement = ref<{ $el: HTMLElement } | null>(null)
+
+const getElement = (): HTMLElement | null => handleElement.value?.$el ?? null
 
 const handleId = ref(`handle-${Math.random().toString(36).substr(2, 9)}`)
 
@@ -35,18 +37,21 @@ const classes = computed(() => {
 })
 
 const handleMouseDown = (event: MouseEvent) => {
-  if (!handleElement.value) return
-  
+  const el = getElement()
+  if (!el) return
+
   event.preventDefault()
   event.stopPropagation()
   isResizing.value = true
   startPos.value = direction.value === 'horizontal' ? event.clientX : event.clientY
 
-  // Get all panels in the group
-  const panelGroup = handleElement.value.parentElement as HTMLElement
+  // Get all panels directly in this group (not nested groups' panels)
+  const panelGroup = el.parentElement as HTMLElement
   if (!panelGroup) return
 
-  const panels = Array.from(panelGroup.querySelectorAll('.q-resizable-panel')) as HTMLElement[]
+  const panels = Array.from(panelGroup.children).filter((child) =>
+    child.classList.contains('q-resizable-panel')
+  ) as HTMLElement[]
   startSizes.value = panels.map((panel) => {
     const rect = panel.getBoundingClientRect()
     const groupRect = panelGroup.getBoundingClientRect()
@@ -62,12 +67,13 @@ const handleMouseDown = (event: MouseEvent) => {
 }
 
 const handleMouseMove = (event: MouseEvent) => {
-  if (!isResizing.value || !handleElement.value) return
+  const el = getElement()
+  if (!isResizing.value || !el) return
 
   const currentPos = direction.value === 'horizontal' ? event.clientX : event.clientY
   const delta = currentPos - startPos.value
 
-  const panelGroup = handleElement.value.parentElement as HTMLElement
+  const panelGroup = el.parentElement as HTMLElement
   if (!panelGroup) return
 
   const groupRect = panelGroup.getBoundingClientRect()
@@ -75,14 +81,22 @@ const handleMouseMove = (event: MouseEvent) => {
     ? (delta / groupRect.width) * 100
     : (delta / groupRect.height) * 100
 
-  // Find the handle's position in the panel group
-  const handleIndex = Array.from(panelGroup.children).findIndex(
-    (child) => child === handleElement.value
-  )
+  // Find how many panels precede this handle among the group's direct
+  // children (not the handle's raw child position, since handles are
+  // interleaved with panels and nested groups have their own children).
+  const children = Array.from(panelGroup.children)
+  const handleDomIndex = children.indexOf(el)
+  if (handleDomIndex === -1) return
 
-  if (handleIndex === -1 || handleIndex === 0) return
+  const handleIndex = children
+    .slice(0, handleDomIndex)
+    .filter((child) => child.classList.contains('q-resizable-panel')).length
 
-  const panels = Array.from(panelGroup.querySelectorAll('.q-resizable-panel')) as HTMLElement[]
+  if (handleIndex === 0) return
+
+  const panels = children.filter((child) =>
+    child.classList.contains('q-resizable-panel')
+  ) as HTMLElement[]
   if (panels.length < handleIndex) return
 
   const leftPanel = panels[handleIndex - 1]
@@ -144,10 +158,12 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-div {
+.q-resizable-handle {
   position: relative;
   display: flex;
   width: 1px;
+  flex-shrink: 0;
+  flex-grow: 0;
   align-items: center;
   justify-content: center;
   background-color: var(--color-muted);
@@ -156,7 +172,7 @@ div {
   user-select: none;
 }
 
-div::after {
+.q-resizable-handle::after {
   content: '';
   position: absolute;
   top: 0;
@@ -166,18 +182,18 @@ div::after {
   transform: translateX(-50%);
 }
 
-div:focus-visible {
+.q-resizable-handle:focus-visible {
   outline: none;
   box-shadow: 0 0 0 1px var(--color-ring), 0 0 0 2px var(--color-background);
 }
 
-.direction--vertical {
+.q-resizable-handle.direction--vertical {
   height: 1px;
   width: 100%;
   cursor: row-resize;
 }
 
-.direction--vertical::after {
+.q-resizable-handle.direction--vertical::after {
   top: 50%;
   left: 0;
   height: var(--spacing-1);
@@ -185,7 +201,7 @@ div:focus-visible {
   transform: translateY(-50%);
 }
 
-.direction--vertical .q-resizable-handle-grip {
+.q-resizable-handle.direction--vertical .q-resizable-handle-grip {
   transform: rotate(90deg);
 }
 
