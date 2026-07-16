@@ -22,15 +22,14 @@ const comboboxContext = inject<{
   toggle: () => void
   selectedOption: ReturnType<typeof computed<ComboboxOption | null>>
   getSelectedOption: () => ComboboxOption | null
+  disabled: ReturnType<typeof computed<boolean>>
 }>('comboboxContext')
 
 if (!comboboxContext) {
   throw new Error('ComboboxTrigger must be used within Combobox')
 }
 
-const handleClick = () => {
-  comboboxContext.toggle()
-}
+const isDisabled = computed(() => comboboxContext.disabled.value)
 
 const displayText = computed(() => {
   const selected = comboboxContext.selectedOption.value
@@ -39,12 +38,13 @@ const displayText = computed(() => {
 </script>
 
 <template>
-  <PopoverAnchor :as-child="asChild" :as="as" :class="['q-combobox-trigger']" v-bind="$attrs">
+  <PopoverAnchor as="span" :class="['q-combobox-trigger']" v-bind="$attrs">
     <PopoverTrigger
-      :as-child="true"
-      :as="'button'"
+      :as-child="asChild"
+      :as="as"
       :class="['q-combobox-trigger-button']"
-      @click="handleClick"
+      :disabled="isDisabled"
+      :aria-disabled="isDisabled"
       role="button"
       aria-controls="combobox-content"
     >

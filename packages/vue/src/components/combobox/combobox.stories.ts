@@ -26,7 +26,7 @@ const meta = {
       control: 'boolean',
     },
     open: {
-      control: 'boolean',
+      control: false,
     },
     disabled: {
       control: 'boolean',
@@ -35,6 +35,7 @@ const meta = {
   args: {
     defaultOpen: false,
     disabled: false,
+    open: undefined,
   },
   render: (args: any) => ({
     components: {
