@@ -5,7 +5,7 @@ import DefinitionDescriptionComponent from '@/components/definition-list/definit
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta = {
-  title: 'Components/Data Display/Definition List',
+  title: 'Features/Application/Components/Definition List',
   component: DefinitionListComponent,
   argTypes: {
     asChild: {
