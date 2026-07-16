@@ -64,9 +64,12 @@ const classes = computed(() => {
   cursor: pointer;
   align-items: center;
   justify-content: center;
+  width: var(--spacing-6);
+  height: var(--spacing-6);
   border-radius: var(--border-radius-full);
   padding: var(--spacing-0-5);
   border: var(--border-width-default) solid var(--color-gray-200);
+  box-sizing: border-box;
 }
 
 .q-color-selector-item:focus {

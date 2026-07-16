@@ -34,11 +34,11 @@ const emit = defineEmits<{
 
 // Internal state management
 const internalValue = ref(props.defaultValue ?? '')
-const isControlled = props.value !== undefined
-const selectedValue = computed(() => (isControlled ? props.value : internalValue.value))
+const isControlled = computed(() => props.value !== undefined)
+const selectedValue = computed(() => (isControlled.value ? props.value : internalValue.value))
 
 const handleValueChange = (value: string) => {
-  if (!isControlled) {
+  if (!isControlled.value) {
     internalValue.value = value
   }
   if (value) {
@@ -51,7 +51,7 @@ const handleValueChange = (value: string) => {
 watch(
   () => props.value,
   (newValue) => {
-    if (isControlled && newValue !== undefined) {
+    if (isControlled.value && newValue !== undefined) {
       internalValue.value = newValue
     }
   }
