@@ -52,7 +52,7 @@ const classes = computed(() => {
 </template>
 
 <style scoped>
-div {
+.q-hstack {
   display: flex;
 }
 
