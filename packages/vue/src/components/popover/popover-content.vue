@@ -42,7 +42,13 @@ const contentClasses = computed(() => [
   </PopoverPortal>
 </template>
 
-<style scoped>
+<style>
+/*
+ * Not scoped: PopoverContent renders via reka-ui's internal
+ * Teleport/Presence machinery, whose actual DOM output never receives
+ * Vue's scoped-CSS data-v-* attribute (confirmed via direct DOM
+ * inspection). A scoped selector here would silently never match.
+ */
 .q-popover-content {
   color: var(--color-popover-fg);
   z-index: var(--z-index-50);
