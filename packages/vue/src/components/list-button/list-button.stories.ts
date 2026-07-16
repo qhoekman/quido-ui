@@ -2,7 +2,7 @@ import ListButtonComponent from "@/components/list-button/list-button.vue";
 import type { Meta, StoryObj } from "@storybook/vue3-vite";
 
 const meta = {
-  title: "Components/Actions/List Button",
+  title: "Features/Mobile/Components/List Button",
   component: ListButtonComponent,
   argTypes: {
     disabled: {
