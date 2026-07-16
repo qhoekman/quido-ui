@@ -15,7 +15,7 @@ import type { Meta, StoryObj } from "@storybook/vue3-vite";
 import { ref, watch } from "vue";
 
 const meta = {
-  title: "Components/Navigation/Tabs",
+  title: "Features/Application/Components/Tabs",
   component: TabsComponent,
   argTypes: {
     defaultValue: {

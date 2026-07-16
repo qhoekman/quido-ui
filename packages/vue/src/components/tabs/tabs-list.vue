@@ -26,7 +26,7 @@ const props = withDefaults(defineProps<TabsListProps>(), {
 </template>
 
 <style scoped>
-div {
+.q-tabs-list {
   display: inline-flex;
   height: var(--spacing-10);
   align-items: center;
@@ -37,21 +37,21 @@ div {
   padding: var(--spacing-1);
 }
 
-div :deep(a),
-div :deep(button) {
+.q-tabs-list :deep(a),
+.q-tabs-list :deep(button) {
   position: relative;
   border-radius: 0;
   margin: 0;
 }
 
-div :deep(a:first-child),
-div :deep(button:first-child) {
+.q-tabs-list :deep(a:first-child),
+.q-tabs-list :deep(button:first-child) {
   border-top-left-radius: var(--border-radius-md);
   border-bottom-left-radius: var(--border-radius-md);
 }
 
-div :deep(a:last-child),
-div :deep(button:last-child) {
+.q-tabs-list :deep(a:last-child),
+.q-tabs-list :deep(button:last-child) {
   border-top-right-radius: var(--border-radius-md);
   border-bottom-right-radius: var(--border-radius-md);
 }

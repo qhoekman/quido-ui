@@ -30,13 +30,13 @@ const props = withDefaults(defineProps<TabsContentProps>(), {
 </template>
 
 <style scoped>
-div {
+.q-tabs-content {
   margin-top: var(--spacing-2);
   box-shadow: 0 0 0 0 var(--color-background);
   outline: none;
 }
 
-div:focus-visible {
+.q-tabs-content:focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px var(--color-ring), 0 0 0 4px var(--color-background);
 }

@@ -44,7 +44,7 @@ const handleValueChange = (value: string) => {
 </template>
 
 <style scoped>
-div {
+.q-tabs {
   display: flex;
   flex-direction: column;
 }
