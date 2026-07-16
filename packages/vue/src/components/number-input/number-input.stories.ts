@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/vue3-vite";
 import { ref } from "vue";
 
 const meta = {
-  title: "Components/Data Entry/Number Input",
+  title: "Features/Ecommerce/Components/Number Input",
   component: NumberInputComponent,
   argTypes: {
     size: {
@@ -53,8 +53,4 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  args: {
-    value: 1,
-  },
-};
+export const Default: Story = {};

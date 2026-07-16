@@ -129,6 +129,7 @@ const inputClasses = computed(() => {
     <input
       ref="inputRef"
       type="number"
+      v-bind="$attrs"
       :class="inputClasses"
       :value="props.modelValue"
       :placeholder="placeholder"
@@ -139,7 +140,6 @@ const inputClasses = computed(() => {
       :step="step"
       @input="handleInput"
       @keydown="handleKeyDown"
-      v-bind="$attrs"
     />
     <button
       type="button"
