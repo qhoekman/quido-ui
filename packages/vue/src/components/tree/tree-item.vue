@@ -26,55 +26,55 @@ const hasGroups = computed(() => {
   return !!slots.default;
 });
 
+const isExpanded = computed(() => {
+  return props.expanded !== undefined ? props.expanded : isOpen.value;
+});
+
 const handleOpenChange = (open: boolean) => {
-  isOpen.value = open;
+  if (props.expanded === undefined) {
+    isOpen.value = open;
+  }
   emit("update:expanded", open);
 };
 
 const handleKeydown = (event: KeyboardEvent) => {
   if (event.key === "Enter") {
     event.preventDefault();
-    const newValue = !isExpanded.value;
-    isOpen.value = newValue;
-    emit("update:expanded", newValue);
+    handleOpenChange(!isExpanded.value);
   }
 };
-
-const isExpanded = computed(() => {
-  return props.expanded !== undefined ? props.expanded : isOpen.value;
-});
 </script>
 
 <template>
-  <Collapsible
-    :open="props.expanded !== undefined ? props.expanded : undefined"
-    :default-open="props.expanded === undefined ? defaultExpanded : undefined"
-    @update:open="handleOpenChange"
-    role="treeitem"
-    :aria-expanded="isExpanded"
-    aria-selected="false"
-    class="q-tree-item"
-  >
-    <CollapsibleTrigger as="div" class="q-tree-item-trigger-wrapper">
-      <div
-        role="button"
-        data-testid="qui-tree-item-trigger"
-        class="q-tree-item-trigger"
-        tabindex="0"
-        @keydown="handleKeydown"
-      >
-        <TreeItemIndicator
-          :empty="!hasGroups"
-          :expanded="isExpanded"
-        />
-        <slot name="icon" />
-        <slot name="label" />
-      </div>
-    </CollapsibleTrigger>
-    <CollapsibleContent>
-      <slot />
-    </CollapsibleContent>
-  </Collapsible>
+  <div class="q-tree-item">
+    <Collapsible
+      :open="isExpanded"
+      @update:open="handleOpenChange"
+      role="treeitem"
+      :aria-expanded="isExpanded"
+      aria-selected="false"
+    >
+      <CollapsibleTrigger as="div" class="q-tree-item-trigger-wrapper">
+        <div
+          role="button"
+          data-testid="qui-tree-item-trigger"
+          class="q-tree-item-trigger"
+          tabindex="0"
+          @keydown="handleKeydown"
+        >
+          <TreeItemIndicator
+            :empty="!hasGroups"
+            :expanded="isExpanded"
+          />
+          <slot name="icon" />
+          <slot name="label" />
+        </div>
+      </CollapsibleTrigger>
+      <CollapsibleContent>
+        <slot />
+      </CollapsibleContent>
+    </Collapsible>
+  </div>
 </template>
 
 <style scoped>

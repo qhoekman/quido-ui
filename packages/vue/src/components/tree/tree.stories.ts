@@ -5,18 +5,17 @@ import TreeItemIconComponent from "./tree-item-icon.vue";
 import TreeItemLabelComponent from "./tree-item-label.vue";
 import { Folder, File } from "lucide-vue-next";
 import type { Meta, StoryObj } from "@storybook/vue3-vite";
-import { ref } from "vue";
 
 const meta = {
   title: "Components/Data Display/Tree",
   component: TreeComponent,
   argTypes: {
-    expanded: {
+    defaultExpanded: {
       control: "boolean",
     },
   },
   args: {
-    expanded: true,
+    defaultExpanded: true,
   },
   render: (args) => ({
     components: {
@@ -29,12 +28,11 @@ const meta = {
       File,
     },
     setup() {
-      const expanded = ref(args.expanded ?? true);
-      return { args, expanded };
+      return { args };
     },
     template: `
       <TreeComponent>
-        <TreeItemComponent :expanded="expanded">
+        <TreeItemComponent :default-expanded="args.defaultExpanded">
           <template #icon>
             <TreeItemIconComponent>
               <Folder :size="16" />
@@ -66,7 +64,7 @@ const meta = {
             </TreeItemComponent>
           </TreeGroupComponent>
         </TreeItemComponent>
-        <TreeItemComponent :expanded="expanded">
+        <TreeItemComponent :default-expanded="args.defaultExpanded">
           <template #icon>
             <TreeItemIconComponent>
               <Folder :size="16" />
@@ -120,7 +118,7 @@ const meta = {
             </TreeItemComponent>
           </TreeGroupComponent>
         </TreeItemComponent>
-        <TreeItemComponent :expanded="expanded">
+        <TreeItemComponent :default-expanded="args.defaultExpanded">
           <template #icon>
             <TreeItemIconComponent>
               <Folder :size="16" />
