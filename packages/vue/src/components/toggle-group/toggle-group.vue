@@ -91,13 +91,13 @@ provide("toggleGroupContext", {
 <template>
   <ToggleGroupRoot
     :type="type"
-    :value="selectedValue"
+    :model-value="selectedValue"
     :default-value="defaultValue"
     :disabled="disabled"
     :as-child="asChild"
     :as="as"
     :class="classes"
-    @update:value="handleValueChange"
+    @update:model-value="handleValueChange"
     v-bind="$attrs"
   >
     <slot />
@@ -109,30 +109,6 @@ provide("toggleGroupContext", {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  isolation: isolate;
-  border-radius: var(--border-radius-md);
-  box-shadow: var(--box-shadow-default);
-}
-
-.q-toggle-group :deep(a),
-.q-toggle-group :deep(button) {
-  position: relative;
-  border-radius: 0;
-  border-left: 1px solid var(--color-border);
-  margin: 0;
-}
-
-.q-toggle-group :deep(a:first-child),
-.q-toggle-group :deep(button:first-child) {
-  border-top-left-radius: var(--border-radius-md);
-  border-bottom-left-radius: var(--border-radius-md);
-  border-left: none;
-}
-
-.q-toggle-group :deep(a:last-child),
-.q-toggle-group :deep(button:last-child) {
-  border-top-right-radius: var(--border-radius-md);
-  border-bottom-right-radius: var(--border-radius-md);
-  border-left: none;
+  gap: var(--spacing-1);
 }
 </style>

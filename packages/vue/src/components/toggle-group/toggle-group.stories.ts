@@ -4,7 +4,7 @@ import ToggleGroup from "./toggle-group.vue";
 import ToggleGroupItem from "./toggle-group-item.vue";
 
 const meta = {
-  title: "Components/Data Manipulation/Toggle Group",
+  title: "Components/Data Entry/Toggle Group",
   component: ToggleGroup,
   argTypes: {
     variant: {
