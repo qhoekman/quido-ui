@@ -49,6 +49,7 @@ const props = withDefaults(defineProps<CarouselButtonProps>(), {
 })
 
 interface CarouselContext {
+  orientation?: { value: 'horizontal' | 'vertical' } | 'horizontal' | 'vertical'
   scrollPrev: () => void
   scrollNext: () => void
   canScrollPrev: { value: boolean }
@@ -57,12 +58,25 @@ interface CarouselContext {
 
 const carouselContext = inject<CarouselContext>('carousel')
 
+const orientation = computed(() => {
+  const ctxOrientation = carouselContext?.orientation
+  if (!ctxOrientation) return 'horizontal'
+  return typeof ctxOrientation === 'object' && 'value' in ctxOrientation
+    ? ctxOrientation.value
+    : ctxOrientation
+})
+
 const classes = computed(() => {
-  return buttonVariants({
-    variant: props.variant,
-    size: props.size,
-    position: props.position
-  })
+  return [
+    buttonVariants({
+      variant: props.variant,
+      size: props.size,
+      position: props.position
+    }),
+    {
+      'orientation--vertical': orientation.value === 'vertical'
+    }
+  ]
 })
 
 const isDisabled = computed(() => {
@@ -221,5 +235,20 @@ const handleClick = () => {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.orientation--vertical.position--prev {
+  left: 50%;
+  top: 0;
+  right: auto;
+  transform: translateX(-50%);
+}
+
+.orientation--vertical.position--next {
+  left: 50%;
+  top: auto;
+  bottom: 0;
+  right: auto;
+  transform: translateX(-50%);
 }
 </style>

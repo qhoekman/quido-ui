@@ -7,16 +7,24 @@ import CardContentComponent from '@/components/card/card-content.vue'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta = {
-  title: 'Components/Layout/Carousel',
+  title: 'Features/Website/Components/Carousel',
   component: CarouselComponent,
   argTypes: {
     orientation: {
       control: 'select',
       options: ['horizontal', 'vertical']
+    },
+    autoplay: {
+      control: 'boolean'
+    },
+    autoplayInterval: {
+      control: 'number'
     }
   },
   args: {
-    orientation: 'horizontal'
+    orientation: 'horizontal',
+    autoplay: false,
+    autoplayInterval: 3000
   },
   render: (args) => ({
     components: {
@@ -33,6 +41,8 @@ const meta = {
     template: `
       <CarouselComponent
         :orientation="args.orientation"
+        :autoplay="args.autoplay"
+        :autoplay-interval="args.autoplayInterval"
         style="width: 100%; max-width: 600px; height: 300px;"
       >
         <CarouselContentComponent>
@@ -62,3 +72,16 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Vertical: Story = {
+  args: {
+    orientation: 'vertical'
+  }
+}
+
+export const Autoplay: Story = {
+  args: {
+    autoplay: true,
+    autoplayInterval: 2000
+  }
+}

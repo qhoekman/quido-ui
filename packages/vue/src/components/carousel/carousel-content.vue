@@ -1,17 +1,15 @@
 <script setup lang="ts">
-import { computed, inject, onMounted, ref, watch } from 'vue'
+import { computed, inject, onMounted, ref, watch, type ComputedRef } from 'vue'
 import { Primitive } from 'reka-ui'
 
 export interface CarouselContentProps {
   orientation?: 'horizontal' | 'vertical'
 }
 
-const props = withDefaults(defineProps<CarouselContentProps>(), {
-  orientation: 'horizontal'
-})
+const props = defineProps<CarouselContentProps>()
 
 interface CarouselContext {
-  orientation: 'horizontal' | 'vertical'
+  orientation: ComputedRef<'horizontal' | 'vertical'> | 'horizontal' | 'vertical'
   currentIndex: { value: number }
   scrollPrev: () => void
   scrollNext: () => void
@@ -26,19 +24,32 @@ if (!carouselContext) {
   throw new Error('CarouselContent must be used within a Carousel component')
 }
 
-const contentRef = ref<HTMLElement | null>(null)
+// `Primitive` is a Vue component, so a template ref on it yields the
+// component instance, not the rendered DOM node — its actual element must
+// be read via `.$el`.
+const contentRef = ref<{ $el: HTMLElement } | null>(null)
 const itemCount = ref(0)
 
-const orientation = computed(() => props.orientation || carouselContext.orientation)
+const orientation = computed(() => {
+  if (props.orientation !== undefined) {
+    return props.orientation
+  }
+  const ctxOrientation = carouselContext.orientation
+  return typeof ctxOrientation === 'object' && 'value' in ctxOrientation
+    ? ctxOrientation.value
+    : ctxOrientation
+})
+
+const getElement = (): HTMLElement | null => contentRef.value?.$el ?? null
 
 const updateCarouselPosition = () => {
-  if (!contentRef.value) return
+  const el = getElement()
+  if (!el) return
 
   const currentIndex = carouselContext.currentIndex.value
   const offset = orientation.value === 'horizontal' ? 'translateX' : 'translateY'
-  contentRef.value.style.transform = `${offset}(-${currentIndex * 100}%)`
+  el.style.transform = `${offset}(-${currentIndex * 100}%)`
 
-  // Update can scroll states
   carouselContext.canScrollPrev.value = currentIndex > 0
   carouselContext.canScrollNext.value = currentIndex < itemCount.value - 1
 }
@@ -57,18 +68,22 @@ const scrollNext = () => {
   }
 }
 
-// Override the context methods with local implementations
 carouselContext.scrollPrev = scrollPrev
 carouselContext.scrollNext = scrollNext
 
 onMounted(() => {
-  if (contentRef.value) {
-    itemCount.value = contentRef.value.children.length
+  const el = getElement()
+  if (el) {
+    itemCount.value = el.children.length
     updateCarouselPosition()
   }
 })
 
 watch(() => carouselContext.currentIndex.value, () => {
+  updateCarouselPosition()
+})
+
+watch(orientation, () => {
   updateCarouselPosition()
 })
 </script>

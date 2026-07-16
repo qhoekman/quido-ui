@@ -1,14 +1,20 @@
 <script setup lang="ts">
-import { computed, inject } from 'vue'
+import { computed, inject, type ComputedRef } from 'vue'
 import { Primitive } from 'reka-ui'
 
 interface CarouselContext {
-  orientation: 'horizontal' | 'vertical'
+  orientation: ComputedRef<'horizontal' | 'vertical'> | 'horizontal' | 'vertical'
 }
 
 const carouselContext = inject<CarouselContext>('carousel')
 
-const orientation = computed(() => carouselContext?.orientation || 'horizontal')
+const orientation = computed(() => {
+  const ctxOrientation = carouselContext?.orientation
+  if (!ctxOrientation) return 'horizontal'
+  return typeof ctxOrientation === 'object' && 'value' in ctxOrientation
+    ? ctxOrientation.value
+    : ctxOrientation
+})
 </script>
 
 <template>
@@ -33,5 +39,6 @@ const orientation = computed(() => carouselContext?.orientation || 'horizontal')
 .q-carousel-item[data-orientation='vertical'] {
   flex: 0 0 100%;
   min-height: 0;
+  height: 100%;
 }
 </style>
