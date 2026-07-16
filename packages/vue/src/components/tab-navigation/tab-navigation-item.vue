@@ -28,7 +28,7 @@ const classes = computed(() => ["q-tab-navigation-item"]);
 </template>
 
 <style scoped>
-li {
+.q-tab-navigation-item {
   list-style: none;
   margin: 0;
   padding: 0;

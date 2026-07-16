@@ -38,9 +38,18 @@ const classes = computed(() => ["q-tab-navigation-menu"]);
   </DropdownMenuPortal>
 </template>
 
-<style scoped>
-div,
-[role="menu"] {
+<style>
+/*
+ * reka-ui's DropdownMenuContent is rendered via DropdownMenuPortal ->
+ * Teleport (into document.body), which severs any connection to this
+ * component's own scoped-CSS data-v-* attribute -- neither the content
+ * element nor any of its (post-teleport) ancestors carry it, so scoped
+ * selectors can never match (confirmed empirically: the rendered content
+ * had no data-v-* attribute at all, and its background stayed
+ * transparent instead of using the rule below). This must be global CSS,
+ * scoped only by the q-tab-navigation-menu class.
+ */
+.q-tab-navigation-menu {
   z-index: var(--z-index-50);
   min-width: var(--spacing-32);
   width: var(--spacing-48);

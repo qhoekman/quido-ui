@@ -28,7 +28,7 @@ const classes = computed(() => ["q-tab-navigation-menugroup"]);
 </template>
 
 <style scoped>
-ol {
+.q-tab-navigation-menugroup {
   padding: 0;
   margin: 0;
   overflow: hidden auto;

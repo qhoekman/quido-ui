@@ -30,8 +30,7 @@ const classes = computed(() => ["q-tab-navigation-separator"]);
 </template>
 
 <style scoped>
-div,
-[role="separator"] {
+.q-tab-navigation-separator {
   background-color: var(--color-border);
   height: var(--spacing-px);
   margin: var(--spacing-1) calc(-1 * var(--spacing-1));

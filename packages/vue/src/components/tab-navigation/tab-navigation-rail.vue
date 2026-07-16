@@ -29,8 +29,7 @@ const classes = computed(() => ["q-tab-navigation-rail"]);
 </template>
 
 <style scoped>
-div,
-[role="menubar"] {
+.q-tab-navigation-rail {
   position: absolute;
   bottom: 0;
   left: 0;

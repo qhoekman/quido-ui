@@ -62,8 +62,7 @@ const classes = computed(() => {
 </template>
 
 <style scoped>
-ul,
-[role="menubar"] {
+.q-tab-navigation {
   position: relative;
   display: flex;
   align-items: center;
