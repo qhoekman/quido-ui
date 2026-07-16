@@ -84,7 +84,7 @@ const classes = computed(() => {
 </template>
 
 <style scoped>
-div {
+.q-stack {
   display: flex;
 }
 
