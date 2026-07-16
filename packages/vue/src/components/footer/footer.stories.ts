@@ -16,7 +16,7 @@ import InputComponent from "@/components/input/input.vue";
 import type { Meta, StoryObj } from "@storybook/vue3-vite";
 
 const meta = {
-  title: "Components/Layout/Footer",
+  title: "Features/Website/Components/Footer",
   component: FooterComponent,
   argTypes: {
     asChild: {
