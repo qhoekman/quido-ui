@@ -10,7 +10,7 @@ import ButtonComponent from "@/components/button/button.vue";
 import type { Meta, StoryObj } from "@storybook/vue3-vite";
 
 const meta = {
-  title: "Components/Layout/Header",
+  title: "Features/Website/Components/Header",
   component: HeaderComponent,
   render: () => ({
     components: {
