@@ -97,5 +97,6 @@ provide("stepsContext", {
   display: flex;
   flex-direction: column;
   width: 100%;
+  gap: var(--spacing-4);
 }
 </style>
