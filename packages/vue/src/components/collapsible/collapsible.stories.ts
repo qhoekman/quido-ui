@@ -94,3 +94,45 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Uncontrolled: Story = {
+  render: () => ({
+    components: {
+      CollapsibleComponent,
+      CollapsibleTriggerComponent,
+      CollapsibleContentComponent,
+      ButtonComponent
+    },
+    // No v-model:open here -- this is the plain, most common real-world
+    // usage (no external state at all), which previously never toggled
+    // because `open` silently auto-defaulted to `false` instead of
+    // `undefined`, pinning reka-ui's internal state in controlled mode.
+    template: `
+      <CollapsibleComponent
+        style="width: 350px; display: flex; flex-direction: column; gap: var(--spacing-2);"
+      >
+        <div
+          style="display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-4); padding: var(--spacing-4);"
+        >
+          <h4
+            style="font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold);"
+          >
+            Lorem ipsum...
+          </h4>
+          <CollapsibleTriggerComponent as-child>
+            <ButtonComponent variant="ghost" size="sm">
+              Toggle
+            </ButtonComponent>
+          </CollapsibleTriggerComponent>
+        </div>
+        <CollapsibleContentComponent>
+          <div
+            style="border-radius: var(--border-radius-md); border: var(--border-width-default) solid var(--color-border); padding: var(--spacing-4); font-size: var(--font-size-sm); font-family: var(--font-family-mono); box-shadow: var(--box-shadow-sm);"
+          >
+            Consectetur.
+          </div>
+        </CollapsibleContentComponent>
+      </CollapsibleComponent>
+    `
+  })
+}
