@@ -14,6 +14,12 @@ export interface ActionSheetProps {
 
 const props = withDefaults(defineProps<ActionSheetProps>(), {
   defaultOpen: false,
+  // `open` must default to `undefined`, not Vue's automatic "absent
+  // Boolean prop resolves to false" coercion -- otherwise `isControlled`
+  // below is always true (since `false !== undefined`) even when a
+  // consumer never passes `open` at all, permanently pinning `isOpen` at
+  // `false` and making the trigger's click handler a no-op.
+  open: undefined,
   modal: true,
   dismissible: true,
   shouldScaleBackground: true,

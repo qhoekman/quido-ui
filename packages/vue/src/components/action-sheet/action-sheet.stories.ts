@@ -10,7 +10,7 @@ import ButtonComponent from '@/components/button/button.vue'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta = {
-  title: 'Components/Overlay/Action Sheet',
+  title: 'Features/Mobile/Components/Action Sheet',
   component: ActionSheet,
   argTypes: {
     shouldScaleBackground: {
@@ -75,7 +75,9 @@ const meta = {
               </li>
             </ul>
             <ActionSheetFooter>
-              <ButtonComponent variant="outline">Cancel</ButtonComponent>
+              <ActionSheetClose as-child>
+                <ButtonComponent variant="outline">Cancel</ButtonComponent>
+              </ActionSheetClose>
             </ActionSheetFooter>
           </div>
         </ActionSheetContent>
