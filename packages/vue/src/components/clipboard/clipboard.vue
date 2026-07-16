@@ -42,6 +42,7 @@ export interface ClipboardProps {
 const props = withDefaults(defineProps<ClipboardProps>(), {
   variant: 'outline',
   size: 'md',
+  as: 'button',
   asChild: false,
   disabled: false,
   copiedDuration: 2000
