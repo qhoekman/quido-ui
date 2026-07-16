@@ -27,7 +27,7 @@ ol {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--spacing-3);
+  gap: var(--spacing-1-5);
   word-break: break-word;
   font-size: var(--font-size-sm);
   color: var(--color-muted-fg);
@@ -38,7 +38,7 @@ ol {
 
 @media (width >= 640px) {
   ol {
-    gap: var(--spacing-8);
+    gap: var(--spacing-2-5);
   }
 }
 </style>
