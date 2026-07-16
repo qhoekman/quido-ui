@@ -8,7 +8,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ref } from 'vue'
 
 const meta = {
-  title: 'Components/Data Display/Reel',
+  title: 'Features/Ecommerce/Components/Reel',
   component: ReelComponent,
   argTypes: {},
   args: {},

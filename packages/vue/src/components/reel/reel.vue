@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { ref, provide } from 'vue'
 import { Primitive } from 'reka-ui'
+import { useReel } from './useReel'
 
 export interface ReelProps {
   asChild?: boolean
@@ -8,6 +10,15 @@ export interface ReelProps {
 const props = withDefaults(defineProps<ReelProps>(), {
   asChild: false
 })
+
+const contentRef = ref<HTMLElement | null>(null)
+const reel = useReel(contentRef)
+
+// Provide reel methods and the shared content ref to descendants
+// (ReelButton and ReelContent are siblings under this root, so the
+// provide must live here rather than on ReelContent itself)
+provide('reel', reel)
+provide('reelContentRef', contentRef)
 </script>
 
 <template>

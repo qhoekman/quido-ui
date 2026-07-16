@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { ref, provide, onMounted, nextTick } from 'vue'
+import { inject, nextTick, type Ref } from 'vue'
 import { Primitive } from 'reka-ui'
-import { useReel } from './useReel'
 
 export interface ReelContentProps {
   asChild?: boolean
@@ -11,27 +10,22 @@ const props = withDefaults(defineProps<ReelContentProps>(), {
   asChild: false
 })
 
-const contentRef = ref<HTMLElement | null>(null)
-const reel = useReel(contentRef)
+interface ReelContext {
+  updateScrollState: () => void
+}
 
-// Provide reel methods to child components
-provide('reel', reel)
+const contentRef = inject<Ref<HTMLElement | null> | null>('reelContentRef', null)
+const reel = inject<ReelContext | null>('reel', null)
 
 const setRef = (el: any) => {
-  if (el) {
+  if (el && contentRef) {
     // Primitive component exposes the DOM element via $el
     contentRef.value = (el.$el || el) as HTMLElement
     nextTick(() => {
-      reel.updateScrollState()
+      reel?.updateScrollState()
     })
   }
 }
-
-onMounted(() => {
-  nextTick(() => {
-    reel.updateScrollState()
-  })
-})
 </script>
 
 <template>
