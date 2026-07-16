@@ -45,7 +45,13 @@ const contentClasses = computed(() => [
   </TooltipPortal>
 </template>
 
-<style scoped>
+<style>
+/*
+ * Not scoped: TooltipContent renders via reka-ui's internal
+ * Teleport/Presence machinery, whose actual DOM output never receives
+ * Vue's scoped-CSS data-v-* attribute (confirmed via direct DOM
+ * inspection). A scoped selector here would silently never match.
+ */
 .q-tooltip-content {
   z-index: var(--z-index-50);
   overflow: hidden;

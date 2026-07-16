@@ -27,7 +27,15 @@ const props = withDefaults(defineProps<TooltipArrowProps>(), {
   />
 </template>
 
-<style scoped>
+<style>
+/*
+ * Not scoped: this component is normally used as slot content inside
+ * TooltipContent, whose entire rendered subtree (including slotted
+ * children) is moved by reka-ui's Teleport into the tooltip portal --
+ * none of the elements in that relocated subtree receive Vue's
+ * scoped-CSS data-v-* attribute (confirmed via direct DOM inspection).
+ * A scoped selector here would silently never match.
+ */
 .q-tooltip-arrow {
   fill: var(--color-tooltip);
 }

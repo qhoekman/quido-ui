@@ -107,3 +107,33 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Uncontrolled: Story = {
+  render: () => ({
+    components: {
+      TooltipComponent,
+      TooltipProviderComponent,
+      TooltipTriggerComponent,
+      TooltipContentComponent,
+      TooltipArrowComponent,
+      ButtonComponent
+    },
+    // No v-model:open here -- this is the plain, most common real-world
+    // usage (no external state at all), which previously never showed
+    // because `open` silently auto-defaulted to `false` instead of
+    // `undefined`, pinning `isControlled`/`isOpen` permanently.
+    template: `
+      <TooltipProviderComponent>
+        <TooltipComponent>
+          <TooltipTriggerComponent as-child>
+            <ButtonComponent variant="ghost" size="sm">Hover</ButtonComponent>
+          </TooltipTriggerComponent>
+          <TooltipContentComponent>
+            <TooltipArrowComponent />
+            <p>Uncontrolled tooltip content</p>
+          </TooltipContentComponent>
+        </TooltipComponent>
+      </TooltipProviderComponent>
+    `
+  })
+}
