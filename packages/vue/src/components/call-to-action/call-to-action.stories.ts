@@ -9,7 +9,7 @@ import ButtonComponent from "@/components/button/button.vue";
 import type { Meta, StoryObj } from "@storybook/vue3-vite";
 
 const meta = {
-  title: "Components/Layout/Call To Action",
+  title: "Features/Website/Components/CTA",
   component: CallToActionComponent,
   argTypes: {
     asChild: {
