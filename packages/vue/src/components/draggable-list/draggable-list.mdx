@@ -1,0 +1,27 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as DraggableListStories from './draggable-list.stories'
+import DraggableListCode from './draggable-list.vue?raw'
+
+<Meta of={DraggableListStories} />
+
+# Draggable List
+
+A component that allows users to reorder list items by dragging and dropping them.
+
+## Usage
+
+<Canvas of={DraggableListStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Draggable List component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## 1. Copy and paste the following code into your project.
+
+<Source language="html" code={DraggableListCode} />

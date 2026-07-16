@@ -1,0 +1,21 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as ColorSliderStories from "./color-slider.stories";
+import ColorSliderCode from "./color-slider.vue?raw";
+
+<Meta of={ColorSliderStories} />
+
+# Color Slider
+
+A color slider component that allows users to select values for hue, saturation, lightness, or alpha channels.
+
+## Usage
+
+<Canvas of={ColorSliderStories.Default} />
+
+<Controls />
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={ColorSliderCode} />

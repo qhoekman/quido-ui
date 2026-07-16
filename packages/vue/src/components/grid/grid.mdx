@@ -1,0 +1,39 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as GridStories from './grid.stories'
+import GridCode from './grid.vue?raw'
+import GridItemCode from './grid-item.vue?raw'
+
+<Meta of={GridStories} />
+
+# Grid Component
+
+A flexible grid layout component that allows you to create responsive grid layouts with customizable columns and item spans.
+
+## Usage
+
+<Canvas of={GridStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Grid component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Grid component consists of two parts:
+
+- **Grid** - The root component that manages the grid layout with configurable columns
+- **GridItem** - Individual items within the grid that can span multiple columns
+
+## 1. Copy the GridItem
+
+<Source code={GridItemCode} language="html" />
+
+## 2. Copy the Grid
+
+<Source code={GridCode} language="html" />

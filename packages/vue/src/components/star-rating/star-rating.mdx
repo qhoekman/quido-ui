@@ -1,0 +1,21 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as StarRatingStories from "./star-rating.stories";
+import StarRatingCode from "./star-rating.vue?raw";
+
+<Meta of={StarRatingStories} />
+
+# Star Rating
+
+A component that displays a visual star rating, showing filled and unfilled stars based on a rating value.
+
+## Usage
+
+<Canvas of={StarRatingStories.Default} />
+
+<Controls />
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={StarRatingCode} />

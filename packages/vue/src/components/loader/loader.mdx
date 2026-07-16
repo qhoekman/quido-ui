@@ -1,0 +1,21 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as LoaderStories from "./loader.stories";
+import LoaderCode from "./loader.vue?raw";
+
+<Meta of={LoaderStories} />
+
+# Loader
+
+A component that displays a loading indicator.
+
+## Usage
+
+<Canvas of={LoaderStories.Default} />
+
+<Controls />
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={LoaderCode} />

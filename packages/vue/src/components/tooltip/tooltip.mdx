@@ -1,0 +1,57 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as TooltipStories from "./tooltip.stories";
+import TooltipCode from "./tooltip.vue?raw";
+import TooltipProviderCode from "./tooltip-provider.vue?raw";
+import TooltipTriggerCode from "./tooltip-trigger.vue?raw";
+import TooltipContentCode from "./tooltip-content.vue?raw";
+import TooltipArrowCode from "./tooltip-arrow.vue?raw";
+
+<Meta of={TooltipStories} />
+
+# Tooltip
+
+A tooltip component that displays helpful information when hovering over an element.
+
+## Usage
+
+<Canvas of={TooltipStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Tooltip component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Tooltip component consists of five parts:
+
+- **TooltipProvider** - The provider component that wraps your application (optional but recommended)
+- **Tooltip** - The root component that manages the open/closed state
+- **TooltipTrigger** - The element that triggers the tooltip
+- **TooltipContent** - The content that is displayed in the tooltip
+- **TooltipArrow** - An optional arrow pointing to the trigger
+
+## 1. Copy the TooltipProvider
+
+<Source code={TooltipProviderCode} language="html" />
+
+## 2. Copy the TooltipTrigger
+
+<Source code={TooltipTriggerCode} language="html" />
+
+## 3. Copy the TooltipContent
+
+<Source code={TooltipContentCode} language="html" />
+
+## 4. Copy the TooltipArrow
+
+<Source code={TooltipArrowCode} language="html" />
+
+## 5. Copy the Tooltip
+
+<Source code={TooltipCode} language="html" />

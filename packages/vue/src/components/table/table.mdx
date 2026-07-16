@@ -1,0 +1,75 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as TableStories from "./table.stories";
+import TableCode from "./table.vue?raw";
+import TableHeaderCode from "./table-header.vue?raw";
+import TableBodyCode from "./table-body.vue?raw";
+import TableFooterCode from "./table-footer.vue?raw";
+import TableRowCode from "./table-row.vue?raw";
+import TableHeadCode from "./table-head.vue?raw";
+import TableCellCode from "./table-cell.vue?raw";
+import TableCaptionCode from "./table-caption.vue?raw";
+
+<Meta of={TableStories} />
+
+# Table
+
+A table component for displaying structured data with header, body, footer, and caption sections.
+
+## Usage
+
+<Canvas of={TableStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Table component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Table component consists of eight parts:
+
+- **Table** - The root component that wraps the entire table
+- **TableHeader** - The header section (thead)
+- **TableBody** - The body section (tbody)
+- **TableFooter** - The footer section (tfoot)
+- **TableRow** - A table row (tr)
+- **TableHead** - A header cell (th)
+- **TableCell** - A data cell (td)
+- **TableCaption** - A caption for the table
+
+## 1. Copy the TableCaption
+
+<Source code={TableCaptionCode} language="html" />
+
+## 2. Copy the TableHeader
+
+<Source code={TableHeaderCode} language="html" />
+
+## 3. Copy the TableBody
+
+<Source code={TableBodyCode} language="html" />
+
+## 4. Copy the TableFooter
+
+<Source code={TableFooterCode} language="html" />
+
+## 5. Copy the TableRow
+
+<Source code={TableRowCode} language="html" />
+
+## 6. Copy the TableHead
+
+<Source code={TableHeadCode} language="html" />
+
+## 7. Copy the TableCell
+
+<Source code={TableCellCode} language="html" />
+
+## 8. Copy the Table
+
+<Source code={TableCode} language="html" />

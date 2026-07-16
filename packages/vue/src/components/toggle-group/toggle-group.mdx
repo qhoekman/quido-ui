@@ -1,0 +1,39 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as ToggleGroupStories from "./toggle-group.stories";
+import ToggleGroupCode from "./toggle-group.vue?raw";
+import ToggleGroupItemCode from "./toggle-group-item.vue?raw";
+
+<Meta of={ToggleGroupStories} />
+
+# Toggle Group
+
+A group of toggle buttons that can be used together.
+
+## Usage
+
+<Canvas of={ToggleGroupStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Toggle Group component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Toggle Group component consists of two parts:
+
+- **ToggleGroup** - The root component that manages the selected values
+- **ToggleGroupItem** - Individual toggle items within the group
+
+## 1. Copy the ToggleGroupItem
+
+<Source code={ToggleGroupItemCode} language="html" />
+
+## 2. Copy the ToggleGroup
+
+<Source code={ToggleGroupCode} language="html" />

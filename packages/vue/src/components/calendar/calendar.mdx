@@ -1,0 +1,45 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as CalendarStories from "./calendar.stories";
+import CalendarCode from "./calendar.vue?raw";
+
+<Meta of={CalendarStories} />
+
+# Calendar
+
+A calendar component for selecting dates with month navigation.
+
+## Usage
+
+<Canvas of={CalendarStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Calendar component uses `date-fns` for date manipulation. Make sure you have `date-fns` installed:
+
+\`\`\`bash
+npm install date-fns
+\`\`\`
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={CalendarCode} />
+
+## Props
+
+- `currentDate` (Date, optional): The currently selected date. Defaults to today.
+- `currentMonth` (Date, optional): The month to display. Defaults to the month of `currentDate`.
+
+## Events
+
+- `valueChange`: Emitted when a date is selected. The event payload is the selected `Date` object.
+
+## Features
+
+- Month navigation with previous/next buttons
+- Highlights today's date
+- Highlights selected date
+- Shows dates from previous/next month in gray
+- Keyboard navigation support (Enter/Space to select)
+- Accessible with proper ARIA attributes

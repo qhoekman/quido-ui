@@ -1,0 +1,29 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as RangeStories from "./range.stories";
+import RangeCode from "./range.vue?raw";
+
+<Meta of={RangeStories} />
+
+# Range
+
+A range slider component that allows users to select a range of values using two thumbs.
+
+## Usage
+
+<Canvas of={RangeStories.Default} />
+
+<Controls />
+
+See the [Reka UI](https://rekajs.dev) documentation for more details.
+
+## Installation
+
+### 1. Install the following dependencies
+
+```bash
+npm install reka-ui
+```
+
+### 2. Copy and paste the following code into your project.
+
+<Source language="html" code={RangeCode} />

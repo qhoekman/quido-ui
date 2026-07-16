@@ -1,0 +1,59 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as CardStories from './card.stories'
+import CardCode from './card.vue?raw'
+import CardHeaderCode from './card-header.vue?raw'
+import CardTitleCode from './card-title.vue?raw'
+import CardDescriptionCode from './card-description.vue?raw'
+import CardContentCode from './card-content.vue?raw'
+import CardFooterCode from './card-footer.vue?raw'
+
+# Card
+
+A flexible card component for displaying content with header, title, description, content, and footer sections.
+
+<Meta of={CardStories} />
+<Canvas of={CardStories.Default} />
+<Controls />
+
+## Installation
+
+The Card component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Card component consists of six parts:
+
+- **Card** - The root component that wraps all card content
+- **CardHeader** - Container for the card title and description
+- **CardTitle** - The main heading of the card
+- **CardDescription** - Optional description text below the title
+- **CardContent** - The main content area of the card
+- **CardFooter** - Footer section typically used for actions
+
+## 1. Copy the CardHeader
+
+<Source code={CardHeaderCode} language="html" />
+
+## 2. Copy the CardTitle
+
+<Source code={CardTitleCode} language="html" />
+
+## 3. Copy the CardDescription
+
+<Source code={CardDescriptionCode} language="html" />
+
+## 4. Copy the CardContent
+
+<Source code={CardContentCode} language="html" />
+
+## 5. Copy the CardFooter
+
+<Source code={CardFooterCode} language="html" />
+
+## 6. Copy the Card
+
+<Source code={CardCode} language="html" />

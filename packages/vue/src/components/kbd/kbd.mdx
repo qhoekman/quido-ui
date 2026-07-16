@@ -1,0 +1,21 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as KbdStories from "./kbd.stories";
+import KbdCode from "./kbd.vue?raw";
+
+<Meta of={KbdStories} />
+
+# Kbd
+
+A keyboard key indicator component used to display keyboard shortcuts and key combinations.
+
+## Usage
+
+<Canvas of={KbdStories.Default} />
+
+<Controls />
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={KbdCode} />

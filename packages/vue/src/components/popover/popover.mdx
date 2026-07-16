@@ -1,0 +1,45 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as PopoverStories from "./popover.stories";
+import PopoverCode from "./popover.vue?raw";
+import PopoverTriggerCode from "./popover-trigger.vue?raw";
+import PopoverContentCode from "./popover-content.vue?raw";
+
+<Meta of={PopoverStories} />
+
+# Popover
+
+A popover component that displays content in a floating overlay triggered by a button or other element.
+
+## Usage
+
+<Canvas of={PopoverStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Popover component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Popover component consists of three parts:
+
+- **Popover** - The root component that manages the open/closed state
+- **PopoverTrigger** - The button that opens/closes the popover
+- **PopoverContent** - The content that is displayed in the popover
+
+## 1. Copy the PopoverTrigger
+
+<Source code={PopoverTriggerCode} language="html" />
+
+## 2. Copy the PopoverContent
+
+<Source code={PopoverContentCode} language="html" />
+
+## 3. Copy the Popover
+
+<Source code={PopoverCode} language="html" />

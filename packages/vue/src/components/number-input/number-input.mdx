@@ -1,0 +1,21 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as NumberInputStories from "./number-input.stories";
+import NumberInputCode from "./number-input.vue?raw";
+
+<Meta of={NumberInputStories} />
+
+# Number Input
+
+A number input component with increment and decrement buttons for numeric value entry.
+
+## Usage
+
+<Canvas of={NumberInputStories.Default} />
+
+<Controls />
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={NumberInputCode} />

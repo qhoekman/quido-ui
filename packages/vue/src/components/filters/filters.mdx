@@ -1,0 +1,72 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as FiltersStories from "./filters.stories";
+import FiltersFormCode from "./filters-form.vue?raw";
+import FilterCheckboxCode from "./filter-checkbox.vue?raw";
+import FilterRangeCode from "./filter-range.vue?raw";
+import FilterRadioGroupCode from "./filter-radio-group.vue?raw";
+import FilterRadioGroupItemCode from "./filter-radio-group-item.vue?raw";
+import FilterClearButtonCode from "./filter-clear-button.vue?raw";
+import UseFilterStoreCode from "./useFilterStore.ts?raw";
+
+<Meta of={FiltersStories} />
+
+# Filters
+
+A set of components for building filter interfaces with persistent state management via URL hash.
+
+## Usage
+
+<Canvas of={FiltersStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Filters component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Filters component consists of six parts:
+
+- **FiltersForm** - The container form component
+- **FilterCheckbox** - A checkbox filter item that syncs with the filter store
+- **FilterRange** - A range slider filter for numeric ranges
+- **FilterRadioGroup** - A radio group container for filter options
+- **FilterRadioGroupItem** - Individual radio items within a FilterRadioGroup
+- **FilterClearButton** - A button to clear all active filters
+
+## 1. Copy the useFilterStore composable
+
+<Source code={UseFilterStoreCode} language="typescript" />
+
+## 2. Copy the FiltersForm
+
+<Source code={FiltersFormCode} language="html" />
+
+## 3. Copy the FilterCheckbox
+
+<Source code={FilterCheckboxCode} language="html" />
+
+## 4. Copy the FilterRange
+
+<Source code={FilterRangeCode} language="html" />
+
+## 5. Copy the FilterRadioGroup
+
+<Source code={FilterRadioGroupCode} language="html" />
+
+## 6. Copy the FilterRadioGroupItem
+
+<Source code={FilterRadioGroupItemCode} language="html" />
+
+## 7. Copy the FilterClearButton
+
+<Source code={FilterClearButtonCode} language="html" />
+
+## Details
+
+The filters will be set via the hash in the URL for persistence. The filter state is managed through the `useFilterStore` composable, which syncs filter values with the URL hash. This allows filters to persist across page refreshes and be shareable via URL.

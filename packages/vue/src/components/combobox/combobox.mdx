@@ -1,0 +1,75 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as ComboboxStories from "./combobox.stories";
+import ComboboxCode from "./combobox.vue?raw";
+import ComboboxTriggerCode from "./combobox-trigger.vue?raw";
+import ComboboxContentCode from "./combobox-content.vue?raw";
+import ComboboxItemCode from "./combobox-item.vue?raw";
+import ComboboxGroupCode from "./combobox-group.vue?raw";
+import ComboboxLabelCode from "./combobox-label.vue?raw";
+import ComboboxSearchCode from "./combobox-search.vue?raw";
+import ComboboxSearchboxCode from "./combobox-searchbox.vue?raw";
+
+<Meta of={ComboboxStories} />
+
+# Combobox
+
+A component that provides a button trigger with a dropdown list of options that can be filtered with a search input.
+
+## Usage
+
+<Canvas of={ComboboxStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Combobox component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Combobox component consists of eight parts:
+
+- **Combobox** - The root component that manages the open/closed state and selected option
+- **ComboboxTrigger** - The button that displays the selected value or placeholder and triggers the dropdown
+- **ComboboxContent** - The container for the dropdown list
+- **ComboboxItem** - Individual option items in the dropdown
+- **ComboboxGroup** - A wrapper for grouping items (optional)
+- **ComboboxLabel** - A label component for grouping items (optional)
+- **ComboboxSearch** - A search input component (optional)
+- **ComboboxSearchbox** - A wrapper for the search input with icon (optional)
+
+## 1. Copy the ComboboxTrigger
+
+<Source code={ComboboxTriggerCode} language="html" />
+
+## 2. Copy the ComboboxContent
+
+<Source code={ComboboxContentCode} language="html" />
+
+## 3. Copy the ComboboxItem
+
+<Source code={ComboboxItemCode} language="html" />
+
+## 4. Copy the ComboboxGroup
+
+<Source code={ComboboxGroupCode} language="html" />
+
+## 5. Copy the ComboboxLabel
+
+<Source code={ComboboxLabelCode} language="html" />
+
+## 6. Copy the ComboboxSearch
+
+<Source code={ComboboxSearchCode} language="html" />
+
+## 7. Copy the ComboboxSearchbox
+
+<Source code={ComboboxSearchboxCode} language="html" />
+
+## 8. Copy the Combobox
+
+<Source code={ComboboxCode} language="html" />

@@ -1,0 +1,21 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as TextStories from "./text.stories";
+import TextCode from "./text.vue?raw";
+
+<Meta of={TextStories} />
+
+# Text
+
+A versatile text component for displaying typography with multiple variants, sizes, weights, and colors.
+
+## Usage
+
+<Canvas of={TextStories.Default} />
+
+<Controls />
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={TextCode} />

@@ -1,0 +1,35 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as AspectRatioStories from "./aspect-ratio.stories";
+import AspectRatioCode from "./aspect-ratio.vue?raw";
+
+<Meta of={AspectRatioStories} />
+
+# Aspect Ratio
+
+A component that maintains a specific aspect ratio for its content, ensuring consistent proportions regardless of content size.
+
+## Usage
+
+<Canvas of={AspectRatioStories.Default} />
+
+<Controls />
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={AspectRatioCode} />
+
+## Examples
+
+### Square (1:1)
+
+<Canvas of={AspectRatioStories.Square} />
+
+### Portrait (3:4)
+
+<Canvas of={AspectRatioStories.Portrait} />
+
+### Landscape (21:9)
+
+<Canvas of={AspectRatioStories.Landscape} />

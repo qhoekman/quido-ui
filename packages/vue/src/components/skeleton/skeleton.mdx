@@ -1,0 +1,21 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as SkeletonStories from "./skeleton.stories";
+import SkeletonCode from "./skeleton.vue?raw";
+
+<Meta of={SkeletonStories} />
+
+# Skeleton
+
+A skeleton component used to show loading states with a pulsing animation.
+
+## Usage
+
+<Canvas of={SkeletonStories.Default} />
+
+<Controls />
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={SkeletonCode} />

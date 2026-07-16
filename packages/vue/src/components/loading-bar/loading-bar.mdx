@@ -1,0 +1,21 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as LoadingBarStories from "./loading-bar.stories";
+import LoadingBarCode from "./loading-bar.vue?raw";
+
+<Meta of={LoadingBarStories} />
+
+# Loading Bar
+
+A fixed loading bar component that displays at the top of the page to indicate loading state.
+
+## Usage
+
+<Canvas of={LoadingBarStories.Default} />
+
+<Controls />
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={LoadingBarCode} />

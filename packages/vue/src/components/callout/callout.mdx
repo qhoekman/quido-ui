@@ -1,0 +1,34 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as CalloutStories from './callout.stories'
+import CalloutCode from './callout.vue?raw'
+import CalloutIndicatorCode from './callout-indicator.vue?raw'
+import CalloutTitleCode from './callout-title.vue?raw'
+import CalloutDescriptionCode from './callout-description.vue?raw'
+
+# Callout
+
+A component for displaying important information or alerts to users.
+
+<Meta of={CalloutStories} />
+<Canvas of={CalloutStories.Default} />
+<Controls />
+
+## Installation
+
+Copy the following code into your project.
+
+> **callout-indicator.vue**
+>
+> <Source code={CalloutIndicatorCode} language="html" />
+
+> **callout-title.vue**
+>
+> <Source code={CalloutTitleCode} language="html" />
+
+> **callout-description.vue**
+>
+> <Source code={CalloutDescriptionCode} language="html" />
+
+> **callout.vue**
+>
+> <Source code={CalloutCode} language="html" />

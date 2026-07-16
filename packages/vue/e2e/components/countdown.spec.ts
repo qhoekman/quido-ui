@@ -1,0 +1,38 @@
+import { test, expect } from '@playwright/test'
+
+test.describe('Countdown', () => {
+  test('Default story renders hh:mm:ss items and ticks down without console errors', async ({
+    page
+  }) => {
+    const errors: string[] = []
+    page.on('pageerror', (error) => errors.push(error.message))
+
+    await page.goto('http://localhost:6006/?path=/story/components-data-display-countdown--default')
+    const frame = page.frameLocator('#storybook-preview-iframe')
+    const items = frame.getByTestId('qui-countdown').locator('.q-countdown-item')
+
+    await expect(items).toHaveCount(3)
+    const secondsItem = items.nth(2)
+    const first = (await secondsItem.textContent())?.trim()
+    expect(first).toMatch(/^\d{2}$/)
+
+    await expect
+      .poll(async () => (await secondsItem.textContent())?.trim(), { timeout: 3000 })
+      .not.toBe(first)
+
+    expect(errors).toEqual([])
+  })
+
+  test('LongCountdown story exposes years, months, and days via slot props', async ({ page }) => {
+    await page.goto(
+      'http://localhost:6006/?path=/story/components-data-display-countdown--long-countdown'
+    )
+    const frame = page.frameLocator('#storybook-preview-iframe')
+    const items = frame.getByTestId('qui-countdown').locator('.q-countdown-item')
+
+    await expect(items).toHaveCount(6)
+    await expect(items.nth(0)).toHaveText(/^\d{2}$/)
+    await expect(items.nth(1)).toHaveText(/^\d{2}$/)
+    await expect(items.nth(2)).toHaveText(/^\d{2,3}$/)
+  })
+})

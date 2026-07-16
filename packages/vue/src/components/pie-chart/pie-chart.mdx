@@ -1,0 +1,23 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as PieChartStories from './pie-chart.stories'
+import PieChartCode from './pie-chart.vue?raw'
+
+<Meta of={PieChartStories} />
+
+# Pie Chart
+
+<Canvas of={PieChartStories.Default} />
+
+<Controls />
+
+## Installation
+
+Install the ApexCharts library in your project.
+
+```bash
+npm install apexcharts vue3-apexcharts --save
+```
+
+## 1. Copy and paste the following code into your project.
+
+<Source language="html" code={PieChartCode} />

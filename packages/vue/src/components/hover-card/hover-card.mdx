@@ -1,0 +1,45 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as HoverCardStories from "./hover-card.stories";
+import HoverCardCode from "./hover-card.vue?raw";
+import HoverCardTriggerCode from "./hover-card-trigger.vue?raw";
+import HoverCardContentCode from "./hover-card-content.vue?raw";
+
+<Meta of={HoverCardStories} />
+
+# Hover Card
+
+A component that displays additional content when hovering over a trigger element.
+
+## Usage
+
+<Canvas of={HoverCardStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Hover Card component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Hover Card component consists of three parts:
+
+- **HoverCard** - The root component that manages the open/closed state
+- **HoverCardTrigger** - The element that triggers the hover card on hover/focus
+- **HoverCardContent** - The content that is displayed when hovering
+
+## 1. Copy the HoverCardTrigger
+
+<Source code={HoverCardTriggerCode} language="html" />
+
+## 2. Copy the HoverCardContent
+
+<Source code={HoverCardContentCode} language="html" />
+
+## 3. Copy the HoverCard
+
+<Source code={HoverCardCode} language="html" />

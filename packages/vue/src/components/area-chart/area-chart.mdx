@@ -1,0 +1,23 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as AreaChartStories from './area-chart.stories'
+import AreaChartCode from './area-chart.vue?raw'
+
+<Meta of={AreaChartStories} />
+
+# Area Chart
+
+<Canvas of={AreaChartStories.Default} />
+
+<Controls />
+
+## Installation
+
+Install the ApexCharts library in your project.
+
+```bash
+npm install apexcharts vue3-apexcharts --save
+```
+
+## 1. Copy and paste the following code into your project.
+
+<Source language="html" code={AreaChartCode} />

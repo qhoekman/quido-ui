@@ -1,0 +1,45 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as ResizableStories from "./resizable.stories";
+import ResizablePanelGroupCode from "./resizable-panel-group.vue?raw";
+import ResizablePanelCode from "./resizable-panel.vue?raw";
+import ResizableHandleCode from "./resizable-handle.vue?raw";
+
+<Meta of={ResizableStories} />
+
+# Resizable
+
+A component for creating resizable panel layouts with drag handles.
+
+## Usage
+
+<Canvas of={ResizableStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Resizable component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Resizable component consists of three parts:
+
+- **ResizablePanelGroup** - The container that manages the layout direction
+- **ResizablePanel** - Individual panels that can be resized
+- **ResizableHandle** - The drag handle between panels
+
+## 1. Copy the ResizablePanelGroup
+
+<Source code={ResizablePanelGroupCode} language="html" />
+
+## 2. Copy the ResizablePanel
+
+<Source code={ResizablePanelCode} language="html" />
+
+## 3. Copy the ResizableHandle
+
+<Source code={ResizableHandleCode} language="html" />

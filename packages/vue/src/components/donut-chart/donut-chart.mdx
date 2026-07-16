@@ -1,0 +1,23 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as DonutChartStories from './donut-chart.stories'
+import DonutChartCode from './donut-chart.vue?raw'
+
+<Meta of={DonutChartStories} />
+
+# Donut Chart
+
+<Canvas of={DonutChartStories.Default} />
+
+<Controls />
+
+## Installation
+
+Install the ApexCharts library in your project.
+
+```bash
+npm install apexcharts vue3-apexcharts --save
+```
+
+## 1. Copy and paste the following code into your project.
+
+<Source language="html" code={DonutChartCode} />

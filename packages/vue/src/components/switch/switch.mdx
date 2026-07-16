@@ -1,0 +1,27 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as SwitchStories from './switch.stories'
+import SwitchCode from './switch.vue?raw'
+
+<Meta of={SwitchStories} />
+
+# Switch
+
+A switch component for toggling between on and off states.
+
+## Usage
+
+<Canvas of={SwitchStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Switch component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={SwitchCode} />

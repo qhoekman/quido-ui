@@ -1,0 +1,21 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as BadgeStories from "./badge.stories";
+import BadgeCode from "./badge.vue?raw";
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+A badge component used to display small pieces of information, typically used for notifications, counts, or labels.
+
+## Usage
+
+<Canvas of={BadgeStories.Default} />
+
+<Controls />
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={BadgeCode} />

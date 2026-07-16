@@ -1,0 +1,23 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as BarChartStories from './bar-chart.stories'
+import BarChartCode from './bar-chart.vue?raw'
+
+<Meta of={BarChartStories} />
+
+# Bar Chart
+
+<Canvas of={BarChartStories.Default} />
+
+<Controls />
+
+## Installation
+
+Install the ApexCharts library in your project.
+
+```bash
+npm install apexcharts vue3-apexcharts --save
+```
+
+## 1. Copy and paste the following code into your project.
+
+<Source language="html" code={BarChartCode} />

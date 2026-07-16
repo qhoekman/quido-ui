@@ -1,0 +1,51 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as AccordionStories from "./accordion.stories";
+import AccordionCode from "./accordion.vue?raw";
+import AccordionItemCode from "./accordion-item.vue?raw";
+import AccordionTriggerCode from "./accordion-trigger.vue?raw";
+import AccordionContentCode from "./accordion-content.vue?raw";
+
+<Meta of={AccordionStories} />
+
+# Accordion
+
+A vertically stacked set of interactive headings that each reveal a section of content.
+
+## Usage
+
+<Canvas of={AccordionStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Accordion component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Accordion component consists of four parts:
+
+- **Accordion** - The root component that manages the open/closed state
+- **AccordionItem** - A single accordion item that contains a trigger and content
+- **AccordionTrigger** - The button that toggles the accordion item
+- **AccordionContent** - The content that is shown/hidden
+
+## 1. Copy the AccordionItem
+
+<Source code={AccordionItemCode} language="html" />
+
+## 2. Copy the AccordionTrigger
+
+<Source code={AccordionTriggerCode} language="html" />
+
+## 3. Copy the AccordionContent
+
+<Source code={AccordionContentCode} language="html" />
+
+## 4. Copy the Accordion
+
+<Source code={AccordionCode} language="html" />

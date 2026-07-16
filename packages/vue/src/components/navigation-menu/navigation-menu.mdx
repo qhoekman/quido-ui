@@ -1,0 +1,59 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as NavigationMenuStories from "./navigation-menu.stories";
+import NavigationMenuCode from "./navigation-menu.vue?raw";
+import NavigationMenuBrandCode from "./navigation-menu-brand.vue?raw";
+import NavigationMenuLogoCode from "./navigation-menu-logo.vue?raw";
+import NavigationMenuItemsCode from "./navigation-menu-items.vue?raw";
+import NavigationMenuLinkCode from "./navigation-menu-link.vue?raw";
+import NavigationMenuActionsCode from "./navigation-menu-actions.vue?raw";
+
+# Navigation Menu
+
+A navigation menu component that provides a flexible layout for website navigation with brand, items, and actions sections.
+
+<Meta of={NavigationMenuStories} />
+<Canvas of={NavigationMenuStories.Default} />
+<Controls />
+
+## Installation
+
+The Navigation Menu component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Navigation Menu component consists of six parts:
+
+- **NavigationMenu** - The root component that provides the main navigation container
+- **NavigationMenuBrand** - Container for the brand/logo section
+- **NavigationMenuLogo** - The logo link component
+- **NavigationMenuItems** - Container for navigation menu items
+- **NavigationMenuLink** - Individual navigation link component
+- **NavigationMenuActions** - Container for action buttons/icons
+
+## 1. Copy the NavigationMenuBrand
+
+<Source code={NavigationMenuBrandCode} language="html" />
+
+## 2. Copy the NavigationMenuLogo
+
+<Source code={NavigationMenuLogoCode} language="html" />
+
+## 3. Copy the NavigationMenuItems
+
+<Source code={NavigationMenuItemsCode} language="html" />
+
+## 4. Copy the NavigationMenuLink
+
+<Source code={NavigationMenuLinkCode} language="html" />
+
+## 5. Copy the NavigationMenuActions
+
+<Source code={NavigationMenuActionsCode} language="html" />
+
+## 6. Copy the NavigationMenu
+
+<Source code={NavigationMenuCode} language="html" />

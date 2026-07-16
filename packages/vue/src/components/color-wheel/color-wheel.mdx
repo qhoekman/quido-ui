@@ -1,0 +1,65 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as ColorWheelStories from './color-wheel.stories'
+import ColorWheelCode from './color-wheel.vue?raw'
+
+# Color Wheel
+
+A component that displays an interactive color wheel for selecting colors by hue and saturation.
+
+<Meta of={ColorWheelStories} />
+<Canvas of={ColorWheelStories.Default} />
+<Controls />
+
+## Usage
+
+The Color Wheel component displays a circular color picker where users can select colors by clicking or dragging on the wheel. The outer edge represents full saturation, while the center represents no saturation (grayscale). The hue changes as you move around the circle.
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={ColorWheelCode} />
+
+## Props
+
+- `hue` (number): The hue value in degrees (0-360). Defaults to `0`.
+- `saturation` (number): The saturation value as a percentage (0-100). Defaults to `100`.
+- `lightness` (number): The lightness value as a percentage (0-100). Defaults to `50`.
+
+## Events
+
+- `valueChange`: Emitted when a color is selected. The event payload is a color value string in HSL format (e.g., `hsl(180, 80%, 50%)`).
+
+## Example
+
+```vue
+<template>
+  <ColorWheel
+    :hue="hue"
+    :saturation="saturation"
+    :lightness="lightness"
+    @value-change="handleColorChange"
+  />
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+import ColorWheel from '@/components/color-wheel/color-wheel.vue'
+
+const hue = ref(0)
+const saturation = ref(100)
+const lightness = ref(50)
+
+const handleColorChange = (value: string) => {
+  // Parse HSL value if needed
+  console.log('Selected color:', value)
+}
+</script>
+```
+
+## Accessibility
+
+The Color Wheel component includes:
+- Keyboard focus support with visible focus indicators
+- Proper ARIA attributes for screen readers
+- Mouse and touch interaction support

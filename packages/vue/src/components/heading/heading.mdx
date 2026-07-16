@@ -1,0 +1,36 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as HeadingStories from "./heading.stories";
+import HeadingCode from "./heading.vue?raw";
+
+<Meta of={HeadingStories} />
+
+# Heading
+
+A flexible heading component that supports semantic HTML heading variants (h1-h6) or custom size, weight, and color combinations.
+
+## Usage
+
+<Canvas of={HeadingStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Heading component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Variants
+
+The Heading component supports two usage patterns:
+
+1. **Semantic Variants**: Use predefined heading styles (h1-h6) that include size, weight, and spacing
+2. **Custom Styling**: Use individual size, weight, and color props for fine-grained control
+
+When using semantic variants (h1-h6), the component applies predefined styles. When variant is set to "unset", you can use size, weight, and color props independently.
+
+## 1. Copy and paste the following code into your project.
+
+<Source language="html" code={HeadingCode} />

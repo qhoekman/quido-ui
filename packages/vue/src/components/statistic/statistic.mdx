@@ -1,0 +1,55 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as StatisticStories from './statistic.stories'
+import StatisticCode from './statistic.vue?raw'
+import StatisticLabelCode from './statistic-label.vue?raw'
+import StatisticValueCode from './statistic-value.vue?raw'
+import StatisticTrendCode from './statistic-trend.vue?raw'
+import StatisticHelperTextCode from './statistic-helper-text.vue?raw'
+
+<Meta of={StatisticStories} />
+
+# Statistic
+
+A component for displaying statistics with labels, values, trends, and helper text.
+
+<Canvas of={StatisticStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Statistic component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Statistic component consists of five parts:
+
+- **Statistic** - The root component that manages spacing and layout
+- **StatisticLabel** - The label text for the statistic
+- **StatisticValue** - The main value display (typically a heading element)
+- **StatisticTrend** - Optional trend indicator with up/down/neutral variants
+- **StatisticHelperText** - Optional helper text below the statistic
+
+## 1. Copy the StatisticLabel
+
+<Source code={StatisticLabelCode} language="html" />
+
+## 2. Copy the StatisticValue
+
+<Source code={StatisticValueCode} language="html" />
+
+## 3. Copy the StatisticTrend
+
+<Source code={StatisticTrendCode} language="html" />
+
+## 4. Copy the StatisticHelperText
+
+<Source code={StatisticHelperTextCode} language="html" />
+
+## 5. Copy the Statistic
+
+<Source code={StatisticCode} language="html" />

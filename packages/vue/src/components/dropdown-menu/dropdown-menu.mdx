@@ -1,0 +1,117 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as DropdownMenuStories from "./dropdown-menu.stories";
+import DropdownMenuCode from "./dropdown-menu.vue?raw";
+import DropdownMenuTriggerCode from "./dropdown-menu-trigger.vue?raw";
+import DropdownMenuContentCode from "./dropdown-menu-content.vue?raw";
+import DropdownMenuItemCode from "./dropdown-menu-item.vue?raw";
+import DropdownMenuLabelCode from "./dropdown-menu-label.vue?raw";
+import DropdownMenuSeparatorCode from "./dropdown-menu-separator.vue?raw";
+import DropdownMenuShortcutCode from "./dropdown-menu-shortcut.vue?raw";
+import DropdownMenuGroupCode from "./dropdown-menu-group.vue?raw";
+import DropdownMenuSubCode from "./dropdown-menu-sub.vue?raw";
+import DropdownMenuSubTriggerCode from "./dropdown-menu-sub-trigger.vue?raw";
+import DropdownMenuSubContentCode from "./dropdown-menu-sub-content.vue?raw";
+import DropdownMenuCheckboxItemCode from "./dropdown-menu-checkbox-item.vue?raw";
+import DropdownMenuRadioGroupCode from "./dropdown-menu-radio-group.vue?raw";
+import DropdownMenuRadioItemCode from "./dropdown-menu-radio-item.vue?raw";
+import DropdownMenuPortalCode from "./dropdown-menu-portal.vue?raw";
+
+<Meta of={DropdownMenuStories} />
+
+# Dropdown Menu
+
+A dropdown menu component that displays a list of options or actions in a popover overlay.
+
+## Usage
+
+<Canvas of={DropdownMenuStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Dropdown Menu component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Dropdown Menu component consists of multiple parts:
+
+- **DropdownMenu** - The root component that manages the open/closed state
+- **DropdownMenuTrigger** - The button that opens the dropdown
+- **DropdownMenuContent** - The content container (includes portal)
+- **DropdownMenuItem** - Individual menu item
+- **DropdownMenuLabel** - Label/heading for menu sections
+- **DropdownMenuSeparator** - Visual separator between menu sections
+- **DropdownMenuShortcut** - Keyboard shortcut display component
+- **DropdownMenuGroup** - Group container for related items
+- **DropdownMenuSub** - Submenu root component
+- **DropdownMenuSubTrigger** - Trigger for submenu items
+- **DropdownMenuSubContent** - Submenu content container
+- **DropdownMenuCheckboxItem** - Menu item with checkbox indicator
+- **DropdownMenuRadioGroup** - Radio group container
+- **DropdownMenuRadioItem** - Menu item with radio indicator
+- **DropdownMenuPortal** - Portal component for rendering dropdown content
+
+## 1. Copy the DropdownMenuTrigger
+
+<Source code={DropdownMenuTriggerCode} language="html" />
+
+## 2. Copy the DropdownMenuContent
+
+<Source code={DropdownMenuContentCode} language="html" />
+
+## 3. Copy the DropdownMenuItem
+
+<Source code={DropdownMenuItemCode} language="html" />
+
+## 4. Copy the DropdownMenuLabel
+
+<Source code={DropdownMenuLabelCode} language="html" />
+
+## 5. Copy the DropdownMenuSeparator
+
+<Source code={DropdownMenuSeparatorCode} language="html" />
+
+## 6. Copy the DropdownMenuShortcut
+
+<Source code={DropdownMenuShortcutCode} language="html" />
+
+## 7. Copy the DropdownMenuGroup
+
+<Source code={DropdownMenuGroupCode} language="html" />
+
+## 8. Copy the DropdownMenuSub
+
+<Source code={DropdownMenuSubCode} language="html" />
+
+## 9. Copy the DropdownMenuSubTrigger
+
+<Source code={DropdownMenuSubTriggerCode} language="html" />
+
+## 10. Copy the DropdownMenuSubContent
+
+<Source code={DropdownMenuSubContentCode} language="html" />
+
+## 11. Copy the DropdownMenuCheckboxItem
+
+<Source code={DropdownMenuCheckboxItemCode} language="html" />
+
+## 12. Copy the DropdownMenuRadioGroup
+
+<Source code={DropdownMenuRadioGroupCode} language="html" />
+
+## 13. Copy the DropdownMenuRadioItem
+
+<Source code={DropdownMenuRadioItemCode} language="html" />
+
+## 14. Copy the DropdownMenuPortal
+
+<Source code={DropdownMenuPortalCode} language="html" />
+
+## 15. Copy the DropdownMenu
+
+<Source code={DropdownMenuCode} language="html" />

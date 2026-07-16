@@ -1,0 +1,31 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as TopBarStories from "./top-bar.stories";
+import TopBarCode from "./top-bar.vue?raw";
+import TopBarSectionCode from "./top-bar-section.vue?raw";
+
+<Meta of={TopBarStories} />
+
+# Top Bar
+
+A horizontal bar component typically used at the top of a page or application layout. It provides a consistent container for navigation elements, actions, and branding.
+
+## Usage
+
+<Canvas of={TopBarStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Top Bar component consists of two parts:
+
+- **TopBar** - The root component that provides the container
+- **TopBarSection** - A section component for organizing content within the top bar
+
+## 1. Copy the TopBarSection
+
+<Source code={TopBarSectionCode} language="html" />
+
+## 2. Copy the TopBar
+
+<Source code={TopBarCode} language="html" />

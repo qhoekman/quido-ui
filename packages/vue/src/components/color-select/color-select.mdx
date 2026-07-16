@@ -1,0 +1,112 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as ColorSelectStories from './color-select.stories'
+import ColorSelectCode from './color-select.vue?raw'
+import ColorSelectItemCode from './color-select-item.vue?raw'
+
+# Color Select
+
+A component that allows users to select a color from a set of predefined color options displayed as circular color indicators.
+
+<Meta of={ColorSelectStories} />
+<Canvas of={ColorSelectStories.Default} />
+<Controls />
+
+## Usage
+
+The Color Select component consists of two parts:
+
+- **ColorSelect** - The root component that manages the selected color state
+- **ColorSelectItem** - Individual color options displayed as circular buttons
+
+## Installation
+
+The Color Select component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Color Select component consists of two parts:
+
+- **ColorSelect** - The root component that manages the selected color state and provides context to child items
+- **ColorSelectItem** - The individual color option buttons
+
+## 1. Copy the ColorSelectItem
+
+<Source code={ColorSelectItemCode} language="html" />
+
+## 2. Copy the ColorSelect
+
+<Source code={ColorSelectCode} language="html" />
+
+## Props
+
+### ColorSelect Props
+
+- `value` (string | undefined): Controlled value for the selected color
+- `defaultValue` (string | undefined): Default value for the selected color (uncontrolled mode)
+- `disabled` (boolean): Whether the color select is disabled
+- `asChild` (boolean): Whether to render as a child element
+- `as` (string): The element type to render (default: 'div')
+
+### ColorSelectItem Props
+
+- `color` (string): The color value to display (CSS variable or hex color)
+- `asChild` (boolean): Whether to render as a child element
+- `as` (string): The element type to render (default: 'button')
+
+## Events
+
+### ColorSelect Events
+
+- `update:value`: Emitted when the selected color changes (for v-model support)
+- `valueChange`: Emitted when the selected color changes
+
+## Example
+
+```vue
+<template>
+  <ColorSelect
+    v-model="selectedColor"
+    @value-change="handleColorChange"
+  >
+    <ColorSelectItem color="var(--color-red-500)" />
+    <ColorSelectItem color="var(--color-green-500)" />
+    <ColorSelectItem color="var(--color-blue-500)" />
+  </ColorSelect>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+import ColorSelect from '@/components/color-select/color-select.vue'
+import ColorSelectItem from '@/components/color-select/color-select-item.vue'
+
+const selectedColor = ref<string | undefined>('var(--color-red-500)')
+
+const handleColorChange = (value: string | undefined) => {
+  console.log('Selected color:', value)
+}
+</script>
+```
+
+## Controlled vs Uncontrolled
+
+The Color Select component supports both controlled and uncontrolled usage:
+
+**Controlled (with v-model):**
+```vue
+<ColorSelect v-model="selectedColor">
+  <ColorSelectItem color="var(--color-red-500)" />
+  <ColorSelectItem color="var(--color-green-500)" />
+</ColorSelect>
+```
+
+**Uncontrolled (with defaultValue):**
+```vue
+<ColorSelect default-value="var(--color-red-500)">
+  <ColorSelectItem color="var(--color-red-500)" />
+  <ColorSelectItem color="var(--color-green-500)" />
+</ColorSelect>
+```

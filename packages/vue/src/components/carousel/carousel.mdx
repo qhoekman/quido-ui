@@ -1,0 +1,39 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as CarouselStories from './carousel.stories'
+import CarouselCode from './carousel.vue?raw'
+import CarouselContentCode from './carousel-content.vue?raw'
+import CarouselItemCode from './carousel-item.vue?raw'
+import CarouselButtonCode from './carousel-button.vue?raw'
+
+# Carousel
+
+A carousel component for displaying a series of items that can be navigated through.
+
+<Meta of={CarouselStories} />
+<Canvas of={CarouselStories.Default} />
+<Controls />
+
+## Installation
+
+The Carousel component consists of four parts:
+
+- **Carousel** - The root component that manages the carousel state
+- **CarouselContent** - The container that holds all carousel items
+- **CarouselItem** - Individual items within the carousel
+- **CarouselButton** - Navigation buttons for previous/next
+
+## 1. Copy the CarouselItem
+
+<Source code={CarouselItemCode} language="html" />
+
+## 2. Copy the CarouselContent
+
+<Source code={CarouselContentCode} language="html" />
+
+## 3. Copy the CarouselButton
+
+<Source code={CarouselButtonCode} language="html" />
+
+## 4. Copy the Carousel
+
+<Source code={CarouselCode} language="html" />

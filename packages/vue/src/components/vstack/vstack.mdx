@@ -1,0 +1,27 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as VStackStories from './vstack.stories'
+import VStackCode from './vstack.vue?raw'
+
+<Meta of={VStackStories} />
+
+# VStack
+
+A vertical stack layout component for arranging items in a column with consistent spacing.
+
+## Usage
+
+<Canvas of={VStackStories.Default} />
+
+<Controls />
+
+## Installation
+
+The VStack component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## 1. Copy and paste the following code into your project.
+
+<Source language="html" code={VStackCode} />

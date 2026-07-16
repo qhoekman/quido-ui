@@ -1,0 +1,51 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as TabsStories from "./tabs.stories";
+import TabsCode from "./tabs.vue?raw";
+import TabsListCode from "./tabs-list.vue?raw";
+import TabsTriggerCode from "./tabs-trigger.vue?raw";
+import TabsContentCode from "./tabs-content.vue?raw";
+
+<Meta of={TabsStories} />
+
+# Tabs
+
+A set of layered sections of content—known as tab panels—that are displayed one at a time.
+
+## Usage
+
+<Canvas of={TabsStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Tabs component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Tabs component consists of four parts:
+
+- **Tabs** - The root component that manages the active tab state
+- **TabsList** - Container for the tab triggers
+- **TabsTrigger** - Button that activates a tab panel
+- **TabsContent** - Content panel that is shown when its trigger is active
+
+## 1. Copy the TabsList
+
+<Source code={TabsListCode} language="html" />
+
+## 2. Copy the TabsTrigger
+
+<Source code={TabsTriggerCode} language="html" />
+
+## 3. Copy the TabsContent
+
+<Source code={TabsContentCode} language="html" />
+
+## 4. Copy the Tabs
+
+<Source code={TabsCode} language="html" />

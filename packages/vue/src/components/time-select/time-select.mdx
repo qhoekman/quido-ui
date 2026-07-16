@@ -1,0 +1,21 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as TimeSelectStories from "./time-select.stories";
+import TimeSelectCode from "./time-select.vue?raw";
+
+<Meta of={TimeSelectStories} />
+
+# Time Select
+
+A component that allows users to select hours and minutes from scrollable lists.
+
+## Usage
+
+<Canvas of={TimeSelectStories.Default} />
+
+<Controls />
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={TimeSelectCode} />

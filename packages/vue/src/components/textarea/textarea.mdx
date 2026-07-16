@@ -1,0 +1,21 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as TextareaStories from "./textarea.stories";
+import TextareaCode from "./textarea.vue?raw";
+
+<Meta of={TextareaStories} />
+
+# Textarea
+
+A textarea component for multi-line text input with size variants.
+
+## Usage
+
+<Canvas of={TextareaStories.Default} />
+
+<Controls />
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={TextareaCode} />

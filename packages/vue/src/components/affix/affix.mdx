@@ -1,0 +1,21 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as AffixStories from './affix.stories'
+import AffixCode from './affix.vue?raw'
+
+<Meta of={AffixStories} />
+
+# Affix
+
+A component that makes an element sticky when scrolling past a certain point.
+
+## Usage
+
+<Canvas of={AffixStories.Default} />
+
+<Controls />
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={AffixCode} />

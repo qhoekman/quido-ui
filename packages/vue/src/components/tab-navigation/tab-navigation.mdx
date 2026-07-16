@@ -1,0 +1,94 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as TabNavigationStories from "./tab-navigation.stories";
+import TabNavigationCode from "./tab-navigation.vue?raw";
+import TabNavigationIndicatorCode from "./tab-navigation-indicator.vue?raw";
+import TabNavigationItemCode from "./tab-navigation-item.vue?raw";
+import TabNavigationLinkCode from "./tab-navigation-link.vue?raw";
+import TabNavigationMenuCode from "./tab-navigation-menu.vue?raw";
+import TabNavigationMenugroupCode from "./tab-navigation-menugroup.vue?raw";
+import TabNavigationMenuitemCode from "./tab-navigation-menuitem.vue?raw";
+import TabNavigationSeparatorCode from "./tab-navigation-separator.vue?raw";
+import TabNavigationRailCode from "./tab-navigation-rail.vue?raw";
+
+<Meta of={TabNavigationStories} />
+
+# Tab Navigation
+
+The `qui-tab-navigation` component is a component that displays a list of links in a tab navigation style.
+
+## Variants
+
+The `qui-tab-navigation` component can be used in different variants.
+
+### Link Variant
+
+<Canvas of={TabNavigationStories.Link} />
+<Controls of={TabNavigationStories.Link} />
+
+### Border Variant
+
+<Canvas of={TabNavigationStories.Border} />
+<Controls of={TabNavigationStories.Border} />
+
+### Pill Variant
+
+<Canvas of={TabNavigationStories.Pill} />
+<Controls of={TabNavigationStories.Pill} />
+
+## Installation
+
+The Tab Navigation component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Tab Navigation component consists of nine parts:
+
+- **TabNavigation** - The root component that provides the navigation container
+- **TabNavigationItem** - Container for individual navigation items
+- **TabNavigationLink** - The link/button component with variants (link, border, pill)
+- **TabNavigationIndicator** - Indicator showing caret up/down for dropdown menus
+- **TabNavigationRail** - Decorative rail element
+- **TabNavigationMenu** - Dropdown menu container
+- **TabNavigationMenugroup** - Group within menu
+- **TabNavigationMenuitem** - Individual menu item
+- **TabNavigationSeparator** - Separator in menu
+
+## 1. Copy the TabNavigationItem
+
+<Source code={TabNavigationItemCode} language="html" />
+
+## 2. Copy the TabNavigationLink
+
+<Source code={TabNavigationLinkCode} language="html" />
+
+## 3. Copy the TabNavigationIndicator
+
+<Source code={TabNavigationIndicatorCode} language="html" />
+
+## 4. Copy the TabNavigationRail
+
+<Source code={TabNavigationRailCode} language="html" />
+
+## 5. Copy the TabNavigationMenu
+
+<Source code={TabNavigationMenuCode} language="html" />
+
+## 6. Copy the TabNavigationMenugroup
+
+<Source code={TabNavigationMenugroupCode} language="html" />
+
+## 7. Copy the TabNavigationMenuitem
+
+<Source code={TabNavigationMenuitemCode} language="html" />
+
+## 8. Copy the TabNavigationSeparator
+
+<Source code={TabNavigationSeparatorCode} language="html" />
+
+## 9. Copy the TabNavigation
+
+<Source code={TabNavigationCode} language="html" />

@@ -1,0 +1,27 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as ToggleStories from './toggle.stories'
+import ToggleCode from './toggle.vue?raw'
+
+<Meta of={ToggleStories} />
+
+# Toggle
+
+A toggle button component that can be pressed or unpressed.
+
+## Usage
+
+<Canvas of={ToggleStories.Default} />
+
+<Controls />
+
+## Installation
+
+The Toggle component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={ToggleCode} />

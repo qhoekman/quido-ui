@@ -1,0 +1,21 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as PinInputStories from "./pin-input.stories";
+import PinInputCode from "./pin-input.vue?raw";
+
+<Meta of={PinInputStories} />
+
+# Pin Input
+
+A component that allows users to enter a PIN code by providing multiple single-character input fields.
+
+## Usage
+
+<Canvas of={PinInputStories.Default} />
+
+<Controls />
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={PinInputCode} />

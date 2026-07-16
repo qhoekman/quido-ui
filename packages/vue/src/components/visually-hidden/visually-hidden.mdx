@@ -1,0 +1,21 @@
+import { Canvas, Controls, Meta, Source } from "@storybook/addon-docs/blocks";
+import * as VisuallyHiddenStories from "./visually-hidden.stories";
+import VisuallyHiddenCode from "./visually-hidden.vue?raw";
+
+<Meta of={VisuallyHiddenStories} />
+
+# Visually Hidden
+
+A component that visually hides content while keeping it accessible to screen readers. This is useful for providing additional context or labels that are important for accessibility but don't need to be visible on screen.
+
+## Usage
+
+<Canvas of={VisuallyHiddenStories.Default} />
+
+<Controls />
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={VisuallyHiddenCode} />

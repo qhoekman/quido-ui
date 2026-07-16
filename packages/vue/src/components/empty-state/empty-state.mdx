@@ -1,0 +1,53 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as EmptyStateStories from './empty-state.stories'
+import EmptyStateCode from './empty-state.vue?raw'
+import EmptyStateIconCode from './empty-state-icon.vue?raw'
+import EmptyStateTitleCode from './empty-state-title.vue?raw'
+import EmptyStateDescriptionCode from './empty-state-description.vue?raw'
+import EmptyStateActionGroupCode from './empty-state-action-group.vue?raw'
+
+# Empty State
+
+A component for displaying empty states with icons, titles, descriptions, and action buttons.
+
+<Meta of={EmptyStateStories} />
+<Canvas of={EmptyStateStories.Default} />
+<Controls />
+
+## Installation
+
+The Empty State component uses Reka UI primitives under the hood. Make sure you have `reka-ui` installed:
+
+\`\`\`bash
+npm install reka-ui
+\`\`\`
+
+## Components
+
+The Empty State component consists of five parts:
+
+- **EmptyState** - The root component that manages the layout and size
+- **EmptyStateIcon** - The icon container
+- **EmptyStateTitle** - The title text
+- **EmptyStateDescription** - The description text
+- **EmptyStateActionGroup** - The container for action buttons
+
+## 1. Copy the EmptyStateIcon
+
+<Source code={EmptyStateIconCode} language="html" />
+
+## 2. Copy the EmptyStateTitle
+
+<Source code={EmptyStateTitleCode} language="html" />
+
+## 3. Copy the EmptyStateDescription
+
+<Source code={EmptyStateDescriptionCode} language="html" />
+
+## 4. Copy the EmptyStateActionGroup
+
+<Source code={EmptyStateActionGroupCode} language="html" />
+
+## 5. Copy the EmptyState
+
+<Source code={EmptyStateCode} language="html" />

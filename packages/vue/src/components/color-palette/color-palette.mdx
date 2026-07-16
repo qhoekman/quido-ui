@@ -1,0 +1,51 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks'
+import * as ColorPaletteStories from './color-palette.stories'
+import ColorPaletteCode from './color-palette.vue?raw'
+
+# Color Palette
+
+A component that displays a grid of color swatches for selecting colors from the design system palette.
+
+<Meta of={ColorPaletteStories} />
+<Canvas of={ColorPaletteStories.Default} />
+<Controls />
+
+## Usage
+
+The Color Palette component displays all available color families and shades from the design system, plus special colors (primary, secondary, white, black). Users can click on any color square to select it.
+
+## Installation
+
+### 1. Copy and paste the following code into your project.
+
+<Source language="html" code={ColorPaletteCode} />
+
+## Props
+
+- `color` (string | null): The currently selected color value. Should match a CSS variable value (e.g., `var(--color-blue-500)`).
+
+## Events
+
+- `valueChange`: Emitted when a color is selected. The event payload is the color value string.
+
+## Example
+
+```vue
+<template>
+  <ColorPalette
+    :color="selectedColor"
+    @value-change="handleColorChange"
+  />
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+import ColorPalette from '@/components/color-palette/color-palette.vue'
+
+const selectedColor = ref<string | null>(null)
+
+const handleColorChange = (value: string) => {
+  selectedColor.value = value
+}
+</script>
+```
