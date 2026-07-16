@@ -18,6 +18,13 @@ export interface AutocompleteProps {
 
 const props = withDefaults(defineProps<AutocompleteProps>(), {
   defaultOpen: false,
+  // Without an explicit `undefined` default, an unbound `open` prop
+  // (Boolean-typed, no default) resolves to `false` instead of
+  // `undefined` per Vue's prop-resolution rules -- which would make
+  // `isControlled` below permanently `true` even for plain, unbound
+  // usage, pinning `isOpen` at `false` forever and breaking the popover
+  // entirely (typing would never show results).
+  open: undefined,
   disabled: false,
   asChild: false,
   as: 'div'
@@ -30,11 +37,11 @@ const emit = defineEmits<{
 
 // Internal state management
 const internalOpen = ref(props.defaultOpen)
-const isControlled = props.open !== undefined
-const isOpen = computed(() => (isControlled ? props.open : internalOpen.value))
+const isControlled = computed(() => props.open !== undefined)
+const isOpen = computed(() => (isControlled.value ? props.open : internalOpen.value))
 
 const setOpen = (value: boolean) => {
-  if (!isControlled) {
+  if (!isControlled.value) {
     internalOpen.value = value
   }
   emit('update:open', value)
@@ -59,7 +66,7 @@ const getSelectedOption = () => selectedOption.value
 watch(
   () => props.open,
   (newValue) => {
-    if (isControlled && newValue !== undefined) {
+    if (isControlled.value && newValue !== undefined) {
       internalOpen.value = newValue
     }
   }
