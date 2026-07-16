@@ -50,13 +50,20 @@ const props = withDefaults(defineProps<ScrollAreaProps>(), {
   overflow: hidden;
 }
 
-.q-scroll-area-viewport {
+/*
+ * reka-ui's ScrollAreaViewport/Scrollbar/Thumb render multi-root Fragments
+ * with inheritAttrs: false, so Vue's scoped-CSS data-v-* attribute never
+ * lands on the actual DOM nodes. Plain scoped selectors below silently
+ * never match, so these must use :deep() to compile to an ancestor-scoped
+ * descendant selector instead.
+ */
+:deep(.q-scroll-area-viewport) {
   height: 100%;
   width: 100%;
   border-radius: inherit;
 }
 
-.q-scroll-area-scrollbar {
+:deep(.q-scroll-area-scrollbar) {
   display: flex;
   touch-action: none;
   user-select: none;
@@ -64,19 +71,19 @@ const props = withDefaults(defineProps<ScrollAreaProps>(), {
   padding: 1px;
 }
 
-.q-scroll-area-scrollbar--vertical {
+:deep(.q-scroll-area-scrollbar--vertical) {
   height: 100%;
   width: var(--spacing-2-5);
   border-left: var(--border-width-default) solid transparent;
 }
 
-.q-scroll-area-scrollbar--horizontal {
+:deep(.q-scroll-area-scrollbar--horizontal) {
   height: var(--spacing-2-5);
   flex-direction: column;
   border-top: var(--border-width-default) solid transparent;
 }
 
-.q-scroll-area-thumb {
+:deep(.q-scroll-area-thumb) {
   position: relative;
   flex: 1 1 0%;
   border-radius: var(--border-radius-full);
