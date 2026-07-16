@@ -48,7 +48,7 @@ const classes = computed(() => {
 </template>
 
 <style scoped>
-label {
+.q-label {
   display: inline-block;
   color: var(--color-background-fg);
   font-weight: var(--font-weight-medium);
