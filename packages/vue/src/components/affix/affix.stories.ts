@@ -41,14 +41,18 @@ export const Default: Story = {
       return { args }
     },
     template: `
-      <div style="width: 100%; height: 120vh; background: var(--color-muted);"></div>
-      <AffixComponent :offset-top="0" v-bind="args">
-        <ButtonComponent>Affix top</ButtonComponent>
-      </AffixComponent>
-      <AffixComponent :offset-bottom="0" v-bind="args">
-        <ButtonComponent>Affix bottom</ButtonComponent>
-      </AffixComponent>
-      <div style="width: 100%; height: 120vh; background: var(--color-muted);"></div>
+      <div style="padding: var(--spacing-4);">
+        <p style="margin-bottom: var(--spacing-4);">Scroll the page to see the affix stick.</p>
+        <div style="height: 40vh; background: var(--color-muted); border-radius: var(--border-radius-md);"></div>
+        <AffixComponent v-bind="args" :offset-top="16" style="display: inline-block; margin: var(--spacing-4) 0;">
+          <ButtonComponent>Affix top</ButtonComponent>
+        </AffixComponent>
+        <div style="height: 120vh; background: var(--color-muted); border-radius: var(--border-radius-md);"></div>
+        <AffixComponent v-bind="args" :offset-bottom="16" style="display: inline-block; margin: var(--spacing-4) 0;">
+          <ButtonComponent>Affix bottom</ButtonComponent>
+        </AffixComponent>
+        <div style="height: 40vh; background: var(--color-muted); border-radius: var(--border-radius-md);"></div>
+      </div>
     `
   })
 }
@@ -60,11 +64,13 @@ export const Top: Story = {
       return { args }
     },
     template: `
-      <div style="width: 100%; height: 120vh; background: var(--color-muted);"></div>
-      <AffixComponent :offset-top="0" v-bind="args">
-        <ButtonComponent>Affix top</ButtonComponent>
-      </AffixComponent>
-      <div style="width: 100%; height: 120vh; background: var(--color-muted);"></div>
+      <div style="padding: var(--spacing-4);">
+        <div style="height: 40vh; background: var(--color-muted); border-radius: var(--border-radius-md);"></div>
+        <AffixComponent v-bind="args" :offset-top="0" style="display: inline-block; margin: var(--spacing-4) 0;">
+          <ButtonComponent>Affix top</ButtonComponent>
+        </AffixComponent>
+        <div style="height: 120vh; background: var(--color-muted); border-radius: var(--border-radius-md);"></div>
+      </div>
     `
   })
 }
@@ -76,11 +82,13 @@ export const Bottom: Story = {
       return { args }
     },
     template: `
-      <div style="width: 100%; height: 120vh; background: var(--color-muted);"></div>
-      <AffixComponent :offset-bottom="0" v-bind="args">
-        <ButtonComponent>Affix bottom</ButtonComponent>
-      </AffixComponent>
-      <div style="width: 100%; height: 120vh; background: var(--color-muted);"></div>
+      <div style="padding: var(--spacing-4);">
+        <div style="height: 120vh; background: var(--color-muted); border-radius: var(--border-radius-md);"></div>
+        <AffixComponent v-bind="args" :offset-bottom="0" style="display: inline-block; margin: var(--spacing-4) 0;">
+          <ButtonComponent>Affix bottom</ButtonComponent>
+        </AffixComponent>
+        <div style="height: 40vh; background: var(--color-muted); border-radius: var(--border-radius-md);"></div>
+      </div>
     `
   })
 }
