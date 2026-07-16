@@ -2,7 +2,7 @@ import StarsComponent from "@/components/stars/stars.vue";
 import type { Meta, StoryObj } from "@storybook/vue3-vite";
 
 const meta = {
-  title: "Components/Feedback/Stars",
+  title: "Features/Ecommerce/Components/Stars",
   component: StarsComponent,
   argTypes: {
     total: {
