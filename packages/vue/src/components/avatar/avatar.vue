@@ -53,7 +53,7 @@ const classes = computed(() => {
 </template>
 
 <style scoped>
-div {
+.q-avatar {
   position: relative;
   display: flex;
   flex-shrink: 0;
