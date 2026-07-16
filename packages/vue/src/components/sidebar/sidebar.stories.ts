@@ -2,7 +2,7 @@ import SidebarComponent from '@/components/sidebar/sidebar.vue'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta = {
-  title: 'Components/Navigation/Sidebar',
+  title: 'Features/Application/Components/Sidebar',
   component: SidebarComponent,
   argTypes: {
     side: {
