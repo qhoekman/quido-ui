@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from "@storybook/vue3-vite";
 import { ref, watch } from "vue";
 
 const meta = {
-  title: "Components/Data Manipulation/Radio Group",
+  title: "Components/Data Entry/Radio Group",
   component: RadioGroupComponent,
   argTypes: {
     defaultValue: {
