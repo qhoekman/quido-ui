@@ -97,27 +97,27 @@ div {
 }
 
 .size--sm {
-  min-width: var(--spacing-3);
-  height: var(--spacing-3);
-  padding-left: var(--spacing-1);
-  padding-right: var(--spacing-1);
+  min-width: var(--spacing-4);
+  height: var(--spacing-4);
+  padding: var(--spacing-1);
   font-size: var(--font-size-xs);
+  box-sizing: border-box;
 }
 
 .size--md {
-  min-width: var(--spacing-4);
-  height: var(--spacing-4);
-  padding-left: var(--spacing-1-5);
-  padding-right: var(--spacing-1-5);
+  min-width: var(--spacing-6);
+  height: var(--spacing-6);
+  padding: var(--spacing-1);
   font-size: var(--font-size-xs);
+  box-sizing: border-box;
 }
 
 .size--lg {
-  min-width: var(--spacing-5);
-  height: var(--spacing-5);
-  padding-left: var(--spacing-2);
-  padding-right: var(--spacing-2);
+  min-width: var(--spacing-8);
+  height: var(--spacing-8);
+  padding: var(--spacing-1);
   font-size: var(--font-size-sm);
+  box-sizing: border-box;
 }
 
 span:focus-visible,
