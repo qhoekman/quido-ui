@@ -123,6 +123,43 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
+export const Uncontrolled: Story = {
+  render: () => ({
+    components: {
+      DialogComponent,
+      DialogTriggerComponent,
+      DialogContentComponent,
+      DialogHeaderComponent,
+      DialogFooterComponent,
+      DialogTitleComponent,
+      DialogDescriptionComponent,
+      ButtonComponent
+    },
+    // No v-model:open here -- this is the plain, most common real-world
+    // usage (no external state at all), which previously never toggled
+    // because `open` silently auto-defaulted to `false` instead of
+    // `undefined`, pinning reka-ui's internal state in controlled mode.
+    template: `
+      <DialogComponent>
+        <DialogTriggerComponent as-child>
+          <ButtonComponent variant="outline">Edit Profile</ButtonComponent>
+        </DialogTriggerComponent>
+        <DialogContentComponent>
+          <DialogHeaderComponent>
+            <DialogTitleComponent>Edit profile</DialogTitleComponent>
+            <DialogDescriptionComponent>
+              Make changes to your profile here. Click save when you're done.
+            </DialogDescriptionComponent>
+          </DialogHeaderComponent>
+          <DialogFooterComponent>
+            <ButtonComponent type="submit">Save changes</ButtonComponent>
+          </DialogFooterComponent>
+        </DialogContentComponent>
+      </DialogComponent>
+    `
+  })
+}
+
 export const Confirm: Story = {
   args: {
     defaultOpen: false,
