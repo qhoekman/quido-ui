@@ -12,7 +12,7 @@ export interface AccordionProps {
 
 const props = withDefaults(defineProps<AccordionProps>(), {
   type: 'single',
-  collapsible: false,
+  collapsible: true,
   disabled: false,
   orientation: 'vertical'
 })
@@ -30,12 +30,12 @@ const handleValueChange = (value: string | string[] | undefined) => {
   <AccordionRoot
     :type="type"
     :default-value="defaultValue"
-    :value="value"
+    :model-value="value"
     :collapsible="collapsible"
     :disabled="disabled"
     :orientation="orientation"
     :class="['q-accordion']"
-    @update:value="handleValueChange"
+    @update:model-value="handleValueChange"
     v-bind="$attrs"
   >
     <slot />

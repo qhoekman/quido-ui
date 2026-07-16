@@ -34,7 +34,7 @@ const meta = {
   },
   args: {
     type: 'single',
-    collapsible: false,
+    collapsible: true,
     disabled: false,
     orientation: 'vertical'
   },
