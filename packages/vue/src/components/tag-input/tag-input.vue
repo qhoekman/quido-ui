@@ -131,7 +131,6 @@ const handleKeydown = (event: KeyboardEvent) => {
         <span>{{ tag }}</span>
         <ButtonComponent
           size="icon"
-          variant="ghost"
           class="remove-tag"
           :aria-label="`Remove tag ${tag}`"
           @click.stop="removeTag(index)"
@@ -203,11 +202,13 @@ const handleKeydown = (event: KeyboardEvent) => {
 }
 
 .remove-tag {
-  background: none;
+  background: none !important;
   border: none;
   cursor: pointer;
   padding: 0;
   margin-left: var(--spacing-1);
+  color: inherit !important;
+  box-shadow: none !important;
 }
 
 .remove-tag.size--icon {
