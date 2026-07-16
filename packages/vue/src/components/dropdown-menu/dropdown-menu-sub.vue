@@ -7,7 +7,13 @@ export interface DropdownMenuSubProps {
 }
 
 const props = withDefaults(defineProps<DropdownMenuSubProps>(), {
-  defaultOpen: false
+  defaultOpen: false,
+  // Same Vue Boolean-prop auto-default issue as dropdown-menu.vue's `open`:
+  // without an explicit `undefined` default, an unbound `open` prop
+  // resolves to `false` instead of `undefined`, pinning reka-ui's
+  // internal state in controlled mode and permanently blocking the
+  // submenu from ever opening.
+  open: undefined
 })
 
 const emit = defineEmits<{

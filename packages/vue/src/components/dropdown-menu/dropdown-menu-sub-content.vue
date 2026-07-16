@@ -26,7 +26,13 @@ const props = withDefaults(defineProps<DropdownMenuSubContentProps>(), {
   </RekaDropdownMenuSubContent>
 </template>
 
-<style scoped>
+<style>
+/*
+ * Not scoped: rendered via reka-ui's Teleport/Presence machinery when
+ * wrapped in DropdownMenuPortal by the consumer, whose actual DOM output
+ * never receives Vue's scoped-CSS data-v-* attribute. A scoped selector
+ * here would silently never match.
+ */
 .q-dropdown-menu-sub-content {
   z-index: var(--z-index-50);
   min-width: 8rem;

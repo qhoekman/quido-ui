@@ -197,3 +197,30 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Uncontrolled: Story = {
+  render: () => ({
+    components: {
+      DropdownMenuComponent,
+      DropdownMenuTriggerComponent,
+      DropdownMenuContentComponent,
+      DropdownMenuItemComponent,
+      ButtonComponent
+    },
+    // No v-model:open here -- this is the plain, most common real-world
+    // usage (no external state at all), which previously never toggled
+    // because `open` silently auto-defaulted to `false` instead of
+    // `undefined`, pinning reka-ui's internal state in controlled mode.
+    template: `
+      <DropdownMenuComponent>
+        <DropdownMenuTriggerComponent as-child>
+          <ButtonComponent variant="outline">Open</ButtonComponent>
+        </DropdownMenuTriggerComponent>
+        <DropdownMenuContentComponent :style="{ width: 'var(--spacing-56)' }">
+          <DropdownMenuItemComponent>Profile</DropdownMenuItemComponent>
+          <DropdownMenuItemComponent>Settings</DropdownMenuItemComponent>
+        </DropdownMenuContentComponent>
+      </DropdownMenuComponent>
+    `
+  })
+}
