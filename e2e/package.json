@@ -1,0 +1,18 @@
+{
+  "name": "@quido-ui/e2e",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:vue": "playwright test --project=vue",
+    "test:react": "playwright test --project=react",
+    "test:angular": "playwright test --project=angular"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@tsconfig/node20": "^20.1.7",
+    "serve": "^14.2.4",
+    "typescript": "~5.9.3"
+  }
+}
