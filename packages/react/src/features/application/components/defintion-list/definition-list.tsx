@@ -1,13 +1,19 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const StyledDefinitionList = styled.dl`
+const definitionListStyles = css`
+  display: block;
+
   > * + * {
-    border-top: 1px solid var(--color-border);
+    border-top: var(--border-width-default) solid var(--color-border);
   }
 `;
 
-const StyledDefintionListItem = styled.div`
+const StyledDefinitionList = styled.dl`
+  ${definitionListStyles}
+`;
+
+const definitionListItemStyles = css`
   padding-left: var(--spacing-4);
   padding-right: var(--spacing-4);
   padding-top: var(--spacing-6);
@@ -22,14 +28,22 @@ const StyledDefintionListItem = styled.div`
   }
 `;
 
-const StyledDefinitionTerm = styled.dt`
+const StyledDefintionListItem = styled.div`
+  ${definitionListItemStyles}
+`;
+
+const definitionTermStyles = css`
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-6);
   color: var(--color-background-fg);
 `;
 
-const StyledDefinitionDescription = styled.dd`
+const StyledDefinitionTerm = styled.dt`
+  ${definitionTermStyles}
+`;
+
+const definitionDescriptionStyles = css`
   margin-top: var(--spacing-1);
   font-size: var(--font-size-sm);
   line-height: var(--line-height-6);
@@ -41,12 +55,24 @@ const StyledDefinitionDescription = styled.dd`
   }
 `;
 
+const StyledDefinitionDescription = styled.dd`
+  ${definitionDescriptionStyles}
+`;
+
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
+
 export const DefinitionList = React.forwardRef<
   HTMLDListElement,
   React.ComponentPropsWithoutRef<"dl">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledDefinitionList ref={ref} className={className} {...props}>
+    <StyledDefinitionList
+      ref={ref}
+      data-testid="definition-list"
+      className={cx("q-definition-list", className)}
+      {...props}
+    >
       {children}
     </StyledDefinitionList>
   );
@@ -58,7 +84,12 @@ export const DefintionListItem = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledDefintionListItem ref={ref} className={className} {...props}>
+    <StyledDefintionListItem
+      ref={ref}
+      data-testid="definition-list__item"
+      className={cx("q-definition-list-item", className)}
+      {...props}
+    >
       {children}
     </StyledDefintionListItem>
   );
@@ -70,7 +101,12 @@ export const DefinitionTerm = React.forwardRef<
   React.ComponentPropsWithoutRef<"dt">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledDefinitionTerm ref={ref} className={className} {...props}>
+    <StyledDefinitionTerm
+      ref={ref}
+      data-testid="definition-list__term"
+      className={cx("q-definition-term", className)}
+      {...props}
+    >
       {children}
     </StyledDefinitionTerm>
   );
@@ -82,7 +118,12 @@ export const DefinitionDescription = React.forwardRef<
   React.ComponentPropsWithoutRef<"dd">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledDefinitionDescription ref={ref} className={className} {...props}>
+    <StyledDefinitionDescription
+      ref={ref}
+      data-testid="definition-list__description"
+      className={cx("q-definition-description", className)}
+      {...props}
+    >
       {children}
     </StyledDefinitionDescription>
   );
