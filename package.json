@@ -15,7 +15,11 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "clean": "rm -rf packages/*/storybook-static"
+    "clean": "rm -rf packages/*/storybook-static",
+    "test:e2e": "pnpm --filter @quido-ui/e2e test",
+    "test:e2e:vue": "pnpm --filter @quido-ui/e2e test:vue",
+    "test:e2e:react": "pnpm --filter @quido-ui/e2e test:react",
+    "test:e2e:angular": "pnpm --filter @quido-ui/e2e test:angular"
   },
   "keywords": [],
   "author": "",

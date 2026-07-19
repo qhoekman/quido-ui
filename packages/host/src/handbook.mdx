@@ -115,9 +115,9 @@ Mainly focus on:
 
 ### Styling
 
-For styling in this design system, we focus on using native CSS approaches whenever possible for each framework, aligning with modern best practices and providing improved flexibility:
+For styling in this design system, we focus on using native CSS approaches whenever possible for each framework, aligning with modern best practices and providing improved flexibility. Each framework keeps styles **embedded in the same file as the component** (Vue SFC, Angular component decorator, React `.tsx`):
 
-- **React**: We recommend using [Styled Components](https://styled-components.com/) for React projects. Styled Components allows you to write actual CSS in your JavaScript, leveraging the full power of CSS with all the dynamic features of JS. This enables you to use variables, conditional logic, and direct co-location of styles with components. It's a mature, widely supported solution for React and works seamlessly with React Server Components.
+- **React**: Use [Styled Components](https://styled-components.com/) with co-located `css` / `styled.*` blocks in the same `.tsx` file. React has no native `<style scoped>` or Angular-style component `styles` array in JSX; styled-components is this design system’s embedded scoped-CSS equivalent. Pair it with [CVA](https://cva.style) for variants (`q-*`, `variant--*`, `size--*`) and CSS variables from `packages/react/src/index.css`. Do **not** use CSS Modules (sibling `.module.css` files) or Tailwind utilities for React components in this package — they break single-file embedding or diverge from Vue/Angular. See `packages/react/src/components/button/button.tsx` as the gold standard and `packages/react/REACT.TODO.md` for the conversion tracker.
 
 - **Angular**: Native CSS and the built-in Angular component styles (via `styles` and `styleUrls` in component decorators) are recommended. Angular supports style encapsulation (ViewEncapsulation), allowing CSS to be scoped to the component automatically. This leads to predictable styling and leverages all browser-supported CSS features and selectors.
 
