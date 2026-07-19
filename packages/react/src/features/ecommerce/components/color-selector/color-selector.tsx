@@ -33,12 +33,21 @@ const colorSelectorItemStyles = css`
   cursor: pointer;
   align-items: center;
   justify-content: center;
+  width: var(--spacing-6);
+  height: var(--spacing-6);
   border-radius: var(--border-radius-full);
   padding: var(--spacing-0-5);
   border: var(--border-width-default) solid var(--color-gray-200);
+  box-sizing: border-box;
 
   &:focus {
     outline: none;
+  }
+
+  &:disabled,
+  &[data-disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 
   &.color--blue {
@@ -78,7 +87,7 @@ const StyledColorSelectorItem = styled(RadioGroupItem)`
   ${colorSelectorItemStyles}
 `;
 
-const StyledIndicator = styled.div`
+const colorSelectorItemIndicatorStyles = css`
   width: var(--spacing-4);
   height: var(--spacing-4);
   border-radius: var(--border-radius-full);
@@ -86,11 +95,32 @@ const StyledIndicator = styled.div`
     0 0 0 var(--border-width-2) var(--color-background-fg);
 `;
 
-const StyledColorSelectorItems = styled.div`
+const StyledIndicator = styled.div`
+  ${colorSelectorItemIndicatorStyles}
+`;
+
+const colorSelectorItemsStyles = css`
   display: flex;
   align-items: center;
   gap: var(--spacing-3);
 `;
+
+const StyledColorSelectorItems = styled.div`
+  ${colorSelectorItemsStyles}
+`;
+
+const colorSelectorStyles = css`
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+`;
+
+const StyledColorSelector = styled(RadioGroup)`
+  ${colorSelectorStyles}
+`;
+
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
 
 export type ColorSelectorItemProps = RadioGroupItemProps & {
   color: VariantProps<typeof colorSelectorItemVariants>["color"];
@@ -103,8 +133,13 @@ export const ColorSelectorItem = React.forwardRef<
 >(({ className, color, children, ...props }, ref) => {
   const classes = colorSelectorItemVariants({ color, className });
   return (
-    <StyledColorSelectorItem ref={ref} className={classes} {...props}>
-      <RadioGroupItemIndicator>
+    <StyledColorSelectorItem
+      ref={ref}
+      data-testid={props.value ? `color-selector__item-${props.value}` : undefined}
+      className={classes}
+      {...props}
+    >
+      <RadioGroupItemIndicator className="q-color-selector-item-indicator">
         {children ?? <StyledIndicator />}
       </RadioGroupItemIndicator>
     </StyledColorSelectorItem>
@@ -118,7 +153,12 @@ export const ColorSelectorItems = React.forwardRef<
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => {
   return (
-    <StyledColorSelectorItems ref={ref} className={className} {...props}>
+    <StyledColorSelectorItems
+      ref={ref}
+      data-testid="color-selector__items"
+      className={cx("q-color-selector-items", className)}
+      {...props}
+    >
       {props.children}
     </StyledColorSelectorItems>
   );
@@ -138,15 +178,16 @@ export const ColorSelector = React.forwardRef<
   };
 
   return (
-    <RadioGroup
+    <StyledColorSelector
       ref={ref}
       defaultValue={selectedColor}
       onValueChange={handleChange}
-      className={className}
+      data-testid="color-selector"
+      className={cx("q-color-selector", className)}
       {...props}
     >
       {children}
-    </RadioGroup>
+    </StyledColorSelector>
   );
 });
 
