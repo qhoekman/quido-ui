@@ -1,24 +1,32 @@
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { Check } from "lucide-react";
 import * as React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Label } from "../label/label";
 
-const StyledCheckboxRoot = styled(CheckboxPrimitive.Root)`
+const checkboxStyles = css`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   height: var(--spacing-4);
   width: var(--spacing-4);
   flex-shrink: 0;
+  padding: 0;
   border-radius: var(--border-radius-sm);
   border: var(--border-width-default) solid var(--color-primary);
+  background-color: transparent;
   outline: none;
   box-shadow: 0 0 0 0 var(--color-background);
+  cursor: pointer;
+  transition: background-color 0.2s;
 
   &:focus-visible {
     outline: none;
     box-shadow: 0 0 0 2px var(--color-ring), 0 0 0 4px var(--color-background);
   }
 
-  &:disabled {
+  &:disabled,
+  &[data-disabled] {
     cursor: not-allowed;
     opacity: 0.5;
   }
@@ -29,11 +37,19 @@ const StyledCheckboxRoot = styled(CheckboxPrimitive.Root)`
   }
 `;
 
-const StyledCheckboxIndicator = styled(CheckboxPrimitive.Indicator)`
+const StyledCheckboxRoot = styled(CheckboxPrimitive.Root)`
+  ${checkboxStyles}
+`;
+
+const checkboxIndicatorStyles = css`
   display: flex;
   align-items: center;
   justify-content: center;
   color: currentColor;
+`;
+
+const StyledCheckboxIndicator = styled(CheckboxPrimitive.Indicator)`
+  ${checkboxIndicatorStyles}
 `;
 
 const CheckboxLabel = styled(Label)`
@@ -55,6 +71,9 @@ const StyledCheckIcon = styled(Check)`
   width: var(--spacing-4);
 `;
 
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
+
 export type CheckboxProps = React.ComponentPropsWithoutRef<
   typeof CheckboxPrimitive.Root
 >;
@@ -63,8 +82,16 @@ const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
   CheckboxProps
 >(({ className, ...props }, ref) => (
-  <StyledCheckboxRoot ref={ref} className={className} {...props}>
-    <StyledCheckboxIndicator>
+  <StyledCheckboxRoot
+    data-testid="checkbox"
+    ref={ref}
+    className={cx("q-checkbox", className)}
+    {...props}
+  >
+    <StyledCheckboxIndicator
+      data-testid="checkbox__indicator"
+      className="q-checkbox-indicator"
+    >
       <StyledCheckIcon />
     </StyledCheckboxIndicator>
   </StyledCheckboxRoot>
