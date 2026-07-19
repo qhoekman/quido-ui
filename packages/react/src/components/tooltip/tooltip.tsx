@@ -1,6 +1,6 @@
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import * as React from "react";
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 const TooltipProvider = TooltipPrimitive.Provider;
 
@@ -35,7 +35,7 @@ const fadeOutZoomOut = keyframes`
 const slideInFromTop = keyframes`
   from {
     opacity: 0;
-    transform: scale(0.95) translateY(-0.5rem);
+    transform: scale(0.95) translateY(calc(-1 * var(--spacing-2)));
   }
   to {
     opacity: 1;
@@ -46,7 +46,7 @@ const slideInFromTop = keyframes`
 const slideInFromRight = keyframes`
   from {
     opacity: 0;
-    transform: scale(0.95) translateX(0.5rem);
+    transform: scale(0.95) translateX(var(--spacing-2));
   }
   to {
     opacity: 1;
@@ -57,7 +57,7 @@ const slideInFromRight = keyframes`
 const slideInFromLeft = keyframes`
   from {
     opacity: 0;
-    transform: scale(0.95) translateX(-0.5rem);
+    transform: scale(0.95) translateX(calc(-1 * var(--spacing-2)));
   }
   to {
     opacity: 1;
@@ -68,7 +68,7 @@ const slideInFromLeft = keyframes`
 const slideInFromBottom = keyframes`
   from {
     opacity: 0;
-    transform: scale(0.95) translateY(0.5rem);
+    transform: scale(0.95) translateY(var(--spacing-2));
   }
   to {
     opacity: 1;
@@ -76,7 +76,7 @@ const slideInFromBottom = keyframes`
   }
 `;
 
-const StyledTooltipContent = styled(TooltipPrimitive.Content)`
+const tooltipContentStyles = css`
   z-index: var(--z-index-50);
   overflow: hidden;
   border-radius: var(--border-radius-md);
@@ -115,16 +115,26 @@ const StyledTooltipContent = styled(TooltipPrimitive.Content)`
   }
 `;
 
+const StyledTooltipContent = styled(TooltipPrimitive.Content)`
+  ${tooltipContentStyles}
+`;
+
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
+
 const TooltipContent = React.forwardRef<
   React.ElementRef<typeof TooltipPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content>
 >(({ className, sideOffset = 4, ...props }, ref) => (
-  <StyledTooltipContent
-    ref={ref}
-    sideOffset={sideOffset}
-    className={className}
-    {...props}
-  />
+  <TooltipPrimitive.Portal>
+    <StyledTooltipContent
+      data-testid="tooltip__content"
+      ref={ref}
+      sideOffset={sideOffset}
+      className={cx("q-tooltip-content", className)}
+      {...props}
+    />
+  </TooltipPrimitive.Portal>
 ));
 TooltipContent.displayName = TooltipPrimitive.Content.displayName;
 
