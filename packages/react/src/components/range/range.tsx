@@ -1,8 +1,8 @@
 import * as RangePrimitive from "@radix-ui/react-slider";
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const StyledRoot = styled(RangePrimitive.Root)`
+const rangeStyles = css`
   position: relative;
   display: flex;
   width: 100%;
@@ -11,7 +11,11 @@ const StyledRoot = styled(RangePrimitive.Root)`
   align-items: center;
 `;
 
-const StyledTrack = styled(RangePrimitive.Track)`
+const StyledRoot = styled(RangePrimitive.Root)`
+  ${rangeStyles}
+`;
+
+const rangeTrackStyles = css`
   position: relative;
   height: var(--spacing-1-5);
   width: 100%;
@@ -21,13 +25,21 @@ const StyledTrack = styled(RangePrimitive.Track)`
   background-color: var(--color-muted);
 `;
 
-const StyledRange = styled(RangePrimitive.Range)`
+const StyledTrack = styled(RangePrimitive.Track)`
+  ${rangeTrackStyles}
+`;
+
+const rangeRangeStyles = css`
   position: absolute;
   height: 100%;
   background-color: var(--color-primary);
 `;
 
-const StyledThumb = styled(RangePrimitive.Thumb)`
+const StyledRange = styled(RangePrimitive.Range)`
+  ${rangeRangeStyles}
+`;
+
+const rangeThumbStyles = css`
   display: block;
   height: var(--spacing-4);
   width: var(--spacing-4);
@@ -48,6 +60,13 @@ const StyledThumb = styled(RangePrimitive.Thumb)`
   }
 `;
 
+const StyledThumb = styled(RangePrimitive.Thumb)`
+  ${rangeThumbStyles}
+`;
+
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
+
 export type RangeProps = React.ComponentPropsWithoutRef<
   typeof RangePrimitive.Root
 >;
@@ -56,12 +75,17 @@ export const Range = React.forwardRef<
   React.ElementRef<typeof RangePrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof RangePrimitive.Root>
 >(({ className, ...props }, ref) => (
-  <StyledRoot ref={ref} className={className} {...props}>
-    <StyledTrack>
-      <StyledRange />
+  <StyledRoot
+    data-testid="range"
+    ref={ref}
+    className={cx("q-range", className)}
+    {...props}
+  >
+    <StyledTrack data-testid="range__track" className="q-range-track">
+      <StyledRange data-testid="range__range" className="q-range-range" />
     </StyledTrack>
-    <StyledThumb />
-    <StyledThumb />
+    <StyledThumb data-testid="range__thumb-0" className="q-range-thumb" />
+    <StyledThumb data-testid="range__thumb-1" className="q-range-thumb" />
   </StyledRoot>
 ));
 Range.displayName = "Range";
