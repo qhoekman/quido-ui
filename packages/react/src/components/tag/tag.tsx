@@ -10,9 +10,20 @@ const tagVariants = cva("q-tag", {
       destructive: "variant--destructive",
       outline: "variant--outline",
     },
+    size: {
+      xs: "size--xs",
+      sm: "size--sm",
+      md: "size--md",
+      lg: "size--lg",
+    },
+    shape: {
+      pill: "shape--pill",
+      plate: "shape--plate",
+    },
   },
   defaultVariants: {
     variant: "primary",
+    shape: "plate",
   },
 });
 
@@ -71,6 +82,35 @@ const tagStyles = css`
   &.variant--outline {
     color: var(--color-background-fg);
   }
+
+  &.size--xs {
+    padding: var(--spacing-0-5);
+    gap: var(--spacing-1);
+  }
+
+  &.size--sm {
+    padding: var(--spacing-0-5) var(--spacing-1);
+    gap: var(--spacing-1);
+  }
+
+  &.size--md {
+    padding: var(--spacing-1) var(--spacing-2);
+    gap: var(--spacing-2);
+  }
+
+  &.size--lg {
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-2) var(--spacing-3);
+    gap: var(--spacing-2);
+  }
+
+  &.shape--pill {
+    border-radius: var(--border-radius-full);
+  }
+
+  &.shape--plate {
+    border-radius: var(--border-radius-md);
+  }
 `;
 
 const StyledTag = styled.div`
@@ -84,6 +124,8 @@ export type TagProps = React.HTMLAttributes<HTMLDivElement> &
 
 export const Tag: React.FC<TagProps> = ({
   variant,
+  size,
+  shape,
   className,
   children,
   ...props
@@ -91,7 +133,7 @@ export const Tag: React.FC<TagProps> = ({
   return (
     <StyledTag
       data-testid="tag"
-      className={tagVariants({ variant, className })}
+      className={tagVariants({ variant, size, shape, className })}
       {...props}
     >
       {children}
