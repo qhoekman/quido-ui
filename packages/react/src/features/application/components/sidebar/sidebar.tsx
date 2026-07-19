@@ -6,9 +6,12 @@ import {
 } from "@/components/collapsible/collapsible";
 import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const StyledSidebar = styled.div`
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
+
+const sidebarStyles = css`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -17,7 +20,11 @@ const StyledSidebar = styled.div`
   height: 100%;
 `;
 
-const StyledSidebarBrand = styled.div`
+const StyledSidebar = styled.div`
+  ${sidebarStyles}
+`;
+
+const sidebarBrandStyles = css`
   display: flex;
   align-items: center;
   height: var(--spacing-16);
@@ -28,7 +35,11 @@ const StyledSidebarBrand = styled.div`
   letter-spacing: var(--letter-spacing-tight);
 `;
 
-const StyledSidebarGroupHeader = styled.h2`
+const StyledSidebarBrand = styled.div`
+  ${sidebarBrandStyles}
+`;
+
+const sidebarGroupHeaderStyles = css`
   margin-bottom: var(--spacing-2);
   padding-left: var(--spacing-4);
   padding-right: var(--spacing-4);
@@ -37,17 +48,29 @@ const StyledSidebarGroupHeader = styled.h2`
   letter-spacing: var(--letter-spacing-tight);
 `;
 
-const StyledSidebarGroupItems = styled(CollapsibleContent)`
+const StyledSidebarGroupHeader = styled.h2`
+  ${sidebarGroupHeaderStyles}
+`;
+
+const sidebarGroupItemsStyles = css`
   padding-top: var(--spacing-1);
   padding-bottom: var(--spacing-1);
 `;
 
-const StyledSidebarSection = styled.div`
+const StyledSidebarGroupItems = styled(CollapsibleContent)`
+  ${sidebarGroupItemsStyles}
+`;
+
+const sidebarSectionStyles = css`
   padding-top: var(--spacing-2);
   padding-bottom: var(--spacing-2);
 `;
 
-const StyledSidebarItemBadge = styled.span`
+const StyledSidebarSection = styled.div`
+  ${sidebarSectionStyles}
+`;
+
+const sidebarItemBadgeStyles = css`
   background-color: var(--color-primary);
   margin-left: auto;
   border-radius: var(--border-radius-full);
@@ -59,7 +82,11 @@ const StyledSidebarItemBadge = styled.span`
   padding-bottom: var(--spacing-1);
 `;
 
-const StyledSidebarFooter = styled.div`
+const StyledSidebarItemBadge = styled.span`
+  ${sidebarItemBadgeStyles}
+`;
+
+const sidebarFooterStyles = css`
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -72,23 +99,40 @@ const StyledSidebarFooter = styled.div`
   background-color: hsl(from var(--color-background-fg) h s l / 5%);
 `;
 
-const StyledSidebarItem = styled(Button)`
+const StyledSidebarFooter = styled.div`
+  ${sidebarFooterStyles}
+`;
+
+const sidebarItemStyles = css`
   width: 100%;
   gap: var(--spacing-2);
   justify-content: flex-start;
 `;
 
-const StyledSidebarGroupExpand = styled.div`
+const StyledSidebarItem = styled(Button)`
+  ${sidebarItemStyles}
+`;
+
+const sidebarGroupExpandStyles = css`
   margin-left: auto;
   display: flex;
   align-items: center;
+`;
+
+const StyledSidebarGroupExpand = styled.div`
+  ${sidebarGroupExpandStyles}
 `;
 
 type SidebarProps = React.HTMLAttributes<HTMLDivElement>;
 export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
   ({ className, ...props }, ref) => {
     return (
-      <StyledSidebar ref={ref} className={className} {...props}>
+      <StyledSidebar
+        ref={ref}
+        data-testid="sidebar"
+        className={cx("q-sidebar", className)}
+        {...props}
+      >
         {props.children}
       </StyledSidebar>
     );
@@ -100,7 +144,12 @@ type SidebarBrand = React.HTMLAttributes<HTMLDivElement>;
 export const SidebarBrand = React.forwardRef<HTMLDivElement, SidebarBrand>(
   ({ className, ...props }, ref) => {
     return (
-      <StyledSidebarBrand ref={ref} className={className} {...props}>
+      <StyledSidebarBrand
+        ref={ref}
+        data-testid="sidebar__brand"
+        className={cx("q-sidebar-brand", className)}
+        {...props}
+      >
         {props.children}
       </StyledSidebarBrand>
     );
@@ -114,7 +163,12 @@ export const SidebarGroupHeader = React.forwardRef<
   SidebarGroupHeader
 >(({ className, ...props }, ref) => {
   return (
-    <StyledSidebarGroupHeader ref={ref} className={className} {...props}>
+    <StyledSidebarGroupHeader
+      ref={ref}
+      data-testid="sidebar__group-header"
+      className={cx("q-sidebar-group-header", className)}
+      {...props}
+    >
       {props.children}
     </StyledSidebarGroupHeader>
   );
@@ -134,7 +188,8 @@ export const SidebarGroup = React.forwardRef<HTMLDivElement, SidebarGroup>(
           ref={ref}
           open={open}
           onOpenChange={setOpen}
-          className={className}
+          data-testid="sidebar__group"
+          className={cx("q-sidebar-group", className)}
           {...props}
         >
           {props.children}
@@ -152,7 +207,13 @@ export const SidebarGroupTrigger = React.forwardRef<
 >(({ className, ...props }, ref) => {
   return (
     <CollapsibleTrigger asChild>
-      <SidebarItem ref={ref} variant="ghost" className={className} {...props}>
+      <SidebarItem
+        ref={ref}
+        variant="ghost"
+        data-testid="sidebar__group-trigger"
+        className={cx("q-sidebar-group-trigger", className)}
+        {...props}
+      >
         {props.children}
       </SidebarItem>
     </CollapsibleTrigger>
@@ -169,7 +230,10 @@ export const SidebarGroupExpand = React.forwardRef<
   const Icon = open ? ChevronUpIcon : ChevronDownIcon;
 
   return (
-    <StyledSidebarGroupExpand className={className}>
+    <StyledSidebarGroupExpand
+      data-testid="sidebar__group-expand"
+      className={cx("q-sidebar-group-expand", className)}
+    >
       <Icon ref={ref} size={16} {...props}>
         {props.children}
       </Icon>
@@ -184,7 +248,12 @@ export const SidebarGroupItems = React.forwardRef<
   SidebarGroupItems
 >(({ className, ...props }, ref) => {
   return (
-    <StyledSidebarGroupItems ref={ref} className={className} {...props}>
+    <StyledSidebarGroupItems
+      ref={ref}
+      data-testid="sidebar__group-items"
+      className={cx("q-sidebar-group-items", className)}
+      {...props}
+    >
       {props.children}
     </StyledSidebarGroupItems>
   );
@@ -195,7 +264,12 @@ type SidebarSection = React.HTMLAttributes<HTMLDivElement>;
 export const SidebarSection = React.forwardRef<HTMLDivElement, SidebarSection>(
   ({ className, ...props }, ref) => {
     return (
-      <StyledSidebarSection ref={ref} className={className} {...props}>
+      <StyledSidebarSection
+        ref={ref}
+        data-testid="sidebar__section"
+        className={cx("q-sidebar-section", className)}
+        {...props}
+      >
         {props.children}
       </StyledSidebarSection>
     );
@@ -212,7 +286,8 @@ export const SidebarItem = React.forwardRef<
     <StyledSidebarItem
       ref={ref}
       variant="ghost"
-      className={className}
+      data-testid="sidebar__item"
+      className={cx("q-sidebar-item", className)}
       {...props}
     >
       {props.children}
@@ -227,7 +302,12 @@ export const SidebarItemBadge = React.forwardRef<
   SidebarItemBadgeProps
 >(({ className, ...props }, ref) => {
   return (
-    <StyledSidebarItemBadge ref={ref} className={className} {...props}>
+    <StyledSidebarItemBadge
+      ref={ref}
+      data-testid="sidebar__item-badge"
+      className={cx("q-sidebar-item-badge", className)}
+      {...props}
+    >
       {props.children}
     </StyledSidebarItemBadge>
   );
@@ -238,7 +318,12 @@ type SidebarFooter = React.HTMLAttributes<HTMLDivElement>;
 export const SidebarFooter = React.forwardRef<HTMLDivElement, SidebarFooter>(
   ({ className, ...props }, ref) => {
     return (
-      <StyledSidebarFooter ref={ref} className={className} {...props}>
+      <StyledSidebarFooter
+        ref={ref}
+        data-testid="sidebar__footer"
+        className={cx("q-sidebar-footer", className)}
+        {...props}
+      >
         {props.children}
       </StyledSidebarFooter>
     );
