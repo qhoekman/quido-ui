@@ -1,9 +1,86 @@
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { ChevronDown } from "lucide-react";
 import * as React from "react";
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
-const Accordion = AccordionPrimitive.Root;
+const accordionStyles = css`
+  display: flex;
+  flex-direction: column;
+`;
+
+const StyledAccordion = styled(AccordionPrimitive.Root)`
+  ${accordionStyles}
+`;
+
+const accordionItemStyles = css`
+  border-bottom: var(--border-width-default) solid var(--color-border);
+`;
+
+const StyledAccordionItem = styled(AccordionPrimitive.Item)`
+  ${accordionItemStyles}
+`;
+
+const accordionHeaderStyles = css`
+  display: flex;
+`;
+
+const StyledAccordionHeader = styled(AccordionPrimitive.Header)`
+  ${accordionHeaderStyles}
+`;
+
+const accordionTriggerStyles = css`
+  display: flex;
+  flex: 1 1 0%;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--spacing-4);
+  padding-bottom: var(--spacing-4);
+  border: 0 none;
+  background: transparent;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-background-fg);
+  outline: none;
+  transition: all 0.3s;
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:hover:not(:disabled) {
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-ring), 0 0 0 4px var(--color-background);
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  &[data-state="open"] > svg {
+    transform: rotate(180deg);
+  }
+`;
+
+const StyledAccordionTrigger = styled(AccordionPrimitive.Trigger)`
+  ${accordionTriggerStyles}
+`;
+
+const accordionTriggerIconStyles = css`
+  color: var(--color-muted-fg);
+  height: var(--spacing-4);
+  width: var(--spacing-4);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+`;
+
+const StyledChevronDown = styled(ChevronDown)`
+  ${accordionTriggerIconStyles}
+`;
 
 const accordionDown = keyframes`
   from {
@@ -23,44 +100,7 @@ const accordionUp = keyframes`
   }
 `;
 
-const StyledAccordionItem = styled(AccordionPrimitive.Item)`
-  border-bottom: var(--border-width-default) solid var(--color-border);
-`;
-
-const StyledAccordionHeader = styled(AccordionPrimitive.Header)`
-  display: flex;
-`;
-
-const StyledAccordionTrigger = styled(AccordionPrimitive.Trigger)`
-  display: flex;
-  flex: 1 1 0%;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: var(--spacing-4);
-  padding-bottom: var(--spacing-4);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-background-fg);
-  transition: all 0.3s;
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  &[data-state="open"] > svg {
-    transform: rotate(180deg);
-  }
-`;
-
-const StyledChevronDown = styled(ChevronDown)`
-  color: var(--color-muted-fg);
-  height: var(--spacing-4);
-  width: var(--spacing-4);
-  flex-shrink: 0;
-  transition: transform 0.2s;
-`;
-
-const StyledAccordionContent = styled(AccordionPrimitive.Content)`
+const accordionContentStyles = css`
   overflow: hidden;
   font-size: var(--font-size-sm);
 
@@ -73,27 +113,61 @@ const StyledAccordionContent = styled(AccordionPrimitive.Content)`
   }
 `;
 
-const StyledAccordionContentInner = styled.div`
+const StyledAccordionContent = styled(AccordionPrimitive.Content)`
+  ${accordionContentStyles}
+`;
+
+const accordionContentInnerStyles = css`
   padding-top: 0;
   padding-bottom: var(--spacing-4);
 `;
+
+const StyledAccordionContentInner = styled.div`
+  ${accordionContentInnerStyles}
+`;
+
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
+
+const Accordion = React.forwardRef<
+  React.ElementRef<typeof AccordionPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root>
+>(({ className, ...props }, ref) => (
+  <StyledAccordion
+    data-testid="accordion"
+    ref={ref}
+    className={cx("q-accordion", className)}
+    {...props}
+  />
+));
+Accordion.displayName = AccordionPrimitive.Root.displayName;
 
 const AccordionItem = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
 >(({ className, ...props }, ref) => (
-  <StyledAccordionItem ref={ref} className={className} {...props} />
+  <StyledAccordionItem
+    data-testid={props.value ? `accordion__item-${props.value}` : undefined}
+    ref={ref}
+    className={cx("q-accordion-item", className)}
+    {...props}
+  />
 ));
-AccordionItem.displayName = "AccordionItem";
+AccordionItem.displayName = AccordionPrimitive.Item.displayName;
 
 const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => (
-  <StyledAccordionHeader>
-    <StyledAccordionTrigger ref={ref} className={className} {...props}>
+  <StyledAccordionHeader className="q-accordion-header">
+    <StyledAccordionTrigger
+      data-testid="accordion__trigger"
+      ref={ref}
+      className={cx("q-accordion-trigger", className)}
+      {...props}
+    >
       {children}
-      <StyledChevronDown />
+      <StyledChevronDown className="q-accordion-trigger-icon" aria-hidden="true" />
     </StyledAccordionTrigger>
   </StyledAccordionHeader>
 ));
@@ -103,8 +177,15 @@ const AccordionContent = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
 >(({ className, children, ...props }, ref) => (
-  <StyledAccordionContent ref={ref} {...props}>
-    <StyledAccordionContentInner className={className}>
+  <StyledAccordionContent
+    data-testid="accordion__content"
+    ref={ref}
+    className="q-accordion-content"
+    {...props}
+  >
+    <StyledAccordionContentInner
+      className={cx("q-accordion-content-inner", className)}
+    >
       {children}
     </StyledAccordionContentInner>
   </StyledAccordionContent>

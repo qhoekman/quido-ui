@@ -1,7 +1,10 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const StyledCTA = styled.div`
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
+
+const ctaStyles = css`
   position: relative;
   margin-top: var(--spacing-24);
   width: 100%;
@@ -15,16 +18,29 @@ const StyledCTA = styled.div`
   }
 `;
 
-type CTAProps = {
-  children: React.ReactNode;
-};
+const StyledCTA = styled.div`
+  ${ctaStyles}
+`;
 
-const CTA: React.FC<CTAProps> = ({ children }) => {
-  return <StyledCTA>{children}</StyledCTA>;
-};
+type CTAProps = React.ComponentPropsWithoutRef<"div">;
+
+const CTA = React.forwardRef<HTMLDivElement, CTAProps>(
+  ({ className, children, ...props }, ref) => {
+    return (
+      <StyledCTA
+        ref={ref}
+        data-testid="cta"
+        className={cx("q-cta", className)}
+        {...props}
+      >
+        {children}
+      </StyledCTA>
+    );
+  }
+);
 CTA.displayName = "CTA";
 
-const StyledCTAContentOuter = styled.div`
+const ctaContentOuterStyles = css`
   margin-left: auto;
   margin-right: auto;
   max-width: 80rem;
@@ -42,7 +58,11 @@ const StyledCTAContentOuter = styled.div`
   }
 `;
 
-const StyledCTAContentInner = styled.div`
+const StyledCTAContentOuter = styled.div`
+  ${ctaContentOuterStyles}
+`;
+
+const ctaContentInnerStyles = css`
   display: flex;
   flex-direction: column;
   gap: var(--spacing-3);
@@ -61,13 +81,22 @@ const StyledCTAContentInner = styled.div`
   }
 `;
 
+const StyledCTAContentInner = styled.div`
+  ${ctaContentInnerStyles}
+`;
+
 const CTAContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ className, children, ...props }, ref) => {
   return (
-    <StyledCTAContentOuter>
-      <StyledCTAContentInner ref={ref} className={className} {...props}>
+    <StyledCTAContentOuter className="q-cta-content-outer">
+      <StyledCTAContentInner
+        ref={ref}
+        data-testid="cta__content"
+        className={cx("q-cta-content", className)}
+        {...props}
+      >
         {children}
       </StyledCTAContentInner>
     </StyledCTAContentOuter>
@@ -75,7 +104,7 @@ const CTAContent = React.forwardRef<
 });
 CTAContent.displayName = "CTAContent";
 
-const StyledCTASection = styled.div`
+const ctaSectionStyles = css`
   margin-left: auto;
   margin-right: auto;
   max-width: 42rem;
@@ -88,24 +117,34 @@ const StyledCTASection = styled.div`
   }
 `;
 
+const StyledCTASection = styled.div`
+  ${ctaSectionStyles}
+`;
+
 const CTASection = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ className, children, ...props }, ref) => {
   return (
-    <StyledCTASection ref={ref} className={className} {...props}>
+    <StyledCTASection
+      ref={ref}
+      data-testid="cta__section"
+      className={cx("q-cta-section", className)}
+      {...props}
+    >
       {children}
     </StyledCTASection>
   );
 });
 CTASection.displayName = "CTASection";
 
-const StyledCTATitle = styled.h2`
+const ctaTitleStyles = css`
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-wide);
   color: var(--color-background-fg);
+  margin: 0;
 
   @media (min-width: 768px) {
     font-size: var(--font-size-4xl);
@@ -116,26 +155,40 @@ const StyledCTATitle = styled.h2`
   }
 `;
 
+const StyledCTATitle = styled.h2`
+  ${ctaTitleStyles}
+`;
+
 const CTATitle = React.forwardRef<
   HTMLHeadingElement,
   React.ComponentPropsWithoutRef<"h2">
 >(({ className, children, ...props }, ref) => {
   return (
-    <StyledCTATitle ref={ref} className={className} {...props}>
+    <StyledCTATitle
+      ref={ref}
+      data-testid="cta__title"
+      className={cx("q-cta-title", className)}
+      {...props}
+    >
       {children}
     </StyledCTATitle>
   );
 });
 CTATitle.displayName = "CTATitle";
 
-const StyledCTASubtitle = styled.p`
+const ctaSubtitleStyles = css`
   max-width: 42rem;
   font-size: var(--font-size-base);
-  color: var(--color-muted-fg);
+  color: hsl(from var(--color-background-fg) h s l / 66%);
+  margin: 0;
 
   @media (min-width: 768px) {
     font-size: var(--font-size-lg);
   }
+`;
+
+const StyledCTASubtitle = styled.p`
+  ${ctaSubtitleStyles}
 `;
 
 const CTASubtitle = React.forwardRef<
@@ -143,23 +196,34 @@ const CTASubtitle = React.forwardRef<
   React.ComponentPropsWithoutRef<"p">
 >(({ className, children, ...props }, ref) => {
   return (
-    <StyledCTASubtitle ref={ref} className={className} {...props}>
+    <StyledCTASubtitle
+      ref={ref}
+      data-testid="cta__subtitle"
+      className={cx("q-cta-subtitle", className)}
+      {...props}
+    >
       {children}
     </StyledCTASubtitle>
   );
 });
 CTASubtitle.displayName = "CTASubtitle";
 
-const StyledCTAActions = styled.div`
+const ctaActionsStyles = css`
   display: flex;
   flex-direction: column;
   gap: var(--spacing-4);
   max-width: 28rem;
+  width: 100%;
 
   @media (min-width: 1024px) {
     flex-direction: row;
+    justify-content: center;
     gap: var(--spacing-4);
   }
+`;
+
+const StyledCTAActions = styled.div`
+  ${ctaActionsStyles}
 `;
 
 const CTAActions = React.forwardRef<
@@ -167,15 +231,22 @@ const CTAActions = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ className, children, ...props }, ref) => {
   return (
-    <StyledCTAActions ref={ref} className={className} {...props}>
+    <StyledCTAActions
+      ref={ref}
+      data-testid="cta__actions"
+      className={cx("q-cta-actions", className)}
+      {...props}
+    >
       {children}
     </StyledCTAActions>
   );
 });
 CTAActions.displayName = "CTAActions";
 
-const StyledCTABackdrop = styled.img`
+const ctaBackdropStyles = css`
   position: absolute;
+  top: 0;
+  left: 0;
   z-index: -50;
   height: 100%;
   width: 100%;
@@ -183,11 +254,22 @@ const StyledCTABackdrop = styled.img`
   filter: brightness(0.25);
 `;
 
+const StyledCTABackdrop = styled.img`
+  ${ctaBackdropStyles}
+`;
+
 const CTABackdrop = React.forwardRef<
   HTMLImageElement,
   React.ComponentPropsWithoutRef<"img">
 >(({ className, ...props }, ref) => {
-  return <StyledCTABackdrop ref={ref} className={className} {...props} />;
+  return (
+    <StyledCTABackdrop
+      ref={ref}
+      data-testid="cta__backdrop"
+      className={cx("q-cta-backdrop", className)}
+      {...props}
+    />
+  );
 });
 CTABackdrop.displayName = "CTABackdrop";
 

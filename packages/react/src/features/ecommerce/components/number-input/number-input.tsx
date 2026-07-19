@@ -4,6 +4,9 @@ import { cva } from "class-variance-authority";
 import { Input } from "@/components/input/input";
 import { MinusIcon, PlusIcon } from "lucide-react";
 
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
+
 const buttonVariants = cva("q-number-input-button", {
   variants: {
     direction: {
@@ -14,11 +17,15 @@ const buttonVariants = cva("q-number-input-button", {
 });
 
 const buttonStyles = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: var(--spacing-1);
   height: var(--spacing-10);
   border: var(--border-width-default) solid var(--color-border);
   background-color: var(--color-muted);
   color: var(--color-muted-fg);
+  cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 
   &:hover {
@@ -80,8 +87,8 @@ const StyledIcon = styled.div`
   justify-content: center;
 
   svg {
-    width: var(--spacing-3);
-    height: var(--spacing-3);
+    width: var(--spacing-4);
+    height: var(--spacing-4);
   }
 `;
 
@@ -127,14 +134,18 @@ export const NumberInput: React.FC<NumberInputProps> = ({
     .filter(Boolean)
     .join(" ");
 
-  const inputClasses = [classes?.input, className].filter(Boolean).join(" ");
+  const inputClasses = cx("q-number-input-field", classes?.input, className);
 
   return (
-    <StyledRoot className={classes.root}>
+    <StyledRoot
+      data-testid="number-input"
+      className={cx("q-number-input", classes.root)}
+    >
       <StyledButton
         type="button"
         id="decrement-button"
         aria-label="Decrement"
+        data-testid="number-input__decrement"
         onClick={handleDecrement}
         disabled={disabled}
         className={decrementButtonClasses}
@@ -146,6 +157,7 @@ export const NumberInput: React.FC<NumberInputProps> = ({
       <StyledInput
         type="number"
         ref={inputRef}
+        data-testid="number-input__field"
         className={inputClasses}
         placeholder="0"
         required
@@ -155,6 +167,7 @@ export const NumberInput: React.FC<NumberInputProps> = ({
       <StyledButton
         type="button"
         aria-label="Increment"
+        data-testid="number-input__increment"
         onClick={handleIncrement}
         disabled={disabled}
         className={incrementButtonClasses}

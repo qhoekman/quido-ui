@@ -1,7 +1,7 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const StyledCard = styled.div`
+const cardStyles = css`
   border-radius: var(--border-radius-lg);
   border: var(--border-width-default) solid var(--color-border);
   background-color: var(--color-card);
@@ -9,42 +9,76 @@ const StyledCard = styled.div`
   box-shadow: var(--box-shadow-sm);
 `;
 
-const StyledCardHeader = styled.div`
+const StyledCard = styled.div`
+  ${cardStyles}
+`;
+
+const cardHeaderStyles = css`
   display: flex;
   flex-direction: column;
   gap: var(--spacing-1-5);
   padding: var(--spacing-6);
 `;
 
-const StyledCardTitle = styled.h3`
+const StyledCardHeader = styled.div`
+  ${cardHeaderStyles}
+`;
+
+const cardTitleStyles = css`
+  margin: 0;
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-none);
   letter-spacing: var(--letter-spacing-tight);
 `;
 
-const StyledCardDescription = styled.p`
+const StyledCardTitle = styled.h3`
+  ${cardTitleStyles}
+`;
+
+const cardDescriptionStyles = css`
+  margin: 0;
   font-size: var(--font-size-sm);
   color: var(--color-muted-fg);
 `;
 
-const StyledCardContent = styled.div`
+const StyledCardDescription = styled.p`
+  ${cardDescriptionStyles}
+`;
+
+const cardContentStyles = css`
   padding: var(--spacing-6);
   padding-top: var(--spacing-0);
 `;
 
-const StyledCardFooter = styled.div`
+const StyledCardContent = styled.div`
+  ${cardContentStyles}
+`;
+
+const cardFooterStyles = css`
   display: flex;
   align-items: center;
   padding: var(--spacing-6);
   padding-top: var(--spacing-0);
 `;
 
+const StyledCardFooter = styled.div`
+  ${cardFooterStyles}
+`;
+
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
+
 export const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <StyledCard ref={ref} className={className} {...props} />
+  <StyledCard
+    data-testid="card"
+    ref={ref}
+    className={cx("q-card", className)}
+    {...props}
+  />
 ));
 Card.displayName = "Card";
 
@@ -52,7 +86,12 @@ export const CardHeader = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <StyledCardHeader ref={ref} className={className} {...props} />
+  <StyledCardHeader
+    data-testid="card__header"
+    ref={ref}
+    className={cx("q-card-header", className)}
+    {...props}
+  />
 ));
 CardHeader.displayName = "CardHeader";
 
@@ -60,7 +99,12 @@ export const CardTitle = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLHeadingElement>
 >(({ className, ...props }, ref) => (
-  <StyledCardTitle ref={ref} className={className} {...props} />
+  <StyledCardTitle
+    data-testid="card__title"
+    ref={ref}
+    className={cx("q-card-title", className)}
+    {...props}
+  />
 ));
 CardTitle.displayName = "CardTitle";
 
@@ -68,7 +112,12 @@ export const CardDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <StyledCardDescription ref={ref} className={className} {...props} />
+  <StyledCardDescription
+    data-testid="card__description"
+    ref={ref}
+    className={cx("q-card-description", className)}
+    {...props}
+  />
 ));
 CardDescription.displayName = "CardDescription";
 
@@ -76,7 +125,12 @@ export const CardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <StyledCardContent ref={ref} className={className} {...props} />
+  <StyledCardContent
+    data-testid="card__content"
+    ref={ref}
+    className={cx("q-card-content", className)}
+    {...props}
+  />
 ));
 CardContent.displayName = "CardContent";
 
@@ -84,6 +138,11 @@ export const CardFooter = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <StyledCardFooter ref={ref} className={className} {...props} />
+  <StyledCardFooter
+    data-testid="card__footer"
+    ref={ref}
+    className={cx("q-card-footer", className)}
+    {...props}
+  />
 ));
 CardFooter.displayName = "CardFooter";

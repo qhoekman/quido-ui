@@ -1,7 +1,11 @@
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { Check, ChevronDown, ChevronUp, ChevronsUpDown } from "lucide-react";
 import * as React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { cva, type VariantProps } from "class-variance-authority";
+
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
 
 const Select = SelectPrimitive.Root;
 
@@ -9,7 +13,17 @@ const SelectGroup = SelectPrimitive.Group;
 
 const SelectValue = SelectPrimitive.Value;
 
-const StyledSelectTrigger = styled(SelectPrimitive.Trigger)`
+const selectTriggerVariants = cva("q-select-trigger", {
+  variants: {
+    size: {
+      sm: "size--sm",
+      md: "size--md",
+      lg: "size--lg",
+    },
+  },
+});
+
+const selectTriggerStyles = css`
   display: flex;
   height: var(--spacing-9);
   width: 100%;
@@ -24,6 +38,7 @@ const StyledSelectTrigger = styled(SelectPrimitive.Trigger)`
   font-size: var(--font-size-sm);
   box-shadow: var(--box-shadow-sm);
   outline: none;
+  cursor: pointer;
 
   &::placeholder {
     color: var(--color-muted-fg);
@@ -45,34 +60,68 @@ const StyledSelectTrigger = styled(SelectPrimitive.Trigger)`
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  &.size--sm {
+    height: var(--spacing-9);
+    padding: var(--spacing-2) var(--spacing-2);
+  }
+
+  &.size--md {
+    height: var(--spacing-10);
+    padding: var(--spacing-2) var(--spacing-3);
+  }
+
+  &.size--lg {
+    height: var(--spacing-11);
+    padding: var(--spacing-3) var(--spacing-4);
+  }
+`;
+
+const StyledSelectTrigger = styled(SelectPrimitive.Trigger)`
+  ${selectTriggerStyles}
 `;
 
 const StyledSelectIcon = styled(ChevronsUpDown)`
   height: var(--spacing-4);
   width: var(--spacing-4);
+  flex-shrink: 0;
   opacity: 0.5;
 `;
 
+export type SelectTriggerProps = React.ComponentPropsWithoutRef<
+  typeof SelectPrimitive.Trigger
+> &
+  VariantProps<typeof selectTriggerVariants>;
+
 const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
-  <StyledSelectTrigger ref={ref} className={className} {...props}>
+  SelectTriggerProps
+>(({ className, size, children, ...props }, ref) => (
+  <StyledSelectTrigger
+    data-testid="select__trigger"
+    ref={ref}
+    className={selectTriggerVariants({ size, className })}
+    {...props}
+  >
     {children}
     <SelectPrimitive.Icon asChild>
-      <StyledSelectIcon />
+      <StyledSelectIcon className="q-select-trigger-icon" />
     </SelectPrimitive.Icon>
   </StyledSelectTrigger>
 ));
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
 
-const StyledSelectScrollUpButton = styled(SelectPrimitive.ScrollUpButton)`
+const selectScrollButtonStyles = css`
   display: flex;
   cursor: default;
   align-items: center;
   justify-content: center;
   padding-top: var(--spacing-1);
   padding-bottom: var(--spacing-1);
+`;
+
+const StyledSelectScrollUpButton = styled(SelectPrimitive.ScrollUpButton)`
+  ${selectScrollButtonStyles}
 `;
 
 const StyledChevronUp = styled(ChevronUp)`
@@ -84,19 +133,18 @@ const SelectScrollUpButton = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.ScrollUpButton>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollUpButton>
 >(({ className, ...props }, ref) => (
-  <StyledSelectScrollUpButton ref={ref} className={className} {...props}>
+  <StyledSelectScrollUpButton
+    ref={ref}
+    className={cx("q-select-scroll-button", className)}
+    {...props}
+  >
     <StyledChevronUp />
   </StyledSelectScrollUpButton>
 ));
 SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName;
 
 const StyledSelectScrollDownButton = styled(SelectPrimitive.ScrollDownButton)`
-  display: flex;
-  cursor: default;
-  align-items: center;
-  justify-content: center;
-  padding-top: var(--spacing-1);
-  padding-bottom: var(--spacing-1);
+  ${selectScrollButtonStyles}
 `;
 
 const StyledChevronDown = styled(ChevronDown)`
@@ -108,16 +156,18 @@ const SelectScrollDownButton = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.ScrollDownButton>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollDownButton>
 >(({ className, ...props }, ref) => (
-  <StyledSelectScrollDownButton ref={ref} className={className} {...props}>
+  <StyledSelectScrollDownButton
+    ref={ref}
+    className={cx("q-select-scroll-button", className)}
+    {...props}
+  >
     <StyledChevronDown />
   </StyledSelectScrollDownButton>
 ));
 SelectScrollDownButton.displayName =
   SelectPrimitive.ScrollDownButton.displayName;
 
-const StyledSelectContent = styled(SelectPrimitive.Content)<{
-  $position?: "popper" | "item-aligned";
-}>`
+const selectContentStyles = css`
   color: var(--color-popover-fg);
   z-index: var(--z-index-100);
   position: relative;
@@ -127,7 +177,6 @@ const StyledSelectContent = styled(SelectPrimitive.Content)<{
   border-radius: var(--border-radius-md);
   border: var(--border-width-default) solid var(--color-border);
   background-color: var(--color-popover);
-  color: var(--color-popover-fg);
   box-shadow: var(--box-shadow-md);
 
   &[data-state="open"] {
@@ -154,22 +203,27 @@ const StyledSelectContent = styled(SelectPrimitive.Content)<{
     animation: slideInFromBottom 0.15s ease-out;
   }
 
-  ${(props) =>
-    props.$position === "popper" &&
-    `
-    &[data-side="bottom"] {
-      transform: translateY(var(--spacing-1));
-    }
-    &[data-side="left"] {
-      transform: translateX(calc(-1 * var(--spacing-1)));
-    }
-    &[data-side="right"] {
-      transform: translateX(var(--spacing-1));
-    }
-    &[data-side="top"] {
-      transform: translateY(calc(-1 * var(--spacing-1)));
-    }
-  `}
+  &[data-position="popper"][data-side="bottom"] {
+    transform: translateY(var(--spacing-1));
+  }
+
+  &[data-position="popper"][data-side="left"] {
+    transform: translateX(calc(-1 * var(--spacing-1)));
+  }
+
+  &[data-position="popper"][data-side="right"] {
+    transform: translateX(var(--spacing-1));
+  }
+
+  &[data-position="popper"][data-side="top"] {
+    transform: translateY(calc(-1 * var(--spacing-1)));
+  }
+
+  &[data-position="popper"] .q-select-viewport {
+    height: var(--radix-select-trigger-height);
+    width: 100%;
+    min-width: var(--radix-select-trigger-width);
+  }
 
   @keyframes fadeIn {
     from {
@@ -244,18 +298,16 @@ const StyledSelectContent = styled(SelectPrimitive.Content)<{
   }
 `;
 
-const StyledSelectViewport = styled(SelectPrimitive.Viewport)<{
-  $position?: "popper" | "item-aligned";
-}>`
-  padding: var(--spacing-1);
+const StyledSelectContent = styled(SelectPrimitive.Content)`
+  ${selectContentStyles}
+`;
 
-  ${(props) =>
-    props.$position === "popper" &&
-    `
-    height: var(--radix-select-trigger-height);
-    width: 100%;
-    min-width: var(--radix-select-trigger-width);
-  `}
+const selectViewportStyles = css`
+  padding: var(--spacing-1);
+`;
+
+const StyledSelectViewport = styled(SelectPrimitive.Viewport)`
+  ${selectViewportStyles}
 `;
 
 const SelectContent = React.forwardRef<
@@ -264,14 +316,15 @@ const SelectContent = React.forwardRef<
 >(({ className, children, position = "popper", ...props }, ref) => (
   <SelectPrimitive.Portal>
     <StyledSelectContent
+      data-testid="select__content"
       ref={ref}
-      className={className}
-      $position={position}
+      className={cx("q-select-content", className)}
+      data-position={position}
       position={position}
       {...props}
     >
       <SelectScrollUpButton />
-      <StyledSelectViewport $position={position}>
+      <StyledSelectViewport className="q-select-viewport">
         {children}
       </StyledSelectViewport>
       <SelectScrollDownButton />
@@ -280,7 +333,7 @@ const SelectContent = React.forwardRef<
 ));
 SelectContent.displayName = SelectPrimitive.Content.displayName;
 
-const StyledSelectLabel = styled(SelectPrimitive.Label)`
+const selectLabelStyles = css`
   padding-left: var(--spacing-2);
   padding-right: var(--spacing-2);
   padding-top: var(--spacing-1-5);
@@ -289,15 +342,23 @@ const StyledSelectLabel = styled(SelectPrimitive.Label)`
   font-weight: var(--font-weight-semibold);
 `;
 
+const StyledSelectLabel = styled(SelectPrimitive.Label)`
+  ${selectLabelStyles}
+`;
+
 const SelectLabel = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Label>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label>
 >(({ className, ...props }, ref) => (
-  <StyledSelectLabel ref={ref} className={className} {...props} />
+  <StyledSelectLabel
+    ref={ref}
+    className={cx("q-select-label", className)}
+    {...props}
+  />
 ));
 SelectLabel.displayName = SelectPrimitive.Label.displayName;
 
-const StyledSelectItemIndicatorWrapper = styled.span`
+const selectItemIndicatorStyles = css`
   position: absolute;
   right: var(--spacing-2);
   display: flex;
@@ -307,12 +368,16 @@ const StyledSelectItemIndicatorWrapper = styled.span`
   justify-content: center;
 `;
 
+const StyledSelectItemIndicatorWrapper = styled.span`
+  ${selectItemIndicatorStyles}
+`;
+
 const StyledCheckIcon = styled(Check)`
   height: var(--spacing-4);
   width: var(--spacing-4);
 `;
 
-const StyledSelectItem = styled(SelectPrimitive.Item)`
+const selectItemStyles = css`
   position: relative;
   display: flex;
   width: 100%;
@@ -338,14 +403,23 @@ const StyledSelectItem = styled(SelectPrimitive.Item)`
   }
 `;
 
+const StyledSelectItem = styled(SelectPrimitive.Item)`
+  ${selectItemStyles}
+`;
+
 const SelectItem = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
 >(({ className, children, ...props }, ref) => (
-  <StyledSelectItem ref={ref} className={className} {...props}>
-    <StyledSelectItemIndicatorWrapper>
+  <StyledSelectItem
+    data-testid={props.value ? `select__item-${props.value}` : undefined}
+    ref={ref}
+    className={cx("q-select-item", className)}
+    {...props}
+  >
+    <StyledSelectItemIndicatorWrapper className="q-select-item-indicator">
       <SelectPrimitive.ItemIndicator>
-        <StyledCheckIcon />
+        <StyledCheckIcon className="q-select-item-check" />
       </SelectPrimitive.ItemIndicator>
     </StyledSelectItemIndicatorWrapper>
     <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
@@ -353,7 +427,7 @@ const SelectItem = React.forwardRef<
 ));
 SelectItem.displayName = SelectPrimitive.Item.displayName;
 
-const StyledSelectSeparator = styled(SelectPrimitive.Separator)`
+const selectSeparatorStyles = css`
   margin-left: calc(-1 * var(--spacing-1));
   margin-right: calc(-1 * var(--spacing-1));
   margin-top: var(--spacing-1);
@@ -362,11 +436,19 @@ const StyledSelectSeparator = styled(SelectPrimitive.Separator)`
   background-color: var(--color-muted);
 `;
 
+const StyledSelectSeparator = styled(SelectPrimitive.Separator)`
+  ${selectSeparatorStyles}
+`;
+
 const SelectSeparator = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Separator>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Separator>
 >(({ className, ...props }, ref) => (
-  <StyledSelectSeparator ref={ref} className={className} {...props} />
+  <StyledSelectSeparator
+    ref={ref}
+    className={cx("q-select-separator", className)}
+    {...props}
+  />
 ));
 SelectSeparator.displayName = SelectPrimitive.Separator.displayName;
 

@@ -1,12 +1,12 @@
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 import * as React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Popover = PopoverPrimitive.Root;
 
 const PopoverTrigger = PopoverPrimitive.Trigger;
 
-const StyledPopoverContent = styled(PopoverPrimitive.Content)`
+const popoverContentStyles = css`
   color: var(--color-popover-fg);
   z-index: var(--z-index-50);
   width: var(--columns-xs);
@@ -138,16 +138,24 @@ const StyledPopoverContent = styled(PopoverPrimitive.Content)`
   }
 `;
 
+const StyledPopoverContent = styled(PopoverPrimitive.Content)`
+  ${popoverContentStyles}
+`;
+
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
+
 const PopoverContent = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>
 >(({ className, align = "center", sideOffset = 4, ...props }, ref) => (
   <PopoverPrimitive.Portal>
     <StyledPopoverContent
+      data-testid="popover__content"
       ref={ref}
       align={align}
       sideOffset={sideOffset}
-      className={className}
+      className={cx("q-popover-content", className)}
       {...props}
     />
   </PopoverPrimitive.Portal>

@@ -47,14 +47,19 @@ const StyledAvatarRoot = styled(AvatarPrimitive.Root)`
   ${avatarStyles}
 `;
 
-const StyledAvatarImage = styled(AvatarPrimitive.Image)`
+const avatarImageStyles = css`
   aspect-ratio: 1 / 1;
   height: 100%;
   width: 100%;
+  object-fit: cover;
   background-color: var(--color-black);
 `;
 
-const StyledAvatarFallback = styled(AvatarPrimitive.Fallback)`
+const StyledAvatarImage = styled(AvatarPrimitive.Image)`
+  ${avatarImageStyles}
+`;
+
+const avatarFallbackStyles = css`
   display: flex;
   height: 100%;
   width: 100%;
@@ -62,7 +67,15 @@ const StyledAvatarFallback = styled(AvatarPrimitive.Fallback)`
   justify-content: center;
   border-radius: var(--border-radius-full);
   background-color: var(--color-muted);
+  color: var(--color-muted-fg);
 `;
+
+const StyledAvatarFallback = styled(AvatarPrimitive.Fallback)`
+  ${avatarFallbackStyles}
+`;
+
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
 
 export type AvatarProps = React.ComponentPropsWithoutRef<
   typeof AvatarPrimitive.Root
@@ -79,7 +92,14 @@ export const Avatar = React.forwardRef<
 >(({ className, variant = "primary", size = "md", ...props }, ref) => {
   const classes = avatarVariants({ variant, size, className });
 
-  return <StyledAvatarRoot ref={ref} className={classes} {...props} />;
+  return (
+    <StyledAvatarRoot
+      data-testid="avatar"
+      ref={ref}
+      className={classes}
+      {...props}
+    />
+  );
 });
 Avatar.displayName = AvatarPrimitive.Root.displayName;
 
@@ -87,7 +107,12 @@ export const AvatarImage = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Image>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>
 >(({ className, ...props }, ref) => (
-  <StyledAvatarImage ref={ref} className={className} {...props} />
+  <StyledAvatarImage
+    data-testid="avatar__image"
+    ref={ref}
+    className={cx("q-avatar-image", className)}
+    {...props}
+  />
 ));
 AvatarImage.displayName = AvatarPrimitive.Image.displayName;
 
@@ -95,6 +120,11 @@ export const AvatarFallback = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Fallback>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>
 >(({ className, ...props }, ref) => (
-  <StyledAvatarFallback ref={ref} className={className} {...props} />
+  <StyledAvatarFallback
+    data-testid="avatar__fallback"
+    ref={ref}
+    className={cx("q-avatar-fallback", className)}
+    {...props}
+  />
 ));
 AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;

@@ -1,6 +1,6 @@
 import * as SliderPrimitive from "@radix-ui/react-slider";
 import * as React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export interface SliderProps
   extends Omit<
@@ -12,7 +12,7 @@ export interface SliderProps
   defaultValue?: number;
 }
 
-const StyledSliderRoot = styled(SliderPrimitive.Root)`
+const sliderStyles = css`
   position: relative;
   display: flex;
   width: 100%;
@@ -21,7 +21,11 @@ const StyledSliderRoot = styled(SliderPrimitive.Root)`
   align-items: center;
 `;
 
-const StyledSliderTrack = styled(SliderPrimitive.Track)`
+const StyledSliderRoot = styled(SliderPrimitive.Root)`
+  ${sliderStyles}
+`;
+
+const sliderTrackStyles = css`
   position: relative;
   height: var(--spacing-1-5);
   width: 100%;
@@ -31,13 +35,21 @@ const StyledSliderTrack = styled(SliderPrimitive.Track)`
   background-color: var(--color-muted);
 `;
 
-const StyledSliderRange = styled(SliderPrimitive.Range)`
+const StyledSliderTrack = styled(SliderPrimitive.Track)`
+  ${sliderTrackStyles}
+`;
+
+const sliderRangeStyles = css`
   position: absolute;
   height: 100%;
   background-color: var(--color-primary);
 `;
 
-const StyledSliderThumb = styled(SliderPrimitive.Thumb)`
+const StyledSliderRange = styled(SliderPrimitive.Range)`
+  ${sliderRangeStyles}
+`;
+
+const sliderThumbStyles = css`
   display: block;
   height: var(--spacing-4);
   width: var(--spacing-4);
@@ -58,6 +70,13 @@ const StyledSliderThumb = styled(SliderPrimitive.Thumb)`
   }
 `;
 
+const StyledSliderThumb = styled(SliderPrimitive.Thumb)`
+  ${sliderThumbStyles}
+`;
+
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
+
 const Slider = React.forwardRef<
   React.ElementRef<typeof SliderPrimitive.Root>,
   SliderProps
@@ -75,17 +94,18 @@ const Slider = React.forwardRef<
 
   return (
     <StyledSliderRoot
+      data-testid="slider"
       ref={ref}
-      className={className}
+      className={cx("q-slider", className)}
       value={sliderValue}
       onValueChange={handleValueChange}
       defaultValue={sliderDefaultValue}
       {...props}
     >
-      <StyledSliderTrack>
-        <StyledSliderRange />
+      <StyledSliderTrack data-testid="slider__track" className="q-slider-track">
+        <StyledSliderRange data-testid="slider__range" className="q-slider-range" />
       </StyledSliderTrack>
-      <StyledSliderThumb />
+      <StyledSliderThumb data-testid="slider__thumb" className="q-slider-thumb" />
     </StyledSliderRoot>
   );
 });

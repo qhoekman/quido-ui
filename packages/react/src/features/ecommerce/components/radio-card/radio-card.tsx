@@ -9,13 +9,20 @@ import {
   RadioGroupProps,
 } from "@radix-ui/react-radio-group";
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const StyledRadioCard = styled(RadioGroup)`
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
+
+const radioCardStyles = css`
   gap: var(--spacing-3);
 `;
 
-const StyledRadioCardItem = styled(RadioGroupItem)`
+const StyledRadioCard = styled(RadioGroup)`
+  ${radioCardStyles}
+`;
+
+const radioCardItemStyles = css`
   aspect-ratio: 1 / 1;
   display: flex;
   flex-direction: column;
@@ -37,7 +44,8 @@ const StyledRadioCardItem = styled(RadioGroupItem)`
     box-shadow: 0 0 0 1px var(--color-ring);
   }
 
-  &:disabled {
+  &:disabled,
+  &[data-disabled] {
     cursor: not-allowed;
     opacity: 0.5;
     background-color: var(--color-muted);
@@ -45,7 +53,11 @@ const StyledRadioCardItem = styled(RadioGroupItem)`
   }
 `;
 
-const StyledRadioCardItemIndicator = styled(RadioGroupItemIndicator)`
+const StyledRadioCardItem = styled(RadioGroupItem)`
+  ${radioCardItemStyles}
+`;
+
+const radioCardItemIndicatorStyles = css`
   position: absolute;
   top: 0;
   left: 0;
@@ -53,16 +65,30 @@ const StyledRadioCardItemIndicator = styled(RadioGroupItemIndicator)`
   height: 100%;
   padding: var(--spacing-4);
   border: var(--border-width-2) solid var(--color-primary);
+  border-radius: var(--border-radius-lg);
+  pointer-events: none;
+`;
+
+const StyledRadioCardItemIndicator = styled(RadioGroupItemIndicator)`
+  ${radioCardItemIndicatorStyles}
+`;
+
+const radioCardItemLabelStyles = css`
+  font-size: var(--font-size-sm);
 `;
 
 const StyledRadioCardItemLabel = styled(Label)`
-  font-size: var(--font-size-sm);
+  ${radioCardItemLabelStyles}
 `;
 
-const StyledRadioCardItemDescription = styled.p`
+const radioCardItemDescriptionStyles = css`
   margin-top: var(--spacing-1);
   font-size: var(--font-size-sm);
   text-align: left;
+`;
+
+const StyledRadioCardItemDescription = styled.p`
+  ${radioCardItemDescriptionStyles}
 `;
 
 type RadioCardProps = RadioGroupProps;
@@ -72,7 +98,12 @@ export const RadioCard = React.forwardRef<
   RadioCardProps
 >(({ className, children, ...props }, ref) => {
   return (
-    <StyledRadioCard className={className} {...props} ref={ref}>
+    <StyledRadioCard
+      className={cx("q-radio-card", className)}
+      data-testid="radio-card"
+      {...props}
+      ref={ref}
+    >
       {children}
     </StyledRadioCard>
   );
@@ -85,9 +116,19 @@ export const RadioCardItem = React.forwardRef<
   RadioCardItemProps
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledRadioCardItem className={className} {...props} ref={ref}>
+    <StyledRadioCardItem
+      className={cx("q-radio-card-item", className)}
+      data-testid={props.value ? `radio-card__item-${props.value}` : undefined}
+      {...props}
+      ref={ref}
+    >
       {children}
-      <StyledRadioCardItemIndicator>
+      <StyledRadioCardItemIndicator
+        data-testid={
+          props.value ? `radio-card__item-indicator-${props.value}` : undefined
+        }
+        className="q-radio-card-item-indicator"
+      >
         <div />
       </StyledRadioCardItemIndicator>
     </StyledRadioCardItem>
@@ -102,7 +143,11 @@ export const RadioCardItemLabel = React.forwardRef<
   RadioCardItemLabelProps
 >(({ className, ...props }, ref) => {
   return (
-    <StyledRadioCardItemLabel ref={ref} className={className} {...props} />
+    <StyledRadioCardItemLabel
+      ref={ref}
+      className={cx("q-radio-card-item-label", className)}
+      {...props}
+    />
   );
 });
 RadioCardItemLabel.displayName = "RadioCardItemLabel";
@@ -115,7 +160,7 @@ export const RadioCardItemDescription = React.forwardRef<
   return (
     <StyledRadioCardItemDescription
       ref={ref}
-      className={className}
+      className={cx("q-radio-card-item-description", className)}
       {...props}
     />
   );

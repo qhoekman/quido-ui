@@ -8,6 +8,7 @@ const toggleVariants = cva("q-toggle", {
     variant: {
       primary: "variant--primary",
       outline: "variant--outline",
+      default: "variant--default",
     },
     size: {
       md: "size--md",
@@ -25,6 +26,8 @@ const toggleStyles = css`
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: var(--spacing-2);
+  margin: 0;
   border-radius: var(--border-radius-md);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
@@ -33,7 +36,7 @@ const toggleStyles = css`
   outline: none;
   border: 0 none;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: var(--color-muted);
     color: var(--color-muted-fg);
   }
@@ -43,9 +46,20 @@ const toggleStyles = css`
     box-shadow: 0 0 0 1px var(--color-ring);
   }
 
-  &:disabled {
+  &:disabled,
+  &[data-disabled] {
     pointer-events: none;
     opacity: 0.5;
+  }
+
+  &.variant--default {
+    background-color: var(--color-card);
+    color: var(--color-card-fg);
+    box-shadow: var(--box-shadow-sm);
+  }
+  &.variant--default[data-state="on"] {
+    background-color: var(--color-primary);
+    color: var(--color-primary-fg);
   }
 
   &.variant--primary {
@@ -115,7 +129,9 @@ export const Toggle = React.forwardRef<
 >(({ className, variant, size, ...props }, ref) => {
   const classes = toggleVariants({ variant, size, className });
 
-  return <StyledToggle ref={ref} className={classes} {...props} />;
+  return (
+    <StyledToggle data-testid="toggle" ref={ref} className={classes} {...props} />
+  );
 });
 
 Toggle.displayName = TogglePrimitive.Root.displayName;

@@ -1,10 +1,13 @@
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import * as React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
 
 const Tabs = TabsPrimitive.Root;
 
-const StyledTabsList = styled(TabsPrimitive.List)`
+const tabsListStyles = css`
   display: inline-flex;
   height: var(--spacing-10);
   align-items: center;
@@ -13,9 +16,32 @@ const StyledTabsList = styled(TabsPrimitive.List)`
   background-color: var(--color-card);
   color: var(--color-card-fg);
   padding: var(--spacing-1);
+
+  & a,
+  & button {
+    position: relative;
+    border-radius: 0;
+    margin: 0;
+  }
+
+  & a:first-child,
+  & button:first-child {
+    border-top-left-radius: var(--border-radius-md);
+    border-bottom-left-radius: var(--border-radius-md);
+  }
+
+  & a:last-child,
+  & button:last-child {
+    border-top-right-radius: var(--border-radius-md);
+    border-bottom-right-radius: var(--border-radius-md);
+  }
 `;
 
-const StyledTabsTrigger = styled(TabsPrimitive.Trigger)`
+const StyledTabsList = styled(TabsPrimitive.List)`
+  ${tabsListStyles}
+`;
+
+const tabsTriggerStyles = css`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -31,6 +57,7 @@ const StyledTabsTrigger = styled(TabsPrimitive.Trigger)`
   color: var(--color-muted-fg);
   transition: all 0.3s;
   width: 100%;
+  outline: none;
 
   &:focus-visible {
     outline: none;
@@ -49,9 +76,14 @@ const StyledTabsTrigger = styled(TabsPrimitive.Trigger)`
   }
 `;
 
-const StyledTabsContent = styled(TabsPrimitive.Content)`
+const StyledTabsTrigger = styled(TabsPrimitive.Trigger)`
+  ${tabsTriggerStyles}
+`;
+
+const tabsContentStyles = css`
   margin-top: var(--spacing-2);
   box-shadow: 0 0 0 0 var(--color-background);
+  outline: none;
 
   &:focus-visible {
     outline: none;
@@ -59,11 +91,20 @@ const StyledTabsContent = styled(TabsPrimitive.Content)`
   }
 `;
 
+const StyledTabsContent = styled(TabsPrimitive.Content)`
+  ${tabsContentStyles}
+`;
+
 const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
 >(({ className, ...props }, ref) => (
-  <StyledTabsList ref={ref} className={className} {...props} />
+  <StyledTabsList
+    ref={ref}
+    data-testid="tabs__list"
+    className={cx("q-tabs-list", className)}
+    {...props}
+  />
 ));
 TabsList.displayName = TabsPrimitive.List.displayName;
 
@@ -71,7 +112,12 @@ const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
 >(({ className, ...props }, ref) => (
-  <StyledTabsTrigger ref={ref} className={className} {...props} />
+  <StyledTabsTrigger
+    ref={ref}
+    data-testid={props.value ? `tabs__trigger-${props.value}` : undefined}
+    className={cx("q-tabs-trigger", className)}
+    {...props}
+  />
 ));
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
 
@@ -79,7 +125,12 @@ const TabsContent = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
 >(({ className, ...props }, ref) => (
-  <StyledTabsContent ref={ref} className={className} {...props} />
+  <StyledTabsContent
+    ref={ref}
+    data-testid={props.value ? `tabs__content-${props.value}` : undefined}
+    className={cx("q-tabs-content", className)}
+    {...props}
+  />
 ));
 TabsContent.displayName = TabsPrimitive.Content.displayName;
 

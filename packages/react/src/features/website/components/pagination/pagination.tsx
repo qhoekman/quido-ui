@@ -4,6 +4,9 @@ import styled, { css } from "styled-components";
 
 import { ButtonProps, buttonVariants } from "@/components/button/button";
 
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
+
 const buttonStyles = css`
   display: inline-flex;
   align-items: center;
@@ -60,17 +63,24 @@ const buttonStyles = css`
   }
 
   &.variant--outline {
+    color: var(--color-background-fg);
     border: var(--border-width-default) solid var(--color-border);
     background-color: transparent;
 
-    &:hover {
+    &:hover:not(:disabled) {
       background-color: hsl(from var(--color-background-fg) h s l / 10%);
       color: hsl(from var(--color-background-fg) h s l / 90%);
+    }
+
+    &[aria-current="page"] {
+      border-color: currentcolor;
     }
   }
 
   &.variant--ghost {
-    &:hover {
+    color: var(--color-background-fg);
+
+    &:hover:not(:disabled) {
       background-color: hsl(from var(--color-background-fg) h s l / 10%);
       color: hsl(from var(--color-background-fg) h s l / 90%);
     }
@@ -114,7 +124,7 @@ const buttonStyles = css`
   }
 `;
 
-const StyledPagination = styled.nav`
+const paginationStyles = css`
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -122,7 +132,11 @@ const StyledPagination = styled.nav`
   justify-content: center;
 `;
 
-const StyledPaginationContent = styled.ul`
+const StyledPagination = styled.nav`
+  ${paginationStyles}
+`;
+
+const paginationContentStyles = css`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -130,23 +144,41 @@ const StyledPaginationContent = styled.ul`
   gap: var(--spacing-1);
 `;
 
-const StyledPaginationItem = styled.li``;
+const StyledPaginationContent = styled.ul`
+  ${paginationContentStyles}
+`;
+
+const paginationItemStyles = css`
+  list-style: none;
+`;
+
+const StyledPaginationItem = styled.li`
+  ${paginationItemStyles}
+`;
 
 const StyledPaginationLink = styled.a`
   ${buttonStyles}
 `;
 
-const StyledPaginationPrevious = styled(StyledPaginationLink)`
+const paginationPreviousStyles = css`
   gap: var(--spacing-1);
   padding-left: var(--spacing-2-5);
 `;
 
-const StyledPaginationNext = styled(StyledPaginationLink)`
+const StyledPaginationPrevious = styled(StyledPaginationLink)`
+  ${paginationPreviousStyles}
+`;
+
+const paginationNextStyles = css`
   gap: var(--spacing-1);
   padding-right: var(--spacing-2-5);
 `;
 
-const StyledPaginationEllipsis = styled.span`
+const StyledPaginationNext = styled(StyledPaginationLink)`
+  ${paginationNextStyles}
+`;
+
+const paginationEllipsisStyles = css`
   display: flex;
   height: var(--spacing-9);
   width: var(--spacing-9);
@@ -154,11 +186,16 @@ const StyledPaginationEllipsis = styled.span`
   justify-content: center;
 `;
 
+const StyledPaginationEllipsis = styled.span`
+  ${paginationEllipsisStyles}
+`;
+
 const Pagination = ({ className, ...props }: React.ComponentProps<"nav">) => (
   <StyledPagination
     role="navigation"
     aria-label="pagination"
-    className={className}
+    data-testid="pagination"
+    className={cx("q-pagination", className)}
     {...props}
   />
 );
@@ -167,7 +204,12 @@ const PaginationContent = React.forwardRef<
   HTMLUListElement,
   React.ComponentProps<"ul">
 >(({ className, ...props }, ref) => (
-  <StyledPaginationContent ref={ref} className={className} {...props} />
+  <StyledPaginationContent
+    ref={ref}
+    data-testid="pagination__content"
+    className={cx("q-pagination-content", className)}
+    {...props}
+  />
 ));
 PaginationContent.displayName = "PaginationContent";
 
@@ -175,7 +217,12 @@ const PaginationItem = React.forwardRef<
   HTMLLIElement,
   React.ComponentProps<"li">
 >(({ className, ...props }, ref) => (
-  <StyledPaginationItem ref={ref} className={className} {...props} />
+  <StyledPaginationItem
+    ref={ref}
+    data-testid="pagination__item"
+    className={cx("q-pagination-item", className)}
+    {...props}
+  />
 ));
 PaginationItem.displayName = "PaginationItem";
 
@@ -193,13 +240,13 @@ const PaginationLink = ({
   const classes = buttonVariants({
     variant: isActive ? "outline" : "ghost",
     size: size || "icon",
-    className,
   });
 
   return (
     <StyledPaginationLink
       aria-current={isActive ? "page" : undefined}
-      className={classes}
+      data-testid="pagination__link"
+      className={cx("q-pagination-link", classes, className)}
       {...props}
     />
   );
@@ -213,13 +260,13 @@ const PaginationPrevious = ({
   const classes = buttonVariants({
     variant: props.isActive ? "outline" : "ghost",
     size: "md",
-    className,
   });
 
   return (
     <StyledPaginationPrevious
       aria-label="Go to previous page"
-      className={classes}
+      data-testid="pagination__previous"
+      className={cx("q-pagination-previous", classes, className)}
       {...props}
     >
       <ChevronLeft size={16} />
@@ -236,13 +283,13 @@ const PaginationNext = ({
   const classes = buttonVariants({
     variant: props.isActive ? "outline" : "ghost",
     size: "md",
-    className,
   });
 
   return (
     <StyledPaginationNext
       aria-label="Go to next page"
-      className={classes}
+      data-testid="pagination__next"
+      className={cx("q-pagination-next", classes, className)}
       {...props}
     >
       <span>Next</span>
@@ -256,7 +303,12 @@ const PaginationEllipsis = ({
   className,
   ...props
 }: React.ComponentProps<"span">) => (
-  <StyledPaginationEllipsis aria-hidden className={className} {...props}>
+  <StyledPaginationEllipsis
+    aria-hidden
+    data-testid="pagination__ellipsis"
+    className={cx("q-pagination-ellipsis", className)}
+    {...props}
+  >
     <MoreHorizontal size={16} />
     <span className="sr-only">More pages</span>
   </StyledPaginationEllipsis>

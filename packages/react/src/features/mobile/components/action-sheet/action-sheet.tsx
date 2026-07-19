@@ -1,6 +1,9 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Drawer as ActionSheetPrimitive } from "vaul";
+
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
 
 const ActionSheet = ({
   shouldScaleBackground = true,
@@ -19,22 +22,31 @@ const ActionSheetPortal = ActionSheetPrimitive.Portal;
 
 const ActionSheetClose = ActionSheetPrimitive.Close;
 
-const StyledActionSheetOverlay = styled(ActionSheetPrimitive.Overlay)`
+const actionSheetOverlayStyles = css`
   position: fixed;
   inset: 0;
   z-index: var(--z-index-50);
   background-color: hsl(from var(--color-black) h s l / 80%);
 `;
 
+const StyledActionSheetOverlay = styled(ActionSheetPrimitive.Overlay)`
+  ${actionSheetOverlayStyles}
+`;
+
 const ActionSheetOverlay = React.forwardRef<
   React.ElementRef<typeof ActionSheetPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof ActionSheetPrimitive.Overlay>
 >(({ className, ...props }, ref) => (
-  <StyledActionSheetOverlay ref={ref} className={className} {...props} />
+  <StyledActionSheetOverlay
+    ref={ref}
+    data-testid="action-sheet__overlay"
+    className={cx("q-action-sheet-overlay", className)}
+    {...props}
+  />
 ));
 ActionSheetOverlay.displayName = ActionSheetPrimitive.Overlay.displayName;
 
-const StyledActionSheetHandle = styled.div`
+const actionSheetHandleStyles = css`
   margin-left: auto;
   margin-right: auto;
   margin-top: var(--spacing-4);
@@ -45,7 +57,11 @@ const StyledActionSheetHandle = styled.div`
   color: var(--color-muted-fg);
 `;
 
-const StyledActionSheetContent = styled(ActionSheetPrimitive.Content)`
+const StyledActionSheetHandle = styled.div`
+  ${actionSheetHandleStyles}
+`;
+
+const actionSheetContentStyles = css`
   position: fixed;
   left: 0;
   right: 0;
@@ -61,21 +77,33 @@ const StyledActionSheetContent = styled(ActionSheetPrimitive.Content)`
   background-color: var(--color-background);
 `;
 
+const StyledActionSheetContent = styled(ActionSheetPrimitive.Content)`
+  ${actionSheetContentStyles}
+`;
+
 const ActionSheetContent = React.forwardRef<
   React.ElementRef<typeof ActionSheetPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof ActionSheetPrimitive.Content>
 >(({ className, children, ...props }, ref) => (
   <ActionSheetPortal>
     <ActionSheetOverlay />
-    <StyledActionSheetContent ref={ref} className={className} {...props}>
-      <StyledActionSheetHandle />
+    <StyledActionSheetContent
+      ref={ref}
+      data-testid="action-sheet__content"
+      className={cx("q-action-sheet-content", className)}
+      {...props}
+    >
+      <StyledActionSheetHandle
+        data-testid="action-sheet__handle"
+        className="q-action-sheet-handle"
+      />
       {children}
     </StyledActionSheetContent>
   </ActionSheetPortal>
 ));
 ActionSheetContent.displayName = "ActionSheetContent";
 
-const StyledActionSheetHeader = styled.div`
+const actionSheetHeaderStyles = css`
   display: grid;
   gap: var(--spacing-1-5);
   padding: var(--spacing-4);
@@ -86,15 +114,23 @@ const StyledActionSheetHeader = styled.div`
   }
 `;
 
+const StyledActionSheetHeader = styled.div`
+  ${actionSheetHeaderStyles}
+`;
+
 const ActionSheetHeader = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
-  <StyledActionSheetHeader className={className} {...props} />
+  <StyledActionSheetHeader
+    data-testid="action-sheet__header"
+    className={cx("q-action-sheet-header", className)}
+    {...props}
+  />
 );
 ActionSheetHeader.displayName = "ActionSheetHeader";
 
-const StyledActionSheetFooter = styled.div`
+const actionSheetFooterStyles = css`
   margin-top: auto;
   display: flex;
   flex-direction: column;
@@ -102,39 +138,65 @@ const StyledActionSheetFooter = styled.div`
   padding: var(--spacing-4);
 `;
 
+const StyledActionSheetFooter = styled.div`
+  ${actionSheetFooterStyles}
+`;
+
 const ActionSheetFooter = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
-  <StyledActionSheetFooter className={className} {...props} />
+  <StyledActionSheetFooter
+    data-testid="action-sheet__footer"
+    className={cx("q-action-sheet-footer", className)}
+    {...props}
+  />
 );
 ActionSheetFooter.displayName = "ActionSheetFooter";
 
-const StyledActionSheetTitle = styled(ActionSheetPrimitive.Title)`
+const actionSheetTitleStyles = css`
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-none);
   letter-spacing: var(--letter-spacing-tight);
 `;
 
+const StyledActionSheetTitle = styled(ActionSheetPrimitive.Title)`
+  ${actionSheetTitleStyles}
+`;
+
 const ActionSheetTitle = React.forwardRef<
   React.ElementRef<typeof ActionSheetPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof ActionSheetPrimitive.Title>
 >(({ className, ...props }, ref) => (
-  <StyledActionSheetTitle ref={ref} className={className} {...props} />
+  <StyledActionSheetTitle
+    ref={ref}
+    data-testid="action-sheet__title"
+    className={cx("q-action-sheet-title", className)}
+    {...props}
+  />
 ));
 ActionSheetTitle.displayName = ActionSheetPrimitive.Title.displayName;
 
-const StyledActionSheetDescription = styled(ActionSheetPrimitive.Description)`
+const actionSheetDescriptionStyles = css`
   font-size: var(--font-size-sm);
   color: var(--color-background-fg);
+`;
+
+const StyledActionSheetDescription = styled(ActionSheetPrimitive.Description)`
+  ${actionSheetDescriptionStyles}
 `;
 
 const ActionSheetDescription = React.forwardRef<
   React.ElementRef<typeof ActionSheetPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof ActionSheetPrimitive.Description>
 >(({ className, ...props }, ref) => (
-  <StyledActionSheetDescription ref={ref} className={className} {...props} />
+  <StyledActionSheetDescription
+    ref={ref}
+    data-testid="action-sheet__description"
+    className={cx("q-action-sheet-description", className)}
+    {...props}
+  />
 ));
 ActionSheetDescription.displayName =
   ActionSheetPrimitive.Description.displayName;

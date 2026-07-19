@@ -1,9 +1,9 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { GripVertical } from "lucide-react";
 import * as ResizablePrimitive from "react-resizable-panels";
 
-const StyledPanelGroup = styled(ResizablePrimitive.PanelGroup)`
+const panelGroupStyles = css`
   display: flex;
   height: 100%;
   width: 100%;
@@ -13,14 +13,22 @@ const StyledPanelGroup = styled(ResizablePrimitive.PanelGroup)`
   }
 `;
 
-const StyledPanelResizeHandle = styled(ResizablePrimitive.PanelResizeHandle)`
+const StyledPanelGroup = styled(ResizablePrimitive.PanelGroup)`
+  ${panelGroupStyles}
+`;
+
+const handleStyles = css`
   position: relative;
   display: flex;
+  flex-shrink: 0;
+  flex-grow: 0;
   width: 1px;
   align-items: center;
   justify-content: center;
   background-color: var(--color-muted);
   color: var(--color-muted-fg);
+  cursor: col-resize;
+  user-select: none;
 
   &::after {
     content: "";
@@ -40,6 +48,7 @@ const StyledPanelResizeHandle = styled(ResizablePrimitive.PanelResizeHandle)`
   &[data-panel-group-direction="vertical"] {
     height: 1px;
     width: 100%;
+    cursor: row-resize;
 
     &::after {
       top: 50%;
@@ -55,7 +64,11 @@ const StyledPanelResizeHandle = styled(ResizablePrimitive.PanelResizeHandle)`
   }
 `;
 
-const StyledHandle = styled.div`
+const StyledPanelResizeHandle = styled(ResizablePrimitive.PanelResizeHandle)`
+  ${handleStyles}
+`;
+
+const handleGripStyles = css`
   z-index: var(--z-index-10);
   display: flex;
   height: var(--spacing-4);
@@ -67,16 +80,27 @@ const StyledHandle = styled.div`
   background-color: var(--color-border);
 `;
 
+const StyledHandle = styled.div`
+  ${handleGripStyles}
+`;
+
 const StyledGripIcon = styled(GripVertical)`
   height: var(--spacing-2-5);
   width: var(--spacing-2-5);
 `;
 
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
+
 const ResizablePanelGroup = ({
   className,
   ...props
 }: React.ComponentProps<typeof ResizablePrimitive.PanelGroup>) => (
-  <StyledPanelGroup className={className} {...props} />
+  <StyledPanelGroup
+    data-testid="resizable"
+    className={cx("q-resizable-panel-group", className)}
+    {...props}
+  />
 );
 
 const ResizablePanel = ResizablePrimitive.Panel;
@@ -88,9 +112,13 @@ const ResizableHandle = ({
 }: React.ComponentProps<typeof ResizablePrimitive.PanelResizeHandle> & {
   withHandle?: boolean;
 }) => (
-  <StyledPanelResizeHandle className={className} {...props}>
+  <StyledPanelResizeHandle
+    data-testid="resizable__handle"
+    className={cx("q-resizable-handle", className)}
+    {...props}
+  >
     {withHandle && (
-      <StyledHandle>
+      <StyledHandle className="q-resizable-handle-grip">
         <StyledGripIcon />
       </StyledHandle>
     )}

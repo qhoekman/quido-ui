@@ -2,21 +2,34 @@ import React, { SVGProps } from "react";
 import styled, { css } from "styled-components";
 import { cva } from "class-variance-authority";
 
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
+
 const starVariants = cva("q-star", {
   variants: {
     filled: {
-      true: "filled",
+      true: "variant--filled",
+      false: "variant--unfilled",
     },
+  },
+  defaultVariants: {
+    filled: false,
   },
 });
 
 const starStyles = css`
   width: var(--spacing-4);
   height: var(--spacing-4);
-  fill: var(--color-muted);
+  flex-shrink: 0;
 
-  &.filled {
+  &.variant--filled {
     fill: var(--color-yellow-500);
+    color: var(--color-yellow-500);
+  }
+
+  &.variant--unfilled {
+    fill: var(--color-muted);
+    color: var(--color-muted);
   }
 `;
 
@@ -24,10 +37,14 @@ const StyledStar = styled.svg`
   ${starStyles}
 `;
 
-const StyledStars = styled.div`
+const starsStyles = css`
   display: flex;
   align-items: center;
   gap: var(--spacing-1);
+`;
+
+const StyledStars = styled.div`
+  ${starsStyles}
 `;
 
 type StarsProps = React.HTMLAttributes<HTMLDivElement> & {
@@ -38,10 +55,17 @@ type StarsProps = React.HTMLAttributes<HTMLDivElement> & {
 export const Stars = React.forwardRef<HTMLDivElement, StarsProps>(
   ({ className, total = 5, rating, ...props }, ref) => {
     return (
-      <StyledStars ref={ref} className={className} {...props}>
+      <StyledStars
+        ref={ref}
+        data-testid="stars"
+        className={cx("q-stars", className)}
+        {...props}
+      >
         {Array.from({ length: total }).map((_, index) => (
           <Star
             key={index}
+            data-testid={`stars__star-${index}`}
+            data-filled={index < rating}
             className={starVariants({ filled: index < rating })}
           />
         ))}

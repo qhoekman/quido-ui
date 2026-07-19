@@ -1,8 +1,8 @@
 import * as SwitchPrimitives from "@radix-ui/react-switch";
 import * as React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const StyledSwitchRoot = styled(SwitchPrimitives.Root)`
+const switchStyles = css`
   display: inline-flex;
   height: var(--spacing-5);
   width: var(--spacing-9);
@@ -19,7 +19,8 @@ const StyledSwitchRoot = styled(SwitchPrimitives.Root)`
     box-shadow: 0 0 0 2px var(--color-ring), 0 0 0 4px var(--color-background);
   }
 
-  &:disabled {
+  &:disabled,
+  &[data-disabled] {
     cursor: not-allowed;
     opacity: 0.5;
   }
@@ -33,7 +34,11 @@ const StyledSwitchRoot = styled(SwitchPrimitives.Root)`
   }
 `;
 
-const StyledSwitchThumb = styled(SwitchPrimitives.Thumb)`
+const StyledSwitchRoot = styled(SwitchPrimitives.Root)`
+  ${switchStyles}
+`;
+
+const switchThumbStyles = css`
   pointer-events: none;
   display: block;
   height: var(--spacing-4);
@@ -52,12 +57,24 @@ const StyledSwitchThumb = styled(SwitchPrimitives.Thumb)`
   }
 `;
 
+const StyledSwitchThumb = styled(SwitchPrimitives.Thumb)`
+  ${switchThumbStyles}
+`;
+
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
+
 const Switch = React.forwardRef<
   React.ElementRef<typeof SwitchPrimitives.Root>,
   React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>
 >(({ className, ...props }, ref) => (
-  <StyledSwitchRoot className={className} {...props} ref={ref}>
-    <StyledSwitchThumb />
+  <StyledSwitchRoot
+    data-testid="switch"
+    className={cx("q-switch", className)}
+    {...props}
+    ref={ref}
+  >
+    <StyledSwitchThumb data-testid="switch__thumb" className="q-switch-thumb" />
   </StyledSwitchRoot>
 ));
 Switch.displayName = SwitchPrimitives.Root.displayName;

@@ -1,21 +1,12 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
 
 const StyledFooter = styled.footer``;
 
-const StyledFooterSrOnly = styled.h2`
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-`;
-
-const StyledFooterContainer = styled.div`
+const footerContainerStyles = css`
   margin-left: auto;
   margin-right: auto;
   max-width: var(--columns-7xl);
@@ -35,7 +26,11 @@ const StyledFooterContainer = styled.div`
   }
 `;
 
-const StyledFooterContent = styled.div`
+const StyledFooterContainer = styled.div`
+  ${footerContainerStyles}
+`;
+
+const footerContentStyles = css`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -50,7 +45,11 @@ const StyledFooterContent = styled.div`
   }
 `;
 
-const StyledFooterColumns = styled.div`
+const StyledFooterContent = styled.div`
+  ${footerContentStyles}
+`;
+
+const footerColumnsStyles = css`
   @media (min-width: 640px) {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -62,7 +61,11 @@ const StyledFooterColumns = styled.div`
   }
 `;
 
-const StyledFooterColumn = styled.div`
+const StyledFooterColumns = styled.div`
+  ${footerColumnsStyles}
+`;
+
+const footerColumnStyles = css`
   margin-top: var(--spacing-10);
 
   @media (min-width: 640px) {
@@ -70,35 +73,57 @@ const StyledFooterColumn = styled.div`
   }
 `;
 
-const StyledFooterHeading = styled.h3`
+const StyledFooterColumn = styled.div`
+  ${footerColumnStyles}
+`;
+
+const footerHeadingStyles = css`
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-6);
-  color: var(--color-muted-fg);
+  color: var(--color-background-fg);
+  margin: 0;
+  padding: 0;
 `;
 
-const StyledFooterColumnList = styled.ul`
+const StyledFooterHeading = styled.h3`
+  ${footerHeadingStyles}
+`;
+
+const footerColumnListStyles = css`
   margin-top: var(--spacing-2);
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-4);
+  gap: var(--spacing-1);
+  padding: 0;
 
   @media (min-width: 1024px) {
     margin-top: var(--spacing-6);
   }
 `;
 
-const StyledFooterColumnListItem = styled.li`
+const StyledFooterColumnList = styled.ul`
+  ${footerColumnListStyles}
+`;
+
+const footerColumnListItemStyles = css`
   font-size: var(--font-size-sm);
   line-height: var(--line-height-6);
-  color: var(--color-muted-fg);
+  color: hsl(from var(--color-background-fg) h s l / 66%);
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
   &:hover {
-    color: var(--color-primary);
+    color: var(--color-background-fg);
   }
 `;
 
-const StyledFooterSection = styled.div`
+const StyledFooterColumnListItem = styled.li`
+  ${footerColumnListItemStyles}
+`;
+
+const footerSectionStyles = css`
   display: flex;
   max-width: var(--columns-xs);
   flex-direction: column;
@@ -109,12 +134,18 @@ const StyledFooterSection = styled.div`
   }
 `;
 
-const StyledFooterBanner = styled.div`
+const StyledFooterSection = styled.div`
+  ${footerSectionStyles}
+`;
+
+const footerBannerStyles = css`
   margin-top: var(--spacing-12);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: var(--spacing-6);
+  color: var(--color-background-fg);
+  fill: currentColor;
+  gap: var(--spacing-1);
   border-top: var(--border-width-default) solid
     hsl(from var(--color-border) h s l / 10%);
   padding-top: var(--spacing-4);
@@ -133,21 +164,34 @@ const StyledFooterBanner = styled.div`
   }
 `;
 
-const StyledFooterCopyright = styled.p`
-  font-size: var(--font-size-xs);
-  line-height: var(--line-height-5);
-  color: var(--color-muted-fg);
+const StyledFooterBanner = styled.div`
+  ${footerBannerStyles}
 `;
 
-const StyledFooterLink = styled.a`
+const footerCopyrightStyles = css`
   font-size: var(--font-size-xs);
   line-height: var(--line-height-5);
-  color: var(--color-muted-fg);
+  color: hsl(from var(--color-background-fg) h s l / 55%);
+  margin: 0;
+`;
+
+const StyledFooterCopyright = styled.p`
+  ${footerCopyrightStyles}
+`;
+
+const footerLinkStyles = css`
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-5);
+  color: hsl(from var(--color-background-fg) h s l / 55%);
   text-decoration: underline;
 
   &:hover {
-    color: var(--color-primary);
+    color: hsl(from var(--color-background-fg) h s l / 66%);
   }
+`;
+
+const StyledFooterLink = styled.a`
+  ${footerLinkStyles}
 `;
 
 export const Footer = React.forwardRef<
@@ -155,10 +199,21 @@ export const Footer = React.forwardRef<
   React.ComponentPropsWithoutRef<"footer">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledFooter ref={ref} aria-labelledby="footer-heading">
-      <StyledFooterSrOnly id="footer-heading">Footer</StyledFooterSrOnly>
+    <StyledFooter
+      ref={ref}
+      data-testid="footer"
+      className="q-footer"
+      aria-labelledby="footer-heading"
+    >
+      <h2 id="footer-heading" className="sr-only">
+        Footer
+      </h2>
 
-      <StyledFooterContainer className={className} {...props}>
+      <StyledFooterContainer
+        data-testid="footer__container"
+        className={cx("q-footer-container", className)}
+        {...props}
+      >
         {children}
       </StyledFooterContainer>
     </StyledFooter>
@@ -171,7 +226,12 @@ export const FooterContent = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledFooterContent ref={ref} className={className} {...props}>
+    <StyledFooterContent
+      ref={ref}
+      data-testid="footer__content"
+      className={cx("q-footer-content", className)}
+      {...props}
+    >
       {children}
     </StyledFooterContent>
   );
@@ -183,7 +243,12 @@ export const FooterColumns = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledFooterColumns ref={ref} className={className} {...props}>
+    <StyledFooterColumns
+      ref={ref}
+      data-testid="footer__columns"
+      className={cx("q-footer-columns", className)}
+      {...props}
+    >
       {children}
     </StyledFooterColumns>
   );
@@ -195,7 +260,12 @@ export const FooterColumn = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledFooterColumn ref={ref} className={className} {...props}>
+    <StyledFooterColumn
+      ref={ref}
+      data-testid="footer__column"
+      className={cx("q-footer-column", className)}
+      {...props}
+    >
       {children}
     </StyledFooterColumn>
   );
@@ -207,7 +277,12 @@ export const FooterHeading = React.forwardRef<
   React.ComponentPropsWithoutRef<"h3">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledFooterHeading ref={ref} className={className} {...props}>
+    <StyledFooterHeading
+      ref={ref}
+      data-testid="footer__heading"
+      className={cx("q-footer-heading", className)}
+      {...props}
+    >
       {children}
     </StyledFooterHeading>
   );
@@ -222,7 +297,8 @@ export const FooterColumnList = React.forwardRef<
     <StyledFooterColumnList
       ref={ref}
       role="list"
-      className={className}
+      data-testid="footer__column-list"
+      className={cx("q-footer-column-list", className)}
       {...props}
     >
       {children}
@@ -236,7 +312,12 @@ export const FooterColumnListItem = React.forwardRef<
   React.ComponentPropsWithoutRef<"li">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledFooterColumnListItem ref={ref} className={className} {...props}>
+    <StyledFooterColumnListItem
+      ref={ref}
+      data-testid="footer__column-list-item"
+      className={cx("q-footer-column-list-item", className)}
+      {...props}
+    >
       {children}
     </StyledFooterColumnListItem>
   );
@@ -248,7 +329,12 @@ export const FooterSection = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledFooterSection ref={ref} className={className} {...props}>
+    <StyledFooterSection
+      ref={ref}
+      data-testid="footer__section"
+      className={cx("q-footer-section", className)}
+      {...props}
+    >
       {children}
     </StyledFooterSection>
   );
@@ -260,7 +346,12 @@ export const FooterBanner = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledFooterBanner ref={ref} className={className} {...props}>
+    <StyledFooterBanner
+      ref={ref}
+      data-testid="footer__banner"
+      className={cx("q-footer-banner", className)}
+      {...props}
+    >
       {children}
     </StyledFooterBanner>
   );
@@ -272,7 +363,12 @@ export const FooterCopyright = React.forwardRef<
   React.ComponentPropsWithoutRef<"p">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledFooterCopyright ref={ref} className={className} {...props}>
+    <StyledFooterCopyright
+      ref={ref}
+      data-testid="footer__copyright"
+      className={cx("q-footer-copyright", className)}
+      {...props}
+    >
       {children}
     </StyledFooterCopyright>
   );
@@ -284,7 +380,12 @@ export const FooterLink = React.forwardRef<
   React.ComponentPropsWithoutRef<"a">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledFooterLink ref={ref} className={className} {...props}>
+    <StyledFooterLink
+      ref={ref}
+      data-testid="footer__link"
+      className={cx("q-footer-link", className)}
+      {...props}
+    >
       {children}
     </StyledFooterLink>
   );

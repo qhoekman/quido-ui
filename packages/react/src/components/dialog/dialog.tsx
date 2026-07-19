@@ -1,7 +1,11 @@
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 import * as React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { cva, type VariantProps } from "class-variance-authority";
+
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
 
 const Dialog = DialogPrimitive.Root;
 Dialog.displayName = "Dialog";
@@ -15,7 +19,7 @@ DialogPortal.displayName = "DialogPortal";
 const DialogClose = DialogPrimitive.Close;
 DialogClose.displayName = "DialogClose";
 
-const StyledDialogOverlay = styled(DialogPrimitive.Overlay)`
+const dialogOverlayStyles = css`
   position: fixed;
   inset: 0;
   z-index: var(--z-index-50);
@@ -49,25 +53,40 @@ const StyledDialogOverlay = styled(DialogPrimitive.Overlay)`
   }
 `;
 
+const StyledDialogOverlay = styled(DialogPrimitive.Overlay)`
+  ${dialogOverlayStyles}
+`;
+
 const DialogOverlay = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
 >(({ className, ...props }, ref) => (
-  <StyledDialogOverlay ref={ref} className={className} {...props} />
+  <StyledDialogOverlay
+    ref={ref}
+    className={cx("q-dialog-overlay", className)}
+    {...props}
+  />
 ));
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
 
-const StyledDialogClose = styled(DialogPrimitive.Close)`
+const dialogCloseStyles = css`
   position: absolute;
   right: var(--spacing-4);
   top: var(--spacing-4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0 none;
   border-radius: var(--border-radius-sm);
+  padding: var(--spacing-2);
+  background: transparent;
   opacity: 0.7;
   transition: opacity 0.3s;
   outline: none;
   box-shadow: 0 0 0 0 var(--color-background);
   color: var(--color-background-fg);
   fill: currentColor;
+  cursor: pointer;
 
   &:hover {
     opacity: 1;
@@ -88,14 +107,35 @@ const StyledDialogClose = styled(DialogPrimitive.Close)`
   }
 `;
 
-const StyledDialogContent = styled(DialogPrimitive.Content)`
+const StyledDialogClose = styled(DialogPrimitive.Close)`
+  ${dialogCloseStyles}
+`;
+
+const StyledCloseIcon = styled(X)`
+  width: var(--spacing-4);
+  height: var(--spacing-4);
+`;
+
+const dialogContentVariants = cva("q-dialog-content", {
+  variants: {
+    size: {
+      sm: "size--sm",
+      md: "size--md",
+      lg: "size--lg",
+    },
+  },
+  defaultVariants: {
+    size: "lg",
+  },
+});
+
+const dialogContentStyles = css`
   position: fixed;
   left: 50%;
   top: 50%;
   z-index: var(--z-index-50);
   display: grid;
   width: 100%;
-  max-width: var(--columns-lg);
   transform: translate(-50%, -50%);
   gap: var(--spacing-4);
   border: var(--border-width-default) solid var(--color-border);
@@ -133,18 +173,44 @@ const StyledDialogContent = styled(DialogPrimitive.Content)`
       opacity: 0;
     }
   }
+
+  &.size--sm {
+    max-width: var(--columns-sm);
+  }
+
+  &.size--md {
+    max-width: var(--columns-md);
+  }
+
+  &.size--lg {
+    max-width: var(--columns-lg);
+  }
 `;
+
+const StyledDialogContent = styled(DialogPrimitive.Content)`
+  ${dialogContentStyles}
+`;
+
+export type DialogContentProps = React.ComponentPropsWithoutRef<
+  typeof DialogPrimitive.Content
+> &
+  VariantProps<typeof dialogContentVariants>;
 
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
->(({ className, children, ...props }, ref) => (
+  DialogContentProps
+>(({ className, size, children, ...props }, ref) => (
   <DialogPortal>
     <DialogOverlay />
-    <StyledDialogContent ref={ref} className={className} {...props}>
+    <StyledDialogContent
+      data-testid="dialog__content"
+      ref={ref}
+      className={dialogContentVariants({ size, className })}
+      {...props}
+    >
       {children}
-      <StyledDialogClose>
-        <X style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }} />
+      <StyledDialogClose data-testid="dialog__close" className="q-dialog-close">
+        <StyledCloseIcon />
         <span className="sr-only">Close</span>
       </StyledDialogClose>
     </StyledDialogContent>
@@ -152,7 +218,7 @@ const DialogContent = React.forwardRef<
 ));
 DialogContent.displayName = "DialogContent";
 
-const StyledDialogHeader = styled.div`
+const dialogHeaderStyles = css`
   display: flex;
   flex-direction: column;
   gap: var(--spacing-1-5);
@@ -163,15 +229,19 @@ const StyledDialogHeader = styled.div`
   }
 `;
 
+const StyledDialogHeader = styled.div`
+  ${dialogHeaderStyles}
+`;
+
 const DialogHeader = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
-  <StyledDialogHeader className={className} {...props} />
+  <StyledDialogHeader className={cx("q-dialog-header", className)} {...props} />
 );
 DialogHeader.displayName = "DialogHeader";
 
-const StyledDialogFooter = styled.div`
+const dialogFooterStyles = css`
   display: flex;
   flex-direction: column-reverse;
   gap: var(--spacing-2);
@@ -182,39 +252,63 @@ const StyledDialogFooter = styled.div`
   }
 `;
 
+const StyledDialogFooter = styled.div`
+  ${dialogFooterStyles}
+`;
+
 const DialogFooter = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
-  <StyledDialogFooter className={className} {...props} />
+  <StyledDialogFooter className={cx("q-dialog-footer", className)} {...props} />
 );
 DialogFooter.displayName = "DialogFooter";
 
-const StyledDialogTitle = styled(DialogPrimitive.Title)`
+const dialogTitleStyles = css`
+  margin: 0;
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-none);
   letter-spacing: var(--letter-spacing-tight);
 `;
 
+const StyledDialogTitle = styled(DialogPrimitive.Title)`
+  ${dialogTitleStyles}
+`;
+
 const DialogTitle = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
 >(({ className, ...props }, ref) => (
-  <StyledDialogTitle ref={ref} className={className} {...props} />
+  <StyledDialogTitle
+    data-testid="dialog__title"
+    ref={ref}
+    className={cx("q-dialog-title", className)}
+    {...props}
+  />
 ));
 DialogTitle.displayName = "DialogTitle";
 
-const StyledDialogDescription = styled(DialogPrimitive.Description)`
+const dialogDescriptionStyles = css`
+  margin: 0;
   font-size: var(--font-size-sm);
   color: var(--color-muted-fg);
+`;
+
+const StyledDialogDescription = styled(DialogPrimitive.Description)`
+  ${dialogDescriptionStyles}
 `;
 
 const DialogDescription = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
 >(({ className, ...props }, ref) => (
-  <StyledDialogDescription ref={ref} className={className} {...props} />
+  <StyledDialogDescription
+    data-testid="dialog__description"
+    ref={ref}
+    className={cx("q-dialog-description", className)}
+    {...props}
+  />
 ));
 DialogDescription.displayName = "DialogDescription";
 

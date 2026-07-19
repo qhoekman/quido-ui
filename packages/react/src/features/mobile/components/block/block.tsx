@@ -1,10 +1,13 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { cva } from "class-variance-authority";
+
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
 
 const blockVariants = cva("q-block");
 
-const StyledBlock = styled.div`
+const blockStyles = css`
   font-size: var(--font-size-sm);
   z-index: var(--z-index-10);
   position: relative;
@@ -27,7 +30,11 @@ const StyledBlock = styled.div`
   }
 `;
 
-const StyledBlockTitle = styled.h2`
+const StyledBlock = styled.div`
+  ${blockStyles}
+`;
+
+const blockTitleStyles = css`
   padding-left: var(--spacing-4);
   padding-right: var(--spacing-4);
   margin-top: var(--spacing-8);
@@ -37,6 +44,10 @@ const StyledBlockTitle = styled.h2`
   margin-bottom: calc(var(--spacing-6) * -1);
   font-weight: var(--font-weight-semibold);
   font-size: var(--font-size-base);
+`;
+
+const StyledBlockTitle = styled.h2`
+  ${blockTitleStyles}
 `;
 
 export type BlockProps = React.ComponentPropsWithoutRef<"div"> & {
@@ -57,7 +68,12 @@ const Block = React.forwardRef<HTMLDivElement, BlockProps>(
       .filter(Boolean)
       .join(" ");
     return (
-      <StyledBlock ref={ref} className={allClasses} {...props}>
+      <StyledBlock
+        ref={ref}
+        data-testid="block"
+        className={allClasses}
+        {...props}
+      >
         {children}
       </StyledBlock>
     );
@@ -70,7 +86,12 @@ const BlockTitle = React.forwardRef<
   React.ComponentPropsWithoutRef<"h2">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledBlockTitle ref={ref} className={className} {...props}>
+    <StyledBlockTitle
+      ref={ref}
+      data-testid="block__title"
+      className={cx("q-block-title", className)}
+      {...props}
+    >
       {children}
     </StyledBlockTitle>
   );
