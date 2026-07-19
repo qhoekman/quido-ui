@@ -3,39 +3,58 @@ import { NavbarLink } from "@/features/website/components/navbar/navbar";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { XIcon } from "lucide-react";
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { create } from "zustand";
+
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
 
 const Dialog = DialogPrimitive.Root;
 const DialogTrigger = DialogPrimitive.Trigger;
 
+const navbarMobileWrapperStyles = css`
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+
 const StyledNavbarMobileWrapper = styled.div`
+  ${navbarMobileWrapperStyles}
+`;
+
+const navbarMobileTriggerWrapperStyles = css`
+  display: flex;
+
   @media (min-width: 768px) {
     display: none;
   }
 `;
 
 const StyledNavbarMobileTriggerWrapper = styled.div`
-  display: flex;
-
-  @media (min-width: 768px) {
-    display: none;
-  }
+  ${navbarMobileTriggerWrapperStyles}
 `;
 
-const StyledXIcon = styled(XIcon)`
+const navbarMobileCloseIconStyles = css`
   height: var(--spacing-6);
   width: var(--spacing-6);
   stroke: var(--color-background-fg);
 `;
 
-const StyledNavbarMobileHeader = styled.div`
+const StyledXIcon = styled(XIcon)`
+  ${navbarMobileCloseIconStyles}
+`;
+
+const navbarMobileHeaderStyles = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 
-const StyledNavbarMobileActions = styled.div`
+const StyledNavbarMobileHeader = styled.div`
+  ${navbarMobileHeaderStyles}
+`;
+
+const navbarMobileActionsStyles = css`
   display: flex;
   flex-direction: column;
   gap: var(--spacing-4);
@@ -43,7 +62,11 @@ const StyledNavbarMobileActions = styled.div`
   padding-bottom: var(--spacing-6);
 `;
 
-const StyledNavbarMobileContent = styled(DialogPrimitive.Content)`
+const StyledNavbarMobileActions = styled.div`
+  ${navbarMobileActionsStyles}
+`;
+
+const navbarMobileContentStyles = css`
   position: fixed;
   top: 0;
   bottom: 0;
@@ -63,12 +86,20 @@ const StyledNavbarMobileContent = styled(DialogPrimitive.Content)`
   }
 `;
 
-const StyledNavbarMobileGroupWrapper = styled.div`
+const StyledNavbarMobileContent = styled(DialogPrimitive.Content)`
+  ${navbarMobileContentStyles}
+`;
+
+const navbarMobileGroupWrapperStyles = css`
   margin-top: var(--spacing-6);
   display: flow-root;
 `;
 
-const StyledNavbarMobileGroup = styled.div`
+const StyledNavbarMobileGroupWrapper = styled.div`
+  ${navbarMobileGroupWrapperStyles}
+`;
+
+const navbarMobileGroupStyles = css`
   margin-top: calc(var(--spacing-6) * -1);
   margin-bottom: calc(var(--spacing-6) * -1);
 
@@ -78,7 +109,11 @@ const StyledNavbarMobileGroup = styled.div`
   }
 `;
 
-const StyledNavbarMobileItems = styled.div`
+const StyledNavbarMobileGroup = styled.div`
+  ${navbarMobileGroupStyles}
+`;
+
+const navbarMobileItemsStyles = css`
   display: flex;
   flex-direction: column;
   gap: var(--spacing-2);
@@ -86,7 +121,11 @@ const StyledNavbarMobileItems = styled.div`
   padding-bottom: var(--spacing-6);
 `;
 
-const StyledNavbarMobileLink = styled.a`
+const StyledNavbarMobileItems = styled.div`
+  ${navbarMobileItemsStyles}
+`;
+
+const navbarMobileLinkStyles = css`
   margin-left: calc(var(--spacing-3) * -1);
   margin-right: calc(var(--spacing-3) * -1);
   display: block;
@@ -103,9 +142,18 @@ const StyledNavbarMobileLink = styled.a`
   &:hover {
     background-color: var(--color-muted);
   }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-ring), 0 0 0 4px var(--color-background);
+  }
 `;
 
-const StyledNavbarMobileDropdownLabel = styled.span`
+const StyledNavbarMobileLink = styled.a`
+  ${navbarMobileLinkStyles}
+`;
+
+const navbarMobileDropdownLabelStyles = css`
   margin-left: calc(var(--spacing-3) * -1);
   margin-right: calc(var(--spacing-3) * -1);
   display: block;
@@ -120,12 +168,20 @@ const StyledNavbarMobileDropdownLabel = styled.span`
   color: var(--color-background-fg);
 `;
 
-const StyledNavbarMobileDropdownGroup = styled.div`
+const StyledNavbarMobileDropdownLabel = styled.span`
+  ${navbarMobileDropdownLabelStyles}
+`;
+
+const navbarMobileDropdownGroupStyles = css`
   margin-left: var(--spacing-4);
   margin-top: var(--spacing-1);
 `;
 
-const StyledNavbarMobileDropdownLink = styled.a`
+const StyledNavbarMobileDropdownGroup = styled.div`
+  ${navbarMobileDropdownGroupStyles}
+`;
+
+const navbarMobileDropdownLinkStyles = css`
   margin-left: calc(var(--spacing-3) * -1);
   margin-right: calc(var(--spacing-3) * -1);
   display: block;
@@ -142,6 +198,15 @@ const StyledNavbarMobileDropdownLink = styled.a`
   &:hover {
     background-color: var(--color-muted);
   }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-ring), 0 0 0 4px var(--color-background);
+  }
+`;
+
+const StyledNavbarMobileDropdownLink = styled.a`
+  ${navbarMobileDropdownLinkStyles}
 `;
 
 const useNavbarMobile = create<{
@@ -159,7 +224,12 @@ const NavbarMobile: React.FC<
 
   return (
     <Dialog open={mobileMenuOpen} onOpenChange={setMobileMenuOpen} {...props}>
-      <StyledNavbarMobileWrapper>{children}</StyledNavbarMobileWrapper>
+      <StyledNavbarMobileWrapper
+        data-testid="navbar-mobile"
+        className="q-navbar-mobile-wrapper"
+      >
+        {children}
+      </StyledNavbarMobileWrapper>
     </Dialog>
   );
 };
@@ -174,9 +244,15 @@ const NavbarMobileTrigger = React.forwardRef<
     ref
   ) => {
     return (
-      <StyledNavbarMobileTriggerWrapper>
+      <StyledNavbarMobileTriggerWrapper className="q-navbar-mobile-trigger-wrapper">
         <DialogTrigger ref={ref} asChild {...props}>
-          <Button type="button" variant="ghost" size="sm" className={className}>
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
+            data-testid="navbar-mobile__trigger"
+            className={cx("q-navbar-mobile-trigger", className)}
+          >
             <span className="sr-only">{title}</span>
             {children}
           </Button>
@@ -197,7 +273,8 @@ const NavbarMobileClose = React.forwardRef<
         type="button"
         variant="ghost"
         size="sm"
-        className={className}
+        data-testid="navbar-mobile__close"
+        className={cx("q-navbar-mobile-close", className)}
         {...props}
       >
         <StyledXIcon aria-hidden="true" />
@@ -213,7 +290,12 @@ const NavbarMobileHeader = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledNavbarMobileHeader ref={ref} className={className} {...props}>
+    <StyledNavbarMobileHeader
+      ref={ref}
+      data-testid="navbar-mobile__header"
+      className={cx("q-navbar-mobile-header", className)}
+      {...props}
+    >
       {children}
     </StyledNavbarMobileHeader>
   );
@@ -225,7 +307,12 @@ const NavbarMobileActions = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledNavbarMobileActions ref={ref} className={className} {...props}>
+    <StyledNavbarMobileActions
+      ref={ref}
+      data-testid="navbar-mobile__actions"
+      className={cx("q-navbar-mobile-actions", className)}
+      {...props}
+    >
       {children}
     </StyledNavbarMobileActions>
   );
@@ -237,7 +324,12 @@ const NavbarMobileContent = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledNavbarMobileContent ref={ref} className={className} {...props}>
+    <StyledNavbarMobileContent
+      ref={ref}
+      data-testid="navbar-mobile__content"
+      className={cx("q-navbar-mobile-content", className)}
+      {...props}
+    >
       {children}
     </StyledNavbarMobileContent>
   );
@@ -249,8 +341,13 @@ const NavbarMobileGroup = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledNavbarMobileGroupWrapper>
-      <StyledNavbarMobileGroup ref={ref} className={className} {...props}>
+    <StyledNavbarMobileGroupWrapper className="q-navbar-mobile-group-wrapper">
+      <StyledNavbarMobileGroup
+        ref={ref}
+        data-testid="navbar-mobile__group"
+        className={cx("q-navbar-mobile-group", className)}
+        {...props}
+      >
         {children}
       </StyledNavbarMobileGroup>
     </StyledNavbarMobileGroupWrapper>
@@ -263,7 +360,12 @@ const NavbarMobileItems = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledNavbarMobileItems ref={ref} className={className} {...props}>
+    <StyledNavbarMobileItems
+      ref={ref}
+      data-testid="navbar-mobile__items"
+      className={cx("q-navbar-mobile-items", className)}
+      {...props}
+    >
       {children}
     </StyledNavbarMobileItems>
   );
@@ -277,8 +379,9 @@ const NavbarMobileLink = React.forwardRef<
   return (
     <StyledNavbarMobileLink
       ref={ref}
+      data-testid="navbar-mobile__link"
       href={href}
-      className={className}
+      className={cx("q-navbar-mobile-link", className)}
       {...props}
     >
       {children}
@@ -287,9 +390,13 @@ const NavbarMobileLink = React.forwardRef<
 });
 NavbarMobileLink.displayName = "NavbarMobileLink";
 
-const StyledNavbarMobileLogoWrapper = styled.div`
+const navbarMobileLogoWrapperStyles = css`
   margin: calc(var(--spacing-1-5) * -1);
   padding: var(--spacing-1-5);
+`;
+
+const StyledNavbarMobileLogoWrapper = styled.div`
+  ${navbarMobileLogoWrapperStyles}
 `;
 
 const NavbarMobileLogo = React.forwardRef<
@@ -297,8 +404,14 @@ const NavbarMobileLogo = React.forwardRef<
   React.ComponentPropsWithoutRef<"a">
 >(({ children, "aria-label": title, href, className, ...props }, ref) => {
   return (
-    <StyledNavbarMobileLogoWrapper>
-      <NavbarLink ref={ref} href={href} className={className} {...props}>
+    <StyledNavbarMobileLogoWrapper className="q-navbar-mobile-logo-wrapper">
+      <NavbarLink
+        ref={ref}
+        data-testid="navbar-mobile__logo"
+        href={href}
+        className={cx("q-navbar-mobile-logo", className)}
+        {...props}
+      >
         <span className="sr-only">{title}</span>
         {children}
       </NavbarLink>
@@ -312,7 +425,12 @@ const NavbarMobileDropdownLabel = React.forwardRef<
   React.ComponentPropsWithoutRef<"span">
 >(({ className, children, ...props }, ref) => {
   return (
-    <StyledNavbarMobileDropdownLabel ref={ref} className={className} {...props}>
+    <StyledNavbarMobileDropdownLabel
+      ref={ref}
+      data-testid="navbar-mobile__dropdown-label"
+      className={cx("q-navbar-mobile-dropdown-label", className)}
+      {...props}
+    >
       {children}
     </StyledNavbarMobileDropdownLabel>
   );
@@ -324,7 +442,12 @@ const NavbarMobileDropdownGroup = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledNavbarMobileDropdownGroup ref={ref} className={className} {...props}>
+    <StyledNavbarMobileDropdownGroup
+      ref={ref}
+      data-testid="navbar-mobile__dropdown-group"
+      className={cx("q-navbar-mobile-dropdown-group", className)}
+      {...props}
+    >
       {children}
     </StyledNavbarMobileDropdownGroup>
   );
@@ -338,8 +461,9 @@ const NavbarMobileDropdownLink = React.forwardRef<
   return (
     <StyledNavbarMobileDropdownLink
       ref={ref}
+      data-testid="navbar-mobile__dropdown-link"
       href={href}
-      className={className}
+      className={cx("q-navbar-mobile-dropdown-link", className)}
       {...props}
     >
       {children}
