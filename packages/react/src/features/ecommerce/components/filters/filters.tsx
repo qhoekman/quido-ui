@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Button, ButtonProps } from "@/components/button/button";
 import { Checkbox, CheckboxProps } from "@/components/checkbox/checkbox";
 import { Label } from "@/components/label/label";
@@ -13,17 +13,29 @@ import {
   useFilterStore,
 } from "@/features/ecommerce/components/filters/useFilterStore";
 
-const StyledFiltersForm = styled.form`
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
+
+const filtersFormStyles = css`
   display: flex;
   flex-direction: column;
   gap: var(--spacing-4);
+`;
+
+const StyledFiltersForm = styled.form`
+  ${filtersFormStyles}
 `;
 
 type FiltersFormProps = React.FormHTMLAttributes<HTMLFormElement>;
 export const FiltersForm = React.forwardRef<HTMLFormElement, FiltersFormProps>(
   ({ className, children, ...props }, ref) => {
     return (
-      <StyledFiltersForm ref={ref} className={className} {...props}>
+      <StyledFiltersForm
+        ref={ref}
+        data-testid="filters__form"
+        className={cx("q-filters-form", className)}
+        {...props}
+      >
         {children}
       </StyledFiltersForm>
     );
@@ -31,10 +43,23 @@ export const FiltersForm = React.forwardRef<HTMLFormElement, FiltersFormProps>(
 );
 FiltersForm.displayName = "FiltersForm";
 
-const StyledFilterCheckboxContainer = styled.div`
+const filterCheckboxContainerStyles = css`
   display: flex;
   align-items: center;
   gap: var(--spacing-2);
+`;
+
+const StyledFilterCheckboxContainer = styled.div`
+  ${filterCheckboxContainerStyles}
+`;
+
+const filterLabelStyles = css`
+  cursor: pointer;
+  user-select: none;
+`;
+
+const StyledFilterCheckboxLabel = styled(Label)`
+  ${filterLabelStyles}
 `;
 
 type FilterCheckboxProps = CheckboxProps & {
@@ -55,7 +80,10 @@ export const FilterCheckbox: React.FC<FilterCheckboxProps> = ({
   };
 
   return (
-    <StyledFilterCheckboxContainer>
+    <StyledFilterCheckboxContainer
+      data-testid={`filters__checkbox-${name}`}
+      className="q-filter-checkbox-container"
+    >
       <Checkbox
         id={name ?? props.id}
         name={name}
@@ -63,25 +91,44 @@ export const FilterCheckbox: React.FC<FilterCheckboxProps> = ({
         onCheckedChange={handleChange(name)}
         {...props}
       />
-      <Label htmlFor={name ?? props.id}>{children}</Label>
+      <StyledFilterCheckboxLabel
+        htmlFor={name ?? props.id}
+        className="q-filter-checkbox-label"
+      >
+        {children}
+      </StyledFilterCheckboxLabel>
     </StyledFilterCheckboxContainer>
   );
 };
 
-const StyledFilterRangeContainer = styled.div`
+const filterRangeContainerStyles = css`
   display: flex;
   flex-direction: column;
   gap: var(--spacing-2);
 `;
 
-const StyledFilterRangeLabelContainer = styled.div`
+const StyledFilterRangeContainer = styled.div`
+  ${filterRangeContainerStyles}
+`;
+
+const filterRangeLabelContainerStyles = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
-const StyledFilterRangeLabel = styled(Label)`
+const StyledFilterRangeLabelContainer = styled.div`
+  ${filterRangeLabelContainerStyles}
+`;
+
+const filterRangeLabelStyles = css`
+  font-size: var(--font-size-sm);
   opacity: 0.6;
+  cursor: default;
+`;
+
+const StyledFilterRangeLabel = styled(Label)`
+  ${filterRangeLabelStyles}
 `;
 
 type FilterRangeProps = RangeProps & {
@@ -108,12 +155,21 @@ export const FilterRange: React.FC<FilterRangeProps> = ({
   delete (rangeProps as any).labelPrefix;
 
   return (
-    <StyledFilterRangeContainer>
-      <StyledFilterRangeLabelContainer>
-        <StyledFilterRangeLabel htmlFor={name ?? props.id}>
+    <StyledFilterRangeContainer
+      data-testid={`filters__range-${name}`}
+      className="q-filter-range-container"
+    >
+      <StyledFilterRangeLabelContainer className="q-filter-range-label-container">
+        <StyledFilterRangeLabel
+          htmlFor={name ?? props.id}
+          className="q-filter-range-label"
+        >
           {labelPrefix} {filterValues[0]}
         </StyledFilterRangeLabel>
-        <StyledFilterRangeLabel htmlFor={name ?? props.id}>
+        <StyledFilterRangeLabel
+          htmlFor={name ?? props.id}
+          className="q-filter-range-label"
+        >
           {labelPrefix} {filterValues[1]}
         </StyledFilterRangeLabel>
       </StyledFilterRangeLabelContainer>
@@ -149,15 +205,24 @@ export const FilterRadioGroup: React.FC<FilterRadioGroupProps> = ({
       name={name}
       value={filters[name] ?? defaultValue}
       onValueChange={handleChange(name)}
+      data-testid={`filters__radio-group-${name}`}
       {...props}
     />
   );
 };
 
-const StyledFilterRadioGroupItemContainer = styled.div`
+const filterRadioGroupItemContainerStyles = css`
   display: flex;
   align-items: center;
   gap: var(--spacing-2);
+`;
+
+const StyledFilterRadioGroupItemContainer = styled.div`
+  ${filterRadioGroupItemContainerStyles}
+`;
+
+const StyledFilterRadioGroupItemLabel = styled(Label)`
+  ${filterLabelStyles}
 `;
 
 type FilterRadioGroupItemProps = React.ComponentPropsWithoutRef<
@@ -177,20 +242,32 @@ export const FilterRadioGroupItem: React.FC<FilterRadioGroupItemProps> = ({
   const { filters } = useFilterStore();
 
   return (
-    <StyledFilterRadioGroupItemContainer>
+    <StyledFilterRadioGroupItemContainer
+      data-testid={`filters__radio-group-item-${value}`}
+      className="q-filter-radio-group-item-container"
+    >
       <RadioGroupItem
         checked={filters?.[htmlFor] === value}
         value={value}
         id={id}
         {...props}
       />
-      <Label htmlFor={id}>{children}</Label>
+      <StyledFilterRadioGroupItemLabel
+        htmlFor={id}
+        className="q-filter-radio-group-item-label"
+      >
+        {children}
+      </StyledFilterRadioGroupItemLabel>
     </StyledFilterRadioGroupItemContainer>
   );
 };
 
-const StyledFilterClearButton = styled(Button)<{ $isHidden: boolean }>`
+const filterClearButtonStyles = css<{ $isHidden: boolean }>`
   display: ${(props) => (props.$isHidden ? "none" : "flex")};
+`;
+
+const StyledFilterClearButton = styled(Button)<{ $isHidden: boolean }>`
+  ${filterClearButtonStyles}
 `;
 
 type FilterClearButtonProps = ButtonProps;
@@ -205,7 +282,8 @@ export const FilterClearButton = React.forwardRef<
     <StyledFilterClearButton
       ref={ref}
       $isHidden={isHidden}
-      className={className}
+      data-testid="filters__clear-button"
+      className={cx("q-filter-clear-button", className)}
       onClick={clearFilters}
       {...props}
     >
