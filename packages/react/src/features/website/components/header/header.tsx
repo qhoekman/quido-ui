@@ -1,8 +1,10 @@
 import React from "react";
-import styled from "styled-components";
-import { cn } from "@/lib/utils";
+import styled, { css } from "styled-components";
 
-const StyledHeader = styled.div`
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
+
+const headerStyles = css`
   margin-left: auto;
   margin-right: auto;
   margin-top: var(--spacing-24);
@@ -21,97 +23,86 @@ const StyledHeader = styled.div`
     padding-left: var(--spacing-8);
     padding-right: var(--spacing-8);
   }
-
-  &.py-6 {
-    padding-top: var(--spacing-6) !important;
-    padding-bottom: var(--spacing-6) !important;
-  }
 `;
 
-const StyledHeaderTagline = styled.h3`
+const StyledHeader = styled.div`
+  ${headerStyles}
+`;
+
+const headerTaglineStyles = css`
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-medium);
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing-wide);
-  color: var(--color-muted-fg);
+  color: hsl(from var(--color-background-fg) h s l / 80%);
+  margin: 0;
 `;
 
-const StyledHeaderTitle = styled.h2`
+const StyledHeaderTagline = styled.h3`
+  ${headerTaglineStyles}
+`;
+
+const headerTitleStyles = css`
   font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-wide);
   color: var(--color-background-fg);
+  margin: 0;
 
   @media (min-width: 1280px) {
     font-size: var(--font-size-5xl);
   }
 `;
 
-const StyledHeaderBody = styled.p`
-  font-size: var(--font-size-lg);
-  color: var(--color-muted-fg);
+const StyledHeaderTitle = styled.h2`
+  ${headerTitleStyles}
 `;
 
-const StyledHeaderContent = styled.div`
+const headerBodyStyles = css`
+  font-size: var(--font-size-lg);
+  color: hsl(from var(--color-background-fg) h s l / 66%);
+  margin: 0;
+`;
+
+const StyledHeaderBody = styled.p`
+  ${headerBodyStyles}
+`;
+
+const headerContentStyles = css`
   margin-left: auto;
   margin-right: auto;
   display: flex;
   max-width: var(--columns-4xl);
   flex-direction: column;
   gap: var(--spacing-7);
-
-  &.text-center {
-    text-align: center !important;
-  }
-  &.max-w-6xl {
-    max-width: var(--columns-6xl) !important;
-  }
-  &.py-24 {
-    padding-top: var(--spacing-24) !important;
-    padding-bottom: var(--spacing-24) !important;
-  }
-  &.justify-between {
-    justify-content: space-between !important;
-  }
-  &.gap-x-6 {
-    gap: var(--spacing-6) !important;
-  }
-
-  @media (min-width: 1280px) {
-    &[class*="xl:flex-row"] {
-      flex-direction: row !important;
-    }
-    &[class*="xl:items-center"] {
-      align-items: center !important;
-    }
-  }
 `;
 
-const StyledHeaderActions = styled.div`
+const StyledHeaderContent = styled.div`
+  ${headerContentStyles}
+`;
+
+const headerActionsStyles = css`
   margin-right: auto;
   display: flex;
   gap: var(--spacing-8);
-
-  &.mx-auto {
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-  &.flex-col {
-    flex-direction: column !important;
-  }
-  &.space-x-0 > * + * {
-    margin-left: 0 !important;
-  }
 `;
 
-const StyledHeaderBackdrop = styled.div`
+const StyledHeaderActions = styled.div`
+  ${headerActionsStyles}
+`;
+
+const headerBackdropStyles = css`
   position: relative;
   height: 100%;
   width: 100%;
 `;
 
-const StyledHeaderBackdropImage = styled.img`
+const StyledHeaderBackdrop = styled.div`
+  ${headerBackdropStyles}
+`;
+
+const headerBackdropImageStyles = css`
   position: absolute;
   z-index: -10;
   height: 100%;
@@ -120,12 +111,21 @@ const StyledHeaderBackdropImage = styled.img`
   filter: brightness(0.25);
 `;
 
+const StyledHeaderBackdropImage = styled.img`
+  ${headerBackdropImageStyles}
+`;
+
 export const Header = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledHeader ref={ref} className={className} {...props}>
+    <StyledHeader
+      ref={ref}
+      data-testid="header"
+      className={cx("q-header", className)}
+      {...props}
+    >
       {children}
     </StyledHeader>
   );
@@ -137,7 +137,12 @@ export const HeaderTagline = React.forwardRef<
   React.ComponentPropsWithoutRef<"h3">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledHeaderTagline ref={ref} className={className} {...props}>
+    <StyledHeaderTagline
+      ref={ref}
+      data-testid="header__tagline"
+      className={cx("q-header-tagline", className)}
+      {...props}
+    >
       {children}
     </StyledHeaderTagline>
   );
@@ -149,7 +154,12 @@ export const HeaderTitle = React.forwardRef<
   React.ComponentPropsWithoutRef<"h2">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledHeaderTitle ref={ref} className={className} {...props}>
+    <StyledHeaderTitle
+      ref={ref}
+      data-testid="header__title"
+      className={cx("q-header-title", className)}
+      {...props}
+    >
       {children}
     </StyledHeaderTitle>
   );
@@ -161,7 +171,12 @@ export const HeaderBody = React.forwardRef<
   React.ComponentPropsWithoutRef<"p">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledHeaderBody ref={ref} className={className} {...props}>
+    <StyledHeaderBody
+      ref={ref}
+      data-testid="header__body"
+      className={cx("q-header-body", className)}
+      {...props}
+    >
       {children}
     </StyledHeaderBody>
   );
@@ -173,7 +188,12 @@ export const HeaderContent = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledHeaderContent ref={ref} className={className} {...props}>
+    <StyledHeaderContent
+      ref={ref}
+      data-testid="header__content"
+      className={cx("q-header-content", className)}
+      {...props}
+    >
       {children}
     </StyledHeaderContent>
   );
@@ -185,7 +205,12 @@ export const HeaderActions = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledHeaderActions ref={ref} className={className} {...props}>
+    <StyledHeaderActions
+      ref={ref}
+      data-testid="header__actions"
+      className={cx("q-header-actions", className)}
+      {...props}
+    >
       {children}
     </StyledHeaderActions>
   );
@@ -197,7 +222,12 @@ export const HeaderBackdrop = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledHeaderBackdrop ref={ref} className={className} {...props}>
+    <StyledHeaderBackdrop
+      ref={ref}
+      data-testid="header__backdrop"
+      className={cx("q-header-backdrop", className)}
+      {...props}
+    >
       {children}
     </StyledHeaderBackdrop>
   );
@@ -215,7 +245,8 @@ export const HeaderBackdropImage = React.forwardRef<
       src="https://dummyimage.com/1920x1200/d4d4d4/171717"
       alt="hero image"
       aria-hidden="true"
-      className={className}
+      data-testid="header__backdrop-image"
+      className={cx("q-header-backdrop-image", className)}
       {...props}
     />
   );
