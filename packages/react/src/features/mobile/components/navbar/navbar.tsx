@@ -1,8 +1,11 @@
 import { ArrowLeft } from "lucide-react";
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const StyledNavbar = styled.div`
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
+
+const navbarStyles = css`
   width: 100%;
   z-index: var(--z-index-20);
   top: 0;
@@ -15,7 +18,11 @@ const StyledNavbar = styled.div`
   position: sticky;
 `;
 
-const StyledNavbarBackground = styled.div`
+const StyledNavbar = styled.div`
+  ${navbarStyles}
+`;
+
+const navbarBackgroundStyles = css`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -25,7 +32,11 @@ const StyledNavbarBackground = styled.div`
   background-color: var(--color-muted);
 `;
 
-const StyledNavbarContent = styled.div`
+const StyledNavbarBackground = styled.div`
+  ${navbarBackgroundStyles}
+`;
+
+const navbarContentStyles = css`
   display: flex;
   position: relative;
   align-items: center;
@@ -37,7 +48,11 @@ const StyledNavbarContent = styled.div`
   justify-content: space-between;
 `;
 
-const StyledNavbarTitle = styled.h1`
+const StyledNavbarContent = styled.div`
+  ${navbarContentStyles}
+`;
+
+const navbarTitleStyles = css`
   white-space: nowrap;
   display: block;
   line-height: var(--line-height-tight);
@@ -51,7 +66,11 @@ const StyledNavbarTitle = styled.h1`
   color: var(--color-background-fg);
 `;
 
-const StyledNavbarSubtitle = styled.span`
+const StyledNavbarTitle = styled.h1`
+  ${navbarTitleStyles}
+`;
+
+const navbarSubtitleStyles = css`
   font-weight: var(--font-weight-normal);
   color: var(--color-muted-fg);
   display: block;
@@ -60,7 +79,11 @@ const StyledNavbarSubtitle = styled.span`
   opacity: 0.5;
 `;
 
-const StyledNavbarLinkWrapper = styled.div`
+const StyledNavbarSubtitle = styled.span`
+  ${navbarSubtitleStyles}
+`;
+
+const navbarLinkWrapperStyles = css`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,7 +91,11 @@ const StyledNavbarLinkWrapper = styled.div`
   margin-inline-end: var(--spacing-2);
 `;
 
-const StyledNavbarLink = styled.a`
+const StyledNavbarLinkWrapper = styled.div`
+  ${navbarLinkWrapperStyles}
+`;
+
+const navbarLinkStyles = css`
   color: var(--color-primary);
   display: inline-flex;
   gap: var(--spacing-1);
@@ -90,13 +117,22 @@ const StyledNavbarLink = styled.a`
   }
 `;
 
+const StyledNavbarLink = styled.a`
+  ${navbarLinkStyles}
+`;
+
 const Navbar = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledNavbar ref={ref} className={className} {...props}>
-      <StyledNavbarBackground />
+    <StyledNavbar
+      ref={ref}
+      data-testid="navbar"
+      className={cx("q-navbar", className)}
+      {...props}
+    >
+      <StyledNavbarBackground className="q-navbar-background" />
       {children}
     </StyledNavbar>
   );
@@ -108,7 +144,12 @@ const NavbarContent = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledNavbarContent ref={ref} className={className} {...props}>
+    <StyledNavbarContent
+      ref={ref}
+      data-testid="navbar__content"
+      className={cx("q-navbar-content", className)}
+      {...props}
+    >
       {children}
     </StyledNavbarContent>
   );
@@ -120,7 +161,12 @@ const NavbarTitle = React.forwardRef<
   React.ComponentPropsWithoutRef<"h1">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledNavbarTitle ref={ref} className={className} {...props}>
+    <StyledNavbarTitle
+      ref={ref}
+      data-testid="navbar__title"
+      className={cx("q-navbar-title", className)}
+      {...props}
+    >
       {children}
     </StyledNavbarTitle>
   );
@@ -132,7 +178,12 @@ const NavbarSubtitle = React.forwardRef<
   React.ComponentPropsWithoutRef<"span">
 >(({ children, className, ...props }, ref) => {
   return (
-    <StyledNavbarSubtitle ref={ref} className={className} {...props}>
+    <StyledNavbarSubtitle
+      ref={ref}
+      data-testid="navbar__subtitle"
+      className={cx("q-navbar-subtitle", className)}
+      {...props}
+    >
       {children}
     </StyledNavbarSubtitle>
   );
@@ -144,8 +195,14 @@ const NavbarLink = React.forwardRef<
   React.ComponentPropsWithoutRef<"a">
 >(({ children, className, href = "#", ...props }, ref) => {
   return (
-    <StyledNavbarLinkWrapper>
-      <StyledNavbarLink ref={ref} href={href} className={className} {...props}>
+    <StyledNavbarLinkWrapper className="q-navbar-link-wrapper">
+      <StyledNavbarLink
+        ref={ref}
+        href={href}
+        data-testid="navbar__link"
+        className={cx("q-navbar-link", className)}
+        {...props}
+      >
         {children}
       </StyledNavbarLink>
     </StyledNavbarLinkWrapper>
@@ -158,7 +215,13 @@ const NavbarBack = React.forwardRef<
   React.ComponentPropsWithoutRef<"a">
 >(({ className, children, href = "#", ...props }, ref) => {
   return (
-    <NavbarLink ref={ref} href={href} className={className} {...props}>
+    <NavbarLink
+      ref={ref}
+      href={href}
+      data-testid="navbar__back"
+      className={cx("q-navbar-back", className)}
+      {...props}
+    >
       {!children && (
         <>
           <ArrowLeft />
