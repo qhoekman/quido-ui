@@ -1,13 +1,20 @@
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const StyledTabsRoot = styled(TabsPrimitive.Root)`
+const cx = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
+
+const tieredGalleryStyles = css`
   display: flex;
   flex-direction: column-reverse;
 `;
 
-const StyledTabsListContainer = styled.div`
+const StyledTabsRoot = styled(TabsPrimitive.Root)`
+  ${tieredGalleryStyles}
+`;
+
+const tieredGalleryListContainerStyles = css`
   margin-left: auto;
   margin-right: auto;
   margin-top: var(--spacing-6);
@@ -24,13 +31,21 @@ const StyledTabsListContainer = styled.div`
   }
 `;
 
-const StyledTabsList = styled(TabsPrimitive.List)`
+const StyledTabsListContainer = styled.div`
+  ${tieredGalleryListContainerStyles}
+`;
+
+const tieredGalleryListStyles = css`
   display: flex;
   justify-content: center;
   gap: var(--spacing-4);
 `;
 
-const StyledTabsTrigger = styled(TabsPrimitive.Trigger)`
+const StyledTabsList = styled(TabsPrimitive.List)`
+  ${tieredGalleryListStyles}
+`;
+
+const tieredGalleryTriggerStyles = css`
   position: relative;
   display: flex;
   aspect-ratio: 1 / 1;
@@ -48,24 +63,36 @@ const StyledTabsTrigger = styled(TabsPrimitive.Trigger)`
   outline: none;
   overflow: hidden;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: var(--color-muted);
   }
 
-  &:focus {
+  &:focus-visible {
     outline: none;
     box-shadow: 0 0 0 2px hsl(from var(--color-ring) h s l / 50%),
       0 0 0 4px var(--color-background);
   }
 `;
 
-const StyledTabsContentContainer = styled.div`
+const StyledTabsTrigger = styled(TabsPrimitive.Trigger)`
+  ${tieredGalleryTriggerStyles}
+`;
+
+const tieredGalleryContentContainerStyles = css`
   aspect-ratio: 1 / 1;
   width: 100%;
 `;
 
-const StyledTabsContent = styled(TabsPrimitive.Content)`
+const StyledTabsContentContainer = styled.div`
+  ${tieredGalleryContentContainerStyles}
+`;
+
+const tieredGalleryContentStyles = css`
   margin-top: var(--spacing-2);
+`;
+
+const StyledTabsContent = styled(TabsPrimitive.Content)`
+  ${tieredGalleryContentStyles}
 `;
 
 type TieredGalleryProps = TabsPrimitive.TabsProps;
@@ -75,22 +102,40 @@ export const TieredGallery = React.forwardRef<
   TieredGalleryProps
 >(({ className, children, ...props }, ref) => {
   return (
-    <StyledTabsRoot ref={ref} className={className} {...props}>
-      <StyledTabsListContainer>
-        <StyledTabsList>
+    <StyledTabsRoot
+      ref={ref}
+      data-testid="tiered-gallery"
+      className={cx("q-tiered-gallery", className)}
+      {...props}
+    >
+      <StyledTabsListContainer className="q-tiered-gallery__list-container">
+        <StyledTabsList
+          data-testid="tiered-gallery__list"
+          className="q-tiered-gallery__list"
+        >
           {React.Children.map(children, (child, i) => {
             return (
-              <StyledTabsTrigger key={`tab-${i}`} value={`${i}`}>
+              <StyledTabsTrigger
+                key={`tab-${i}`}
+                value={`${i}`}
+                data-testid={`tiered-gallery__trigger-${i}`}
+                className="q-tiered-gallery__trigger"
+              >
                 {child}
               </StyledTabsTrigger>
             );
           })}
         </StyledTabsList>
       </StyledTabsListContainer>
-      <StyledTabsContentContainer>
+      <StyledTabsContentContainer className="q-tiered-gallery__content-container">
         {React.Children.map(children, (child, i) => {
           return (
-            <StyledTabsContent key={`tabcontent-${i}`} value={`${i}`}>
+            <StyledTabsContent
+              key={`tabcontent-${i}`}
+              value={`${i}`}
+              data-testid={`tiered-gallery__content-${i}`}
+              className="q-tiered-gallery__content"
+            >
               {child}
             </StyledTabsContent>
           );
@@ -114,7 +159,12 @@ export const TieredGalleryImage = React.forwardRef<
   React.ImgHTMLAttributes<HTMLImageElement>
 >(({ className, ...props }, ref) => {
   return (
-    <StyledTieredGalleryImage ref={ref} className={className} {...props} />
+    <StyledTieredGalleryImage
+      ref={ref}
+      data-testid="tiered-gallery__image"
+      className={cx("q-tiered-gallery-image", className)}
+      {...props}
+    />
   );
 });
 
