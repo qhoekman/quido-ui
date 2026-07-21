@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'div[qui-avatar-fallback], qui-avatar-fallback',
   standalone: true,
   host: {
-    'data-testid': 'qui-avatar-fallback',
+    'data-testid': 'avatar__fallback',
   },
   template: ` <ng-content></ng-content> `,
   styles: [
