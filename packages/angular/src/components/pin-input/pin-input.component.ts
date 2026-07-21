@@ -16,12 +16,12 @@ import { InputComponent, InputVariants } from '../input/input.component';
   standalone: true,
   imports: [CommonModule, InputComponent],
   host: {
-    'data-testid': 'qui-pin-input',
+    'data-testid': 'pin-input',
   },
   template: `
     <input
       qui-input
-      data-testid="qui-pin-input-input"
+      data-testid="pin-input__input"
       [name]="name + '-' + (i + 1)"
       *ngFor="let pin of [].constructor(length); let i = index"
       [attr.maxlength]="1"
@@ -87,6 +87,7 @@ export class PinInputComponent implements AfterViewInit {
 
   onKeyDown(event: KeyboardEvent, index: number) {
     if (event.key === 'Backspace' && !this.pins[index] && index > 0) {
+      event.preventDefault();
       this.focusPreviousInput(index);
     }
   }
