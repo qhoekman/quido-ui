@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: '[qui-card-footer]',
   host: {
-    'data-testid': 'qui-card-footer',
+    'data-testid': 'card__footer',
   },
   template: `<ng-content></ng-content>`,
   styles: [

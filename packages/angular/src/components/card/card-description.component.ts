@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-card-description]',
   template: `<ng-content></ng-content>`,
   host: {
-    'data-testid': 'qui-card-description',
+    'data-testid': 'card__description',
   },
   styles: [
     `
