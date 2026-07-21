@@ -7,7 +7,7 @@ type AspectRatioVariants = {
 @Component({
   selector: '[qui-aspect-ratio]',
   host: {
-    'data-testid': 'qui-aspect-ratio',
+    'data-testid': 'aspect-ratio',
   },
   template: `<ng-content></ng-content>`,
   styles: [
