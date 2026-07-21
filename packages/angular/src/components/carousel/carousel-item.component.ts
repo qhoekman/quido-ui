@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'div[qui-carousel-item]',
   standalone: true,
   host: {
-    'data-testid': 'qui-carousel-item',
+    'data-testid': 'carousel__item',
   },
   template: `<ng-content></ng-content>`,
   styles: [
