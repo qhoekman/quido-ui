@@ -3,7 +3,7 @@ import { Component, HostListener, Input } from '@angular/core';
 @Component({
   selector: '[qui-skip-to-content]',
   host: {
-    'data-testid': 'qui-skip-to-content',
+    'data-testid': 'skip-to-content',
     '[class]': 'getClassList()',
   },
   template: ` <ng-content></ng-content> `,
