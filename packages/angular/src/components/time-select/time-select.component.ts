@@ -17,23 +17,23 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   host: {
-    'data-testid': 'qui-time-select',
+    'data-testid': 'time-select',
   },
   template: `
-    <div class="time-select" data-testid="qui-time-select">
+    <div class="time-select">
       <div
         class="time-column"
         #hourList
-        data-testid="qui-time-select-hour-list"
+        data-testid="time-select__hour-list"
       >
         <div
           *ngFor="let hour of displayHours"
-          data-testid="qui-time-select-hour"
+          data-testid="time-select__hour"
           (click)="handleClickHour(hour)"
-          (keydown)="handleKeyDownHour($event)"
+          (keydown)="handleKeyDownHour($event, hour)"
           tabindex="0"
-          [class.selected]="hour === selectedHour"
-          [attr.aria-selected]="hour === selectedHour"
+          [class.selected]="hour === hours"
+          [attr.aria-selected]="hour === hours"
         >
           {{ hour }}
         </div>
@@ -42,16 +42,16 @@ import { CommonModule } from '@angular/common';
       <div
         class="time-column"
         #minuteList
-        data-testid="qui-time-select-minute-list"
+        data-testid="time-select__minute-list"
       >
         <div
           *ngFor="let minute of displayMinutes"
-          data-testid="qui-time-select-minute"
+          data-testid="time-select__minute"
           (click)="handleClickMinute(minute)"
-          (keydown)="handleKeyDownMinute($event)"
+          (keydown)="handleKeyDownMinute($event, minute)"
           tabindex="0"
-          [class.selected]="minute === selectedMinute"
-          [attr.aria-selected]="minute === selectedMinute"
+          [class.selected]="minute === minutes"
+          [attr.aria-selected]="minute === minutes"
         >
           {{ minute }}
         </div>
@@ -131,7 +131,7 @@ export class TimeSelectComponent implements AfterViewInit, OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['selectedHour'] || changes['selectedMinute']) {
+    if (changes['hours'] || changes['minutes']) {
       this.resetToDefault();
       this.addCurrentMinutes();
 
@@ -165,15 +165,15 @@ export class TimeSelectComponent implements AfterViewInit, OnInit, OnChanges {
     this.selectMinute(minute);
   }
 
-  handleKeyDownHour(event: KeyboardEvent) {
+  handleKeyDownHour(event: KeyboardEvent, hour: string) {
     if (event.key === 'Enter') {
-      this.selectHour(this.hours);
+      this.selectHour(hour);
     }
   }
 
-  handleKeyDownMinute(event: KeyboardEvent) {
+  handleKeyDownMinute(event: KeyboardEvent, minute: string) {
     if (event.key === 'Enter') {
-      this.selectMinute(this.minutes);
+      this.selectMinute(minute);
     }
   }
 

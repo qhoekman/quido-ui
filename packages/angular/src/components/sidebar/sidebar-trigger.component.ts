@@ -6,7 +6,7 @@ import { SidebarService } from './sidebar.service';
   standalone: true,
   host: {
     'data-sidebar': 'trigger',
-    'data-testid': 'qui-sidebar-trigger',
+    'data-testid': 'sidebar__trigger',
   },
   template: `<ng-content></ng-content>`,
   styles: [

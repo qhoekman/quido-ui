@@ -4,7 +4,7 @@ import { AccordionItemComponent } from './accordion-item.component';
 @Directive({
   selector: '*[qui-accordion-trigger]',
   host: {
-    'data-testid': 'qui-accordion-trigger',
+    'data-testid': 'accordion__trigger',
   },
   standalone: true,
 })

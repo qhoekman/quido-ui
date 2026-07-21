@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   imports: [CommonModule],
   host: {
     role: 'tree',
-    'data-testid': 'qui-tree',
+    'data-testid': 'tree',
   },
   template: ` <ng-content></ng-content> `,
 })

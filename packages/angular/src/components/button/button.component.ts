@@ -19,7 +19,7 @@ export type ButtonVariants = {
   imports: [CommonModule],
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-button',
+    'data-testid': 'button',
   },
   template: `<ng-content></ng-content>`,
   styles: [

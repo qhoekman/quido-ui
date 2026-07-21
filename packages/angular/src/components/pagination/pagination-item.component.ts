@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'li[qui-pagination-item]',
   standalone: true,
   host: {
-    'data-testid': 'qui-pagination-item',
+    'data-testid': 'pagination__item',
   },
   template: `<ng-content></ng-content>`,
   styles: [

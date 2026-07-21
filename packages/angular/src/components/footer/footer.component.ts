@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   selector: 'footer[qui-footer]',
   standalone: true,
   host: {
-    'data-testid': 'qui-footer',
+    'data-testid': 'footer',
   },
   imports: [CommonModule],
   styles: [

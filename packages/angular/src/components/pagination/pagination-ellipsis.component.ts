@@ -7,7 +7,7 @@ import { VisuallyHiddenComponent } from '../visually-hidden/visually-hidden.comp
   standalone: true,
   host: {
     '[attr.aria-hidden]': 'true',
-    'data-testid': 'qui-pagination-ellipsis',
+    'data-testid': 'pagination__ellipsis',
   },
   imports: [IconDotsHorizontalComponent, VisuallyHiddenComponent],
   template: `

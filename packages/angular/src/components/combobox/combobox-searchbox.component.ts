@@ -5,7 +5,7 @@ import { IconMagnifyingGlassComponent } from '../../icons';
   selector: 'div[qui-combobox-searchbox]',
   standalone: true,
   host: {
-    'data-testid': 'qui-combobox-searchbox',
+    'data-testid': 'combobox__searchbox',
   },
   imports: [IconMagnifyingGlassComponent],
   template: `

@@ -11,7 +11,7 @@ import {
   selector: 'qui-hover-card',
   standalone: true,
   host: {
-    'data-testid': 'qui-hover-card',
+    'data-testid': 'hover-card',
   },
   imports: [CommonModule],
   template: `
@@ -35,6 +35,7 @@ export class HoverCardComponent {
   @ContentChild('hoverCardContent', { static: true, descendants: true })
   hoverCardContent!: TemplateRef<unknown>;
 
+  private showTimeout: ReturnType<typeof setTimeout> | null = null;
   private hideTimeout: ReturnType<typeof setTimeout> | null = null;
 
   @HostListener('mouseleave')
@@ -48,15 +49,27 @@ export class HoverCardComponent {
   }
 
   show() {
-    setTimeout(() => {
+    this.debounceHide();
+    if (this.open || this.showTimeout) return;
+    this.showTimeout = setTimeout(() => {
       this.open = true;
+      this.showTimeout = null;
     }, this.DELAY_MS);
   }
 
   hide() {
+    this.debounceShow();
+    if (!this.open || this.hideTimeout) return;
     this.hideTimeout = setTimeout(() => {
       this.open = false;
+      this.hideTimeout = null;
     }, this.DELAY_MS);
+  }
+
+  debounceShow() {
+    if (!this.showTimeout) return;
+    clearTimeout(this.showTimeout);
+    this.showTimeout = null;
   }
 
   debounceHide() {

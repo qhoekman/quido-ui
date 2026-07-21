@@ -6,7 +6,7 @@ import { ReelService } from './reel.service';
   template: `<ng-content></ng-content>`,
   standalone: true,
   host: {
-    'data-testid': 'qui-reel-content',
+    'data-testid': 'reel__content',
   },
   styles: [
     `

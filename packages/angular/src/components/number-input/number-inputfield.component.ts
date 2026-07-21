@@ -24,7 +24,7 @@ export type NumberInputFieldVariants = {
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-number-inputfield',
+    'data-testid': 'number-input__field',
   },
   imports: [
     CommonModule,

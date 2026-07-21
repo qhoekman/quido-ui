@@ -7,15 +7,15 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, IconStarComponent],
   standalone: true,
   host: {
-    'data-testid': 'qui-star-rating',
+    'data-testid': 'star-rating',
   },
   template: `
     <i
-      data-testid="qui-star-rating-star"
+      data-testid="star-rating__star"
       qui-icon
       name="star"
       [ngClass]="getStarClassList(star)"
-      *ngFor="let star of total; track: star"
+      *ngFor="let star of total"
     >
     </i>
   `,

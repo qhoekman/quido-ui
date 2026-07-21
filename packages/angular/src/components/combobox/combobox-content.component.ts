@@ -10,7 +10,7 @@ import { CdkListbox, CdkListboxModule } from '@angular/cdk/listbox';
     role: 'listbox',
     id: 'combobox-content',
     '[attr.tabindex]': '-1',
-    'data-testid': 'qui-combobox-content',
+    'data-testid': 'combobox__content',
   },
   hostDirectives: [CdkListbox],
   template: `<ng-content></ng-content>`,

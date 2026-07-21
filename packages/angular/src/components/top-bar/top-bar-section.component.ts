@@ -12,7 +12,7 @@ export type TopBarSectionVariants = {
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-top-bar-section',
+    'data-testid': 'top-bar__section',
   },
   template: ` <ng-content></ng-content> `,
   styles: [

@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   selector: 'h3[qui-footer-heading]',
   standalone: true,
   host: {
-    'data-testid': 'qui-footer-heading',
+    'data-testid': 'footer__heading',
   },
   imports: [CommonModule],
   template: `<ng-content></ng-content>`,

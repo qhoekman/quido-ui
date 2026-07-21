@@ -12,21 +12,21 @@ import {
 @Component({
   selector: 'div[qui-slider]',
   host: {
-    'data-testid': 'qui-slider',
+    'data-testid': 'slider',
   },
   standalone: true,
   template: `
-    <div #track class="slider-track" data-testid="qui-slider-track">
-      <div #range class="slider-range" data-testid="qui-slider-range"></div>
+    <div #track class="slider-track" data-testid="slider__track">
+      <div #range class="slider-range" data-testid="slider__range"></div>
       <div
         #thumb
         class="slider-thumb"
         tabindex="0"
-        data-testid="qui-slider-thumb"
+        data-testid="slider__thumb"
       ></div>
     </div>
     <input
-      data-testid="qui-slider-input"
+      data-testid="slider__input"
       type="hidden"
       [attr.id]="elementRef.nativeElement.id"
       [attr.name]="elementRef.nativeElement.name"

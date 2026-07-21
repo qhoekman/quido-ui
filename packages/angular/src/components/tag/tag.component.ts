@@ -11,7 +11,7 @@ export type TagVariants = {
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-tag',
+    'data-testid': 'tag',
   },
   template: `<ng-content></ng-content>`,
   styles: [

@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   template: `<ng-content></ng-content>`,
   host: {
     role: 'navigation',
-    'data-testid': 'qui-breadcrumb',
+    'data-testid': 'breadcrumb',
     '[attr.aria-label]': '"breadcrumb"',
   },
   styles: [

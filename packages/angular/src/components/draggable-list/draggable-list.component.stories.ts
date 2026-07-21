@@ -30,7 +30,13 @@ export const Default: Story = {
     items: ['Item 1', 'Item 2', 'Item 3'],
   },
   render: (args) => ({
-    props: args,
+    props: {
+      ...args,
+      onReorder: (newOrder: unknown) => {
+        // eslint-disable-next-line no-console
+        console.log('New order:', newOrder);
+      },
+    },
     template: `
       <div qui-story>
         <qui-draggable-list [items]="items" [itemTemplate]="itemTemplate" (reorder)="onReorder($event)">
@@ -40,11 +46,5 @@ export const Default: Story = {
         </qui-draggable-list>
       </div>
     `,
-    methods: {
-      onReorder: (newOrder: number) => {
-        // eslint-disable-next-line no-console
-        console.log('New order:', newOrder);
-      },
-    },
   }),
 };

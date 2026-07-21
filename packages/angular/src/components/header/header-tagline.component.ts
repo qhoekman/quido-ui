@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'h3[qui-header-tagline]',
   standalone: true,
   host: {
-    'data-testid': 'qui-header-tagline',
+    'data-testid': 'header__tagline',
   },
   template: `<ng-content></ng-content>`,
   styles: [

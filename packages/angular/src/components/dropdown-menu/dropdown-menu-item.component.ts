@@ -6,7 +6,7 @@ import { Component, ElementRef, HostListener } from '@angular/core';
   standalone: true,
   host: {
     role: 'menuitem',
-    'data-testid': 'qui-dropdown-menu-item',
+    'data-testid': 'dropdown-menu__item',
   },
   styles: [
     `

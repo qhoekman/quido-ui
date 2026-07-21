@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: '',
   host: {
     role: 'separator',
-    'data-testid': 'qui-tab-navigation-separator',
+    'data-testid': 'tab-navigation__separator',
     'aria-orientation': 'horizontal',
   },
   styles: [

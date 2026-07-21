@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   standalone: true,
   host: {
     role: 'separator',
-    'data-testid': 'qui-menubar-separator',
+    'data-testid': 'menubar__separator',
     'aria-orientation': 'horizontal',
   },
   styles: [

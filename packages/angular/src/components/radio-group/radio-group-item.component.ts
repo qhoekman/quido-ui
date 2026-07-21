@@ -71,7 +71,7 @@ import {
   host: {
     type: 'button',
     role: 'radio',
-    'data-testid': 'qui-radio-group-item',
+    '[attr.data-testid]': "'radio-group__item-' + value",
     '[attr.aria-checked]': 'checked',
     '[attr.data-state]': 'checked ? "checked" : "unchecked"',
   },

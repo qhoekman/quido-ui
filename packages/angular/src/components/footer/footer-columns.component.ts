@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   selector: 'div[qui-footer-columns]',
   standalone: true,
   host: {
-    'data-testid': 'qui-footer-columns',
+    'data-testid': 'footer__columns',
   },
   imports: [CommonModule],
   template: `<ng-content></ng-content>`,

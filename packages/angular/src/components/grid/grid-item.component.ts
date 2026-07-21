@@ -15,7 +15,7 @@ export type GridItemProps = {
   selector: 'div[qui-grid-item]',
   standalone: true,
   host: {
-    'data-testid': 'qui-grid-item',
+    'data-testid': 'grid__item',
   },
   template: `<ng-content></ng-content>`,
   styles: [

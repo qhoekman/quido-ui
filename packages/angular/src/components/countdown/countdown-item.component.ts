@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'span[qui-countdown-item]',
+  host: {
+    'data-testid': 'countdown__item',
+  },
   template: `<ng-content></ng-content>`,
   styles: [
     `

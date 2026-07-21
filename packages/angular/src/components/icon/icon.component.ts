@@ -15,10 +15,11 @@ export type IconVariants = {
 };
 
 @Component({
-  selector: 'qui-icon',
+  selector: '[qui-icon]:not([name])',
   standalone: true,
   host: {
     '[class]': 'getClassList()',
+    'data-testid': 'icon',
   },
   template: `<ng-content></ng-content>`,
   styleUrls: ['./icon.component.css'],

@@ -12,10 +12,9 @@ export type SidebarMenuSubButtonProps = {
   standalone: true,
   host: {
     'data-sidebar': 'menu-sub-button',
-    'data-size': 'size',
-    'data-active': 'isActive',
-    'data-testid': 'qui-sidebar-menu-sub-button',
-    '[class]': 'getClassList()',
+    '[attr.data-size]': 'size',
+    '[attr.data-active]': 'isActive',
+    'data-testid': 'sidebar__menu-sub-button',
   },
   template: `<ng-content></ng-content>`,
   styles: [
@@ -78,10 +77,4 @@ export class SidebarMenuSubButtonComponent {
   @Input() size: SidebarMenuSubButtonProps['size'] = 'md';
   @Input() isActive?: boolean;
   @Input() asChild?: boolean;
-
-  getClassList() {
-    return {
-      'group-data-[collapsible=icon]:hidden': true,
-    };
-  }
 }

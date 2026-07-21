@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'button[qui-password-input-button]',
   standalone: true,
   host: {
-    'data-testid': 'qui-password-input-button',
+    'data-testid': 'password-input__button',
   },
   template: ` <ng-content></ng-content> `,
   styles: [

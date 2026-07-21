@@ -6,7 +6,7 @@ import { Component, ElementRef, HostListener } from '@angular/core';
   template: `<ng-content></ng-content>`,
   host: {
     role: 'menuitem',
-    'data-testid': 'qui-tab-navigation-menuitem',
+    'data-testid': 'tab-navigation__menuitem',
     tabindex: '0',
   },
   hostDirectives: [CdkMenuItem],

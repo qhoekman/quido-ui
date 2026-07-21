@@ -4,7 +4,7 @@ import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
   selector: 'qui-signature-pad',
   standalone: true,
   host: {
-    'data-testid': 'qui-signature-pad',
+    'data-testid': 'signature-pad',
   },
   styles: [
     `

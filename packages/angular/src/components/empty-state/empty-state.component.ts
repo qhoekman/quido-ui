@@ -8,10 +8,10 @@ type EmptyStateVariants = {
   selector: '[qui-empty-state]',
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-empty-state',
+    'data-testid': 'empty-state',
   },
   template: `<ng-content select="[qui-empty-state-icon]"></ng-content>
-    <div class="empty-state__content" data-testid="qui-empty-state-content">
+    <div class="empty-state__content" data-testid="empty-state__content">
       <ng-content select="[qui-empty-state-title]"></ng-content>
       <ng-content select="[qui-empty-state-description]"></ng-content>
     </div>

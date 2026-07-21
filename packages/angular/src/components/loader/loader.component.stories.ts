@@ -25,7 +25,7 @@ const meta: Meta<EnhancedLoaderComponent> = {
     }),
   ],
   argTypes: {
-    loading: {
+    active: {
       control: 'boolean',
     },
     variant: {
@@ -39,7 +39,7 @@ type Story = StoryObj<EnhancedLoaderComponent>;
 
 export const Default: Story = {
   args: {
-    loading: true,
+    active: true,
     variant: 'spinner',
     label: 'Loading...',
   } as never,
@@ -48,8 +48,8 @@ export const Default: Story = {
     template: `
     <qui-story>
       <div qui-stack gap="sm">
-        <div qui-loader [loading]="loading" [variant]="variant"></div>
-        <label *ngIf="loading" qui-label>{{ label }}</label>
+        <div qui-loader [active]="active" [variant]="variant"></div>
+        <label *ngIf="active" qui-label>{{ label }}</label>
       </div>
     </qui-story>
     `,

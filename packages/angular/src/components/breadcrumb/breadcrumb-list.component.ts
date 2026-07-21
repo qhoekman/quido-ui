@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'ol[qui-breadcrumb-list]',
   standalone: true,
   host: {
-    'data-testid': 'qui-breadcrumb-list',
+    'data-testid': 'breadcrumb__list',
   },
   template: `<ng-content></ng-content>`,
   styles: [

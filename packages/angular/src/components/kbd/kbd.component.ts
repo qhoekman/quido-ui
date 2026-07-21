@@ -9,7 +9,7 @@ export type KbdVariants = {
   selector: 'kbd[qui-kbd]',
   standalone: true,
   host: {
-    'data-testid': 'qui-kbd',
+    'data-testid': 'kbd',
     '[class]': 'getClassList()',
   },
   template: `<ng-content></ng-content>`,

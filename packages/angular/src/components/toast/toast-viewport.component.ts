@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   template: `<ng-content></ng-content>`,
   host: {
-    'data-testid': 'qui-toast-viewport',
+    'data-testid': 'toast__viewport',
   },
   styles: [
     `

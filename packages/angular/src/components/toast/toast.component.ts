@@ -9,7 +9,7 @@ export type ToastVariants = {
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-toast',
+    'data-testid': 'toast',
   },
   template: ` <ng-content></ng-content> `,
   styles: [

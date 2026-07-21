@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'img[qui-header-backdrop-image]',
   standalone: true,
   host: {
-    'data-testid': 'qui-header-backdrop-image',
+    'data-testid': 'header__backdrop-image',
   },
   template: '',
   styles: [

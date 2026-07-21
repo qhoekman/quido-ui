@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
   imports: [CommonModule],
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-sidebar-content',
+    'data-testid': 'sidebar__content',
   },
   template: `<ng-content></ng-content>`,
   styles: [

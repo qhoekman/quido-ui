@@ -25,7 +25,7 @@ type TooltipStrategy = 'always' | 'overflow';
   selector: '*[qui-tooltip]',
   standalone: true,
   host: {
-    'data-testid': 'qui-tooltip',
+    'data-testid': 'tooltip',
   },
   imports: [OverlayModule],
   styles: [
@@ -148,7 +148,9 @@ export class TooltipComponent implements OnInit, AfterViewInit, OnDestroy {
       this.isStrategyAlways() ||
       (this.isStrategyOverflow() && this.isOverflowing)
     ) {
-      this.overlayRef.detach();
+      if (this.overlayRef.hasAttached()) {
+        return;
+      }
 
       const tooltipPortal = new TemplatePortal(
         this.trigger.tooltipContentFor,
@@ -160,6 +162,8 @@ export class TooltipComponent implements OnInit, AfterViewInit, OnDestroy {
         }
       );
       this.overlayRef.attach(tooltipPortal);
+    } else if (this.overlayRef.hasAttached()) {
+      this.overlayRef.detach();
     }
   }
 

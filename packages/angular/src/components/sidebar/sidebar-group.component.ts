@@ -1,14 +1,14 @@
 import { Component, Input } from '@angular/core';
 
 export type SidebarGroupVariants = {
-  hide: 'none' | 'icon  ';
+  hide: 'none' | 'icon';
 };
 
 @Component({
   selector: 'div[qui-sidebar-group]',
   standalone: true,
   host: {
-    'data-testid': 'qui-sidebar-group',
+    'data-testid': 'sidebar__group',
     '[class]': 'getClassList()',
   },
   template: `<ng-content></ng-content>`,
@@ -23,7 +23,7 @@ export type SidebarGroupVariants = {
         padding: var(--spacing-2);
       }
 
-      :host-context(.collapsible--icon) :host(.hide--icon) {
+      :host-context(.collapsible--icon).hide--icon {
         display: none;
       }
     `,

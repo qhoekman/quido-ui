@@ -5,6 +5,9 @@ import { Component } from '@angular/core';
   selector: 'div[qui-tab-navigation-rail]',
   template: ` <ng-content></ng-content> `,
   hostDirectives: [CdkMenuBar],
+  host: {
+    'data-testid': 'tab-navigation__rail',
+  },
   styles: [
     `
       :host {

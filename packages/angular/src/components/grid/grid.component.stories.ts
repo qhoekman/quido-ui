@@ -26,7 +26,7 @@ export const DefaultGridItem: Story = {
     },
     template: `
       <div qui-grid [columns]="columns">
-        @for (i of grid; track i) {
+        @for (i of grid; track $index) {
           <div qui-grid-item [colSpan]="colSpan" style="background-color: lightgray; padding: 20px;">
             Grid Item
           </div>

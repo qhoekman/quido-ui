@@ -8,7 +8,7 @@ export type StatisticVariants = {
   selector: '[qui-statistic]',
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-statistic',
+    'data-testid': 'statistic',
   },
   template: ` <ng-content></ng-content> `,
   styles: [

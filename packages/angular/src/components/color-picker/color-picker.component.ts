@@ -33,17 +33,17 @@ import { TabsComponent } from '../tabs/tabs.component';
     @let selectedColor = selectedColorSubject | async; @let selectedVariable =
     selectedVariableSubject | async; @let displayValues = displayValuesSubject |
     async;
-    <div data-testid="qui-color-picker" qui-tabs class="tabs">
-      <div data-testid="qui-color-picker-tabs-list" qui-tabs-list>
+    <div data-testid="color-picker" qui-tabs class="tabs">
+      <div data-testid="color-picker__tabs-list" qui-tabs-list>
         <button
-          data-testid="qui-color-picker-tabs-trigger"
+          data-testid="color-picker__tabs-trigger"
           qui-tabs-trigger
           [tabContentFor]="colorWheelContent"
         >
           Hue
         </button>
         <button
-          data-testid="qui-color-picker-tabs-trigger"
+          data-testid="color-picker__tabs-trigger"
           qui-tabs-trigger
           [tabContentFor]="colorPaletteContent"
         >
@@ -52,7 +52,7 @@ import { TabsComponent } from '../tabs/tabs.component';
       </div>
       <ng-template #colorWheelContent>
         <div
-          data-testid="qui-color-picker-tabs-content"
+          data-testid="color-picker__tabs-content"
           qui-tabs-content
           class="tabs-content"
         >
@@ -66,7 +66,7 @@ import { TabsComponent } from '../tabs/tabs.component';
       </ng-template>
       <ng-template #colorPaletteContent>
         <div
-          data-testid="qui-color-picker-tabs-content"
+          data-testid="color-picker__tabs-content"
           qui-tabs-content
           class="tabs-content"
         >
@@ -77,16 +77,16 @@ import { TabsComponent } from '../tabs/tabs.component';
         </div>
       </ng-template>
     </div>
-    <div data-testid="qui-color-picker-info" class="info">
-      <div data-testid="qui-color-picker-info-color-item" class="color-item">
+    <div data-testid="color-picker__info" class="info">
+      <div data-testid="color-picker__info-color-item" class="color-item">
         <span class="label">HEX:</span>
         <pre><code>{{ displayValues?.hex }}</code></pre>
       </div>
-      <div data-testid="qui-color-picker-info-color-item" class="color-item">
+      <div data-testid="color-picker__info-color-item" class="color-item">
         <span class="label">HSL:</span>
         <pre><code>{{ displayValues?.hsl }}</code></pre>
       </div>
-      <div data-testid="qui-color-picker-info-color-item" class="color-item">
+      <div data-testid="color-picker__info-color-item" class="color-item">
         <span class="label">RGB:</span>
         <pre><code>{{ displayValues?.rgb }}</code></pre>
       </div>

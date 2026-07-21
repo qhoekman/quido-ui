@@ -9,7 +9,7 @@ import { Component, Directive } from '@angular/core';
   selector: '[qui-header-row]',
   standalone: true,
   host: {
-    'data-testid': 'qui-table-header-row',
+    'data-testid': 'table__header-row',
   },
   styles: [
     `

@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'div[qui-spotlight-gallery-list]',
   standalone: true,
   host: {
-    'data-testid': 'qui-spotlight-gallery-list',
+    'data-testid': 'spotlight-gallery__list',
   },
   template: `<ng-content></ng-content>`,
   styles: [

@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-timeline-separator]',
   standalone: true,
   host: {
-    'data-testid': 'qui-timeline-separator',
+    'data-testid': 'timeline__separator',
   },
   template: ` <ng-content></ng-content> `,
   styles: [

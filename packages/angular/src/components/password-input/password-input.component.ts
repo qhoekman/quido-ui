@@ -11,7 +11,7 @@ export type PasswordInputVariants = {
   imports: [CommonModule],
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-password-input',
+    'data-testid': 'password-input',
     type: 'password',
   },
   template: ``,

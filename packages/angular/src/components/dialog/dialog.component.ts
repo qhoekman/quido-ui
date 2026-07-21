@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input } from '@angular/core';
 
 export type DialogVariants = {
   size: 'sm' | 'md' | 'lg';
@@ -10,6 +10,7 @@ export type DialogVariants = {
   standalone: true,
   imports: [CommonModule],
   host: {
+    'data-testid': 'dialog',
     '[class]': 'getClassList()',
   },
   template: `
@@ -22,7 +23,6 @@ export type DialogVariants = {
     `
       :host {
         position: relative;
-        display: block;
         border: 0 none;
         border-radius: var(--border-radius-md);
         box-shadow: var(--box-shadow-lg);
@@ -48,7 +48,17 @@ export type DialogVariants = {
 export class DialogComponent {
   @Input() size: DialogVariants['size'] = 'md';
 
+  constructor(private elementRef: ElementRef<HTMLDialogElement>) {}
+
   getClassList() {
     return [`size--${this.size}`].join(' ');
+  }
+
+  open() {
+    this.elementRef.nativeElement.showModal();
+  }
+
+  close() {
+    this.elementRef.nativeElement.close();
   }
 }

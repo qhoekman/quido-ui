@@ -16,7 +16,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: '[qui-table]',
   standalone: true,
   host: {
-    'data-testid': 'qui-table',
+    'data-testid': 'table',
   },
   template: `
     <ng-content select="caption" />

@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `<ng-content></ng-content>`,
   standalone: true,
   host: {
-    'data-testid': 'qui-dropdown-menu-label',
+    'data-testid': 'dropdown-menu__label',
   },
   styles: [
     `

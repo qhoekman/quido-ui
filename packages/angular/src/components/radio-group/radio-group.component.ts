@@ -14,7 +14,7 @@ import { BehaviorSubject } from 'rxjs';
   standalone: true,
   template: ` <ng-content></ng-content> `,
   host: {
-    'data-testid': 'qui-radio-group',
+    'data-testid': 'radio-group',
   },
   styles: [
     `

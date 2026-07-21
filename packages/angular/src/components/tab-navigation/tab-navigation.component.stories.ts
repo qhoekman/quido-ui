@@ -61,7 +61,9 @@ export const Link: Story = {
             </a>
           </li>
           <li qui-tab-navigation-item>
-            <a qui-tab-navigation-link [cdkMenuTriggerFor]="tabNavigationTransactions">Transactions</a>
+            <a qui-tab-navigation-link [cdkMenuTriggerFor]="tabNavigationTransactions">Transactions
+                <qui-tab-navigation-indicator></qui-tab-navigation-indicator>
+            </a>
           </li>
           <li qui-tab-navigation-item>
             <a qui-tab-navigation-link>
@@ -70,7 +72,7 @@ export const Link: Story = {
             </a>
           </li>
           <li qui-tab-navigation-item>
-            <a qui-tab-navigation-link aria-disabled="true" disabled>Support</a>
+            <a qui-tab-navigation-link [disabled]="true">Support</a>
           </li>
           <div qui-tab-navigation-rail></div>
         </ul>
@@ -87,6 +89,14 @@ export const Link: Story = {
               <li qui-tab-navigation-menuitem>Transaction History</li>
               <li qui-tab-navigation-menuitem>Account Settings</li>
               <li qui-tab-navigation-menuitem>Support</li>
+            </ol>
+          </div>
+        </ng-template>
+        <ng-template #tabNavigationTransactions>
+          <div qui-tab-navigation-menu>
+            <ol qui-tab-navigation-menugroup>
+              <li qui-tab-navigation-menuitem>Recent</li>
+              <li qui-tab-navigation-menuitem>All</li>
             </ol>
           </div>
         </ng-template>
@@ -113,7 +123,9 @@ export const Border: Story = {
             </a>
           </li>
           <li qui-tab-navigation-item>
-            <a qui-tab-navigation-link variant="border" [cdkMenuTriggerFor]="tabNavigationTransactions">Transactions</a>
+            <a qui-tab-navigation-link variant="border" [cdkMenuTriggerFor]="tabNavigationTransactions">Transactions
+                <qui-tab-navigation-indicator></qui-tab-navigation-indicator>
+            </a>
           </li>
           <li qui-tab-navigation-item>
             <a qui-tab-navigation-link variant="border">
@@ -122,7 +134,7 @@ export const Border: Story = {
             </a>
           </li>
           <li qui-tab-navigation-item>
-            <a qui-tab-navigation-link variant="border" aria-disabled="true" disabled>Support</a>
+            <a qui-tab-navigation-link variant="border" [disabled]="true">Support</a>
           </li>
         </ul>
         <ng-template #tabNavigationBalances>
@@ -138,6 +150,14 @@ export const Border: Story = {
               <li qui-tab-navigation-menuitem>Transaction History</li>
               <li qui-tab-navigation-menuitem>Account Settings</li>
               <li qui-tab-navigation-menuitem>Support</li>
+            </ol>
+          </div>
+        </ng-template>
+        <ng-template #tabNavigationTransactions>
+          <div qui-tab-navigation-menu>
+            <ol qui-tab-navigation-menugroup>
+              <li qui-tab-navigation-menuitem>Recent</li>
+              <li qui-tab-navigation-menuitem>All</li>
             </ol>
           </div>
         </ng-template>
@@ -164,7 +184,9 @@ export const Pill: Story = {
             </a>
           </li>
           <li qui-tab-navigation-item>
-            <a qui-tab-navigation-link variant="pill" [cdkMenuTriggerFor]="tabNavigationTransactions">Transactions</a>
+            <a qui-tab-navigation-link variant="pill" [cdkMenuTriggerFor]="tabNavigationTransactions">Transactions
+                <qui-tab-navigation-indicator></qui-tab-navigation-indicator>
+            </a>
           </li>
           <li qui-tab-navigation-item>
             <a qui-tab-navigation-link variant="pill">
@@ -173,7 +195,7 @@ export const Pill: Story = {
             </a>
           </li>
           <li qui-tab-navigation-item>
-            <a qui-tab-navigation-link variant="pill" aria-disabled="true" disabled>Support</a>
+            <a qui-tab-navigation-link variant="pill" [disabled]="true">Support</a>
           </li>
         </ul>
         <ng-template #tabNavigationBalances>
@@ -189,6 +211,14 @@ export const Pill: Story = {
               <li qui-tab-navigation-menuitem>Transaction History</li>
               <li qui-tab-navigation-menuitem>Account Settings</li>
               <li qui-tab-navigation-menuitem>Support</li>
+            </ol>
+          </div>
+        </ng-template>
+        <ng-template #tabNavigationTransactions>
+          <div qui-tab-navigation-menu>
+            <ol qui-tab-navigation-menugroup>
+              <li qui-tab-navigation-menuitem>Recent</li>
+              <li qui-tab-navigation-menuitem>All</li>
             </ol>
           </div>
         </ng-template>

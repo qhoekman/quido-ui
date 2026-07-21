@@ -18,7 +18,7 @@ export type ToggleVariants = {
   imports: [CommonModule],
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-toggle',
+    'data-testid': 'toggle',
     '[attr.aria-pressed]': 'selected',
   },
   template: `<ng-content></ng-content>`,

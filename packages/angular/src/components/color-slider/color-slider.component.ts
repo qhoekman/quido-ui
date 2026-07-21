@@ -15,22 +15,25 @@ import {
 @Component({
   selector: 'div[qui-color-slider]',
   standalone: true,
+  host: {
+    'data-testid': 'color-slider',
+  },
   template: `
-    <div #track class="color-slider-track" data-testid="qui-color-slider-track">
+    <div #track class="color-slider-track" data-testid="color-slider__track">
       <div
         #range
         class="color-slider-range"
-        data-testid="qui-color-slider-range"
+        data-testid="color-slider__range"
       ></div>
       <div
         #thumb
         class="color-slider-thumb"
         tabindex="0"
-        data-testid="qui-color-slider-thumb"
+        data-testid="color-slider__thumb"
       ></div>
     </div>
     <input
-      data-testid="qui-color-slider-input"
+      data-testid="color-slider__input"
       type="hidden"
       [attr.id]="elementRef.nativeElement.id"
       [attr.name]="elementRef.nativeElement.name"
@@ -101,6 +104,10 @@ export class ColorSliderComponent implements AfterViewInit, OnChanges {
   }
 
   private updateSlider() {
+    if (!this.track) {
+      return;
+    }
+
     const trackWidth = this.track.nativeElement.offsetWidth;
     const thumbPosition =
       ((this.value - this.min) / (this.max - this.min)) * trackWidth;

@@ -12,6 +12,7 @@ export type StackVariants = {
   standalone: true,
   host: {
     '[class]': 'getClassList()',
+    'data-testid': 'stack',
   },
   template: `<ng-content></ng-content>`,
   styles: [

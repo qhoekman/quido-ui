@@ -5,7 +5,7 @@ import { Component, EventEmitter, HostListener, Output } from '@angular/core';
   template: `<ng-content></ng-content>`,
   standalone: true,
   host: {
-    'data-testid': 'qui-toast-close',
+    'data-testid': 'toast__close',
   },
   styles: [
     `

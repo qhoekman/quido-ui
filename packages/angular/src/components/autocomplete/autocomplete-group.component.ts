@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-autocomplete-group]',
   standalone: true,
   host: {
-    'data-testid': 'qui-autocomplete-group',
+    'data-testid': 'autocomplete__group',
   },
   template: `<ng-content></ng-content>`,
   styles: [

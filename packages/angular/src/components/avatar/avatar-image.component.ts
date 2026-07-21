@@ -14,7 +14,7 @@ import { BehaviorSubject, Subscription } from 'rxjs';
   selector: 'img[qui-avatar-image]',
   standalone: true,
   host: {
-    'data-testid': 'qui-avatar-image',
+    'data-testid': 'avatar__image',
   },
   template: ``,
   styles: [

@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-navigation-menu-actions]',
   template: ` <ng-content></ng-content> `,
   host: {
-    'data-testid': 'qui-navigation-menu-actions',
+    'data-testid': 'navigation-menu__actions',
   },
   styles: [
     `

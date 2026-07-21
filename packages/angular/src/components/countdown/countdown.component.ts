@@ -3,20 +3,20 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 @Component({
   selector: 'div[qui-countdown]',
   host: {
-    'data-testid': 'qui-countdown',
+    'data-testid': 'countdown',
   },
   template: `
     <ng-content #countdown>
-      <span qui-countdown-element data-testid="qui-countdown-days">{{
+      <span qui-countdown-element data-testid="countdown__days">{{
         days
       }}</span>
-      <span qui-countdown-element data-testid="qui-countdown-hours">{{
+      <span qui-countdown-element data-testid="countdown__hours">{{
         hours
       }}</span>
-      <span qui-countdown-element data-testid="qui-countdown-minutes">{{
+      <span qui-countdown-element data-testid="countdown__minutes">{{
         minutes
       }}</span>
-      <span qui-countdown-element data-testid="qui-countdown-seconds">{{
+      <span qui-countdown-element data-testid="countdown__seconds">{{
         seconds
       }}</span>
     </ng-content>

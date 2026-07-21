@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-link',
+    'data-testid': 'link',
   },
   styles: [
     `
@@ -19,6 +19,8 @@ import { Component } from '@angular/core';
         font-style: normal;
         font-weight: 400;
         line-height: var(--line-height-5);
+        text-decoration: none;
+        transition: text-decoration 0.2s ease-in-out;
 
         &:hover {
           text-decoration: underline;
@@ -28,6 +30,13 @@ import { Component } from '@angular/core';
           text-decoration-thickness: auto;
           text-underline-offset: auto;
           text-underline-position: from-font;
+        }
+
+        &:focus-visible {
+          outline: none;
+          box-shadow:
+            0 0 0 2px var(--color-ring),
+            0 0 0 4px var(--color-background);
         }
       }
     `,

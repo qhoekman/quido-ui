@@ -5,7 +5,7 @@ import { AccordionItemComponent } from './accordion-item.component';
   selector: '[qui-accordion-content]',
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-accordion-content',
+    'data-testid': 'accordion__content',
   },
   template: ` <ng-content></ng-content> `,
   styles: [

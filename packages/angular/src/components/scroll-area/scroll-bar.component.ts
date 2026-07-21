@@ -5,24 +5,19 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   host: {
-    'data-testid': 'qui-scroll-bar',
+    'data-testid': 'scroll-area__bar',
+    '[style]': 'getBarStyles()',
   },
   template: `
     <div
-      class="scroll-bar"
-      [ngStyle]="getBarStyles()"
-      data-testid="qui-scroll-bar-container"
-    >
-      <div
-        class="scroll-thumb"
-        [ngStyle]="getThumbStyles()"
-        data-testid="qui-scroll-bar-thumb"
-      ></div>
-    </div>
+      class="scroll-thumb"
+      [ngStyle]="getThumbStyles()"
+      data-testid="scroll-area__bar-thumb"
+    ></div>
   `,
   styles: [
     `
-      .scroll-bar {
+      :host {
         position: absolute;
         display: flex;
         touch-action: none;

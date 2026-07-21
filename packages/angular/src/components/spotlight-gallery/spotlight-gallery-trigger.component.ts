@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   host: {
     '[class.active]': 'active',
-    'data-testid': 'qui-spotlight-gallery-trigger',
+    'data-testid': 'spotlight-gallery__trigger',
   },
   template: `<ng-content></ng-content>`,
   styles: [

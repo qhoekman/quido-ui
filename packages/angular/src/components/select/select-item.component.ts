@@ -13,7 +13,7 @@ import { SelectComponent } from './select.component';
   host: {
     role: 'option',
     '[attr.aria-selected]': 'isSelected',
-    'data-testid': 'qui-select-item',
+    'data-testid': 'select__item',
     tabindex: '0',
   },
   template: `<ng-content></ng-content>`,

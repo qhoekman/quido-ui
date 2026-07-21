@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-callout-indicator]',
   standalone: true,
   host: {
-    'data-testid': 'qui-callout-indicator',
+    'data-testid': 'callout__indicator',
   },
   template: `<ng-content></ng-content>`,
   styles: [

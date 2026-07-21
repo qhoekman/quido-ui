@@ -4,7 +4,7 @@ import { HoverCardComponent } from './hover-card.component';
 @Component({
   selector: '[qui-hover-card-content]',
   host: {
-    'data-testid': 'qui-hover-card-content',
+    'data-testid': 'hover-card__content',
   },
   template: `<ng-content></ng-content>`,
   standalone: true,

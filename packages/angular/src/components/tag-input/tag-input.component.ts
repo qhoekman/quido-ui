@@ -28,7 +28,7 @@ import { TagComponent } from '../tag/tag.component';
   template: `
     <div
       class="tag-input-container"
-      data-testid="qui-tag-input"
+      data-testid="tag-input"
       (click)="handleClick()"
       (keydown)="handleKeydown($event)"
       tabindex="0"
@@ -36,7 +36,7 @@ import { TagComponent } from '../tag/tag.component';
       <input
         #tagInput
         qui-input
-        data-testid="qui-tag-input-input"
+        data-testid="tag-input__input"
         type="text"
         placeholder="Enter tags (comma-separated)..."
         [(ngModel)]="inputValue"
@@ -61,7 +61,7 @@ import { TagComponent } from '../tag/tag.component';
         <div
           qui-tag
           size="sm"
-          data-testid="qui-tag-input-tag"
+          data-testid="tag-input__tag"
           *ngFor="let tag of tags; let i = index"
           class="tag"
           role="listitem"

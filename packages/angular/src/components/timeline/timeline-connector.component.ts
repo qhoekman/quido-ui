@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-timeline-connector]',
   standalone: true,
   host: {
-    'data-testid': 'qui-timeline-connector',
+    'data-testid': 'timeline__connector',
   },
   template: ` <ng-content></ng-content> `,
   styles: [

@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
   standalone: true,
   template: ` <ng-content></ng-content> `,
   host: {
-    'data-testid': 'qui-steps',
+    'data-testid': 'steps',
   },
   styles: [
     `

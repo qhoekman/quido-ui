@@ -9,12 +9,14 @@ export type SeparatorVariants = {
   template: '',
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-separator',
+    'data-testid': 'separator',
   },
   styles: [
     `
       :host {
         display: block;
+        border: none;
+        margin: 0;
         background-color: var(--border-color, #e0e0e0);
       }
 

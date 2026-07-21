@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   host: {
-    'data-testid': 'qui-tree-item-label',
+    'data-testid': 'tree__item-label',
   },
   template: ` <ng-content></ng-content> `,
   styles: [

@@ -9,7 +9,7 @@ import {
   selector: 'qui-tree-item-indicator',
   standalone: true,
   host: {
-    'data-testid': 'qui-tree-item-indicator',
+    'data-testid': 'tree__item-indicator',
   },
   imports: [IconChevronRightComponent, IconChevronDownComponent, CommonModule],
   template: `<ng-container *ngIf="!empty; else noContent">

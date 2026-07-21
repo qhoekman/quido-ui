@@ -4,7 +4,7 @@ import { Component, Directive } from '@angular/core';
 @Component({
   selector: '[qui-row]',
   host: {
-    'data-testid': 'qui-table-row',
+    'data-testid': 'table__row',
   },
   standalone: true,
   styles: [

@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-timeline-content]',
   standalone: true,
   host: {
-    'data-testid': 'qui-timeline-content',
+    'data-testid': 'timeline__content',
   },
   template: ` <ng-content></ng-content> `,
   styles: [

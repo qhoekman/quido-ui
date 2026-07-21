@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-timeline-bullet]',
   standalone: true,
   host: {
-    'data-testid': 'qui-timeline-bullet',
+    'data-testid': 'timeline__bullet',
   },
   template: ` <ng-content></ng-content> `,
   styles: [

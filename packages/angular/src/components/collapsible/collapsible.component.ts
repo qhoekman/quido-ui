@@ -8,7 +8,7 @@ import { Component, ContentChild, TemplateRef } from '@angular/core';
   imports: [CdkAccordionModule, CommonModule],
   template: `
     <div
-      data-testid="qui-collapsible"
+      data-testid="collapsible"
       cdkAccordion
       [class.collapsible--expanded]="expanded"
     >

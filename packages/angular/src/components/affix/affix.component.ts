@@ -10,7 +10,7 @@ import { BehaviorSubject } from 'rxjs';
 @Component({
   selector: '[qui-affix]',
   host: {
-    'data-testid': 'qui-affix',
+    'data-testid': 'affix',
     '[class]': 'getClassList()',
   },
   template: ` <ng-content></ng-content> `,

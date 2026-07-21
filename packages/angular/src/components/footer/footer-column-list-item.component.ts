@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   selector: 'li[qui-footer-column-list-item]',
   standalone: true,
   host: {
-    'data-testid': 'qui-footer-column-list-item',
+    'data-testid': 'footer__column-list-item',
   },
   imports: [CommonModule],
   template: `<ng-content></ng-content>`,

@@ -14,13 +14,13 @@ import {
   imports: [CommonModule],
   template: `
     <div
-      data-testid="qui-color-select-item-color-indicator"
+      data-testid="color-select__item-indicator"
       class="color-indicator"
       [style.backgroundColor]="color"
       [class.checked]="checked"
     ></div>
     <input
-      data-testid="qui-color-select-item-input"
+      data-testid="color-select__item-input"
       type="hidden"
       [attr.id]="elementRef.nativeElement.id"
       [attr.name]="elementRef.nativeElement.name"
@@ -68,7 +68,7 @@ import {
   host: {
     type: 'button',
     role: 'radio',
-    'data-testid': 'qui-color-select-item',
+    'data-testid': 'color-select__item',
     '[attr.aria-checked]': 'checked',
     '[attr.data-state]': 'checked ? "checked" : "unchecked"',
   },

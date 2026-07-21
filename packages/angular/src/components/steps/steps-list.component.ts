@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'qui-steps-list',
   standalone: true,
   host: {
-    'data-testid': 'qui-steps-list',
+    'data-testid': 'steps__list',
   },
   template: `
     <div class="steps-list">

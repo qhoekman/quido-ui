@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-combobox-label]',
   standalone: true,
   host: {
-    'data-testid': 'qui-combobox-label',
+    'data-testid': 'combobox__label',
   },
   template: `<ng-content></ng-content>`,
   styles: [

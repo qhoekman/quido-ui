@@ -5,7 +5,7 @@ import { Component, ElementRef, HostListener, Input } from '@angular/core';
   host: {
     type: 'button',
     role: 'switch',
-    'data-testid': 'qui-switch',
+    'data-testid': 'switch',
     '[attr.aria-checked]': 'checked',
     '[attr.data-state]': 'checked ? "checked" : "unchecked"',
   },
@@ -14,10 +14,10 @@ import { Component, ElementRef, HostListener, Input } from '@angular/core';
     <span
       class="thumb"
       [class.checked]="checked"
-      data-testid="qui-switch-thumb"
+      data-testid="switch__thumb"
     ></span>
     <input
-      data-testid="qui-switch-input"
+      data-testid="switch__input"
       type="hidden"
       [attr.name]="elementRef.nativeElement.getAttribute('name')"
       [value]="checked ? 'true' : 'false'"

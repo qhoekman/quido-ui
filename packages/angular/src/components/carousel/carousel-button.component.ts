@@ -11,7 +11,7 @@ type CarouselButtonVariants = {
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-carousel-button',
+    'data-testid': 'carousel__button',
   },
   template: `<ng-content></ng-content>`,
   styles: [

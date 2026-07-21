@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-drawer-content]',
   standalone: true,
   host: {
-    '[attr.data-testid]': 'drawer__content',
+    'data-testid': 'drawer__content',
     '[class]': 'getClassList()',
   },
   template: ` <ng-content></ng-content> `,

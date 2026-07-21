@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-visually-hidden], [qui-sr-only]',
   standalone: true,
   host: {
-    'data-testid': 'qui-visually-hidden',
+    'data-testid': 'visually-hidden',
   },
   template: `<ng-content></ng-content>`,
   styles: [

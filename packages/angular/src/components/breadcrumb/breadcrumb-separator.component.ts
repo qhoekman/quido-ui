@@ -14,7 +14,7 @@ import { IconSlashComponent } from '../../icons';
   host: {
     role: 'presentation',
     '[attr.aria-hidden]': 'true',
-    'data-testid': 'qui-breadcrumb-separator',
+    'data-testid': 'breadcrumb__separator',
   },
   styles: [
     `

@@ -2,11 +2,11 @@ import { CdkMenuItem } from '@angular/cdk/menu';
 import { Component, ElementRef, HostListener } from '@angular/core';
 
 @Component({
-  selector: 'a[qui-navigation-menu-dropdown-item]',
+  selector: '[qui-navigation-menu-dropdown-item]',
   template: `<ng-content></ng-content>`,
   host: {
     role: 'menuitem',
-    'data-testid': 'qui-navigation-menu-dropdown-item',
+    'data-testid': 'navigation-menu__dropdown-item',
     tabindex: '0',
   },
   hostDirectives: [CdkMenuItem],

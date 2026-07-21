@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-collapsible-content]',
   standalone: true,
   host: {
-    'data-testid': 'qui-collapsible-content',
+    'data-testid': 'collapsible__content',
   },
   styles: [
     `

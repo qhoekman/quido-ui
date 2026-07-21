@@ -11,6 +11,7 @@ type TabNavigationLinkVariants = {
 @Component({
   selector: 'a[qui-tab-navigation-link], button[qui-tab-navigation-link]',
   host: {
+    'data-testid': 'tab-navigation__link',
     '[class]': 'getClassList()',
     '[attr.aria-disabled]': 'disabled ? true : null',
   },
@@ -137,6 +138,7 @@ type TabNavigationLinkVariants = {
 export class TabNavigationLinkComponent {
   @Input() variant: TabNavigationLinkVariants['variant'] = 'link';
   @Input() state: TabNavigationLinkVariants['state'] = 'default';
+  @Input() disabled = false;
   constructor(private el: ElementRef) {}
 
   getClassList() {

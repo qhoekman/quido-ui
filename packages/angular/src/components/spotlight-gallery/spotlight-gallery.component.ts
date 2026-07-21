@@ -13,6 +13,9 @@ import { SpotlightGalleryContentComponent } from './spotlight-gallery-content.co
 @Component({
   selector: 'qui-spotlight-gallery',
   standalone: true,
+  host: {
+    'data-testid': 'spotlight-gallery',
+  },
   imports: [
     CommonModule,
     SpotlightGalleryListComponent,
@@ -26,7 +29,7 @@ import { SpotlightGalleryContentComponent } from './spotlight-gallery-content.co
           qui-spotlight-gallery-trigger
           [active]="i === activeIndex"
           (click)="handleClick(i)"
-          (keydown)="handleKeydown(i)"
+          (keydown)="handleKeydown($event)"
           tabindex="0"
         >
           <ng-container *ngTemplateOutlet="item.template"></ng-container>

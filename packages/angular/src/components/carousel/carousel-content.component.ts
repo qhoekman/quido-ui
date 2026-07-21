@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   selector: 'div[qui-carousel-content]',
   template: `<ng-content></ng-content>`,
   host: {
-    'data-testid': 'qui-carousel-content',
+    'data-testid': 'carousel__content',
   },
   styles: [
     `

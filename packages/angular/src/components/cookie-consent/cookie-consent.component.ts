@@ -22,11 +22,11 @@ import { IconCross2Component } from '../../icons';
     <div
       *ngIf="showBanner"
       class="cookie-consent-banner"
-      data-testid="qui-cookie-consent"
+      data-testid="cookie-consent"
     >
       <div
         class="cookie-consent-header"
-        data-testid="qui-cookie-consent-header"
+        data-testid="cookie-consent__header"
       >
         <div class="cookie-consent-text">
           <h3 qui-heading variant="h3">Cookie Consent</h3>
@@ -37,7 +37,7 @@ import { IconCross2Component } from '../../icons';
           size="icon"
           (click)="handleReject()"
           class="cookie-consent-close"
-          data-testid="qui-cookie-consent-close"
+          data-testid="cookie-consent__close"
         >
           <span aria-hidden="true">
             <i qui-icon name="cross2" size="sm"></i>
@@ -57,7 +57,7 @@ import { IconCross2Component } from '../../icons';
           variant="outline"
           (click)="handleReject()"
           class="cookie-consent-button-reject"
-          data-testid="qui-cookie-consent-reject"
+          data-testid="cookie-consent__reject"
         >
           Reject
         </button>
@@ -66,7 +66,7 @@ import { IconCross2Component } from '../../icons';
           variant="primary"
           (click)="handleAccept()"
           class="cookie-consent-button-accept"
-          data-testid="qui-cookie-consent-accept"
+          data-testid="cookie-consent__accept"
         >
           Accept
         </button>

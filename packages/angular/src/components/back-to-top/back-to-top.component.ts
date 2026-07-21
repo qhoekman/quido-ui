@@ -6,7 +6,7 @@ import { Component, HostListener } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   host: {
-    'data-testid': 'qui-back-to-top',
+    'data-testid': 'back-to-top',
   },
   template: `<ng-content *ngIf="isVisible"></ng-content>`,
   styles: [

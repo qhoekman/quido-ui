@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-empty-state-title]',
   template: '<ng-content></ng-content>',
   host: {
-    'data-testid': 'qui-empty-state-title',
+    'data-testid': 'empty-state__title',
   },
   styles: [
     `

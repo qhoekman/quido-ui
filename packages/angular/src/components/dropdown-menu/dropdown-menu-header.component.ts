@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `<ng-content></ng-content>`,
   standalone: true,
   host: {
-    'data-testid': 'qui-dropdown-menu-header',
+    'data-testid': 'dropdown-menu__header',
   },
 })
 export class DropdownMenuHeaderComponent {}

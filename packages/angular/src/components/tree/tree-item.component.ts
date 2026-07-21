@@ -1,11 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  ContentChild,
-  ContentChildren,
-  Input,
-  QueryList,
-} from '@angular/core';
+import { Component, ContentChildren, Input, QueryList } from '@angular/core';
 import { CollapsibleComponent } from '../collapsible/collapsible.component';
 import { TreeItemIndicatorComponent } from './tree-item-indicator.component';
 import { TreeGroupComponent } from './tree-group.component';
@@ -15,6 +9,9 @@ import { CollapsibleContentComponent } from '../collapsible/collapsible-content.
 @Component({
   selector: '[qui-tree-item]',
   standalone: true,
+  host: {
+    'data-testid': 'tree__item',
+  },
   imports: [
     CommonModule,
     CollapsibleComponent,
@@ -25,16 +22,15 @@ import { CollapsibleContentComponent } from '../collapsible/collapsible-content.
   template: `
     <div
       qui-collapsible
-      #collapsible
       [expanded]="expanded"
       role="treeitem"
       [attr.aria-expanded]="expanded"
       [attr.aria-selected]="false"
     >
-      <div qui-collapsible-trigger (click)="collapsible.toggle()">
+      <div qui-collapsible-trigger>
         <div
           role="button"
-          data-testid="qui-tree-item-trigger"
+          data-testid="tree__item-trigger"
           class="tree-item"
           (click)="handleClick()"
           (keydown)="handleKeydown($event)"
@@ -42,15 +38,17 @@ import { CollapsibleContentComponent } from '../collapsible/collapsible-content.
         >
           <qui-tree-item-indicator
             [empty]="!hasGroups()"
-            [expanded]="collapsible.expanded"
+            [expanded]="expanded"
           ></qui-tree-item-indicator>
           <ng-content select="[qui-tree-item-icon]"></ng-content>
           <ng-content select="[qui-tree-item-label]"></ng-content>
         </div>
       </div>
-      <div qui-collapsible-content>
-        <ng-content select="[qui-tree-group]"></ng-content>
-      </div>
+      <ng-template #content>
+        <div qui-collapsible-content>
+          <ng-content select="[qui-tree-group]"></ng-content>
+        </div>
+      </ng-template>
     </div>
   `,
   styles: [
@@ -70,7 +68,6 @@ import { CollapsibleContentComponent } from '../collapsible/collapsible-content.
 })
 export class TreeItemComponent {
   @Input() expanded = false;
-  @ContentChild(CollapsibleComponent) collapsible!: CollapsibleComponent;
   @ContentChildren(TreeGroupComponent, { descendants: true })
   groups: QueryList<TreeGroupComponent> = new QueryList<TreeGroupComponent>();
 
@@ -79,12 +76,12 @@ export class TreeItemComponent {
   }
 
   handleClick() {
-    this.collapsible.toggle();
+    this.expanded = !this.expanded;
   }
 
   handleKeydown(event: KeyboardEvent) {
     if (event.key === 'Enter') {
-      this.collapsible.toggle();
+      this.expanded = !this.expanded;
     }
   }
 }

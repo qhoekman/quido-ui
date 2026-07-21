@@ -15,7 +15,7 @@ export interface SelectOption {
   selector: 'qui-select',
   standalone: true,
   host: {
-    'data-testid': 'qui-select',
+    'data-testid': 'select',
   },
   imports: [
     CommonModule,

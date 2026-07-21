@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'nav[qui-navigation-menu]',
   host: {
-    'data-testid': 'qui-navigation-menu',
+    'data-testid': 'navigation-menu',
   },
   template: ` <ng-content></ng-content> `,
   styles: [

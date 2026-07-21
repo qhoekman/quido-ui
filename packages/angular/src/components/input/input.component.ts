@@ -11,7 +11,7 @@ export type InputVariants = {
   imports: [CommonModule],
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-input',
+    'data-testid': 'input',
   },
   template: `<ng-content></ng-content>`,
   styles: [

@@ -5,7 +5,7 @@ import { DrawerVariants } from './drawer.component';
   selector: '[qui-drawer-overlay]',
   standalone: true,
   host: {
-    '[attr.data-testid]': 'qui-drawer-overlay',
+    'data-testid': 'drawer__overlay',
     '[class]': 'getClassList()',
   },
   template: ` <ng-content></ng-content> `,

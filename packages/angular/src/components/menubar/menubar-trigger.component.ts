@@ -12,7 +12,7 @@ type MenubarTriggerVariants = {
   imports: [NgIf, IconCaretUpComponent, IconCaretDownComponent],
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-menubar-trigger',
+    'data-testid': 'menubar__trigger',
   },
   hostDirectives: [CdkMenuItem],
   template: `

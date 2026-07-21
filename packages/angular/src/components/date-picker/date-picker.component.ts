@@ -1,4 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core';
 import { CalendarComponent } from '../calendar/calendar.component';
 import { InputComponent } from '../input/input.component';
 import { PopoverTriggerDirective } from '../popover/popover-trigger.directive';
@@ -14,7 +20,7 @@ import { PopoverComponent } from '../popover/popover.component';
     CalendarComponent,
   ],
   host: {
-    'data-testid': 'qui-date-picker',
+    'data-testid': 'date-picker',
   },
   template: `
     <qui-popover #popover [popoverContent]="popoverContent">
@@ -23,12 +29,12 @@ import { PopoverComponent } from '../popover/popover.component';
         puiPopoverTrigger
         [value]="formattedDate"
         readonly
-        data-testid="qui-date-picker-input"
+        data-testid="date-picker__input"
       />
       <ng-template #popoverContent>
         <qui-calendar
           [currentDate]="selectedDate"
-          (onChange)="handleChange($event)"
+          (valueChange)="handleChange($event)"
         ></qui-calendar>
       </ng-template>
     </qui-popover>
@@ -42,10 +48,16 @@ import { PopoverComponent } from '../popover/popover.component';
     `,
   ],
 })
-export class DatePickerComponent {
+export class DatePickerComponent implements OnChanges {
   @ViewChild('popover') popover!: PopoverComponent;
-  selectedDate: Date = new Date();
+  @Input() selectedDate: Date = new Date();
   formattedDate: string = this.formatDate(this.selectedDate);
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['selectedDate']) {
+      this.formattedDate = this.formatDate(this.selectedDate);
+    }
+  }
 
   handleChange(date: Date) {
     this.selectedDate = date;

@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   standalone: true,
   host: {
     role: 'group',
-    'data-testid': 'qui-dropdown-menu-group',
+    'data-testid': 'dropdown-menu__group',
   },
   styles: [
     `

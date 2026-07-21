@@ -4,7 +4,7 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
   selector: 'div[qui-sidebar-viewport]',
   host: {
     'data-sidebar': 'viewport',
-    'data-testid': 'qui-sidebar-viewport',
+    'data-testid': 'sidebar__viewport',
     '[class]': 'getClassList()',
     '[style]': 'getStyle()',
   },

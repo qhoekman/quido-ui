@@ -22,6 +22,7 @@ import { AvatarFallbackComponent } from '../avatar/avatar-fallback.component';
 import { AvatarImageComponent } from '../avatar/avatar-image.component';
 import { AvatarComponent } from '../avatar/avatar.component';
 import { CollapsibleComponent } from '../collapsible/collapsible.component';
+import { CollapsibleTriggerComponent } from '../collapsible/collapsible-trigger.component';
 import { DropdownMenuContentComponent } from '../dropdown-menu/dropdown-menu-content.component';
 import { DropdownMenuGroupComponent } from '../dropdown-menu/dropdown-menu-group.component';
 import { DropdownMenuItemComponent } from '../dropdown-menu/dropdown-menu-item.component';
@@ -66,6 +67,7 @@ const meta: Meta<SidebarComponent> = {
         SidebarMenuButtonComponent,
         SidebarViewportComponent,
         CollapsibleComponent,
+        CollapsibleTriggerComponent,
         IconChevronRightComponent,
         IconChevronDownComponent,
         IconCaretSortComponent,
@@ -289,8 +291,8 @@ export const Default: Story = {
               <ul qui-sidebar-menu>
                 @for (item of menuData.navMain; track item.title) {
                   <li qui-sidebar-menu-item>
-                    <div qui-collapsible #collapsible [expanded]="expanded" style="max-width: var(--breakpoint-xs);">
-                      <ng-template #trigger>
+                    <div qui-collapsible #collapsible [expanded]="item.isActive" style="max-width: var(--breakpoint-xs);">
+                      <div qui-collapsible-trigger style="padding: 0;">
                         <button qui-sidebar-menu-button [tooltip]="item.title"  (click)="collapsible.toggle()">
                           @if (item.icon) {
                             <ng-container *ngComponentOutlet="item.icon"></ng-container>
@@ -299,7 +301,7 @@ export const Default: Story = {
                           <i qui-icon name="chevron-down" *ngIf="!collapsible.expanded" style="margin-left: auto;"></i>
                           <i qui-icon name="chevron-right" *ngIf="collapsible.expanded" style="margin-left: auto;"></i>
                         </button>
-                      </ng-template>
+                      </div>
                       <ng-template #content>
                         <ul qui-sidebar-menu-sub>
                           @for (subItem of item.items; track subItem.title) {

@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'div[qui-sidebar-group-content]',
   standalone: true,
   host: {
-    'data-testid': 'qui-sidebar-group-content',
+    'data-testid': 'sidebar__group-content',
   },
   template: `<ng-content></ng-content>`,
   styles: [

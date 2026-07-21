@@ -19,7 +19,7 @@ export type ToggleGroupVariants = {
   standalone: true,
   imports: [CommonModule, ToggleComponent],
   host: {
-    'data-testid': 'qui-toggle-group',
+    'data-testid': 'toggle-group',
   },
   template: `<ng-content></ng-content>`,
   styles: [

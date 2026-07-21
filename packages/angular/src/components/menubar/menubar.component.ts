@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   selector: '[qui-menubar]',
   template: `<ng-content></ng-content>`,
   host: {
-    'data-testid': 'qui-menubar',
+    'data-testid': 'menubar',
   },
   hostDirectives: [CdkMenuBar],
   styles: [

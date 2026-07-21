@@ -11,7 +11,7 @@ export type BadgeVariants = {
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-badge',
+    'data-testid': 'badge',
   },
   template: `<ng-content></ng-content>`,
   styles: [

@@ -34,7 +34,7 @@ export type TextVariants = {
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-text',
+    'data-testid': 'text',
   },
   template: `<ng-content></ng-content>`,
   styles: [

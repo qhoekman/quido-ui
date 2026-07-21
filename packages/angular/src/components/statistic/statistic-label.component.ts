@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'p[qui-statistic-label], span[qui-statistic-label]',
   host: {
-    'data-testid': 'qui-statistic-label',
+    'data-testid': 'statistic__label',
   },
   template: `<ng-content></ng-content>`,
   styles: [

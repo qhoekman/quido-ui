@@ -10,7 +10,7 @@ export type AvatarVariants = {
   selector: 'div[qui-avatar], qui-avatar',
   standalone: true,
   host: {
-    'data-testid': 'qui-avatar',
+    'data-testid': 'avatar',
     '[class]': 'getClassList()',
   },
   imports: [AsyncPipe, NgIf],

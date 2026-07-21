@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   host: {
-    'data-testid': 'qui-spotlight-gallery-content',
+    'data-testid': 'spotlight-gallery__content',
   },
   template: `<ng-content></ng-content>`,
   styles: [

@@ -6,7 +6,7 @@ import { Component, Directive } from '@angular/core';
   standalone: true,
   hostDirectives: [CdkCell],
   host: {
-    'data-testid': 'qui-table-cell',
+    'data-testid': 'table__cell',
   },
   styles: [
     `

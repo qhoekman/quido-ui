@@ -13,7 +13,7 @@ export interface AutocompleteOption {
   selector: 'qui-autocomplete',
   standalone: true,
   host: {
-    'data-testid': 'qui-autocomplete',
+    'data-testid': 'autocomplete',
   },
   imports: [CommonModule, PopoverComponent, FormsModule],
   template: `

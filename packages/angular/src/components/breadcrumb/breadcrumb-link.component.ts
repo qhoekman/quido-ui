@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'a[qui-breadcrumb-link]',
   standalone: true,
   host: {
-    'data-testid': 'qui-breadcrumb-link',
+    'data-testid': 'breadcrumb__link',
   },
   template: `<ng-content></ng-content>`,
   styles: [

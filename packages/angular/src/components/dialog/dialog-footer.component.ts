@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-dialog-footer]',
   standalone: true,
   host: {
-    'data-testid': 'qui-dialog-footer',
+    'data-testid': 'dialog__footer',
   },
   template: `<ng-content></ng-content>`,
   styles: [

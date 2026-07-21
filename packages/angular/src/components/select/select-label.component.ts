@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-select-label]',
   standalone: true,
   host: {
-    'data-testid': 'qui-select-label',
+    'data-testid': 'select__label',
   },
   template: `<ng-content></ng-content>`,
   styles: [

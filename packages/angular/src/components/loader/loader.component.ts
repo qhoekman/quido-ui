@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { IconUpdateComponent } from '../../icons';
 
@@ -8,9 +9,9 @@ export type LoaderVariants = {
 @Component({
   selector: '[qui-loader]',
   standalone: true,
-  imports: [IconUpdateComponent],
+  imports: [CommonModule, IconUpdateComponent],
   host: {
-    'data-testid': 'qui-loader',
+    'data-testid': 'loader',
     '[class]': 'getClassList()',
   },
   template: `

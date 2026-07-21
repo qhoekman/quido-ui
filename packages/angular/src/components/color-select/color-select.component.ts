@@ -10,7 +10,7 @@ import { ColorSelectItemComponent } from './color-select-item.component';
   selector: 'div[qui-color-select]',
   standalone: true,
   host: {
-    'data-testid': 'qui-color-select',
+    'data-testid': 'color-select',
   },
   template: ` <ng-content></ng-content> `,
   styles: [

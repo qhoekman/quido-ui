@@ -6,7 +6,6 @@ import {
   Output,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PopoverTriggerDirective } from '../popover/popover-trigger.directive';
 import { AutocompleteComponent } from './autocomplete.component';
 import { FormsModule } from '@angular/forms';
 
@@ -14,7 +13,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'div[qui-autocomplete-trigger]',
   standalone: true,
   host: {
-    'data-testid': 'qui-autocomplete-trigger',
+    'data-testid': 'autocomplete__trigger',
   },
   imports: [CommonModule, FormsModule],
   template: `
@@ -66,13 +65,11 @@ import { FormsModule } from '@angular/forms';
     `,
   ],
 })
-export class AutocompleteTriggerComponent extends PopoverTriggerDirective {
+export class AutocompleteTriggerComponent {
   @Input() searchValue = '';
   @Output() valueChange = new EventEmitter<string>();
 
   constructor(protected autocomplete: AutocompleteComponent) {
-    super(autocomplete.popover);
-
     this.autocomplete.getSelectedOption$().subscribe((option) => {
       this.searchValue = option?.label || '';
       this.valueChange.emit(this.searchValue);

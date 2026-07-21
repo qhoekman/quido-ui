@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '*[qui-popover-content]',
   standalone: true,
   host: {
-    'data-testid': 'qui-popover-content',
+    'data-testid': 'popover__content',
   },
   styles: [
     `

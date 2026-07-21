@@ -11,7 +11,7 @@ import { IconChevronRightComponent } from '../../icons';
   </ng-content>`,
   host: {
     'aria-label': 'Go to next page',
-    'data-testid': 'qui-pagination-next',
+    'data-testid': 'pagination__next',
   },
   styleUrls: ['./pagination-link.component.css'],
   styles: [

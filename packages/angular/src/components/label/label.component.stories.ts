@@ -30,7 +30,7 @@ export const Default: Story = {
     props: args,
     template: `
       <qui-story>
-        <label [size]="size">Label</label>
+        <label qui-label [size]="size">Label</label>
       </qui-story>
     `,
   }),

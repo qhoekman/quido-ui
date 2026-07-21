@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
   selector: '[qui-sidebar-group-label]',
   standalone: true,
   host: {
-    'data-testid': 'qui-sidebar-group-label',
+    'data-testid': 'sidebar__group-label',
     '[class]': 'getClassList()',
   },
   template: `<ng-content></ng-content>`,

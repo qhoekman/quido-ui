@@ -13,12 +13,12 @@ import {
   selector: 'qui-color-palette,[qui-color-palette]',
   imports: [CommonModule],
   host: {
-    'data-testid': 'qui-color-palette',
+    'data-testid': 'color-palette',
   },
   standalone: true,
   template: `
     <button
-      data-testid="color-square"
+      data-testid="color-palette__square"
       *ngFor="let hex of sortedColorHexagons"
       class="color-square"
       [style.background]="hex.value"
@@ -26,7 +26,7 @@ import {
       (click)="selectColor(hex)"
     >
       <input
-        data-testid="color-square-input"
+        data-testid="color-palette__square-input"
         type="hidden"
         [value]="selectedColor?.value"
         name="selectedColor"

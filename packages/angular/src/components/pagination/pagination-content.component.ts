@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   template: `<ng-content></ng-content>`,
   host: {
-    'data-testid': 'qui-pagination-content',
+    'data-testid': 'pagination__content',
   },
   styles: [
     `

@@ -17,7 +17,7 @@ import {
   standalone: true,
   imports: [CommonModule],
   host: {
-    'data-testid': 'qui-color-wheel',
+    'data-testid': 'color-wheel',
   },
   template: `
     <svg #svgRef width="200" height="200" viewBox="0 0 200 200">

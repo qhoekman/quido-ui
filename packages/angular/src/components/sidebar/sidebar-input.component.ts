@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'input[qui-sidebar-input]',
   standalone: true,
   host: {
-    'data-testid': 'qui-sidebar-input',
+    'data-testid': 'sidebar__input',
     '[attr.data-sidebar]': '"input"',
   },
   template: '',

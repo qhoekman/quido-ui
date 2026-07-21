@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: '[qui-card-content]',
   host: {
-    'data-testid': 'qui-card-content',
+    'data-testid': 'card__content',
   },
   template: `<ng-content></ng-content>`,
   styles: [

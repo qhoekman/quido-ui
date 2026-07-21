@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: '[qui-empty-state-action-group]',
   host: {
-    'data-testid': 'qui-empty-state-action-group',
+    'data-testid': 'empty-state__action-group',
   },
   template: '<ng-content></ng-content>',
   styles: [

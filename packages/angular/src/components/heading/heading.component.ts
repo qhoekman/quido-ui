@@ -11,6 +11,7 @@ export type HeadingVariants = {
   selector: '[qui-heading]',
   standalone: true,
   host: {
+    'data-testid': 'heading',
     '[class]': 'getClassList()',
   },
   template: `<ng-content></ng-content>`,

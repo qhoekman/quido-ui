@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-action-sheet-content',
+    'data-testid': 'action-sheet__content',
   },
   template: `<ng-content></ng-content>`,
   styles: [
