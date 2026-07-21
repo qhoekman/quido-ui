@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
     'h1[qui-timeline-title], h2[qui-timeline-title], h3[qui-timeline-title], h4[qui-timeline-title], h5[qui-timeline-title], h6[qui-timeline-title]',
   standalone: true,
   host: {
-    'data-testid': 'qui-timeline-title',
+    'data-testid': 'timeline__title',
   },
   template: ` <ng-content></ng-content> `,
   styles: [
