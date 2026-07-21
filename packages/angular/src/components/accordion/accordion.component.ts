@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: '[qui-accordion]',
   host: {
-    'data-testid': 'qui-accordion',
+    'data-testid': 'accordion',
   },
   template: `<ng-content></ng-content>`,
   standalone: true,

@@ -3,7 +3,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 @Component({
   selector: '[qui-accordion-item]',
   host: {
-    'data-testid': 'qui-accordion-item',
+    'data-testid': 'accordion__item',
   },
   template: `<ng-content></ng-content>`,
   styles: [
