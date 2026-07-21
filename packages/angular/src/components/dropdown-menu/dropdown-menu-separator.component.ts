@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   host: {
     role: 'separator',
     'aria-orientation': 'horizontal',
-    'data-testid': 'qui-dropdown-menu-separator',
+    'data-testid': 'dropdown-menu__separator',
   },
   styles: [
     `

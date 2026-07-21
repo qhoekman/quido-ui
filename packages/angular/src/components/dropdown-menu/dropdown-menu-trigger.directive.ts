@@ -22,7 +22,7 @@ type DropdownMenuVariants = {
 @Directive({
   selector: '[puiDropdownMenuTrigger]',
   host: {
-    'data-testid': 'qui-dropdown-menu-trigger',
+    'data-testid': 'dropdown-menu__trigger',
   },
   standalone: true,
 })

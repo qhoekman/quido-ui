@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   host: {
     role: 'menu',
     'aria-orientation': 'vertical',
-    'data-testid': 'qui-dropdown-menu-content',
+    'data-testid': 'dropdown-menu__content',
     tabindex: '-1',
   },
   styles: [
