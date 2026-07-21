@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   selector: '[qui-navigation-menu-dropdown-group]',
   template: '<ng-content></ng-content>',
   host: {
-    'data-testid': 'qui-navigation-menu-dropdown-group',
+    'data-testid': 'navigation-menu__dropdown-group',
   },
   hostDirectives: [CdkMenuGroup],
   styles: [

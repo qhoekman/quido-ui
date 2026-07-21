@@ -1,5 +1,6 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { NavigationMenuActionsComponent } from './navigation-menu-actions.component';
+import { NavigationMenuBrandComponent } from './navigation-menu-brand.component';
 import { NavigationMenuItemsComponent } from './navigation-menu-items.component';
 import { NavigationMenuLinkComponent } from './navigation-menu-link.component';
 import { NavigationMenuLogoComponent } from './navigation-menu-logo.component';
@@ -21,6 +22,7 @@ const meta: Meta<NavigationMenuComponent> = {
       imports: [
         ButtonComponent,
         NavigationMenuComponent,
+        NavigationMenuBrandComponent,
         NavigationMenuLinkComponent,
         NavigationMenuLogoComponent,
         NavigationMenuItemsComponent,

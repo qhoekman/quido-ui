@@ -5,7 +5,7 @@ import { Component, HostListener } from '@angular/core';
   selector: '[qui-navigation-menu-dropdown-content]',
   template: `<ng-content></ng-content>`,
   host: {
-    'data-testid': 'qui-navigation-menu-dropdown-content',
+    'data-testid': 'navigation-menu__dropdown-content',
     role: 'menu',
     'aria-orientation': 'vertical',
     tabindex: '-1',

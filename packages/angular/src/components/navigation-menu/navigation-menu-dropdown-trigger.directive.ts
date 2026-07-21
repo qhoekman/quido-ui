@@ -5,7 +5,7 @@ import { Directive, HostListener } from '@angular/core';
   selector: '[qui-navigation-menu-dropdown-trigger]',
   hostDirectives: [CdkMenuItem],
   host: {
-    'data-testid': 'qui-navigation-menu-dropdown-trigger',
+    'data-testid': 'navigation-menu__dropdown-trigger',
   },
   standalone: true,
 })
