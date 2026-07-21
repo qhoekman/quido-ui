@@ -9,7 +9,7 @@ type ReelButtonVariants = {
   template: ` <ng-content></ng-content> `,
   standalone: true,
   host: {
-    'data-testid': 'qui-reel-button',
+    'data-testid': 'reel__button',
     '[class]': 'getClassList()',
   },
   styles: [
