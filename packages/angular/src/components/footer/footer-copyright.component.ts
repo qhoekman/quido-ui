@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   selector: 'p[qui-footer-copyright]',
   standalone: true,
   host: {
-    'data-testid': 'qui-footer-copyright',
+    'data-testid': 'footer__copyright',
   },
   imports: [CommonModule],
   template: `<ng-content></ng-content>`,

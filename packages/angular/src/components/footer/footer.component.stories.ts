@@ -56,7 +56,8 @@ type Story = StoryObj<FooterComponent>;
 export const Default: Story = {
   render: () => ({
     template: `
-      <footer qui-footer>
+      <footer qui-footer aria-labelledby="footer-heading">
+        <h2 id="footer-heading" qui-sr-only>Footer</h2>
         <div qui-footer-content>
           <div qui-footer-columns>
             <div qui-footer-column class="mt-0">

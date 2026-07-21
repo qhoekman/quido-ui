@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   selector: 'li[qui-footer-banner-list-item]',
   standalone: true,
   host: {
-    'data-testid': 'qui-footer-banner-list-item',
+    'data-testid': 'footer__banner-list-item',
   },
   imports: [CommonModule],
   styles: [

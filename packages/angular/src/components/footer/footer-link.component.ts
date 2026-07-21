@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   selector: 'a[qui-footer-link]',
   standalone: true,
   host: {
-    'data-testid': 'qui-footer-link',
+    'data-testid': 'footer__link',
   },
   imports: [CommonModule],
   template: `<ng-content></ng-content>`,

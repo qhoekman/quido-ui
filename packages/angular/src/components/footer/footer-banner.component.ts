@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   selector: 'div[qui-footer-banner]',
   standalone: true,
   host: {
-    'data-testid': 'qui-footer-banner',
+    'data-testid': 'footer__banner',
   },
   imports: [CommonModule],
   template: `<ng-content></ng-content>`,
@@ -23,8 +23,10 @@ import { Component } from '@angular/core';
       }
 
       @media (width >= 768px) {
-        flex-direction: row;
-        align-items: flex-end;
+        :host {
+          flex-direction: row;
+          align-items: flex-end;
+        }
       }
     `,
   ],
