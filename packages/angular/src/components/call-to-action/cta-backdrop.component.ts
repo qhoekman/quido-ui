@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   host: {
-    'data-testid': 'qui-cta-backdrop',
+    'data-testid': 'cta__backdrop',
   },
   template: `<ng-content></ng-content>`,
   styles: [
