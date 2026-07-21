@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   template: `<ng-content></ng-content>`,
   host: {
     role: 'menu',
-    'data-testid': 'qui-tab-navigation-menu',
+    'data-testid': 'tab-navigation__menu',
     'aria-orientation': 'vertical',
     tabindex: '-1',
   },

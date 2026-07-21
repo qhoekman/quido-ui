@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: '[qui-tab-navigation-menugroup]',
   host: {
-    'data-testid': 'qui-tab-navigation-menugroup',
+    'data-testid': 'tab-navigation__menugroup',
   },
   template: '<ng-content></ng-content>',
   hostDirectives: [CdkMenuGroup],

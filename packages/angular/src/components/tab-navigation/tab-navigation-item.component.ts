@@ -4,6 +4,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'li[qui-tab-navigation-item]',
   template: ` <ng-content></ng-content> `,
+  host: {
+    'data-testid': 'tab-navigation__item',
+  },
   styles: [
     `
       :host {

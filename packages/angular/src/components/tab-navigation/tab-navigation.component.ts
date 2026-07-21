@@ -11,6 +11,7 @@ type TabNavigationVariants = {
   template: ` <ng-content></ng-content> `,
   hostDirectives: [CdkMenuBar],
   host: {
+    'data-testid': 'tab-navigation',
     '[class]': 'getClassList()',
   },
   styles: [
