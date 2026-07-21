@@ -27,14 +27,14 @@ import { IconArrowLeftComponent, IconArrowRightComponent } from '../../icons';
   template: `
     <div
       class="calendar"
-      data-testid="qui-calendar"
+      data-testid="calendar"
       role="application"
       aria-label="Calendar"
     >
-      <div class="header" data-testid="qui-calendar-header">
+      <div class="header" data-testid="calendar__header">
         <button
           qui-button
-          data-testid="qui-calendar-header-prev"
+          data-testid="calendar__header-prev"
           variant="ghost"
           size="icon"
           (click)="prevMonth()"
@@ -45,12 +45,12 @@ import { IconArrowLeftComponent, IconArrowRightComponent } from '../../icons';
         <span
           aria-live="polite"
           aria-atomic="true"
-          data-testid="qui-calendar-header-month"
+          data-testid="calendar__header-month"
           >{{ format(currentMonth, 'MMMM yyyy') }}</span
         >
         <button
           qui-button
-          data-testid="qui-calendar-header-next"
+          data-testid="calendar__header-next"
           variant="ghost"
           size="icon"
           (click)="nextMonth()"
@@ -59,13 +59,13 @@ import { IconArrowLeftComponent, IconArrowRightComponent } from '../../icons';
           <i qui-icon name="arrow-right" size="sm"></i>
         </button>
       </div>
-      <div class="weekdays" role="row" data-testid="qui-calendar-weekdays">
+      <div class="weekdays" role="row" data-testid="calendar__weekdays">
         <div *ngFor="let day of weekdays" role="columnheader">{{ day }}</div>
       </div>
-      <div class="days" role="grid" data-testid="qui-calendar-days">
+      <div class="days" role="grid" data-testid="calendar__days">
         <div
           role="gridcell"
-          data-testid="qui-calendar-day"
+          data-testid="calendar__day"
           (click)="handleDayClick(day)"
           (keydown)="handleDayKeydown(day)"
           tabindex="0"
