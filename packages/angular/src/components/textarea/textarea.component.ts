@@ -12,7 +12,7 @@ export type TextareaVariants = {
   template: `<ng-content></ng-content>`,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-textarea',
+    'data-testid': 'textarea',
   },
   styles: [
     `
