@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-header]',
   standalone: true,
   host: {
-    'data-testid': 'qui-header',
+    'data-testid': 'header',
   },
   template: `<ng-content></ng-content>`,
   styles: [
