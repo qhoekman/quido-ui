@@ -22,7 +22,7 @@ import { IconCross2Component, IconFileComponent } from '../../icons';
   template: `
     <div
       class="file-dropzone"
-      data-testid="qui-file-dropzone"
+      data-testid="file-dropzone"
       [class.drag-active]="dragActive"
       (click)="handleClick()"
       (keydown)="handleKeyDown($event)"
@@ -34,25 +34,25 @@ import { IconCross2Component, IconFileComponent } from '../../icons';
     >
       <input
         #input
-        data-testid="qui-file-dropzone-input"
+        data-testid="file-dropzone__input"
         type="file"
         class="hidden"
         (change)="handleChange($event)"
         multiple
       />
-      <div class="content" data-testid="qui-file-dropzone-content">
+      <div class="content" data-testid="file-dropzone__content">
         <ng-content></ng-content>
       </div>
     </div>
     <ul
       *ngIf="files.length > 0"
       class="file-list"
-      data-testid="qui-file-dropzone-file-list"
+      data-testid="file-dropzone__file-list"
     >
       <li
         *ngFor="let file of files"
         class="file-item"
-        data-testid="qui-file-dropzone-file-item"
+        data-testid="file-dropzone__file-item"
       >
         <p class="file-item-content">
           <i qui-icon name="file" size="sm"></i>
