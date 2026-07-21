@@ -8,7 +8,7 @@ export type TooltipContentVariants = {
   selector: '[qui-tooltip-content]',
   standalone: true,
   host: {
-    'data-testid': 'qui-tooltip-content',
+    'data-testid': 'tooltip__content',
   },
   styles: [
     `
