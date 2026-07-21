@@ -13,7 +13,7 @@ import { NgTemplateOutlet } from '@angular/common';
   selector: '[qui-action-sheet]',
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-action-sheet',
+    'data-testid': 'action-sheet',
   },
   imports: [
     ActionSheetOverlayComponent,
