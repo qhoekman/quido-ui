@@ -16,7 +16,7 @@ export type LabelVariants = {
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-label',
+    'data-testid': 'label',
   },
   template: `<ng-content></ng-content>`,
   styles: [
