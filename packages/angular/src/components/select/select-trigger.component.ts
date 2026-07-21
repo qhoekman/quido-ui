@@ -1,6 +1,5 @@
 import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PopoverTriggerDirective } from '../popover/popover-trigger.directive';
 import { SelectComponent } from './select.component';
 
 @Component({
@@ -9,6 +8,7 @@ import { SelectComponent } from './select.component';
   host: {
     role: 'button',
     'aria-controls': 'select-content',
+    'data-testid': 'select__trigger',
   },
   imports: [CommonModule],
   template: `
@@ -66,10 +66,8 @@ import { SelectComponent } from './select.component';
     `,
   ],
 })
-export class SelectTriggerComponent extends PopoverTriggerDirective {
-  constructor(protected select: SelectComponent) {
-    super(select.popover);
-  }
+export class SelectTriggerComponent {
+  constructor(protected select: SelectComponent) {}
 
   @HostListener('click')
   toggleOpen() {
