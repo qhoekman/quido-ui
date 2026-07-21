@@ -26,7 +26,7 @@ export type PasswordInputVariants = {
   ],
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-password-inputfield',
+    'data-testid': 'password-input__field',
   },
   template: `
     @let canSeePassword = isPasswordVisible | async;
