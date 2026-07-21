@@ -22,7 +22,7 @@ export type DrawerVariants = {
 @Component({
   selector: '[qui-drawer]',
   host: {
-    '[attr.data-testid]': 'qui-drawer',
+    'data-testid': 'drawer',
     '[class]': 'getClassList()',
   },
   imports: [AsyncPipe, NgTemplateOutlet, DrawerOverlayComponent],
