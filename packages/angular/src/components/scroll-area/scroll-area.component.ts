@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import {
+  ChangeDetectorRef,
   Component,
   Input,
   ElementRef,
@@ -14,16 +15,16 @@ import { ScrollBarComponent } from './scroll-bar.component';
   standalone: true,
   imports: [CommonModule, ScrollBarComponent],
   host: {
-    'data-testid': 'qui-scroll-area',
+    'data-testid': 'scroll-area',
   },
   template: `
     <div
       #container
       class="scroll-area-container"
       [ngStyle]="getContainerStyles()"
-      data-testid="qui-scroll-area-container"
+      data-testid="scroll-area__container"
     >
-      <div #content data-testid="qui-scroll-area-content">
+      <div #content data-testid="scroll-area__content">
         <ng-content></ng-content>
       </div>
     </div>
@@ -78,13 +79,17 @@ export class ScrollAreaComponent implements AfterViewInit, OnDestroy {
   private content!: HTMLElement;
   private resizeObserver!: ResizeObserver;
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngAfterViewInit() {
     this.container = this.el.nativeElement.querySelector(
       '.scroll-area-container'
     );
-    this.content = this.el.nativeElement.querySelector('div');
+    this.content = this.container.querySelector('div')!;
 
     this.resizeObserver = new ResizeObserver(() => this.updateScrollState());
     this.resizeObserver.observe(this.container);
@@ -130,6 +135,8 @@ export class ScrollAreaComponent implements AfterViewInit, OnDestroy {
         (scrollLeft / (scrollWidth - clientWidth)) *
         (clientWidth - horizontalThumbWidth),
     };
+
+    this.cdr.detectChanges();
   }
 
   getContainerStyles() {
