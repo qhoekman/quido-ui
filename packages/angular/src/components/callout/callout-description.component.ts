@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-callout-description]',
   standalone: true,
   host: {
-    'data-testid': 'qui-callout-description',
+    'data-testid': 'callout__description',
   },
   template: `<ng-content></ng-content>`,
   styles: [

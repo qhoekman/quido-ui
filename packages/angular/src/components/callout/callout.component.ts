@@ -7,8 +7,7 @@ import { Component, Input } from '@angular/core';
   host: {
     role: 'alert',
     '[class]': 'getClassList()',
-    '[attr.aria-label]': 'alert',
-    'data-testid': 'qui-callout',
+    'data-testid': 'callout',
   },
   styles: [
     `
