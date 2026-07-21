@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-skeleton]',
   template: `<ng-content></ng-content>`,
   host: {
-    'data-testid': 'qui-skeleton',
+    'data-testid': 'skeleton',
   },
   styles: [
     `
