@@ -11,7 +11,7 @@ import * as L from 'leaflet';
   standalone: true,
   host: {
     '[id]': 'id',
-    'data-testid': 'qui-maps',
+    'data-testid': 'maps',
   },
   styleUrls: ['maps.component.css'],
   template: `<ng-content></ng-content>`,
