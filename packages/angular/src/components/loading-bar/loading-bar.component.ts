@@ -13,7 +13,7 @@ import { LoadingService } from './loading.service';
   standalone: true,
   imports: [AsyncPipe],
   host: {
-    'data-testid': 'qui-loading-bar',
+    'data-testid': 'loading-bar',
   },
   template: `
     <div [class.indicator]="loadingService.loadingSubject | async"></div>
