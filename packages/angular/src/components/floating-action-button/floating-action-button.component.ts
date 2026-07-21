@@ -6,6 +6,7 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   host: {
+    'data-testid': 'floating-action-button',
     '[class]': 'getClassList()',
   },
   template: `<ng-content></ng-content>`,
