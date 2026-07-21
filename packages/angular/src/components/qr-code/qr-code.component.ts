@@ -4,6 +4,7 @@ import { QRCodeSVG } from '@akamfoad/qrcode';
 @Component({
   selector: 'img[qui-qr-code]',
   host: {
+    'data-testid': 'qr-code',
     '[attr.src]': 'qrCodeSVG',
   },
   template: ``,
@@ -30,6 +31,8 @@ export class QrCodeComponent implements OnChanges {
     if (this.value) {
       const qrCode = new QRCodeSVG(this.value);
       this.qrCodeSVG = qrCode.toDataUrl();
+    } else {
+      this.qrCodeSVG = null;
     }
   }
 }
