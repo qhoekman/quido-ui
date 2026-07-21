@@ -13,6 +13,9 @@ import { ToastComponent } from './toast.component';
 @Component({
   selector: 'qui-toaster',
   standalone: true,
+  host: {
+    'data-testid': 'toaster',
+  },
   imports: [
     CommonModule,
     ToastComponent,
@@ -36,7 +39,7 @@ import { ToastComponent } from './toast.component';
           </p>
           <ng-container *ngComponentOutlet="toast.action"></ng-container>
         </div>
-        <button qui-toast-close (close)="removeToast(toast)">
+        <button qui-toast-close (hasClosed)="removeToast(toast)">
           <i qui-icon-cross-1 size="sm"></i>
         </button>
       </qui-toast>

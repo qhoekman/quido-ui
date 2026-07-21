@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-toast-title]',
   standalone: true,
   host: {
-    'data-testid': 'qui-toast-title',
+    'data-testid': 'toast__title',
   },
   template: `<ng-content></ng-content>`,
   styles: [

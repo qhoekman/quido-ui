@@ -17,7 +17,7 @@ export type ToastActionVariants = {
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-toast-action',
+    'data-testid': 'toast__action',
   },
   template: `<ng-content></ng-content>`,
   styles: [

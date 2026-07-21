@@ -58,8 +58,8 @@ export const Default: Story = {
       <div qui-toast-viewport>
         <qui-toast [variant]="variant">
           <div qui-stack direction="column" gap="none">
-            <h3 qui-toast-title>Toast Title</h3>
-            <p qui-toast-description>This is a toast description.</p>
+            <h3 qui-toast-title>{{ title }}</h3>
+            <p qui-toast-description>{{ description }}</p>
           </div>
           <div qui-stack direction="row" gap="none">
             <button qui-toast-action size="sm">Action</button>

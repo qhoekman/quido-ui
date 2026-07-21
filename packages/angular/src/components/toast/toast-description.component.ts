@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `<ng-content></ng-content>`,
   standalone: true,
   host: {
-    'data-testid': 'qui-toast-description',
+    'data-testid': 'toast__description',
   },
   styles: [
     `
