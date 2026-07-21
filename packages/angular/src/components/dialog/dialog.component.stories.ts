@@ -49,8 +49,9 @@ export const Default: Story = {
     props: args,
     template: `
     <qui-story>
-      <dialog qui-dialog [size]="size">
-        <div qui-dialog-close></div>
+      <button qui-button (click)="dialogRef.open()">Open Dialog</button>
+      <dialog qui-dialog #dialogRef [size]="size">
+        <div qui-dialog-close (doClose)="dialogRef.close()"></div>
         <div qui-dialog-header>
           <div qui-dialog-title>Dialog Title</div>
           <div qui-dialog-description>Dialog description goes here.</div>
@@ -59,8 +60,8 @@ export const Default: Story = {
           <p>This is the content of the dialog.</p>
         </div>
         <div qui-dialog-footer>
-          <button qui-button variant="outline">Cancel</button>
-          <button qui-button>Confirm</button>
+          <button qui-button variant="outline" (click)="dialogRef.close()">Cancel</button>
+          <button qui-button (click)="dialogRef.close()">Confirm</button>
         </div>
       </dialog>
     </qui-story>
@@ -75,7 +76,8 @@ export const Confirm: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <dialog qui-dialog [size]="size">
+      <button qui-button (click)="dialogRef.open()">Open Dialog</button>
+      <dialog qui-dialog #dialogRef [size]="size">
         <div qui-dialog-header>
           <div qui-dialog-title>Are you absolutely sure?</div>
         </div>
@@ -85,8 +87,8 @@ export const Confirm: Story = {
         </div>
 
         <div qui-dialog-footer>
-          <button qui-button variant="outline">Cancel</button>
-          <button qui-button>Confirm</button>
+          <button qui-button variant="outline" (click)="dialogRef.close()">Cancel</button>
+          <button qui-button (click)="dialogRef.close()">Confirm</button>
         </div>
       </dialog>
     `,

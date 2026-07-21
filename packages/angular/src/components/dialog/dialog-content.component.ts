@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-dialog-content]',
   standalone: true,
   host: {
-    'data-testid': 'qui-dialog-content',
+    'data-testid': 'dialog__content',
   },
   template: `<ng-content></ng-content>`,
   styles: [

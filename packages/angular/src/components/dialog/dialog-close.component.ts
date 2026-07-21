@@ -12,7 +12,7 @@ import { IconCross2Component } from '../../icons';
       variant="ghost"
       size="sm"
       (click)="handleClose()"
-      data-testid="qui-dialog-close"
+      data-testid="dialog__close"
     >
       <i qui-icon name="cross2" size="md"></i>
     </button>
