@@ -26,11 +26,11 @@ import { IconFileComponent } from '../../icons';
       (click)="handleClick()"
       tabindex="0"
       (keydown)="handleKeyDown($event)"
-      data-testid="qui-file-input"
+      data-testid="file-input"
     >
       <input
         #input
-        data-testid="qui-file-input-input"
+        data-testid="file-input__input"
         type="file"
         class="hidden"
         (change)="handleChange($event)"
