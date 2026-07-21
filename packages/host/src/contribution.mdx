@@ -1,0 +1,74 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Contribution" />
+
+# Contribution
+
+How to propose a change to [quido-ui](https://github.com/qhoekman/quido-ui).
+
+## Before you start
+
+1. Open an issue if the change is large or unclear.
+2. Use one branch per fix or feature.
+3. Keep commits focused and readable.
+
+## Steps
+
+### 1. Fork and clone
+
+Fork the repo, then clone your fork:
+
+```sh
+git clone git@github.com:YOUR_USER/quido-ui.git
+cd quido-ui
+pnpm install
+```
+
+Upstream: [https://github.com/qhoekman/quido-ui](https://github.com/qhoekman/quido-ui)
+
+### 2. Create a branch
+
+Branch from `main`. Name it after the ticket or change:
+
+```sh
+git checkout main
+git pull origin main
+git checkout -b feature/GH-100-short-description
+```
+
+Examples: `feature/GH-100-login-button`, `fix/GH-101-dialog-focus`.
+
+### 3. Make your change
+
+- Run the Storybook for the package you touch (`pnpm react dev`, `pnpm vue dev`, or `pnpm angular dev`).
+- Follow naming and styling rules in the [Handbook](?path=/docs/handbook--docs).
+- Prefer small, reviewable diffs.
+
+### 4. Commit
+
+Use [Conventional Commits](https://www.conventionalcommits.org/):
+
+```sh
+git commit -m "feat(button): add loading state. GH-100"
+```
+
+Other examples:
+
+- `fix(auth): correct login button padding. GH-100`
+- `docs(host): clarify contribution steps`
+
+Put the why in the message when it helps reviewers. Mention who you agreed the approach with if that matters.
+
+### 5. Push and open a PR
+
+```sh
+git push -u origin HEAD
+```
+
+Open a pull request against `main` on `qhoekman/quido-ui`. Describe what changed and how to check it (which Storybook story, which command).
+
+CI runs on the PR. Fix failing checks before asking for review.
+
+## After merge
+
+Delete your feature branch once the PR is merged. Update your local `main` before the next change.

@@ -1,0 +1,60 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Design System" />
+
+# Design System
+
+Tokens are plain CSS variables. Components read them; they do not hard-code palette or spacing values.
+
+## How it works
+
+1. **System tokens**: colors, fonts, spacing, radius, shadows, breakpoints, and similar base values.
+2. **Application tokens**: branding and UI roles (`--color-primary`, `--color-background`, `--color-border`, and so on). These map to system tokens.
+3. **Light and dark**: application colors switch with `prefers-color-scheme` (and can be overridden in your app).
+
+Put the token stylesheet on the base layer of your app so every component can use `var(--…)`.
+
+## Include tokens in your project
+
+Copy or import the CSS for the framework you use:
+
+| Package | Token file                         |
+| ------- | ---------------------------------- |
+| React   | `packages/react/src/index.css`     |
+| Vue     | `packages/vue/src/assets/base.css` |
+| Angular | `packages/angular/src/styles.css`  |
+| Host    | `packages/host/src/index.css`      |
+
+You only need one of these in an app. They follow the same token names so components stay portable.
+
+Browse the live token stories in the **Angular** Storybook under **Design System** (colors, dimensions, typography, effects, icons). With the composed host build they appear under the Angular ref:
+
+- Colors: System Colors, Application Colors
+- Dimensions: Breakpoint, Spacing, Column, Span, Sizing
+- Typography: Font Family, Font Size, Font Weight, Letter Spacing, Line Height
+- Effects: Blur, Shadows, Border, Radius
+- Icons: System Icons, Application Icons
+
+Open them locally with:
+
+```sh
+pnpm angular dev
+```
+
+Then open **Design System** in the sidebar.
+
+## Using tokens in CSS
+
+```css
+.card {
+  padding: var(--spacing-4);
+  border-radius: var(--border-radius-md);
+  background: var(--color-card);
+  color: var(--color-card-fg);
+  border: var(--border-width-default) solid var(--color-border);
+}
+```
+
+## Figma
+
+Figma for components and tokens is still in progress.

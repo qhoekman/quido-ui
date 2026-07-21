@@ -64,7 +64,7 @@ pnpm angular dev
 pnpm vue dev
 ```
 
-> The host package is only used for deployment which consists of documentation and connect the individual Storybooks together.
+> Host Storybook (`pnpm host dev`) holds the shared docs (readme, contribution, design system, handbook, technical design) and connects the framework Storybooks for deployment.
 
 ## Building
 

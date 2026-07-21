@@ -1,0 +1,92 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Technical Design" />
+
+# Technical Design
+
+Why quido-ui is shaped the way it is, and how the three framework packages stay aligned.
+
+## Goals
+
+- **Opt-out**: ship usable source you can copy and change.
+- **Composable**: small pieces, clear variants, content projected by the consumer where possible.
+- **Shared tokens**: one CSS-variable design system across React, Vue, and Angular.
+- **Storybook first**: build and document UI in isolation; host composes the three Storybooks for deploy.
+
+## Design system
+
+Tokens are CSS variables on the base layer. System tokens cover palette, type, space, and effects. Application tokens map those to roles (primary, background, border, and so on) and switch for light and dark.
+
+Components should reference tokens, not raw hex or pixel values. Details and browseable stories: [Design System](?path=/docs/design-system--docs).
+
+## Storybook
+
+We use Storybook to:
+
+- develop components without running a full app
+- document variants and usage
+- support visual regression (Chromatic)
+- keep an inventory as the app surface grows
+
+### Monorepo layout
+
+| Package | Role |
+| ------- | ---- |
+| `@quido-ui/react` | React components + Storybook → `dist/react` |
+| `@quido-ui/vue` | Vue components + Storybook → `dist/vue` |
+| `@quido-ui/angular` | Angular components + Storybook → `dist/angular` |
+| `@quido-ui/host` | Shared docs + composition shell → `dist/` |
+
+Host refs point at `./angular`, `./react`, and `./vue`. Build order: frameworks first, then host (Turborepo).
+
+### Addons (Storybook 10)
+
+| Package | Addons |
+| ------- | ------ |
+| angular | `@storybook/addon-links`, `@storybook/addon-docs` |
+| react | `@storybook/addon-links`, `@storybook/addon-designs`, `@storybook/addon-docs` |
+| vue | `@storybook/addon-docs` (links available in package deps) |
+| host | `@storybook/addon-links`, `@storybook/addon-onboarding`, `@storybook/addon-designs`, `@storybook/addon-docs` |
+
+### Conventions
+
+- Story file next to the component (no separate top-level `stories/` tree).
+- Angular `src/system` is for token and icon stories only.
+- Link Figma on stories when a design exists (`addon-designs` on React/host).
+- Follow CSF and Storybook ESLint rules where configured.
+- Skip Compodoc for Angular Storybook: extra weight, unused here.
+
+Shared Vite aliasing: `@/*` → `src/**/*` where packages already do that.
+
+## Angular components
+
+Composability rules for Angular quido-ui components:
+
+- Prefer a **directive selector on a real host** (for example `button[qui-button]`), so consumers keep native attributes on that element.
+- Avoid wrapping markup that blocks host attributes; project content with `<ng-content>`.
+- Use `ng-template` when slots need structure.
+- Variants live in a `ComponentVariants` (or equivalent) type and apply as host classes (`variant--outline`, `size--md`).
+- Put ARIA and `data-testid` on the host.
+- Keep components pure: no cross-component imports unless they are an intentional compound set.
+
+Behaviour: Angular CDK when you need overlays, a11y helpers, and similar.
+
+## React components
+
+- One file per component: markup, styled-components CSS, and CVA variants together.
+- Use Radix primitives (and Slot) for accessible behaviour when the component needs it.
+- Class names align with other frameworks (`q-button`, `variant--*`, `size--*`).
+- Tokens from `packages/react/src/index.css`.
+
+## Vue components
+
+- Single-file components with `<script setup>`, template, and `<style scoped>`.
+- Reka UI `Primitive` (and related) for polymorphic / headless behaviour where used.
+- Same CVA variant class pattern as React.
+- Tokens from `packages/vue/src/assets/base.css`.
+
+## What we deliberately avoid
+
+- Treating quido-ui as a closed npm black box you cannot edit (packages here are workspace-first, copy-friendly).
+- Framework UI kits that fight token overrides.
+- Splitting styles into CSS Modules or Tailwind utilities inside React package components (breaks the single-file rule).
