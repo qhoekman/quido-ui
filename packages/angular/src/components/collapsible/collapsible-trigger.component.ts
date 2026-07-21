@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-collapsible-trigger]',
   template: `<ng-content></ng-content>`,
   host: {
-    'data-testid': 'qui-collapsible-trigger',
+    'data-testid': 'collapsible__trigger',
   },
   styles: [
     `
