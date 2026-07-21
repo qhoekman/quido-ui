@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-combobox-group]',
   standalone: true,
   host: {
-    'data-testid': 'qui-combobox-group',
+    'data-testid': 'combobox__group',
   },
   template: `<ng-content></ng-content>`,
   styles: [

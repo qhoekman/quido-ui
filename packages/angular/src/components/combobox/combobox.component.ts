@@ -15,6 +15,9 @@ export interface ComboboxOption {
 @Component({
   selector: 'qui-combobox',
   standalone: true,
+  host: {
+    'data-testid': 'combobox',
+  },
   imports: [
     CommonModule,
     InputComponent,

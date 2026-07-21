@@ -13,7 +13,7 @@ import { ComboboxComponent } from './combobox.component';
   host: {
     role: 'option',
     '[attr.aria-selected]': 'isSelected',
-    'data-testid': 'qui-combobox-item',
+    'data-testid': 'combobox__item',
     tabindex: '0',
   },
   template: `<ng-content></ng-content>`,

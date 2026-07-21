@@ -4,7 +4,7 @@ import { Component, HostListener } from '@angular/core';
   selector: '[qui-combobox-search]',
   standalone: true,
   host: {
-    'data-testid': 'qui-combobox-search',
+    'data-testid': 'combobox__search',
   },
   template: '',
   styles: [

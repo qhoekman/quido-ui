@@ -1,6 +1,5 @@
 import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PopoverTriggerDirective } from '../popover/popover-trigger.directive';
 import { ComboboxComponent } from './combobox.component';
 
 @Component({
@@ -8,7 +7,7 @@ import { ComboboxComponent } from './combobox.component';
   standalone: true,
   host: {
     role: 'button',
-    'data-testid': 'qui-combobox-trigger',
+    'data-testid': 'combobox__trigger',
     'aria-controls': 'select-content',
   },
   imports: [CommonModule],
@@ -67,10 +66,8 @@ import { ComboboxComponent } from './combobox.component';
     `,
   ],
 })
-export class ComboboxTriggerComponent extends PopoverTriggerDirective {
-  constructor(protected combobox: ComboboxComponent) {
-    super(combobox.popover);
-  }
+export class ComboboxTriggerComponent {
+  constructor(protected combobox: ComboboxComponent) {}
 
   @HostListener('click')
   toggleOpen() {
