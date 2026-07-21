@@ -8,8 +8,7 @@ const meta: Meta = {
   title: 'Components/Layout/Resizable',
   decorators: [
     moduleMetadata({
-      imports: [StoryComponent],
-      declarations: [ResizableDirective],
+      imports: [StoryComponent, ResizableDirective],
     }),
   ],
 };
