@@ -4,7 +4,7 @@ import { HoverCardComponent } from './hover-card.component';
 @Directive({
   selector: '[puiHoverCardTrigger]',
   host: {
-    'data-testid': 'qui-hover-card-trigger',
+    'data-testid': 'hover-card__trigger',
   },
   standalone: true,
 })
