@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
     'h1[qui-statistic-value], h2[qui-statistic-value], h3[qui-statistic-value], h4[qui-statistic-value], h5[qui-statistic-value], h6[qui-statistic-value]',
   template: `<ng-content></ng-content>`,
   host: {
-    'data-testid': 'qui-statistic-value',
+    'data-testid': 'statistic__value',
   },
   styles: [
     `

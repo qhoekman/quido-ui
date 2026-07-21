@@ -9,7 +9,7 @@ export type StatisticTrendVariants = {
   template: `<ng-content></ng-content>`,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-statistic-trend',
+    'data-testid': 'statistic__trend',
   },
   styles: [
     `

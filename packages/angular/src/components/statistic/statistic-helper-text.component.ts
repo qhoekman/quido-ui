@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'p[qui-statistic-helper-text], span[qui-statistic-helper-text]',
   template: `<ng-content></ng-content>`,
   host: {
-    'data-testid': 'qui-statistic-helper-text',
+    'data-testid': 'statistic__helper-text',
   },
   styles: [
     `
