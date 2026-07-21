@@ -23,7 +23,7 @@ export type SidebarMenuButtonVariants = {
   ],
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-sidebar-menu-button',
+    'data-testid': 'sidebar__menu-button',
   },
   template: `
     <ng-content></ng-content>
@@ -98,15 +98,15 @@ export type SidebarMenuButtonVariants = {
         height: var(--spacing-8);
       }
 
-      :host-context(.collapsible--icon) :host(.spacing--inset) {
+      :host-context(.collapsible--icon).spacing--inset {
         padding: var(--spacing-2);
       }
 
-      :host-context(.collapsible--icon) :host(.spacing--outset) {
+      :host-context(.collapsible--icon).spacing--outset {
         padding: 0;
       }
 
-      :host-context(.collapsible--icon):host(.size--lg) {
+      :host-context(.collapsible--icon).size--lg {
         padding: 0;
       }
     `,

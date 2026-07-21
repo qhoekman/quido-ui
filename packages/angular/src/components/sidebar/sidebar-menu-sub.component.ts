@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   host: {
     'data-sidebar': 'menu-sub',
-    'data-testid': 'qui-sidebar-menu-sub',
+    'data-testid': 'sidebar__menu-sub',
     '[class]': 'getClassList()',
   },
   template: `<ng-content></ng-content>`,

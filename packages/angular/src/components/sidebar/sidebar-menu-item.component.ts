@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   host: {
     'data-sidebar': 'menu-item',
-    'data-testid': 'qui-sidebar-menu-item',
+    'data-testid': 'sidebar__menu-item',
   },
   template: `<ng-content></ng-content>`,
   styles: [

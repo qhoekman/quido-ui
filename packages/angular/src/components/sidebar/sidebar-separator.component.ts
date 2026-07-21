@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   host: {
     'data-sidebar': 'separator',
-    'data-testid': 'qui-sidebar-separator',
+    'data-testid': 'sidebar__separator',
     '[class]': 'getClassList()',
   },
   template: '',

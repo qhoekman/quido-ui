@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'div[qui-sidebar-header]',
   standalone: true,
   host: {
-    'data-testid': 'qui-sidebar-header',
+    'data-testid': 'sidebar__header',
   },
   template: `<ng-content></ng-content>`,
   styles: [

@@ -12,7 +12,7 @@ export type SidebarMenuSkeletonVariants = {
   imports: [CommonModule, SkeletonComponent],
   host: {
     'data-sidebar': 'menu-skeleton',
-    'data-testid': 'qui-sidebar-menu-skeleton',
+    'data-testid': 'sidebar__menu-skeleton',
   },
   template: `
     <ng-container *ngIf="variant === 'with-icon'">

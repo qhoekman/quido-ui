@@ -26,7 +26,7 @@ export type SidebarVariants = {
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     'data-sidebar': 'sidebar',
-    'data-testid': 'qui-sidebar',
+    'data-testid': 'sidebar',
     '[class]': 'getClassList()',
   },
   imports: [

@@ -7,7 +7,7 @@ import { SidebarService } from './sidebar.service';
   host: {
     'aria-label': 'Toggle Sidebar',
     'data-sidebar': 'rail',
-    'data-testid': 'qui-sidebar-rail',
+    'data-testid': 'sidebar__rail',
     tabindex: '-1',
     title: 'Toggle Sidebar',
     '[class]': 'getClassList()',

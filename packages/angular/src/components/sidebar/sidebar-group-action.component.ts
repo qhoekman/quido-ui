@@ -4,7 +4,7 @@ import { Component, HostBinding, Input } from '@angular/core';
   selector: 'button[qui-sidebar-group-action], a[qui-sidebar-group-action]',
   standalone: true,
   host: {
-    'data-testid': 'qui-sidebar-group-action',
+    'data-testid': 'sidebar__group-action',
   },
   template: `<ng-content></ng-content>`,
   styles: [
