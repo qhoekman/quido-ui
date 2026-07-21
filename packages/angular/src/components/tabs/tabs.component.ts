@@ -14,6 +14,9 @@ import { TabsListComponent } from './tabs-list.component';
 @Component({
   selector: '[qui-tabs]',
   imports: [NgTemplateOutlet, AsyncPipe],
+  host: {
+    'data-testid': 'tabs',
+  },
   template: `
     <ng-content select="[qui-tabs-list]">
       <ng-content select="[qui-tabs-trigger]"></ng-content>

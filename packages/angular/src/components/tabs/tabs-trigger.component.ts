@@ -9,7 +9,7 @@ type TabsTriggerVariants = {
   template: `<ng-content></ng-content>`,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-tabs-trigger',
+    'data-testid': 'tabs__trigger',
     '[attr.aria-expanded]': 'variant === "active"',
   },
   styles: [

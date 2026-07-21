@@ -5,7 +5,7 @@ import { TabsTriggerComponent } from './tabs-trigger.component';
   selector: '[qui-tabs-list]',
   template: `<ng-content></ng-content>`,
   host: {
-    'data-testid': 'qui-tabs-list',
+    'data-testid': 'tabs__list',
   },
   styles: [
     `

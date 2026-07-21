@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-tabs-content]',
   template: `<ng-content></ng-content>`,
   host: {
-    'data-testid': 'qui-tabs-content',
+    'data-testid': 'tabs__content',
   },
   styles: [
     `
