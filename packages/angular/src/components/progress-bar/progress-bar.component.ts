@@ -5,11 +5,11 @@ import { Component, Input } from '@angular/core';
   selector: '[qui-progress-bar]',
   imports: [NgStyle],
   host: {
-    'data-testid': 'qui-progress-bar',
+    'data-testid': 'progress-bar',
   },
   template: `
     <div
-      data-testid="qui-progress-bar-indicator"
+      data-testid="progress-bar__indicator"
       [ngStyle]="getIndicatorStyle()"
       [class]="getIndicatorClassList()"
     ></div>
