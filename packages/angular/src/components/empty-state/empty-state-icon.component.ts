@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-empty-state-icon]',
   template: '<ng-content></ng-content>',
   host: {
-    'data-testid': 'qui-empty-state-icon',
+    'data-testid': 'empty-state__icon',
   },
   styles: [
     `
