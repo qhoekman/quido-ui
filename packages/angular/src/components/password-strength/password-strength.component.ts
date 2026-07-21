@@ -61,6 +61,11 @@ export class PasswordStrengthComponent implements OnChanges {
   }
 
   evaluateStrength(): void {
+    if (!this.value) {
+      this.strength = '';
+      return;
+    }
+
     const metRequirements = this.requirements.filter((req) =>
       req.regex.test(this.value)
     );
