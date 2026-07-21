@@ -14,9 +14,9 @@ import { IconDragHandleDots2Component } from '../../icons';
   standalone: true,
   imports: [CommonModule, IconDragHandleDots2Component],
   template: `
-    <ul class="draggable-list" role="list" data-testid="qui-draggable-list">
+    <ul class="draggable-list" role="list" data-testid="draggable-list">
       <li
-        data-testid="qui-draggable-list-item"
+        data-testid="draggable-list__item"
         *ngFor="let item of list; let i = index"
         class="draggable-item"
         [class.dragging]="draggedIndex === i"
