@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-chat-message-bubble]',
   template: ` <ng-content></ng-content> `,
   host: {
-    'data-testid': 'qui-chat-message-bubble',
+    'data-testid': 'chat-message__bubble',
   },
   styles: [
     `

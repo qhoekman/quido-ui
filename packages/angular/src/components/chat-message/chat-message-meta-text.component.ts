@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-chat-message-meta-text]',
   template: ` <ng-content></ng-content> `,
   host: {
-    'data-testid': 'qui-chat-message-meta-text',
+    'data-testid': 'chat-message__meta-text',
   },
   styles: [
     `

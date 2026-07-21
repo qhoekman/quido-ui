@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
   selector: '[qui-chat-message-user]',
   template: ` <ng-content></ng-content> `,
   host: {
-    'data-testid': 'qui-chat-message-user',
+    'data-testid': 'chat-message__user',
   },
   styles: [
     `

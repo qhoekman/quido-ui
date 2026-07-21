@@ -8,7 +8,7 @@ export type ChatMessageVariants = {
   selector: 'div[qui-chat-message]',
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-chat-message',
+    'data-testid': 'chat-message',
   },
   template: `
     <ng-content select="[qui-avatar], qui-avatar"></ng-content>
