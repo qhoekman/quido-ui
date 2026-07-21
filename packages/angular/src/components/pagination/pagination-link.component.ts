@@ -5,6 +5,7 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   template: `<ng-content></ng-content>`,
   host: {
+    'data-testid': 'pagination__link',
     '[attr.aria-current]': 'isActive ? "page" : null',
   },
   styleUrls: ['./pagination-link.component.css'],
