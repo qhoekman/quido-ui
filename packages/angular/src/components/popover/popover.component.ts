@@ -19,7 +19,7 @@ import {
   selector: 'qui-popover',
   standalone: true,
   host: {
-    'data-testid': 'qui-popover',
+    'data-testid': 'popover',
   },
   template: `<ng-content></ng-content> `,
 })

@@ -4,7 +4,7 @@ import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
   selector: 'qui-popover-indicator',
   standalone: true,
   host: {
-    'data-testid': 'qui-popover-indicator',
+    'data-testid': 'popover__indicator',
   },
   styles: [
     `
