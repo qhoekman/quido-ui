@@ -7,7 +7,7 @@ import { NumberInputFieldVariants } from './number-inputfield.component';
   host: {
     type: 'number',
     '[class]': 'getClassList()',
-    'data-testid': 'qui-number-input',
+    'data-testid': 'number-input',
   },
   template: ``,
   styles: [

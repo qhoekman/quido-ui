@@ -6,7 +6,7 @@ import { NumberInputFieldVariants } from './number-inputfield.component';
   standalone: true,
   host: {
     '[class]': 'getClassList()',
-    'data-testid': 'qui-number-input-button',
+    'data-testid': 'number-input__button',
   },
   template: ` <ng-content></ng-content> `,
   styles: [
