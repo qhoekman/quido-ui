@@ -6,7 +6,7 @@ import { IconCheckComponent, IconDashComponent } from '../../icons';
   selector: 'span[qui-checkbox-indicator]',
   imports: [CommonModule, IconCheckComponent, IconDashComponent],
   host: {
-    'data-testid': 'qui-checkbox-indicator',
+    'data-testid': 'checkbox__indicator',
   },
   standalone: true,
   template: `

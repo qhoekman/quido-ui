@@ -7,6 +7,7 @@ import { CheckboxIndicatorComponent } from './checkbox-indicator.component';
   host: {
     type: 'button',
     role: 'checkbox',
+    'data-testid': 'checkbox',
     '[attr.aria-checked]': 'checked',
     '[attr.data-state]': 'checked ? "checked" : "unchecked"',
   },
