@@ -10,6 +10,7 @@
     "build": "storybook build -o ../../dist/vue"
   },
   "dependencies": {
+    "@quido-ui/styles": "workspace:*",
     "@akamfoad/qrcode": "^0.3.2",
     "@thednp/color": "^1.0.13",
     "apexcharts": "^4.7.0",
