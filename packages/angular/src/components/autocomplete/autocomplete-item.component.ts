@@ -13,7 +13,7 @@ import { AutocompleteComponent } from './autocomplete.component';
   host: {
     role: 'option',
     '[attr.aria-selected]': 'isSelected',
-    'data-testid': 'qui-autocomplete-item',
+    'data-testid': 'autocomplete__item',
     tabindex: '0',
   },
   template: `<ng-content></ng-content>`,

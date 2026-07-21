@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-autocomplete-label]',
   standalone: true,
   host: {
-    'data-testid': 'qui-autocomplete-label',
+    'data-testid': 'autocomplete__label',
   },
   template: `<ng-content></ng-content>`,
   styles: [

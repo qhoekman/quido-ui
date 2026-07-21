@@ -9,7 +9,7 @@ import { CdkListbox, CdkListboxModule } from '@angular/cdk/listbox';
   host: {
     role: 'listbox',
     id: 'autocomplete-content',
-    'data-testid': 'qui-autocomplete-content',
+    'data-testid': 'autocomplete__content',
     '[attr.tabindex]': '-1',
   },
   hostDirectives: [CdkListbox],
