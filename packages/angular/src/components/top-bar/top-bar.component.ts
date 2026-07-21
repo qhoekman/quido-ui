@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'header[qui-top-bar], div[qui-top-bar]',
   standalone: true,
   host: {
-    'data-testid': 'qui-top-bar',
+    'data-testid': 'top-bar',
   },
   template: ` <ng-content></ng-content> `,
   styles: [
