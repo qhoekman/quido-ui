@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: '[qui-menubar-group]',
   host: {
-    'data-testid': 'qui-menubar-group',
+    'data-testid': 'menubar__group',
   },
   template: '<ng-content></ng-content>',
   hostDirectives: [CdkMenuGroup],
