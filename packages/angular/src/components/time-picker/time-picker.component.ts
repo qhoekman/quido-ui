@@ -8,7 +8,7 @@ import { TimeSelectComponent } from '../time-select/time-select.component';
   selector: 'qui-time-picker',
   standalone: true,
   host: {
-    'data-testid': 'qui-time-picker',
+    'data-testid': 'time-picker',
   },
   imports: [
     InputComponent,
@@ -21,15 +21,15 @@ import { TimeSelectComponent } from '../time-select/time-select.component';
       <input
         qui-input
         puiPopoverTrigger
-        data-testid="qui-time-picker-input"
+        data-testid="time-picker__input"
         [value]="formattedTime"
         readonly
       />
       <ng-template #popoverContent>
         <qui-time-select
-          [selectedHour]="selectedHour"
-          [selectedMinute]="selectedMinute"
-          (onChange)="handleTimeChange($event)"
+          [hours]="selectedHour"
+          [minutes]="selectedMinute"
+          (valueChange)="handleTimeChange($event)"
         ></qui-time-select>
       </ng-template>
     </qui-popover>
