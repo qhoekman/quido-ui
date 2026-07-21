@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
   selector: 'span[qui-breadcrumb-page]',
   standalone: true,
   host: {
-    'data-testid': 'qui-breadcrumb-page',
-    '[attr.aria-current]': 'page',
+    'data-testid': 'breadcrumb__page',
+    '[attr.aria-current]': "'page'",
   },
   styles: [
     `

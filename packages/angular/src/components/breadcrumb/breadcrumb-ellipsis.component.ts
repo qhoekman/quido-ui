@@ -8,7 +8,7 @@ import { IconDotsHorizontalComponent } from '../../icons';
   host: {
     role: 'presentation',
     '[attr.aria-hidden]': 'true',
-    'data-testid': 'qui-breadcrumb-ellipsis',
+    'data-testid': 'breadcrumb__ellipsis',
   },
   imports: [VisuallyHiddenComponent, IconDotsHorizontalComponent],
   styles: [
