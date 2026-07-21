@@ -6,7 +6,7 @@ import { Component, Directive } from '@angular/core';
   standalone: true,
   host: {
     role: 'columnheader',
-    'data-testid': 'qui-table-header-cell',
+    'data-testid': 'table__header-cell',
   },
   hostDirectives: [CdkHeaderCell],
   styles: [

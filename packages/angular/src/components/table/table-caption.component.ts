@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: '[qui-table-caption]',
   host: {
-    'data-testid': 'qui-table-caption',
+    'data-testid': 'table__caption',
   },
   styles: [
     `

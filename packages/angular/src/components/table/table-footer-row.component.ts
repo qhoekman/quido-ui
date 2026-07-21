@@ -10,7 +10,7 @@ import { Component, Directive } from '@angular/core';
   template: `<ng-container cdkCellOutlet></ng-container>`,
   host: {
     role: 'row',
-    'data-testid': 'qui-table-footer-row',
+    'data-testid': 'table__footer-row',
   },
   providers: [{ provide: CdkFooterRow, useExisting: TableFooterRowComponent }],
   imports: [CdkCellOutlet],

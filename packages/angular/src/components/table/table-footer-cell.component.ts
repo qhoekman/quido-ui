@@ -5,7 +5,7 @@ import { Component, Directive } from '@angular/core';
   selector: '[qui-footer-cell]',
   hostDirectives: [CdkFooterCell],
   host: {
-    'data-testid': 'qui-table-footer-cell',
+    'data-testid': 'table__footer-cell',
   },
   template: `<ng-content></ng-content>`,
   styles: [
