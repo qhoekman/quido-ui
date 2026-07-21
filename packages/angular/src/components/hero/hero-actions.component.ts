@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-hero-actions]',
   standalone: true,
   host: {
-    'data-testid': 'qui-hero-actions',
+    'data-testid': 'hero__actions',
   },
   template: `<ng-content></ng-content>`,
   styles: [

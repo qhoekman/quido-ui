@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[qui-hero-cover-image]',
   standalone: true,
   host: {
-    'data-testid': 'qui-hero-cover-image',
+    'data-testid': 'hero__cover-image',
   },
   template: '',
   styles: [
