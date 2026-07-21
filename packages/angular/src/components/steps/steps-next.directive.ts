@@ -5,7 +5,7 @@ import { StepsComponent } from './steps.component';
   selector: '[puiStepsNext]',
   standalone: true,
   host: {
-    'data-testid': 'qui-steps-next',
+    'data-testid': 'steps__next',
   },
 })
 export class StepsNextDirective {

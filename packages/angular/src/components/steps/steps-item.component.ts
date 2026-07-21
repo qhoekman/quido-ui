@@ -8,14 +8,14 @@ import { IconCheckComponent } from '../../icons';
   standalone: true,
   imports: [CommonModule, IconCheckComponent],
   host: {
-    'data-testid': 'qui-steps-item',
+    'data-testid': 'steps__item',
   },
   template: `
     <div
       class="steps-item-trigger"
       (click)="handleClick(getIndex())"
       (keydown)="handleKeyDown($event)"
-      data-testid="qui-steps-item-trigger"
+      data-testid="steps__item-trigger"
       tabindex="0"
     >
       <div
@@ -23,7 +23,7 @@ import { IconCheckComponent } from '../../icons';
         [class.steps-item--completed-fg]="isCompleted"
         [class.steps-item--current-fg]="isCurrent && !isCompleted"
         [class.steps-item--undefined]="!isCurrent && !isCompleted"
-        data-testid="qui-steps-item-circle"
+        data-testid="steps__item-circle"
         class="steps-item-circle"
       >
         <ng-container *ngIf="isCompleted; else stepNumber">
@@ -39,7 +39,7 @@ import { IconCheckComponent } from '../../icons';
         </ng-template>
       </div>
       <span
-        data-testid="qui-steps-item-title"
+        data-testid="steps__item-title"
         [class.steps-item--completed-fg]="isCompleted"
         [class.steps-item--current-fg]="isCurrent && !isCompleted"
         [class.steps-item--undefined]="!isCurrent && !isCompleted"
@@ -50,11 +50,11 @@ import { IconCheckComponent } from '../../icons';
     </div>
     <div
       *ngIf="getIndex() < count - 1"
-      data-testid="qui-steps-item-line"
+      data-testid="steps__item-line"
       class="steps-item-line"
     >
       <div
-        data-testid="qui-steps-item-line-fill"
+        data-testid="steps__item-line-fill"
         [style.width]="isCompleted ? '100%' : '0'"
         class="steps-item-line-fill"
       ></div>

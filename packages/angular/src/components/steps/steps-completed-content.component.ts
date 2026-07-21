@@ -7,7 +7,7 @@ import { StepsComponent } from './steps.component';
   standalone: true,
   imports: [CommonModule],
   host: {
-    'data-testid': 'qui-steps-completed-content',
+    'data-testid': 'steps__completed-content',
   },
   template: `
     <ng-container *ngIf="allStepsCompleted">
