@@ -3,6 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'div[qui-definition-list-item]',
   standalone: true,
+  host: {
+    'data-testid': 'definition-list__item',
+  },
   template: `<ng-content></ng-content>`,
   styles: [
     `
