@@ -52,3 +52,43 @@ export const Default: Story = {
     }
   }
 }
+
+export const Composition: Story = {
+  render: () => {
+    const signaturePadRef = ref<InstanceType<typeof SignaturePad> | null>(null)
+
+    return {
+      components: { SignaturePad, Button, ButtonGroup, Eraser, Download },
+      setup() {
+        const handleClear = () => {
+          signaturePadRef.value?.clear()
+        }
+
+        const handleDownload = () => {
+          signaturePadRef.value?.download()
+        }
+
+        return {
+          signaturePadRef,
+          handleClear,
+          handleDownload
+        }
+      },
+      template: `
+        <div style="max-width: 420px; padding: var(--spacing-6); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+          <h3 style="margin: 0 0 var(--spacing-1);">Sign the Agreement</h3>
+          <p style="margin: 0 0 var(--spacing-4); color: var(--color-muted-fg);">Draw your signature below to accept the terms.</p>
+          <SignaturePad ref="signaturePadRef" style="width: 100%; height: 200px;" />
+          <ButtonGroup style="margin-top: var(--spacing-4);">
+            <Button @click="handleClear">
+              <Eraser :size="16" />
+            </Button>
+            <Button @click="handleDownload">
+              <Download :size="16" />
+            </Button>
+          </ButtonGroup>
+        </div>
+      `
+    }
+  }
+}
