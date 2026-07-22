@@ -59,7 +59,7 @@ const meta = {
         <HoverCardContentComponent style="width: 300px;">
           <div style="display: flex; align-items: center; gap: var(--spacing-4);">
             <img 
-              src="https://pulse.quido.online/logo.png" 
+              src="https://platform.squid-ware.nl/logo.png" 
               alt="Avatar Image" 
               style="object-fit: cover; width: 32px; height: 32px; object-position: left;" 
             />
@@ -100,7 +100,7 @@ export const Composition: Story = {
           <HoverCardContentComponent style="width: 300px;">
             <div style="display: flex; align-items: center; gap: var(--spacing-4);">
               <img
-                src="https://pulse.quido.online/logo.png"
+                src="https://platform.squid-ware.nl/logo.png"
                 alt="Avatar Image"
                 style="object-fit: cover; width: 32px; height: 32px; object-position: left;"
               />
