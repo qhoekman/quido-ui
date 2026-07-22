@@ -10,10 +10,13 @@ const preview: Preview = {
     },
     options: {
       // @ts-ignore - storySort is not typed in storybook v7+
-      storySort: (a, b) =>
-        a.title === b.title
+      storySort: (a, b) => {
+        if (a.title === 'Readme') return -1;
+        if (b.title === 'Readme') return 1;
+        return a.title === b.title
           ? 0
-          : a.title.localeCompare(b.title, undefined, { numeric: true }),
+          : a.title.localeCompare(b.title, undefined, { numeric: true });
+      },
     },
   },
 };

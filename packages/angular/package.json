@@ -4,7 +4,10 @@
   "scripts": {
     "ng": "ng",
     "test": "ng test",
+    "sync:docs": "node ../../scripts/sync-host-docs.mjs angular",
+    "predev": "pnpm run sync:docs",
     "dev": "ng run angular:storybook",
+    "prebuild": "pnpm run sync:docs",
     "build": "ng run angular:build-storybook"
   },
   "private": true,

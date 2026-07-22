@@ -25,3 +25,8 @@ dist-ssr
 *.sw?
 .cursor/
 repos/
+
+# Host docs synced into framework Storybooks (source: packages/host/src)
+packages/react/src/docs/
+packages/vue/src/docs/
+packages/angular/src/docs/

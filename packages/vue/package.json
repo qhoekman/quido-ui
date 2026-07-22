@@ -6,7 +6,10 @@
   "scripts": {
     "dev:vue": "vite",
     "test:unit": "vitest",
+    "sync:docs": "node ../../scripts/sync-host-docs.mjs vue",
+    "predev": "pnpm run sync:docs",
     "dev": "storybook dev -p 6006",
+    "prebuild": "pnpm run sync:docs",
     "build": "storybook build -o ../../dist/vue"
   },
   "dependencies": {
