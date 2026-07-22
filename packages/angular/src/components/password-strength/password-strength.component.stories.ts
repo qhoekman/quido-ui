@@ -41,3 +41,72 @@ export const Default: Story = {
     template: `<div qui-password-strength [value]="value" [requirements]="requirements" [thresholds]="thresholds"></div>`,
   }),
 };
+
+export const Weak: Story = {
+  args: {
+    value: 'weak',
+  },
+  render: (args) => ({
+    props: args,
+    template: `<div qui-password-strength [value]="value"></div>`,
+  }),
+};
+
+export const Medium: Story = {
+  args: {
+    value: 'Medium123',
+  },
+  render: (args) => ({
+    props: args,
+    template: `<div qui-password-strength [value]="value"></div>`,
+  }),
+};
+
+export const Strong: Story = {
+  args: {
+    value: 'Strong123!@#',
+  },
+  render: (args) => ({
+    props: args,
+    template: `<div qui-password-strength [value]="value"></div>`,
+  }),
+};
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+      <div style="max-width: 400px;">
+        <label style="display: block; margin-bottom: var(--spacing-1); font-size: var(--font-size-sm); font-weight: var(--font-weight-medium);">Password</label>
+        <input
+          type="password"
+          value="Str0ng!Pass"
+          readonly
+          style="width: 100%; padding: var(--spacing-2); margin-bottom: var(--spacing-2); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-md);"
+        />
+        <div qui-password-strength value="Str0ng!Pass"></div>
+      </div>
+    `,
+  }),
+};
+
+export const Interactive: Story = {
+  render: () => ({
+    props: {
+      password: '',
+      onInput: function (this: { password: string }, event: Event) {
+        this.password = (event.target as HTMLInputElement).value;
+      },
+    },
+    template: `
+      <div style="max-width: 400px;">
+        <input
+          type="password"
+          placeholder="Enter password"
+          (input)="onInput($event)"
+          style="width: 100%; padding: var(--spacing-2); margin-bottom: var(--spacing-2); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-md);"
+        />
+        <div qui-password-strength [value]="password"></div>
+      </div>
+    `,
+  }),
+};
