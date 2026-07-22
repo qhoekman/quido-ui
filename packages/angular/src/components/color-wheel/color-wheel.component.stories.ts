@@ -26,3 +26,55 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const WithCustomHue: Story = {
+  args: {
+    hue: 180,
+    saturation: 80,
+    lightness: 50,
+  } as never,
+  render: (args) => ({
+    props: args,
+    template: `
+      <qui-story>
+        <qui-color-wheel [hue]="hue" [saturation]="saturation" [lightness]="lightness"></qui-color-wheel>
+      </qui-story>
+    `,
+  }),
+};
+
+export const LowSaturation: Story = {
+  args: {
+    hue: 0,
+    saturation: 30,
+    lightness: 50,
+  } as never,
+  render: (args) => ({
+    props: args,
+    template: `
+      <qui-story>
+        <qui-color-wheel [hue]="hue" [saturation]="saturation" [lightness]="lightness"></qui-color-wheel>
+      </qui-story>
+    `,
+  }),
+};
+
+export const Composition: Story = {
+  args: {
+    hue: 265,
+    saturation: 80,
+    lightness: 55,
+  } as never,
+  render: (args) => ({
+    props: args,
+    template: `
+      <qui-story>
+        <div style="max-width: 280px; padding: var(--spacing-6); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+          <h3 style="margin: 0 0 var(--spacing-1);">Custom Theme Color</h3>
+          <p style="margin: 0 0 var(--spacing-4); color: var(--color-muted-fg);">Pick an exact hue, saturation, and lightness.</p>
+          <qui-color-wheel [hue]="hue" [saturation]="saturation" [lightness]="lightness"></qui-color-wheel>
+        </div>
+      </qui-story>
+    `,
+  }),
+};
