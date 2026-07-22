@@ -63,3 +63,33 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      DefinitionListComponent,
+      DefinitionListItemComponent,
+      DefinitionTermComponent,
+      DefinitionDescriptionComponent
+    },
+    template: `
+      <div style="max-width: var(--spacing-2xl); padding: var(--spacing-4); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+        <h4 style="margin: 0 0 var(--spacing-4);">Order #4471</h4>
+        <DefinitionListComponent>
+          <DefinitionListItemComponent>
+            <DefinitionTermComponent>Order date</DefinitionTermComponent>
+            <DefinitionDescriptionComponent>June 12, 2026</DefinitionDescriptionComponent>
+          </DefinitionListItemComponent>
+          <DefinitionListItemComponent>
+            <DefinitionTermComponent>Status</DefinitionTermComponent>
+            <DefinitionDescriptionComponent>Shipped</DefinitionDescriptionComponent>
+          </DefinitionListItemComponent>
+          <DefinitionListItemComponent>
+            <DefinitionTermComponent>Total</DefinitionTermComponent>
+            <DefinitionDescriptionComponent>$128.50</DefinitionDescriptionComponent>
+          </DefinitionListItemComponent>
+        </DefinitionListComponent>
+      </div>
+    `
+  })
+}
