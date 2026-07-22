@@ -59,3 +59,15 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+      <div style="max-width: 280px; padding: var(--spacing-6); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+        <h3 style="margin: 0 0 var(--spacing-1);">Accent Color</h3>
+        <p style="margin: 0 0 var(--spacing-4); color: var(--color-muted-fg);">Drag to adjust the hue used across your workspace.</p>
+        <div qui-color-slider mode="hue" [hue]="210" [saturation]="100" [lightness]="50"></div>
+      </div>
+    `,
+  }),
+};
