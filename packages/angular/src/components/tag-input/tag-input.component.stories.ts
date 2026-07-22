@@ -27,7 +27,7 @@ type Story = StoryObj<EnhancedTagInputComponent>;
 
 export const Default: Story = {
   args: {
-    tags: ['example', 'tags'],
+    tags: ['design', 'frontend'],
   },
   render: (args) => ({
     props: args,
@@ -35,6 +35,49 @@ export const Default: Story = {
     <div qui-story style="width: 300px;">
       <div qui-tag-input [tags]="tags" (tagsChange)="tags = $event" [name]="name" [id]="id">
       </div>
+    </div>`,
+  }),
+};
+
+export const Empty: Story = {
+  args: {
+    tags: [],
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+    <div qui-story style="width: 300px;">
+      <div qui-tag-input [tags]="tags" (tagsChange)="tags = $event" [name]="name" [id]="id">
+      </div>
+    </div>`,
+  }),
+};
+
+export const WithManyTags: Story = {
+  args: {
+    tags: ['react', 'vue', 'angular', 'typescript', 'javascript', 'css', 'html'],
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+    <div qui-story style="width: 300px;">
+      <div qui-tag-input [tags]="tags" (tagsChange)="tags = $event" [name]="name" [id]="id">
+      </div>
+    </div>`,
+  }),
+};
+
+export const Composition: Story = {
+  args: {
+    tags: ['bug', 'urgent'],
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+    <div style="max-width: 320px;">
+      <label style="display: block; font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); margin-bottom: var(--spacing-1-5);">Labels</label>
+      <div qui-tag-input [tags]="tags" (tagsChange)="tags = $event"></div>
+      <p style="margin: var(--spacing-1-5) 0 0; font-size: var(--font-size-sm); color: var(--color-muted-fg);">Press Enter or comma to add a label.</p>
     </div>`,
   }),
 };
