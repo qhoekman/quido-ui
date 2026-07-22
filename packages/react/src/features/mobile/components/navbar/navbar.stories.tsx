@@ -37,3 +37,27 @@ export const Default: StoryObj<typeof Navbar> = {
     },
   },
 };
+
+export const Composition: StoryObj<typeof Navbar> = {
+  render: () => (
+    <ViewportLayout>
+      <Navbar>
+        <NavbarContent>
+          <NavbarBack href="#" />
+          <NavbarTitle>
+            Messages
+            <NavbarSubtitle>3 unread</NavbarSubtitle>
+          </NavbarTitle>
+          <NavbarLink href="#">Edit</NavbarLink>
+        </NavbarContent>
+      </Navbar>
+    </ViewportLayout>
+  ),
+
+  parameters: {
+    layout: "fullscreen",
+    viewport: {
+      defaultViewport: "mobile2",
+    },
+  },
+};
