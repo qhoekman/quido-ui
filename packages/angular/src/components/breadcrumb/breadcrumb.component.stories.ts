@@ -63,3 +63,30 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+    <qui-story>
+      <div>
+        <nav qui-breadcrumb aria-label="breadcrumb" style="margin-bottom: var(--spacing-2);">
+          <ol qui-breadcrumb-list>
+            <li qui-breadcrumb-item>
+              <a qui-breadcrumb-link href="#">Projects</a>
+            </li>
+            <li qui-breadcrumb-separator></li>
+            <li qui-breadcrumb-item>
+              <a qui-breadcrumb-link href="#">Website Redesign</a>
+            </li>
+            <li qui-breadcrumb-separator></li>
+            <li qui-breadcrumb-item>
+              <span qui-breadcrumb-page>Tasks</span>
+            </li>
+          </ol>
+        </nav>
+        <h3 style="margin: 0;">Tasks</h3>
+      </div>
+    </qui-story>
+    `,
+  }),
+};
