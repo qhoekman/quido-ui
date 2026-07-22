@@ -29,3 +29,28 @@ export const Default: StoryObj<typeof Select> = {
     </form>
   ),
 };
+
+export const Composition: StoryObj<typeof Select> = {
+  render: () => (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        maxWidth: "20rem",
+      }}
+    >
+      <h3 style={{ margin: 0 }}>Sprint Backlog</h3>
+      <Select defaultValue="priority">
+        <SelectTrigger style={{ width: "10rem" }}>
+          <SelectValue placeholder="Sort by" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="priority">Priority</SelectItem>
+          <SelectItem value="due-date">Due date</SelectItem>
+          <SelectItem value="assignee">Assignee</SelectItem>
+        </SelectContent>
+      </Select>
+    </div>
+  ),
+};
