@@ -52,3 +52,37 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      StatisticComponent,
+      StatisticValueComponent,
+      StatisticLabelComponent,
+      StatisticTrendComponent,
+      StatisticHelperTextComponent
+    },
+    template: `
+      <div style="display: flex; gap: var(--spacing-8);">
+        <StatisticComponent size="md">
+          <StatisticLabelComponent>Active Users</StatisticLabelComponent>
+          <StatisticValueComponent>2,338</StatisticValueComponent>
+          <StatisticTrendComponent variant="up"><span>+180</span></StatisticTrendComponent>
+          <StatisticHelperTextComponent>New users this week</StatisticHelperTextComponent>
+        </StatisticComponent>
+        <StatisticComponent size="md">
+          <StatisticLabelComponent>Revenue</StatisticLabelComponent>
+          <StatisticValueComponent>$48,352</StatisticValueComponent>
+          <StatisticTrendComponent variant="up"><span>+12%</span></StatisticTrendComponent>
+          <StatisticHelperTextComponent>Compared to last month</StatisticHelperTextComponent>
+        </StatisticComponent>
+        <StatisticComponent size="md">
+          <StatisticLabelComponent>Churn Rate</StatisticLabelComponent>
+          <StatisticValueComponent>2.4%</StatisticValueComponent>
+          <StatisticTrendComponent variant="down"><span>-0.3%</span></StatisticTrendComponent>
+          <StatisticHelperTextComponent>Improved from last month</StatisticHelperTextComponent>
+        </StatisticComponent>
+      </div>
+    `
+  })
+}
