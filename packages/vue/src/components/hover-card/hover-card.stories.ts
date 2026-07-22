@@ -84,6 +84,39 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      HoverCardComponent,
+      HoverCardTriggerComponent,
+      HoverCardContentComponent
+    },
+    template: `
+      <p style="max-width: 32rem; font-size: var(--font-size-sm);">
+        <HoverCardComponent>
+          <HoverCardTriggerComponent as-child>
+            <a href="#" style="font-weight: var(--font-weight-semibold);">@pulse</a>
+          </HoverCardTriggerComponent>
+          <HoverCardContentComponent style="width: 300px;">
+            <div style="display: flex; align-items: center; gap: var(--spacing-4);">
+              <img
+                src="https://pulse.quido.online/logo.png"
+                alt="Avatar Image"
+                style="object-fit: cover; width: 32px; height: 32px; object-position: left;"
+              />
+              <div style="display: flex; flex-direction: column; gap: var(--spacing-1);">
+                <h4 style="font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); margin: 0;">pulse</h4>
+                <p style="font-size: var(--font-size-sm); margin: 0;">A composition library for building accessible web applications with Vue.</p>
+              </div>
+            </div>
+          </HoverCardContentComponent>
+        </HoverCardComponent>
+        commented on your pull request: "Looks good, just left a few notes."
+      </p>
+    `
+  })
+}
+
 export const Uncontrolled: Story = {
   render: () => ({
     components: {
