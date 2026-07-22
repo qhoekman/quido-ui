@@ -95,3 +95,25 @@ export const Sizes: Story = {
     `
   })
 }
+
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      AvatarComponent,
+      AvatarImageComponent,
+      AvatarFallbackComponent
+    },
+    template: `
+      <div style="display: flex; align-items: center; gap: var(--spacing-3);">
+        <AvatarComponent>
+          <AvatarImageComponent src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=facearea&w=128&h=128&facepad=2" alt="Avatar" />
+          <AvatarFallbackComponent>JD</AvatarFallbackComponent>
+        </AvatarComponent>
+        <div>
+          <div style="font-weight: var(--font-weight-semibold);">Jane Doe</div>
+          <div style="color: var(--color-muted-fg); font-size: var(--font-size-sm);">Product Designer</div>
+        </div>
+      </div>
+    `
+  })
+}
