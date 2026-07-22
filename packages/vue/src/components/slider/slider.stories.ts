@@ -56,3 +56,22 @@ export const Default: Story = {
     onValueChange: (value: number) => console.log(value),
   },
 };
+
+export const Composition: Story = {
+  render: () => ({
+    components: { SliderComponent },
+    setup() {
+      const value = ref(70);
+      return { value };
+    },
+    template: `
+      <div style="max-width: 18rem;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-2);">
+          <span style="font-weight: var(--font-weight-semibold);">Volume</span>
+          <span style="color: var(--color-muted-fg); font-size: var(--font-size-sm);">{{ value }}%</span>
+        </div>
+        <SliderComponent :min="0" :max="100" :step="5" v-model:value="value" />
+      </div>
+    `,
+  }),
+};
