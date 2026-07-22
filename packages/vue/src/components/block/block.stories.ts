@@ -65,7 +65,7 @@ export const Composition: Story = {
       <div style="padding: var(--spacing-4);">
         <BlockTitleComponent>Account</BlockTitleComponent>
         <BlockComponent inset>
-          Signed in as jordan@pulse.quido.online. Manage your profile,
+          Signed in as jordan@platform.squid-ware.nl. Manage your profile,
           password, and connected devices from Settings.
         </BlockComponent>
         <BlockTitleComponent>Notifications</BlockTitleComponent>
