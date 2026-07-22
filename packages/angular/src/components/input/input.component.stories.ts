@@ -53,7 +53,7 @@ type Story = StoryObj<EnhancedInputComponent>;
 export const Default: Story = {
   args: {
     size: 'md',
-    placeholder: 'Enter text...',
+    placeholder: 'Enter your name',
     type: 'text',
     disabled: false,
   },
@@ -62,8 +62,22 @@ export const Default: Story = {
     template: `
       <qui-story>
         <div qui-stack direction="column" gap="sm" style="max-width: var(--breakpoint-xs);">
-          <label qui-label [size]="size">Label</label>
+          <label qui-label [size]="size">Name</label>
           <input qui-input [size]="size" [placeholder]="placeholder" [type]="type" [disabled]="disabled" />
+        </div>
+      </qui-story>
+    `,
+  }),
+};
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+      <qui-story>
+        <div style="max-width: var(--spacing-64);">
+          <label qui-label for="email">Email address</label>
+          <input qui-input id="email" type="email" placeholder="you@company.com" style="margin-top: var(--spacing-1-5); width: 100%;" />
+          <p style="margin: var(--spacing-1-5) 0 0; font-size: var(--font-size-sm); color: var(--color-muted-fg);">We'll send a confirmation link to this address.</p>
         </div>
       </qui-story>
     `,
