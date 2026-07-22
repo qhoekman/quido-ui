@@ -41,56 +41,30 @@ const meta = {
       return { args }
     },
     template: `
-      <div style="display: flex; flex-direction: column; gap: var(--spacing-4);">
-        <ChatMessageComponent v-bind="args">
-          <template #avatar>
-            <AvatarComponent>
-              <AvatarImageComponent
-                src="https://pagedone.io/asset/uploads/1710412177.png"
-                alt="User Name"
-              />
-              <AvatarFallbackComponent>UN</AvatarFallbackComponent>
-            </AvatarComponent>
-          </template>
-          <template #user>
-            <ChatMessageUserComponent>User Name</ChatMessageUserComponent>
-          </template>
-          <template #bubble>
-            <ChatMessageBubbleComponent>
-              <ChatMessageBubbleTextComponent>Message content goes here.</ChatMessageBubbleTextComponent>
-            </ChatMessageBubbleComponent>
-          </template>
-          <template #meta>
-            <ChatMessageMetaComponent>
-              <ChatMessageMetaTextComponent>12:00 PM</ChatMessageMetaTextComponent>
-            </ChatMessageMetaComponent>
-          </template>
-        </ChatMessageComponent>
-        <ChatMessageComponent variant="receiver">
-          <template #avatar>
-            <AvatarComponent>
-              <AvatarImageComponent
-                src="https://pagedone.io/asset/uploads/1710412188.png"
-                alt="John Doe"
-              />
-              <AvatarFallbackComponent>JD</AvatarFallbackComponent>
-            </AvatarComponent>
-          </template>
-          <template #user>
-            <ChatMessageUserComponent>John Doe</ChatMessageUserComponent>
-          </template>
-          <template #bubble>
-            <ChatMessageBubbleComponent>
-              <ChatMessageBubbleTextComponent>Message content goes here.</ChatMessageBubbleTextComponent>
-            </ChatMessageBubbleComponent>
-          </template>
-          <template #meta>
-            <ChatMessageMetaComponent>
-              <ChatMessageMetaTextComponent>12:01 PM</ChatMessageMetaTextComponent>
-            </ChatMessageMetaComponent>
-          </template>
-        </ChatMessageComponent>
-      </div>
+      <ChatMessageComponent v-bind="args">
+        <template #avatar>
+          <AvatarComponent>
+            <AvatarImageComponent
+              src="https://pagedone.io/asset/uploads/1710412177.png"
+              alt="Jane Doe"
+            />
+            <AvatarFallbackComponent>JD</AvatarFallbackComponent>
+          </AvatarComponent>
+        </template>
+        <template #user>
+          <ChatMessageUserComponent>Jane Doe</ChatMessageUserComponent>
+        </template>
+        <template #bubble>
+          <ChatMessageBubbleComponent>
+            <ChatMessageBubbleTextComponent>Hey! Are we still on for the 3pm sync?</ChatMessageBubbleTextComponent>
+          </ChatMessageBubbleComponent>
+        </template>
+        <template #meta>
+          <ChatMessageMetaComponent>
+            <ChatMessageMetaTextComponent>2:14 PM</ChatMessageMetaTextComponent>
+          </ChatMessageMetaComponent>
+        </template>
+      </ChatMessageComponent>
     `
   })
 } satisfies Meta<typeof ChatMessageComponent>
@@ -100,3 +74,95 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      ChatMessageComponent,
+      ChatMessageUserComponent,
+      ChatMessageBubbleComponent,
+      ChatMessageMetaComponent,
+      ChatMessageBubbleTextComponent,
+      ChatMessageMetaTextComponent,
+      AvatarComponent,
+      AvatarImageComponent,
+      AvatarFallbackComponent
+    },
+    template: `
+      <div style="display: flex; flex-direction: column; gap: var(--spacing-4); max-width: 420px;">
+        <ChatMessageComponent variant="sender">
+          <template #avatar>
+            <AvatarComponent>
+              <AvatarImageComponent
+                src="https://pagedone.io/asset/uploads/1710412177.png"
+                alt="Jane Doe"
+              />
+              <AvatarFallbackComponent>JD</AvatarFallbackComponent>
+            </AvatarComponent>
+          </template>
+          <template #user>
+            <ChatMessageUserComponent>Jane Doe</ChatMessageUserComponent>
+          </template>
+          <template #bubble>
+            <ChatMessageBubbleComponent>
+              <ChatMessageBubbleTextComponent>Hey! Are we still on for the 3pm sync?</ChatMessageBubbleTextComponent>
+            </ChatMessageBubbleComponent>
+          </template>
+          <template #meta>
+            <ChatMessageMetaComponent>
+              <ChatMessageMetaTextComponent>2:14 PM</ChatMessageMetaTextComponent>
+            </ChatMessageMetaComponent>
+          </template>
+        </ChatMessageComponent>
+        <ChatMessageComponent variant="receiver">
+          <template #avatar>
+            <AvatarComponent>
+              <AvatarImageComponent
+                src="https://pagedone.io/asset/uploads/1710412188.png"
+                alt="Marcus Lee"
+              />
+              <AvatarFallbackComponent>ML</AvatarFallbackComponent>
+            </AvatarComponent>
+          </template>
+          <template #user>
+            <ChatMessageUserComponent>Marcus Lee</ChatMessageUserComponent>
+          </template>
+          <template #bubble>
+            <ChatMessageBubbleComponent>
+              <ChatMessageBubbleTextComponent>Yes, I'll send the deck beforehand.</ChatMessageBubbleTextComponent>
+            </ChatMessageBubbleComponent>
+          </template>
+          <template #meta>
+            <ChatMessageMetaComponent>
+              <ChatMessageMetaTextComponent>2:15 PM</ChatMessageMetaTextComponent>
+            </ChatMessageMetaComponent>
+          </template>
+        </ChatMessageComponent>
+        <ChatMessageComponent variant="sender">
+          <template #avatar>
+            <AvatarComponent>
+              <AvatarImageComponent
+                src="https://pagedone.io/asset/uploads/1710412177.png"
+                alt="Jane Doe"
+              />
+              <AvatarFallbackComponent>JD</AvatarFallbackComponent>
+            </AvatarComponent>
+          </template>
+          <template #user>
+            <ChatMessageUserComponent>Jane Doe</ChatMessageUserComponent>
+          </template>
+          <template #bubble>
+            <ChatMessageBubbleComponent>
+              <ChatMessageBubbleTextComponent>Perfect, see you then.</ChatMessageBubbleTextComponent>
+            </ChatMessageBubbleComponent>
+          </template>
+          <template #meta>
+            <ChatMessageMetaComponent>
+              <ChatMessageMetaTextComponent>2:16 PM</ChatMessageMetaTextComponent>
+            </ChatMessageMetaComponent>
+          </template>
+        </ChatMessageComponent>
+      </div>
+    `
+  })
+}
