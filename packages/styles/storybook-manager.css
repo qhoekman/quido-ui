@@ -12,7 +12,7 @@
   margin-top: 0 !important;
 }
 
-.sb-bar {
+.sb-bar[data-testid="sb-preview-toolbar"] {
   display: none !important;
 }
 
