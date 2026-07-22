@@ -53,7 +53,7 @@ export const Default: StoryObj<typeof Collapsible> = {
               fontWeight: "var(--font-weight-semibold)",
             }}
           >
-            Lorem ipsum...
+            Saved Recipes (3)
           </h4>
           <CollapsibleTrigger asChild>
             <Button variant="ghost" size="sm">
@@ -71,7 +71,7 @@ export const Default: StoryObj<typeof Collapsible> = {
             boxShadow: "var(--box-shadow-sm)",
           }}
         >
-          Dolor sit amet.
+          Margherita Pizza
         </div>
         <CollapsibleContent>
           <div
@@ -84,7 +84,7 @@ export const Default: StoryObj<typeof Collapsible> = {
               boxShadow: "var(--box-shadow-sm)",
             }}
           >
-            Consectetur.
+            Spaghetti Carbonara
           </div>
           <div
             style={{
@@ -96,10 +96,58 @@ export const Default: StoryObj<typeof Collapsible> = {
               boxShadow: "var(--box-shadow-sm)",
             }}
           >
-            Adipisicing elit.
+            Chicken Tikka Masala
           </div>
         </CollapsibleContent>
       </Collapsible>
+    );
+  },
+};
+
+export const Composition: StoryObj<typeof Collapsible> = {
+  render: () => {
+    return (
+      <div
+        style={{
+          maxWidth: "24rem",
+          padding: "var(--spacing-6)",
+          border: "var(--border-width-default) solid var(--color-border)",
+          borderRadius: "var(--border-radius-lg)",
+        }}
+      >
+        <h3 style={{ margin: "0 0 var(--spacing-1)" }}>Deploy Settings</h3>
+        <p
+          style={{
+            margin: "0 0 var(--spacing-4)",
+            color: "var(--color-muted-fg)",
+            fontSize: "var(--font-size-sm)",
+          }}
+        >
+          Configure how this project is deployed.
+        </p>
+        <Collapsible style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-2)" }}>
+          <CollapsibleTrigger asChild>
+            <Button variant="outline" size="sm">
+              Show advanced options
+            </Button>
+          </CollapsibleTrigger>
+          <CollapsibleContent>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "var(--spacing-2)",
+                fontSize: "var(--font-size-sm)",
+                color: "var(--color-muted-fg)",
+              }}
+            >
+              <div>Build command: npm run build</div>
+              <div>Output directory: dist</div>
+              <div>Node version: 20.x</div>
+            </div>
+          </CollapsibleContent>
+        </Collapsible>
+      </div>
     );
   },
 };
