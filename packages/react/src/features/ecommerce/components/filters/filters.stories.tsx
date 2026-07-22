@@ -159,3 +159,42 @@ export const Default: StoryObj<typeof FiltersForm> = {
     </Sidebar>
   ),
 };
+
+export const Composition: StoryObj<typeof FiltersForm> = {
+  render: () => (
+    <div
+      style={{
+        maxWidth: "var(--spacing-64)",
+        padding: "var(--spacing-4)",
+        border: "var(--border-width-default) solid var(--color-border)",
+        borderRadius: "var(--border-radius-lg)",
+      }}
+    >
+      <h4 style={{ margin: "0 0 var(--spacing-4)" }}>Refine results</h4>
+      <h5 style={{ margin: "0 0 var(--spacing-2)", fontSize: "var(--font-size-sm)" }}>
+        Category
+      </h5>
+      <FiltersForm>
+        {filters.category.map((category) => (
+          <FilterCheckbox key={`category.${category}`} name={`category.${category}`}>
+            {category}
+          </FilterCheckbox>
+        ))}
+      </FiltersForm>
+      <h5
+        style={{
+          margin: "var(--spacing-4) 0 var(--spacing-2)",
+          fontSize: "var(--font-size-sm)",
+        }}
+      >
+        Price
+      </h5>
+      <FilterRange name="price" min={0} max={200} step={10} labelPrefix="$">
+        Price
+      </FilterRange>
+      <FilterClearButton style={{ width: "100%", marginTop: "var(--spacing-4)" }}>
+        Clear all filters
+      </FilterClearButton>
+    </div>
+  ),
+};
