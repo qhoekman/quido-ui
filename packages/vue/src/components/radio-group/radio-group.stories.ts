@@ -81,11 +81,11 @@ const meta = {
         >
           <div style="display: flex; align-items: center; gap: var(--spacing-2);">
             <RadioGroupItemComponent value="option-one" id="option-one" />
-            <LabelComponent for="option-one">Option One</LabelComponent>
+            <LabelComponent for="option-one">Credit card</LabelComponent>
           </div>
           <div style="display: flex; align-items: center; gap: var(--spacing-2);">
             <RadioGroupItemComponent value="option-two" id="option-two" />
-            <LabelComponent for="option-two">Option Two</LabelComponent>
+            <LabelComponent for="option-two">PayPal</LabelComponent>
           </div>
         </RadioGroupComponent>
       </form>
@@ -98,3 +98,36 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+export const Composition: Story = {
+  render: () => ({
+    components: { RadioGroupComponent, RadioGroupItemComponent, LabelComponent },
+    setup() {
+      const value = ref("weekly");
+      const handleValueChange = (newValue: string) => {
+        value.value = newValue;
+      };
+      return { value, handleValueChange };
+    },
+    template: `
+      <div style="max-width: 18rem;">
+        <h3 style="margin: 0 0 var(--spacing-1);">Notification Frequency</h3>
+        <p style="margin: 0 0 var(--spacing-4); color: var(--color-muted-fg); font-size: var(--font-size-sm);">How often should we email you a digest?</p>
+        <RadioGroupComponent :value="value" @update:value="handleValueChange">
+          <div style="display: flex; align-items: center; gap: var(--spacing-2);">
+            <RadioGroupItemComponent value="daily" id="freq-daily" />
+            <LabelComponent for="freq-daily">Daily</LabelComponent>
+          </div>
+          <div style="display: flex; align-items: center; gap: var(--spacing-2);">
+            <RadioGroupItemComponent value="weekly" id="freq-weekly" />
+            <LabelComponent for="freq-weekly">Weekly</LabelComponent>
+          </div>
+          <div style="display: flex; align-items: center; gap: var(--spacing-2);">
+            <RadioGroupItemComponent value="never" id="freq-never" />
+            <LabelComponent for="freq-never">Never</LabelComponent>
+          </div>
+        </RadioGroupComponent>
+      </div>
+    `,
+  }),
+};
