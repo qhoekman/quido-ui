@@ -64,7 +64,7 @@ export const Default: StoryObj<typeof RadioGroup> = {
             }}
           >
             <RadioGroupItem value="option-one" id="option-one" />
-            <Label htmlFor="option-one">Option One</Label>
+            <Label htmlFor="option-one">Credit card</Label>
           </div>
           <div
             style={{
@@ -74,10 +74,44 @@ export const Default: StoryObj<typeof RadioGroup> = {
             }}
           >
             <RadioGroupItem value="option-two" id="option-two" />
-            <Label htmlFor="option-two">Option Two</Label>
+            <Label htmlFor="option-two">PayPal</Label>
           </div>
         </RadioGroup>
       </form>
+    );
+  },
+};
+
+export const Composition: StoryObj<typeof RadioGroup> = {
+  render: () => {
+    const [value, setValue] = useState("weekly");
+    return (
+      <div style={{ maxWidth: "18rem" }}>
+        <h3 style={{ margin: "0 0 0.25rem" }}>Notification Frequency</h3>
+        <p
+          style={{
+            margin: "0 0 1rem",
+            color: "var(--color-muted-fg)",
+            fontSize: "var(--font-size-sm)",
+          }}
+        >
+          How often should we email you a digest?
+        </p>
+        <RadioGroup value={value} onValueChange={setValue}>
+          <div style={{ display: "flex", alignItems: "center", gap: "var(--spacing-2)" }}>
+            <RadioGroupItem value="daily" id="freq-daily" />
+            <Label htmlFor="freq-daily">Daily</Label>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "var(--spacing-2)" }}>
+            <RadioGroupItem value="weekly" id="freq-weekly" />
+            <Label htmlFor="freq-weekly">Weekly</Label>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "var(--spacing-2)" }}>
+            <RadioGroupItem value="never" id="freq-never" />
+            <Label htmlFor="freq-never">Never</Label>
+          </div>
+        </RadioGroup>
+      </div>
     );
   },
 };
