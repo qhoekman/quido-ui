@@ -85,3 +85,25 @@ export const LowSaturation: Story = {
     lightness: 50
   }
 }
+
+export const Composition: Story = {
+  render: () => ({
+    components: { ColorWheelComponent },
+    setup() {
+      const selectedColor = ref('hsl(265, 80%, 55%)')
+
+      const handleValueChange = (value: string) => {
+        selectedColor.value = value
+      }
+
+      return { selectedColor, handleValueChange }
+    },
+    template: `
+      <div style="max-width: 280px; padding: var(--spacing-6); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+        <h3 style="margin: 0 0 var(--spacing-1);">Custom Theme Color</h3>
+        <p style="margin: 0 0 var(--spacing-4); color: var(--color-muted-fg);">Pick an exact hue, saturation, and lightness.</p>
+        <ColorWheelComponent :hue="265" :saturation="80" :lightness="55" @value-change="handleValueChange" />
+      </div>
+    `
+  })
+}
