@@ -33,14 +33,36 @@ export const Default: Story = {
       <div qui-story style="width: 300px;">
       <qui-spotlight-gallery>
         <ng-template puiSpotlightGalleryItem>
-          <img qui-spotlight-gallery-image src="https://placehold.co/150x150" alt="Image 1" />
+          <img qui-spotlight-gallery-image src="https://placehold.co/300x300/1e293b/ffffff?text=Front" alt="Product photo — front view" />
         </ng-template>
         <ng-template puiSpotlightGalleryItem>
-          <img qui-spotlight-gallery-image src="https://placehold.co/151x151" alt="Image 2" />
+          <img qui-spotlight-gallery-image src="https://placehold.co/300x300/334155/ffffff?text=Side" alt="Product photo — side view" />
         </ng-template>
         <ng-template puiSpotlightGalleryItem>
-          <img qui-spotlight-gallery-image src="https://placehold.co/152x152" alt="Image 3" />
+          <img qui-spotlight-gallery-image src="https://placehold.co/300x300/475569/ffffff?text=Detail" alt="Product photo — detail shot" />
         </ng-template>
+        </qui-spotlight-gallery>
+      </div>
+    `,
+  }),
+};
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+      <div style="max-width: 320px; padding: var(--spacing-6); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+        <h3 style="margin: 0 0 var(--spacing-1);">Listing Photos</h3>
+        <p style="margin: 0 0 var(--spacing-4); color: var(--color-muted-fg);">Click a thumbnail to view it in full size.</p>
+        <qui-spotlight-gallery>
+          <ng-template puiSpotlightGalleryItem>
+            <img qui-spotlight-gallery-image src="https://placehold.co/300x300/0f766e/ffffff?text=Living+Room" alt="Living room" />
+          </ng-template>
+          <ng-template puiSpotlightGalleryItem>
+            <img qui-spotlight-gallery-image src="https://placehold.co/300x300/115e59/ffffff?text=Kitchen" alt="Kitchen" />
+          </ng-template>
+          <ng-template puiSpotlightGalleryItem>
+            <img qui-spotlight-gallery-image src="https://placehold.co/300x300/134e4a/ffffff?text=Bedroom" alt="Bedroom" />
+          </ng-template>
         </qui-spotlight-gallery>
       </div>
     `,
