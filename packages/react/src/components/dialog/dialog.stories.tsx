@@ -88,3 +88,97 @@ export const Default: StoryObj<typeof Dialog> = {
     </Dialog>
   ),
 };
+
+export const Uncontrolled: StoryObj<typeof Dialog> = {
+  render: () => (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outline">Edit Profile</Button>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Edit profile</DialogTitle>
+          <DialogDescription>
+            Make changes to your profile here. Click save when you're done.
+          </DialogDescription>
+        </DialogHeader>
+        <DialogFooter>
+          <Button type="submit">Save changes</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  ),
+};
+
+export const Confirm: StoryObj<typeof Dialog> = {
+  render: () => (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="destructive">Delete Account</Button>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Are you absolutely sure?</DialogTitle>
+        </DialogHeader>
+        <div style={{ padding: "var(--spacing-4)" }}>
+          <p
+            style={{
+              fontSize: "var(--font-size-sm)",
+              color: "var(--color-muted-fg)",
+            }}
+          >
+            This action cannot be undone. This will permanently delete your
+            account and remove your data from our servers.
+          </p>
+        </div>
+        <DialogFooter>
+          <Button variant="outline">Cancel</Button>
+          <Button variant="destructive">Confirm</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  ),
+};
+
+export const Composition: StoryObj<typeof Dialog> = {
+  render: () => (
+    <div
+      style={{
+        width: 360,
+        padding: "var(--spacing-4)",
+        border: "var(--border-width-default) solid var(--color-border)",
+        borderRadius: "var(--border-radius-lg)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
+      <div>
+        <h4 style={{ margin: "0 0 var(--spacing-1)", fontSize: "var(--font-size-sm)" }}>
+          Pedro Duarte
+        </h4>
+        <p style={{ margin: 0, color: "var(--color-muted-fg)", fontSize: "var(--font-size-sm)" }}>
+          @peduarte
+        </p>
+      </div>
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button variant="outline" size="sm">
+            Edit
+          </Button>
+        </DialogTrigger>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Edit profile</DialogTitle>
+            <DialogDescription>
+              Make changes to your profile here. Click save when you're done.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button type="submit">Save changes</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </div>
+  ),
+};
