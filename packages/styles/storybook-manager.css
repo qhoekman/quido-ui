@@ -3,7 +3,13 @@
   display: none !important;
 }
 
-/* Align explorer search with the 40px preview toolbar. */
+/* Hide explorer search (+ ⌘K hint). Shortcut is cleared in storybook-manager.ts. */
+label[for="storybook-explorer-searchfield"],
+.search-field {
+  display: none !important;
+}
+
+/* Keep create-story / filter row aligned with the 40px preview toolbar. */
 .sidebar-container div:has(> .sidebar-header):has(.search-field) {
   padding-top: 4px !important;
 }
@@ -13,6 +19,9 @@
 }
 
 .sb-bar[data-testid="sb-preview-toolbar"] {
+  display: none !important;
+}
+button[title="Create a story"] {
   display: none !important;
 }
 

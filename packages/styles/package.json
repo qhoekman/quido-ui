@@ -9,6 +9,7 @@
     "./tokens.css": "./tokens.css",
     "./fonts.css": "./fonts.css",
     "./storybook-theme": "./storybook-theme.ts",
+    "./storybook-manager": "./storybook-manager.ts",
     "./storybook-manager-head": "./storybook-manager-head.ts",
     "./storybook-manager.css": "./storybook-manager.css"
   },
@@ -16,6 +17,7 @@
     "tokens.css",
     "fonts.css",
     "storybook-theme.ts",
+    "storybook-manager.ts",
     "storybook-manager-head.ts",
     "storybook-manager.css"
   ],

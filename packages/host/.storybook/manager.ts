@@ -1,7 +1,5 @@
-import { addons } from "storybook/manager-api";
+import { configureSquidManager } from "@quido-ui/styles/storybook-manager";
 import "@quido-ui/styles/storybook-manager.css";
 import yourTheme from "./theme";
 
-addons.setConfig({
-  theme: yourTheme,
-});
+configureSquidManager(yourTheme);
