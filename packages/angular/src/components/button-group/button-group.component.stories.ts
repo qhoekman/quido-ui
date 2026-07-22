@@ -25,9 +25,26 @@ export const Default: Story = {
     template: `
       <qui-story>
         <div qui-button-group>
-          <button qui-button variant="outline">Button 1</button>
-          <button qui-button variant="outline">Button 2</button>
-          <button qui-button variant="outline">Button 3</button>
+          <button qui-button variant="outline">Bold</button>
+          <button qui-button variant="outline">Italic</button>
+          <button qui-button variant="outline">Underline</button>
+        </div>
+      </qui-story>
+    `,
+  }),
+};
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+      <qui-story>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-4); width: 100%;">
+          <h2 style="margin: 0;">Sprint Backlog</h2>
+          <div qui-button-group>
+            <button qui-button variant="outline">List</button>
+            <button qui-button variant="outline">Board</button>
+            <button qui-button variant="outline">Calendar</button>
+          </div>
         </div>
       </qui-story>
     `,
