@@ -71,7 +71,7 @@ export const Composition: StoryObj<typeof Popover> = {
         <div style={{ display: "flex", gap: "var(--spacing-2)" }}>
           <input
             readOnly
-            value="https://pulse.quido.online/d/8f3k2"
+            value="https://platform.squid-ware.nl/d/8f3k2"
             style={{
               flex: 1,
               minWidth: 0,
