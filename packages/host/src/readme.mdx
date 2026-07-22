@@ -2,9 +2,11 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 <Meta title="Readme" />
 
-# quido-ui
+# squid·ware UI
 
-quido-ui is a component library for React, Vue, and Angular. You copy a component into your app and change it when you need to. No heavy library lock-in.
+This Storybook is the multi-framework component catalog for the squid·ware ecosystem — React, Vue, and Angular. You copy a component into your app and change it when you need to. No heavy library lock-in.
+
+**Package note:** workspace packages are still `@quido-ui/*` (`q-*` / `qui-*` selectors). Squid·ware product apps import `@squid-ware/ui` for the platform runtime kit; that is a separate package. This catalog is visually branded for squid·ware and published at [ui.squid-ware.nl](https://ui.squid-ware.nl).
 
 This host Storybook is the entry point: shared docs live here, and each framework’s components are linked under Angular, React, and Vue.
 
@@ -35,10 +37,12 @@ pnpm install
 From the monorepo root:
 
 ```sh
-pnpm host dev      # this shell + docs (port 6006)
-pnpm react dev     # React components
-pnpm vue dev       # Vue components
-pnpm angular dev   # Angular components
+pnpm dev           # all Storybooks in parallel
+# or individually:
+pnpm host dev      # this shell + docs (port 6009)
+pnpm vue dev       # Vue components (port 6006)
+pnpm react dev     # React components (port 6007)
+pnpm angular dev   # Angular components (port 6008)
 ```
 
 Build everything for deploy (frameworks first, then host):

@@ -13,7 +13,7 @@ const meta = {
     },
   },
   args: {
-    href: "https://pulse.quido.online",
+    href: "https://platform.squid-ware.nl",
     asChild: false,
   },
   render: (args) => ({
@@ -33,12 +33,12 @@ export const Default: Story = {};
 
 export const External: Story = {
   args: {
-    href: "https://pulse.quido.online",
+    href: "https://platform.squid-ware.nl",
   },
   render: () => ({
     components: { LinkComponent },
     template: `
-      <LinkComponent href="https://pulse.quido.online">
+      <LinkComponent href="https://platform.squid-ware.nl">
         Read the docs
       </LinkComponent>
     `,
@@ -64,7 +64,7 @@ export const MultipleLinks: Story = {
     components: { LinkComponent },
     template: `
       <div style="display: flex; flex-direction: column; gap: 1rem;">
-        <LinkComponent href="https://pulse.quido.online">
+        <LinkComponent href="https://platform.squid-ware.nl">
           Documentation
         </LinkComponent>
         <LinkComponent href="/about">
@@ -85,7 +85,7 @@ export const Composition: Story = {
       <p style="max-width: 32rem; font-size: var(--font-size-sm);">
         By continuing, you agree to our <LinkComponent href="/terms">Terms of Service</LinkComponent> and
         <LinkComponent href="/privacy">Privacy Policy</LinkComponent>. Need help? Visit our
-        <LinkComponent href="https://pulse.quido.online">documentation</LinkComponent>.
+        <LinkComponent href="https://platform.squid-ware.nl">documentation</LinkComponent>.
       </p>
     `,
   }),

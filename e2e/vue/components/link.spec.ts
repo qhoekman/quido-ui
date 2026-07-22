@@ -12,7 +12,7 @@ test.describe('Link', () => {
     const link = frame.getByTestId('qui-link')
 
     await expect(link).toHaveJSProperty('tagName', 'A')
-    await expect(link).toHaveAttribute('href', 'https://pulse.quido.online')
+    await expect(link).toHaveAttribute('href', 'https://platform.squid-ware.nl')
     await expect(link).toHaveText('Default Link')
     await expect(link).toHaveCSS('display', 'inline-flex')
 
@@ -33,7 +33,7 @@ test.describe('Link', () => {
     const links = frame.getByTestId('qui-link')
 
     await expect(links).toHaveCount(3)
-    await expect(links.nth(0)).toHaveAttribute('href', 'https://pulse.quido.online')
+    await expect(links.nth(0)).toHaveAttribute('href', 'https://platform.squid-ware.nl')
     await expect(links.nth(1)).toHaveAttribute('href', '/about')
     await expect(links.nth(2)).toHaveAttribute('href', '/contact')
   })

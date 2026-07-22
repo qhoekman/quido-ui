@@ -92,7 +92,7 @@ export const Composition: StoryObj<typeof Block> = {
     <ViewportLayout>
       <BlockTitle>Account</BlockTitle>
       <Block inset>
-        Signed in as jordan@pulse.quido.online. Manage your profile,
+        Signed in as jordan@platform.squid-ware.nl. Manage your profile,
         password, and connected devices from Settings.
       </Block>
       <BlockTitle>Notifications</BlockTitle>

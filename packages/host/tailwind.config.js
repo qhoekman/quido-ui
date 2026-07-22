@@ -1,39 +1,43 @@
 /* eslint-disable no-undef */
-import colors from "tailwindcss/colors";
 
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["DM Sans", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["General Sans", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["JetBrains Mono", "ui-monospace", "monospace"],
+      },
       colors: {
         primary: {
-          DEFAULT: colors.blue[500],
-          fg: colors.white,
+          DEFAULT: "#f1592a",
+          fg: "#ffffff",
         },
         secondary: {
-          DEFAULT: colors.indigo[500],
-          fg: colors.white,
+          DEFAULT: "#53a0c6",
+          fg: "#ffffff",
         },
         danger: {
-          DEFAULT: colors.red[500],
-          fg: colors.white,
+          DEFAULT: "#ef4444",
+          fg: "#ffffff",
         },
         muted: {
-          DEFAULT: colors.neutral[200],
-          fg: colors.neutral[900],
+          DEFAULT: "#ebf4f8",
+          fg: "#4d6972",
         },
-        input: colors.neutral[400],
-        foreground: colors.neutral[900],
-        background: colors.neutral[50],
-        ring: colors.blue[400],
+        input: "#e8e8ec",
+        foreground: "#1b333e",
+        background: "#ffffff",
+        ring: "rgba(83, 160, 198, 0.4)",
         card: {
-          DEFAULT: colors.neutral[50],
-          fg: colors.neutral[900],
+          DEFAULT: "#ffffff",
+          fg: "#1b333e",
         },
         popover: {
-          DEFAULT: colors.neutral[50],
-          fg: colors.neutral[900],
+          DEFAULT: "#ffffff",
+          fg: "#1b333e",
         },
       },
     },

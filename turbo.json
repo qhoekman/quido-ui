@@ -1,9 +1,15 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
   "tasks": {
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**", "../../dist/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        "../../dist/**"
+      ]
     },
     "@quido-ui/host#build": {
       "dependsOn": [
@@ -11,16 +17,24 @@
         "@quido-ui/react#build",
         "@quido-ui/vue#build"
       ],
-      "outputs": ["../../dist/**"]
+      "outputs": [
+        "../../dist/**"
+      ]
     },
     "@quido-ui/angular#build": {
-      "outputs": ["../../dist/angular/**"]
+      "outputs": [
+        "../../dist/angular/**"
+      ]
     },
     "@quido-ui/react#build": {
-      "outputs": ["../../dist/react/**"]
+      "outputs": [
+        "../../dist/react/**"
+      ]
     },
     "@quido-ui/vue#build": {
-      "outputs": ["../../dist/vue/**"]
+      "outputs": [
+        "../../dist/vue/**"
+      ]
     },
     "dev": {
       "cache": false,
