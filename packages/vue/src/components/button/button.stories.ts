@@ -44,7 +44,7 @@ const meta = {
     setup() {
       return { args }
     },
-    template: '<ButtonComponent v-bind="args">Button</ButtonComponent>'
+    template: '<ButtonComponent v-bind="args">Continue</ButtonComponent>'
   })
 } satisfies Meta<typeof ButtonComponent>
 export default meta
@@ -52,3 +52,15 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Composition: Story = {
+  render: () => ({
+    components: { ButtonComponent },
+    template: `
+      <div style="display: flex; gap: var(--spacing-3); justify-content: flex-end;">
+        <ButtonComponent variant="outline">Cancel</ButtonComponent>
+        <ButtonComponent variant="primary">Save changes</ButtonComponent>
+      </div>
+    `
+  })
+}
