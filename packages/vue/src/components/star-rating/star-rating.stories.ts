@@ -65,3 +65,18 @@ export const DifferentStarCounts: Story = {
     `
   })
 }
+
+export const Composition: Story = {
+  render: () => ({
+    components: { StarRatingComponent },
+    template: `
+      <div style="max-width: 16rem; padding: var(--spacing-4); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+        <h4 style="margin: 0 0 var(--spacing-1);">Classic Tee</h4>
+        <div style="display: flex; align-items: center; gap: var(--spacing-2);">
+          <StarRatingComponent :rating="4.5" :stars="5" />
+          <span style="font-size: var(--font-size-sm); color: var(--color-muted-fg);">128 reviews</span>
+        </div>
+      </div>
+    `
+  })
+}
