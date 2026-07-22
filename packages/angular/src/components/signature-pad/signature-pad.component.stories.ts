@@ -40,3 +40,23 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+    <div style="max-width: 420px; padding: var(--spacing-6); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+      <h3 style="margin: 0 0 var(--spacing-1);">Sign the Agreement</h3>
+      <p style="margin: 0 0 var(--spacing-4); color: var(--color-muted-fg);">Draw your signature below to accept the terms.</p>
+      <qui-signature-pad #signaturePad style="width: 100%; height: 200px;"></qui-signature-pad>
+      <div qui-button-group style="margin-top: var(--spacing-4);">
+        <button qui-button qui-button-group-item (click)="signaturePad.clear()">
+          <i qui-icon name="eraser"></i>
+        </button>
+        <button qui-button qui-button-group-item (click)="signaturePad.download()">
+          <i qui-icon name="download"></i>
+        </button>
+      </div>
+    </div>
+    `,
+  }),
+};
