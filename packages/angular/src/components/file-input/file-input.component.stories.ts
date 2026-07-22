@@ -34,3 +34,17 @@ export const Default: Story = {
     template: `<qui-story><qui-file-input [multiple]="multiple"></qui-file-input></qui-story>`,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+      <qui-story>
+        <div style="max-width: 320px;">
+          <label style="display: block; font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); margin-bottom: var(--spacing-1-5);">Resume</label>
+          <qui-file-input></qui-file-input>
+          <p style="margin: var(--spacing-1-5) 0 0; font-size: var(--font-size-sm); color: var(--color-muted-fg);">PDF or Word document, up to 5MB.</p>
+        </div>
+      </qui-story>
+    `,
+  }),
+};
