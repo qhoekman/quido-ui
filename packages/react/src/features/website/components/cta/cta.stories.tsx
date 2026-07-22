@@ -17,6 +17,81 @@ export default {
   component: CTA,
 } satisfies Meta<typeof CTA>;
 
+export const Default: StoryObj<typeof CTA> = {
+  render: (args) => (
+    <CTA {...args}>
+      <CTAContent>
+        <CTATitle>Ready to dive in?</CTATitle>
+        <CTASubtitle>
+          Start your free trial today and experience the power of our
+          platform.
+        </CTASubtitle>
+        <CTAActions>
+          <Button asChild>
+            <a href="#">Get started</a>
+          </Button>
+          <Button variant="outline" asChild>
+            <a href="#">Learn more</a>
+          </Button>
+        </CTAActions>
+      </CTAContent>
+    </CTA>
+  ),
+};
+
+export const Composition: StoryObj<typeof CTA> = {
+  render: (args) => (
+    <CTA {...args}>
+      <CTABackdrop
+        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&h=1280&q=80"
+        alt="Team collaborating in a modern office"
+        width={1920}
+        height={1280}
+      />
+      <CTAContent
+        style={{
+          textAlign: "center",
+        }}
+      >
+        <CTATitle
+          style={{
+            color: "var(--color-white)",
+          }}
+        >
+          Introducing Pulse Analytics
+        </CTATitle>
+        <CTASubtitle
+          style={{
+            color: "var(--color-muted-fg)",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          Real-time insights for your team, wherever you work.
+        </CTASubtitle>
+        <CTAActions
+          style={{
+            justifyContent: "center",
+          }}
+        >
+          <Button asChild>
+            <a href="#">Start free trial</a>
+          </Button>
+          <Button
+            variant="outline"
+            style={{
+              color: "var(--color-muted-fg)",
+            }}
+            asChild
+          >
+            <a href="#">View pricing</a>
+          </Button>
+        </CTAActions>
+      </CTAContent>
+    </CTA>
+  ),
+};
+
 export const WithLeftContent: StoryObj<typeof CTA> = {
   render: (args) => (
     <CTA {...args}>
