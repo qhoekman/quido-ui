@@ -95,6 +95,35 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      PopoverComponent,
+      PopoverTriggerComponent,
+      PopoverContentComponent,
+      ButtonComponent
+    },
+    template: `
+      <PopoverComponent>
+        <PopoverTriggerComponent as-child>
+          <ButtonComponent variant="outline" size="sm">Share</ButtonComponent>
+        </PopoverTriggerComponent>
+        <PopoverContentComponent style="width: 280px;">
+          <p style="margin: 0 0 var(--spacing-2); font-size: var(--font-size-sm); font-weight: var(--font-weight-medium);">Share this document</p>
+          <div style="display: flex; gap: var(--spacing-2);">
+            <input
+              readonly
+              value="https://pulse.quido.online/d/8f3k2"
+              style="flex: 1; min-width: 0; padding: var(--spacing-2); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-md); font-size: var(--font-size-sm);"
+            />
+            <ButtonComponent size="sm">Copy</ButtonComponent>
+          </div>
+        </PopoverContentComponent>
+      </PopoverComponent>
+    `
+  })
+}
+
 export const Uncontrolled: Story = {
   render: () => ({
     components: {
