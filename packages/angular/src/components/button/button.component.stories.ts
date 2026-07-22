@@ -46,6 +46,19 @@ export const Default: Story = {
   },
   render: (args) => ({
     props: args,
-    template: `<qui-story><button qui-button [variant]="variant" [size]="size" [loading]="loading" [disabled]="disabled">Button</button></qui-story>`,
+    template: `<qui-story><button qui-button [variant]="variant" [size]="size" [loading]="loading" [disabled]="disabled">Continue</button></qui-story>`,
+  }),
+};
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+      <qui-story>
+        <div style="display: flex; gap: var(--spacing-3); justify-content: flex-end;">
+          <button qui-button variant="outline">Cancel</button>
+          <button qui-button variant="primary">Save changes</button>
+        </div>
+      </qui-story>
+    `,
   }),
 };
