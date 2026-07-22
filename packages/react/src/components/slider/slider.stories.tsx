@@ -54,3 +54,26 @@ export const Default: StoryObj<typeof Slider> = {
     onValueChange: (value: number) => console.log(value),
   },
 };
+
+export const Composition: StoryObj<typeof Slider> = {
+  render: () => {
+    const [value, setValue] = useState(70);
+    return (
+      <div style={{ maxWidth: "18rem" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            marginBottom: "0.5rem",
+          }}
+        >
+          <span style={{ fontWeight: 600 }}>Volume</span>
+          <span style={{ color: "var(--color-muted-fg)", fontSize: "var(--font-size-sm)" }}>
+            {value}%
+          </span>
+        </div>
+        <Slider min={0} max={100} step={5} value={value} onValueChange={setValue} />
+      </div>
+    );
+  },
+};
