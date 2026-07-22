@@ -59,22 +59,22 @@ export const Default: Story = {
           </div>
           <div qui-navigation-menu-items>
             <a qui-button variant="ghost" size="sm" href="#"> Home </a>
-            <a qui-button variant="ghost" size="sm" href="#"> Link Two </a>
+            <a qui-button variant="ghost" size="sm" href="#"> Pricing </a>
             <a qui-button variant="ghost" size="sm" qui-navigation-menu-dropdown-trigger [cdkMenuTriggerFor]="dropdown">
-              Dropdown
+              Product
               <qui-navigation-menu-dropdown-indicator></qui-navigation-menu-dropdown-indicator>
             </a>
             <ng-template #dropdown>
               <div qui-navigation-menu-dropdown-content>
                 <ol qui-navigation-menu-dropdown-group>
                   <li qui-navigation-menu-dropdown-item>
-                    <button qui-button variant="ghost" size="sm" fullWidth="true">Item One</button>
+                    <button qui-button variant="ghost" size="sm" fullWidth="true">Analytics</button>
                   </li>
                   <li qui-navigation-menu-dropdown-item>
-                    <button qui-button variant="ghost" size="sm" fullWidth="true">Item Two</button>
+                    <button qui-button variant="ghost" size="sm" fullWidth="true">Reports</button>
                   </li>
                   <li qui-navigation-menu-dropdown-item>
-                    <button qui-button variant="ghost" size="sm" fullWidth="true">Item Three</button>
+                    <button qui-button variant="ghost" size="sm" fullWidth="true">Integrations</button>
                   </li>
                 </ol>
               </div>
@@ -94,6 +94,29 @@ export const Default: Story = {
           </div>
         </nav>
       </header>
+    `,
+  }),
+};
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+      <div style="width: 100%; border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg); overflow: hidden;">
+        <nav qui-navigation-menu style="width: 100%; padding: var(--spacing-3) var(--spacing-4); border-bottom: var(--border-width-default) solid var(--color-border);">
+          <div qui-navigation-menu-brand>
+            <span style="font-weight: var(--font-weight-semibold);">Acme Inc.</span>
+          </div>
+          <div qui-navigation-menu-items>
+            <a qui-button variant="ghost" size="sm" href="#"> Home </a>
+            <a qui-button variant="ghost" size="sm" href="#"> Pricing </a>
+            <a qui-button variant="primary" size="sm" href="#"> Sign up </a>
+          </div>
+        </nav>
+        <div style="padding: var(--spacing-6);">
+          <h2 style="margin: 0 0 var(--spacing-2);">Build faster, ship sooner</h2>
+          <p style="margin: 0; color: var(--color-muted-fg);">Everything you need to launch your next product.</p>
+        </div>
+      </div>
     `,
   }),
 };
