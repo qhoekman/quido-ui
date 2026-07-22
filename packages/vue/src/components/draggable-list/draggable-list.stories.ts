@@ -18,7 +18,7 @@ const meta = {
     }
   },
   args: {
-    items: ['Item 1', 'Item 2', 'Item 3'],
+    items: ['Design mockups', 'Write copy', 'Review PR'],
     asChild: false,
     as: 'ul'
   },
@@ -57,3 +57,27 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Composition: Story = {
+  render: () => ({
+    components: { DraggableListComponent },
+    setup() {
+      const items = ref(['Fix login redirect bug', 'Write onboarding docs', 'Ship dark mode', 'Investigate flaky test'])
+      const handleReorder = (newOrder: string[]) => {
+        items.value = newOrder
+      }
+      return { items, handleReorder }
+    },
+    template: `
+      <div style="max-width: 320px; padding: var(--spacing-6); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+        <h3 style="margin: 0 0 var(--spacing-1);">Sprint Backlog</h3>
+        <p style="margin: 0 0 var(--spacing-4); color: var(--color-muted-fg);">Drag items to reprioritize this sprint.</p>
+        <DraggableListComponent :items="items" @reorder="handleReorder">
+          <template #default="{ item, index }">
+            {{ index + 1 }}. {{ item }}
+          </template>
+        </DraggableListComponent>
+      </div>
+    `
+  })
+}
