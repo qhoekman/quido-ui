@@ -25,3 +25,18 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+    <qui-story>
+      <div style="display: flex; flex-direction: column; gap: var(--spacing-2);">
+        <h4 style="margin: 0; font-size: var(--font-size-sm);">Notes panel</h4>
+        <div puiResizable style="width: 260px; height: 160px; border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-md); padding: var(--spacing-4); box-sizing: border-box;">
+          Drag the corner to resize this panel.
+        </div>
+      </div>
+    </qui-story>
+    `,
+  }),
+};
