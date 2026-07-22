@@ -45,3 +45,17 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+      <qui-story>
+        <div style="max-width: 280px; padding: var(--spacing-6); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg); text-align: center;">
+          <h3 style="margin: 0 0 var(--spacing-1);">Verify your email</h3>
+          <p style="margin: 0 0 var(--spacing-4); color: var(--color-muted-fg);">Enter the 4-digit code we sent to jane@company.com.</p>
+          <qui-pin-input [length]="4"></qui-pin-input>
+        </div>
+      </qui-story>
+    `,
+  }),
+};
