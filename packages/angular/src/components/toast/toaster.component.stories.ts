@@ -13,12 +13,12 @@ import { StoryComponent } from '../../system/components/story/story.component';
   standalone: true,
   imports: [ToastActionComponent],
   template: `<button qui-toast-action size="sm" (click)="handleClick()">
-    Action
+    Undo
   </button>`,
 })
 export class StoryToastActionComponent {
   handleClick() {
-    alert('Action clicked');
+    console.log('Undo clicked');
   }
 }
 
@@ -26,11 +26,11 @@ export class StoryToastActionComponent {
   selector: 'story-toast-button',
   standalone: true,
   imports: [ButtonComponent],
-  template: `<button qui-button (click)="showToast()">Show Toast</button>`,
+  template: `<button qui-button (click)="showToast()">Upload file</button>`,
 })
 export class StoryToastButtonComponent {
-  @Input() title = 'Sample Toast';
-  @Input() description = 'This is a sample toast message.';
+  @Input() title = 'File uploaded';
+  @Input() description = 'invoice.pdf has been uploaded successfully.';
   @Input() variant: ToastVariants['variant'] = 'default';
   constructor(private toastService: ToastService) {}
 
@@ -77,8 +77,8 @@ type StoryDefault = StoryObj<ToasterComponent>;
 
 export const Default: StoryDefault = {
   args: {
-    title: 'Sample Toast',
-    description: 'This is a sample toast message.',
+    title: 'File uploaded',
+    description: 'invoice.pdf has been uploaded successfully.',
     variant: 'default',
   } as never,
   render: (args) => {
@@ -98,14 +98,46 @@ type StoryToastButton = StoryObj<StoryToastButtonComponent>;
 
 export const ToastButton: StoryToastButton = {
   args: {
-    title: 'Sample Toast',
-    description: 'This is a sample toast message.',
+    title: 'File uploaded',
+    description: 'invoice.pdf has been uploaded successfully.',
     variant: 'default',
   } as never,
+  render: (args) => ({
+    props: args,
+    template: `
+      <qui-story>
+        <story-toast-button [title]="title" [description]="description" [variant]="variant"></story-toast-button>
+        <qui-toaster></qui-toaster>
+      </qui-story>
+    `,
+  }),
 };
 
 type StoryToastAction = StoryObj<StoryToastActionComponent>;
 
 export const ToastAction: StoryToastAction = {
   args: {},
+  decorators: [moduleMetadata({ imports: [StoryToastActionComponent] })],
+  render: () => ({
+    template: `
+      <qui-story>
+        <story-toast-action></story-toast-action>
+      </qui-story>
+    `,
+  }),
+};
+
+export const Composition: StoryDefault = {
+  render: () => ({
+    template: `
+    <qui-story>
+      <div style="width: 400px; padding: var(--spacing-6); background-color: var(--color-muted); border-radius: var(--border-radius-lg); box-sizing: border-box;">
+        <h3 style="margin: 0 0 var(--spacing-1);">Documents</h3>
+        <p style="margin: 0 0 var(--spacing-4); color: var(--color-muted-fg); font-size: var(--font-size-sm);">Upload a file to attach it to this record.</p>
+        <story-toast-button title="File uploaded" description="invoice.pdf has been uploaded successfully." variant="default"></story-toast-button>
+      </div>
+      <qui-toaster></qui-toaster>
+    </qui-story>
+    `,
+  }),
 };
