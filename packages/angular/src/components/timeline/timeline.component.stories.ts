@@ -106,3 +106,41 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  args: {
+    items: [
+      { title: 'Account created', description: 'Jan 3, 2024', icon: 'check' },
+      { title: 'Payment method added', description: 'Jan 5, 2024', icon: 'box' },
+      { title: 'Upgraded to Pro plan', description: 'Jan 12, 2024', icon: 'thick-arrow-right' },
+    ],
+  } as never,
+  render: (args) => ({
+    props: args,
+    template: `
+    <qui-story>
+      <div style="max-width: 360px; padding: var(--spacing-6); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+        <h3 style="margin: 0 0 var(--spacing-4);">Account Activity</h3>
+        <ul qui-timeline>
+          <ng-container *ngFor="let item of items; let last = last">
+            <li qui-timeline-item>
+              <div qui-timeline-connector>
+                <div qui-timeline-bullet>
+                  <i qui-icon name="thick-arrow-right" *ngIf="item.icon === 'thick-arrow-right'"></i>
+                  <i qui-icon name="check" *ngIf="item.icon === 'check'"></i>
+                  <i qui-icon name="box" *ngIf="item.icon === 'box'"></i>
+                </div>
+                <div qui-timeline-separator *ngIf="!last"></div>
+              </div>
+              <div qui-timeline-content>
+                <h4 qui-timeline-title>{{ item.title }}</h4>
+                <p qui-timeline-description>{{ item.description }}</p>
+              </div>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+    </qui-story>
+    `,
+  }),
+};
