@@ -60,3 +60,21 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+      <qui-story>
+        <div style="display: flex; align-items: center; justify-content: space-between; max-width: 20rem; padding: var(--spacing-4); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg); box-sizing: border-box;">
+          <div>
+            <h4 style="margin: 0 0 var(--spacing-1); font-size: var(--font-size-sm);">Classic Tee</h4>
+            <p style="margin: 0; color: var(--color-muted-fg); font-size: var(--font-size-sm);">$28.00</p>
+          </div>
+          <qui-number-inputfield size="md">
+            <input qui-number-input value="2" min="1" max="10" />
+          </qui-number-inputfield>
+        </div>
+      </qui-story>
+    `,
+  }),
+};
