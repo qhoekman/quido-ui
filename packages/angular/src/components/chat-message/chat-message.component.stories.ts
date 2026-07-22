@@ -52,31 +52,76 @@ export const Default: Story = {
               src="https://pagedone.io/asset/uploads/1710412177.png"
               (fallback)="avatar1.onFallback($event)"
             />
-            <qui-avatar-fallback>UN</qui-avatar-fallback>
-          </qui-avatar>
-          <div qui-chat-message-user>User Name</div>
-          <div qui-chat-message-bubble>
-            <h5 qui-chat-message-bubble-text>Message content goes here.</h5>
-          </div>
-          <div qui-chat-message-meta>
-            <h6 qui-chat-message-meta-text>12:00 PM</h6>
-          </div>
-        </div>
-        <div qui-chat-message variant="receiver">
-          <qui-avatar #avatar2>
-            <img
-              qui-avatar-image
-              src="https://pagedone.io/asset/uploads/1710412188.png"
-              (fallback)="avatar2.onFallback($event)"
-            />
             <qui-avatar-fallback>JD</qui-avatar-fallback>
           </qui-avatar>
-          <div qui-chat-message-user>John Doe</div>
+          <div qui-chat-message-user>Jane Doe</div>
           <div qui-chat-message-bubble>
-            <h5 qui-chat-message-bubble-text>Message content goes here.</h5>
+            <h5 qui-chat-message-bubble-text>Hey! Are we still on for the 3pm sync?</h5>
           </div>
           <div qui-chat-message-meta>
-            <h6 qui-chat-message-meta-text>12:01 PM</h6>
+            <h6 qui-chat-message-meta-text>2:14 PM</h6>
+          </div>
+        </div>
+      </qui-story>
+    `,
+  }),
+};
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+      <qui-story variant="default">
+        <div style="display: flex; flex-direction: column; gap: var(--spacing-4); max-width: 420px;">
+          <div qui-chat-message variant="sender">
+            <qui-avatar #avatar1>
+              <img
+                qui-avatar-image
+                src="https://pagedone.io/asset/uploads/1710412177.png"
+                (fallback)="avatar1.onFallback($event)"
+              />
+              <qui-avatar-fallback>JD</qui-avatar-fallback>
+            </qui-avatar>
+            <div qui-chat-message-user>Jane Doe</div>
+            <div qui-chat-message-bubble>
+              <h5 qui-chat-message-bubble-text>Hey! Are we still on for the 3pm sync?</h5>
+            </div>
+            <div qui-chat-message-meta>
+              <h6 qui-chat-message-meta-text>2:14 PM</h6>
+            </div>
+          </div>
+          <div qui-chat-message variant="receiver">
+            <qui-avatar #avatar2>
+              <img
+                qui-avatar-image
+                src="https://pagedone.io/asset/uploads/1710412188.png"
+                (fallback)="avatar2.onFallback($event)"
+              />
+              <qui-avatar-fallback>ML</qui-avatar-fallback>
+            </qui-avatar>
+            <div qui-chat-message-user>Marcus Lee</div>
+            <div qui-chat-message-bubble>
+              <h5 qui-chat-message-bubble-text>Yes, I'll send the deck beforehand.</h5>
+            </div>
+            <div qui-chat-message-meta>
+              <h6 qui-chat-message-meta-text>2:15 PM</h6>
+            </div>
+          </div>
+          <div qui-chat-message variant="sender">
+            <qui-avatar #avatar3>
+              <img
+                qui-avatar-image
+                src="https://pagedone.io/asset/uploads/1710412177.png"
+                (fallback)="avatar3.onFallback($event)"
+              />
+              <qui-avatar-fallback>JD</qui-avatar-fallback>
+            </qui-avatar>
+            <div qui-chat-message-user>Jane Doe</div>
+            <div qui-chat-message-bubble>
+              <h5 qui-chat-message-bubble-text>Perfect, see you then.</h5>
+            </div>
+            <div qui-chat-message-meta>
+              <h6 qui-chat-message-meta-text>2:16 PM</h6>
+            </div>
           </div>
         </div>
       </qui-story>
