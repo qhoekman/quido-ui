@@ -59,3 +59,25 @@ export const WithSelectedColor: Story = {
     color: 'var(--color-blue-500)'
   }
 }
+
+export const Composition: Story = {
+  render: () => ({
+    components: { ColorPaletteComponent },
+    setup() {
+      const selectedColor = ref('var(--color-purple-500)')
+
+      const handleValueChange = (value: string) => {
+        selectedColor.value = value
+      }
+
+      return { selectedColor, handleValueChange }
+    },
+    template: `
+      <div style="max-width: 280px; padding: var(--spacing-6); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+        <h3 style="margin: 0 0 var(--spacing-1);">Label Color</h3>
+        <p style="margin: 0 0 var(--spacing-4); color: var(--color-muted-fg);">Choose a color to tag this project.</p>
+        <ColorPaletteComponent :color="selectedColor" @value-change="handleValueChange" />
+      </div>
+    `
+  })
+}
