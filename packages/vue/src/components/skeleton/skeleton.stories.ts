@@ -25,3 +25,17 @@ export const Default: Story = {
     `
   })
 }
+
+export const Composition: Story = {
+  render: () => ({
+    components: { SkeletonComponent },
+    template: `
+      <div style="max-width: 320px; padding: var(--spacing-4); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+        <SkeletonComponent style="width: 100%; height: 160px; border-radius: var(--border-radius-md); margin-bottom: var(--spacing-4);" />
+        <SkeletonComponent style="width: 70%; height: var(--spacing-5); margin-bottom: var(--spacing-2);" />
+        <SkeletonComponent style="width: 100%; height: var(--spacing-4); margin-bottom: var(--spacing-1);" />
+        <SkeletonComponent style="width: 90%; height: var(--spacing-4);" />
+      </div>
+    `
+  })
+}
