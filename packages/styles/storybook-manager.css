@@ -1,0 +1,17 @@
+/* Hide sidebar brand + settings — redundant when Storybook is embedded / has top-bar branding. */
+.sidebar-header {
+  display: none !important;
+}
+
+/* Align explorer search with the 40px preview toolbar. */
+.sidebar-container div:has(> .sidebar-header):has(.search-field) {
+  padding-top: 4px !important;
+}
+
+.sidebar-container div:has(> .search-field) {
+  margin-top: 0 !important;
+}
+
+.sb-bar button {
+  display: none !important;
+}

@@ -9,13 +9,15 @@
     "./tokens.css": "./tokens.css",
     "./fonts.css": "./fonts.css",
     "./storybook-theme": "./storybook-theme.ts",
-    "./storybook-manager-head": "./storybook-manager-head.ts"
+    "./storybook-manager-head": "./storybook-manager-head.ts",
+    "./storybook-manager.css": "./storybook-manager.css"
   },
   "files": [
     "tokens.css",
     "fonts.css",
     "storybook-theme.ts",
-    "storybook-manager-head.ts"
+    "storybook-manager-head.ts",
+    "storybook-manager.css"
   ],
   "peerDependencies": {
     "storybook": "^10.0.0"

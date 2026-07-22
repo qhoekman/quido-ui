@@ -7,15 +7,6 @@ export const SQUID_MANAGER_FONT_LINKS = `
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
 `;
 
-/** Hide the sidebar brand — the logo already appears in Storybook's top bar when the nav is open. */
-export const SQUID_MANAGER_SIDEBAR_BRAND_STYLE = `
-<style>
-  .sidebar-header > a, .sidebar-header > button[aria-label="Settings"] {
-    display: none !important;
-  }
-</style>
-`;
-
 export function squidManagerHead(
   head: string,
   options: { faviconHref: string; title: string },
@@ -23,7 +14,6 @@ export function squidManagerHead(
   return `
     ${head}
     ${SQUID_MANAGER_FONT_LINKS}
-    ${SQUID_MANAGER_SIDEBAR_BRAND_STYLE}
     <link rel="icon" type="image/svg+xml" href="${options.faviconHref}" />
     <title>${options.title}</title>
   `;
