@@ -94,3 +94,27 @@ export const Confirm: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+      <div style="width: 360px; padding: var(--spacing-4); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg); display: flex; align-items: center; justify-content: space-between; box-sizing: border-box;">
+        <div>
+          <h4 style="margin: 0 0 var(--spacing-1); font-size: var(--font-size-sm);">Pedro Duarte</h4>
+          <p style="margin: 0; color: var(--color-muted-fg); font-size: var(--font-size-sm);">@peduarte</p>
+        </div>
+        <button qui-button variant="outline" size="sm" (click)="dialogRef.open()">Edit</button>
+        <dialog qui-dialog #dialogRef>
+          <div qui-dialog-close (doClose)="dialogRef.close()"></div>
+          <div qui-dialog-header>
+            <div qui-dialog-title>Edit profile</div>
+            <div qui-dialog-description>Make changes to your profile here. Click save when you're done.</div>
+          </div>
+          <div qui-dialog-footer>
+            <button qui-button (click)="dialogRef.close()">Save changes</button>
+          </div>
+        </dialog>
+      </div>
+    `,
+  }),
+};
