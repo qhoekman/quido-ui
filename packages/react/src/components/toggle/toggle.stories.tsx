@@ -28,11 +28,23 @@ export default {
 export const Default: StoryObj<typeof Toggle> = {
   render: (args) => (
     <form>
-      <Toggle {...args}>Toggle</Toggle>
+      <Toggle {...args}>Bold</Toggle>
     </form>
   ),
 
   args: {
     onPressedChange: (pressed: boolean) => console.log(pressed),
   },
+};
+
+export const Composition: StoryObj<typeof Toggle> = {
+  render: () => (
+    <div style={{ display: "flex", gap: "0.5rem" }}>
+      <Toggle variant="outline" defaultPressed>
+        Bold
+      </Toggle>
+      <Toggle variant="outline">Italic</Toggle>
+      <Toggle variant="outline">Underline</Toggle>
+    </div>
+  ),
 };
