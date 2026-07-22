@@ -13,6 +13,7 @@
     "react": "pnpm --filter @quido-ui/react",
     "vue": "pnpm --filter @quido-ui/vue",
     "build": "turbo run build",
+    "generate:llms": "node scripts/generate-llms-txt.mjs --out dist --base-url https://ui.squid-ware.nl",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "clean": "rm -rf packages/*/storybook-static",

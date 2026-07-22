@@ -7,7 +7,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "dev": "storybook dev -p 6009",
-    "build": "storybook build -o ../../dist/.host-staging && cp -R ../../dist/.host-staging/. ../../dist/ && rm -rf ../../dist/.host-staging"
+    "build": "storybook build -o ../../dist/.host-staging && cp -R ../../dist/.host-staging/. ../../dist/ && rm -rf ../../dist/.host-staging && node ../../scripts/generate-llms-txt.mjs --out ../../dist --base-url https://ui.squid-ware.nl"
   },
   "dependencies": {
     "@quido-ui/styles": "workspace:*",
