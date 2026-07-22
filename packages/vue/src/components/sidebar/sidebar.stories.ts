@@ -90,3 +90,26 @@ export const NoneCollapsible: Story = {
     collapsible: 'none'
   }
 }
+
+export const Composition: Story = {
+  render: () => ({
+    components: { SidebarComponent },
+    template: `
+      <SidebarComponent side="left" variant="sidebar" collapsible="offcanvas" state="expanded">
+        <div style="display: flex; flex-direction: column; height: 100%; color: var(--color-sidebar-fg);">
+          <div style="padding: var(--spacing-4); font-weight: var(--font-weight-semibold); border-bottom: var(--border-width-default) solid var(--color-sidebar-border);">
+            Docs
+          </div>
+          <nav style="flex: 1; padding: var(--spacing-4); display: flex; flex-direction: column; gap: var(--spacing-2);">
+            <a href="#">Getting started</a>
+            <a href="#">Components</a>
+            <a href="#">API reference</a>
+          </nav>
+          <div style="padding: var(--spacing-4); font-size: var(--font-size-sm); border-top: var(--border-width-default) solid var(--color-sidebar-border);">
+            v2.4.0
+          </div>
+        </div>
+      </SidebarComponent>
+    `
+  })
+}
