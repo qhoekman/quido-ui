@@ -56,3 +56,22 @@ export const Default: Story = {
     onValueChange: (value: number[]) => console.log(value),
   },
 };
+
+export const Composition: Story = {
+  render: () => ({
+    components: { RangeComponent },
+    setup() {
+      const value = ref([25, 150]);
+      return { value };
+    },
+    template: `
+      <div style="max-width: 18rem;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-2);">
+          <span style="font-weight: var(--font-weight-semibold);">Price range</span>
+          <span style="color: var(--color-muted-fg); font-size: var(--font-size-sm);">\${{ value[0] }} – \${{ value[1] }}</span>
+        </div>
+        <RangeComponent :min="0" :max="200" :step="5" v-model:value="value" />
+      </div>
+    `
+  })
+}
