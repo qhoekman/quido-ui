@@ -27,7 +27,7 @@ type Story = StoryObj<EnhancedDraggableListComponent<unknown>>;
 
 export const Default: Story = {
   args: {
-    items: ['Item 1', 'Item 2', 'Item 3'],
+    items: ['Design mockups', 'Write copy', 'Review PR'],
   },
   render: (args) => ({
     props: {
@@ -39,6 +39,32 @@ export const Default: Story = {
     },
     template: `
       <div qui-story>
+        <qui-draggable-list [items]="items" [itemTemplate]="itemTemplate" (reorder)="onReorder($event)">
+          <ng-template #itemTemplate let-item let-index="index">
+            {{ index + 1 }}. {{ item }}
+          </ng-template>
+        </qui-draggable-list>
+      </div>
+    `,
+  }),
+};
+
+export const Composition: Story = {
+  args: {
+    items: ['Fix login redirect bug', 'Write onboarding docs', 'Ship dark mode', 'Investigate flaky test'],
+  },
+  render: (args) => ({
+    props: {
+      ...args,
+      onReorder: (newOrder: unknown) => {
+        // eslint-disable-next-line no-console
+        console.log('New order:', newOrder);
+      },
+    },
+    template: `
+      <div style="max-width: 320px; padding: var(--spacing-6); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+        <h3 style="margin: 0 0 var(--spacing-1);">Sprint Backlog</h3>
+        <p style="margin: 0 0 var(--spacing-4); color: var(--color-muted-fg);">Drag items to reprioritize this sprint.</p>
         <qui-draggable-list [items]="items" [itemTemplate]="itemTemplate" (reorder)="onReorder($event)">
           <ng-template #itemTemplate let-item let-index="index">
             {{ index + 1 }}. {{ item }}
