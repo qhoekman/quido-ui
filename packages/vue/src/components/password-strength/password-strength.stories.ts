@@ -63,6 +63,24 @@ export const Strong: Story = {
   },
 }
 
+export const Composition: Story = {
+  render: () => ({
+    components: { PasswordStrengthComponent },
+    template: `
+      <div style="max-width: 400px;">
+        <label style="display: block; margin-bottom: var(--spacing-1); font-size: var(--font-size-sm); font-weight: var(--font-weight-medium);">Password</label>
+        <input
+          type="password"
+          value="Str0ng!Pass"
+          readonly
+          style="width: 100%; padding: var(--spacing-2); margin-bottom: var(--spacing-2); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-md);"
+        />
+        <PasswordStrengthComponent value="Str0ng!Pass" />
+      </div>
+    `,
+  }),
+}
+
 export const Interactive: Story = {
   render: () => ({
     components: { PasswordStrengthComponent },
