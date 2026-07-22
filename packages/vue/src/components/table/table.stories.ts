@@ -112,6 +112,48 @@ export const Default: StoryFn<typeof Table> = () => ({
   `,
 });
 
+const teamMembers = [
+  { name: "Ava Chen", role: "Product Designer", status: "Active" },
+  { name: "Marcus Reyes", role: "Frontend Engineer", status: "Active" },
+  { name: "Priya Nair", role: "Engineering Manager", status: "Invited" },
+];
+
+export const Composition: StoryFn<typeof Table> = () => ({
+  components: {
+    Table,
+    TableHeader,
+    TableBody,
+    TableRow,
+    TableHead,
+    TableCell,
+    TableCaption,
+  },
+  setup() {
+    return { teamMembers };
+  },
+  template: `
+    <Table>
+      <TableCaption>Members of the Website Redesign project.</TableCaption>
+      <TableHeader>
+        <TableRow>
+          <TableHead>Name</TableHead>
+          <TableHead>Role</TableHead>
+          <TableHead :style="{ textAlign: 'right' }">Status</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        <TableRow v-for="member in teamMembers" :key="member.name">
+          <TableCell :style="{ fontWeight: 'var(--font-weight-medium)' }">
+            {{ member.name }}
+          </TableCell>
+          <TableCell>{{ member.role }}</TableCell>
+          <TableCell :style="{ textAlign: 'right' }">{{ member.status }}</TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+  `,
+});
+
 export const WithSelectedRow: StoryFn<typeof Table> = () => ({
   components: {
     Table,
