@@ -1,3 +1,9 @@
+@import "@quido-ui/styles/fonts.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: var(--font-family-sans, "DM Sans", ui-sans-serif, system-ui, sans-serif);
+}

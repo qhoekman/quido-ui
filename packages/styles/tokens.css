@@ -276,13 +276,16 @@
     --color-rose-800: #9f1239;
     --color-rose-900: #881337;
     --color-rose-950: #4c0519;
+    --font-family-display:
+      'General Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol', 'Noto Color Emoji';
     --font-family-sans:
-      ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'DM Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
       'Segoe UI Symbol', 'Noto Color Emoji';
     --font-family-serif: ui-serif, georgia, cambria, 'Times New Roman', times, serif;
     --font-family-mono:
-      ui-monospace, sfmono-regular, menlo, monaco, consolas, 'Liberation Mono', 'Courier New',
-      monospace;
+      'JetBrains Mono', ui-monospace, sfmono-regular, menlo, monaco, consolas, 'Liberation Mono',
+      'Courier New', monospace;
     --font-size-xs: 0.75rem;
     --line-height-xs: 1rem;
     --font-size-sm: 0.875rem;
@@ -571,77 +574,77 @@
     }
   }
 
-  /* Light theme */
+  /* Light theme — squid·ware palette */
   @media (prefers-color-scheme: light) {
     :root {
-      --color-primary: var(--color-blue-500);
-      --color-primary-fg: var(--color-gray-50);
-      --color-secondary: var(--color-purple-500);
-      --color-secondary-fg: var(--color-gray-50);
+      --color-primary: #f1592a;
+      --color-primary-fg: #ffffff;
+      --color-secondary: #53a0c6;
+      --color-secondary-fg: #ffffff;
       --color-danger: var(--color-red-500);
       --color-danger-fg: var(--color-gray-50);
-      --color-background: var(--color-white);
-      --color-background-fg: var(--color-gray-950);
-      --color-border: var(--color-gray-200);
-      --color-input: var(--color-white);
-      --color-input-fg: var(--color-gray-900);
-      --color-muted: var(--color-gray-100);
-      --color-muted-fg: var(--color-gray-700);
-      --color-card: var(--color-gray-50);
-      --color-card-fg: var(--color-gray-900);
-      --color-popover: var(--color-gray-50);
-      --color-popover-fg: var(--color-gray-900);
+      --color-background: #ffffff;
+      --color-background-fg: #1b333e;
+      --color-border: #e8e8ec;
+      --color-input: #ffffff;
+      --color-input-fg: #1b333e;
+      --color-muted: #ebf4f8;
+      --color-muted-fg: #4d6972;
+      --color-card: #ffffff;
+      --color-card-fg: #1b333e;
+      --color-popover: #ffffff;
+      --color-popover-fg: #1b333e;
       --color-tooltip: var(--color-slate-900);
       --color-tooltip-fg: var(--color-slate-50);
-      --color-accent: var(--color-gray-100);
-      --color-accent-foreground: var(--color-gray-900);
-      --color-ring: var(--color-blue-500);
-      --color-sidebar: var(--color-gray-50);
-      --color-sidebar-fg: var(--color-gray-900);
-      --color-sidebar-primary: var(--color-blue-500);
-      --color-sidebar-primary-fg: var(--color-gray-50);
-      --color-sidebar-accent: var(--color-gray-200);
-      --color-sidebar-accent-fg: var(--color-gray-900);
-      --color-sidebar-border: var(--color-gray-200);
-      --color-sidebar-ring: var(--color-blue-500);
-      --color-chart: var(--color-gray-900);
-      --color-chart-fg: var(--color-gray-50);
+      --color-accent: #ebf4f8;
+      --color-accent-foreground: #1b333e;
+      --color-ring: rgba(83, 160, 198, 0.4);
+      --color-sidebar: #ffffff;
+      --color-sidebar-fg: #1b333e;
+      --color-sidebar-primary: #f1592a;
+      --color-sidebar-primary-fg: #ffffff;
+      --color-sidebar-accent: #ebf4f8;
+      --color-sidebar-accent-fg: #1b333e;
+      --color-sidebar-border: #e8e8ec;
+      --color-sidebar-ring: rgba(83, 160, 198, 0.4);
+      --color-chart: #1b333e;
+      --color-chart-fg: #ffffff;
     }
   }
 
-  /* Dark theme */
+  /* Dark theme — squid·ware palette */
   @media (prefers-color-scheme: dark) {
     :root {
-      --color-primary: var(--color-blue-300);
-      --color-primary-fg: var(--color-gray-900);
-      --color-secondary: var(--color-purple-300);
-      --color-secondary-fg: var(--color-gray-900);
+      --color-primary: #f1592a;
+      --color-primary-fg: #ffffff;
+      --color-secondary: #53a0c6;
+      --color-secondary-fg: #ffffff;
       --color-danger: var(--color-red-300);
       --color-danger-fg: var(--color-gray-950);
-      --color-background: var(--color-gray-900);
-      --color-background-fg: var(--color-gray-50);
+      --color-background: #0f172a;
+      --color-background-fg: #f8fafc;
       --color-border: var(--color-gray-700);
       --color-input: var(--color-gray-700);
       --color-input-fg: var(--color-gray-50);
-      --color-muted: var(--color-gray-700);
-      --color-muted-fg: var(--color-gray-400);
-      --color-card: var(--color-gray-800);
-      --color-card-fg: var(--color-gray-50);
-      --color-popover: var(--color-gray-800);
-      --color-popover-fg: var(--color-gray-50);
+      --color-muted: #1e293b;
+      --color-muted-fg: #94a3b8;
+      --color-card: #1e293b;
+      --color-card-fg: #f8fafc;
+      --color-popover: #1e293b;
+      --color-popover-fg: #f8fafc;
       --color-tooltip: var(--color-slate-900);
       --color-tooltip-fg: var(--color-slate-50);
-      --color-accent: var(--color-gray-700);
-      --color-accent-foreground: var(--color-gray-50);
-      --color-ring: var(--color-blue-300);
-      --color-sidebar: var(--color-gray-800);
-      --color-sidebar-fg: var(--color-gray-50);
-      --color-sidebar-primary: var(--color-blue-500);
-      --color-sidebar-primary-fg: var(--color-gray-50);
-      --color-sidebar-accent: var(--color-gray-700);
-      --color-sidebar-accent-fg: var(--color-gray-50);
+      --color-accent: #1e293b;
+      --color-accent-foreground: #f8fafc;
+      --color-ring: rgba(83, 160, 198, 0.4);
+      --color-sidebar: #1e293b;
+      --color-sidebar-fg: #f8fafc;
+      --color-sidebar-primary: #f1592a;
+      --color-sidebar-primary-fg: #ffffff;
+      --color-sidebar-accent: #334155;
+      --color-sidebar-accent-fg: #f8fafc;
       --color-sidebar-border: var(--color-gray-700);
-      --color-sidebar-ring: var(--color-blue-300);
+      --color-sidebar-ring: rgba(83, 160, 198, 0.4);
       --color-chart: var(--color-gray-900);
       --color-chart-fg: var(--color-gray-50);
     }

@@ -4,7 +4,9 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # Technical Design
 
-Why quido-ui is shaped the way it is, and how the three framework packages stay aligned.
+Why this multi-framework catalog (workspace packages `@quido-ui/*`) is shaped the way it is, and how the three framework packages stay aligned.
+
+**squid·ware UI** is the public name for this Storybook ([ui.squid-ware.nl](https://ui.squid-ware.nl)). Platform apps import `@squid-ware/ui` for the runtime kit — a separate package from this catalog.
 
 ## Goals
 
@@ -60,7 +62,7 @@ Shared Vite aliasing: `@/*` → `src/**/*` where packages already do that.
 
 ## Angular components
 
-Composability rules for Angular quido-ui components:
+Composability rules for Angular `@quido-ui/angular` components:
 
 - Prefer a **directive selector on a real host** (for example `button[qui-button]`), so consumers keep native attributes on that element.
 - Avoid wrapping markup that blocks host attributes; project content with `<ng-content>`.
@@ -87,6 +89,7 @@ Behaviour: Angular CDK when you need overlays, a11y helpers, and similar.
 
 ## What we deliberately avoid
 
-- Treating quido-ui as a closed npm black box you cannot edit (packages here are workspace-first, copy-friendly).
+- Treating `@quido-ui/*` as a closed npm black box you cannot edit (packages here are workspace-first, copy-friendly).
 - Framework UI kits that fight token overrides.
 - Splitting styles into CSS Modules or Tailwind utilities inside React package components (breaks the single-file rule).
+- Conflating this catalog with `@squid-ware/ui` (platform runtime) — they share visual identity, not package identity.

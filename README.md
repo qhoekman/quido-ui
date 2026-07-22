@@ -44,27 +44,22 @@ pnpm install
 
 ## Running
 
-You can open Storybook for each framework by doing:
-
-### React
+Start all Storybooks in parallel:
 
 ```sh
-pnpm react dev
+pnpm dev
 ```
 
-### Angular
+| Package  | URL                      |
+| -------- | ------------------------ |
+| Vue      | http://localhost:6006    |
+| React    | http://localhost:6007    |
+| Angular  | http://localhost:6008    |
+| Host     | http://localhost:6009    |
 
-```
-pnpm angular dev
-```
+Or open one at a time with `pnpm vue dev`, `pnpm react dev`, `pnpm angular dev`, or `pnpm host dev`.
 
-### Vue
-
-```
-pnpm vue dev
-```
-
-> Host Storybook (`pnpm host dev`) holds the shared docs (readme, contribution, design system, handbook, technical design) and connects the framework Storybooks for deployment.
+> Host Storybook holds the shared docs (readme, contribution, design system, handbook, technical design) and connects the framework Storybooks for deployment.
 
 ## Building
 

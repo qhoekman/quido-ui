@@ -6,10 +6,11 @@
   "scripts": {
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "dev": "storybook dev -p 6006 ",
+    "dev": "storybook dev -p 6009",
     "build": "storybook build -o ../../dist/.host-staging && cp -R ../../dist/.host-staging/. ../../dist/ && rm -rf ../../dist/.host-staging"
   },
   "dependencies": {
+    "@quido-ui/styles": "workspace:*",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.294.0",

@@ -1,8 +1,3 @@
-import { create } from "storybook/theming/create";
+import { createSquidTheme } from "@quido-ui/styles/storybook-theme";
 
-export default create({
-  base: "dark",
-  brandTitle: `<img src="https://quido.online/favicon.png" width="32" height="32" />`,
-  brandUrl: "https://ui.quido.online",
-  brandTarget: "_self",
-});
+export default createSquidTheme("/react/logo.svg");

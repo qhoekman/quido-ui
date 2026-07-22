@@ -18,7 +18,7 @@
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": ["src/favicon.svg", "src/assets"],
             "styles": ["src/styles.css"],
             "scripts": []
           },
@@ -69,7 +69,7 @@
           "options": {
             "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": ["src/favicon.svg", "src/assets"],
             "styles": ["src/styles.css"],
             "scripts": []
           }
@@ -80,7 +80,7 @@
             "configDir": ".storybook",
             "browserTarget": "angular:build",
             "compodoc": false,
-            "port": 6006
+            "port": 6008
           }
         },
         "build-storybook": {

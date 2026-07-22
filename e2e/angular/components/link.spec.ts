@@ -12,7 +12,7 @@ test.describe('Link', () => {
     const link = frame.getByTestId('link')
 
     await expect(link).toHaveJSProperty('tagName', 'A')
-    await expect(link).toHaveAttribute('href', 'https://pulse.quido.online')
+    await expect(link).toHaveAttribute('href', 'https://platform.squid-ware.nl')
     await expect(link).toHaveText('Default Link')
 
     expect(errors).toEqual([])

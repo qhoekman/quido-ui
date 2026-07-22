@@ -3,6 +3,7 @@ import { fileURLToPath } from "node:url";
 import { dirname } from "node:path";
 import { createRequire } from "node:module";
 import type { StorybookConfig } from "@storybook/react-vite";
+import { squidManagerHead } from "@quido-ui/styles/storybook-manager-head";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -16,6 +17,14 @@ const config: StorybookConfig = {
     "@storybook/addon-designs",
     "@storybook/addon-docs",
   ],
+
+  staticDirs: ["../public"],
+
+  managerHead: (head) =>
+    squidManagerHead(head, {
+      faviconHref: "/react/favicon.svg",
+      title: "squid·ware UI · React",
+    }),
 
   core: {},
 
