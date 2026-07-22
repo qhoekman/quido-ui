@@ -57,3 +57,50 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      PaginationComponent,
+      PaginationContentComponent,
+      PaginationItemComponent,
+      PaginationLinkComponent,
+      PaginationPreviousComponent,
+      PaginationNextComponent,
+      PaginationEllipsisComponent
+    },
+    template: `
+      <PaginationComponent aria-label="pagination">
+        <PaginationContentComponent>
+          <PaginationItemComponent>
+            <PaginationPreviousComponent />
+          </PaginationItemComponent>
+          <PaginationItemComponent>
+            <PaginationLinkComponent>1</PaginationLinkComponent>
+          </PaginationItemComponent>
+          <PaginationItemComponent>
+            <PaginationEllipsisComponent />
+          </PaginationItemComponent>
+          <PaginationItemComponent>
+            <PaginationLinkComponent>5</PaginationLinkComponent>
+          </PaginationItemComponent>
+          <PaginationItemComponent>
+            <PaginationLinkComponent :is-active="true">6</PaginationLinkComponent>
+          </PaginationItemComponent>
+          <PaginationItemComponent>
+            <PaginationLinkComponent>7</PaginationLinkComponent>
+          </PaginationItemComponent>
+          <PaginationItemComponent>
+            <PaginationEllipsisComponent />
+          </PaginationItemComponent>
+          <PaginationItemComponent>
+            <PaginationLinkComponent>24</PaginationLinkComponent>
+          </PaginationItemComponent>
+          <PaginationItemComponent>
+            <PaginationNextComponent />
+          </PaginationItemComponent>
+        </PaginationContentComponent>
+      </PaginationComponent>
+    `
+  })
+}
