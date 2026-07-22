@@ -18,7 +18,7 @@ label[for="storybook-explorer-searchfield"],
   margin-top: 0 !important;
 }
 
-.sb-bar[data-testid="sb-preview-toolbar"] {
+.sb-bar[data-test-id="sb-preview-toolbar"] {
   display: none !important;
 }
 button[title="Create a story"] {
