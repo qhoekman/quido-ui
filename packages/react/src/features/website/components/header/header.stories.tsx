@@ -18,6 +18,61 @@ export default {
   component: Header,
 } satisfies Meta<typeof Header>;
 
+export const Default: StoryObj = {
+  render: (args) => (
+    <Header {...args}>
+      <HeaderContent>
+        <HeaderTagline>Tagline</HeaderTagline>
+        <HeaderTitle>Short heading goes here</HeaderTitle>
+        <HeaderBody>
+          Pulse gives your team real-time visibility into performance, usage,
+          and growth — all in one dashboard built for fast-moving companies.
+        </HeaderBody>
+        <HeaderActions>
+          <Button>Get started</Button>
+          <Button variant="outline">Learn more</Button>
+        </HeaderActions>
+      </HeaderContent>
+    </Header>
+  ),
+};
+
+export const Composition: StoryObj = {
+  render: () => (
+    <HeaderBackdrop>
+      <HeaderBackdropImage src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&h=1280&q=80" />
+      <Header
+        style={{
+          paddingTop: "var(--spacing-6)",
+          paddingBottom: "var(--spacing-6)",
+        }}
+      >
+        <HeaderContent style={{ textAlign: "center" }}>
+          <HeaderTagline style={{ color: "var(--color-muted-fg)" }}>
+            Now in public beta
+          </HeaderTagline>
+          <HeaderTitle style={{ color: "var(--color-white)" }}>
+            Introducing Pulse Analytics
+          </HeaderTitle>
+          <HeaderBody style={{ color: "var(--color-muted-fg)" }}>
+            Real-time insights for your team, wherever you work. Track
+            performance, spot trends, and ship with confidence.
+          </HeaderBody>
+          <HeaderActions style={{ marginLeft: "auto", marginRight: "auto" }}>
+            <Button>Start free trial</Button>
+            <Button
+              variant="outline"
+              style={{ color: "var(--color-white)" }}
+            >
+              View pricing
+            </Button>
+          </HeaderActions>
+        </HeaderContent>
+      </Header>
+    </HeaderBackdrop>
+  ),
+};
+
 export const WithCenteredContent: StoryObj = {
   render: (args) => (
     <Header {...args}>
@@ -25,14 +80,12 @@ export const WithCenteredContent: StoryObj = {
         <HeaderTagline>Tagline</HeaderTagline>
         <HeaderTitle>Short heading goes here</HeaderTitle>
         <HeaderBody>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
-          tempora delectus et. Iusto tempora accusantium suscipit labore, iure
-          exercitationem autem quasi odit aut temporibus rem expedita maxime at.
-          Laudantium?
+          Pulse gives your team real-time visibility into performance, usage,
+          and growth — all in one dashboard built for fast-moving companies.
         </HeaderBody>
         <HeaderActions style={{ marginLeft: "auto", marginRight: "auto" }}>
-          <Button>Button</Button>
-          <Button variant="outline">Button</Button>
+          <Button>Get started</Button>
+          <Button variant="outline">Learn more</Button>
         </HeaderActions>
       </HeaderContent>
     </Header>
@@ -46,14 +99,12 @@ export const WithLeftContent: StoryObj = {
         <HeaderTagline>Tagline</HeaderTagline>
         <HeaderTitle>Short heading goes here</HeaderTitle>
         <HeaderBody>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
-          tempora delectus et. Iusto tempora accusantium suscipit labore, iure
-          exercitationem autem quasi odit aut temporibus rem expedita maxime at.
-          Laudantium?
+          Pulse gives your team real-time visibility into performance, usage,
+          and growth — all in one dashboard built for fast-moving companies.
         </HeaderBody>
         <HeaderActions>
-          <Button>Button</Button>
-          <Button variant="outline">Button</Button>
+          <Button>Get started</Button>
+          <Button variant="outline">Learn more</Button>
         </HeaderActions>
       </HeaderContent>
     </Header>
@@ -67,10 +118,8 @@ export const WithForm: StoryObj = {
         <HeaderTagline>Tagline</HeaderTagline>
         <HeaderTitle>Short heading goes here</HeaderTitle>
         <HeaderBody>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
-          tempora delectus et. Iusto tempora accusantium suscipit labore, iure
-          exercitationem autem quasi odit aut temporibus rem expedita maxime at.
-          Laudantium?
+          Pulse gives your team real-time visibility into performance, usage,
+          and growth — all in one dashboard built for fast-moving companies.
         </HeaderBody>
         <HeaderActions style={{ flexDirection: "column", gap: "0" }}>
           <div
@@ -117,7 +166,7 @@ export const WithForm: StoryObj = {
 export const WithBackdrop: StoryObj = {
   render: (args) => (
     <HeaderBackdrop>
-      <HeaderBackdropImage />
+      <HeaderBackdropImage src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&h=1280&q=80" />
       <Header
         style={{
           paddingTop: "var(--spacing-6)",
@@ -129,22 +178,21 @@ export const WithBackdrop: StoryObj = {
           <HeaderTagline style={{ color: "var(--color-muted-fg)" }}>
             Tagline
           </HeaderTagline>
-          <HeaderTitle style={{ color: "var(--color-background-fg)" }}>
+          <HeaderTitle style={{ color: "var(--color-white)" }}>
             Short heading goes here
           </HeaderTitle>
           <HeaderBody style={{ color: "var(--color-muted-fg)" }}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
-            tempora delectus et. Iusto tempora accusantium suscipit labore, iure
-            exercitationem autem quasi odit aut temporibus rem expedita maxime
-            at. Laudantium?
+            Pulse gives your team real-time visibility into performance,
+            usage, and growth — all in one dashboard built for fast-moving
+            companies.
           </HeaderBody>
           <HeaderActions style={{ marginLeft: "auto" }}>
-            <Button>Button</Button>
+            <Button>Get started</Button>
             <Button
               variant="outline"
-              style={{ color: "var(--color-background-fg)" }}
+              style={{ color: "var(--color-white)" }}
             >
-              Button
+              Learn more
             </Button>
           </HeaderActions>
         </HeaderContent>
@@ -156,7 +204,7 @@ export const WithBackdrop: StoryObj = {
 export const WithHorizontalContent: StoryObj = {
   render: (args) => (
     <HeaderBackdrop>
-      <HeaderBackdropImage />
+      <HeaderBackdropImage src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&h=1280&q=80" />
       <Header {...args}>
         <HeaderContent
           style={{
@@ -173,14 +221,13 @@ export const WithHorizontalContent: StoryObj = {
             },
           }}
         >
-          <HeaderTitle style={{ color: "var(--color-background-fg)" }}>
+          <HeaderTitle style={{ color: "var(--color-white)" }}>
             Short heading goes here
           </HeaderTitle>
-          <HeaderBody style={{ color: "var(--color-background-fg)" }}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
-            tempora delectus et. Iusto tempora accusantium suscipit labore, iure
-            exercitationem autem quasi odit aut temporibus rem expedita maxime
-            at. Laudantium?
+          <HeaderBody style={{ color: "var(--color-white)" }}>
+            Pulse gives your team real-time visibility into performance,
+            usage, and growth — all in one dashboard built for fast-moving
+            companies.
           </HeaderBody>
         </HeaderContent>
       </Header>
