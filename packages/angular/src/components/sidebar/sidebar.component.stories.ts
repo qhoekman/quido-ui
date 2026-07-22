@@ -7,6 +7,7 @@ import {
   IconChevronDownComponent,
   IconChevronRightComponent,
   IconClockComponent,
+  IconCodeComponent,
   IconColorWheelComponent,
   IconDotsHorizontalComponent,
   IconDrawingPinComponent,
@@ -16,6 +17,7 @@ import {
   IconKeyboardComponent,
   IconPieChartComponent,
   IconPlusComponent,
+  IconRocketComponent,
   IconSquareComponent,
 } from '../../icons';
 import { AvatarFallbackComponent } from '../avatar/avatar-fallback.component';
@@ -94,6 +96,8 @@ const meta: Meta<SidebarComponent> = {
         IconHamburgerMenuComponent,
         SidebarRailComponent,
         SidebarMenuBadgeComponent,
+        IconRocketComponent,
+        IconCodeComponent,
       ],
     }),
   ],
@@ -384,6 +388,64 @@ export const Default: Story = {
                 </div>
               </li>
             </ul>
+          </div>
+          <button qui-sidebar-rail></button>
+        </div>
+        <main qui-sidebar-inset>
+          <header qui-top-bar>
+            <div qui-top-bar-section>
+              <button qui-sidebar-trigger aria-label="Toggle Sidebar">
+                <i qui-icon name="hamburger-menu"></i>
+                <span qui-visually-hidden>Toggle Sidebar</span>
+              </button>
+            </div>
+          </header>
+        </main>
+      </div>
+    `,
+  }),
+};
+
+export const Composition: Story = {
+  parameters: {
+    layout: 'fullscreen',
+  },
+  render: () => ({
+    template: `
+      <div qui-sidebar-viewport>
+        <div qui-sidebar collapsible="icon">
+          <div qui-sidebar-header>
+            <div style="display: flex; align-items: center; gap: var(--spacing-2); padding: var(--spacing-2);">
+              <i qui-icon name="bookmark"></i>
+              <span>Docs</span>
+            </div>
+          </div>
+          <div qui-sidebar-content>
+            <div qui-sidebar-group>
+              <ul qui-sidebar-menu>
+                <li qui-sidebar-menu-item>
+                  <a qui-sidebar-menu-button href="#">
+                    <i qui-icon name="rocket"></i>
+                    <span>Getting started</span>
+                  </a>
+                </li>
+                <li qui-sidebar-menu-item>
+                  <a qui-sidebar-menu-button href="#">
+                    <i qui-icon name="square"></i>
+                    <span>Components</span>
+                  </a>
+                </li>
+                <li qui-sidebar-menu-item>
+                  <a qui-sidebar-menu-button href="#">
+                    <i qui-icon name="code"></i>
+                    <span>API reference</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div qui-sidebar-footer>
+            <span style="font-size: var(--font-size-sm); padding: var(--spacing-2);">v2.4.0</span>
           </div>
           <button qui-sidebar-rail></button>
         </div>
