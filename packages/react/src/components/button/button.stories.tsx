@@ -42,7 +42,7 @@ export default {
 } satisfies Meta<typeof Button>;
 
 export const Default: StoryObj<typeof Button> = {
-  render: (args) => <Button {...args}>Click me</Button>,
+  render: (args) => <Button {...args}>Continue</Button>,
 
   parameters: {
     design: {
@@ -50,4 +50,13 @@ export const Default: StoryObj<typeof Button> = {
       url: "https://www.figma.com/file/CGNRrXlC5k58xCRDrtUY8X/Company-Fit?type=design&node-id=13%3A1070&mode=design&t=Arpslje2USvZF9R2-1",
     },
   },
+};
+
+export const Composition: StoryObj<typeof Button> = {
+  render: () => (
+    <div style={{ display: "flex", gap: "0.75rem", justifyContent: "flex-end" }}>
+      <Button variant="outline">Cancel</Button>
+      <Button variant="primary">Save changes</Button>
+    </div>
+  ),
 };
