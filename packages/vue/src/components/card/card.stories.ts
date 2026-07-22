@@ -70,3 +70,44 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      CardComponent,
+      CardHeaderComponent,
+      CardTitleComponent,
+      CardDescriptionComponent,
+      CardContentComponent,
+      CardFooterComponent,
+      ButtonComponent
+    },
+    template: `
+      <CardComponent style="width: 350px;">
+        <CardHeaderComponent>
+          <CardTitleComponent>Team members</CardTitleComponent>
+          <CardDescriptionComponent>Invite your team to collaborate on this project.</CardDescriptionComponent>
+        </CardHeaderComponent>
+        <CardContentComponent>
+          <div style="display: flex; flex-direction: column; gap: var(--spacing-2);">
+            <div style="display: flex; justify-content: space-between;">
+              <span>Jane Doe</span>
+              <span style="color: var(--color-muted-fg);">Owner</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Marcus Lee</span>
+              <span style="color: var(--color-muted-fg);">Editor</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Priya Nair</span>
+              <span style="color: var(--color-muted-fg);">Viewer</span>
+            </div>
+          </div>
+        </CardContentComponent>
+        <CardFooterComponent>
+          <ButtonComponent variant="outline" style="width: 100%;">Invite member</ButtonComponent>
+        </CardFooterComponent>
+      </CardComponent>
+    `
+  })
+}
