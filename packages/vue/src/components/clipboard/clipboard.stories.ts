@@ -54,6 +54,18 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
+export const Composition: Story = {
+  render: () => ({
+    components: { ClipboardComponent },
+    template: `
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-4); padding: var(--spacing-3) var(--spacing-4); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-md); width: 420px;">
+        <code style="font-family: var(--font-family-mono);">npm install @quido-ui/vue</code>
+        <ClipboardComponent variant="ghost" size="icon" text="npm install @quido-ui/vue" />
+      </div>
+    `
+  })
+}
+
 export const WithText: Story = {
   args: {
     text: 'Copy this text to clipboard'
