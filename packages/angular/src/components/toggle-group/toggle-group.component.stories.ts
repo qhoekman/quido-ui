@@ -65,3 +65,20 @@ export const Default: Story = {
     </qui-story>`,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+      <qui-story>
+        <div style="display: flex; align-items: center; justify-content: space-between; max-width: 20rem;">
+          <h3 style="margin: 0;">Sprint Backlog</h3>
+          <div qui-toggle-group strategy="single" variant="outline" size="sm">
+            <button qui-toggle value="list">List</button>
+            <button qui-toggle value="board">Board</button>
+            <button qui-toggle value="calendar">Calendar</button>
+          </div>
+        </div>
+      </qui-story>
+    `,
+  }),
+};
