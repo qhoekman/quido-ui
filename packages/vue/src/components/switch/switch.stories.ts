@@ -69,3 +69,27 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Composition: Story = {
+  render: () => ({
+    components: { SwitchComponent },
+    setup() {
+      const darkMode = ref(true);
+      const emailUpdates = ref(false);
+      return { darkMode, emailUpdates };
+    },
+    template: `
+      <div style="display: flex; flex-direction: column; gap: var(--spacing-3); max-width: 280px;">
+        <h3 style="margin: 0;">Settings</h3>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <label for="dark-mode" style="font-size: var(--font-size-sm); font-weight: var(--font-weight-medium);">Dark mode</label>
+          <SwitchComponent id="dark-mode" v-model:checked="darkMode" />
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <label for="email-updates" style="font-size: var(--font-size-sm); font-weight: var(--font-weight-medium);">Email updates</label>
+          <SwitchComponent id="email-updates" v-model:checked="emailUpdates" />
+        </div>
+      </div>
+    `,
+  }),
+};
