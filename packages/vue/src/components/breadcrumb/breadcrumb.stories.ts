@@ -58,3 +58,36 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      BreadcrumbComponent,
+      BreadcrumbListComponent,
+      BreadcrumbItemComponent,
+      BreadcrumbLinkComponent,
+      BreadcrumbPageComponent,
+      BreadcrumbSeparatorComponent
+    },
+    template: `
+      <div>
+        <BreadcrumbComponent style="margin-bottom: var(--spacing-2);">
+          <BreadcrumbListComponent>
+            <BreadcrumbItemComponent>
+              <BreadcrumbLinkComponent href="#">Projects</BreadcrumbLinkComponent>
+            </BreadcrumbItemComponent>
+            <BreadcrumbSeparatorComponent />
+            <BreadcrumbItemComponent>
+              <BreadcrumbLinkComponent href="#">Website Redesign</BreadcrumbLinkComponent>
+            </BreadcrumbItemComponent>
+            <BreadcrumbSeparatorComponent />
+            <BreadcrumbItemComponent>
+              <BreadcrumbPageComponent>Tasks</BreadcrumbPageComponent>
+            </BreadcrumbItemComponent>
+          </BreadcrumbListComponent>
+        </BreadcrumbComponent>
+        <h3 style="margin: 0;">Tasks</h3>
+      </div>
+    `
+  })
+}
