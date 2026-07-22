@@ -198,3 +198,87 @@ export const Default: StoryObj<typeof MegaMenu> = {
     </MegaMenu>
   ),
 };
+
+const productCategories: { title: string; href: string; description: string }[] = [
+  {
+    title: "Feedback",
+    href: "/docs/components/toast",
+    description: "Toasts, callouts, progress bars, and loading indicators.",
+  },
+  {
+    title: "Layout",
+    href: "/docs/components/stack",
+    description: "Stacks, grids, resizable panels, and scroll areas.",
+  },
+  {
+    title: "Navigation",
+    href: "/docs/components/tabs",
+    description: "Tabs, breadcrumbs, steps, and navigation menus.",
+  },
+  {
+    title: "Overlay",
+    href: "/docs/components/dialog",
+    description: "Dialogs, drawers, popovers, and tooltips.",
+  },
+];
+
+export const Composition: StoryObj<typeof MegaMenu> = {
+  render: () => (
+    <MegaMenu delayDuration={200} skipDelayDuration={300}>
+      <MegaMenuList>
+        <MegaMenuItem>
+          <MegaMenuTrigger>Components</MegaMenuTrigger>
+          <MegaMenuContent>
+            <ul
+              style={{
+                display: "grid",
+                width: "500px",
+                gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+                gap: "var(--spacing-3)",
+                padding: "var(--spacing-4)",
+              }}
+            >
+              {productCategories.map((category) => (
+                <MegaMenuListItem
+                  key={category.title}
+                  title={category.title}
+                  href={category.href}
+                >
+                  {category.description}
+                </MegaMenuListItem>
+              ))}
+            </ul>
+          </MegaMenuContent>
+        </MegaMenuItem>
+        <MegaMenuItem>
+          <MegaMenuTrigger>Resources</MegaMenuTrigger>
+          <MegaMenuContent>
+            <ul
+              style={{
+                display: "grid",
+                width: "300px",
+                gap: "var(--spacing-3)",
+                padding: "var(--spacing-4)",
+              }}
+            >
+              <MegaMenuListItem href="/docs" title="Documentation">
+                Guides and API reference for every component.
+              </MegaMenuListItem>
+              <MegaMenuListItem href="/changelog" title="Changelog">
+                See what's new in the latest release.
+              </MegaMenuListItem>
+              <MegaMenuListItem href="https://github.com" title="GitHub">
+                Browse the source and file issues.
+              </MegaMenuListItem>
+            </ul>
+          </MegaMenuContent>
+        </MegaMenuItem>
+        <MegaMenuItem>
+          <MegaMenuLink className={navigationMenuTriggerStyle()} href="/pricing">
+            Pricing
+          </MegaMenuLink>
+        </MegaMenuItem>
+      </MegaMenuList>
+    </MegaMenu>
+  ),
+};
