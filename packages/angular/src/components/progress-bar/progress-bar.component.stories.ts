@@ -50,3 +50,19 @@ export const Indeterminate: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+    <qui-story>
+      <div style="width: 320px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-1); font-size: var(--font-size-sm);">
+          <span>quarterly-report.pdf</span>
+          <span style="color: var(--color-muted-fg);">72%</span>
+        </div>
+        <div qui-progress-bar [value]="72"></div>
+      </div>
+    </qui-story>
+    `,
+  }),
+};

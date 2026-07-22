@@ -63,3 +63,35 @@ export const Default: StoryObj<typeof Card> = {
     </Card>
   ),
 };
+
+export const Composition: StoryObj<typeof Card> = {
+  render: () => (
+    <Card style={{ width: "350px" }}>
+      <CardHeader>
+        <CardTitle>Team members</CardTitle>
+        <CardDescription>Invite your team to collaborate on this project.</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-2)" }}>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <span>Jane Doe</span>
+            <span style={{ color: "var(--color-muted-fg)" }}>Owner</span>
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <span>Marcus Lee</span>
+            <span style={{ color: "var(--color-muted-fg)" }}>Editor</span>
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <span>Priya Nair</span>
+            <span style={{ color: "var(--color-muted-fg)" }}>Viewer</span>
+          </div>
+        </div>
+      </CardContent>
+      <CardFooter>
+        <Button variant="outline" style={{ width: "100%" }}>
+          Invite member
+        </Button>
+      </CardFooter>
+    </Card>
+  ),
+};

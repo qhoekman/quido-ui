@@ -157,6 +157,33 @@ export const WithGroups: Story = {
   }),
 }
 
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      SelectComponent,
+      SelectTriggerComponent,
+      SelectContentComponent,
+      SelectItemComponent,
+      SelectValueComponent,
+    },
+    template: `
+      <div style="display: flex; align-items: center; justify-content: space-between; max-width: 20rem;">
+        <h3 style="margin: 0;">Sprint Backlog</h3>
+        <SelectComponent default-value="priority">
+          <SelectTriggerComponent style="width: 10rem;">
+            <SelectValueComponent placeholder="Sort by" />
+          </SelectTriggerComponent>
+          <SelectContentComponent>
+            <SelectItemComponent value="priority">Priority</SelectItemComponent>
+            <SelectItemComponent value="due-date">Due date</SelectItemComponent>
+            <SelectItemComponent value="assignee">Assignee</SelectItemComponent>
+          </SelectContentComponent>
+        </SelectComponent>
+      </div>
+    `,
+  }),
+}
+
 export const Sizes: Story = {
   render: (args: any) => ({
     components: {

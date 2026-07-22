@@ -109,6 +109,116 @@ const links = {
   ],
 };
 
+export const Default: StoryObj<typeof Footer> = {
+  render: () => (
+    <Footer>
+      <FooterBanner>
+        <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
+          <FooterCopyright>
+            &copy; 2020 Your Company, Inc. All rights reserved.
+          </FooterCopyright>
+          <FooterLink
+            href="#"
+            style={{
+              fontSize: "var(--font-size-xs)",
+              lineHeight: "var(--line-height-5)",
+              color: "var(--color-muted-fg)",
+              textDecoration: "underline",
+            }}
+          >
+            Privacy Policy
+          </FooterLink>
+          <FooterLink
+            href="#"
+            style={{
+              fontSize: "var(--font-size-xs)",
+              lineHeight: "var(--line-height-5)",
+              color: "var(--color-muted-fg)",
+              textDecoration: "underline",
+            }}
+          >
+            Terms of Service
+          </FooterLink>
+        </div>
+      </FooterBanner>
+    </Footer>
+  ),
+};
+
+export const Composition: StoryObj<typeof Footer> = {
+  render: () => (
+    <Footer>
+      <FooterContent>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: "var(--spacing-4)",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "var(--spacing-3)",
+            }}
+          >
+            <Logo
+              style={{
+                height: "var(--spacing-6)",
+                width: "auto",
+                fill: "var(--color-primary)",
+              }}
+              aria-label="Pulse Analytics"
+            />
+            <span
+              style={{
+                fontSize: "var(--font-size-sm)",
+                color: "var(--color-muted-fg)",
+              }}
+            >
+              Real-time analytics for modern teams.
+            </span>
+          </div>
+          <ul
+            role="list"
+            style={{ display: "flex", gap: "var(--spacing-4)" }}
+          >
+            {links.social.map((item) => (
+              <li key={item.name}>
+                <FooterLink
+                  href={item.href}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    color: "var(--color-muted-fg)",
+                  }}
+                >
+                  <span className="sr-only">{item.name}</span>
+                  <item.icon
+                    style={{
+                      height: "var(--spacing-5)",
+                      width: "var(--spacing-5)",
+                    }}
+                    aria-hidden="true"
+                  />
+                </FooterLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </FooterContent>
+      <FooterBanner>
+        <FooterCopyright>
+          &copy; 2020 Pulse Analytics, Inc. All rights reserved.
+        </FooterCopyright>
+      </FooterBanner>
+    </Footer>
+  ),
+};
+
 export const WithColumns: StoryObj<typeof Footer> = {
   render: (args) => (
     <Footer {...args}>

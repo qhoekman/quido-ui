@@ -108,3 +108,16 @@ export const Colors: Story = {
     `
   })
 }
+
+export const Composition: Story = {
+  render: () => ({
+    components: { HeadingComponent },
+    template: `
+      <article style="max-width: 32rem;">
+        <HeadingComponent variant="h1" style="display: block; margin-bottom: var(--spacing-2);">Getting started with Pulse</HeadingComponent>
+        <HeadingComponent variant="h2" color="secondary" style="display: block; margin-bottom: var(--spacing-4); font-weight: var(--font-weight-normal);">A quick tour of the component library</HeadingComponent>
+        <HeadingComponent variant="h3" style="display: block; margin-bottom: var(--spacing-1);">Installation</HeadingComponent>
+      </article>
+    `
+  })
+}

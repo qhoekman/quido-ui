@@ -41,3 +41,20 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+export const Composition: Story = {
+  render: () => ({
+    components: { PinInputComponent },
+    setup() {
+      const value = ref("");
+      return { value };
+    },
+    template: `
+      <div style="max-width: 280px; padding: var(--spacing-6); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg); text-align: center;">
+        <h3 style="margin: 0 0 var(--spacing-1);">Verify your email</h3>
+        <p style="margin: 0 0 var(--spacing-4); color: var(--color-muted-fg);">Enter the 4-digit code we sent to jane@company.com.</p>
+        <PinInputComponent :length="4" v-model="value" />
+      </div>
+    `
+  })
+}

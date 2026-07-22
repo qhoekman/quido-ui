@@ -90,3 +90,42 @@ export const Over: Story = {
     variant: "over",
   },
 };
+
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      DrawerComponent,
+      DrawerOverlayComponent,
+      DrawerContentComponent,
+      ButtonComponent,
+      Menu,
+    },
+    setup() {
+      const open = ref(false);
+      return { open };
+    },
+    template: `
+      <DrawerComponent v-model:opened="open" variant="over" position="left">
+        <template #overlay>
+          <div style="display: flex; flex-direction: column; height: 100%;">
+            <div style="padding: var(--spacing-4); display: flex; justify-content: space-between; align-items: center; border-bottom: var(--border-width-default) solid var(--color-border);">
+              <span style="font-weight: var(--font-weight-semibold);">Acme Inc.</span>
+              <ButtonComponent variant="ghost" size="sm" @click="open = false">✕</ButtonComponent>
+            </div>
+            <nav style="padding: var(--spacing-4); display: flex; flex-direction: column; gap: var(--spacing-2); font-size: var(--font-size-sm);">
+              <a href="#">Dashboard</a>
+              <a href="#">Projects</a>
+              <a href="#">Team</a>
+              <a href="#">Settings</a>
+            </nav>
+          </div>
+        </template>
+        <DrawerContentComponent>
+          <ButtonComponent :full-width="true" @click="open = true">
+            <Menu :size="16" />
+          </ButtonComponent>
+        </DrawerContentComponent>
+      </DrawerComponent>
+    `,
+  }),
+};

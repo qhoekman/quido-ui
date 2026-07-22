@@ -28,6 +28,88 @@ export default {
   component: Hero,
 } satisfies Meta<typeof Hero>;
 
+export const Default: StoryObj = {
+  render: (args) => (
+    <Hero {...args}>
+      <HeroSection style={{ maxWidth: "var(--spacing-3xl)" }}>
+        <VStack>
+          <HeroTagline>Tagline</HeroTagline>
+          <HeroTitle> Medium length hero section title goes in here</HeroTitle>
+          <HeroBody>
+            Pulse gives your team real-time visibility into performance,
+            usage, and growth — all in one dashboard built for fast-moving
+            companies.
+          </HeroBody>
+          <HeroActions>
+            <Button>Get started</Button>
+            <Button variant="outline">Learn more</Button>
+          </HeroActions>
+        </VStack>
+      </HeroSection>
+      <HeroSection style={{ order: 9999 }}>
+        <img
+          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1000&h=1000&q=80"
+          alt="Image"
+          width={1000}
+          height={1000}
+          style={{ borderRadius: "var(--border-radius-xl)" }}
+        />
+      </HeroSection>
+    </Hero>
+  ),
+};
+
+export const Composition: StoryObj = {
+  render: () => (
+    <HeroBackdrop>
+      <HeroBackdropImage
+        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80"
+        alt="hero image"
+      />
+      <Hero
+        style={{
+          width: "100%",
+          display: "flex",
+          padding:
+            "var(--spacing-4) var(--spacing-6) var(--spacing-12) var(--spacing-6)",
+        }}
+      >
+        <HeroSection
+          style={{
+            maxWidth: "var(--columns-3xl)",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          <VStack
+            style={{
+              alignItems: "center",
+              textAlign: "center",
+            }}
+          >
+            <HeroTagline style={{ color: "var(--color-muted-fg)" }}>
+              Now in public beta
+            </HeroTagline>
+            <HeroTitle style={{ color: "var(--color-white)" }}>
+              Introducing Pulse Analytics
+            </HeroTitle>
+            <HeroBody style={{ color: "var(--color-muted-fg)" }}>
+              Real-time insights for your team, wherever you work. Track
+              performance, spot trends, and ship with confidence.
+            </HeroBody>
+            <HeroActions>
+              <Button>Start free trial</Button>
+              <Button variant="outline" style={{ color: "var(--color-white)" }}>
+                View pricing
+              </Button>
+            </HeroActions>
+          </VStack>
+        </HeroSection>
+      </Hero>
+    </HeroBackdrop>
+  ),
+};
+
 export const WithContentLeft: StoryObj = {
   render: (args) => (
     <Hero {...args}>
@@ -36,14 +118,11 @@ export const WithContentLeft: StoryObj = {
           <HeroTagline>Tagline</HeroTagline>
           <HeroTitle> Medium length hero section title goes in here</HeroTitle>
           <HeroBody>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
-            tempora delectus et. Iusto tempora accusantium suscipit labore, iure
-            exercitationem autem quasi odit aut temporibus rem expedita maxime
-            at. Laudantium?
+            Pulse gives your team real-time visibility into performance, usage, and growth — all in one dashboard built for fast-moving companies.
           </HeroBody>
           <HeroActions>
-            <Button>Button</Button>
-            <Button variant="outline">Button</Button>
+            <Button>Get started</Button>
+            <Button variant="outline">Learn more</Button>
           </HeroActions>
         </VStack>
       </HeroSection>
@@ -91,14 +170,11 @@ export const WithContentCenter: StoryObj = {
           <HeroTagline>Tagline</HeroTagline>
           <HeroTitle> Medium length hero section title goes in here</HeroTitle>
           <HeroBody>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
-            tempora delectus et. Iusto tempora accusantium suscipit labore, iure
-            exercitationem autem quasi odit aut temporibus rem expedita maxime
-            at. Laudantium?
+            Pulse gives your team real-time visibility into performance, usage, and growth — all in one dashboard built for fast-moving companies.
           </HeroBody>
           <HeroActions>
-            <Button>Button</Button>
-            <Button variant="outline">Button</Button>
+            <Button>Get started</Button>
+            <Button variant="outline">Learn more</Button>
           </HeroActions>
         </VStack>
       </HeroSection>
@@ -119,14 +195,11 @@ export const WithContentVertical: StoryObj = {
           <HeroTagline>Tagline</HeroTagline>
           <HeroTitle> Medium length hero section title goes in here</HeroTitle>
           <HeroBody>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
-            tempora delectus et. Iusto tempora accusantium suscipit labore, iure
-            exercitationem autem quasi odit aut temporibus rem expedita maxime
-            at. Laudantium?
+            Pulse gives your team real-time visibility into performance, usage, and growth — all in one dashboard built for fast-moving companies.
           </HeroBody>
           <HeroActions>
-            <Button>Button</Button>
-            <Button variant="outline">Button</Button>
+            <Button>Get started</Button>
+            <Button variant="outline">Learn more</Button>
           </HeroActions>
         </VStack>
       </HeroSection>
@@ -189,22 +262,19 @@ export const WithBackdrop: StoryObj = {
               textAlign: "center",
             }}
           >
-            <HeroTagline style={{ color: "var(--color-background-fg)" }}>
+            <HeroTagline style={{ color: "var(--color-white)" }}>
               Tagline
             </HeroTagline>
-            <HeroTitle style={{ color: "var(--color-background-fg)" }}>
+            <HeroTitle style={{ color: "var(--color-white)" }}>
               Medium length hero section title goes in here
             </HeroTitle>
             <HeroBody style={{ color: "var(--color-muted-fg)" }}>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
-              tempora delectus et. Iusto tempora accusantium suscipit labore,
-              iure exercitationem autem quasi odit aut temporibus rem expedita
-              maxime at. Laudantium?
+              Pulse gives your team real-time visibility into performance, usage, and growth — all in one dashboard built for fast-moving companies.
             </HeroBody>
             <HeroActions>
-              <Button>Button</Button>
+              <Button>Get started</Button>
               <Button variant="outline" style={{ color: "var(--color-white)" }}>
-                Button
+                Learn more
               </Button>
             </HeroActions>
           </VStack>
@@ -248,14 +318,11 @@ export const WithBackdropIllustration: StoryObj = {
                 Medium length hero section title goes in here
               </HeroTitle>
               <HeroBody>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem
-                eum tempora delectus et. Iusto tempora accusantium suscipit
-                labore, iure exercitationem autem quasi odit aut temporibus rem
-                expedita maxime at. Laudantium?
+                Pulse gives your team real-time visibility into performance, usage, and growth — all in one dashboard built for fast-moving companies.
               </HeroBody>
               <HeroActions>
-                <Button>Button</Button>
-                <Button variant="outline">Button</Button>
+                <Button>Get started</Button>
+                <Button variant="outline">Learn more</Button>
               </HeroActions>
             </VStack>
           </HeroSection>
@@ -329,14 +396,11 @@ export const WithCarousel: StoryObj = {
           <HeroTagline>Tagline</HeroTagline>
           <HeroTitle> Medium length hero section title goes in here</HeroTitle>
           <HeroBody>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
-            tempora delectus et. Iusto tempora accusantium suscipit labore, iure
-            exercitationem autem quasi odit aut temporibus rem expedita maxime
-            at. Laudantium?
+            Pulse gives your team real-time visibility into performance, usage, and growth — all in one dashboard built for fast-moving companies.
           </HeroBody>
           <HeroActions>
-            <Button>Button</Button>
-            <Button variant="outline">Button</Button>
+            <Button>Get started</Button>
+            <Button variant="outline">Learn more</Button>
           </HeroActions>
         </VStack>
       </HeroSection>
@@ -383,14 +447,11 @@ export const WithImages: StoryObj = {
           <HeroTagline>Tagline</HeroTagline>
           <HeroTitle> Medium length hero section title goes in here</HeroTitle>
           <HeroBody>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
-            tempora delectus et. Iusto tempora accusantium suscipit labore, iure
-            exercitationem autem quasi odit aut temporibus rem expedita maxime
-            at. Laudantium?
+            Pulse gives your team real-time visibility into performance, usage, and growth — all in one dashboard built for fast-moving companies.
           </HeroBody>
           <HeroActions>
-            <Button>Button</Button>
-            <Button variant="outline">Button</Button>
+            <Button>Get started</Button>
+            <Button variant="outline">Learn more</Button>
           </HeroActions>
         </VStack>
       </HeroSection>
@@ -466,14 +527,11 @@ export const WithVideo: StoryObj = {
           <HeroTagline>Tagline</HeroTagline>
           <HeroTitle> Medium length hero section title goes in here</HeroTitle>
           <HeroBody>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
-            tempora delectus et. Iusto tempora accusantium suscipit labore, iure
-            exercitationem autem quasi odit aut temporibus rem expedita maxime
-            at. Laudantium?
+            Pulse gives your team real-time visibility into performance, usage, and growth — all in one dashboard built for fast-moving companies.
           </HeroBody>
           <HeroActions>
-            <Button>Button</Button>
-            <Button variant="outline">Button</Button>
+            <Button>Get started</Button>
+            <Button variant="outline">Learn more</Button>
           </HeroActions>
         </VStack>
       </HeroSection>
@@ -531,14 +589,11 @@ export const WithDiagonalShape: StoryObj = {
               Medium length hero section title goes in here
             </HeroTitle>
             <HeroBody>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem eum
-              tempora delectus et. Iusto tempora accusantium suscipit labore,
-              iure exercitationem autem quasi odit aut temporibus rem expedita
-              maxime at. Laudantium?
+              Pulse gives your team real-time visibility into performance, usage, and growth — all in one dashboard built for fast-moving companies.
             </HeroBody>
             <HeroActions>
-              <Button>Button</Button>
-              <Button variant="outline">Button</Button>
+              <Button>Get started</Button>
+              <Button variant="outline">Learn more</Button>
             </HeroActions>
           </VStack>
         </HeroSection>
@@ -598,14 +653,11 @@ export const WithCover: StoryObj = {
           <HeroSection>
             <VStack>
               <HeroBody>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem
-                eum tempora delectus et. Iusto tempora accusantium suscipit
-                labore, iure exercitationem autem quasi odit aut temporibus rem
-                expedita maxime at. Laudantium?
+                Pulse gives your team real-time visibility into performance, usage, and growth — all in one dashboard built for fast-moving companies.
               </HeroBody>
               <HeroActions>
-                <Button>Button</Button>
-                <Button variant="outline">Button</Button>
+                <Button>Get started</Button>
+                <Button variant="outline">Learn more</Button>
               </HeroActions>
             </VStack>
           </HeroSection>

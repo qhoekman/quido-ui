@@ -79,3 +79,32 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      TieredGalleryComponent,
+      TieredGalleryImageComponent,
+    },
+    template: `
+      <div style="max-width: var(--spacing-md); width: 100%;">
+        <TieredGalleryComponent default-value="0">
+          <TieredGalleryImageComponent
+            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=400&fit=crop"
+            alt="Classic Tee, front view"
+          />
+          <TieredGalleryImageComponent
+            src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=400&h=400&fit=crop"
+            alt="Classic Tee, back view"
+          />
+          <TieredGalleryImageComponent
+            src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=400&h=400&fit=crop"
+            alt="Classic Tee, detail view"
+          />
+        </TieredGalleryComponent>
+        <h4 style="margin: var(--spacing-4) 0 var(--spacing-1);">Classic Tee</h4>
+        <p style="margin: 0; color: var(--color-muted-fg); font-size: var(--font-size-sm);">$28.00</p>
+      </div>
+    `,
+  }),
+};

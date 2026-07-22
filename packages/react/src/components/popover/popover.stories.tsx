@@ -49,3 +49,41 @@ export const Default: StoryObj<typeof Popover> = {
     );
   },
 };
+
+export const Composition: StoryObj<typeof Popover> = {
+  render: () => (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button variant="outline" size="sm">
+          Share
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent style={{ width: 280 }}>
+        <p
+          style={{
+            margin: "0 0 var(--spacing-2)",
+            fontSize: "var(--font-size-sm)",
+            fontWeight: "var(--font-weight-medium)",
+          }}
+        >
+          Share this document
+        </p>
+        <div style={{ display: "flex", gap: "var(--spacing-2)" }}>
+          <input
+            readOnly
+            value="https://pulse.quido.online/d/8f3k2"
+            style={{
+              flex: 1,
+              minWidth: 0,
+              padding: "var(--spacing-2)",
+              border: "var(--border-width-default) solid var(--color-border)",
+              borderRadius: "var(--border-radius-md)",
+              fontSize: "var(--font-size-sm)",
+            }}
+          />
+          <Button size="sm">Copy</Button>
+        </div>
+      </PopoverContent>
+    </Popover>
+  ),
+};

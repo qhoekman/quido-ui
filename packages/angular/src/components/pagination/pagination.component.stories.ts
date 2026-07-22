@@ -62,3 +62,43 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+      <qui-story>
+      <nav qui-pagination aria-label="pagination">
+        <ul qui-pagination-content>
+          <li qui-pagination-item>
+            <a qui-pagination-previous></a>
+          </li>
+          <li qui-pagination-item>
+            <a qui-pagination-link>1</a>
+          </li>
+          <li qui-pagination-item>
+            <span qui-pagination-ellipsis></span>
+          </li>
+          <li qui-pagination-item>
+            <a qui-pagination-link>5</a>
+          </li>
+          <li qui-pagination-item>
+            <a qui-pagination-link [isActive]="true">6</a>
+          </li>
+          <li qui-pagination-item>
+            <a qui-pagination-link>7</a>
+          </li>
+          <li qui-pagination-item>
+            <span qui-pagination-ellipsis></span>
+          </li>
+          <li qui-pagination-item>
+            <a qui-pagination-link>24</a>
+          </li>
+          <li qui-pagination-item>
+            <a qui-pagination-next></a>
+          </li>
+        </ul>
+      </nav>
+    </qui-story>
+    `,
+  }),
+};

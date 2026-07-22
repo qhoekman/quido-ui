@@ -148,3 +148,28 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      TabsComponent,
+      TabsListComponent,
+      TabsTriggerComponent,
+      TabsContentComponent,
+    },
+    template: `
+      <TabsComponent default-value="overview" style="width: 100%; max-width: 600px;">
+        <TabsListComponent>
+          <TabsTriggerComponent value="overview">Overview</TabsTriggerComponent>
+          <TabsTriggerComponent value="analytics">Analytics</TabsTriggerComponent>
+        </TabsListComponent>
+        <TabsContentComponent value="overview">
+          <p style="font-size: var(--font-size-sm); color: var(--color-muted-fg);">A summary of your account activity for this month.</p>
+        </TabsContentComponent>
+        <TabsContentComponent value="analytics">
+          <p style="font-size: var(--font-size-sm); color: var(--color-muted-fg);">Detailed traffic and engagement metrics for your site.</p>
+        </TabsContentComponent>
+      </TabsComponent>
+    `,
+  }),
+};

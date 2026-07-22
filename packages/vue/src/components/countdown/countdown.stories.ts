@@ -42,6 +42,27 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
+export const Composition: Story = {
+  render: () => ({
+    components: { CountdownComponent, CountdownItemComponent },
+    setup() {
+      const date = new Date(new Date().getTime() + 3 * 24 * 60 * 60 * 1000).getTime()
+      return { date }
+    },
+    template: `
+      <div style="max-width: 360px; padding: var(--spacing-6); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg); text-align: center;">
+        <h3 style="margin: 0 0 var(--spacing-1);">Summer Sale Ends In</h3>
+        <p style="margin: 0 0 var(--spacing-4); color: var(--color-muted-fg);">Get 30% off all annual plans before the timer runs out.</p>
+        <CountdownComponent :date="date" v-slot="{ hours, minutes, seconds }">
+          <CountdownItemComponent>{{ hours }}</CountdownItemComponent>:
+          <CountdownItemComponent>{{ minutes }}</CountdownItemComponent>:
+          <CountdownItemComponent>{{ seconds }}</CountdownItemComponent>
+        </CountdownComponent>
+      </div>
+    `
+  })
+}
+
 export const WithCustomDate: Story = {
   args: {
     date: new Date(new Date().getTime() + 2 * 24 * 60 * 60 * 1000).getTime()

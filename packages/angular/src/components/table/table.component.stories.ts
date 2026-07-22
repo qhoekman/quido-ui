@@ -116,3 +116,141 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const WithSelectedRow: Story = {
+  args: {},
+  render: (args) => ({
+    props: {
+      ...args,
+      dataSource: [
+        {
+          invoice: 'DOD101',
+          paymentStatus: 'Pending',
+          totalAmount: 275.0,
+          paymentMethod: 'Bank Transfer',
+        },
+        {
+          invoice: 'DOD102',
+          paymentStatus: 'Paid',
+          totalAmount: 125.0,
+          paymentMethod: 'Credit Card',
+        },
+        {
+          invoice: 'DOD103',
+          paymentStatus: 'Unpaid',
+          totalAmount: 400.0,
+          paymentMethod: 'PayPal',
+        },
+        {
+          invoice: 'DOD104',
+          paymentStatus: 'Paid',
+          totalAmount: 500.0,
+          paymentMethod: 'Bank Transfer',
+        },
+        {
+          invoice: 'DOD105',
+          paymentStatus: 'Pending',
+          totalAmount: 600.0,
+          paymentMethod: 'Credit Card',
+        },
+        {
+          invoice: 'DOD106',
+          paymentStatus: 'Unpaid',
+          totalAmount: 225.0,
+          paymentMethod: 'PayPal',
+        },
+        {
+          invoice: 'DOD107',
+          paymentStatus: 'Paid',
+          totalAmount: 350.0,
+          paymentMethod: 'Credit Card',
+        },
+      ],
+      displayedColumns: [
+        'invoice',
+        'paymentStatus',
+        'paymentMethod',
+        'totalAmount',
+      ],
+    },
+    template: `
+    <qui-story>
+      <table qui-table [dataSource]="dataSource">
+        <caption qui-table-caption>
+          A list of your recent invoices with selected row.
+        </caption>
+        <ng-container puiColumnDef="invoice">
+          <th qui-header-cell *puiHeaderCellDef>Invoice</th>
+          <td qui-cell *puiCellDef="let invoice">{{ invoice.invoice }}</td>
+          <td qui-footer-cell *puiFooterCellDef>Total</td>
+        </ng-container>
+
+        <ng-container puiColumnDef="paymentStatus">
+          <th qui-header-cell *puiHeaderCellDef>Status</th>
+          <td qui-cell *puiCellDef="let invoice">{{ invoice.paymentStatus }}</td>
+          <td qui-footer-cell *puiFooterCellDef></td>
+        </ng-container>
+
+        <ng-container puiColumnDef="paymentMethod">
+          <th qui-header-cell *puiHeaderCellDef>Method</th>
+          <td qui-cell *puiCellDef="let invoice">{{ invoice.paymentMethod }}</td>
+          <td qui-footer-cell *puiFooterCellDef></td>
+        </ng-container>
+
+        <ng-container puiColumnDef="totalAmount">
+          <th qui-header-cell *puiHeaderCellDef class="text-right">Amount</th>
+          <td qui-cell *puiCellDef="let invoice" class="text-right">
+            {{ invoice.totalAmount | currency }}
+          </td>
+          <td qui-footer-cell *puiFooterCellDef>
+            {{ 2475.00 | currency }}
+          </td>
+        </ng-container>
+
+        <tr qui-header-row *puiHeaderRowDef="displayedColumns"></tr>
+        <tr qui-row *puiRowDef="let row; columns: displayedColumns" [attr.data-state]="row.invoice === 'DOD103' ? 'selected' : null"></tr>
+        <tr qui-footer-row *puiFooterRowDef="displayedColumns"></tr>
+      </table>
+    </qui-story>
+    `,
+  }),
+};
+
+export const Composition: Story = {
+  render: () => ({
+    props: {
+      dataSource: [
+        { name: 'Ava Chen', role: 'Product Designer', status: 'Active' },
+        { name: 'Marcus Reyes', role: 'Frontend Engineer', status: 'Active' },
+        { name: 'Priya Nair', role: 'Engineering Manager', status: 'Invited' },
+      ],
+      displayedColumns: ['name', 'role', 'status'],
+    },
+    template: `
+    <qui-story>
+      <table qui-table [dataSource]="dataSource">
+        <caption qui-table-caption>
+          Members of the Website Redesign project.
+        </caption>
+        <ng-container puiColumnDef="name">
+          <th qui-header-cell *puiHeaderCellDef>Name</th>
+          <td qui-cell *puiCellDef="let member">{{ member.name }}</td>
+        </ng-container>
+
+        <ng-container puiColumnDef="role">
+          <th qui-header-cell *puiHeaderCellDef>Role</th>
+          <td qui-cell *puiCellDef="let member">{{ member.role }}</td>
+        </ng-container>
+
+        <ng-container puiColumnDef="status">
+          <th qui-header-cell *puiHeaderCellDef class="text-right">Status</th>
+          <td qui-cell *puiCellDef="let member" class="text-right">{{ member.status }}</td>
+        </ng-container>
+
+        <tr qui-header-row *puiHeaderRowDef="displayedColumns"></tr>
+        <tr qui-row *puiRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </qui-story>
+    `,
+  }),
+};

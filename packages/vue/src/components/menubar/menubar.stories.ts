@@ -72,3 +72,46 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      MenubarComponent,
+      MenubarTriggerComponent,
+      MenubarMenuComponent,
+      MenubarGroupComponent,
+      MenubarItemComponent,
+      MenubarSeparatorComponent,
+      MenubarMenu
+    },
+    template: `
+      <div style="width: 500px; box-sizing: border-box; border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+        <MenubarComponent style="border-bottom: var(--border-width-default) solid var(--color-border);">
+          <MenubarMenu>
+            <MenubarTriggerComponent>File</MenubarTriggerComponent>
+            <MenubarMenuComponent>
+              <MenubarGroupComponent>
+                <MenubarItemComponent>New document</MenubarItemComponent>
+                <MenubarItemComponent>Open...</MenubarItemComponent>
+                <MenubarItemComponent>Save</MenubarItemComponent>
+              </MenubarGroupComponent>
+            </MenubarMenuComponent>
+          </MenubarMenu>
+          <MenubarMenu>
+            <MenubarTriggerComponent>View</MenubarTriggerComponent>
+            <MenubarMenuComponent>
+              <MenubarGroupComponent>
+                <MenubarItemComponent>Zoom in</MenubarItemComponent>
+                <MenubarItemComponent>Zoom out</MenubarItemComponent>
+                <MenubarItemComponent>Reset zoom</MenubarItemComponent>
+              </MenubarGroupComponent>
+            </MenubarMenuComponent>
+          </MenubarMenu>
+        </MenubarComponent>
+        <div style="padding: var(--spacing-6); color: var(--color-muted-fg); font-size: var(--font-size-sm);">
+          Document content goes here.
+        </div>
+      </div>
+    `
+  })
+}

@@ -55,7 +55,7 @@ export const Default: Story = {
           </button>
         </div>
         <div qui-top-bar-section>
-          <!-- Empty section -->
+          <span style="font-weight: var(--font-weight-semibold);">Acme Inc.</span>
         </div>
         <div qui-top-bar-section items="end">
           <div qui-dropdown-menu>
@@ -79,6 +79,34 @@ export const Default: Story = {
               </div>
             </ng-template>
           </div>
+        </div>
+      </header>
+    `,
+  }),
+};
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+      <header qui-top-bar>
+        <div qui-top-bar-section>
+          <button qui-button variant="ghost" size="icon">
+           <i qui-icon name="hamburger-menu"></i>
+          </button>
+          <span style="font-weight: var(--font-weight-semibold);">Dashboard</span>
+        </div>
+        <div qui-top-bar-section>
+          <input
+            type="search"
+            placeholder="Search..."
+            style="padding: var(--spacing-1) var(--spacing-3); border-radius: var(--border-radius-md); border: var(--border-width-default) solid var(--color-border); font-size: var(--font-size-sm);"
+          />
+        </div>
+        <div qui-top-bar-section items="end">
+          <button qui-button variant="ghost">
+            My profile
+            <i qui-icon name="caret-sort"></i>
+          </button>
         </div>
       </header>
     `,

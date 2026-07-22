@@ -106,3 +106,27 @@ export const Default: StoryObj<typeof Tabs> = {
     </Tabs>
   ),
 };
+
+export const Composition: StoryObj<typeof Tabs> = {
+  render: () => (
+    <Tabs
+      defaultValue="overview"
+      style={{ width: "var(--spacing-sm)" }}
+    >
+      <TabsList>
+        <TabsTrigger value="overview">Overview</TabsTrigger>
+        <TabsTrigger value="analytics">Analytics</TabsTrigger>
+      </TabsList>
+      <TabsContent value="overview">
+        <p style={{ fontSize: "var(--font-size-sm)", color: "var(--color-muted-fg)" }}>
+          A summary of your account activity for this month.
+        </p>
+      </TabsContent>
+      <TabsContent value="analytics">
+        <p style={{ fontSize: "var(--font-size-sm)", color: "var(--color-muted-fg)" }}>
+          Detailed traffic and engagement metrics for your site.
+        </p>
+      </TabsContent>
+    </Tabs>
+  ),
+};

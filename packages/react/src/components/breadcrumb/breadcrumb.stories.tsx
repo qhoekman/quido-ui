@@ -29,3 +29,18 @@ export const WithCustomSeparator: StoryObj<typeof Breadcrumb> = {
     </Breadcrumb>
   ),
 };
+
+export const Composition: StoryObj<typeof Breadcrumb> = {
+  render: () => (
+    <div>
+      <Breadcrumb style={{ marginBottom: "var(--spacing-2)" }}>
+        <BreadcrumbItem href="#">Projects</BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem href="#">Website Redesign</BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem href="/projects/website-redesign/tasks">Tasks</BreadcrumbItem>
+      </Breadcrumb>
+      <h3 style={{ margin: 0 }}>Tasks</h3>
+    </div>
+  ),
+};

@@ -54,3 +54,28 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+export const Composition: Story = {
+  render: () => ({
+    components: { TimeSelectComponent },
+    setup() {
+      const selectedHour = ref("09");
+      const selectedMinute = ref("30");
+
+      const handleValueChange = (time: string) => {
+        const [hour, minute] = time.split(":");
+        selectedHour.value = hour;
+        selectedMinute.value = minute;
+      };
+
+      return { selectedHour, selectedMinute, handleValueChange };
+    },
+    template: `
+      <div style="max-width: 280px;">
+        <label style="display: block; font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); margin-bottom: var(--spacing-1-5);">Reminder time</label>
+        <TimeSelectComponent :selected-hour="selectedHour" :selected-minute="selectedMinute" @valueChange="handleValueChange" />
+        <p style="margin: var(--spacing-1-5) 0 0; font-size: var(--font-size-sm); color: var(--color-muted-fg);">We'll notify you at this time each day.</p>
+      </div>
+    `,
+  }),
+};

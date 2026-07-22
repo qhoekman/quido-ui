@@ -80,3 +80,45 @@ export const Default: StoryObj<typeof Tooltip> = {
     </TooltipProvider>
   ),
 };
+
+export const Composition: StoryObj<typeof Tooltip> = {
+  render: () => (
+    <TooltipProvider>
+      <div style={{ display: "flex", gap: "var(--spacing-1)" }}>
+        <Tooltip>
+          <TooltipTrigger>
+            <Button variant="ghost" size="icon">
+              B
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <TooltipArrow style={{ fill: "var(--color-popover)" }} />
+            <p>Bold</p>
+          </TooltipContent>
+        </Tooltip>
+        <Tooltip>
+          <TooltipTrigger>
+            <Button variant="ghost" size="icon">
+              I
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <TooltipArrow style={{ fill: "var(--color-popover)" }} />
+            <p>Italic</p>
+          </TooltipContent>
+        </Tooltip>
+        <Tooltip>
+          <TooltipTrigger>
+            <Button variant="ghost" size="icon">
+              U
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <TooltipArrow style={{ fill: "var(--color-popover)" }} />
+            <p>Underline</p>
+          </TooltipContent>
+        </Tooltip>
+      </div>
+    </TooltipProvider>
+  ),
+};

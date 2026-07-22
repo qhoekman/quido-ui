@@ -49,3 +49,26 @@ export const Sizes: Story = {
     `
   })
 }
+
+export const Composition: Story = {
+  render: () => ({
+    components: { KbdComponent },
+    template: `
+      <div style="max-width: 320px; display: flex; flex-direction: column; gap: var(--spacing-3);">
+        <h3 style="margin: 0;">Keyboard Shortcuts</h3>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span>Open search</span>
+          <span><KbdComponent size="sm">CMD</KbdComponent> + <KbdComponent size="sm">K</KbdComponent></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span>Save changes</span>
+          <span><KbdComponent size="sm">CMD</KbdComponent> + <KbdComponent size="sm">S</KbdComponent></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span>New tab</span>
+          <span><KbdComponent size="sm">CMD</KbdComponent> + <KbdComponent size="sm">T</KbdComponent></span>
+        </div>
+      </div>
+    `
+  })
+}

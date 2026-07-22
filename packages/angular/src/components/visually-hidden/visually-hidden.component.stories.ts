@@ -29,3 +29,27 @@ export const Default: Story = {
   `,
   }),
 };
+
+export const Composition: Story = {
+  render: (args) => ({
+    props: args,
+    template: `
+    <qui-story>
+      <div style="display: flex; gap: var(--spacing-2);">
+        <button qui-button>
+          <span aria-hidden="true">🔍</span>
+          <span qui-sr-only>Search</span>
+        </button>
+        <button qui-button>
+          <span aria-hidden="true">🔔</span>
+          <span qui-sr-only>Notifications</span>
+        </button>
+        <button qui-button>
+          <span aria-hidden="true">⚙️</span>
+          <span qui-sr-only>Settings</span>
+        </button>
+      </div>
+    </qui-story>
+  `,
+  }),
+};

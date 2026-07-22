@@ -59,3 +59,17 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+      <qui-story>
+        <div style="max-width: var(--spacing-64);">
+          <label for="password" style="display: block; font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); margin-bottom: var(--spacing-1-5);">Password</label>
+          <qui-password-inputfield><input qui-password-input id="password" placeholder="Enter password" /></qui-password-inputfield>
+          <p style="margin: var(--spacing-1-5) 0 0; font-size: var(--font-size-sm); color: var(--color-muted-fg);">Must be at least 8 characters.</p>
+        </div>
+      </qui-story>
+    `,
+  }),
+};

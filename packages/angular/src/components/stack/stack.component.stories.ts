@@ -75,3 +75,28 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    props: {
+      members: [
+        { name: 'Ava Chen', role: 'Product Designer' },
+        { name: 'Marcus Reyes', role: 'Frontend Engineer' },
+        { name: 'Priya Nair', role: 'Engineering Manager' },
+      ],
+    },
+    template: `
+    <qui-story>
+      <div qui-stack direction="column" gap="sm" style="width: 320px; box-sizing: border-box;">
+        <div
+          *ngFor="let member of members"
+          style="display: flex; justify-content: space-between; width: 100%; box-sizing: border-box; padding: var(--spacing-2) 0; border-bottom: var(--border-width-default) solid var(--color-border);"
+        >
+          <span style="font-size: var(--font-size-sm); font-weight: var(--font-weight-medium);">{{ member.name }}</span>
+          <span style="font-size: var(--font-size-sm); color: var(--color-muted-fg);">{{ member.role }}</span>
+        </div>
+      </div>
+    </qui-story>
+    `,
+  }),
+};

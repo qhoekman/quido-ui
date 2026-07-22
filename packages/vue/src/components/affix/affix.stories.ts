@@ -92,3 +92,24 @@ export const Bottom: Story = {
     `
   })
 }
+
+export const Composition: Story = {
+  render: () => ({
+    components: { AffixComponent },
+    template: `
+      <div style="padding: var(--spacing-4);">
+        <h3 style="margin: 0 0 var(--spacing-4);">Order #4471</h3>
+        <AffixComponent :offset-top="0" style="display: block;">
+          <div style="padding: var(--spacing-3) var(--spacing-4); background: var(--color-card); border-bottom: var(--border-width-default) solid var(--color-border); font-weight: var(--font-weight-semibold);">
+            Shipping details
+          </div>
+        </AffixComponent>
+        <div style="padding: var(--spacing-4); display: flex; flex-direction: column; gap: var(--spacing-4);">
+          <p>123 Market Street, Suite 400</p>
+          <p>San Francisco, CA 94103</p>
+          <div style="height: 120vh; background: var(--color-muted); border-radius: var(--border-radius-md);"></div>
+        </div>
+      </div>
+    `
+  })
+}

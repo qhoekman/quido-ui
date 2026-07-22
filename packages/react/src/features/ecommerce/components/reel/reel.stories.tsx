@@ -47,3 +47,45 @@ export const Default: StoryObj<typeof Reel> = {
     </div>
   ),
 };
+
+const products = [
+  { name: "Canvas Tote", price: "$24.00" },
+  { name: "Wool Scarf", price: "$38.00" },
+  { name: "Leather Wallet", price: "$52.00" },
+  { name: "Ceramic Mug", price: "$16.00" },
+  { name: "Wireless Earbuds", price: "$89.00" },
+];
+
+export const Composition: StoryObj<typeof Reel> = {
+  render: () => (
+    <div style={{ maxWidth: "var(--spacing-5xl)", width: "100%" }}>
+      <h4 style={{ margin: "0 0 var(--spacing-2)" }}>Recently viewed</h4>
+      <Reel>
+        <ReelButtonPrevious />
+        <ReelItems>
+          {products.map((product, index) => (
+            <ReelItem key={product.name}>
+              <img
+                src={unsplashImages[index % unsplashImages.length]}
+                alt={product.name}
+              />
+              <p style={{ margin: "var(--spacing-1) 0 0", fontSize: "var(--font-size-sm)" }}>
+                {product.name}
+              </p>
+              <p
+                style={{
+                  margin: 0,
+                  color: "var(--color-muted-fg)",
+                  fontSize: "var(--font-size-sm)",
+                }}
+              >
+                {product.price}
+              </p>
+            </ReelItem>
+          ))}
+        </ReelItems>
+        <ReelButtonNext />
+      </Reel>
+    </div>
+  ),
+};

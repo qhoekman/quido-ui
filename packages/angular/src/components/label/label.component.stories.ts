@@ -1,6 +1,7 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 
 import { LabelComponent } from './label.component';
+import { InputComponent } from '../input/input.component';
 import { StoryComponent } from '../../system/components/story/story.component';
 
 const meta: Meta<LabelComponent> = {
@@ -8,7 +9,7 @@ const meta: Meta<LabelComponent> = {
   component: LabelComponent,
   decorators: [
     moduleMetadata({
-      imports: [StoryComponent],
+      imports: [StoryComponent, InputComponent],
     }),
   ],
   argTypes: {
@@ -30,7 +31,20 @@ export const Default: Story = {
     props: args,
     template: `
       <qui-story>
-        <label qui-label [size]="size">Label</label>
+        <label qui-label [size]="size">Full name</label>
+      </qui-story>
+    `,
+  }),
+};
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+      <qui-story>
+        <div style="display: flex; flex-direction: column; gap: var(--spacing-1-5); max-width: 16rem;">
+          <label qui-label for="full-name">Full name</label>
+          <input qui-input id="full-name" placeholder="Jane Doe" />
+        </div>
       </qui-story>
     `,
   }),

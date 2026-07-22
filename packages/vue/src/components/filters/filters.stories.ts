@@ -130,3 +130,35 @@ export const Default: Story = {
     `
   })
 }
+
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      FiltersForm,
+      FilterCheckbox,
+      FilterRange,
+      FilterClearButton
+    },
+    setup() {
+      return { filters }
+    },
+    template: `
+      <div style="max-width: var(--spacing-64); padding: var(--spacing-4); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+        <h4 style="margin: 0 0 var(--spacing-4);">Refine results</h4>
+        <h5 style="margin: 0 0 var(--spacing-2); font-size: var(--font-size-sm);">Category</h5>
+        <FiltersForm>
+          <FilterCheckbox
+            v-for="category in filters.category"
+            :key="'category.' + category"
+            :name="'category.' + category"
+          >
+            {{ category }}
+          </FilterCheckbox>
+        </FiltersForm>
+        <h5 style="margin: var(--spacing-4) 0 var(--spacing-2); font-size: var(--font-size-sm);">Price</h5>
+        <FilterRange name="price" :min="0" :max="200" :step="10" label-prefix="$" />
+        <FilterClearButton style="width: 100%; margin-top: var(--spacing-4);">Clear all filters</FilterClearButton>
+      </div>
+    `
+  })
+}

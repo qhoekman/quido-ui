@@ -73,3 +73,16 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+export const Composition: Story = {
+  render: () => ({
+    components: { TextComponent },
+    template: `
+      <div style="max-width: 24rem;">
+        <TextComponent variant="label" as="span" style="display: block; margin-bottom: var(--spacing-1);">Status</TextComponent>
+        <TextComponent variant="body" color="success" weight="medium" as="span" style="display: block; margin-bottom: var(--spacing-4);">Payment successful</TextComponent>
+        <TextComponent variant="caption" color="muted" as="span" style="display: block;">Your receipt has been emailed to you.</TextComponent>
+      </div>
+    `
+  })
+}

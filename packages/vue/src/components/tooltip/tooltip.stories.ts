@@ -108,6 +108,52 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      TooltipComponent,
+      TooltipProviderComponent,
+      TooltipTriggerComponent,
+      TooltipContentComponent,
+      TooltipArrowComponent,
+      ButtonComponent
+    },
+    template: `
+      <TooltipProviderComponent>
+        <div style="display: flex; gap: var(--spacing-1);">
+          <TooltipComponent>
+            <TooltipTriggerComponent as-child>
+              <ButtonComponent variant="ghost" size="icon">B</ButtonComponent>
+            </TooltipTriggerComponent>
+            <TooltipContentComponent>
+              <TooltipArrowComponent />
+              <p>Bold</p>
+            </TooltipContentComponent>
+          </TooltipComponent>
+          <TooltipComponent>
+            <TooltipTriggerComponent as-child>
+              <ButtonComponent variant="ghost" size="icon">I</ButtonComponent>
+            </TooltipTriggerComponent>
+            <TooltipContentComponent>
+              <TooltipArrowComponent />
+              <p>Italic</p>
+            </TooltipContentComponent>
+          </TooltipComponent>
+          <TooltipComponent>
+            <TooltipTriggerComponent as-child>
+              <ButtonComponent variant="ghost" size="icon">U</ButtonComponent>
+            </TooltipTriggerComponent>
+            <TooltipContentComponent>
+              <TooltipArrowComponent />
+              <p>Underline</p>
+            </TooltipContentComponent>
+          </TooltipComponent>
+        </div>
+      </TooltipProviderComponent>
+    `
+  })
+}
+
 export const Uncontrolled: Story = {
   render: () => ({
     components: {

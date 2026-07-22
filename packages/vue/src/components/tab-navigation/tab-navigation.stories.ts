@@ -104,6 +104,8 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+export const Default: Story = {};
+
 export const Link: Story = {
   render: (args: any) => ({
     components: {
@@ -271,6 +273,33 @@ export const Border: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      TabNavigationComponent,
+      TabNavigationItemComponent,
+      TabNavigationLinkComponent
+    },
+    template: `
+      <div style="max-width: 500px; border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg); padding: var(--spacing-4);">
+        <h3 style="margin: 0 0 var(--spacing-4);">Settings</h3>
+        <TabNavigationComponent variant="border" gap="sm">
+          <TabNavigationItemComponent>
+            <TabNavigationLinkComponent variant="border" state="active">General</TabNavigationLinkComponent>
+          </TabNavigationItemComponent>
+          <TabNavigationItemComponent>
+            <TabNavigationLinkComponent variant="border">Security</TabNavigationLinkComponent>
+          </TabNavigationItemComponent>
+          <TabNavigationItemComponent>
+            <TabNavigationLinkComponent variant="border">Billing</TabNavigationLinkComponent>
+          </TabNavigationItemComponent>
+        </TabNavigationComponent>
+        <p style="margin: var(--spacing-4) 0 0; color: var(--color-muted-fg); font-size: var(--font-size-sm);">Manage your account name, email, and profile photo.</p>
+      </div>
+    `
+  })
+}
 
 export const Pill: Story = {
   render: (args: any) => ({

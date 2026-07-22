@@ -51,9 +51,11 @@ type Story = StoryObj<EnhancedComboboxComponent>;
 export const Default: Story = {
   args: {
     options: [
-      { value: 'option1', label: 'Option 1' },
-      { value: 'option2', label: 'Option 2' },
-      { value: 'option3', label: 'Option 3' },
+      { value: 'next', label: 'Next.js' },
+      { value: 'sveltekit', label: 'SvelteKit' },
+      { value: 'nuxt', label: 'Nuxt.js' },
+      { value: 'remix', label: 'Remix' },
+      { value: 'astro', label: 'Astro' },
     ],
   } as never,
   render: (args) => {
@@ -80,9 +82,65 @@ export const Default: Story = {
         <div qui-stack items="center" align="center">
           <qui-combobox>
             <button qui-combobox-trigger style="width: 200px;">
-              Select an option
+              Select a framework
             </button>
             <div qui-combobox-content style="width: 200px; ">
+              <div qui-combobox-searchbox>
+                <input qui-combobox-search [(ngModel)]="searchValue" (ngModelChange)="onSearchChange($event)"/>
+              </div>
+              <ul qui-combobox-group>
+                <li
+                  qui-combobox-item
+                  *ngFor="let option of filteredOptions | async"
+                  [value]="option.value"
+                  [label]="option.label"
+                >
+                  {{ option.label }}
+                </li>
+              </ul>
+            </div>
+          </qui-combobox>
+        </div>
+      </qui-story>
+      `,
+    };
+  },
+};
+
+export const Composition: Story = {
+  render: () => {
+    const assignees: ComboboxOption[] = [
+      { value: 'jane', label: 'Jane Doe' },
+      { value: 'marcus', label: 'Marcus Lee' },
+      { value: 'priya', label: 'Priya Nair' },
+      { value: 'alex', label: 'Alex Kim' },
+    ];
+    const filteredOptions = new BehaviorSubject<ComboboxOption[]>(assignees);
+    const searchValue = '';
+    return {
+      props: {
+        filteredOptions,
+        searchValue,
+        onSearchChange: (searchValue: string) => {
+          filteredOptions.next(
+            assignees.filter((option) =>
+              option.label.toLowerCase().includes(searchValue.toLowerCase())
+            )
+          );
+        },
+      },
+      template: `
+      <qui-story>
+        <div style="max-width: 320px; display: flex; align-items: center; justify-content: space-between; padding: var(--spacing-3) var(--spacing-4); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-md);">
+          <div>
+            <div style="font-weight: var(--font-weight-semibold);">Fix login redirect bug</div>
+            <div style="color: var(--color-muted-fg); font-size: var(--font-size-sm);">#412 · Bug</div>
+          </div>
+          <qui-combobox>
+            <button qui-combobox-trigger style="width: 160px;">
+              Assign to
+            </button>
+            <div qui-combobox-content style="width: 160px;">
               <div qui-combobox-searchbox>
                 <input qui-combobox-search [(ngModel)]="searchValue" (ngModelChange)="onSearchChange($event)"/>
               </div>

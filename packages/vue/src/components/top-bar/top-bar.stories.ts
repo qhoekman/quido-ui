@@ -39,7 +39,7 @@ const meta = {
           </ButtonComponent>
         </TopBarSectionComponent>
         <TopBarSectionComponent>
-          <!-- Empty section -->
+          <span style="font-weight: var(--font-weight-semibold);">Acme Inc.</span>
         </TopBarSectionComponent>
         <TopBarSectionComponent items="end">
           <ButtonComponent variant="ghost">
@@ -57,3 +57,38 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      TopBarComponent,
+      TopBarSectionComponent,
+      ButtonComponent,
+      Menu,
+      ChevronsUpDown
+    },
+    template: `
+      <TopBarComponent>
+        <TopBarSectionComponent>
+          <ButtonComponent variant="ghost" size="icon">
+            <Menu :size="16" />
+          </ButtonComponent>
+          <span style="font-weight: var(--font-weight-semibold);">Dashboard</span>
+        </TopBarSectionComponent>
+        <TopBarSectionComponent>
+          <input
+            type="search"
+            placeholder="Search..."
+            style="padding: var(--spacing-1) var(--spacing-3); border-radius: var(--border-radius-md); border: var(--border-width-default) solid var(--color-border); font-size: var(--font-size-sm);"
+          />
+        </TopBarSectionComponent>
+        <TopBarSectionComponent items="end">
+          <ButtonComponent variant="ghost">
+            My profile
+            <ChevronsUpDown :size="16" />
+          </ButtonComponent>
+        </TopBarSectionComponent>
+      </TopBarComponent>
+    `
+  })
+};

@@ -106,3 +106,28 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+      <qui-story>
+        <div qui-tabs>
+          <div qui-tabs-list>
+            <button qui-tabs-trigger [tabContentFor]="tabContentOverview">Overview</button>
+            <button qui-tabs-trigger [tabContentFor]="tabContentAnalytics">Analytics</button>
+          </div>
+          <ng-template #tabContentOverview>
+            <div qui-tabs-content>
+              <p style="font-size: var(--font-size-sm); color: var(--color-muted-fg);">A summary of your account activity for this month.</p>
+            </div>
+          </ng-template>
+          <ng-template #tabContentAnalytics>
+            <div qui-tabs-content>
+              <p style="font-size: var(--font-size-sm); color: var(--color-muted-fg);">Detailed traffic and engagement metrics for your site.</p>
+            </div>
+          </ng-template>
+        </div>
+      </qui-story>
+    `,
+  }),
+};

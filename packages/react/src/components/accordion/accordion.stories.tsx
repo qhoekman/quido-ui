@@ -49,23 +49,50 @@ export const Default: StoryObj<typeof Accordion> = {
   render: (args) => (
     <Accordion {...args}>
       <AccordionItem value="item-1">
-        <AccordionTrigger>Lorem ipsum dolor sit amet</AccordionTrigger>
+        <AccordionTrigger>What is your refund policy?</AccordionTrigger>
         <AccordionContent>
-          Aliquam erat volutpat. Vivamus ornare scelerisque elementum.
-          Vestibulum erat nibh, interdum sed consequat at, dapibus id leo. Etiam
-          eu velit eget lorem iaculis malesuada ut a nibh.
+          You can request a full refund within 30 days of purchase, no
+          questions asked.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2">
-        <AccordionTrigger>
-          Sed quis velit et ligula luctus efficitur
-        </AccordionTrigger>
+        <AccordionTrigger>Do you offer team plans?</AccordionTrigger>
         <AccordionContent>
-          Phasellus efficitur massa id arcu faucibus ornare. Etiam viverra ex
-          eget finibus rutrum. Proin accumsan lacus eget tellus finibus, at
-          maximus augue varius.
+          Yes, team plans start at 5 seats and include centralized billing
+          and admin controls.
         </AccordionContent>
       </AccordionItem>
     </Accordion>
+  ),
+};
+
+export const Composition: StoryObj<typeof Accordion> = {
+  render: () => (
+    <div style={{ maxWidth: "32rem" }}>
+      <h3 style={{ margin: "0 0 1rem" }}>Frequently Asked Questions</h3>
+      <Accordion type="single" collapsible defaultValue="item-1">
+        <AccordionItem value="item-1">
+          <AccordionTrigger>What is your refund policy?</AccordionTrigger>
+          <AccordionContent>
+            You can request a full refund within 30 days of purchase, no
+            questions asked.
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="item-2">
+          <AccordionTrigger>Do you offer team plans?</AccordionTrigger>
+          <AccordionContent>
+            Yes, team plans start at 5 seats and include centralized billing
+            and admin controls.
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="item-3">
+          <AccordionTrigger>Can I cancel anytime?</AccordionTrigger>
+          <AccordionContent>
+            Absolutely. Cancel your subscription anytime from your account
+            settings — no cancellation fees.
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    </div>
   ),
 };

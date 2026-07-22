@@ -35,17 +35,52 @@ export const Default: Story = {
       <div [qui-accordion]>
         <div [qui-accordion-item] #item1>
           <button qui-button qui-accordion-trigger [item]="item1" variant="ghost" size="sm" fullWidth="true">
-            <span>Toggle item 1</span>
+            <span>What is your refund policy?</span>
             <i qui-icon name="caret-sort"></i>
           </button>
-          <div qui-accordion-content [item]="item1">Content 1</div>
+          <div qui-accordion-content [item]="item1">You can request a full refund within 30 days of purchase, no questions asked.</div>
         </div>
         <div [qui-accordion-item] #item2>
           <button qui-button qui-accordion-trigger [item]="item2" variant="ghost" size="sm" fullWidth="true">
-            <span>Toggle item 2</span>
+            <span>Do you offer team plans?</span>
             <i qui-icon name="caret-sort"></i>
           </button>
-          <div qui-accordion-content [item]="item2">Content 2</div>
+          <div qui-accordion-content [item]="item2">Yes, team plans start at 5 seats and include centralized billing and admin controls.</div>
+        </div>
+      </div>
+     </qui-story>
+    `,
+  }),
+};
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+     <qui-story>
+      <div style="max-width: 32rem;">
+        <h3 style="margin: 0 0 var(--spacing-4);">Frequently Asked Questions</h3>
+        <div [qui-accordion] style="width: 100%;">
+          <div [qui-accordion-item] #item1>
+            <button qui-button qui-accordion-trigger [item]="item1" variant="ghost" size="sm" fullWidth="true">
+              <span>What is your refund policy?</span>
+              <i qui-icon name="caret-sort"></i>
+            </button>
+            <div qui-accordion-content [item]="item1">You can request a full refund within 30 days of purchase, no questions asked.</div>
+          </div>
+          <div [qui-accordion-item] #item2>
+            <button qui-button qui-accordion-trigger [item]="item2" variant="ghost" size="sm" fullWidth="true">
+              <span>Do you offer team plans?</span>
+              <i qui-icon name="caret-sort"></i>
+            </button>
+            <div qui-accordion-content [item]="item2">Yes, team plans start at 5 seats and include centralized billing and admin controls.</div>
+          </div>
+          <div [qui-accordion-item] #item3>
+            <button qui-button qui-accordion-trigger [item]="item3" variant="ghost" size="sm" fullWidth="true">
+              <span>Can I cancel anytime?</span>
+              <i qui-icon name="caret-sort"></i>
+            </button>
+            <div qui-accordion-content [item]="item3">Absolutely. Cancel your subscription anytime from your account settings — no cancellation fees.</div>
+          </div>
         </div>
       </div>
      </qui-story>

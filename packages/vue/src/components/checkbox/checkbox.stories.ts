@@ -69,3 +69,32 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Composition: Story = {
+  render: () => ({
+    components: { CheckboxComponent },
+    setup() {
+      const email = ref(true)
+      const sms = ref(false)
+      const push = ref(true)
+      return { email, sms, push }
+    },
+    template: `
+      <div style="display: flex; flex-direction: column; gap: var(--spacing-3); max-width: 280px;">
+        <h3 style="margin: 0;">Notification Preferences</h3>
+        <div style="display: flex; align-items: center; gap: var(--spacing-2);">
+          <CheckboxComponent id="email" v-model:checked="email" />
+          <label for="email" style="font-size: var(--font-size-sm); font-weight: var(--font-weight-medium);">Email notifications</label>
+        </div>
+        <div style="display: flex; align-items: center; gap: var(--spacing-2);">
+          <CheckboxComponent id="sms" v-model:checked="sms" />
+          <label for="sms" style="font-size: var(--font-size-sm); font-weight: var(--font-weight-medium);">SMS notifications</label>
+        </div>
+        <div style="display: flex; align-items: center; gap: var(--spacing-2);">
+          <CheckboxComponent id="push" v-model:checked="push" />
+          <label for="push" style="font-size: var(--font-size-sm); font-weight: var(--font-weight-medium);">Push notifications</label>
+        </div>
+      </div>
+    `
+  })
+}

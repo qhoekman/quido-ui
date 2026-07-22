@@ -76,6 +76,135 @@ const navigation = [
   },
 ];
 
+export const Default: StoryObj<typeof Navbar> = {
+  render: (args) => (
+    <Navbar {...args}>
+      <NavbarBrand>
+        <NavbarLogo aria-label="Your company">
+          <CompanyLogo
+            style={{
+              height: "var(--spacing-8)",
+              width: "auto",
+              fill: "var(--color-background-fg)",
+            }}
+          />
+        </NavbarLogo>
+      </NavbarBrand>
+
+      <NavbarItems>
+        {navigation.map((item) => {
+          if (item.dropdown) {
+            return (
+              <NavbarDropdown key={item.name}>
+                <NavbarDropdownTrigger>{item.name}</NavbarDropdownTrigger>
+                <NavbarDropdownContent>
+                  <DropdownMenuGroup>
+                    {item.dropdownItems.map((dropdownItem) => (
+                      <NavbarDropdownLink
+                        key={dropdownItem.name}
+                        href={dropdownItem.href}
+                      >
+                        {dropdownItem.name}
+                      </NavbarDropdownLink>
+                    ))}
+                  </DropdownMenuGroup>
+                </NavbarDropdownContent>
+              </NavbarDropdown>
+            );
+          }
+
+          return (
+            <NavbarLink key={item.name} href={item.href}>
+              {item.name}
+            </NavbarLink>
+          );
+        })}
+        <NavbarActions>
+          <Button asChild>
+            <a href="#">
+              Learn more <span aria-hidden="true">&rarr;</span>
+            </a>
+          </Button>
+
+          <Button variant="outline" asChild>
+            <a href="#">Contact</a>
+          </Button>
+        </NavbarActions>
+      </NavbarItems>
+    </Navbar>
+  ),
+};
+
+const siteNavigation = [
+  { name: "Product", href: "#" },
+  { name: "Pricing", href: "#" },
+  {
+    name: "Resources",
+    dropdown: true,
+    dropdownItems: [
+      { name: "Documentation", href: "#" },
+      { name: "Changelog", href: "#" },
+      { name: "Community", href: "#" },
+    ],
+  },
+];
+
+export const Composition: StoryObj<typeof Navbar> = {
+  render: () => (
+    <Navbar>
+      <NavbarBrand>
+        <NavbarLogo aria-label="Pulse Analytics">
+          <CompanyLogo
+            style={{
+              height: "var(--spacing-8)",
+              width: "auto",
+              fill: "var(--color-primary)",
+            }}
+          />
+        </NavbarLogo>
+      </NavbarBrand>
+
+      <NavbarItems>
+        {siteNavigation.map((item) => {
+          if (item.dropdown) {
+            return (
+              <NavbarDropdown key={item.name}>
+                <NavbarDropdownTrigger>{item.name}</NavbarDropdownTrigger>
+                <NavbarDropdownContent>
+                  <DropdownMenuGroup>
+                    {item.dropdownItems.map((dropdownItem) => (
+                      <NavbarDropdownLink
+                        key={dropdownItem.name}
+                        href={dropdownItem.href}
+                      >
+                        {dropdownItem.name}
+                      </NavbarDropdownLink>
+                    ))}
+                  </DropdownMenuGroup>
+                </NavbarDropdownContent>
+              </NavbarDropdown>
+            );
+          }
+
+          return (
+            <NavbarLink key={item.name} href={item.href}>
+              {item.name}
+            </NavbarLink>
+          );
+        })}
+        <NavbarActions>
+          <Button asChild>
+            <a href="#">Start free trial</a>
+          </Button>
+          <Button variant="outline" asChild>
+            <a href="#">Sign in</a>
+          </Button>
+        </NavbarActions>
+      </NavbarItems>
+    </Navbar>
+  ),
+};
+
 export const WithMenuRight: StoryObj<typeof Navbar> = {
   render: (args) => (
     <Navbar {...args}>

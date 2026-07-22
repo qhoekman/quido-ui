@@ -75,22 +75,20 @@ const meta = {
       >
         <AccordionItemComponent value="item-1">
           <AccordionTriggerComponent>
-            Lorem ipsum dolor sit amet
+            What is your refund policy?
           </AccordionTriggerComponent>
           <AccordionContentComponent>
-            Aliquam erat volutpat. Vivamus ornare scelerisque elementum. Vestibulum
-            erat nibh, interdum sed consequat at, dapibus id leo. Etiam eu velit
-            eget lorem iaculis malesuada ut a nibh.
+            You can request a full refund within 30 days of purchase, no
+            questions asked.
           </AccordionContentComponent>
         </AccordionItemComponent>
         <AccordionItemComponent value="item-2">
           <AccordionTriggerComponent>
-            Sed quis velit et ligula luctus efficitur
+            Do you offer team plans?
           </AccordionTriggerComponent>
           <AccordionContentComponent>
-            Phasellus efficitur massa id arcu faucibus ornare. Etiam viverra ex eget
-            finibus rutrum. Proin accumsan lacus eget tellus finibus, at maximus
-            augue varius.
+            Yes, team plans start at 5 seats and include centralized billing
+            and admin controls.
           </AccordionContentComponent>
         </AccordionItemComponent>
       </AccordionComponent>
@@ -103,3 +101,37 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      AccordionComponent,
+      AccordionItemComponent,
+      AccordionTriggerComponent,
+      AccordionContentComponent
+    },
+    setup() {
+      const value = ref('item-1')
+      return { value }
+    },
+    template: `
+      <div style="max-width: 32rem;">
+        <h3 style="margin: 0 0 var(--spacing-4);">Frequently Asked Questions</h3>
+        <AccordionComponent v-model:value="value" type="single" collapsible style="width: 100%;">
+          <AccordionItemComponent value="item-1">
+            <AccordionTriggerComponent>What is your refund policy?</AccordionTriggerComponent>
+            <AccordionContentComponent>You can request a full refund within 30 days of purchase, no questions asked.</AccordionContentComponent>
+          </AccordionItemComponent>
+          <AccordionItemComponent value="item-2">
+            <AccordionTriggerComponent>Do you offer team plans?</AccordionTriggerComponent>
+            <AccordionContentComponent>Yes, team plans start at 5 seats and include centralized billing and admin controls.</AccordionContentComponent>
+          </AccordionItemComponent>
+          <AccordionItemComponent value="item-3">
+            <AccordionTriggerComponent>Can I cancel anytime?</AccordionTriggerComponent>
+            <AccordionContentComponent>Absolutely. Cancel your subscription anytime from your account settings — no cancellation fees.</AccordionContentComponent>
+          </AccordionItemComponent>
+        </AccordionComponent>
+      </div>
+    `
+  })
+}

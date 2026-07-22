@@ -57,3 +57,26 @@ export const Default: StoryObj<typeof Range> = {
     onValueChange: (value: number[]) => console.log(value),
   },
 };
+
+export const Composition: StoryObj<typeof Range> = {
+  render: () => {
+    const [value, setValue] = useState([25, 150]);
+    return (
+      <div style={{ maxWidth: "18rem" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            marginBottom: "0.5rem",
+          }}
+        >
+          <span style={{ fontWeight: 600 }}>Price range</span>
+          <span style={{ color: "var(--color-muted-fg)", fontSize: "var(--font-size-sm)" }}>
+            ${value[0]} – ${value[1]}
+          </span>
+        </div>
+        <Range min={0} max={200} step={5} value={value} onValueChange={setValue} />
+      </div>
+    );
+  },
+};

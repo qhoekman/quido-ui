@@ -59,3 +59,78 @@ export const Default: StoryObj<typeof Carousel> = {
     </Carousel>
   ),
 };
+
+export const Vertical: StoryObj<typeof Carousel> = {
+  render: () => (
+    <Carousel orientation="vertical" style={{ height: "24rem" }}>
+      <CarouselContent>
+        {Array.from({ length: 5 }).map((_, index) => (
+          <CarouselItem key={index} style={{ flexBasis: "33.333333%" }}>
+            <img
+              src={images[index]}
+              alt={`Image ${index + 1}`}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                aspectRatio: "16/9",
+              }}
+            />
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+  ),
+};
+
+const destinations = [
+  { src: images[0], label: "Banff, Canada" },
+  { src: images[1], label: "Tokyo, Japan" },
+  { src: images[2], label: "Barcelona, Spain" },
+  { src: images[3], label: "Reykjavik, Iceland" },
+  { src: images[4], label: "Lake Como, Italy" },
+];
+
+export const Composition: StoryObj<typeof Carousel> = {
+  render: () => (
+    <Carousel style={{ maxWidth: "40rem" }}>
+      <CarouselContent>
+        {destinations.map((destination) => (
+          <CarouselItem key={destination.label}>
+            <div style={{ position: "relative" }}>
+              <img
+                src={destination.src}
+                alt={destination.label}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  aspectRatio: "16/9",
+                  borderRadius: "var(--border-radius-lg)",
+                }}
+              />
+              <span
+                style={{
+                  position: "absolute",
+                  bottom: "var(--spacing-3)",
+                  left: "var(--spacing-3)",
+                  padding: "var(--spacing-1) var(--spacing-3)",
+                  borderRadius: "var(--border-radius-md)",
+                  backgroundColor: "hsl(from var(--color-black) h s l / 60%)",
+                  color: "var(--color-white)",
+                  fontSize: "var(--font-size-sm)",
+                }}
+              >
+                {destination.label}
+              </span>
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+  ),
+};

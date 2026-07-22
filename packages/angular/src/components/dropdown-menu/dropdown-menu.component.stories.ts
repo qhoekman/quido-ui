@@ -62,3 +62,30 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+    <qui-story>
+      <div style="width: 320px; padding: var(--spacing-4); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg); display: flex; align-items: center; justify-content: space-between; box-sizing: border-box;">
+        <span style="font-size: var(--font-size-sm);">quarterly-report.pdf</span>
+        <div qui-dropdown-menu>
+          <button qui-button variant="ghost" size="sm" puiDropdownMenuTrigger [dropdownMenuFor]="dropdownFileMenu">•••</button>
+          <ng-template #dropdownFileMenu>
+            <div qui-dropdown-menu-content>
+              <ol qui-dropdown-menu-group>
+                <li qui-dropdown-menu-item>Rename</li>
+                <li qui-dropdown-menu-item>Download</li>
+              </ol>
+              <div qui-dropdown-menu-separator></div>
+              <ol qui-dropdown-menu-group>
+                <li qui-dropdown-menu-item>Delete</li>
+              </ol>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </qui-story>
+    `,
+  }),
+};

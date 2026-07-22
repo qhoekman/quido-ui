@@ -51,3 +51,20 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Composition: Story = {
+  render: () => ({
+    components: { MapsComponent },
+    template: `
+      <div style="max-width: 320px; border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg); overflow: hidden;">
+        <div style="height: 220px;">
+          <MapsComponent :center="[52.370216, 4.895168]" :zoom="14" />
+        </div>
+        <div style="padding: var(--spacing-4);">
+          <h3 style="margin: 0;">Amsterdam Office</h3>
+          <p style="margin: var(--spacing-1) 0 0; color: var(--color-muted-fg);">Herengracht 182, 1016 BR Amsterdam</p>
+        </div>
+      </div>
+    `
+  })
+}

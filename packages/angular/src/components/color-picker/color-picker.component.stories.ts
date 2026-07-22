@@ -55,3 +55,49 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const WithInitialColor: Story = {
+  args: {
+    color: '#3b82f6',
+  } as never,
+  render: (args) => ({
+    props: args,
+    template: `
+      <qui-story>
+        <qui-color-picker [color]="color"></qui-color-picker>
+      </qui-story>
+    `,
+  }),
+};
+
+export const WithCSSVariable: Story = {
+  args: {
+    color: 'var(--color-blue-500)',
+  } as never,
+  render: (args) => ({
+    props: args,
+    template: `
+      <qui-story>
+        <qui-color-picker [color]="color"></qui-color-picker>
+      </qui-story>
+    `,
+  }),
+};
+
+export const Composition: Story = {
+  args: {
+    color: '#3b82f6',
+  } as never,
+  render: (args) => ({
+    props: args,
+    template: `
+      <qui-story>
+        <div style="max-width: 280px; padding: var(--spacing-6); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+          <h3 style="margin: 0 0 var(--spacing-1);">Brand Color</h3>
+          <p style="margin: 0 0 var(--spacing-4); color: var(--color-muted-fg);">This color is used for your workspace's primary buttons and links.</p>
+          <qui-color-picker [color]="color"></qui-color-picker>
+        </div>
+      </qui-story>
+    `,
+  }),
+};

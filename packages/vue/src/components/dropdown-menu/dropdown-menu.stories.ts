@@ -224,3 +224,32 @@ export const Uncontrolled: Story = {
     `
   })
 }
+
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      DropdownMenuComponent,
+      DropdownMenuTriggerComponent,
+      DropdownMenuContentComponent,
+      DropdownMenuItemComponent,
+      DropdownMenuSeparatorComponent,
+      ButtonComponent
+    },
+    template: `
+      <div style="width: 320px; padding: var(--spacing-4); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg); display: flex; align-items: center; justify-content: space-between;">
+        <span style="font-size: var(--font-size-sm);">quarterly-report.pdf</span>
+        <DropdownMenuComponent>
+          <DropdownMenuTriggerComponent as-child>
+            <ButtonComponent variant="ghost" size="sm">•••</ButtonComponent>
+          </DropdownMenuTriggerComponent>
+          <DropdownMenuContentComponent :style="{ width: 'var(--spacing-56)' }">
+            <DropdownMenuItemComponent>Rename</DropdownMenuItemComponent>
+            <DropdownMenuItemComponent>Download</DropdownMenuItemComponent>
+            <DropdownMenuSeparatorComponent />
+            <DropdownMenuItemComponent>Delete</DropdownMenuItemComponent>
+          </DropdownMenuContentComponent>
+        </DropdownMenuComponent>
+      </div>
+    `
+  })
+}

@@ -62,41 +62,69 @@ export const Default: Story = {
             </div>
           </div>
         </div>
-        <div qui-tree-item [expanded]="expanded">
-          <div qui-tree-item-icon><i qui-icon name="folder"></i></div>
-          <div qui-tree-item-label>Downloads</div>
-          <div qui-tree-group>
-            <div qui-tree-item>
-              <div qui-tree-item-icon><i qui-icon name="file"></i></div>
-              <div qui-tree-item-label>Image.png</div>
+      </div>
+    </qui-story>
+    `,
+  }),
+};
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+    <qui-story>
+      <div style="max-width: 280px; padding: var(--spacing-4); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+        <h3 style="margin: 0 0 var(--spacing-3);">File Explorer</h3>
+        <div qui-tree>
+          <div qui-tree-item [expanded]="true">
+            <div qui-tree-item-icon><i qui-icon name="folder"></i></div>
+            <div qui-tree-item-label>Documents</div>
+            <div qui-tree-group>
+              <div qui-tree-item>
+                <div qui-tree-item-icon><i qui-icon name="file"></i></div>
+                <div qui-tree-item-label>Resume.pdf</div>
+              </div>
+              <div qui-tree-item>
+                <div qui-tree-item-icon><i qui-icon name="file"></i></div>
+                <div qui-tree-item-label>Cover Letter.docx</div>
+              </div>
             </div>
-            <div qui-tree-item>
-              <div qui-tree-item-icon><i qui-icon name="folder"></i></div>
-              <div qui-tree-item-label>Projects</div>
-              <div qui-tree-group>
-                <div qui-tree-item>
-                  <div qui-tree-item-icon><i qui-icon name="file"></i></div>
-                  <div qui-tree-item-label>Project1.zip</div>
-                </div>
-                <div qui-tree-item>
-                  <div qui-tree-item-icon><i qui-icon name="file"></i></div>
-                  <div qui-tree-item-label>Project2.zip</div>
+          </div>
+          <div qui-tree-item [expanded]="true">
+            <div qui-tree-item-icon><i qui-icon name="folder"></i></div>
+            <div qui-tree-item-label>Downloads</div>
+            <div qui-tree-group>
+              <div qui-tree-item>
+                <div qui-tree-item-icon><i qui-icon name="file"></i></div>
+                <div qui-tree-item-label>Image.png</div>
+              </div>
+              <div qui-tree-item>
+                <div qui-tree-item-icon><i qui-icon name="folder"></i></div>
+                <div qui-tree-item-label>Projects</div>
+                <div qui-tree-group>
+                  <div qui-tree-item>
+                    <div qui-tree-item-icon><i qui-icon name="file"></i></div>
+                    <div qui-tree-item-label>Project1.zip</div>
+                  </div>
+                  <div qui-tree-item>
+                    <div qui-tree-item-icon><i qui-icon name="file"></i></div>
+                    <div qui-tree-item-label>Project2.zip</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div qui-tree-item [expanded]="expanded">
-          <div qui-tree-item-icon><i qui-icon name="folder"></i></div>
-          <div qui-tree-item-label>Pictures</div>
-          <div qui-tree-group>
-            <div qui-tree-item>
-              <div qui-tree-item-icon><i qui-icon name="file"></i></div>
-              <div qui-tree-item-label>Vacation.jpg</div>
-            </div>
-            <div qui-tree-item>
-              <div qui-tree-item-icon><i qui-icon name="file"></i></div>
-              <div qui-tree-item-label>Family.jpg</div>
+          <div qui-tree-item [expanded]="true">
+            <div qui-tree-item-icon><i qui-icon name="folder"></i></div>
+            <div qui-tree-item-label>Pictures</div>
+            <div qui-tree-group>
+              <div qui-tree-item>
+                <div qui-tree-item-icon><i qui-icon name="file"></i></div>
+                <div qui-tree-item-label>Vacation.jpg</div>
+              </div>
+              <div qui-tree-item>
+                <div qui-tree-item-icon><i qui-icon name="file"></i></div>
+                <div qui-tree-item-label>Family.jpg</div>
+              </div>
             </div>
           </div>
         </div>

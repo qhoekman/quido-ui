@@ -36,3 +36,20 @@ export const Default: Story = {
     };
   },
 };
+
+export const Composition: Story = {
+  parameters: {
+    layout: 'fullscreen',
+  },
+  render: () => ({
+    template: `
+      <div>
+        <qui-loading-bar [loading]="true"></qui-loading-bar>
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: var(--spacing-4) var(--spacing-6); border-bottom: var(--border-width-default) solid var(--color-border);">
+          <h3 style="margin: 0;">Dashboard</h3>
+          <span style="color: var(--color-muted-fg); font-size: var(--font-size-sm);">Refreshing data...</span>
+        </div>
+      </div>
+    `,
+  }),
+};

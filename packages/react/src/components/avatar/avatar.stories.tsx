@@ -46,3 +46,39 @@ export const Fallback: StoryObj<typeof Avatar> = {
     );
   },
 };
+
+export const Sizes: StoryObj<typeof Avatar> = {
+  render: () => (
+    <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+      <Avatar size="sm">
+        <AvatarImage src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=facearea&w=128&h=128&facepad=2" />
+        <AvatarFallback>JD</AvatarFallback>
+      </Avatar>
+      <Avatar size="md">
+        <AvatarImage src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=facearea&w=128&h=128&facepad=2" />
+        <AvatarFallback>JD</AvatarFallback>
+      </Avatar>
+      <Avatar size="lg">
+        <AvatarImage src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=facearea&w=128&h=128&facepad=2" />
+        <AvatarFallback>JD</AvatarFallback>
+      </Avatar>
+    </div>
+  ),
+};
+
+export const Composition: StoryObj<typeof Avatar> = {
+  render: () => (
+    <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+      <Avatar>
+        <AvatarImage src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=facearea&w=128&h=128&facepad=2" />
+        <AvatarFallback>JD</AvatarFallback>
+      </Avatar>
+      <div>
+        <div style={{ fontWeight: 600 }}>Jane Doe</div>
+        <div style={{ color: "var(--color-muted-fg)", fontSize: "0.875rem" }}>
+          Product Designer
+        </div>
+      </div>
+    </div>
+  ),
+};

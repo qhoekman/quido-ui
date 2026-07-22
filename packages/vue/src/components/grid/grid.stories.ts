@@ -29,9 +29,9 @@ const meta = {
           v-for="i in args.columns"
           :key="i"
           :col-span="1"
-          style="background-color: lightgray; padding: 20px;"
+          style="background-color: var(--color-muted); padding: var(--spacing-4); text-align: center;"
         >
-          Grid Item
+          Item {{ i }}
         </GridItemComponent>
       </GridComponent>
     `
@@ -73,21 +73,53 @@ export const WithColSpan: Story = {
       <GridComponent v-bind="args">
         <GridItemComponent
           :col-span="2"
-          style="background-color: lightgray; padding: 20px;"
+          style="background-color: var(--color-muted); padding: var(--spacing-4); text-align: center;"
         >
-          Grid Item (span 2)
+          Item (span 2)
         </GridItemComponent>
         <GridItemComponent
           :col-span="1"
-          style="background-color: lightgray; padding: 20px;"
+          style="background-color: var(--color-muted); padding: var(--spacing-4); text-align: center;"
         >
-          Grid Item (span 1)
+          Item (span 1)
         </GridItemComponent>
         <GridItemComponent
           :col-span="1"
-          style="background-color: lightgray; padding: 20px;"
+          style="background-color: var(--color-muted); padding: var(--spacing-4); text-align: center;"
         >
-          Grid Item (span 1)
+          Item (span 1)
+        </GridItemComponent>
+      </GridComponent>
+    `
+  })
+}
+
+export const Composition: Story = {
+  args: {
+    columns: 4
+  },
+  render: (args) => ({
+    components: { GridComponent, GridItemComponent },
+    setup() {
+      return { args }
+    },
+    template: `
+      <GridComponent v-bind="args">
+        <GridItemComponent :col-span="1" style="padding: var(--spacing-4); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+          <p style="margin: 0 0 var(--spacing-1); color: var(--color-muted-fg); font-size: var(--font-size-sm);">Revenue</p>
+          <p style="margin: 0; font-size: var(--font-size-xl); font-weight: var(--font-weight-semibold);">$48,290</p>
+        </GridItemComponent>
+        <GridItemComponent :col-span="1" style="padding: var(--spacing-4); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+          <p style="margin: 0 0 var(--spacing-1); color: var(--color-muted-fg); font-size: var(--font-size-sm);">New Users</p>
+          <p style="margin: 0; font-size: var(--font-size-xl); font-weight: var(--font-weight-semibold);">1,204</p>
+        </GridItemComponent>
+        <GridItemComponent :col-span="1" style="padding: var(--spacing-4); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+          <p style="margin: 0 0 var(--spacing-1); color: var(--color-muted-fg); font-size: var(--font-size-sm);">Orders</p>
+          <p style="margin: 0; font-size: var(--font-size-xl); font-weight: var(--font-weight-semibold);">356</p>
+        </GridItemComponent>
+        <GridItemComponent :col-span="1" style="padding: var(--spacing-4); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+          <p style="margin: 0 0 var(--spacing-1); color: var(--color-muted-fg); font-size: var(--font-size-sm);">Conversion</p>
+          <p style="margin: 0; font-size: var(--font-size-xl); font-weight: var(--font-weight-semibold);">3.2%</p>
         </GridItemComponent>
       </GridComponent>
     `

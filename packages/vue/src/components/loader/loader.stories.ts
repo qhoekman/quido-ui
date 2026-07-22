@@ -1,4 +1,5 @@
 import LoaderComponent from './loader.vue'
+import ButtonComponent from '@/components/button/button.vue'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta = {
@@ -28,4 +29,16 @@ export const Default: Story = {
     active: true,
     variant: 'spinner'
   }
+}
+
+export const Composition: Story = {
+  render: () => ({
+    components: { LoaderComponent, ButtonComponent },
+    template: `
+      <ButtonComponent variant="primary" disabled style="display: inline-flex; align-items: center; gap: var(--spacing-2);">
+        <LoaderComponent active variant="spinner" />
+        Saving changes...
+      </ButtonComponent>
+    `
+  })
 }

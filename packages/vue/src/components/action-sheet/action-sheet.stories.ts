@@ -68,9 +68,9 @@ const meta = {
               </ActionSheetDescription>
             </ActionSheetHeader>
             <ul>
-              <li v-for="i in 5" :key="i">
+              <li v-for="action in ['Share', 'Edit', 'Duplicate', 'Archive', 'Delete']" :key="action">
                 <ButtonComponent variant="ghost" style="width: 100%; justify-content: flex-start;">
-                  Item {{ i }}
+                  {{ action }}
                 </ButtonComponent>
               </li>
             </ul>
@@ -96,3 +96,60 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      ActionSheet,
+      ActionSheetTrigger,
+      ActionSheetContent,
+      ActionSheetHeader,
+      ActionSheetFooter,
+      ActionSheetTitle,
+      ActionSheetDescription,
+      ActionSheetClose,
+      ButtonComponent
+    },
+    template: `
+      <ActionSheet modal dismissible>
+        <div style="margin: var(--spacing-6) auto 0; width: 100%; max-width: var(--spacing-lg); display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-3); padding: var(--spacing-4); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+          <div>
+            <p style="margin: 0; font-weight: var(--font-weight-medium);">Sunset over the bay</p>
+            <p style="margin: 0; font-size: var(--font-size-sm); color: var(--color-muted-fg);">Posted 2 hours ago</p>
+          </div>
+          <ActionSheetTrigger as-child>
+            <ButtonComponent variant="ghost" size="sm">⋯</ButtonComponent>
+          </ActionSheetTrigger>
+        </div>
+        <ActionSheetContent>
+          <div style="margin: 0 auto; width: 100%; max-width: var(--spacing-sm);">
+            <ActionSheetHeader>
+              <ActionSheetTitle>Manage post</ActionSheetTitle>
+              <ActionSheetDescription>
+                Choose what to do with this post.
+              </ActionSheetDescription>
+            </ActionSheetHeader>
+            <ul>
+              <li v-for="action in ['Save to Collection', 'Share', 'Copy Link', 'Report', 'Delete Post']" :key="action">
+                <ButtonComponent variant="ghost" style="width: 100%; justify-content: flex-start;">
+                  {{ action }}
+                </ButtonComponent>
+              </li>
+            </ul>
+            <ActionSheetFooter>
+              <ActionSheetClose as-child>
+                <ButtonComponent variant="outline">Cancel</ButtonComponent>
+              </ActionSheetClose>
+            </ActionSheetFooter>
+          </div>
+        </ActionSheetContent>
+      </ActionSheet>
+    `
+  }),
+  parameters: {
+    layout: 'fullscreen',
+    viewport: {
+      defaultViewport: 'mobile2'
+    }
+  }
+}

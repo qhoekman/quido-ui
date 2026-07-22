@@ -52,3 +52,27 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+    <qui-story>
+      <div style="display: flex; flex-direction: column; gap: var(--spacing-3); max-width: 280px;">
+        <h3 style="margin: 0;">Notification Preferences</h3>
+        <div style="display: flex; align-items: center; gap: var(--spacing-2);">
+          <button qui-checkbox [checked]="true"></button>
+          <label>Email notifications</label>
+        </div>
+        <div style="display: flex; align-items: center; gap: var(--spacing-2);">
+          <button qui-checkbox [checked]="false"></button>
+          <label>SMS notifications</label>
+        </div>
+        <div style="display: flex; align-items: center; gap: var(--spacing-2);">
+          <button qui-checkbox [checked]="true"></button>
+          <label>Push notifications</label>
+        </div>
+      </div>
+    </qui-story>
+    `,
+  }),
+};

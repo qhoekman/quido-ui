@@ -31,15 +31,21 @@ const meta = {
     template: `
       <HStackComponent v-bind="args">
         <CardComponent
-          v-for="index in 5"
-          :key="index"
+          v-for="plan in [
+            { name: 'Starter', price: '$9/mo' },
+            { name: 'Team', price: '$29/mo' },
+            { name: 'Business', price: '$79/mo' },
+            { name: 'Enterprise', price: 'Custom' },
+            { name: 'Nonprofit', price: '$5/mo' }
+          ]"
+          :key="plan.name"
           style="width: 200px;"
         >
           <CardHeaderComponent>
-            <CardTitleComponent>Card {{ index }}</CardTitleComponent>
+            <CardTitleComponent>{{ plan.name }}</CardTitleComponent>
           </CardHeaderComponent>
           <CardContentComponent>
-            <p>...</p>
+            <p>{{ plan.price }}</p>
           </CardContentComponent>
         </CardComponent>
       </HStackComponent>
@@ -52,3 +58,17 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Composition: Story = {
+  render: () => ({
+    components: { HStackComponent },
+    template: `
+      <HStackComponent gap="sm" style="align-items: center;">
+        <span style="font-size: var(--font-size-sm); color: var(--color-muted-fg);">Sort by:</span>
+        <button style="padding: var(--spacing-1) var(--spacing-3); border-radius: var(--border-radius-md); border: var(--border-width-default) solid var(--color-border); background: var(--color-primary); color: var(--color-primary-fg); font-size: var(--font-size-sm);">Newest</button>
+        <button style="padding: var(--spacing-1) var(--spacing-3); border-radius: var(--border-radius-md); border: var(--border-width-default) solid var(--color-border); background: transparent; font-size: var(--font-size-sm);">Price</button>
+        <button style="padding: var(--spacing-1) var(--spacing-3); border-radius: var(--border-radius-md); border: var(--border-width-default) solid var(--color-border); background: transparent; font-size: var(--font-size-sm);">Rating</button>
+      </HStackComponent>
+    `
+  })
+}

@@ -99,3 +99,40 @@ export const Large: StoryObj<typeof RadioCard> = {
     </div>
   ),
 };
+
+export const Composition: StoryObj<typeof RadioCard> = {
+  render: () => (
+    <div style={{ maxWidth: "var(--spacing-md)", width: "100%" }}>
+      <h4 style={{ margin: "0 0 var(--spacing-1)" }}>Classic Tee</h4>
+      <p
+        style={{
+          margin: "0 0 var(--spacing-4)",
+          color: "var(--color-muted-fg)",
+          fontSize: "var(--font-size-sm)",
+        }}
+      >
+        $28.00
+      </p>
+      <p style={{ margin: "0 0 var(--spacing-2)", fontSize: "var(--font-size-sm)" }}>
+        Size
+      </p>
+      <RadioCard
+        defaultValue="sm"
+        style={{ gridTemplateColumns: "repeat(6, 1fr)" }}
+      >
+        {sizes.map((size) => (
+          <RadioCardItem
+            value={size}
+            id={`comp-opt-${size}`}
+            key={size}
+            disabled={size === "xs"}
+          >
+            <RadioCardItemLabel htmlFor={`comp-opt-${size}`}>
+              {size.toUpperCase()}
+            </RadioCardItemLabel>
+          </RadioCardItem>
+        ))}
+      </RadioCard>
+    </div>
+  ),
+};

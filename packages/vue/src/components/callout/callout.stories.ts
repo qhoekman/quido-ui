@@ -36,9 +36,9 @@ const meta = {
         <CalloutIndicatorComponent>
           <Info :size="20" />
         </CalloutIndicatorComponent>
-        <CalloutTitleComponent>Callout Title</CalloutTitleComponent>
+        <CalloutTitleComponent>{{ args.variant === 'destructive' ? 'Payment failed' : 'New features available' }}</CalloutTitleComponent>
         <CalloutDescriptionComponent>
-          <p>This is a description inside the callout component.</p>
+          <p>{{ args.variant === 'destructive' ? "We couldn't process your payment. Please update your billing details to avoid service interruption." : 'Check out the new dashboard widgets and dark mode support in this release.' }}</p>
         </CalloutDescriptionComponent>
       </CalloutComponent>
     `
@@ -59,4 +59,31 @@ export const Destructive: Story = {
   args: {
     variant: 'destructive'
   }
+}
+
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      CalloutComponent,
+      CalloutIndicatorComponent,
+      CalloutTitleComponent,
+      CalloutDescriptionComponent,
+      Info
+    },
+    template: `
+      <div style="max-width: var(--breakpoint-md);">
+        <h3 style="margin: 0 0 var(--spacing-4);">Billing</h3>
+        <CalloutComponent variant="destructive" style="margin-bottom: var(--spacing-4);">
+          <CalloutIndicatorComponent>
+            <Info :size="20" />
+          </CalloutIndicatorComponent>
+          <CalloutTitleComponent>Payment failed</CalloutTitleComponent>
+          <CalloutDescriptionComponent>
+            <p>We couldn't process your payment. Please update your billing details to avoid service interruption.</p>
+          </CalloutDescriptionComponent>
+        </CalloutComponent>
+        <p style="color: var(--color-muted-fg); font-size: var(--font-size-sm);">Update your payment method below to keep your subscription active.</p>
+      </div>
+    `
+  })
 }

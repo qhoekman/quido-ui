@@ -68,3 +68,22 @@ export const Landscape: Story = {
     ratio: '21 / 9'
   }
 }
+
+export const Composition: Story = {
+  render: () => ({
+    components: { AspectRatioComponent },
+    template: `
+      <div style="width: 280px; border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg); overflow: hidden;">
+        <AspectRatioComponent ratio="16 / 9">
+          <div style="width: 100%; height: 100%; background: var(--color-slate-200); display: flex; align-items: center; justify-content: center; color: var(--color-slate-600); font-size: var(--font-size-sm);">
+            Product photo
+          </div>
+        </AspectRatioComponent>
+        <div style="padding: var(--spacing-3);">
+          <h4 style="margin: 0 0 var(--spacing-1); font-size: var(--font-size-sm);">Wireless Keyboard</h4>
+          <p style="margin: 0; color: var(--color-muted-fg); font-size: var(--font-size-sm);">$49.00</p>
+        </div>
+      </div>
+    `
+  })
+}

@@ -78,3 +78,40 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+    <qui-story>
+      <div style="width: 500px; box-sizing: border-box; border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+        <div qui-menubar style="border-bottom: var(--border-width-default) solid var(--color-border);">
+          <button qui-menubar-trigger [cdkMenuTriggerFor]="menubarFile">File</button>
+          <button qui-menubar-trigger [cdkMenuTriggerFor]="menubarView">View</button>
+        </div>
+        <div style="padding: var(--spacing-6); color: var(--color-muted-fg); font-size: var(--font-size-sm);">
+          Document content goes here.
+        </div>
+      </div>
+
+      <ng-template #menubarFile>
+        <div qui-menubar-menu>
+          <ol qui-menubar-group>
+            <li qui-menubar-item>New document</li>
+            <li qui-menubar-item>Open...</li>
+            <li qui-menubar-item>Save</li>
+          </ol>
+        </div>
+      </ng-template>
+      <ng-template #menubarView>
+        <div qui-menubar-menu>
+          <ol qui-menubar-group>
+            <li qui-menubar-item>Zoom in</li>
+            <li qui-menubar-item>Zoom out</li>
+            <li qui-menubar-item>Reset zoom</li>
+          </ol>
+        </div>
+      </ng-template>
+    </qui-story>
+    `,
+  }),
+};

@@ -33,3 +33,32 @@ export const Default: StoryObj<typeof DefinitionList> = {
     </div>
   ),
 };
+
+export const Composition: StoryObj<typeof DefinitionList> = {
+  render: () => (
+    <div
+      style={{
+        maxWidth: "var(--spacing-2xl)",
+        padding: "var(--spacing-4)",
+        border: "var(--border-width-default) solid var(--color-border)",
+        borderRadius: "var(--border-radius-lg)",
+      }}
+    >
+      <h4 style={{ margin: "0 0 var(--spacing-4)" }}>Order #4471</h4>
+      <DefinitionList>
+        <DefintionListItem>
+          <DefinitionTerm>Order date</DefinitionTerm>
+          <DefinitionDescription>June 12, 2026</DefinitionDescription>
+        </DefintionListItem>
+        <DefintionListItem>
+          <DefinitionTerm>Status</DefinitionTerm>
+          <DefinitionDescription>Shipped</DefinitionDescription>
+        </DefintionListItem>
+        <DefintionListItem>
+          <DefinitionTerm>Total</DefinitionTerm>
+          <DefinitionDescription>$128.50</DefinitionDescription>
+        </DefintionListItem>
+      </DefinitionList>
+    </div>
+  ),
+};

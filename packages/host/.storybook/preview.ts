@@ -11,8 +11,9 @@ const preview: Preview = {
       },
     },
     options: {
+      // Storybook evals storySort without a TS transform — keep params untyped.
       // @ts-expect-error storySort typing varies across Storybook versions
-      storySort: (a: { title: string }, b: { title: string }) => {
+      storySort: (a, b) => {
         if (a.title === "Readme") return -1;
         if (b.title === "Readme") return 1;
         return a.title === b.title

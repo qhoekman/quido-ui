@@ -188,3 +188,48 @@ export const Default: StoryObj<typeof DropdownMenu> = {
     </DropdownMenu>
   ),
 };
+
+export const Uncontrolled: StoryObj<typeof DropdownMenu> = {
+  render: () => (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline">Open</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent style={{ width: "var(--spacing-56)" }}>
+        <DropdownMenuItem>Profile</DropdownMenuItem>
+        <DropdownMenuItem>Settings</DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  ),
+};
+
+export const Composition: StoryObj<typeof DropdownMenu> = {
+  render: () => (
+    <div
+      style={{
+        width: 320,
+        padding: "var(--spacing-4)",
+        border: "var(--border-width-default) solid var(--color-border)",
+        borderRadius: "var(--border-radius-lg)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
+      <span style={{ fontSize: "var(--font-size-sm)" }}>quarterly-report.pdf</span>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="ghost" size="sm">
+            •••
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent style={{ width: "var(--spacing-56)" }}>
+          <DropdownMenuItem>Rename</DropdownMenuItem>
+          <DropdownMenuItem>Download</DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>Delete</DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
+  ),
+};

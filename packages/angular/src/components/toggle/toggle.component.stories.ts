@@ -39,9 +39,21 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `<qui-story>
-      <button qui-toggle [variant]="variant" [size]="size" [selected]="selected">
-        <i qui-icon name="moon" size="lg"></i>
-      </button>
+      <button qui-toggle [variant]="variant" [size]="size" [selected]="selected">Bold</button>
     </qui-story>`,
+  }),
+};
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+      <qui-story>
+        <div style="display: flex; gap: var(--spacing-2);">
+          <button qui-toggle variant="outline" [selected]="true">Bold</button>
+          <button qui-toggle variant="outline">Italic</button>
+          <button qui-toggle variant="outline">Underline</button>
+        </div>
+      </qui-story>
+    `,
   }),
 };

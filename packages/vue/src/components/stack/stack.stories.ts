@@ -71,3 +71,25 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Composition: Story = {
+  render: () => ({
+    components: { StackComponent },
+    template: `
+      <StackComponent direction="column" gap="sm" style="max-width: var(--breakpoint-xs);">
+        <div
+          v-for="member in [
+            { name: 'Ava Chen', role: 'Product Designer' },
+            { name: 'Marcus Reyes', role: 'Frontend Engineer' },
+            { name: 'Priya Nair', role: 'Engineering Manager' }
+          ]"
+          :key="member.name"
+          style="display: flex; justify-content: space-between; padding: var(--spacing-2) 0; border-bottom: var(--border-width-default) solid var(--color-border);"
+        >
+          <span style="font-size: var(--font-size-sm); font-weight: var(--font-weight-medium);">{{ member.name }}</span>
+          <span style="font-size: var(--font-size-sm); color: var(--color-muted-fg);">{{ member.role }}</span>
+        </div>
+      </StackComponent>
+    `
+  })
+}

@@ -27,3 +27,51 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const External: Story = {
+  render: () => ({
+    template: `
+    <qui-story>
+      <a qui-link href="https://pulse.quido.online">Read the docs</a>
+    </qui-story>
+    `,
+  }),
+};
+
+export const Internal: Story = {
+  render: () => ({
+    template: `
+    <qui-story>
+      <a qui-link href="/about">About us</a>
+    </qui-story>
+    `,
+  }),
+};
+
+export const MultipleLinks: Story = {
+  render: () => ({
+    template: `
+    <qui-story>
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+        <a qui-link href="https://pulse.quido.online">Documentation</a>
+        <a qui-link href="/about">About us</a>
+        <a qui-link href="/contact">Contact support</a>
+      </div>
+    </qui-story>
+    `,
+  }),
+};
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+    <qui-story>
+      <p style="max-width: 32rem; font-size: var(--font-size-sm);">
+        By continuing, you agree to our <a qui-link href="/terms">Terms of Service</a> and
+        <a qui-link href="/privacy">Privacy Policy</a>. Need help? Visit our
+        <a qui-link href="https://pulse.quido.online">documentation</a>.
+      </p>
+    </qui-story>
+    `,
+  }),
+};

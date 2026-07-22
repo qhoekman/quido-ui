@@ -20,9 +20,9 @@ const meta = {
     },
     template: `
       <ButtonGroupComponent v-bind="args">
-        <ButtonComponent variant="outline">Button 1</ButtonComponent>
-        <ButtonComponent variant="outline">Button 2</ButtonComponent>
-        <ButtonComponent variant="outline">Button 3</ButtonComponent>
+        <ButtonComponent variant="outline">Bold</ButtonComponent>
+        <ButtonComponent variant="outline">Italic</ButtonComponent>
+        <ButtonComponent variant="outline">Underline</ButtonComponent>
       </ButtonGroupComponent>
     `
   })
@@ -32,3 +32,19 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Composition: Story = {
+  render: () => ({
+    components: { ButtonGroupComponent, ButtonComponent },
+    template: `
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-4);">
+        <h2 style="margin: 0;">Sprint Backlog</h2>
+        <ButtonGroupComponent>
+          <ButtonComponent variant="outline">List</ButtonComponent>
+          <ButtonComponent variant="outline">Board</ButtonComponent>
+          <ButtonComponent variant="outline">Calendar</ButtonComponent>
+        </ButtonGroupComponent>
+      </div>
+    `
+  })
+}

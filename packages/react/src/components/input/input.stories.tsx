@@ -67,3 +67,40 @@ export const Default: StoryObj<typeof Input> = {
     );
   },
 };
+
+export const Composition: StoryObj<typeof Input> = {
+  render: () => {
+    const [email, setEmail] = useState("");
+    return (
+      <div style={{ maxWidth: "var(--spacing-64)" }}>
+        <label
+          htmlFor="email"
+          style={{
+            display: "block",
+            fontSize: "var(--font-size-sm)",
+            fontWeight: 600,
+            marginBottom: "var(--spacing-1-5)",
+          }}
+        >
+          Email address
+        </label>
+        <Input
+          id="email"
+          type="email"
+          placeholder="you@company.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <p
+          style={{
+            margin: "var(--spacing-1-5) 0 0",
+            fontSize: "var(--font-size-sm)",
+            color: "var(--color-muted-fg)",
+          }}
+        >
+          We'll send a confirmation link to this address.
+        </p>
+      </div>
+    );
+  },
+};

@@ -19,7 +19,15 @@ import {
   SidebarSection,
 } from "@/features/application/components/sidebar/sidebar";
 import type { StoryObj, Meta } from "@storybook/react-vite";
-import { BoxesIcon, Contact2Icon, PlaySquareIcon, Radio } from "lucide-react";
+import {
+  BoxesIcon,
+  BookOpenIcon,
+  CodeIcon,
+  Contact2Icon,
+  PlaySquareIcon,
+  RocketIcon,
+  Radio,
+} from "lucide-react";
 
 export default {
   title: "Features/Application/Components/Sidebar",
@@ -121,6 +129,36 @@ export const Default: StoryObj<typeof Sidebar> = {
           </Avatar>
           <span>John Doe</span>
         </HStack>
+      </SidebarFooter>
+    </Sidebar>
+  ),
+};
+
+export const Composition: StoryObj<typeof Sidebar> = {
+  render: (args) => (
+    <Sidebar style={{ maxWidth: "var(--spacing-64)" }} {...args}>
+      <SidebarBrand>
+        <BookOpenIcon size={20} style={{ color: "var(--color-primary)" }} />
+        <span>Docs</span>
+      </SidebarBrand>
+      <SidebarSection>
+        <SidebarGroup>
+          <SidebarItem>
+            <RocketIcon size={24} />
+            <span>Getting started</span>
+          </SidebarItem>
+          <SidebarItem>
+            <BoxesIcon size={24} />
+            <span>Components</span>
+          </SidebarItem>
+          <SidebarItem>
+            <CodeIcon size={24} />
+            <span>API reference</span>
+          </SidebarItem>
+        </SidebarGroup>
+      </SidebarSection>
+      <SidebarFooter>
+        <span style={{ fontSize: "var(--font-size-sm)" }}>v2.4.0</span>
       </SidebarFooter>
     </Sidebar>
   ),

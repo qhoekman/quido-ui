@@ -30,9 +30,9 @@ const meta = {
       <div style="padding: var(--spacing-4);">
         <BlockTitleComponent>Block Title</BlockTitleComponent>
         <BlockComponent v-bind="args">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas quisquam
-          rerum, eos qui aliquid accusamus odit, nemo porro at velit accusantium
-          atque ullam iste ipsa hic, saepe culpa. Sapiente, dolorem!
+          Enable push notifications to stay up to date with new messages,
+          mentions, and account activity. You can change this anytime from
+          Settings.
         </BlockComponent>
       </div>
     `
@@ -56,4 +56,24 @@ export const WithOutline: Story = {
     inset: true,
     outline: true
   }
+}
+
+export const Composition: Story = {
+  render: () => ({
+    components: { BlockComponent, BlockTitleComponent },
+    template: `
+      <div style="padding: var(--spacing-4);">
+        <BlockTitleComponent>Account</BlockTitleComponent>
+        <BlockComponent inset>
+          Signed in as jordan@pulse.quido.online. Manage your profile,
+          password, and connected devices from Settings.
+        </BlockComponent>
+        <BlockTitleComponent>Notifications</BlockTitleComponent>
+        <BlockComponent inset outline>
+          Get notified about new messages, mentions, and weekly summaries. You
+          can turn these off anytime.
+        </BlockComponent>
+      </div>
+    `
+  })
 }

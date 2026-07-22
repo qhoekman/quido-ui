@@ -24,9 +24,9 @@ export const Default: StoryObj<typeof Block> = {
     <ViewportLayout>
       <BlockTitle>Block Title</BlockTitle>
       <Block {...args}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas quisquam
-        rerum, eos qui aliquid accusamus odit, nemo porro at velit accusantium
-        atque ullam iste ipsa hic, saepe culpa. Sapiente, dolorem!
+        Enable push notifications to stay up to date with new messages,
+        mentions, and account activity. You can change this anytime from
+        Settings.
       </Block>
     </ViewportLayout>
   ),
@@ -44,9 +44,9 @@ export const WithInset: StoryObj<typeof Block> = {
     <ViewportLayout>
       <BlockTitle>Block Title</BlockTitle>
       <Block inset {...args}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas quisquam
-        rerum, eos qui aliquid accusamus odit, nemo porro at velit accusantium
-        atque ullam iste ipsa hic, saepe culpa. Sapiente, dolorem!
+        Enable push notifications to stay up to date with new messages,
+        mentions, and account activity. You can change this anytime from
+        Settings.
       </Block>
     </ViewportLayout>
   ),
@@ -68,9 +68,9 @@ export const WithOutline: StoryObj<typeof Block> = {
     <ViewportLayout>
       <BlockTitle>Block Title</BlockTitle>
       <Block inset outline {...args}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas quisquam
-        rerum, eos qui aliquid accusamus odit, nemo porro at velit accusantium
-        atque ullam iste ipsa hic, saepe culpa. Sapiente, dolorem!
+        Enable push notifications to stay up to date with new messages,
+        mentions, and account activity. You can change this anytime from
+        Settings.
       </Block>
     </ViewportLayout>
   ),
@@ -78,6 +78,30 @@ export const WithOutline: StoryObj<typeof Block> = {
   args: {
     outline: true,
   },
+
+  parameters: {
+    layout: "fullscreen",
+    viewport: {
+      defaultViewport: "mobile2",
+    },
+  },
+};
+
+export const Composition: StoryObj<typeof Block> = {
+  render: () => (
+    <ViewportLayout>
+      <BlockTitle>Account</BlockTitle>
+      <Block inset>
+        Signed in as jordan@pulse.quido.online. Manage your profile,
+        password, and connected devices from Settings.
+      </Block>
+      <BlockTitle>Notifications</BlockTitle>
+      <Block inset outline>
+        Get notified about new messages, mentions, and weekly summaries. You
+        can turn these off anytime.
+      </Block>
+    </ViewportLayout>
+  ),
 
   parameters: {
     layout: "fullscreen",

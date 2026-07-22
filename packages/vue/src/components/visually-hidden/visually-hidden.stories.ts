@@ -39,3 +39,28 @@ export const Default: Story = {
     `
   })
 }
+
+export const Composition: Story = {
+  render: (args) => ({
+    components: { VisuallyHiddenComponent, ButtonComponent },
+    setup() {
+      return { args }
+    },
+    template: `
+      <div style="display: flex; gap: var(--spacing-2);">
+        <ButtonComponent>
+          <span aria-hidden="true">🔍</span>
+          <VisuallyHiddenComponent v-bind="args">Search</VisuallyHiddenComponent>
+        </ButtonComponent>
+        <ButtonComponent>
+          <span aria-hidden="true">🔔</span>
+          <VisuallyHiddenComponent v-bind="args">Notifications</VisuallyHiddenComponent>
+        </ButtonComponent>
+        <ButtonComponent>
+          <span aria-hidden="true">⚙️</span>
+          <VisuallyHiddenComponent v-bind="args">Settings</VisuallyHiddenComponent>
+        </ButtonComponent>
+      </div>
+    `
+  })
+}

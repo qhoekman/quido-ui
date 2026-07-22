@@ -86,3 +86,17 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+    <qui-story>
+      <div style="max-width: 24rem;">
+        <span qui-text variant="label" style="display: block; margin-bottom: var(--spacing-1);">Status</span>
+        <span qui-text variant="body" color="success" weight="medium" style="display: block; margin-bottom: var(--spacing-4);">Payment successful</span>
+        <span qui-text variant="caption" color="muted" style="display: block;">Your receipt has been emailed to you.</span>
+      </div>
+    </qui-story>
+    `,
+  }),
+};

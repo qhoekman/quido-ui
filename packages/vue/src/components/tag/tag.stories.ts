@@ -37,7 +37,7 @@ const meta = {
     setup() {
       return { args };
     },
-    template: '<TagComponent v-bind="args">Tag Content</TagComponent>',
+    template: '<TagComponent v-bind="args">New</TagComponent>',
   }),
 } satisfies Meta<typeof TagComponent>;
 
@@ -101,6 +101,25 @@ export const Combinations: Story = {
           <TagComponent variant="primary" shape="plate" size="xs">Primary Plate</TagComponent>
           <TagComponent variant="secondary" shape="plate" size="sm">Secondary Plate</TagComponent>
           <TagComponent variant="outline" shape="plate" size="md">Outline Plate</TagComponent>
+        </div>
+      </div>
+    `,
+  }),
+};
+
+export const Composition: Story = {
+  render: () => ({
+    components: { TagComponent },
+    template: `
+      <div style="display: flex; flex-direction: column; gap: var(--spacing-2); max-width: 320px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-weight: var(--font-weight-semibold);">Q3 Roadmap</span>
+          <TagComponent variant="secondary" shape="pill">In Progress</TagComponent>
+        </div>
+        <div style="display: flex; gap: var(--spacing-2); flex-wrap: wrap;">
+          <TagComponent variant="outline" size="sm">design</TagComponent>
+          <TagComponent variant="outline" size="sm">backend</TagComponent>
+          <TagComponent variant="outline" size="sm">q3</TagComponent>
         </div>
       </div>
     `,

@@ -64,3 +64,28 @@ export const Default: StoryObj<typeof TieredGallery> = {
     </div>
   ),
 };
+
+export const Composition: StoryObj<typeof TieredGallery> = {
+  render: () => (
+    <div style={{ maxWidth: "var(--spacing-md)", width: "100%" }}>
+      <TieredGallery defaultValue="0">
+        <TieredGalleryImage
+          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=400&fit=crop"
+          alt="Classic Tee, front view"
+        />
+        <TieredGalleryImage
+          src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=400&h=400&fit=crop"
+          alt="Classic Tee, back view"
+        />
+        <TieredGalleryImage
+          src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=400&h=400&fit=crop"
+          alt="Classic Tee, detail view"
+        />
+      </TieredGallery>
+      <h4 style={{ margin: "var(--spacing-4) 0 var(--spacing-1)" }}>Classic Tee</h4>
+      <p style={{ margin: 0, color: "var(--color-muted-fg)", fontSize: "var(--font-size-sm)" }}>
+        $28.00
+      </p>
+    </div>
+  ),
+};

@@ -87,3 +87,43 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+      <qui-story>
+        <qui-steps [count]="3" style="max-width: 400px;">
+          <qui-steps-list>
+            <qui-steps-item index="0">Account</qui-steps-item>
+            <qui-steps-item index="1">Preferences</qui-steps-item>
+            <qui-steps-item index="2">Confirmation</qui-steps-item>
+          </qui-steps-list>
+
+          <qui-steps-content index="0">
+            <p style="font-size: var(--font-size-sm); color: var(--color-muted-fg);">Enter your email and choose a password to create your account.</p>
+          </qui-steps-content>
+          <qui-steps-content index="1">
+            <p style="font-size: var(--font-size-sm); color: var(--color-muted-fg);">Choose your notification and privacy settings.</p>
+          </qui-steps-content>
+          <qui-steps-content index="2">
+            <p style="font-size: var(--font-size-sm); color: var(--color-muted-fg);">Review your details before finishing setup.</p>
+          </qui-steps-content>
+          <qui-steps-completed-content>
+            <p style="font-size: var(--font-size-sm); color: var(--color-muted-fg);">Your account is ready to use.</p>
+          </qui-steps-completed-content>
+
+          <div qui-stack align="center" items="center">
+            <div qui-button-group >
+              <button qui-button variant="ghost" size="icon" puiStepsPrev>
+                &lt;
+              </button>
+              <button qui-button variant="ghost" size="icon" puiStepsNext>
+                &gt;
+              </button>
+            </div>
+          </div>
+        </qui-steps>
+      </qui-story>
+    `,
+  }),
+};

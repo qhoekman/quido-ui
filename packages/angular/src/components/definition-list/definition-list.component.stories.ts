@@ -61,3 +61,29 @@ export const Default: Story = {
   `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+    <qui-story>
+      <div style="max-width: var(--spacing-2xl); padding: var(--spacing-4); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg); box-sizing: border-box;">
+        <h4 style="margin: 0 0 var(--spacing-4);">Order #4471</h4>
+        <dl qui-definition-list>
+          <div qui-definition-list-item>
+            <dt qui-definition-term>Order date</dt>
+            <dd qui-definition-description>June 12, 2026</dd>
+          </div>
+          <div qui-definition-list-item>
+            <dt qui-definition-term>Status</dt>
+            <dd qui-definition-description>Shipped</dd>
+          </div>
+          <div qui-definition-list-item>
+            <dt qui-definition-term>Total</dt>
+            <dd qui-definition-description>$128.50</dd>
+          </div>
+        </dl>
+      </div>
+    </qui-story>
+  `,
+  }),
+};

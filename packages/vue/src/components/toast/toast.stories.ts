@@ -38,11 +38,11 @@ const meta = {
       <ToastViewportComponent>
         <ToastComponent v-bind="args">
           <div style="display: flex; flex-direction: column; gap: var(--spacing-2);">
-            <ToastTitleComponent>Toast Title</ToastTitleComponent>
-            <ToastDescriptionComponent>This is a toast description.</ToastDescriptionComponent>
+            <ToastTitleComponent>{{ args.variant === 'destructive' ? 'Failed to save' : 'Event created' }}</ToastTitleComponent>
+            <ToastDescriptionComponent>{{ args.variant === 'destructive' ? 'There was a problem saving your changes.' : 'Your event has been added to the calendar.' }}</ToastDescriptionComponent>
           </div>
           <div style="display: flex; flex-direction: row; gap: var(--spacing-2);">
-            <ToastActionComponent>Action</ToastActionComponent>
+            <ToastActionComponent>{{ args.variant === 'destructive' ? 'Retry' : 'Undo' }}</ToastActionComponent>
           </div>
           <ToastCloseComponent />
         </ToastComponent>
@@ -66,6 +66,39 @@ export const Destructive: Story = {
   }
 }
 
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      ToastComponent,
+      ToastTitleComponent,
+      ToastDescriptionComponent,
+      ToastCloseComponent,
+      ToastViewportComponent,
+      ToastActionComponent
+    },
+    template: `
+      <div style="height: 320px; position: relative; background-color: var(--color-muted); border-radius: var(--border-radius-lg);">
+        <div style="padding: var(--spacing-4);">
+          <h3 style="margin: 0 0 var(--spacing-1);">Calendar</h3>
+          <p style="color: var(--color-muted-fg); font-size: var(--font-size-sm);">Your events for this week will appear here.</p>
+        </div>
+        <ToastViewportComponent style="position: absolute; top: auto; bottom: 0; right: 0; left: auto;">
+          <ToastComponent variant="default">
+            <div style="display: flex; flex-direction: column; gap: var(--spacing-2);">
+              <ToastTitleComponent>Event created</ToastTitleComponent>
+              <ToastDescriptionComponent>Your event has been added to the calendar.</ToastDescriptionComponent>
+            </div>
+            <div style="display: flex; flex-direction: row; gap: var(--spacing-2);">
+              <ToastActionComponent>Undo</ToastActionComponent>
+            </div>
+            <ToastCloseComponent />
+          </ToastComponent>
+        </ToastViewportComponent>
+      </div>
+    `
+  })
+}
+
 export const WithoutDescription: Story = {
   args: {
     variant: 'default'
@@ -83,7 +116,7 @@ export const WithoutDescription: Story = {
     template: `
       <ToastViewportComponent>
         <ToastComponent v-bind="args">
-          <ToastTitleComponent>Toast Title</ToastTitleComponent>
+          <ToastTitleComponent>Message sent</ToastTitleComponent>
           <ToastCloseComponent />
         </ToastComponent>
       </ToastViewportComponent>
@@ -110,8 +143,8 @@ export const WithoutAction: Story = {
       <ToastViewportComponent>
         <ToastComponent v-bind="args">
           <div style="display: flex; flex-direction: column; gap: var(--spacing-2);">
-            <ToastTitleComponent>Toast Title</ToastTitleComponent>
-            <ToastDescriptionComponent>This is a toast description.</ToastDescriptionComponent>
+            <ToastTitleComponent>Copied to clipboard</ToastTitleComponent>
+            <ToastDescriptionComponent>The link has been copied to your clipboard.</ToastDescriptionComponent>
           </div>
           <ToastCloseComponent />
         </ToastComponent>

@@ -57,3 +57,35 @@ export const Default: StoryObj<typeof Checkbox> = {
     );
   },
 };
+
+export const Composition: StoryObj<typeof Checkbox> = {
+  render: () => {
+    const [email, setEmail] = useState(true);
+    const [sms, setSms] = useState(false);
+    const [push, setPush] = useState(true);
+    return (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.75rem",
+          maxWidth: "280px",
+        }}
+      >
+        <h3 style={{ margin: 0 }}>Notification Preferences</h3>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <Checkbox id="email" checked={email} onCheckedChange={setEmail} />
+          <CheckboxLabel htmlFor="email">Email notifications</CheckboxLabel>
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <Checkbox id="sms" checked={sms} onCheckedChange={setSms} />
+          <CheckboxLabel htmlFor="sms">SMS notifications</CheckboxLabel>
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <Checkbox id="push" checked={push} onCheckedChange={setPush} />
+          <CheckboxLabel htmlFor="push">Push notifications</CheckboxLabel>
+        </div>
+      </div>
+    );
+  },
+};

@@ -54,3 +54,22 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+export const Composition: Story = {
+  render: () => ({
+    components: { NumberInputComponent },
+    setup() {
+      const value = ref(2);
+      return { value };
+    },
+    template: `
+      <div style="display: flex; align-items: center; justify-content: space-between; max-width: 20rem; padding: var(--spacing-4); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+        <div>
+          <h4 style="margin: 0 0 var(--spacing-1); font-size: var(--font-size-sm);">Classic Tee</h4>
+          <p style="margin: 0; color: var(--color-muted-fg); font-size: var(--font-size-sm);">$28.00</p>
+        </div>
+        <NumberInputComponent v-model="value" :min="1" :max="10" style="max-width: var(--spacing-48);" />
+      </div>
+    `
+  })
+}
