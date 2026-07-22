@@ -57,3 +57,25 @@ export const WithCSSVariable: Story = {
     color: 'var(--color-blue-500)'
   }
 }
+
+export const Composition: Story = {
+  render: () => ({
+    components: { ColorPickerComponent },
+    setup() {
+      const selectedColor = ref('#3b82f6')
+
+      const handleValueChange = (value: string) => {
+        selectedColor.value = value
+      }
+
+      return { selectedColor, handleValueChange }
+    },
+    template: `
+      <div style="max-width: 280px; padding: var(--spacing-6); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+        <h3 style="margin: 0 0 var(--spacing-1);">Brand Color</h3>
+        <p style="margin: 0 0 var(--spacing-4); color: var(--color-muted-fg);">This color is used for your workspace's primary buttons and links.</p>
+        <ColorPickerComponent :color="selectedColor" @value-change="handleValueChange" />
+      </div>
+    `
+  })
+}
