@@ -15,3 +15,7 @@
 .sb-bar {
   display: none !important;
 }
+
+.sbdocs {
+  padding: 20px !important;
+}
