@@ -39,7 +39,7 @@ export const External: Story = {
     components: { LinkComponent },
     template: `
       <LinkComponent href="https://pulse.quido.online">
-        External Link
+        Read the docs
       </LinkComponent>
     `,
   }),
@@ -53,7 +53,7 @@ export const Internal: Story = {
     components: { LinkComponent },
     template: `
       <LinkComponent href="/about">
-        Internal Link
+        About us
       </LinkComponent>
     `,
   }),
@@ -65,15 +65,28 @@ export const MultipleLinks: Story = {
     template: `
       <div style="display: flex; flex-direction: column; gap: 1rem;">
         <LinkComponent href="https://pulse.quido.online">
-          First Link
+          Documentation
         </LinkComponent>
         <LinkComponent href="/about">
-          Second Link
+          About us
         </LinkComponent>
         <LinkComponent href="/contact">
-          Third Link
+          Contact support
         </LinkComponent>
       </div>
+    `,
+  }),
+};
+
+export const Composition: Story = {
+  render: () => ({
+    components: { LinkComponent },
+    template: `
+      <p style="max-width: 32rem; font-size: var(--font-size-sm);">
+        By continuing, you agree to our <LinkComponent href="/terms">Terms of Service</LinkComponent> and
+        <LinkComponent href="/privacy">Privacy Policy</LinkComponent>. Need help? Visit our
+        <LinkComponent href="https://pulse.quido.online">documentation</LinkComponent>.
+      </p>
     `,
   }),
 };
