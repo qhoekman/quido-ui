@@ -44,3 +44,39 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    props: {
+      entries: [
+        { version: 'v2.4.0', date: '2026-06-12', note: 'Added dark mode support across all components.' },
+        { version: 'v2.3.1', date: '2026-05-28', note: 'Fixed a focus-trap bug in the dialog component.' },
+        { version: 'v2.3.0', date: '2026-05-10', note: 'Introduced the new data table with sorting and filtering.' },
+        { version: 'v2.2.0', date: '2026-04-22', note: 'Improved keyboard navigation in the combobox.' },
+        { version: 'v2.1.0', date: '2026-04-01', note: 'Added the toast and toaster components.' },
+      ],
+    },
+    template: `
+    <qui-story>
+      <div style="width: 350px; border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+        <div style="padding: var(--spacing-4); border-bottom: var(--border-width-default) solid var(--color-border); font-weight: var(--font-weight-semibold);">
+          Release notes
+        </div>
+        <div style="height: 200px;">
+          <qui-scroll-area orientation="vertical" style="height: 100%;">
+            <div style="padding: var(--spacing-4); display: flex; flex-direction: column; gap: var(--spacing-4);">
+              <div *ngFor="let entry of entries">
+                <div style="display: flex; justify-content: space-between; font-size: var(--font-size-sm); font-weight: var(--font-weight-medium);">
+                  <span>{{ entry.version }}</span>
+                  <span style="color: var(--color-muted-fg);">{{ entry.date }}</span>
+                </div>
+                <p style="margin: var(--spacing-1) 0 0; font-size: var(--font-size-sm); color: var(--color-muted-fg);">{{ entry.note }}</p>
+              </div>
+            </div>
+          </qui-scroll-area>
+        </div>
+      </div>
+    </qui-story>
+    `,
+  }),
+};
