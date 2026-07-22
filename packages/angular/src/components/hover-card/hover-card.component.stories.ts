@@ -75,3 +75,29 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+    <qui-story>
+      <p style="max-width: 32rem; font-size: var(--font-size-sm);">
+        <qui-hover-card>
+          <a href="#" puiHoverCardTrigger style="font-weight: var(--font-weight-semibold);">@pulse</a>
+          <ng-template #hoverCardContent>
+            <div qui-hover-card-content style="width: 300px;">
+              <div qui-stack items="between" gap="md">
+                <img src="https://pulse.quido.online/logo.png" alt="Avatar Image" style="object-fit: cover; width: 32px; height: 32px; object-position: left;" />
+                <div qui-stack direction="column" gap="sm">
+                  <h4 qui-heading size="sm" weight="semibold">pulse</h4>
+                  <p qui-text size="sm">A composition library for building accessible web applications with Angular.</p>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </qui-hover-card>
+        commented on your pull request: "Looks good, just left a few notes."
+      </p>
+    </qui-story>
+    `,
+  }),
+};
