@@ -79,3 +79,20 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
+export const Composition: Story = {
+  render: () => ({
+    components: { InputComponent },
+    setup() {
+      const email = ref("");
+      return { email };
+    },
+    template: `
+      <div style="max-width: var(--spacing-64);">
+        <label for="email" style="display: block; font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); margin-bottom: var(--spacing-1-5);">Email address</label>
+        <InputComponent id="email" type="email" placeholder="you@company.com" v-model="email" />
+        <p style="margin: var(--spacing-1-5) 0 0; font-size: var(--font-size-sm); color: var(--color-muted-fg);">We'll send a confirmation link to this address.</p>
+      </div>
+    `
+  })
+}
+
