@@ -45,3 +45,38 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+    <qui-story>
+      <div style="display: flex; gap: var(--spacing-1);">
+        <div qui-tooltip strategy="always">
+          <button qui-button variant="ghost" size="icon" qui-tooltip-trigger [tooltipContentFor]="tooltipBold">B</button>
+          <ng-template #tooltipBold>
+            <div qui-tooltip-content>
+              <span>Bold</span>
+            </div>
+          </ng-template>
+        </div>
+        <div qui-tooltip strategy="always">
+          <button qui-button variant="ghost" size="icon" qui-tooltip-trigger [tooltipContentFor]="tooltipItalic">I</button>
+          <ng-template #tooltipItalic>
+            <div qui-tooltip-content>
+              <span>Italic</span>
+            </div>
+          </ng-template>
+        </div>
+        <div qui-tooltip strategy="always">
+          <button qui-button variant="ghost" size="icon" qui-tooltip-trigger [tooltipContentFor]="tooltipUnderline">U</button>
+          <ng-template #tooltipUnderline>
+            <div qui-tooltip-content>
+              <span>Underline</span>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </qui-story>
+    `,
+  }),
+};
