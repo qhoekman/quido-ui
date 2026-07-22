@@ -36,3 +36,32 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  args: {
+    targetId: 'main-content',
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+      <div>
+        <button qui-skip-to-content [targetId]="targetId">
+          Skip to main content
+        </button>
+        <header style="display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-4) var(--spacing-6); background-color: var(--color-neutral-900); color: white;">
+          <strong>Acme Dashboard</strong>
+          <nav style="display: flex; gap: var(--spacing-4);">
+            <a href="#" style="color: white;">Overview</a>
+            <a href="#" style="color: white;">Projects</a>
+            <a href="#" style="color: white;">Reports</a>
+            <a href="#" style="color: white;">Settings</a>
+          </nav>
+        </header>
+        <main id="main-content" style="padding: var(--spacing-6);">
+          <h1>Project Overview</h1>
+          <p>Press Tab from the top of the page to reveal the skip link and jump straight past the navigation.</p>
+        </main>
+      </div>
+    `,
+  }),
+};
