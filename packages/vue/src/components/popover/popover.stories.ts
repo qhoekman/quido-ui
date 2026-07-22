@@ -113,7 +113,7 @@ export const Composition: Story = {
           <div style="display: flex; gap: var(--spacing-2);">
             <input
               readonly
-              value="https://pulse.quido.online/d/8f3k2"
+              value="https://platform.squid-ware.nl/d/8f3k2"
               style="flex: 1; min-width: 0; padding: var(--spacing-2); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-md); font-size: var(--font-size-sm);"
             />
             <ButtonComponent size="sm">Copy</ButtonComponent>
