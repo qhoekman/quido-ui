@@ -177,3 +177,41 @@ export const Large: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      RadioCardComponent,
+      RadioCardItemComponent,
+      RadioCardItemLabelComponent,
+    },
+    setup() {
+      const sizes = ["xs", "sm", "md", "lg", "xl"];
+      const value = ref("sm");
+      return { sizes, value };
+    },
+    template: `
+      <div style="max-width: var(--spacing-md); width: 100%;">
+        <h4 style="margin: 0 0 var(--spacing-1);">Classic Tee</h4>
+        <p style="margin: 0 0 var(--spacing-4); color: var(--color-muted-fg); font-size: var(--font-size-sm);">$28.00</p>
+        <p style="margin: 0 0 var(--spacing-2); font-size: var(--font-size-sm);">Size</p>
+        <RadioCardComponent
+          v-model:value="value"
+          style="grid-template-columns: repeat(6, 1fr);"
+        >
+          <RadioCardItemComponent
+            v-for="size in sizes"
+            :key="size"
+            :value="size"
+            :id="'comp-opt-' + size"
+            :disabled="size === 'xs'"
+          >
+            <RadioCardItemLabelComponent :html-for="'comp-opt-' + size">
+              {{ size.toUpperCase() }}
+            </RadioCardItemLabelComponent>
+          </RadioCardItemComponent>
+        </RadioCardComponent>
+      </div>
+    `,
+  }),
+};
