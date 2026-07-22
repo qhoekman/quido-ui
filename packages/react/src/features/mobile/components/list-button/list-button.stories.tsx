@@ -30,7 +30,41 @@ export const Default: StoryObj<typeof ListButton> = {
           {Array.from({ length: 5 }).map((_, index) => (
             <li key={index} style={{ listStyle: "none" }}>
               <ListButton {...args}>
-                <span>Button</span>
+                <span>Button {index + 1}</span>
+              </ListButton>
+            </li>
+          ))}
+        </ul>
+      </Block>
+    </ViewportLayout>
+  ),
+
+  parameters: {
+    layout: "fullscreen",
+    viewport: {
+      defaultViewport: "mobile2",
+    },
+  },
+};
+
+const ACCOUNT_ACTIONS = [
+  "Edit Profile",
+  "Change Password",
+  "Notification Preferences",
+  "Privacy & Security",
+  "Sign Out",
+];
+
+export const Composition: StoryObj<typeof ListButton> = {
+  render: () => (
+    <ViewportLayout>
+      <BlockTitle>Account</BlockTitle>
+      <Block style={{ padding: "0" }} inset>
+        <ul>
+          {ACCOUNT_ACTIONS.map((action) => (
+            <li key={action} style={{ listStyle: "none" }}>
+              <ListButton>
+                <span>{action}</span>
               </ListButton>
             </li>
           ))}
