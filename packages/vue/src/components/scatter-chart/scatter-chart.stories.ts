@@ -14,7 +14,7 @@ const meta = {
     chartOptions: {
       series: [
         {
-          name: 'Sample A',
+          name: 'Electronics',
           data: [
             [16.4, 5.4],
             [21.7, 2],
@@ -24,7 +24,7 @@ const meta = {
           ],
         },
         {
-          name: 'Sample B',
+          name: 'Home Goods',
           data: [
             [30.4, 13.4],
             [1.7, 11],
@@ -65,7 +65,7 @@ const meta = {
         tickAmount: 7,
       },
       title: {
-        text: 'Scatter Chart Example',
+        text: 'Price vs. Rating by Category',
         align: 'left',
       },
       tooltip: {
@@ -88,3 +88,19 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Composition: Story = {
+  render: (args) => ({
+    components: { ScatterChartComponent },
+    setup() {
+      return { args }
+    },
+    template: `
+      <div style="max-width: 640px; padding: var(--spacing-6); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+        <h3 style="margin: 0;">Price vs. Rating</h3>
+        <p style="margin: var(--spacing-1) 0 var(--spacing-4); color: var(--color-muted-fg);">Product price plotted against customer rating, by category.</p>
+        <ScatterChartComponent v-bind="args" />
+      </div>
+    `
+  })
+}
