@@ -214,3 +214,42 @@ export const Confirm: Story = {
     `
   })
 }
+
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      DialogComponent,
+      DialogTriggerComponent,
+      DialogContentComponent,
+      DialogHeaderComponent,
+      DialogFooterComponent,
+      DialogTitleComponent,
+      DialogDescriptionComponent,
+      ButtonComponent
+    },
+    template: `
+      <div style="width: 360px; padding: var(--spacing-4); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg); display: flex; align-items: center; justify-content: space-between;">
+        <div>
+          <h4 style="margin: 0 0 var(--spacing-1); font-size: var(--font-size-sm);">Pedro Duarte</h4>
+          <p style="margin: 0; color: var(--color-muted-fg); font-size: var(--font-size-sm);">@peduarte</p>
+        </div>
+        <DialogComponent>
+          <DialogTriggerComponent as-child>
+            <ButtonComponent variant="outline" size="sm">Edit</ButtonComponent>
+          </DialogTriggerComponent>
+          <DialogContentComponent>
+            <DialogHeaderComponent>
+              <DialogTitleComponent>Edit profile</DialogTitleComponent>
+              <DialogDescriptionComponent>
+                Make changes to your profile here. Click save when you're done.
+              </DialogDescriptionComponent>
+            </DialogHeaderComponent>
+            <DialogFooterComponent>
+              <ButtonComponent type="submit">Save changes</ButtonComponent>
+            </DialogFooterComponent>
+          </DialogContentComponent>
+        </DialogComponent>
+      </div>
+    `
+  })
+}
