@@ -49,3 +49,28 @@ export const Sizes: StoryObj<typeof Badge> = {
     </HStack>
   ),
 };
+
+export const Composition: StoryObj<typeof Badge> = {
+  render: () => (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "0.5rem",
+        width: "200px",
+      }}
+    >
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <span>Inbox</span>
+        <Badge>12</Badge>
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <span>Spam</span>
+        <Badge variant="destructive">3</Badge>
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <span>Archived</span>
+      </div>
+    </div>
+  ),
+};
