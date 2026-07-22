@@ -82,3 +82,57 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+export const Composition: Story = {
+  render: () => ({
+    components: {
+      StepsComponent,
+      StepsListComponent,
+      StepsItemComponent,
+      StepsContentComponent,
+      StepsPrevComponent,
+      StepsNextComponent,
+      StepsCompletedContentComponent,
+      ButtonComponent,
+      ButtonGroupComponent,
+      StackComponent
+    },
+    template: `
+      <StepsComponent :count="3" style="max-width: 400px;">
+        <StepsListComponent>
+          <StepsItemComponent index="0">Account</StepsItemComponent>
+          <StepsItemComponent index="1">Preferences</StepsItemComponent>
+          <StepsItemComponent index="2">Confirmation</StepsItemComponent>
+        </StepsListComponent>
+
+        <StepsContentComponent index="0">
+          <p style="font-size: var(--font-size-sm); color: var(--color-muted-fg);">Enter your email and choose a password to create your account.</p>
+        </StepsContentComponent>
+        <StepsContentComponent index="1">
+          <p style="font-size: var(--font-size-sm); color: var(--color-muted-fg);">Choose your notification and privacy settings.</p>
+        </StepsContentComponent>
+        <StepsContentComponent index="2">
+          <p style="font-size: var(--font-size-sm); color: var(--color-muted-fg);">Review your details before finishing setup.</p>
+        </StepsContentComponent>
+        <StepsCompletedContentComponent>
+          <p style="font-size: var(--font-size-sm); color: var(--color-muted-fg);">Your account is ready to use.</p>
+        </StepsCompletedContentComponent>
+
+        <StackComponent align="center" items="center">
+          <ButtonGroupComponent>
+            <StepsPrevComponent as-child>
+              <ButtonComponent variant="ghost" size="icon">
+                &lt;
+              </ButtonComponent>
+            </StepsPrevComponent>
+            <StepsNextComponent as-child>
+              <ButtonComponent variant="ghost" size="icon">
+                &gt;
+              </ButtonComponent>
+            </StepsNextComponent>
+          </ButtonGroupComponent>
+        </StackComponent>
+      </StepsComponent>
+    `
+  })
+}
