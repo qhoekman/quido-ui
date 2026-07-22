@@ -78,3 +78,24 @@ export const Variants: Story = {
     `
   })
 }
+
+export const Composition: Story = {
+  render: () => ({
+    components: { BadgeComponent },
+    template: `
+      <div style="display: flex; flex-direction: column; gap: var(--spacing-2); width: 200px;">
+        <div style="display: flex; justify-content: space-between;">
+          <span>Inbox</span>
+          <BadgeComponent>12</BadgeComponent>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <span>Spam</span>
+          <BadgeComponent variant="destructive">3</BadgeComponent>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <span>Archived</span>
+        </div>
+      </div>
+    `
+  })
+}
