@@ -43,6 +43,92 @@ export default meta;
 
 type Story = StoryObj<TabNavigationComponent>;
 
+export const Default: Story = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <qui-story>
+        <ul qui-tab-navigation>
+          <li qui-tab-navigation-item>
+            <a qui-tab-navigation-link state="active">
+              <i qui-icon name="home"></i>
+              Home
+            </a>
+          </li>
+          <li qui-tab-navigation-item>
+            <a qui-tab-navigation-link [cdkMenuTriggerFor]="tabNavigationBalances">Balances
+                <qui-tab-navigation-indicator></qui-tab-navigation-indicator>
+            </a>
+          </li>
+          <li qui-tab-navigation-item>
+            <a qui-tab-navigation-link [cdkMenuTriggerFor]="tabNavigationTransactions">Transactions
+                <qui-tab-navigation-indicator></qui-tab-navigation-indicator>
+            </a>
+          </li>
+          <li qui-tab-navigation-item>
+            <a qui-tab-navigation-link>
+              Messages
+              <div qui-badge variant="destructive" size="sm" rounded="full">1</div>
+            </a>
+          </li>
+          <li qui-tab-navigation-item>
+            <a qui-tab-navigation-link [disabled]="true">Support</a>
+          </li>
+          <div qui-tab-navigation-rail></div>
+        </ul>
+        <ng-template #tabNavigationBalances>
+          <div qui-tab-navigation-menu>
+            <ol qui-tab-navigation-menugroup>
+              <li qui-tab-navigation-menuitem>View Balance</li>
+              <li qui-tab-navigation-menuitem>Transfer Funds</li>
+              <li qui-tab-navigation-menuitem>Deposit</li>
+              <li qui-tab-navigation-menuitem>Withdraw</li>
+            </ol>
+            <div qui-tab-navigation-separator></div>
+            <ol qui-tab-navigation-menugroup>
+              <li qui-tab-navigation-menuitem>Transaction History</li>
+              <li qui-tab-navigation-menuitem>Account Settings</li>
+              <li qui-tab-navigation-menuitem>Support</li>
+            </ol>
+          </div>
+        </ng-template>
+        <ng-template #tabNavigationTransactions>
+          <div qui-tab-navigation-menu>
+            <ol qui-tab-navigation-menugroup>
+              <li qui-tab-navigation-menuitem>Recent</li>
+              <li qui-tab-navigation-menuitem>All</li>
+            </ol>
+          </div>
+        </ng-template>
+      </qui-story>
+    `,
+  }),
+};
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+      <qui-story>
+        <div style="max-width: 500px; border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg); padding: var(--spacing-4);">
+          <h3 style="margin: 0 0 var(--spacing-4);">Settings</h3>
+          <ul qui-tab-navigation variant="border" gap="sm">
+            <li qui-tab-navigation-item>
+              <a qui-tab-navigation-link variant="border" state="active">General</a>
+            </li>
+            <li qui-tab-navigation-item>
+              <a qui-tab-navigation-link variant="border">Security</a>
+            </li>
+            <li qui-tab-navigation-item>
+              <a qui-tab-navigation-link variant="border">Billing</a>
+            </li>
+          </ul>
+          <p style="margin: var(--spacing-4) 0 0; color: var(--color-muted-fg); font-size: var(--font-size-sm);">Manage your account name, email, and profile photo.</p>
+        </div>
+      </qui-story>
+    `,
+  }),
+};
+
 export const Link: Story = {
   render: (args) => ({
     props: args,
