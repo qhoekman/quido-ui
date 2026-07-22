@@ -52,3 +52,23 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  render: () => ({
+    template: `
+      <qui-story>
+        <div style="display: flex; flex-direction: column; gap: var(--spacing-3); max-width: 280px;">
+          <h3 style="margin: 0;">Settings</h3>
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <label qui-label for="dark-mode">Dark mode</label>
+            <button id="dark-mode" qui-switch [checked]="true"></button>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <label qui-label for="email-updates">Email updates</label>
+            <button id="email-updates" qui-switch [checked]="false"></button>
+          </div>
+        </div>
+      </qui-story>
+    `,
+  }),
+};
