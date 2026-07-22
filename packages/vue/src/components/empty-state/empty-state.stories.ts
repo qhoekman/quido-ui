@@ -5,7 +5,7 @@ import EmptyStateDescriptionComponent from '@/components/empty-state/empty-state
 import EmptyStateActionGroupComponent from '@/components/empty-state/empty-state-action-group.vue'
 import ButtonComponent from '@/components/button/button.vue'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
-import { AlertTriangle } from 'lucide-vue-next'
+import { Folder, Search } from 'lucide-vue-next'
 
 const meta = {
   title: 'Components/Data Display/Empty State',
@@ -27,7 +27,7 @@ const meta = {
       EmptyStateDescriptionComponent,
       EmptyStateActionGroupComponent,
       ButtonComponent,
-      AlertTriangle
+      Folder
     },
     setup() {
       return { args }
@@ -36,20 +36,20 @@ const meta = {
       <EmptyStateComponent :size="args.size">
         <template #icon>
           <EmptyStateIconComponent>
-            <AlertTriangle :size="48" />
+            <Folder :size="48" />
           </EmptyStateIconComponent>
         </template>
         <template #title>
-          <EmptyStateTitleComponent>Empty State Title</EmptyStateTitleComponent>
+          <EmptyStateTitleComponent>No projects yet</EmptyStateTitleComponent>
         </template>
         <template #description>
           <EmptyStateDescriptionComponent>
-            This is a description of the empty state.
+            Create your first project to get started.
           </EmptyStateDescriptionComponent>
         </template>
         <template #action-group>
           <EmptyStateActionGroupComponent>
-            <ButtonComponent>Action</ButtonComponent>
+            <ButtonComponent>Create project</ButtonComponent>
           </EmptyStateActionGroupComponent>
         </template>
       </EmptyStateComponent>
@@ -62,3 +62,44 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Composition: Story = {
+  render: (args) => ({
+    components: {
+      EmptyStateComponent,
+      EmptyStateIconComponent,
+      EmptyStateTitleComponent,
+      EmptyStateDescriptionComponent,
+      EmptyStateActionGroupComponent,
+      ButtonComponent,
+      Search
+    },
+    setup() {
+      return { args }
+    },
+    template: `
+      <div style="max-width: 480px; padding: var(--spacing-6); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+        <EmptyStateComponent size="sm">
+          <template #icon>
+            <EmptyStateIconComponent>
+              <Search :size="40" />
+            </EmptyStateIconComponent>
+          </template>
+          <template #title>
+            <EmptyStateTitleComponent>No results found</EmptyStateTitleComponent>
+          </template>
+          <template #description>
+            <EmptyStateDescriptionComponent>
+              We couldn't find anything matching "invoice #4521". Try a different search term.
+            </EmptyStateDescriptionComponent>
+          </template>
+          <template #action-group>
+            <EmptyStateActionGroupComponent>
+              <ButtonComponent variant="outline">Clear filters</ButtonComponent>
+            </EmptyStateActionGroupComponent>
+          </template>
+        </EmptyStateComponent>
+      </div>
+    `
+  })
+}
