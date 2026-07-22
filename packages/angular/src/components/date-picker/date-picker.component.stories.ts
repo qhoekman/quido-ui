@@ -37,3 +37,21 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Composition: Story = {
+  args: {
+    selectedDate: new Date(),
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+      <qui-story>
+        <div style="max-width: 280px;">
+          <label style="display: block; font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); margin-bottom: var(--spacing-1-5);">Due date</label>
+          <qui-date-picker [selectedDate]="selectedDate"></qui-date-picker>
+          <p style="margin: var(--spacing-1-5) 0 0; font-size: var(--font-size-sm); color: var(--color-muted-fg);">Task will be marked overdue after this date.</p>
+        </div>
+      </qui-story>
+    `,
+  }),
+};
