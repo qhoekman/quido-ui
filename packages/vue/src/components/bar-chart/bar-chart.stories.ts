@@ -70,3 +70,19 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Composition: Story = {
+  render: (args) => ({
+    components: { BarChartComponent },
+    setup() {
+      return { args }
+    },
+    template: `
+      <div style="max-width: 640px; padding: var(--spacing-6); border: var(--border-width-default) solid var(--color-border); border-radius: var(--border-radius-lg);">
+        <h3 style="margin: 0;">Revenue by Month</h3>
+        <p style="margin: var(--spacing-1) 0 var(--spacing-4); color: var(--color-muted-fg);">Desktop subscription revenue for the first half of the year.</p>
+        <BarChartComponent v-bind="args" />
+      </div>
+    `
+  })
+}
