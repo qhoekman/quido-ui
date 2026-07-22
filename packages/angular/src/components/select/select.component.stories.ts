@@ -42,19 +42,25 @@ type Story = StoryObj<EnhancedSelectComponent>;
 export const Default: Story = {
   args: {
     options: [
-      { value: 'option1', label: 'Option 1' },
-      { value: 'option2', label: 'Option 2' },
-      { value: 'option3', label: 'Option 3' },
+      { value: 'light', label: 'Light' },
+      { value: 'dark', label: 'Dark' },
+      { value: 'system', label: 'System' },
     ],
   } as never,
   render: (args) => ({
-    props: args,
+    props: {
+      ...args,
+      selectedLabel: 'Select a theme',
+      onValueChange: function (this: { selectedLabel: string }, option: { label: string }) {
+        this.selectedLabel = option.label;
+      },
+    },
     template: `
     <qui-story>
       <div qui-stack items="center" align="center">
-        <qui-select>
+        <qui-select (valueChange)="onValueChange($event)">
           <button qui-select-trigger style="width: 200px;">
-            Select an option
+            {{ selectedLabel }}
           </button>
           <ul qui-select-content style="width: 200px; ">
              <li
@@ -65,6 +71,71 @@ export const Default: Story = {
               >
                 {{ option.label }}
               </li>
+          </ul>
+        </qui-select>
+      </div>
+    </qui-story>
+    `,
+  }),
+};
+
+export const WithGroups: Story = {
+  render: () => ({
+    props: {
+      selectedLabel: 'Select a fruit',
+      onValueChange: function (this: { selectedLabel: string }, option: { label: string }) {
+        this.selectedLabel = option.label;
+      },
+    },
+    template: `
+    <qui-story>
+      <div qui-stack items="center" align="center">
+        <qui-select (valueChange)="onValueChange($event)">
+          <button qui-select-trigger style="width: 200px;">
+            {{ selectedLabel }}
+          </button>
+          <ul qui-select-content style="width: 200px;">
+            <div qui-select-group>
+              <div qui-select-label>Fruits</div>
+              <li qui-select-item value="apple" label="Apple">Apple</li>
+              <li qui-select-item value="banana" label="Banana">Banana</li>
+              <li qui-select-item value="orange" label="Orange">Orange</li>
+            </div>
+            <hr style="border: none; border-top: var(--border-width-default) solid var(--color-border); margin: var(--spacing-1) 0;" />
+            <div qui-select-group>
+              <div qui-select-label>Vegetables</div>
+              <li qui-select-item value="carrot" label="Carrot">Carrot</li>
+              <li qui-select-item value="broccoli" label="Broccoli">Broccoli</li>
+              <li qui-select-item value="spinach" label="Spinach">Spinach</li>
+            </div>
+          </ul>
+        </qui-select>
+      </div>
+    </qui-story>
+    `,
+  }),
+};
+
+export const Composition: Story = {
+  render: () => ({
+    props: {
+      selectedLabel: 'Priority',
+      onValueChange: function (this: { selectedLabel: string }, option: { label: string }) {
+        this.selectedLabel = option.label;
+      },
+    },
+    template: `
+    <qui-story>
+      <div style="display: flex; align-items: center; justify-content: space-between; max-width: 20rem;">
+        <h3 style="margin: 0;">Sprint Backlog</h3>
+        <qui-select (valueChange)="onValueChange($event)">
+          <button qui-select-trigger style="width: 10rem;">
+            {{ selectedLabel }}
+          </button>
+          <ul qui-select-content style="width: 10rem;">
+            <li qui-select-item value="priority" label="Priority">Priority</li>
+            <li qui-select-item value="due-date" label="Due date">Due date</li>
+            <li qui-select-item value="assignee" label="Assignee">Assignee</li>
           </ul>
         </qui-select>
       </div>
